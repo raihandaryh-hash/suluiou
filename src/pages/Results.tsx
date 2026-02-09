@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -15,11 +15,17 @@ import type { Dimension } from '@/data/questions';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Flame, Sparkles, ArrowRight, RotateCcw } from 'lucide-react';
+import { StudentInfoForm } from '@/components/results/StudentInfoForm';
+import { supabase } from '@/integrations/supabase/client';
+import { calculateLeadScore } from '@/lib/leadScoring';
+import { useToast } from '@/hooks/use-toast';
 
 const Results = () => {
   const { scores, pathwayMatches, projection, isComplete, resetAssessment } =
     useAssessment();
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     if (!isComplete) {
@@ -28,6 +34,52 @@ const Results = () => {
   }, [isComplete, navigate]);
 
   if (!scores || !pathwayMatches || !projection) return null;
+
+  const topMatch = pathwayMatches[0];
+
+  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string }) => {
+    const leadScore = calculateLeadScore({
+      student_name: info.name || null,
+      student_email: info.email || null,
+      student_phone: info.phone || null,
+      school_name: info.school || null,
+      match_percentage: topMatch.matchPercentage,
+      scores: scores as Record<string, number>,
+    });
+
+    const insertData = {
+      student_name: info.name || null,
+      student_email: info.email || null,
+      student_phone: info.phone || null,
+      school_name: info.school || null,
+      scores: scores as unknown as import('@/integrations/supabase/types').Json,
+      top_pathway_id: topMatch.pathway.id,
+      top_pathway_name: topMatch.pathway.name,
+      match_percentage: topMatch.matchPercentage,
+      all_matches: pathwayMatches.map((m) => ({
+        pathway: { id: m.pathway.id, name: m.pathway.name, icon: m.pathway.icon },
+        matchPercentage: m.matchPercentage,
+      })) as unknown as import('@/integrations/supabase/types').Json,
+      projection,
+      lead_score: leadScore,
+    };
+
+    const { error } = await supabase
+      .from('assessment_results')
+      .insert(insertData);
+
+    if (error) {
+      toast({
+        title: 'Oops',
+        description: 'Gagal menyimpan. Coba lagi nanti.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setSaved(true);
+    toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
+  };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
     dimension: traitLabels[key],
@@ -212,6 +264,15 @@ const Results = () => {
             * Proyeksi ini dibuat berdasarkan profil kepribadian dan minatmu.
             Masa depan ada di tanganmu.
           </p>
+        </motion.div>
+
+        {/* Student Info Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          <StudentInfoForm onSubmit={handleSaveStudent} saved={saved} />
         </motion.div>
 
         {/* CTA */}
