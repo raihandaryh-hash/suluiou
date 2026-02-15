@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -24,7 +25,7 @@ import {
 } from '@/lib/leadScoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
-import { Save } from 'lucide-react';
+import { Save, Eye } from 'lucide-react';
 
 interface LeadResult {
   id: string;
@@ -52,6 +53,7 @@ interface LeadDetailDialogProps {
 }
 
 export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDetailDialogProps) {
+  const navigate = useNavigate();
   const [status, setStatus] = useState(lead?.follow_up_status || 'new');
   const [notes, setNotes] = useState(lead?.notes || '');
   const [saving, setSaving] = useState(false);
@@ -185,10 +187,23 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
               />
             </div>
 
-            <Button onClick={handleSave} disabled={saving} className="w-full gap-2">
-              <Save className="w-4 h-4" />
-              {saving ? 'Menyimpan...' : 'Simpan Perubahan'}
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1 gap-2"
+                onClick={() => {
+                  onOpenChange(false);
+                  navigate(`/admin/results/${lead.id}`);
+                }}
+              >
+                <Eye className="w-4 h-4" />
+                Lihat POV Peserta
+              </Button>
+              <Button onClick={handleSave} disabled={saving} className="flex-1 gap-2">
+                <Save className="w-4 h-4" />
+                {saving ? 'Menyimpan...' : 'Simpan'}
+              </Button>
+            </div>
           </div>
         </div>
       </DialogContent>

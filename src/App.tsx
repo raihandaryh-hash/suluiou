@@ -9,6 +9,7 @@ import Assessment from "./pages/Assessment";
 import Results from "./pages/Results";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminResultView from "./pages/AdminResultView";
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/results/:id"
+              element={
+                <ProtectedRoute>
+                  <AdminResultView />
                 </ProtectedRoute>
               }
             />
