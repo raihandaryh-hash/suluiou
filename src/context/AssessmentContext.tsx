@@ -8,6 +8,7 @@ import {
 } from '@/lib/scoring';
 import { questions } from '@/data/questions';
 import { pathways } from '@/data/pathways';
+import { supabase } from '@/integrations/supabase/client';
 
 interface AssessmentState {
   answers: Record<number, number>;
@@ -16,6 +17,7 @@ interface AssessmentState {
   scores: DimensionScores | null;
   pathwayMatches: PathwayMatch[] | null;
   projection: string | null;
+  generatingProjection: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
@@ -36,6 +38,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     scores: null,
     pathwayMatches: null,
     projection: null,
+    generatingProjection: false,
   });
 
   const setAnswer = (questionId: number, value: number) => {
@@ -59,18 +62,49 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }));
   };
 
-  const completeAssessment = () => {
+  const completeAssessment = async () => {
     const scores = calculateScores(state.answers, questions);
     const matches = matchPathways(scores, pathways);
-    const projection = generateProjection(matches[0], scores);
+    const fallbackProjection = generateProjection(matches[0], scores);
+    const topMatch = matches[0];
 
+    // Set complete immediately with fallback, then try AI
     setState((prev) => ({
       ...prev,
       isComplete: true,
       scores,
       pathwayMatches: matches,
-      projection,
+      projection: fallbackProjection,
+      generatingProjection: true,
     }));
+
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-projection', {
+        body: {
+          scores,
+          pathway: {
+            name: topMatch.pathway.name,
+            careers: topMatch.pathway.careers,
+            localIndustries: topMatch.pathway.localIndustries,
+          },
+          topTraits: topMatch.topTraits,
+        },
+      });
+
+      if (!error && data?.projection) {
+        setState((prev) => ({
+          ...prev,
+          projection: data.projection,
+          generatingProjection: false,
+        }));
+      } else {
+        console.warn('AI projection failed, using fallback:', error);
+        setState((prev) => ({ ...prev, generatingProjection: false }));
+      }
+    } catch (err) {
+      console.warn('AI projection error, using fallback:', err);
+      setState((prev) => ({ ...prev, generatingProjection: false }));
+    }
   };
 
   const resetAssessment = () => {
@@ -81,6 +115,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       scores: null,
       pathwayMatches: null,
       projection: null,
+      generatingProjection: false,
     });
   };
 

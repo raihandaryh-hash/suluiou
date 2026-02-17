@@ -1,1 +1,4 @@
 project_id = "qjdmwssuzthihtxekeup"
+
+[functions.generate-projection]
+verify_jwt = false

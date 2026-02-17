@@ -14,14 +14,15 @@ import { traitLabels, type DimensionScores } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Flame, Sparkles, ArrowRight, RotateCcw } from 'lucide-react';
+import { Flame, Sparkles, ArrowRight, RotateCcw, Loader2 } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { supabase } from '@/integrations/supabase/client';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 
 const Results = () => {
-  const { scores, pathwayMatches, projection, isComplete, resetAssessment } =
+  const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection } =
     useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -257,13 +258,27 @@ const Results = () => {
               Dirimu di Tahun 2030
             </h2>
           </div>
-          <p className="text-lg leading-relaxed text-foreground/90 italic">
-            &ldquo;{projection}&rdquo;
-          </p>
-          <p className="text-xs text-muted-foreground mt-6">
-            * Proyeksi ini dibuat berdasarkan profil kepribadian dan minatmu.
-            Masa depan ada di tanganmu.
-          </p>
+          {generatingProjection ? (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>AI sedang menulis narasimu...</span>
+              </div>
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          ) : (
+            <>
+              <p className="text-lg leading-relaxed text-foreground/90 italic">
+                &ldquo;{projection}&rdquo;
+              </p>
+              <p className="text-xs text-muted-foreground mt-6">
+                * Proyeksi ini dibuat oleh AI berdasarkan profil kepribadian dan minatmu.
+                Masa depan ada di tanganmu.
+              </p>
+            </>
+          )}
         </motion.div>
 
         {/* Student Info Form */}
