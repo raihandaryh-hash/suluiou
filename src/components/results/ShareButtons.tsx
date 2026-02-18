@@ -2,13 +2,18 @@ import { Button } from '@/components/ui/button';
 import { Share2, MessageCircle, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { DownloadCardButton } from './DownloadCardButton';
+import type { DimensionScores, PathwayMatch } from '@/lib/scoring';
 
 interface ShareButtonsProps {
   topPathwayName: string;
   matchPercentage: number;
+  scores: DimensionScores;
+  topMatch: PathwayMatch;
+  allMatches: PathwayMatch[];
 }
 
-export function ShareButtons({ topPathwayName, matchPercentage }: ShareButtonsProps) {
+export function ShareButtons({ topPathwayName, matchPercentage, scores, topMatch, allMatches }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -57,6 +62,7 @@ export function ShareButtons({ topPathwayName, matchPercentage }: ShareButtonsPr
           {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           {copied ? 'Tersalin!' : 'Salin Teks'}
         </Button>
+        <DownloadCardButton scores={scores} topMatch={topMatch} allMatches={allMatches} />
       </div>
     </div>
   );

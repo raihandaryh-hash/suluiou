@@ -300,7 +300,7 @@ const Results = () => {
           transition={{ duration: 0.6, delay: 0.95 }}
           className="mb-12"
         >
-          <ShareButtons topPathwayName={topMatch.pathway.name} matchPercentage={topMatch.matchPercentage} />
+          <ShareButtons topPathwayName={topMatch.pathway.name} matchPercentage={topMatch.matchPercentage} scores={scores} topMatch={topMatch} allMatches={pathwayMatches} />
         </motion.div>
 
         {/* CTA */}
