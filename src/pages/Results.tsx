@@ -20,6 +20,7 @@ import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { supabase } from '@/integrations/supabase/client';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
+import { CareerChatbot } from '@/components/results/CareerChatbot';
 
 const Results = () => {
   const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection } =
@@ -89,6 +90,7 @@ const Results = () => {
   }));
 
   return (
+    <>
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="p-6 border-b border-border">
@@ -319,6 +321,10 @@ const Results = () => {
         </motion.div>
       </div>
     </div>
+
+    {/* Career Chatbot */}
+    <CareerChatbot scores={scores} topMatch={topMatch} />
+    </>
   );
 };
 
