@@ -21,6 +21,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
+import { ShareButtons } from '@/components/results/ShareButtons';
 
 const Results = () => {
   const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection } =
@@ -290,6 +291,16 @@ const Results = () => {
           transition={{ duration: 0.6, delay: 0.9 }}
         >
           <StudentInfoForm onSubmit={handleSaveStudent} saved={saved} />
+        </motion.div>
+
+        {/* Share Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.95 }}
+          className="mb-12"
+        >
+          <ShareButtons topPathwayName={topMatch.pathway.name} matchPercentage={topMatch.matchPercentage} />
         </motion.div>
 
         {/* CTA */}
