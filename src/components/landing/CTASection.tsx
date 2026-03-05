@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Flame } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 const CTASection = () => {
   return (
     <section className="py-24 px-6 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-primary" />
 
       <div className="container mx-auto relative z-10">
@@ -17,10 +17,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          {/* Top accent */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-accent" />
-
-          <Flame className="w-10 h-10 text-accent mx-auto mb-6" />
 
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-white">
             Temukan <span className="text-accent">Jalanmu</span> Sekarang
@@ -46,13 +43,9 @@ const CTASection = () => {
       {/* Footer */}
       <div className="container mx-auto mt-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
-          <div className="flex items-center gap-2">
-            <Flame className="w-4 h-4 text-accent" />
-            <span className="font-heading font-bold text-white">Sulu</span>
-            <span>× IOU Indonesia</span>
-          </div>
+          <Logo variant="white" size="sm" linkTo="/" />
           <p>
-            © 2025 Sulu. Dibuat untuk generasi yang berani bermimpi.
+            © 2025 Sulu × IOU Indonesia. Dibuat untuk generasi yang berani bermimpi.
           </p>
         </div>
       </div>

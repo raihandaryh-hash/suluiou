@@ -96,13 +96,7 @@ const Results = () => {
       {/* Header */}
       <header className="p-6 border-b border-border">
         <div className="container mx-auto flex items-center justify-between">
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-primary font-heading font-bold text-xl"
-          >
-            <Flame className="w-5 h-5" />
-            Sulu
-          </Link>
+          <Logo size="sm" />
           <Button
             variant="ghost"
             className="gap-2"
