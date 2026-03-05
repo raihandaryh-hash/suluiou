@@ -14,7 +14,8 @@ import { traitLabels, type DimensionScores } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Flame, Sparkles, ArrowRight, RotateCcw, Loader2 } from 'lucide-react';
+import { Sparkles, ArrowRight, RotateCcw, Loader2 } from 'lucide-react';
+import Logo from '@/components/Logo';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { supabase } from '@/integrations/supabase/client';
@@ -96,13 +97,7 @@ const Results = () => {
       {/* Header */}
       <header className="p-6 border-b border-border">
         <div className="container mx-auto flex items-center justify-between">
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-primary font-heading font-bold text-xl"
-          >
-            <Flame className="w-5 h-5" />
-            Sulu
-          </Link>
+          <Logo size="sm" />
           <Button
             variant="ghost"
             className="gap-2"
