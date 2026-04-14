@@ -29,13 +29,32 @@ const Assessment = () => {
   const handleAnswer = useCallback(
     (value: number) => {
       setAnswer(question.id, value);
+      const newAnsweredCount = Object.keys({ ...answers, [question.id]: value }).length;
+      const isAllAnswered = newAnsweredCount === questions.length;
+
       setTimeout(() => {
-        if (currentQuestion < questions.length - 1) {
+        if (isAllAnswered) {
+          // All answered — auto complete
+          completeAssessment();
+          navigate('/results');
+        } else if (currentQuestion < questions.length - 1) {
           nextQuestion();
+        } else {
+          // On last question but not all answered — jump to first unanswered
+          const firstUnanswered = questions.findIndex(
+            (q) => !{ ...answers, [question.id]: value }[q.id]
+          );
+          if (firstUnanswered !== -1) {
+            // Navigate to unanswered question
+            const diff = firstUnanswered - currentQuestion;
+            if (diff < 0) {
+              for (let i = 0; i < Math.abs(diff); i++) prevQuestion();
+            }
+          }
         }
       }, 350);
     },
-    [question.id, currentQuestion, setAnswer, nextQuestion]
+    [question.id, currentQuestion, answers, setAnswer, nextQuestion, prevQuestion, completeAssessment, navigate]
   );
 
   const handleComplete = () => {
