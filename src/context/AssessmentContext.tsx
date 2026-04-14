@@ -134,6 +134,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         setAnswer,
         nextQuestion,
         prevQuestion,
+        goToQuestion,
         completeAssessment,
         resetAssessment,
       }}
