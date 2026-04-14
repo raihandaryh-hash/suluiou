@@ -24,6 +24,7 @@ interface AssessmentContextType extends AssessmentState {
   setAnswer: (questionId: number, value: number) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
+  goToQuestion: (index: number) => void;
   completeAssessment: () => void;
   resetAssessment: () => void;
 }
@@ -59,6 +60,13 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     setState((prev) => ({
       ...prev,
       currentQuestion: Math.max(prev.currentQuestion - 1, 0),
+    }));
+  };
+
+  const goToQuestion = (index: number) => {
+    setState((prev) => ({
+      ...prev,
+      currentQuestion: Math.max(0, Math.min(index, questions.length - 1)),
     }));
   };
 
@@ -126,6 +134,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         setAnswer,
         nextQuestion,
         prevQuestion,
+        goToQuestion,
         completeAssessment,
         resetAssessment,
       }}

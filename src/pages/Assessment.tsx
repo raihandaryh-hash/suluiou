@@ -16,6 +16,7 @@ const Assessment = () => {
     setAnswer,
     nextQuestion,
     prevQuestion,
+    goToQuestion,
     completeAssessment,
   } = useAssessment();
   const navigate = useNavigate();
@@ -29,13 +30,26 @@ const Assessment = () => {
   const handleAnswer = useCallback(
     (value: number) => {
       setAnswer(question.id, value);
+      const updatedAnswers = { ...answers, [question.id]: value };
+      const newAnsweredCount = Object.keys(updatedAnswers).length;
+      const isAllAnswered = newAnsweredCount === questions.length;
+
       setTimeout(() => {
-        if (currentQuestion < questions.length - 1) {
+        if (isAllAnswered) {
+          completeAssessment();
+          navigate('/results');
+        } else if (currentQuestion < questions.length - 1) {
           nextQuestion();
+        } else {
+          // On last question but not all answered — jump to first unanswered
+          const firstUnanswered = questions.findIndex((q) => !updatedAnswers[q.id]);
+          if (firstUnanswered !== -1) {
+            goToQuestion(firstUnanswered);
+          }
         }
       }, 350);
     },
-    [question.id, currentQuestion, setAnswer, nextQuestion]
+    [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate]
   );
 
   const handleComplete = () => {
