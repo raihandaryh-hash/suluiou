@@ -63,6 +63,13 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }));
   };
 
+  const goToQuestion = (index: number) => {
+    setState((prev) => ({
+      ...prev,
+      currentQuestion: Math.max(0, Math.min(index, questions.length - 1)),
+    }));
+  };
+
   const completeAssessment = async () => {
     const scores = calculateScores(state.answers, questions);
     const matches = matchPathways(scores, pathways);
