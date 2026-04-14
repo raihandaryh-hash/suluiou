@@ -24,6 +24,7 @@ interface AssessmentContextType extends AssessmentState {
   setAnswer: (questionId: number, value: number) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
+  goToQuestion: (index: number) => void;
   completeAssessment: () => void;
   resetAssessment: () => void;
 }
