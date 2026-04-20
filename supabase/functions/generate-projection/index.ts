@@ -12,12 +12,14 @@ serve(async (req) => {
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-3-flash-preview";
+    if (!AI_API_KEY) {
+      throw new Error("AI_API_KEY is not configured");
     }
 
-    const { scores, pathway, topTraits } = await req.json();
+    const { scores, pathway, topTraits, studentProfile } = await req.json();
 
     const systemPrompt = `Kamu adalah penulis narasi karier untuk siswa SMA di Indonesia. Tugasmu menulis narasi inspiratif orang kedua ("kamu") yang menggambarkan kehidupan profesional siswa di tahun 2030.
 
@@ -28,7 +30,16 @@ Aturan:
 - Jangan gunakan bullet point atau heading
 - Spesifik terhadap trait kepribadian dan jalur karier siswa
 - Sebutkan industri lokal dan karier konkret
+- Jika tersedia, kaitkan narasi dengan provinsi siswa, latar belakang keluarganya, dan aspirasinya — buat ia merasa "ini benar-benar tentang aku"
 - Buat pembaca merasa bersemangat tentang masa depannya`;
+
+    const profileBlock = studentProfile
+      ? `\n\nKonteks personal:
+- Nama panggilan: ${studentProfile.name || "(tidak disebutkan)"}
+- Provinsi: ${studentProfile.province || "(tidak disebutkan)"}
+- Latar belakang keluarga: ${studentProfile.familyBackground || "(tidak disebutkan)"}
+- Aspirasi pribadi: "${studentProfile.aspiration || "(tidak disebutkan)"}"`
+      : "";
 
     const userPrompt = `Profil siswa:
 
@@ -49,20 +60,20 @@ Skor kepribadian (skala 1-5):
 Jalur terbaik: ${pathway.name}
 Karier potensial: ${pathway.careers.join(", ")}
 Industri lokal: ${pathway.localIndustries.join(", ")}
-Trait dominan: ${topTraits.join(", ")}
+Trait dominan: ${topTraits.join(", ")}${profileBlock}
 
 Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
 
     const response = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      `${AI_BASE_URL}/chat/completions`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          Authorization: `Bearer ${AI_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
+          model: AI_MODEL,
           messages: [
             { role: "system", content: systemPrompt },
             { role: "user", content: userPrompt },

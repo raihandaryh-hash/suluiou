@@ -12,16 +12,29 @@ serve(async (req) => {
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-3-flash-preview";
+    if (!AI_API_KEY) {
+      throw new Error("AI_API_KEY is not configured");
     }
 
     const { messages, studentContext } = await req.json();
 
-    const systemPrompt = `Kamu adalah konselor karier AI bernama "Sulu Advisor" untuk siswa SMA di Indonesia. Kamu ramah, suportif, dan berbicara dalam Bahasa Indonesia yang santai tapi tetap informatif.
+    const profile = studentContext.studentProfile;
+    const profileBlock = profile
+      ? `
 
-Profil siswa ini berdasarkan tes HEXACO & RIASEC:
+Konteks personal siswa:
+- Nama panggilan: ${profile.name || "(tidak disebutkan)"}
+- Provinsi: ${profile.province || "(tidak disebutkan)"}
+- Latar belakang keluarga: ${profile.familyBackground || "(tidak disebutkan)"}
+- Aspirasi pribadi: "${profile.aspiration || "(tidak disebutkan)"}"`
+      : "";
+
+    const systemPrompt = `Kamu adalah konselor karier AI bernama "IOU Advisor" untuk siswa SMA di Indonesia. Kamu ramah, suportif, dan berbicara dalam Bahasa Indonesia yang santai tapi tetap informatif.
+
+Profil siswa berdasarkan asesmen Kepribadian & Minat:
 - Jalur terbaik: ${studentContext.topPathway}
 - Match: ${studentContext.matchPercentage}%
 - Trait dominan: ${studentContext.topTraits.join(", ")}
@@ -29,25 +42,27 @@ Profil siswa ini berdasarkan tes HEXACO & RIASEC:
 - Industri lokal: ${studentContext.localIndustries.join(", ")}
 
 Skor kepribadian (1-5):
-${Object.entries(studentContext.scores).map(([k, v]) => `- ${k}: ${v}`).join("\n")}
+${Object.entries(studentContext.scores).map(([k, v]) => `- ${k}: ${v}`).join("\n")}${profileBlock}
 
 Tugasmu:
 - Jawab pertanyaan siswa tentang karier, jurusan kuliah, skill yang perlu dikembangkan
 - Berikan saran yang spesifik dan actionable berdasarkan profil mereka
+- Jika konteks personal tersedia, kaitkan saran dengan provinsi, latar keluarga, dan aspirasi siswa agar terasa relevan
+- Sapa dengan nama panggilan siswa jika tersedia
 - Jika ditanya di luar topik karier/pendidikan, arahkan kembali dengan sopan
 - Jawab singkat dan padat (maks 200 kata) kecuali diminta penjelasan detail
 - Gunakan emoji sesekali untuk membuat percakapan lebih hidup`;
 
     const response = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      `${AI_BASE_URL}/chat/completions`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          Authorization: `Bearer ${AI_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
+          model: AI_MODEL,
           messages: [
             { role: "system", content: systemPrompt },
             ...messages,
