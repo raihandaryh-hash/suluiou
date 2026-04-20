@@ -116,6 +116,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
             localIndustries: topMatch.pathway.localIndustries,
           },
           topTraits: topMatch.topTraits,
+          studentProfile: state.studentProfile,
         },
       });
 

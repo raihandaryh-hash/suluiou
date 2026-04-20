@@ -10,6 +10,7 @@ import type { DimensionScores } from '@/lib/scoring';
 import type { PathwayMatch } from '@/lib/scoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
+import { useAssessment } from '@/context/AssessmentContext';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -35,6 +36,8 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
+  const { studentProfile } = useAssessment();
+
   const studentContext = {
     topPathway: topMatch.pathway.name,
     matchPercentage: topMatch.matchPercentage,
@@ -44,6 +47,7 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
     scores: Object.fromEntries(
       (Object.keys(traitLabels) as Dimension[]).map((k) => [traitLabels[k], scores[k]])
     ),
+    studentProfile,
   };
 
   useEffect(() => {
