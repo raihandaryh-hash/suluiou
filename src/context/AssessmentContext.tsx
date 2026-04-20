@@ -10,6 +10,13 @@ import { questions } from '@/data/questions';
 import { pathways } from '@/data/pathways';
 import { supabase } from '@/integrations/supabase/client';
 
+export interface StudentProfile {
+  name: string;
+  province: string;
+  familyBackground: string;
+  aspiration: string;
+}
+
 interface AssessmentState {
   answers: Record<number, number>;
   currentQuestion: number;
@@ -18,6 +25,8 @@ interface AssessmentState {
   pathwayMatches: PathwayMatch[] | null;
   projection: string | null;
   generatingProjection: boolean;
+  studentProfile: StudentProfile | null;
+  profileCompleted: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
@@ -27,6 +36,7 @@ interface AssessmentContextType extends AssessmentState {
   goToQuestion: (index: number) => void;
   completeAssessment: () => void;
   resetAssessment: () => void;
+  setStudentProfile: (profile: StudentProfile) => void;
 }
 
 const AssessmentContext = createContext<AssessmentContextType | null>(null);
@@ -40,7 +50,17 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     pathwayMatches: null,
     projection: null,
     generatingProjection: false,
+    studentProfile: null,
+    profileCompleted: false,
   });
+
+  const setStudentProfile = (profile: StudentProfile) => {
+    setState((prev) => ({
+      ...prev,
+      studentProfile: profile,
+      profileCompleted: true,
+    }));
+  };
 
   const setAnswer = (questionId: number, value: number) => {
     setState((prev) => ({
@@ -124,6 +144,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       pathwayMatches: null,
       projection: null,
       generatingProjection: false,
+      studentProfile: null,
+      profileCompleted: false,
     });
   };
 
@@ -137,6 +159,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         goToQuestion,
         completeAssessment,
         resetAssessment,
+        setStudentProfile,
       }}
     >
       {children}
