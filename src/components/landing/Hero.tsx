@@ -73,7 +73,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Berbasis instrumen HEXACO & RIASEC — diakui secara internasional
+          Berbasis instrumen Kepribadian & Minat — diakui secara internasional
         </motion.p>
       </div>
 

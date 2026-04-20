@@ -14,7 +14,7 @@ const modules = [
     title: 'The Mirror',
     subtitle: 'Identitas',
     description:
-      'Asesmen HEXACO & RIASEC berbasis sains untuk menemukan siapa dirimu sebenarnya.',
+      'Asesmen Kepribadian & Minat berbasis sains untuk menemukan siapa dirimu sebenarnya.',
   },
   {
     icon: <Compass className="w-7 h-7" />,

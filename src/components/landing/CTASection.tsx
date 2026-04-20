@@ -35,7 +35,7 @@ const CTASection = () => {
           </Button>
 
           <p className="text-xs text-white/50 mt-6">
-            Berbasis instrumen HEXACO & RIASEC — diakui secara internasional
+            Berbasis instrumen Kepribadian & Minat — diakui secara internasional
           </p>
         </motion.div>
       </div>
