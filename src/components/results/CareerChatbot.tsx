@@ -10,6 +10,7 @@ import type { DimensionScores } from '@/lib/scoring';
 import type { PathwayMatch } from '@/lib/scoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
+import { useAssessment } from '@/context/AssessmentContext';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
