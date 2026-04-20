@@ -35,6 +35,8 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
+  const { studentProfile } = useAssessment();
+
   const studentContext = {
     topPathway: topMatch.pathway.name,
     matchPercentage: topMatch.matchPercentage,
@@ -44,6 +46,7 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
     scores: Object.fromEntries(
       (Object.keys(traitLabels) as Dimension[]).map((k) => [traitLabels[k], scores[k]])
     ),
+    studentProfile,
   };
 
   useEffect(() => {
