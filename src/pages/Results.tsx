@@ -25,7 +25,7 @@ import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
 
 const Results = () => {
-  const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection } =
+  const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection, studentProfile } =
     useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -43,7 +43,7 @@ const Results = () => {
 
   const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string }) => {
     const leadScore = calculateLeadScore({
-      student_name: info.name || null,
+      student_name: info.name || studentProfile?.name || null,
       student_email: info.email || null,
       student_phone: info.phone || null,
       school_name: info.school || null,
@@ -52,10 +52,13 @@ const Results = () => {
     });
 
     const insertData = {
-      student_name: info.name || null,
+      student_name: info.name || studentProfile?.name || null,
       student_email: info.email || null,
       student_phone: info.phone || null,
       school_name: info.school || null,
+      student_province: studentProfile?.province || null,
+      family_background: studentProfile?.familyBackground || null,
+      aspiration: studentProfile?.aspiration || null,
       scores: scores as unknown as import('@/integrations/supabase/types').Json,
       top_pathway_id: topMatch.pathway.id,
       top_pathway_name: topMatch.pathway.name,

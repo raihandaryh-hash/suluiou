@@ -8,6 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import ProfileStep from '@/components/assessment/ProfileStep';
 
 const Assessment = () => {
   const {
@@ -18,8 +19,14 @@ const Assessment = () => {
     prevQuestion,
     goToQuestion,
     completeAssessment,
+    profileCompleted,
+    setStudentProfile,
   } = useAssessment();
   const navigate = useNavigate();
+
+  if (!profileCompleted) {
+    return <ProfileStep onComplete={setStudentProfile} />;
+  }
 
   const question = questions[currentQuestion];
   const answeredCount = Object.keys(answers).length;
