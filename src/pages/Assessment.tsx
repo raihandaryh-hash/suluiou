@@ -27,30 +27,23 @@ const Assessment = () => {
   const currentAnswer = answers[question.id];
   const allAnswered = answeredCount === questions.length;
 
-  const handleAnswer = useCallback(
-    (value: number) => {
-      setAnswer(question.id, value);
-      const updatedAnswers = { ...answers, [question.id]: value };
-      const newAnsweredCount = Object.keys(updatedAnswers).length;
-      const isAllAnswered = newAnsweredCount === questions.length;
-
-      setTimeout(() => {
-        if (isAllAnswered) {
-          completeAssessment();
-          navigate('/results');
-        } else if (currentQuestion < questions.length - 1) {
-          nextQuestion();
-        } else {
-          // On last question but not all answered — jump to first unanswered
-          const firstUnanswered = questions.findIndex((q) => !updatedAnswers[q.id]);
-          if (firstUnanswered !== -1) {
-            goToQuestion(firstUnanswered);
-          }
-        }
-      }, 350);
-    },
-    [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate]
-  );
+  const handleAnswer = useCallback((value: number) => {
+    setAnswer(question.id, value);
+    setTimeout(() => {
+      const totalAfter = Object.keys({ ...answers, [question.id]: value }).length;
+      if (totalAfter === questions.length) {
+        completeAssessment();
+        navigate('/results');
+      } else if (currentQuestion < questions.length - 1) {
+        nextQuestion();
+      } else {
+        const firstUnanswered = questions.findIndex(
+          (q) => !answers[q.id] && q.id !== question.id
+        );
+        if (firstUnanswered !== -1) goToQuestion(firstUnanswered);
+      }
+    }, 350);
+  }, [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate]);
 
   const handleComplete = () => {
     completeAssessment();

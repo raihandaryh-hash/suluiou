@@ -124,7 +124,7 @@ const Results = () => {
             Ini Adalah <span className="text-gradient">Cerminmu</span>
           </h1>
           <p className="text-muted-foreground text-lg">
-            Berdasarkan analisis HEXACO & RIASEC, inilah profil unikmu.
+            Berdasarkan analisis Kepribadian & Minat, inilah profil unikmu.
           </p>
         </motion.div>
 
