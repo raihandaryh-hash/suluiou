@@ -17,6 +17,8 @@ export type Database = {
       assessment_results: {
         Row: {
           all_matches: Json
+          aspiration: string | null
+          family_background: string | null
           follow_up_status: string
           id: string
           lead_score: number
@@ -28,12 +30,15 @@ export type Database = {
           student_email: string | null
           student_name: string | null
           student_phone: string | null
+          student_province: string | null
           submitted_at: string
           top_pathway_id: string
           top_pathway_name: string
         }
         Insert: {
           all_matches: Json
+          aspiration?: string | null
+          family_background?: string | null
           follow_up_status?: string
           id?: string
           lead_score?: number
@@ -45,12 +50,15 @@ export type Database = {
           student_email?: string | null
           student_name?: string | null
           student_phone?: string | null
+          student_province?: string | null
           submitted_at?: string
           top_pathway_id: string
           top_pathway_name: string
         }
         Update: {
           all_matches?: Json
+          aspiration?: string | null
+          family_background?: string | null
           follow_up_status?: string
           id?: string
           lead_score?: number
@@ -62,6 +70,7 @@ export type Database = {
           student_email?: string | null
           student_name?: string | null
           student_phone?: string | null
+          student_province?: string | null
           submitted_at?: string
           top_pathway_id?: string
           top_pathway_name?: string
