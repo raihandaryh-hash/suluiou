@@ -24,10 +24,6 @@ const Assessment = () => {
   } = useAssessment();
   const navigate = useNavigate();
 
-  if (!profileCompleted) {
-    return <ProfileStep onComplete={setStudentProfile} />;
-  }
-
   const question = questions[currentQuestion];
   const answeredCount = Object.keys(answers).length;
   const progress = (answeredCount / questions.length) * 100;
@@ -51,6 +47,10 @@ const Assessment = () => {
       }
     }, 350);
   }, [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate]);
+
+  if (!profileCompleted) {
+    return <ProfileStep onComplete={setStudentProfile} />;
+  }
 
   const handleComplete = () => {
     completeAssessment();
