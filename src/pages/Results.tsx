@@ -137,9 +137,18 @@ const Results = () => {
           </p>
         </motion.div>
 
+        {/* Section 1: Profil Psikologismu */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+            <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+              Profil Psikologismu
+            </span>
+          </div>
+        </div>
+
         {/* Radar Chart */}
         <motion.div
-          className="glass rounded-2xl p-6 md:p-8 mb-12"
+          className="glass rounded-2xl p-6 md:p-8 mb-6"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,6 +179,19 @@ const Results = () => {
             </RadarChart>
           </ResponsiveContainer>
         </motion.div>
+
+        <p className="text-xs text-muted-foreground text-center mb-6">
+          Profil ini berlaku secara umum, terlepas dari program studi manapun.
+        </p>
+
+        {/* Section 2: Dalam Konteks Program IOU */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-4">
+            <span className="text-xs font-semibold text-teal-400 uppercase tracking-wider">
+              Dalam Konteks Program IOU
+            </span>
+          </div>
+        </div>
 
         {/* Top Pathways */}
         <motion.div
