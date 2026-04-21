@@ -24,9 +24,10 @@ interface StudentInfoFormProps {
   onSubmit: (info: StudentInfo) => Promise<void>;
   saved: boolean;
   defaultProvince?: string;
+  provinceUsed?: { value: string; source: 'form' | 'profile' | 'none' } | null;
 }
 
-export function StudentInfoForm({ onSubmit, saved, defaultProvince }: StudentInfoFormProps) {
+export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed }: StudentInfoFormProps) {
   const [info, setInfo] = useState<StudentInfo>({
     name: '',
     email: '',
@@ -45,12 +46,31 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince }: StudentInf
   };
 
   if (saved) {
+    const sourceLabel =
+      provinceUsed?.source === 'form'
+        ? 'diisi dari form'
+        : provinceUsed?.source === 'profile'
+        ? 'diambil dari Profil Awal'
+        : null;
     return (
-      <div className="glass rounded-2xl p-6 flex items-center gap-3">
-        <CheckCircle className="w-5 h-5 text-green-400" />
-        <p className="text-foreground text-sm">
-          Data kamu sudah tersimpan. Tim IOU akan menghubungimu!
-        </p>
+      <div className="glass rounded-2xl p-6 space-y-3">
+        <div className="flex items-center gap-3">
+          <CheckCircle className="w-5 h-5 text-green-400" />
+          <p className="text-foreground text-sm">
+            Data kamu sudah tersimpan. Tim IOU akan menghubungimu!
+          </p>
+        </div>
+        {provinceUsed && provinceUsed.value && (
+          <p className="text-xs text-muted-foreground pl-8">
+            Provinsi tersimpan: <span className="text-foreground font-medium">{provinceUsed.value}</span>
+            {sourceLabel && <span className="text-muted-foreground"> · {sourceLabel}</span>}
+          </p>
+        )}
+        {provinceUsed && !provinceUsed.value && (
+          <p className="text-xs text-amber-400 pl-8">
+            Provinsi tidak terisi — tim IOU akan menanyakan saat menghubungi.
+          </p>
+        )}
       </div>
     );
   }
