@@ -7,6 +7,7 @@ import { AssessmentProvider } from "@/context/AssessmentContext";
 import Index from "./pages/Index";
 import Assessment from "./pages/Assessment";
 import Results from "./pages/Results";
+import Suar from "./pages/Suar";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/suar" element={<Suar />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"

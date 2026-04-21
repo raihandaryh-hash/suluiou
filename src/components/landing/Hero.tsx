@@ -59,6 +59,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
+          <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 hover:text-white">
+            <Link to="/suar">Lihat Presentasi Suar</Link>
+          </Button>
           <Button asChild size="lg" className="group text-lg px-8 py-6 bg-accent text-primary-foreground hover:bg-accent/90 glow-accent">
             <Link to="/assessment">
               Mulai Assessment
