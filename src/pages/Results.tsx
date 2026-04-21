@@ -273,6 +273,20 @@ const Results = () => {
           </div>
         </motion.div>
 
+        {/* Student Info Form (moved before projection) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
+          className="mb-12"
+        >
+          <StudentInfoForm
+            onSubmit={handleSaveStudent}
+            saved={saved}
+            defaultProvince={studentProfile?.province}
+          />
+        </motion.div>
+
         {/* Parallel Self Projection */}
         <motion.div
           className="relative glass rounded-2xl p-8 md:p-12 mb-12 overflow-hidden"
@@ -308,15 +322,6 @@ const Results = () => {
               </p>
             </>
           )}
-        </motion.div>
-
-        {/* Student Info Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          <StudentInfoForm onSubmit={handleSaveStudent} saved={saved} />
         </motion.div>
 
         {/* Share Buttons */}
