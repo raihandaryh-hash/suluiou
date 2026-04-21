@@ -2,22 +2,39 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Save, CheckCircle } from 'lucide-react';
 
-interface StudentInfo {
+export interface StudentInfo {
   name: string;
   email: string;
   phone: string;
   school: string;
+  student_class: string;
+  province: string;
 }
 
 interface StudentInfoFormProps {
   onSubmit: (info: StudentInfo) => Promise<void>;
   saved: boolean;
+  defaultProvince?: string;
 }
 
-export function StudentInfoForm({ onSubmit, saved }: StudentInfoFormProps) {
-  const [info, setInfo] = useState<StudentInfo>({ name: '', email: '', phone: '', school: '' });
+export function StudentInfoForm({ onSubmit, saved, defaultProvince }: StudentInfoFormProps) {
+  const [info, setInfo] = useState<StudentInfo>({
+    name: '',
+    email: '',
+    phone: '',
+    school: '',
+    student_class: '',
+    province: defaultProvince ?? '',
+  });
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,6 +75,32 @@ export function StudentInfoForm({ onSubmit, saved }: StudentInfoFormProps) {
           />
         </div>
         <div className="space-y-1.5">
+          <Label htmlFor="sclass" className="text-xs">Kelas</Label>
+          <Select
+            value={info.student_class}
+            onValueChange={(v) => setInfo((p) => ({ ...p, student_class: v }))}
+          >
+            <SelectTrigger id="sclass" className="bg-input border-border">
+              <SelectValue placeholder="Pilih kelas" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Kelas 10">Kelas 10</SelectItem>
+              <SelectItem value="Kelas 11">Kelas 11</SelectItem>
+              <SelectItem value="Kelas 12">Kelas 12</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="sprovince" className="text-xs">Provinsi</Label>
+          <Input
+            id="sprovince"
+            placeholder="Contoh: Jawa Barat"
+            value={info.province}
+            onChange={(e) => setInfo((p) => ({ ...p, province: e.target.value }))}
+            className="bg-input border-border"
+          />
+        </div>
+        <div className="space-y-1.5">
           <Label htmlFor="semail" className="text-xs">Email</Label>
           <Input
             id="semail"
@@ -91,7 +134,7 @@ export function StudentInfoForm({ onSubmit, saved }: StudentInfoFormProps) {
         <div className="sm:col-span-2">
           <Button type="submit" disabled={submitting} className="w-full gap-2">
             <Save className="w-4 h-4" />
-            {submitting ? 'Menyimpan...' : 'Simpan & Dapatkan Konsultasi Gratis'}
+            {submitting ? 'Menyimpan...' : 'Simpan & Hubungi Tim IOU'}
           </Button>
         </div>
       </form>
