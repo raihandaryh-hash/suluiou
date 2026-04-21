@@ -11,6 +11,7 @@ import type { PathwayMatch } from '@/lib/scoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 import { useAssessment } from '@/context/AssessmentContext';
+import { api } from '@/services/api';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -18,8 +19,6 @@ interface CareerChatbotProps {
   scores: DimensionScores;
   topMatch: PathwayMatch;
 }
-
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/career-chat`;
 
 const suggestedQuestions = [
   'Jurusan kuliah apa yang cocok untukku?',
@@ -74,14 +73,7 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
     let assistantSoFar = '';
 
     try {
-      const resp = await fetch(CHAT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        },
-        body: JSON.stringify({ messages: allMessages, studentContext }),
-      });
+      const resp = await api.careerChat(allMessages, studentContext);
 
       if (!resp.ok) {
         const err = await resp.json().catch(() => ({ error: 'Unknown error' }));
