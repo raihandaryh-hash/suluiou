@@ -30,6 +30,7 @@ const Results = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
+  const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
 
   useEffect(() => {
     if (!isComplete) {
