@@ -297,6 +297,7 @@ const Results = () => {
             onSubmit={handleSaveStudent}
             saved={saved}
             defaultProvince={studentProfile?.province}
+            provinceUsed={provinceUsed}
           />
         </motion.div>
 
