@@ -25,8 +25,10 @@ export type Database = {
           match_percentage: number
           notes: string | null
           projection: string | null
+          province: string | null
           school_name: string | null
           scores: Json
+          student_class: string | null
           student_email: string | null
           student_name: string | null
           student_phone: string | null
@@ -45,8 +47,10 @@ export type Database = {
           match_percentage: number
           notes?: string | null
           projection?: string | null
+          province?: string | null
           school_name?: string | null
           scores: Json
+          student_class?: string | null
           student_email?: string | null
           student_name?: string | null
           student_phone?: string | null
@@ -65,8 +69,10 @@ export type Database = {
           match_percentage?: number
           notes?: string | null
           projection?: string | null
+          province?: string | null
           school_name?: string | null
           scores?: Json
+          student_class?: string | null
           student_email?: string | null
           student_name?: string | null
           student_phone?: string | null

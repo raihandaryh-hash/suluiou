@@ -41,7 +41,7 @@ const Results = () => {
 
   const topMatch = pathwayMatches[0];
 
-  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string }) => {
+  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string }) => {
     const leadScore = calculateLeadScore({
       student_name: info.name || studentProfile?.name || null,
       student_email: info.email || null,
@@ -55,8 +55,10 @@ const Results = () => {
       student_name: info.name || studentProfile?.name || null,
       student_email: info.email || null,
       student_phone: info.phone || null,
+      student_class: info.student_class || null,
       school_name: info.school || null,
       student_province: studentProfile?.province || null,
+      province: info.province || studentProfile?.province || null,
       family_background: studentProfile?.familyBackground || null,
       aspiration: studentProfile?.aspiration || null,
       scores: scores as Record<string, number>,
@@ -84,6 +86,12 @@ const Results = () => {
 
     setSaved(true);
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
+
+    window.open(
+      'https://wa.me/6281234567890?text=' +
+        encodeURIComponent('Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏'),
+      '_blank'
+    );
   };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
@@ -129,9 +137,18 @@ const Results = () => {
           </p>
         </motion.div>
 
+        {/* Section 1: Profil Psikologismu */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+            <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+              Profil Psikologismu
+            </span>
+          </div>
+        </div>
+
         {/* Radar Chart */}
         <motion.div
-          className="glass rounded-2xl p-6 md:p-8 mb-12"
+          className="glass rounded-2xl p-6 md:p-8 mb-6"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -162,6 +179,19 @@ const Results = () => {
             </RadarChart>
           </ResponsiveContainer>
         </motion.div>
+
+        <p className="text-xs text-muted-foreground text-center mb-6">
+          Profil ini berlaku secara umum, terlepas dari program studi manapun.
+        </p>
+
+        {/* Section 2: Dalam Konteks Program IOU */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-4">
+            <span className="text-xs font-semibold text-teal-400 uppercase tracking-wider">
+              Dalam Konteks Program IOU
+            </span>
+          </div>
+        </div>
 
         {/* Top Pathways */}
         <motion.div
@@ -243,6 +273,20 @@ const Results = () => {
           </div>
         </motion.div>
 
+        {/* Student Info Form (moved before projection) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
+          className="mb-12"
+        >
+          <StudentInfoForm
+            onSubmit={handleSaveStudent}
+            saved={saved}
+            defaultProvince={studentProfile?.province}
+          />
+        </motion.div>
+
         {/* Parallel Self Projection */}
         <motion.div
           className="relative glass rounded-2xl p-8 md:p-12 mb-12 overflow-hidden"
@@ -278,15 +322,6 @@ const Results = () => {
               </p>
             </>
           )}
-        </motion.div>
-
-        {/* Student Info Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          <StudentInfoForm onSubmit={handleSaveStudent} saved={saved} />
         </motion.div>
 
         {/* Share Buttons */}
