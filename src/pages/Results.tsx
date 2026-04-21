@@ -43,6 +43,16 @@ const Results = () => {
   const topMatch = pathwayMatches[0];
 
   const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string }) => {
+    // Resolve province consistently: form input wins, fallback to profile.
+    const formProvince = info.province?.trim() ?? '';
+    const profileProvince = studentProfile?.province?.trim() ?? '';
+    const resolvedProvince = formProvince || profileProvince || '';
+    const provinceSource: 'form' | 'profile' | 'none' = formProvince
+      ? 'form'
+      : profileProvince
+      ? 'profile'
+      : 'none';
+
     const leadScore = calculateLeadScore({
       student_name: info.name || studentProfile?.name || null,
       student_email: info.email || null,
@@ -58,8 +68,9 @@ const Results = () => {
       student_phone: info.phone || null,
       student_class: info.student_class || null,
       school_name: info.school || null,
-      student_province: studentProfile?.province || null,
-      province: info.province || studentProfile?.province || null,
+      // Both columns now share the same resolved value for consistency.
+      student_province: resolvedProvince || null,
+      province: resolvedProvince || null,
       family_background: studentProfile?.familyBackground || null,
       aspiration: studentProfile?.aspiration || null,
       scores: scores as Record<string, number>,
@@ -85,6 +96,7 @@ const Results = () => {
       return;
     }
 
+    setProvinceUsed({ value: resolvedProvince, source: provinceSource });
     setSaved(true);
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
