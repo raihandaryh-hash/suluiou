@@ -8,7 +8,7 @@ import {
 } from '@/lib/scoring';
 import { questions } from '@/data/questions';
 import { pathways } from '@/data/pathways';
-import { supabase } from '@/integrations/supabase/client';
+import { api } from '@/services/api';
 
 export interface StudentProfile {
   name: string;
@@ -107,27 +107,30 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }));
 
     try {
-      const { data, error } = await supabase.functions.invoke('generate-projection', {
-        body: {
-          scores,
-          pathway: {
-            name: topMatch.pathway.name,
-            careers: topMatch.pathway.careers,
-            localIndustries: topMatch.pathway.localIndustries,
-          },
-          topTraits: topMatch.topTraits,
-          studentProfile: state.studentProfile,
+      const projection = await api.generateProjection({
+        scores,
+        pathway: {
+          name: topMatch.pathway.name,
+          careers: topMatch.pathway.careers,
+          localIndustries: topMatch.pathway.localIndustries,
+        },
+        topTraits: topMatch.topTraits,
+        studentProfile: state.studentProfile ?? {
+          name: '',
+          province: '',
+          familyBackground: '',
+          aspiration: '',
         },
       });
 
-      if (!error && data?.projection) {
+      if (projection) {
         setState((prev) => ({
           ...prev,
-          projection: data.projection,
+          projection,
           generatingProjection: false,
         }));
       } else {
-        console.warn('AI projection failed, using fallback:', error);
+        console.warn('AI projection failed, using fallback');
         setState((prev) => ({ ...prev, generatingProjection: false }));
       }
     } catch (err) {

@@ -18,7 +18,7 @@ import { Sparkles, ArrowRight, RotateCcw, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
-import { supabase } from '@/integrations/supabase/client';
+import { api } from '@/services/api';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
@@ -59,21 +59,19 @@ const Results = () => {
       student_province: studentProfile?.province || null,
       family_background: studentProfile?.familyBackground || null,
       aspiration: studentProfile?.aspiration || null,
-      scores: scores as unknown as import('@/integrations/supabase/types').Json,
+      scores: scores as Record<string, number>,
       top_pathway_id: topMatch.pathway.id,
       top_pathway_name: topMatch.pathway.name,
       match_percentage: topMatch.matchPercentage,
       all_matches: pathwayMatches.map((m) => ({
         pathway: { id: m.pathway.id, name: m.pathway.name, icon: m.pathway.icon },
         matchPercentage: m.matchPercentage,
-      })) as unknown as import('@/integrations/supabase/types').Json,
+      })),
       projection,
       lead_score: leadScore,
     };
 
-    const { error } = await supabase
-      .from('assessment_results')
-      .insert(insertData);
+    const { error } = await api.saveResult(insertData);
 
     if (error) {
       toast({
