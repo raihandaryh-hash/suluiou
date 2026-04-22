@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Save, CheckCircle } from 'lucide-react';
+import { PROVINCES } from '@/lib/constants';
 
 export interface StudentInfo {
   name: string;
@@ -112,13 +113,19 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="sprovince" className="text-xs">Provinsi</Label>
-          <Input
-            id="sprovince"
-            placeholder="Contoh: Jawa Barat"
+          <Select
             value={info.province}
-            onChange={(e) => setInfo((p) => ({ ...p, province: e.target.value }))}
-            className="bg-input border-border"
-          />
+            onValueChange={(v) => setInfo((p) => ({ ...p, province: v }))}
+          >
+            <SelectTrigger id="sprovince" className="bg-input border-border">
+              <SelectValue placeholder="Pilih provinsi" />
+            </SelectTrigger>
+            <SelectContent className="max-h-72">
+              {PROVINCES.map((p) => (
+                <SelectItem key={p} value={p}>{p}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="semail" className="text-xs">Email</Label>

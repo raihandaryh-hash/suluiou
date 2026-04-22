@@ -15,47 +15,7 @@ import {
 import { ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
 import type { StudentProfile } from '@/context/AssessmentContext';
-
-const PROVINCES = [
-  'Aceh',
-  'Sumatera Utara',
-  'Sumatera Barat',
-  'Riau',
-  'Kepulauan Riau',
-  'Jambi',
-  'Sumatera Selatan',
-  'Bangka Belitung',
-  'Bengkulu',
-  'Lampung',
-  'DKI Jakarta',
-  'Banten',
-  'Jawa Barat',
-  'Jawa Tengah',
-  'DI Yogyakarta',
-  'Jawa Timur',
-  'Bali',
-  'Nusa Tenggara Barat',
-  'Nusa Tenggara Timur',
-  'Kalimantan Barat',
-  'Kalimantan Tengah',
-  'Kalimantan Selatan',
-  'Kalimantan Timur',
-  'Kalimantan Utara',
-  'Sulawesi Utara',
-  'Gorontalo',
-  'Sulawesi Tengah',
-  'Sulawesi Barat',
-  'Sulawesi Selatan',
-  'Sulawesi Tenggara',
-  'Maluku',
-  'Maluku Utara',
-  'Papua',
-  'Papua Barat',
-  'Papua Barat Daya',
-  'Papua Tengah',
-  'Papua Pegunungan',
-  'Papua Selatan',
-];
+import { PROVINCES } from '@/lib/constants';
 
 const FAMILY_OPTIONS = [
   'Keluargaku sebagian besar petani atau nelayan',
@@ -74,7 +34,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
   const [familyBackground, setFamilyBackground] = useState('');
   const [aspiration, setAspiration] = useState('');
 
-  const canSubmit = province && familyBackground && aspiration.trim().length > 0;
+  const canSubmit = province && familyBackground;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -176,7 +136,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
 
             {/* Aspiration */}
             <div className="space-y-2">
-              <Label htmlFor="aspiration">Di masa depan, saya ingin...</Label>
+              <Label htmlFor="aspiration">Di masa depan, saya ingin... (opsional)</Label>
               <Textarea
                 id="aspiration"
                 value={aspiration}
