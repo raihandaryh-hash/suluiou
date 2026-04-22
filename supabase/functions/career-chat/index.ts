@@ -13,8 +13,8 @@ serve(async (req) => {
 
   try {
     const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-3-flash-preview";
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta/openai";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.0-flash";
     if (!AI_API_KEY) {
       throw new Error("AI_API_KEY is not configured");
     }
@@ -53,6 +53,8 @@ Tugasmu:
 - Jawab singkat dan padat (maks 200 kata) kecuali diminta penjelasan detail
 - Gunakan emoji sesekali untuk membuat percakapan lebih hidup`;
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     const response = await fetch(
       `${AI_BASE_URL}/chat/completions`,
       {
@@ -69,8 +71,10 @@ Tugasmu:
           ],
           stream: true,
         }),
+        signal: controller.signal,
       }
     );
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -98,6 +102,12 @@ Tugasmu:
     });
   } catch (e) {
     console.error("career-chat error:", e);
+    if (e instanceof Error && e.name === 'AbortError') {
+      return new Response(
+        JSON.stringify({ error: "Maaf, AI tidak merespons. Coba lagi." }),
+        { status: 504, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
     return new Response(
       JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }

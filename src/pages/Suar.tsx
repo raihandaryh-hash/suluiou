@@ -1,19 +1,28 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const Suar = () => {
   const [slides, setSlides] = useState<string[]>([]);
   const [current, setCurrent] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setIsLoading(true);
     fetch('/suar-slides/manifest.json')
       .then((r) => r.json())
-      .then((files: string[]) => setSlides(Array.isArray(files) ? files : []))
-      .catch(() => setSlides([]));
+      .then((files: string[]) => {
+        setSlides(Array.isArray(files) ? files : []);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setSlides([]);
+        setIsLoading(false);
+      });
   }, []);
 
   const prev = useCallback(() => setCurrent((c) => Math.max(0, c - 1)), []);
@@ -26,16 +35,25 @@ const Suar = () => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prev();
       if (e.key === 'ArrowRight') next();
+      if (e.key === 'Enter') {
+        if (current === slides.length - 1) {
+          navigate('/assessment');
+        } else {
+          next();
+        }
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next]);
+  }, [prev, next, current, slides.length, navigate]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="p-6 border-b border-border">
         <div className="container mx-auto flex items-center justify-between">
-          <Logo size="sm" />
+          <Link to="/" aria-label="Kembali ke beranda">
+            <Logo size="sm" />
+          </Link>
         </div>
       </header>
 
@@ -49,7 +67,13 @@ const Suar = () => {
           </p>
         </div>
 
-        {slides.length === 0 ? (
+        {isLoading ? (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="glass rounded-2xl p-12 text-center max-w-md">
+              <p className="text-muted-foreground">Memuat tayangan...</p>
+            </div>
+          </div>
+        ) : slides.length === 0 ? (
           <div className="flex-1 flex items-center justify-center">
             <div className="glass rounded-2xl p-12 text-center max-w-md">
               <p className="text-muted-foreground">
@@ -67,7 +91,7 @@ const Suar = () => {
               />
             </div>
 
-            <div className="flex items-center justify-between gap-4 mb-8">
+            <div className="flex items-center justify-between gap-4 mb-4">
               <Button
                 variant="outline"
                 size="icon"
@@ -91,6 +115,22 @@ const Suar = () => {
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 mb-8">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={cn(
+                    'w-2 h-2 rounded-full transition-all',
+                    i === current
+                      ? 'bg-primary w-4'
+                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/60',
+                  )}
+                  aria-label={`Slide ${i + 1}`}
+                />
+              ))}
             </div>
           </div>
         )}

@@ -13,8 +13,8 @@ serve(async (req) => {
 
   try {
     const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-3-flash-preview";
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta/openai";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.0-flash";
     if (!AI_API_KEY) {
       throw new Error("AI_API_KEY is not configured");
     }
@@ -26,7 +26,7 @@ serve(async (req) => {
 Aturan:
 - Tulis dalam Bahasa Indonesia yang hidup dan emosional
 - Gunakan sudut pandang orang kedua ("kamu")
-- Panjang 100-150 kata, satu paragraf saja
+- Panjang 150-200 kata, satu hingga dua paragraf
 - Jangan gunakan bullet point atau heading
 - Spesifik terhadap trait kepribadian dan jalur karier siswa
 - Sebutkan industri lokal dan karier konkret
@@ -64,6 +64,8 @@ Trait dominan: ${topTraits.join(", ")}${profileBlock}
 
 Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
     const response = await fetch(
       `${AI_BASE_URL}/chat/completions`,
       {
@@ -80,8 +82,10 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
           ],
           stream: false,
         }),
+        signal: controller.signal,
       }
     );
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -113,6 +117,12 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     });
   } catch (e) {
     console.error("generate-projection error:", e);
+    if (e instanceof Error && e.name === 'AbortError') {
+      return new Response(
+        JSON.stringify({ error: "AI request timed out" }),
+        { status: 504, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
     return new Response(
       JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
