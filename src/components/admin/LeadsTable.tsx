@@ -32,6 +32,11 @@ interface LeadResult {
   student_email: string | null;
   student_phone: string | null;
   school_name: string | null;
+  student_class: string | null;
+  student_province: string | null;
+  province: string | null;
+  family_background: string | null;
+  aspiration: string | null;
   scores: Record<string, number>;
   top_pathway_id: string;
   top_pathway_name: string;
