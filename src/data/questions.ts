@@ -68,6 +68,34 @@ export const questions: Question[] = [
   // RIASEC — Conventional
   { id: 23, text: "Saya suka pekerjaan yang terorganisir dengan prosedur jelas.", dimension: "conventional", framework: "riasec" },
   { id: 24, text: "Saya teliti dalam mengelola data dan angka.", dimension: "conventional", framework: "riasec" },
+
+  // HEXACO placeholders (items 25-36) — awaiting EJ content
+  { id: 25, text: '[EJ_PENDING] Honesty-Humility 3', dimension: 'honesty', framework: 'hexaco', reverse: true },
+  { id: 26, text: '[EJ_PENDING] Honesty-Humility 4', dimension: 'honesty', framework: 'hexaco', reverse: false },
+  { id: 27, text: '[EJ_PENDING] Emotionality 3', dimension: 'emotionality', framework: 'hexaco', reverse: true },
+  { id: 28, text: '[EJ_PENDING] Emotionality 4', dimension: 'emotionality', framework: 'hexaco', reverse: false },
+  { id: 29, text: '[EJ_PENDING] Extraversion 3', dimension: 'extraversion', framework: 'hexaco', reverse: true },
+  { id: 30, text: '[EJ_PENDING] Extraversion 4', dimension: 'extraversion', framework: 'hexaco', reverse: false },
+  { id: 31, text: '[EJ_PENDING] Agreeableness 3', dimension: 'agreeableness', framework: 'hexaco', reverse: true },
+  { id: 32, text: '[EJ_PENDING] Agreeableness 4', dimension: 'agreeableness', framework: 'hexaco', reverse: false },
+  { id: 33, text: '[EJ_PENDING] Conscientiousness 3', dimension: 'conscientiousness', framework: 'hexaco', reverse: true },
+  { id: 34, text: '[EJ_PENDING] Conscientiousness 4', dimension: 'conscientiousness', framework: 'hexaco', reverse: false },
+  { id: 35, text: '[EJ_PENDING] Openness 3', dimension: 'openness', framework: 'hexaco', reverse: true },
+  { id: 36, text: '[EJ_PENDING] Openness 4', dimension: 'openness', framework: 'hexaco', reverse: false },
+
+  // RIASEC placeholders (items 37-48) — awaiting EJ content
+  { id: 37, text: '[EJ_PENDING] Realistic 3', dimension: 'realistic', framework: 'riasec', reverse: false },
+  { id: 38, text: '[EJ_PENDING] Realistic 4', dimension: 'realistic', framework: 'riasec', reverse: false },
+  { id: 39, text: '[EJ_PENDING] Investigative 3', dimension: 'investigative', framework: 'riasec', reverse: false },
+  { id: 40, text: '[EJ_PENDING] Investigative 4', dimension: 'investigative', framework: 'riasec', reverse: false },
+  { id: 41, text: '[EJ_PENDING] Artistic 3', dimension: 'artistic', framework: 'riasec', reverse: false },
+  { id: 42, text: '[EJ_PENDING] Artistic 4', dimension: 'artistic', framework: 'riasec', reverse: false },
+  { id: 43, text: '[EJ_PENDING] Social 3', dimension: 'social', framework: 'riasec', reverse: false },
+  { id: 44, text: '[EJ_PENDING] Social 4', dimension: 'social', framework: 'riasec', reverse: false },
+  { id: 45, text: '[EJ_PENDING] Enterprising 3', dimension: 'enterprising', framework: 'riasec', reverse: false },
+  { id: 46, text: '[EJ_PENDING] Enterprising 4', dimension: 'enterprising', framework: 'riasec', reverse: false },
+  { id: 47, text: '[EJ_PENDING] Conventional 3', dimension: 'conventional', framework: 'riasec', reverse: false },
+  { id: 48, text: '[EJ_PENDING] Conventional 4', dimension: 'conventional', framework: 'riasec', reverse: false },
 ];
 
 export const likertLabels = [

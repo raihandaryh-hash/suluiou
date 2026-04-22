@@ -9,6 +9,8 @@ export interface Pathway {
   careers: string[];
   localIndustries: string[];
   weights: Partial<Record<Dimension, number>>;
+  riasecVector?: number[]; // [R, I, A, S, E, C] normalized 0-1, order must match riasecDimensions
+  lensScore?: number;      // 0-1, placeholder until IOU Lens is implemented
   projectionTemplates: string[];
 }
 

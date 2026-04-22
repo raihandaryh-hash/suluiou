@@ -63,29 +63,52 @@ export function calculateScores(
   return scores;
 }
 
+function cosineSimilarity(vecA: number[], vecB: number[]): number {
+  const dot = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
+  const magA = Math.sqrt(vecA.reduce((sum, a) => sum + a * a, 0));
+  const magB = Math.sqrt(vecB.reduce((sum, b) => sum + b * b, 0));
+  if (magA === 0 || magB === 0) return 0;
+  return dot / (magA * magB);
+}
+
 export function matchPathways(
   scores: DimensionScores,
   pathwayList: Pathway[]
 ): PathwayMatch[] {
+  const riasecDimensions: Dimension[] = [
+    'realistic', 'investigative', 'artistic', 'social', 'enterprising', 'conventional',
+  ];
+
+  // Normalize RIASEC scores from [1,5] scale to [0,1]
+  const studentRiasecVec = riasecDimensions.map(
+    (dim) => ((scores[dim] || 1) - 1) / 4
+  );
+
   return pathwayList
     .map((pathway) => {
-      let totalWeight = 0;
-      let weightedScore = 0;
+      // Use riasecVector if available, else fall back to weight-based calculation
+      let riasecSim: number;
+      if (pathway.riasecVector && pathway.riasecVector.length === 6) {
+        riasecSim = cosineSimilarity(studentRiasecVec, pathway.riasecVector);
+      } else {
+        // Fallback: build vector from weights
+        const maxW = Math.max(...riasecDimensions.map((d) => (pathway.weights[d] as number) || 0), 1);
+        const pathwayVec = riasecDimensions.map((d) => ((pathway.weights[d] as number) || 0) / maxW);
+        riasecSim = cosineSimilarity(studentRiasecVec, pathwayVec);
+      }
 
-      Object.entries(pathway.weights).forEach(([dim, weight]) => {
-        const w = weight as number;
-        totalWeight += w;
-        weightedScore += (scores[dim as Dimension] || 3) * w;
-      });
+      // IOU Lens score placeholder (0–1). Will be populated once Lens is implemented.
+      const lensScore = pathway.lensScore ?? 0;
 
-      const matchPercentage = Math.round(
-        (weightedScore / (totalWeight * 5)) * 100
-      );
+      // Combined match: cosine RIASEC × 0.65 + lens × 0.35
+      const rawMatch = riasecSim * 0.65 + lensScore * 0.35;
+      const matchPercentage = Math.round(rawMatch * 100);
 
-      const topTraits = Object.entries(pathway.weights)
-        .sort(([, a], [, b]) => (b as number) - (a as number))
+      const topTraits = riasecDimensions
+        .map((dim) => ({ dim, score: scores[dim] || 0 }))
+        .sort((a, b) => b.score - a.score)
         .slice(0, 3)
-        .map(([dim]) => traitLabels[dim as Dimension]);
+        .map(({ dim }) => traitLabels[dim]);
 
       return { pathway, matchPercentage, topTraits };
     })
