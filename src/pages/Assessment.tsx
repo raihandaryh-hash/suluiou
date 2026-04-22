@@ -24,29 +24,31 @@ const Assessment = () => {
   } = useAssessment();
   const navigate = useNavigate();
 
-  const question = questions[currentQuestion];
+  const activeQuestions = questions.filter(q => !q.text.startsWith('[EJ_PENDING]'));
+
+  const question = activeQuestions[currentQuestion];
   const answeredCount = Object.keys(answers).length;
-  const progress = (answeredCount / questions.length) * 100;
+  const progress = (answeredCount / activeQuestions.length) * 100;
   const currentAnswer = answers[question.id];
-  const allAnswered = answeredCount === questions.length;
+  const allAnswered = answeredCount === activeQuestions.length;
 
   const handleAnswer = useCallback((value: number) => {
     setAnswer(question.id, value);
     setTimeout(() => {
       const totalAfter = Object.keys({ ...answers, [question.id]: value }).length;
-      if (totalAfter === questions.length) {
+      if (totalAfter === activeQuestions.length) {
         completeAssessment();
         navigate('/results');
-      } else if (currentQuestion < questions.length - 1) {
+      } else if (currentQuestion < activeQuestions.length - 1) {
         nextQuestion();
       } else {
-        const firstUnanswered = questions.findIndex(
+        const firstUnanswered = activeQuestions.findIndex(
           (q) => !answers[q.id] && q.id !== question.id
         );
         if (firstUnanswered !== -1) goToQuestion(firstUnanswered);
       }
     }, 350);
-  }, [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate]);
+  }, [question.id, currentQuestion, answers, setAnswer, nextQuestion, goToQuestion, completeAssessment, navigate, activeQuestions]);
 
   if (!profileCompleted) {
     return <ProfileStep onComplete={setStudentProfile} />;
@@ -69,10 +71,10 @@ const Assessment = () => {
             <Logo size="sm" />
             <div className="flex items-center gap-3">
               <span className="text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                {answeredCount}/{questions.length} dijawab
+                {answeredCount}/{activeQuestions.length} dijawab
               </span>
               <span className="text-sm font-heading font-bold text-primary">
-                {currentQuestion + 1}/{questions.length}
+                {currentQuestion + 1}/{activeQuestions.length}
               </span>
             </div>
           </div>
@@ -168,7 +170,7 @@ const Assessment = () => {
             <Button
               variant="ghost"
               onClick={nextQuestion}
-              disabled={currentQuestion === questions.length - 1}
+              disabled={currentQuestion === activeQuestions.length - 1}
               className="gap-2"
             >
               Lewati

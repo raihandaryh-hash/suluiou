@@ -9,6 +9,8 @@ export interface Pathway {
   careers: string[];
   localIndustries: string[];
   weights: Partial<Record<Dimension, number>>;
+  riasecVector?: number[]; // [R, I, A, S, E, C] normalized 0-1, order must match riasecDimensions
+  lensScore?: number;      // 0-1, placeholder until IOU Lens is implemented
   projectionTemplates: string[];
 }
 
@@ -41,6 +43,7 @@ export const pathways: Pathway[] = [
       conventional: 2,
       honesty: 2,
     },
+    riasecVector: [0.2, 0.3, 0.2, 0.4, 0.9, 0.7],
     projectionTemplates: [
       'Tahun 2030. Kamu baru saja menutup laptop setelah meeting virtual dengan tim-mu yang terdiri dari 12 orang. Bisnis digital yang kamu rintis saat masih kuliah semester 4 kini sudah melayani lebih dari 500 UMKM di Jawa Timur. Keberanianmu mengambil risiko, dikombinasikan dengan kemampuan manajemen yang kamu asah, membuat para investor percaya pada visimu. Hari ini, kamu bukan hanya pengusaha — kamu adalah pembuka lapangan kerja.',
       'Tahun 2030. Di usiamu yang masih muda, kamu sudah menjadi konsultan bisnis yang dipercaya oleh jaringan UMKM di kotamu. Kejelianmu membaca pasar dan kedisiplinanmu dalam mengelola data membuat setiap rekomendasi yang kamu berikan selalu tepat sasaran. Kamu membuktikan bahwa gelar tidak harus dari kampus mahal untuk bisa memberikan dampak nyata.',
@@ -74,6 +77,7 @@ export const pathways: Pathway[] = [
       conscientiousness: 2,
       conventional: 1,
     },
+    riasecVector: [0.6, 0.9, 0.3, 0.3, 0.4, 0.5],
     projectionTemplates: [
       'Tahun 2030. Layar monitormu menampilkan dashboard sistem yang kamu bangun untuk sebuah rumah sakit daerah. Sistem AI yang kamu kembangkan mampu memprediksi kebutuhan obat dengan akurasi 94%. Rasa ingin tahumu yang tak pernah padam dan kemampuan analitismu membawamu dari seorang mahasiswa IT biasa menjadi problem-solver yang dicari banyak institusi.',
       'Tahun 2030. Kamu baru saja mendapat kontrak dari sebuah perusahaan logistik untuk mengembangkan sistem optimasi rute pengiriman. Tim remote-mu tersebar di 3 kota berbeda. Kemampuanmu memecahkan masalah kompleks dan ketekunanmu mempelajari teknologi baru menjadikanmu aset yang tak tergantikan di era digital ini.',
@@ -107,6 +111,7 @@ export const pathways: Pathway[] = [
       openness: 2,
       investigative: 2,
     },
+    riasecVector: [0.1, 0.7, 0.3, 0.9, 0.4, 0.3],
     projectionTemplates: [
       'Tahun 2030. Kamu baru saja menyelesaikan sesi konseling online dengan seorang remaja di pelosok Kalimantan. Platform konseling digital yang kamu dirikan bersama 2 temanmu kini sudah menjangkau lebih dari 10.000 anak muda Indonesia. Empatimu yang natural dan kemampuanmu memahami orang lain bukan sekadar bakat — itu adalah senjata untuk mengubah kesehatan mental generasi ini.',
       'Tahun 2030. Sebagai HR Psychologist di sebuah perusahaan teknologi, kamu baru saja merancang program wellbeing yang menurunkan tingkat burnout karyawan sebesar 40%. Kepekaan emosionalmu dan kemampuan analisis perilaku manusia menjadikanmu orang yang paling dicari saat perusahaan butuh membangun budaya kerja yang sehat.',
@@ -140,6 +145,7 @@ export const pathways: Pathway[] = [
       extraversion: 2,
       openness: 1,
     },
+    riasecVector: [0.2, 0.4, 0.4, 0.9, 0.5, 0.5],
     projectionTemplates: [
       'Tahun 2030. Metode pembelajaran yang kamu kembangkan saat skripsi kini sudah diadopsi oleh 50 sekolah di Indonesia. Kamu bukan guru biasa — kamu adalah arsitek pendidikan yang menggabungkan teknologi dengan sentuhan manusiawi. Kesabaranmu dan kemampuanmu mengorganisir kurikulum membuat setiap siswa merasa dilihat dan dipahami.',
       'Tahun 2030. Platform e-learning yang kamu rintis khusus untuk anak-anak pesantren kini sudah memiliki 25.000 pengguna aktif. Semangatmu untuk berbagi ilmu dan kedisiplinanmu dalam membuat konten berkualitas membuktikan bahwa pendidikan berkualitas tidak harus mahal.',
@@ -173,6 +179,7 @@ export const pathways: Pathway[] = [
       artistic: 1,
       conscientiousness: 2,
     },
+    riasecVector: [0.1, 0.5, 0.5, 0.7, 0.4, 0.4],
     projectionTemplates: [
       'Tahun 2030. Kamu baru saja selesai memberikan konsultasi shariah untuk sebuah startup fintech yang ingin meluncurkan produk investasi halal. Pemahamanmu yang mendalam tentang prinsip-prinsip Islam, dikombinasikan dengan keterbukaan pikiranmu terhadap inovasi, menjadikanmu jembatan antara tradisi dan modernitas. Industri halal global bernilai $7 triliun, dan kamu ada di garis depannya.',
       'Tahun 2030. Channel YouTube-mu tentang Islamic financial literacy sudah memiliki 500.000 subscriber. Kejujuranmu dalam menyampaikan ilmu dan kemampuanmu mengemas konten yang relevan dengan kehidupan anak muda membuktikan bahwa ilmu agama dan kesuksesan dunia bukan dua hal yang terpisah.',
