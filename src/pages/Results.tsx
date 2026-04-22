@@ -23,6 +23,7 @@ import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
+import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
 
 const Results = () => {
   const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection, studentProfile } =
@@ -101,8 +102,7 @@ const Results = () => {
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
     window.open(
-      'https://wa.me/6281234567890?text=' +
-        encodeURIComponent('Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏'),
+      'https://wa.me/' + IOU_WA_NUMBER + '?text=' + encodeURIComponent(IOU_WA_TEMPLATES.afterAssessment),
       '_blank'
     );
   };
@@ -362,7 +362,11 @@ const Results = () => {
             Ambil langkah pertama menuju masa depanmu bersama IOU Indonesia.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="text-lg px-8 py-6 glow-primary gap-2">
+            <Button
+              size="lg"
+              className="text-lg px-8 py-6 glow-primary gap-2"
+              onClick={() => window.open(IOU_REGISTRATION_URL, '_blank')}
+            >
               Daftar di IOU Indonesia
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -370,6 +374,7 @@ const Results = () => {
               variant="outline"
               size="lg"
               className="text-lg px-8 py-6 gap-2"
+              onClick={() => window.open('https://wa.me/' + IOU_WA_NUMBER + '?text=' + encodeURIComponent(IOU_WA_TEMPLATES.afterAssessment), '_blank')}
             >
               Konsultasi via WhatsApp
             </Button>

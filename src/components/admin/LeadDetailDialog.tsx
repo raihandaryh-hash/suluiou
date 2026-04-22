@@ -33,6 +33,11 @@ interface LeadResult {
   student_email: string | null;
   student_phone: string | null;
   school_name: string | null;
+  student_class: string | null;
+  student_province: string | null;
+  province: string | null;
+  family_background: string | null;
+  aspiration: string | null;
   scores: Record<string, number>;
   top_pathway_id: string;
   top_pathway_name: string;
@@ -117,6 +122,31 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
                   year: 'numeric',
                 })}
               </p>
+            </div>
+          </div>
+
+          {/* Profil Awal Siswa */}
+          <div className="border-t border-border pt-4">
+            <Label className="text-xs text-muted-foreground mb-3 block font-semibold uppercase tracking-wider">
+              Profil Awal Siswa
+            </Label>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="text-xs text-muted-foreground">Kelas</Label>
+                <p className="text-sm text-foreground">{lead.student_class || '—'}</p>
+              </div>
+              <div>
+                <Label className="text-xs text-muted-foreground">Provinsi</Label>
+                <p className="text-sm text-foreground">{lead.student_province || lead.province || '—'}</p>
+              </div>
+              <div className="col-span-2">
+                <Label className="text-xs text-muted-foreground">Latar Belakang Keluarga</Label>
+                <p className="text-sm text-foreground">{lead.family_background || '—'}</p>
+              </div>
+              <div className="col-span-2">
+                <Label className="text-xs text-muted-foreground">Aspirasi</Label>
+                <p className="text-sm text-foreground italic">{lead.aspiration || '—'}</p>
+              </div>
             </div>
           </div>
 
