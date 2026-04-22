@@ -91,7 +91,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   };
 
   const completeAssessment = async () => {
-    const scores = calculateScores(state.answers, questions);
+    const activeQuestions = questions.filter(q => !q.text.startsWith('[EJ_PENDING]'));
+    const scores = calculateScores(state.answers, activeQuestions);
     const matches = matchPathways(scores, pathways);
     const fallbackProjection = generateProjection(matches[0], scores);
     const topMatch = matches[0];
