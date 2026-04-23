@@ -40,6 +40,8 @@ export const api = {
     all_matches: unknown;
     projection: string;
     lead_score: number;
+    lm_name?: string | null;
+    lm_id?: string | null;
   }) {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
