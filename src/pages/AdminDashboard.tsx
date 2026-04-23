@@ -30,6 +30,8 @@ interface LeadResult {
   follow_up_status: string;
   notes: string | null;
   submitted_at: string;
+  lm_name: string | null;
+  lm_id: string | null;
 }
 
 const AdminDashboard = () => {
