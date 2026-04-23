@@ -5,8 +5,21 @@ import { useAuth } from '@/hooks/useAuth';
 import { StatsCards } from '@/components/admin/StatsCards';
 import { LeadsTable } from '@/components/admin/LeadsTable';
 import { Button } from '@/components/ui/button';
-import { calculateLeadScore, getLeadPriority, type FollowUpStatus } from '@/lib/leadScoring';
-import { Flame, LogOut, RefreshCw } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  calculateLeadScore,
+  getLeadPriority,
+  followUpStatuses,
+  statusConfig,
+  type FollowUpStatus,
+} from '@/lib/leadScoring';
+import { Flame, LogOut, RefreshCw, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface LeadResult {
@@ -30,6 +43,8 @@ interface LeadResult {
   follow_up_status: string;
   notes: string | null;
   submitted_at: string;
+  lm_name: string | null;
+  lm_id: string | null;
 }
 
 const AdminDashboard = () => {
@@ -37,6 +52,9 @@ const AdminDashboard = () => {
   const { toast } = useToast();
   const [leads, setLeads] = useState<LeadResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filterProvince, setFilterProvince] = useState('');
+  const [filterStatus, setFilterStatus] = useState('');
+  const [filterLm, setFilterLm] = useState('');
 
   const fetchLeads = useCallback(async () => {
     setLoading(true);
@@ -76,6 +94,8 @@ const AdminDashboard = () => {
       follow_up_status: row.follow_up_status as string,
       notes: row.notes as string | null,
       submitted_at: row.submitted_at as string,
+      lm_name: row.lm_name as string | null,
+      lm_id: row.lm_id as string | null,
     }));
 
     setLeads(typed);
@@ -116,6 +136,17 @@ const AdminDashboard = () => {
     ['contacted', 'interested'].includes(l.follow_up_status)
   ).length;
   const enrolled = leads.filter((l) => l.follow_up_status === 'enrolled').length;
+
+  // Filtering
+  const filteredLeads = leads.filter((l) => {
+    if (filterProvince && (l.student_province || l.province) !== filterProvince) return false;
+    if (filterStatus && l.follow_up_status !== filterStatus) return false;
+    if (filterLm && l.lm_name !== filterLm) return false;
+    return true;
+  });
+
+  const provinceOptions = [...new Set(leads.map((l) => l.student_province || l.province).filter(Boolean))].sort() as string[];
+  const lmOptions = [...new Set(leads.map((l) => l.lm_name).filter(Boolean))].sort() as string[];
 
   return (
     <div className="min-h-screen bg-background">
@@ -170,6 +201,64 @@ const AdminDashboard = () => {
           enrolled={enrolled}
         />
 
+        {/* Filter Bar */}
+        {!loading && leads.length > 0 && (
+          <div className="glass rounded-xl p-4 flex flex-wrap items-center gap-3">
+            <Select value={filterProvince || 'all'} onValueChange={(v) => setFilterProvince(v === 'all' ? '' : v)}>
+              <SelectTrigger className="w-[180px] bg-input border-border">
+                <SelectValue placeholder="Semua Provinsi" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Semua Provinsi</SelectItem>
+                {provinceOptions.map((p) => (
+                  <SelectItem key={p} value={p}>{p}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select value={filterStatus || 'all'} onValueChange={(v) => setFilterStatus(v === 'all' ? '' : v)}>
+              <SelectTrigger className="w-[160px] bg-input border-border">
+                <SelectValue placeholder="Semua Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Semua Status</SelectItem>
+                {followUpStatuses.map((s) => (
+                  <SelectItem key={s} value={s}>{statusConfig[s].label}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            {lmOptions.length > 0 && (
+              <Select value={filterLm || 'all'} onValueChange={(v) => setFilterLm(v === 'all' ? '' : v)}>
+                <SelectTrigger className="w-[180px] bg-input border-border">
+                  <SelectValue placeholder="Semua Mentor" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Semua Mentor</SelectItem>
+                  {lmOptions.map((l) => (
+                    <SelectItem key={l} value={l}>{l}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+
+            {(filterProvince || filterStatus || filterLm) && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="gap-2"
+                onClick={() => { setFilterProvince(''); setFilterStatus(''); setFilterLm(''); }}
+              >
+                <X className="w-4 h-4" /> Reset Filter
+              </Button>
+            )}
+
+            <div className="ml-auto text-sm text-muted-foreground">
+              {filteredLeads.length} dari {leads.length} leads
+            </div>
+          </div>
+        )}
+
         {/* Leads Table */}
         {loading ? (
           <div className="glass rounded-xl p-12 text-center">
@@ -177,7 +266,7 @@ const AdminDashboard = () => {
             <p className="text-muted-foreground">Memuat data leads...</p>
           </div>
         ) : (
-          <LeadsTable leads={leads} onUpdate={handleUpdateLead} />
+          <LeadsTable leads={filteredLeads} onUpdate={handleUpdateLead} />
         )}
       </div>
     </div>

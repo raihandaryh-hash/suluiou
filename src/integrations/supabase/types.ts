@@ -22,6 +22,8 @@ export type Database = {
           follow_up_status: string
           id: string
           lead_score: number
+          lm_id: string | null
+          lm_name: string | null
           match_percentage: number
           notes: string | null
           projection: string | null
@@ -44,6 +46,8 @@ export type Database = {
           follow_up_status?: string
           id?: string
           lead_score?: number
+          lm_id?: string | null
+          lm_name?: string | null
           match_percentage: number
           notes?: string | null
           projection?: string | null
@@ -66,6 +70,8 @@ export type Database = {
           follow_up_status?: string
           id?: string
           lead_score?: number
+          lm_id?: string | null
+          lm_name?: string | null
           match_percentage?: number
           notes?: string | null
           projection?: string | null
@@ -101,6 +107,39 @@ export type Database = {
           display_name?: string | null
           id?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      province_contexts: {
+        Row: {
+          created_at: string | null
+          economic_sectors: string[] | null
+          id: string
+          narrative_hooks: string[] | null
+          opportunities_2030: string | null
+          province: string
+          social_context: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          economic_sectors?: string[] | null
+          id?: string
+          narrative_hooks?: string[] | null
+          opportunities_2030?: string | null
+          province: string
+          social_context?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          economic_sectors?: string[] | null
+          id?: string
+          narrative_hooks?: string[] | null
+          opportunities_2030?: string | null
+          province?: string
+          social_context?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }

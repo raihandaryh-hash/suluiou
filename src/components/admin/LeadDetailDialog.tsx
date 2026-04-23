@@ -48,6 +48,8 @@ interface LeadResult {
   follow_up_status: string;
   notes: string | null;
   submitted_at: string;
+  lm_name: string | null;
+  lm_id: string | null;
 }
 
 interface LeadDetailDialogProps {
@@ -122,6 +124,10 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
                   year: 'numeric',
                 })}
               </p>
+            </div>
+            <div className="col-span-2">
+              <Label className="text-xs text-muted-foreground">Learning Mentor</Label>
+              <p className="text-sm text-foreground">{lead.lm_name || '—'}</p>
             </div>
           </div>
 

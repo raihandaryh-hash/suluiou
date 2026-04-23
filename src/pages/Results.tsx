@@ -169,12 +169,12 @@ const Results = () => {
           <h2 className="text-2xl font-heading font-bold mb-6 text-center">
             Profil Dimensi
           </h2>
-          <ResponsiveContainer width="100%" height={380}>
+          <ResponsiveContainer width="100%" height={300} className="md:!h-[380px]">
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
               <PolarGrid stroke="hsl(225, 20%, 18%)" />
               <PolarAngleAxis
                 dataKey="dimension"
-                tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 11 }}
+                tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 10 }}
               />
               <PolarRadiusAxis
                 domain={[0, 5]}

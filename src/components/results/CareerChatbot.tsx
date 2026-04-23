@@ -166,7 +166,7 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-6rem)] flex flex-col glass rounded-2xl border border-border shadow-2xl overflow-hidden"
+            className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 w-full sm:w-[380px] sm:max-w-[calc(100vw-2rem)] h-[60vh] sm:h-[520px] max-h-[100vh] sm:max-h-[calc(100vh-6rem)] flex flex-col glass rounded-2xl border border-border shadow-2xl overflow-hidden"
             initial={{ opacity: 0, y: 40, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.9 }}
