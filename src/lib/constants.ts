@@ -1,5 +1,7 @@
 export const IOU_WA_NUMBER = '6287784411000';
-export const IOU_REGISTRATION_URL = 'https://iou.edu.gm'; // TODO: update before go-live
+export const IOU_REGISTRATION_URL = 'https://campus.bahasa.iou.edu.gm/login/signup.php';
+export const IOU_WEBSITE_URL = 'https://bahasa.iou.edu.gm/';
+export const IOU_INSTAGRAM_URL = 'https://www.instagram.com/iouindonesia/';
 export const IOU_WA_TEMPLATES = {
   afterAssessment: 'Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏',
 };
