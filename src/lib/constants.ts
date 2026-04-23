@@ -1,4 +1,4 @@
-export const IOU_WA_NUMBER = '6281234567890'; // TODO: update before go-live
+export const IOU_WA_NUMBER = '6287784411000';
 export const IOU_REGISTRATION_URL = 'https://iou.edu.gm'; // TODO: update before go-live
 export const IOU_WA_TEMPLATES = {
   afterAssessment: 'Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏',
