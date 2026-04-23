@@ -110,6 +110,39 @@ export type Database = {
         }
         Relationships: []
       }
+      province_contexts: {
+        Row: {
+          created_at: string | null
+          economic_sectors: string[] | null
+          id: string
+          narrative_hooks: string[] | null
+          opportunities_2030: string | null
+          province: string
+          social_context: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          economic_sectors?: string[] | null
+          id?: string
+          narrative_hooks?: string[] | null
+          opportunities_2030?: string | null
+          province: string
+          social_context?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          economic_sectors?: string[] | null
+          id?: string
+          narrative_hooks?: string[] | null
+          opportunities_2030?: string | null
+          province?: string
+          social_context?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
