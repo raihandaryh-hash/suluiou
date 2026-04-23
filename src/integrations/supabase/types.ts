@@ -22,6 +22,8 @@ export type Database = {
           follow_up_status: string
           id: string
           lead_score: number
+          lm_id: string | null
+          lm_name: string | null
           match_percentage: number
           notes: string | null
           projection: string | null
@@ -44,6 +46,8 @@ export type Database = {
           follow_up_status?: string
           id?: string
           lead_score?: number
+          lm_id?: string | null
+          lm_name?: string | null
           match_percentage: number
           notes?: string | null
           projection?: string | null
@@ -66,6 +70,8 @@ export type Database = {
           follow_up_status?: string
           id?: string
           lead_score?: number
+          lm_id?: string | null
+          lm_name?: string | null
           match_percentage?: number
           notes?: string | null
           projection?: string | null
