@@ -48,7 +48,8 @@ interface AssessmentContextType extends AssessmentState {
   // Lifecycle
   startHexaco: () => void;
   startSds: () => void;
-  completeAssessment: () => Promise<void>;
+  completeAssessment: () => void;            // sync — only computes & stores scores
+  triggerProjection: () => Promise<void>;    // async — fetches AI narrative on demand
   resetAssessment: () => void;
 }
 
@@ -113,11 +114,12 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   const startHexaco = () => setState((p) => ({ ...p, stage: 'hexaco' }));
   const startSds = () => setState((p) => ({ ...p, stage: 'sds', sdsSection: 1 }));
 
-  const completeAssessment = async () => {
+  // Pure & instant: compute scores → match pathways → store. No AI here.
+  // Caller redirects to /results immediately, then triggers AI from the page.
+  const completeAssessment = () => {
     const { scores, hollandCode } = combineScores(state.hexacoAnswers, state.sdsAnswers);
     const matches = matchPathways(scores, pathways);
     const fallbackProjection = generateProjection(matches[0], scores);
-    const topMatch = matches[0];
 
     setState((prev) => ({
       ...prev,
@@ -126,21 +128,34 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       scores,
       hollandCode,
       pathwayMatches: matches,
-      projection: fallbackProjection,
-      generatingProjection: true,
+      projection: fallbackProjection, // static template — shown only if AI fails
+      generatingProjection: false,
     }));
+  };
+
+  // Called by /results after first paint. Safe to call multiple times — it
+  // short-circuits if a non-fallback projection already exists or a request
+  // is already in flight.
+  const triggerProjection = async () => {
+    const cur = state;
+    if (cur.generatingProjection) return;
+    if (!cur.scores || !cur.pathwayMatches || cur.pathwayMatches.length === 0) return;
+
+    const topMatch = cur.pathwayMatches[0];
+
+    setState((prev) => ({ ...prev, generatingProjection: true }));
 
     try {
       const projection = await api.generateProjection({
-        scores,
-        hollandCode,
+        scores: cur.scores,
+        hollandCode: cur.hollandCode,
         pathway: {
           name: topMatch.pathway.name,
           careers: topMatch.pathway.careers,
           localIndustries: topMatch.pathway.localIndustries,
         },
         topTraits: topMatch.topTraits,
-        studentProfile: state.studentProfile ?? {
+        studentProfile: cur.studentProfile ?? {
           name: '',
           province: '',
           familyBackground: '',
@@ -151,6 +166,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       if (projection) {
         setState((prev) => ({ ...prev, projection, generatingProjection: false }));
       } else {
+        // Keep fallback already in state. User sees something instead of nothing.
         setState((prev) => ({ ...prev, generatingProjection: false }));
       }
     } catch (err) {
@@ -174,6 +190,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         startHexaco,
         startSds,
         completeAssessment,
+        triggerProjection,
         resetAssessment,
       }}
     >
