@@ -453,9 +453,6 @@ const Results = () => {
                 </Button>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-4">
-              Konsultasi langsung dengan konselor tersedia segera. Coming soon.
-            </p>
           </motion.div>
         </div>
       </div>
