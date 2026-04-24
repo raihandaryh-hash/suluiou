@@ -18,10 +18,14 @@ import { PROVINCES } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
 
 const FAMILY_OPTIONS = [
-  'Keluarga petani atau nelayan',
+  'Keluarga petani, nelayan, atau peternak',
   'Keluarga pedagang atau wirausaha',
-  'Keluarga karyawan atau pekerja',
+  'Keluarga karyawan swasta atau buruh',
   'Keluarga pegawai negeri, TNI, atau Polri',
+  'Keluarga profesional (dokter, guru, insinyur, dll)',
+  'Keluarga pengusaha atau wiraswasta besar',
+  'Keluarga pendakwah, ustadz, atau ulama',
+  'Lainnya',
   'Tidak ingin berbagi',
 ];
 
