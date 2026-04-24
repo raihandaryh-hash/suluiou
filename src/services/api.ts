@@ -65,6 +65,7 @@ export const api = {
 
   async generateProjection(payload: {
     scores: Record<string, number>;
+    hollandCode?: string | null;
     pathway: { name: string; careers: string[]; localIndustries: string[] };
     topTraits: string[];
     studentProfile: {
