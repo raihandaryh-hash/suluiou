@@ -24,6 +24,7 @@ import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
+import { getStudentSession } from '@/lib/classSession';
 
 const Results = () => {
   const {
@@ -101,11 +102,17 @@ const Results = () => {
       scores: scores as Record<string, number>,
     });
 
-    const insertData = {
-      student_name: info.name || studentProfile?.name || null,
-      student_email: info.email || null,
-      student_phone: info.phone || null,
-      student_class: info.student_class || null,
+    const session = getStudentSession();
+    const insertData: Parameters<typeof api.saveResult>[0] & {
+      class_id?: string | null;
+      guest_identifier?: string | null;
+      user_id?: string | null;
+      completed_at?: string;
+    } = {
+      student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
+      student_email: info.email || (session?.kind === 'google' ? session.email : null),
+      student_phone: info.phone || (session?.kind === 'guest' ? session.phone : null),
+      student_class: info.student_class || (session?.className ?? null),
       school_name: info.school || null,
       // Both columns now share the same resolved value for consistency.
       student_province: resolvedProvince || null,
@@ -123,6 +130,10 @@ const Results = () => {
       projection: projection ?? '',
       lead_score: leadScore,
       layer1_text: layer1 ?? null,
+      class_id: session?.classId ?? null,
+      guest_identifier: session?.kind === 'guest' ? session.guestIdentifier : null,
+      user_id: session?.kind === 'google' ? session.userId : null,
+      completed_at: new Date().toISOString(),
     };
 
     const { error, id } = await api.saveResult(insertData);
