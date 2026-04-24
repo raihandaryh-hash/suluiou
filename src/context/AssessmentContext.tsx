@@ -10,6 +10,7 @@ import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
 import { pathways } from '@/data/pathways';
 import { api } from '@/services/api';
+import { buildTopHexacoTraits } from '@/lib/hexacoTraits';
 
 export interface StudentProfile {
   name: string;
@@ -180,6 +181,47 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const triggerLayer1 = async () => {
+    const cur = state;
+    if (cur.generatingLayer1 || cur.layer1) return;
+    if (!cur.scores) return;
+
+    setState((prev) => ({ ...prev, generatingLayer1: true }));
+
+    try {
+      const hexaco = {
+        H: cur.scores.honesty,
+        E: cur.scores.emotionality,
+        X: cur.scores.extraversion,
+        A: cur.scores.agreeableness,
+        C: cur.scores.conscientiousness,
+        O: cur.scores.openness,
+      };
+      const riasec = {
+        R: cur.scores.realistic,
+        I: cur.scores.investigative,
+        A: cur.scores.artistic,
+        S: cur.scores.social,
+        E: cur.scores.enterprising,
+        C: cur.scores.conventional,
+      };
+      const layer1 = await api.generateLayer1({
+        hexaco,
+        riasec,
+        hollandCode: cur.hollandCode,
+        topHexacoTraits: buildTopHexacoTraits(hexaco as unknown as Record<string, number>),
+        profile: {
+          aspiration: cur.studentProfile?.aspiration,
+          // learningStyle / careerCertainty / contributionGoal not yet collected
+        },
+      });
+      setState((prev) => ({ ...prev, layer1: layer1 ?? null, generatingLayer1: false }));
+    } catch (err) {
+      console.warn('AI layer1 error, using fallback:', err);
+      setState((prev) => ({ ...prev, generatingLayer1: false }));
+    }
+  };
+
   const resetAssessment = () => setState(initialState);
 
   return (
@@ -195,6 +237,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         startHexaco,
         startSds,
         completeAssessment,
+        triggerLayer1,
         triggerProjection,
         resetAssessment,
       }}
