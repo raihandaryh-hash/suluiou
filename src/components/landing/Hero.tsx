@@ -63,7 +63,7 @@ const Hero = () => {
             <Link to="/suar">Lihat Presentasi Suar</Link>
           </Button>
           <Button asChild size="lg" className="group text-lg px-8 py-6 bg-accent text-primary-foreground hover:bg-accent/90 glow-accent">
-            <Link to="/assessment">
+            <Link to="/login">
               Mulai Assessment
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>

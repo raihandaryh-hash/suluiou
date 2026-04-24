@@ -20,10 +20,29 @@ import {
 } from '@/lib/progress';
 
 export interface StudentProfile {
+  // Identitas (auto dari Google / guest, tetap disimpan agar AI/PDF konsisten).
   name: string;
+  // Field Step 0 baru (Kloter 9):
   province: string;
   familyBackground: string;
+  learningStyle: string;
+  careerCertainty: string;
+  contributionGoal: string;
+  educationPlan: string;
   aspiration: string;
+}
+
+/** True jika 6 field wajib Step 0 sudah terisi. Aspirasi opsional. */
+export function isProfileComplete(p: StudentProfile | null | undefined): boolean {
+  if (!p) return false;
+  return Boolean(
+    p.province &&
+      p.familyBackground &&
+      p.learningStyle &&
+      p.careerCertainty &&
+      p.contributionGoal &&
+      p.educationPlan,
+  );
 }
 
 export type AssessmentStage = 'profile' | 'hexaco' | 'sds' | 'submitting';
@@ -43,12 +62,14 @@ interface AssessmentState {
   layer1: string | null;
   generatingLayer1: boolean;
   studentProfile: StudentProfile | null;
+  consentGiven: boolean;
   hydrating: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
   // Profile
   setStudentProfile: (p: StudentProfile) => void;
+  setConsent: (given: boolean) => void;
   // HEXACO
   setHexacoAnswer: (id: number, value: number) => void;
   nextHexaco: () => void;
@@ -82,6 +103,7 @@ const initialState: AssessmentState = {
   layer1: null,
   generatingLayer1: false,
   studentProfile: null,
+  consentGiven: false,
   hydrating: true,
 };
 
@@ -113,6 +135,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
             stage: snap.stage,
             hexacoIndex: snap.hexacoIndex,
             sdsSection: snap.sdsSection,
+            consentGiven: snap.consentGiven,
             hydrating: false,
           }));
         } else {
@@ -146,6 +169,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         stage: state.stage,
         hexacoIndex: state.hexacoIndex,
         sdsSection: state.sdsSection,
+        consentGiven: state.consentGiven,
       });
     }, 600);
 
@@ -159,11 +183,17 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     state.stage,
     state.hexacoIndex,
     state.sdsSection,
+    state.consentGiven,
     state.isComplete,
   ]);
 
+  // Save profile only. Routing decisions belong to the router (see /profile → /consent).
   const setStudentProfile = (profile: StudentProfile) => {
-    setState((prev) => ({ ...prev, studentProfile: profile, stage: 'hexaco' }));
+    setState((prev) => ({ ...prev, studentProfile: profile }));
+  };
+
+  const setConsent = (given: boolean) => {
+    setState((prev) => ({ ...prev, consentGiven: given }));
   };
 
   const setHexacoAnswer = (id: number, value: number) => {
@@ -321,6 +351,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       value={{
         ...state,
         setStudentProfile,
+        setConsent,
         setHexacoAnswer,
         nextHexaco,
         prevHexaco,

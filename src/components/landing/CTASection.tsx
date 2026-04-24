@@ -28,7 +28,7 @@ const CTASection = () => {
           </p>
 
           <Button asChild size="lg" className="group text-lg px-10 py-6 bg-accent text-primary-foreground hover:bg-accent/90">
-            <Link to="/assessment">
+            <Link to="/login">
               Mulai Assessment Gratis
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
