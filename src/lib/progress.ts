@@ -70,6 +70,7 @@ export async function saveProgress(
     stage: snap.stage,
     hexaco_index: snap.hexacoIndex,
     sds_section: snap.sdsSection,
+    consent_given: snap.consentGiven,
   };
 
   const row =
