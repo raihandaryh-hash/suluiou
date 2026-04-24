@@ -1,10 +1,16 @@
-export const IOU_WA_NUMBER = '6287784411000';
+export const IOU_WA_NUMBER_IKHWAN = '6287784411000';
+export const IOU_WA_NUMBER_AKHWAT = '6282125351100';
+/** @deprecated gunakan IOU_WA_NUMBER_IKHWAN / IOU_WA_NUMBER_AKHWAT */
+export const IOU_WA_NUMBER = IOU_WA_NUMBER_IKHWAN;
 export const IOU_REGISTRATION_URL = 'https://campus.bahasa.iou.edu.gm/login/signup.php';
 export const IOU_WEBSITE_URL = 'https://bahasa.iou.edu.gm/';
 export const IOU_INSTAGRAM_URL = 'https://www.instagram.com/iouindonesia/';
 export const IOU_WA_TEMPLATES = {
   afterAssessment: 'Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏',
 };
+
+export const buildWaUrl = (number: string, message: string) =>
+  `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 
 export const PROVINCES = [
   'Aceh','Sumatera Utara','Sumatera Barat','Riau','Kepulauan Riau',

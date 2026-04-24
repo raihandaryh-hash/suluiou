@@ -21,7 +21,13 @@ import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
-import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
+import {
+  IOU_WA_NUMBER_IKHWAN,
+  IOU_WA_NUMBER_AKHWAT,
+  IOU_REGISTRATION_URL,
+  IOU_WA_TEMPLATES,
+  buildWaUrl,
+} from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
 
 const Results = () => {
@@ -153,10 +159,7 @@ const Results = () => {
     }
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
-    window.open(
-      'https://wa.me/' + IOU_WA_NUMBER + '?text=' + encodeURIComponent(IOU_WA_TEMPLATES.afterAssessment),
-      '_blank'
-    );
+    // Tidak auto-open WA — siswa pilih sendiri tombol ikhwan/akhwat di bawah.
   };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
@@ -410,14 +413,39 @@ const Results = () => {
                 Daftar di IOU Indonesia
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 py-6 gap-2"
-                onClick={() => window.open('https://wa.me/' + IOU_WA_NUMBER + '?text=' + encodeURIComponent(IOU_WA_TEMPLATES.afterAssessment), '_blank')}
-              >
-                Konsultasi via WhatsApp
-              </Button>
+            </div>
+            <div className="mt-6">
+              <p className="text-sm text-muted-foreground mb-3">
+                Konsultasi via WhatsApp dengan konselor sesuai gendermu:
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                  onClick={() =>
+                    window.open(
+                      buildWaUrl(IOU_WA_NUMBER_IKHWAN, IOU_WA_TEMPLATES.afterAssessment),
+                      '_blank'
+                    )
+                  }
+                >
+                  Konselor Ikhwan (Ikhwah)
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                  onClick={() =>
+                    window.open(
+                      buildWaUrl(IOU_WA_NUMBER_AKHWAT, IOU_WA_TEMPLATES.afterAssessment),
+                      '_blank'
+                    )
+                  }
+                >
+                  Konselor Akhwat (Muslimah)
+                </Button>
+              </div>
             </div>
             <p className="text-xs text-muted-foreground mt-4">
               Konsultasi langsung dengan konselor tersedia segera. Coming soon.
