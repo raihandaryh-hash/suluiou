@@ -133,6 +133,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     try {
       const projection = await api.generateProjection({
         scores,
+        hollandCode,
         pathway: {
           name: topMatch.pathway.name,
           careers: topMatch.pathway.careers,
