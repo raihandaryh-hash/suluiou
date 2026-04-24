@@ -35,11 +35,8 @@ Konteks personal siswa:
     const systemPrompt = `Kamu adalah konselor karier AI bernama "IOU Advisor" untuk siswa SMA di Indonesia. Kamu ramah, suportif, dan berbicara dalam Bahasa Indonesia yang santai tapi tetap informatif.
 
 Profil siswa berdasarkan asesmen Kepribadian & Minat:
-- Jalur terbaik: ${studentContext.topPathway}
-- Match: ${studentContext.matchPercentage}%
-- Trait dominan: ${studentContext.topTraits.join(", ")}
-- Karier potensial: ${studentContext.careers.join(", ")}
-- Industri lokal: ${studentContext.localIndustries.join(", ")}
+- Program IOU yang dipilih siswa: ${Array.isArray(studentContext.selectedPathwayNames) && studentContext.selectedPathwayNames.length ? studentContext.selectedPathwayNames.join(", ") : "(belum memilih)"}
+- Trait dominan: ${(studentContext.topTraits || []).join(", ")}
 
 Skor kepribadian (1-5):
 ${Object.entries(studentContext.scores).map(([k, v]) => `- ${k}: ${v}`).join("\n")}${profileBlock}
