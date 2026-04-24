@@ -43,11 +43,11 @@ const ModuleShowcase = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-[2.25rem] font-heading font-semibold mb-3 leading-tight">
             Empat Langkah Menuju{' '}
             <span className="text-gradient">Yaqazah</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
             Dari kesadaran sampai aksi — semuanya dirancang untukmu.
           </p>
         </motion.div>
@@ -72,10 +72,10 @@ const ModuleShowcase = () => {
               <p className="text-xs uppercase tracking-widest text-primary/70 mb-1 font-medium">
                 {mod.subtitle}
               </p>
-              <h3 className="text-xl font-heading font-bold text-foreground mb-3">
+              <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
                 {mod.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {mod.description}
               </p>
             </motion.div>

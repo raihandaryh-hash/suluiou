@@ -57,10 +57,10 @@ function StatCard({ icon, value, suffix, label, delay }: StatCardProps) {
       <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
         {icon}
       </div>
-      <div className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-2">
+      <div className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-2">
         <AnimatedCounter target={value} suffix={suffix} />
       </div>
-      <p className="text-sm text-muted-foreground">{label}</p>
+      <p className="text-xs md:text-sm text-muted-foreground">{label}</p>
     </motion.div>
   );
 }
@@ -103,10 +103,10 @@ const DataInsights = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-[2.25rem] font-heading font-semibold mb-3 leading-tight">
             Dunia Sedang <span className="text-gradient">Berubah</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
             Data tidak berbohong. Apakah kamu sudah punya navigasinya?
           </p>
         </motion.div>
