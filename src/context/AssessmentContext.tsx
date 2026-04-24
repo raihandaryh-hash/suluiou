@@ -62,12 +62,14 @@ interface AssessmentState {
   layer1: string | null;
   generatingLayer1: boolean;
   studentProfile: StudentProfile | null;
+  consentGiven: boolean;
   hydrating: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
   // Profile
   setStudentProfile: (p: StudentProfile) => void;
+  setConsent: (given: boolean) => void;
   // HEXACO
   setHexacoAnswer: (id: number, value: number) => void;
   nextHexaco: () => void;
@@ -101,6 +103,7 @@ const initialState: AssessmentState = {
   layer1: null,
   generatingLayer1: false,
   studentProfile: null,
+  consentGiven: false,
   hydrating: true,
 };
 
