@@ -70,3 +70,14 @@ export function computeTopTraits(scores: DimensionScores): string[] {
     .slice(0, 3)
     .map(({ dim }) => traitLabels[dim]);
 }
+
+/**
+ * Lightweight shape passed to share/PDF/chatbot components.
+ * Replaces the old PathwayMatch (which carried RIASEC matching info).
+ * After Kloter 9 the student picks programs themselves — no auto-match.
+ */
+export interface TopSelection {
+  pathwayId: string;       // e.g. "psy" — empty string if nothing picked
+  pathwayName: string;     // human-readable, e.g. "Psikologi"
+  topTraits: string[];     // 3 dominant trait labels
+}
