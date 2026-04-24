@@ -21,6 +21,11 @@ Paragraf 1 (3-4 kalimat): Siapa kamu di 2030 — peran konkret, cara berkontribu
 Paragraf 2 (2-3 kalimat): Bagaimana perjalananmu menuju ke sana. Sesuaikan dengan learningStyle dan karakter dominan. Tentang proses, bukan hanya tujuan.
 Penutup (1-2 kalimat): Jembatan ringan ke IOU sebagai salah satu jalur — bukan satu-satunya. Contoh tone yang tepat: "Perjalanan ini butuh fondasi yang kuat — dan ada banyak cara untuk membangunnya, salah satunya lewat program-program IOU Indonesia yang dirancang untuk menjawab kebutuhan nyata seperti yang ada di depanmu."
 
+CARA MENGGUNAKAN program pilihan siswa:
+Jika ada program yang dipilih, kalimat jembatan ke IOU di akhir narasi boleh menyebut program tersebut secara ringan dan natural. Contoh: "...salah satunya lewat program Psikologi IOU yang memadukan ilmu jiwa modern dengan perspektif Islam."
+Jika tidak ada program dipilih, gunakan kalimat jembatan generik.
+JANGAN klaim sebagai satu-satunya pilihan terbaik.
+
 CARA MENGGUNAKAN KONTEKS PROVINSI:
 Sebutkan konteks sosial-ekonomi atau kebutuhan SDM di provinsi tersebut secara natural dan akurat. Contoh:
 - Jawa Barat: kebutuhan pendidikan berkualitas dan teknologi yang terus tumbuh
