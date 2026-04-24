@@ -1,7 +1,32 @@
 // Decide where an authenticated student should land based on DB state.
 // Used by Login (after Google OAuth or guest enroll) and by /consent / /assessment.
 import { supabase } from '@/integrations/supabase/client';
-import type { StudentSession } from '@/lib/classSession';
+import { patchStudentSession, type StudentSession } from '@/lib/classSession';
+
+/** Look up a student's most recent class enrollment and return class info. */
+async function findEnrolledClass(
+  session: StudentSession,
+): Promise<{ classId: string; className: string | null } | null> {
+  try {
+    let q = supabase
+      .from('class_enrollments')
+      .select('class_id, classes:class_id(name, session_closed)')
+      .order('enrolled_at', { ascending: false })
+      .limit(1);
+    q = session.kind === 'google'
+      ? q.eq('user_id', session.userId)
+      : q.eq('guest_identifier', session.guestIdentifier);
+    const { data } = await q.maybeSingle();
+    if (!data?.class_id) return null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const cls: any = data.classes;
+    if (cls?.session_closed) return null;
+    return { classId: data.class_id, className: cls?.name ?? null };
+  } catch (e) {
+    console.warn('[findEnrolledClass] failed', e);
+    return null;
+  }
+}
 
 export type AuthRoute = '/results' | '/assessment' | '/consent' | '/profile' | '/join';
 
