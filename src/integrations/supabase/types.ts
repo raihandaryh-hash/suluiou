@@ -33,6 +33,7 @@ export type Database = {
         Row: {
           class_id: string | null
           completed_at: string | null
+          consent_given: boolean
           guest_identifier: string | null
           hexaco_answers: Json
           hexaco_index: number
@@ -48,6 +49,7 @@ export type Database = {
         Insert: {
           class_id?: string | null
           completed_at?: string | null
+          consent_given?: boolean
           guest_identifier?: string | null
           hexaco_answers?: Json
           hexaco_index?: number
@@ -63,6 +65,7 @@ export type Database = {
         Update: {
           class_id?: string | null
           completed_at?: string | null
+          consent_given?: boolean
           guest_identifier?: string | null
           hexaco_answers?: Json
           hexaco_index?: number
@@ -101,6 +104,9 @@ export type Database = {
           lm_name: string | null
           match_percentage: number
           notes: string | null
+          parent_consent: boolean
+          parent_name: string | null
+          parent_phone: string | null
           projection: string | null
           province: string | null
           school_name: string | null
@@ -130,6 +136,9 @@ export type Database = {
           lm_name?: string | null
           match_percentage: number
           notes?: string | null
+          parent_consent?: boolean
+          parent_name?: string | null
+          parent_phone?: string | null
           projection?: string | null
           province?: string | null
           school_name?: string | null
@@ -159,6 +168,9 @@ export type Database = {
           lm_name?: string | null
           match_percentage?: number
           notes?: string | null
+          parent_consent?: boolean
+          parent_name?: string | null
+          parent_phone?: string | null
           projection?: string | null
           province?: string | null
           school_name?: string | null
