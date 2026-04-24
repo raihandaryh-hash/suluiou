@@ -1,33 +1,31 @@
 // Helpers for persisting & resuming assessment progress in DB.
 import { supabase } from '@/integrations/supabase/client';
 import type { StudentSession } from '@/lib/classSession';
+import type { StudentProfile } from '@/context/AssessmentContext';
 
 export interface ProgressRow {
   id: string;
   user_id: string | null;
   guest_identifier: string | null;
   class_id: string | null;
-  student_profile: {
-    name: string;
-    province: string;
-    familyBackground: string;
-    aspiration: string;
-  } | null;
+  student_profile: Partial<StudentProfile> | null;
   hexaco_answers: Record<string, number>;
   sds_answers: Record<string, boolean>;
   stage: string;
   hexaco_index: number;
   sds_section: number;
+  consent_given?: boolean;
   completed_at: string | null;
 }
 
 export interface ProgressSnapshot {
-  studentProfile: ProgressRow['student_profile'];
+  studentProfile: StudentProfile | null;
   hexacoAnswers: Record<number, number>;
   sdsAnswers: Record<string, boolean>;
   stage: 'profile' | 'hexaco' | 'sds' | 'submitting';
   hexacoIndex: number;
   sdsSection: 1 | 2 | 3;
+  consentGiven: boolean;
 }
 
 /** Look up an unfinished progress row for the given session. */
