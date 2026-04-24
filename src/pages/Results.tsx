@@ -21,7 +21,13 @@ import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
-import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
+import {
+  IOU_WA_NUMBER_IKHWAN,
+  IOU_WA_NUMBER_AKHWAT,
+  IOU_REGISTRATION_URL,
+  IOU_WA_TEMPLATES,
+  buildWaUrl,
+} from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
 
 const Results = () => {
