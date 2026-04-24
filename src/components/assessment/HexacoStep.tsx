@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAssessment } from '@/context/AssessmentContext';
 import { hexacoQuestions, hexacoLikertLabels } from '@/data/hexacoQuestions';
 import { Button } from '@/components/ui/button';
@@ -17,7 +16,6 @@ const HexacoStep = () => {
     prevHexaco,
     startSds,
   } = useAssessment();
-  const navigate = useNavigate();
 
   const question = hexacoQuestions[hexacoIndex];
   const answeredCount = Object.keys(hexacoAnswers).length;
