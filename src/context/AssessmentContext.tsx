@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState, ReactNode } from 'react';
 import {
   DimensionScores,
   PathwayMatch,
@@ -11,6 +11,13 @@ import { sdsQuestions } from '@/data/sdsQuestions';
 import { pathways } from '@/data/pathways';
 import { api } from '@/services/api';
 import { buildTopHexacoTraits } from '@/lib/hexacoTraits';
+import { getStudentSession } from '@/lib/classSession';
+import {
+  fetchProgress,
+  rowToSnapshot,
+  saveProgress,
+  markProgressCompleted,
+} from '@/lib/progress';
 
 export interface StudentProfile {
   name: string;
@@ -36,6 +43,7 @@ interface AssessmentState {
   layer1: string | null;
   generatingLayer1: boolean;
   studentProfile: StudentProfile | null;
+  hydrating: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
@@ -74,10 +82,85 @@ const initialState: AssessmentState = {
   layer1: null,
   generatingLayer1: false,
   studentProfile: null,
+  hydrating: true,
 };
 
 export function AssessmentProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AssessmentState>(initialState);
+  const hydratedRef = useRef(false);
+  const saveTimerRef = useRef<number | null>(null);
+
+  // 1) Hydrate from DB on mount if there is a student session.
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      const session = getStudentSession();
+      if (!session) {
+        setState((p) => ({ ...p, hydrating: false }));
+        hydratedRef.current = true;
+        return;
+      }
+      try {
+        const row = await fetchProgress(session);
+        if (!active) return;
+        if (row) {
+          const snap = rowToSnapshot(row);
+          setState((p) => ({
+            ...p,
+            studentProfile: snap.studentProfile,
+            hexacoAnswers: snap.hexacoAnswers,
+            sdsAnswers: snap.sdsAnswers,
+            stage: snap.stage,
+            hexacoIndex: snap.hexacoIndex,
+            sdsSection: snap.sdsSection,
+            hydrating: false,
+          }));
+        } else {
+          setState((p) => ({ ...p, hydrating: false }));
+        }
+      } catch (err) {
+        console.warn('hydrate progress failed:', err);
+        if (active) setState((p) => ({ ...p, hydrating: false }));
+      } finally {
+        hydratedRef.current = true;
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  // 2) Auto-save (debounced) any time answers/stage change after hydration.
+  useEffect(() => {
+    if (!hydratedRef.current) return;
+    if (state.isComplete) return;
+    const session = getStudentSession();
+    if (!session) return;
+
+    if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = window.setTimeout(() => {
+      void saveProgress(session, {
+        studentProfile: state.studentProfile,
+        hexacoAnswers: state.hexacoAnswers,
+        sdsAnswers: state.sdsAnswers,
+        stage: state.stage,
+        hexacoIndex: state.hexacoIndex,
+        sdsSection: state.sdsSection,
+      });
+    }, 600);
+
+    return () => {
+      if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+    };
+  }, [
+    state.studentProfile,
+    state.hexacoAnswers,
+    state.sdsAnswers,
+    state.stage,
+    state.hexacoIndex,
+    state.sdsSection,
+    state.isComplete,
+  ]);
 
   const setStudentProfile = (profile: StudentProfile) => {
     setState((prev) => ({ ...prev, studentProfile: profile, stage: 'hexaco' }));
@@ -137,6 +220,12 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       projection: fallbackProjection, // static template — shown only if AI fails
       generatingProjection: false,
     }));
+
+    // Mark progress as completed so future logins skip resume.
+    const session = getStudentSession();
+    if (session) {
+      void markProgressCompleted(session);
+    }
   };
 
   // Called by /results after first paint. Safe to call multiple times — it
@@ -222,7 +311,10 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const resetAssessment = () => setState(initialState);
+  const resetAssessment = () => {
+    hydratedRef.current = true; // prevent re-hydration overwriting reset
+    setState({ ...initialState, hydrating: false });
+  };
 
   return (
     <AssessmentContext.Provider
