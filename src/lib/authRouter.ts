@@ -50,6 +50,15 @@ function profileHasAllRequired(p: Record<string, unknown> | null | undefined): b
 
 /** Determine where the authenticated student should go next. */
 export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute> {
+  // Always try to ensure session has classId populated from DB.
+  if (!session.classId) {
+    const enr = await findEnrolledClass(session);
+    if (enr) {
+      patchStudentSession({ classId: enr.classId, className: enr.className });
+      session = { ...session, classId: enr.classId, className: enr.className };
+    }
+  }
+
   // 1) Finished assessment?
   try {
     let q = supabase
@@ -90,17 +99,9 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
     return '/assessment';
   }
 
-  // 4) Enrolled but never started?
-  try {
-    let q = supabase.from('class_enrollments').select('class_id').limit(1);
-    q = session.kind === 'google'
-      ? q.eq('user_id', session.userId)
-      : q.eq('guest_identifier', session.guestIdentifier);
-    const { data: enr } = await q.maybeSingle();
-    if (enr?.class_id) return '/profile';
-  } catch (e) {
-    console.warn('[routeAfterAuth] enrollment check failed', e);
-  }
+  // 4) Enrolled but never started → go to profile (Step 0).
+  if (session.classId) return '/profile';
 
+  // 5) No enrollment → must input class code first.
   return '/join';
 }
