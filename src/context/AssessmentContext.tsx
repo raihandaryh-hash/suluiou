@@ -32,6 +32,8 @@ interface AssessmentState {
   pathwayMatches: PathwayMatch[] | null;
   projection: string | null;
   generatingProjection: boolean;
+  layer1: string | null;
+  generatingLayer1: boolean;
   studentProfile: StudentProfile | null;
 }
 
@@ -49,6 +51,7 @@ interface AssessmentContextType extends AssessmentState {
   startHexaco: () => void;
   startSds: () => void;
   completeAssessment: () => void;            // sync — only computes & stores scores
+  triggerLayer1: () => Promise<void>;        // async — fetches profile narrative on demand
   triggerProjection: () => Promise<void>;    // async — fetches AI narrative on demand
   resetAssessment: () => void;
 }
@@ -67,6 +70,8 @@ const initialState: AssessmentState = {
   pathwayMatches: null,
   projection: null,
   generatingProjection: false,
+  layer1: null,
+  generatingLayer1: false,
   studentProfile: null,
 };
 
