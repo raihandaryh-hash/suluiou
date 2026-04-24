@@ -24,6 +24,7 @@ import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
+import { ParentConsentSection } from '@/components/results/ParentConsentSection';
 import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
 
