@@ -15,7 +15,8 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { ArrowLeft, Download, Loader2, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Download, Loader2, Monitor, RefreshCw } from 'lucide-react';
+import ProjectorMode from '@/components/admin/ProjectorMode';
 
 const HEXACO_LABELS: Record<string, string> = {
   honesty: 'H — Kejujuran & Kerendahan Hati',
@@ -60,6 +61,7 @@ const AdminClassSession = () => {
   const [enrolledCount, setEnrolledCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [exporting, setExporting] = useState(false);
+  const [projectorOpen, setProjectorOpen] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
 
   const fetchAll = useCallback(async () => {
@@ -169,6 +171,16 @@ const AdminClassSession = () => {
             <Button variant="ghost" size="icon" onClick={fetchAll} disabled={loading}>
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             </Button>
+            {meta && (
+              <Button
+                onClick={() => setProjectorOpen(true)}
+                variant="secondary"
+                className="gap-2"
+              >
+                <Monitor className="w-4 h-4" />
+                Tampilkan ke Proyektor
+              </Button>
+            )}
             <Button onClick={handleDownloadPdf} disabled={exporting} className="gap-2">
               {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
               Download PDF
@@ -176,6 +188,17 @@ const AdminClassSession = () => {
           </div>
         </div>
       </header>
+
+      {projectorOpen && meta && (
+        <ProjectorMode
+          meta={meta}
+          completed={completed.length}
+          enrolled={enrolledCount}
+          hollandDist={hollandDist}
+          hexacoData={hexacoData}
+          onClose={() => setProjectorOpen(false)}
+        />
+      )}
 
       <div className="container mx-auto px-6 py-8" ref={reportRef}>
         {loading && !meta ? (
