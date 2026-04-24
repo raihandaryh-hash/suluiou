@@ -4,8 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AssessmentProvider } from "@/context/AssessmentContext";
-import IndexRedirect from "./pages/IndexRedirect";
+import Index from "./pages/Index";
 import Assessment from "./pages/Assessment";
+import Profile from "./pages/Profile";
+import Consent from "./pages/Consent";
 import Results from "./pages/Results";
 import Suar from "./pages/Suar";
 import AdminLogin from "./pages/AdminLogin";
@@ -29,9 +31,11 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<IndexRedirect />} />
+            <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<JoinClass />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/consent" element={<Consent />} />
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/results" element={<Results />} />
             <Route path="/suar" element={<Suar />} />
