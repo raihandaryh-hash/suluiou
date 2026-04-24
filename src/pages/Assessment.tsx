@@ -3,6 +3,7 @@ import ProfileStep from '@/components/assessment/ProfileStep';
 import HexacoStep from '@/components/assessment/HexacoStep';
 import SdsStep from '@/components/assessment/SdsStep';
 import Logo from '@/components/Logo';
+import LogoutButton from '@/components/LogoutButton';
 import { Loader2 } from 'lucide-react';
 
 const Assessment = () => {
@@ -18,16 +19,37 @@ const Assessment = () => {
     );
   }
 
+  const Header = (
+    <header className="absolute top-0 right-0 p-4 z-10">
+      <LogoutButton />
+    </header>
+  );
+
   if (stage === 'profile') {
-    return <ProfileStep onComplete={setStudentProfile} />;
+    return (
+      <div className="relative">
+        {Header}
+        <ProfileStep onComplete={setStudentProfile} />
+      </div>
+    );
   }
 
   if (stage === 'hexaco') {
-    return <HexacoStep />;
+    return (
+      <div className="relative">
+        {Header}
+        <HexacoStep />
+      </div>
+    );
   }
 
   if (stage === 'sds') {
-    return <SdsStep />;
+    return (
+      <div className="relative">
+        {Header}
+        <SdsStep />
+      </div>
+    );
   }
 
   // submitting
