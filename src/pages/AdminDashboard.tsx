@@ -161,6 +161,12 @@ const AdminDashboard = () => {
             Sulu <span className="text-foreground/60 font-normal text-sm ml-1">Partnership Dashboard</span>
           </Link>
           <div className="flex items-center gap-3">
+            <Link to="/admin/classes">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Users className="w-4 h-4" />
+                Manajemen Kelas
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
