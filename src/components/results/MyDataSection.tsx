@@ -99,7 +99,7 @@ Dihasilkan oleh Sulu — suluiou.lovable.app`;
         </button>
       </CollapsibleTrigger>
 
-      <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+      <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
         <div className="pt-4 grid md:grid-cols-2 gap-4">
           {/* Card kiri — HEXACO */}
           <div className="glass rounded-2xl p-5">

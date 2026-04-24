@@ -20,6 +20,7 @@ import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
+import { MyDataSection } from '@/components/results/MyDataSection';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
@@ -45,6 +46,8 @@ const Results = () => {
     layer1,
     generatingLayer1,
     triggerLayer1,
+    hollandCode,
+    sdsCounts,
   } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -218,6 +221,9 @@ const Results = () => {
           <p className="text-xs text-muted-foreground text-center mb-6">
             Profil ini berlaku secara umum, terlepas dari program studi manapun.
           </p>
+
+          {/* Data Saya — collapsible, default tertutup */}
+          <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
 
           {/* Cermin Dirimu (Layer 1) */}
           <motion.div className="glass rounded-2xl p-6 md:p-8 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
