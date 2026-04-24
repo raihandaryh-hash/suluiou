@@ -21,6 +21,7 @@ export type Database = {
           family_background: string | null
           follow_up_status: string
           id: string
+          layer1_text: string | null
           lead_score: number
           lm_id: string | null
           lm_name: string | null
@@ -45,6 +46,7 @@ export type Database = {
           family_background?: string | null
           follow_up_status?: string
           id?: string
+          layer1_text?: string | null
           lead_score?: number
           lm_id?: string | null
           lm_name?: string | null
@@ -69,6 +71,7 @@ export type Database = {
           family_background?: string | null
           follow_up_status?: string
           id?: string
+          layer1_text?: string | null
           lead_score?: number
           lm_id?: string | null
           lm_name?: string | null

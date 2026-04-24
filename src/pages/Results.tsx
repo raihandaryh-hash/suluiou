@@ -35,11 +35,15 @@ const Results = () => {
     generatingProjection,
     studentProfile,
     triggerProjection,
+    layer1,
+    generatingLayer1,
+    triggerLayer1,
   } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
   const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
+  const [showProjection, setShowProjection] = useState(false);
 
   useEffect(() => {
     if (!isComplete) {
@@ -47,13 +51,18 @@ const Results = () => {
     }
   }, [isComplete, navigate]);
 
-  // Kick off AI narrative AFTER first paint. Page already shows radar + pathways.
-  // triggerProjection() short-circuits if already running or already done.
+  // After first paint, kick off Layer 1 (profile narrative). Layer 3 (projection)
+  // only fires when the user clicks the "Lihat Proyeksi 2030-mu" button.
   useEffect(() => {
     if (!isComplete || !scores || !pathwayMatches) return;
-    void triggerProjection();
+    void triggerLayer1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);
+
+  const handleRevealProjection = () => {
+    setShowProjection(true);
+    void triggerProjection();
+  };
 
   if (!scores || !pathwayMatches) return null;
 
@@ -213,6 +222,32 @@ const Results = () => {
           Profil ini berlaku secara umum, terlepas dari program studi manapun.
         </p>
 
+        {/* Section: Cermin Dirimu (Layer 1 — agnostic profile narrative) */}
+        <motion.div
+          className="glass rounded-2xl p-6 md:p-8 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2 className="text-2xl font-heading font-bold mb-4">Cermin Dirimu</h2>
+          {generatingLayer1 ? (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Sedang membaca profilmu...</span>
+              </div>
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          ) : (
+            <p className="text-base md:text-lg leading-relaxed text-foreground/90 whitespace-pre-line">
+              {layer1 ?? 'Profil kepribadian dan minatmu sudah terekam. Kombinasi unik dari cara kamu berpikir, merasakan, dan bekerja membentuk potensi yang menunggu untuk dieksplorasi lebih jauh.'}
+            </p>
+          )}
+        </motion.div>
+
         {/* Section 2: Dalam Konteks Program IOU */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-4">
@@ -317,7 +352,7 @@ const Results = () => {
           />
         </motion.div>
 
-        {/* Parallel Self Projection */}
+        {/* Parallel Self Projection (Layer 3 — gated behind a button) */}
         <motion.div
           className="relative glass rounded-2xl p-8 md:p-12 mb-12 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
@@ -331,7 +366,23 @@ const Results = () => {
               Dirimu di Tahun 2030
             </h2>
           </div>
-          {generatingProjection || !projection ? (
+
+          {!showProjection ? (
+            <div className="text-center py-4">
+              <p className="text-sm text-muted-foreground mb-4">
+                Siap melihat gambaran dirimu beberapa tahun ke depan?
+              </p>
+              <Button
+                size="lg"
+                className="gap-2 glow-primary"
+                disabled={generatingLayer1}
+                onClick={handleRevealProjection}
+              >
+                <Sparkles className="w-4 h-4" />
+                {generatingLayer1 ? 'Sedang disiapkan...' : 'Lihat Proyeksi 2030-mu'}
+              </Button>
+            </div>
+          ) : generatingProjection || !projection ? (
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -344,8 +395,8 @@ const Results = () => {
             </div>
           ) : (
             <>
-              <p className="text-lg leading-relaxed text-foreground/90 italic">
-                &ldquo;{projection}&rdquo;
+              <p className="text-lg leading-relaxed text-foreground/90 italic whitespace-pre-line">
+                {projection}
               </p>
               <p className="text-xs text-muted-foreground mt-6">
                 * Proyeksi ini dibuat oleh AI berdasarkan profil kepribadian dan minatmu.

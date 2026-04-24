@@ -104,6 +104,41 @@ export const api = {
     }
   },
 
+  async generateLayer1(payload: {
+    hexaco: { H: number; E: number; X: number; A: number; C: number; O: number };
+    riasec: { R: number; I: number; A: number; S: number; E: number; C: number };
+    hollandCode: string | null;
+    topHexacoTraits: string[];
+    profile: {
+      learningStyle?: string;
+      careerCertainty?: string;
+      contributionGoal?: string;
+      aspiration?: string;
+    };
+  }): Promise<string | null> {
+    if (USE_SUPABASE) {
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { data, error } = await supabase.functions.invoke(
+        'generate-layer1',
+        { body: payload }
+      );
+      if (error || !data?.layer1) return null;
+      return data.layer1 as string;
+    }
+    try {
+      const res = await fetch(`${API_BASE}/api/generate-layer1`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.layer1 || null;
+    } catch {
+      return null;
+    }
+  },
+
   // Returns a streaming Response so the chatbot can read SSE chunks.
   async careerChat(
     messages: unknown[],

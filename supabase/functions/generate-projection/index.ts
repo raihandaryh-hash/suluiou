@@ -6,43 +6,83 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const SYSTEM_PROMPT = `Kamu adalah futurist pendidikan yang menulis proyeksi personal untuk siswa SMA/SMK/MA Indonesia berusia 15-18 tahun. Tugasmu: gambarkan siapa mereka bisa menjadi di tahun 2030 — sekitar 4-5 tahun dari sekarang.
+
+ATURAN MUTLAK:
+1. Tulis dalam Bahasa Indonesia yang hangat, membumi, dan memotivasi
+2. Gunakan "kamu" sepanjang narasi
+3. Panjang: 180-220 kata. Tidak lebih.
+4. Nada: hopeful tapi realistis — bukan mimpi kosong, bukan beban berat
+5. JANGAN sebut kode teknis (HEXACO, RIASEC, Holland Code, nama dimensi)
+6. JANGAN gunakan bullet point atau heading — 2-3 paragraf mengalir
+
+STRUKTUR NARASI:
+Paragraf 1 (3-4 kalimat): Siapa kamu di 2030 — peran konkret, cara berkontribusi, nilai yang dibawa. Spesifik untuk profil ini, bukan generik. Gunakan konteks provinsi dan contributionGoal sebagai anchor.
+Paragraf 2 (2-3 kalimat): Bagaimana perjalananmu menuju ke sana. Sesuaikan dengan learningStyle dan karakter dominan. Tentang proses, bukan hanya tujuan.
+Penutup (1-2 kalimat): Jembatan ringan ke IOU sebagai salah satu jalur — bukan satu-satunya. Contoh tone yang tepat: "Perjalanan ini butuh fondasi yang kuat — dan ada banyak cara untuk membangunnya, salah satunya lewat program-program IOU Indonesia yang dirancang untuk menjawab kebutuhan nyata seperti yang ada di depanmu."
+
+CARA MENGGUNAKAN KONTEKS PROVINSI:
+Sebutkan konteks sosial-ekonomi atau kebutuhan SDM di provinsi tersebut secara natural dan akurat. Contoh:
+- Jawa Barat: kebutuhan pendidikan berkualitas dan teknologi yang terus tumbuh
+- Sulawesi Selatan: sektor pertanian dan kelautan yang bertransformasi
+- DKI Jakarta: persaingan yang justru membuka peluang bagi yang berkarakter kuat
+- Nusa Tenggara Timur: kebutuhan tenaga kesehatan dan pendidikan yang masih sangat besar
+Jika tidak yakin detail spesifik, tetap general tapi tidak salah.
+
+CARA MENGGUNAKAN contributionGoal:
+Ini benang merah proyeksi — harus tercermin di setiap paragraf:
+"keluarga dan orang-orang terdekat" = proyeksi berbasis stabilitas, peran sebagai tulang punggung
+"komunitas atau lingkungan sekitar" = proyeksi berbasis peran lokal konkret, perubahan yang terasa dekat
+"masyarakat luas" = proyeksi berbasis dampak sistemik, profesi yang menjangkau banyak orang
+"belum tahu" = proyeksi berbasis karakter dan nilai, undang siswa membayangkan
+
+CARA MENGGUNAKAN learningStyle:
+"belajar sendiri" = tekankan kemandirian dan kemampuan tumbuh tanpa harus selalu diarahkan
+"belajar bersama orang lain" = tekankan kolaborasi, belajar dari orang lain, jaringan sebagai aset
+"campuran keduanya" = tekankan fleksibilitas dan kemampuan menyesuaikan diri
+
+CARA MENGGUNAKAN careerCertainty:
+"sudah tahu" = proyeksi konkret tentang peran spesifik yang selaras profil
+"masih bingung" = proyeksi tentang karakter dan nilai sebagai fondasi solid, apapun jalannya
+"belum kepikiran" = proyeksi membuka, normalkan posisi mereka, undang berimajinasi
+
+CARA MENGGUNAKAN aspiration:
+Jika ada dan bermakna: jadikan titik awal atau benang merah proyeksi.
+Jika kosong atau "belum tahu": andalkan Holland Code dan karakter dominan.
+
+KONTEKS INDONESIA 2030 yang akurat:
+- Bonus demografi puncak: Indonesia butuh SDM berkarakter, bukan hanya bergelar
+- Sektor yang tumbuh berdasarkan Holland Code:
+  S dominan = pendidik, konselor, fasilitator komunitas, pengembang SDM
+  I dominan = peneliti, data analyst, tenaga kesehatan, ilmuwan terapan
+  E dominan = wirausahawan, pemimpin organisasi, manajer program, advokat kebijakan
+  A dominan = desainer komunikasi, kreator konten, pengembang kurikulum
+  C dominan = akuntan, analis sistem, koordinator program, administrator publik
+  R dominan = insinyur, teknisi, ahli pertanian modern, perancang infrastruktur
+
+YANG TIDAK BOLEH di kalimat jembatan IOU:
+Jangan: "IOU adalah pilihan terbaik untukmu", "Daftarkan dirimu sekarang", atau klaim berlebihan.`;
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
-    }
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
+      || "https://ai.gateway.lovable.dev/v1/chat/completions";
+    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
+
+    if (!apiKey) throw new Error("AI API key is not configured");
 
     const { scores, hollandCode, pathway, topTraits, studentProfile } = await req.json();
 
-    const systemPrompt = `Kamu adalah penulis narasi karier untuk siswa SMA di Indonesia. Tugasmu menulis narasi inspiratif orang kedua ("kamu") yang menggambarkan kehidupan profesional siswa di tahun 2030.
+    const sp = studentProfile || {};
 
-Aturan:
-- Tulis dalam Bahasa Indonesia yang hidup dan emosional
-- Gunakan sudut pandang orang kedua ("kamu")
-- Panjang 150-200 kata, satu hingga dua paragraf
-- Jangan gunakan bullet point atau heading
-- Spesifik terhadap trait kepribadian dan jalur karier siswa
-- Sebutkan industri lokal dan karier konkret
-- Jika tersedia, kaitkan narasi dengan provinsi siswa, latar belakang keluarganya, dan aspirasinya — buat ia merasa "ini benar-benar tentang aku"
-- Buat pembaca merasa bersemangat tentang masa depannya`;
+    const userPrompt = `Tulis proyeksi 2030 untuk siswa ini.
 
-    const profileBlock = studentProfile
-      ? `\n\nKonteks personal:
-- Nama panggilan: ${studentProfile.name || "(tidak disebutkan)"}
-- Provinsi: ${studentProfile.province || "(tidak disebutkan)"}
-- Latar belakang keluarga: ${studentProfile.familyBackground || "(tidak disebutkan)"}
-- Aspirasi pribadi: "${studentProfile.aspiration || "(tidak disebutkan)"}"`
-      : "";
-
-    const userPrompt = `Profil siswa:
-
-Kepribadian (HEXACO, skala 1-5):
+KEPRIBADIAN (HEXACO, skala 1-5):
 - Kejujuran & Kerendahan Hati: ${scores.honesty}
 - Emosionalitas: ${scores.emotionality}
 - Ekstraversi: ${scores.extraversion}
@@ -50,65 +90,63 @@ Kepribadian (HEXACO, skala 1-5):
 - Kehati-hatian: ${scores.conscientiousness}
 - Keterbukaan: ${scores.openness}
 
-Minat karier (RIASEC, skala 1-5):
-- Realistic (teknis/konkret): ${scores.realistic}
-- Investigative (analitis/ilmiah): ${scores.investigative}
-- Artistic (kreatif/ekspresif): ${scores.artistic}
-- Social (membantu/mengajar): ${scores.social}
-- Enterprising (memimpin/wirausaha): ${scores.enterprising}
-- Conventional (terstruktur/administratif): ${scores.conventional}
+MINAT KARIER (RIASEC, skala 1-5):
+- Realistic: ${scores.realistic}
+- Investigative: ${scores.investigative}
+- Artistic: ${scores.artistic}
+- Social: ${scores.social}
+- Enterprising: ${scores.enterprising}
+- Conventional: ${scores.conventional}
 
-Holland Code (3 minat tertinggi): ${hollandCode || "(tidak tersedia)"}
+Holland Code: ${hollandCode || "(tidak tersedia)"}
+Trait dominan (bahasa sehari-hari): ${(topTraits || []).join(", ") || "(tidak ada yang menonjol)"}
 
-Jalur terbaik: ${pathway.name}
-Karier potensial: ${pathway.careers.join(", ")}
-Industri lokal: ${pathway.localIndustries.join(", ")}
-Trait dominan: ${topTraits.join(", ")}${profileBlock}
+KONTEKS PERSONAL:
+- Provinsi: ${sp.province || "(tidak disebutkan)"}
+- Latar keluarga: ${sp.familyBackground || "(tidak disebutkan)"}
+- Cara belajar: ${sp.learningStyle || "(tidak disebutkan)"}
+- Keyakinan pilihan studi: ${sp.careerCertainty || "(tidak disebutkan)"}
+- Ingin berkontribusi untuk: ${sp.contributionGoal || "(tidak disebutkan)"}
+- Aspirasi: "${sp.aspiration || "tidak disebutkan"}"
 
-Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
+180-220 kata, Bahasa Indonesia, 2-3 paragraf mengalir.`;
 
-    // Exponential backoff for transient AI gateway errors (429/5xx).
-    // Max 3 attempts with 1s → 2s → 4s waits. Total worst case ≈ 7s + request time.
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
     let response: Response | null = null;
     let lastErrText = '';
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(
-          "https://ai.gateway.lovable.dev/v1/chat/completions",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${LOVABLE_API_KEY}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              model: AI_MODEL,
-              max_tokens: 1024,
-              temperature: 0.65,
-              messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: userPrompt },
-              ],
-            }),
-            signal: controller.signal,
-          }
-        );
+        response = await fetch(AI_BASE_URL, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: AI_MODEL,
+            max_tokens: 1024,
+            temperature: 0.65,
+            messages: [
+              { role: "system", content: SYSTEM_PROMPT },
+              { role: "user", content: userPrompt },
+            ],
+          }),
+          signal: controller.signal,
+        });
       } finally {
         clearTimeout(timeoutId);
       }
 
       if (response.ok) break;
 
-      // Retry only on rate limit (429) or 5xx; bail out on 4xx (auth/payment/etc).
       const isRetryable = response.status === 429 || response.status >= 500;
       lastErrText = await response.text().catch(() => '');
       console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status} ${lastErrText}`);
       if (!isRetryable || attempt === 2) break;
-      await sleep((2 ** attempt) * 1000); // 1s, 2s
+      await sleep((2 ** attempt) * 1000);
     }
 
     if (!response || !response.ok) {
