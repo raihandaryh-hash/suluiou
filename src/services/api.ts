@@ -40,21 +40,51 @@ export const api = {
     all_matches: unknown;
     projection: string;
     lead_score: number;
+    layer1_text?: string | null;
     lm_name?: string | null;
     lm_id?: string | null;
-  }) {
+  }): Promise<{ error: { message: string } | null; id?: string }> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
       // Cast to satisfy generated Json typing for jsonb columns.
-      return supabase
+      const { data: inserted, error } = await supabase
         .from('assessment_results')
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .insert(data as any);
+        .insert(data as any)
+        .select('id')
+        .single();
+      if (error) return { error: { message: error.message } };
+      return { error: null, id: inserted?.id };
     }
     const res = await fetch(`${API_BASE}/api/results`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      return { error: { message: text || `HTTP ${res.status}` } };
+    }
+    const json = await res.json().catch(() => ({} as { id?: string }));
+    return { error: null, id: json?.id };
+  },
+
+  // Patch layer1_text into an existing assessment_results row.
+  // Used when AI narrative finishes after the row has been inserted.
+  async updateLayer1(id: string, layer1_text: string): Promise<{ error: { message: string } | null }> {
+    if (USE_SUPABASE) {
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { error } = await supabase
+        .from('assessment_results')
+        .update({ layer1_text })
+        .eq('id', id);
+      if (error) return { error: { message: error.message } };
+      return { error: null };
+    }
+    const res = await fetch(`${API_BASE}/api/results/${id}/layer1`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ layer1_text }),
     });
     if (!res.ok) {
       const text = await res.text().catch(() => '');
