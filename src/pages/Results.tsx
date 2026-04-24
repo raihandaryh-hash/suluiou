@@ -111,9 +111,10 @@ const Results = () => {
       })),
       projection: projection ?? '',
       lead_score: leadScore,
+      layer1_text: layer1 ?? null,
     };
 
-    const { error } = await api.saveResult(insertData);
+    const { error, id } = await api.saveResult(insertData);
 
     if (error) {
       toast({
