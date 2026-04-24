@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, BarChart3, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, BarChart3 } from 'lucide-react';
 import heroImage from '@/assets/hero-sulu.jpg';
 import Logo from '@/components/Logo';
 
