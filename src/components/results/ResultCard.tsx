@@ -1,13 +1,12 @@
 import { forwardRef } from 'react';
 import { Sparkles } from 'lucide-react';
-import type { DimensionScores, PathwayMatch } from '@/lib/scoring';
+import type { DimensionScores, TopSelection } from '@/lib/scoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 
 interface ResultCardProps {
   scores: DimensionScores;
-  topMatch: PathwayMatch;
-  allMatches: PathwayMatch[];
+  topSelection: TopSelection;
 }
 
 const IOU_BLUE = '#1a3a6c';
@@ -18,7 +17,7 @@ const WHITE = '#ffffff';
 const GRAY = '#6b7280';
 
 export const ResultCard = forwardRef<HTMLDivElement, ResultCardProps>(
-  ({ scores, topMatch, allMatches }, ref) => {
+  ({ scores, topSelection }, ref) => {
     const topDimensions = (Object.keys(traitLabels) as Dimension[])
       .map((key) => ({ key, label: traitLabels[key], value: scores[key] }))
       .sort((a, b) => b.value - a.value)
@@ -68,78 +67,52 @@ export const ResultCard = forwardRef<HTMLDivElement, ResultCardProps>(
               </div>
             </div>
           </div>
-          {/* Gold divider */}
           <div style={{ height: 2, background: IOU_GOLD, borderRadius: 1, opacity: 0.7 }} />
         </div>
 
         {/* Body */}
         <div style={{ padding: '24px 32px 28px' }}>
-          {/* Top match card */}
-          <div
-            style={{
-              background: IOU_BLUE_PALE,
-              borderRadius: 12,
-              padding: 20,
-              marginBottom: 16,
-              border: `1.5px solid ${IOU_BLUE}22`,
-              position: 'relative',
-            }}
-          >
-            <div style={{ position: 'absolute', top: 12, right: 16, fontSize: 10, fontWeight: 600, color: IOU_GOLD, textTransform: 'uppercase' as const, letterSpacing: 1 }}>
-              Top Match
-            </div>
-            <div style={{ fontSize: 36, marginBottom: 6 }}>{topMatch.pathway.icon}</div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-              <span style={{ fontSize: 40, fontWeight: 800, color: IOU_BLUE }}>
-                {topMatch.matchPercentage}%
-              </span>
-              <span style={{ fontSize: 12, color: GRAY, fontWeight: 500 }}>kecocokan</span>
-            </div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: IOU_BLUE, marginBottom: 8 }}>
-              {topMatch.pathway.name}
-            </div>
-            <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' as const }}>
-              {topMatch.topTraits.map((t) => (
-                <span
-                  key={t}
-                  style={{
-                    fontSize: 10,
-                    padding: '3px 10px',
-                    borderRadius: 20,
-                    background: WHITE,
-                    color: IOU_BLUE,
-                    border: `1px solid ${IOU_BLUE}33`,
-                    fontWeight: 600,
-                  }}
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Runner-up matches */}
-          <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
-            {allMatches.slice(1, 3).map((m) => (
-              <div
-                key={m.pathway.id}
-                style={{
-                  flex: 1,
-                  background: WHITE,
-                  borderRadius: 10,
-                  padding: 14,
-                  border: `1.5px solid ${IOU_BLUE}18`,
-                  textAlign: 'center' as const,
-                }}
-              >
-                <div style={{ fontSize: 22, marginBottom: 4 }}>{m.pathway.icon}</div>
-                <div style={{ fontSize: 22, fontWeight: 800, color: IOU_BLUE_LIGHT }}>
-                  {m.matchPercentage}%
-                </div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: IOU_BLUE }}>{m.pathway.name}</div>
+          {/* Selected program (if any) */}
+          {topSelection.pathwayName && (
+            <div
+              style={{
+                background: IOU_BLUE_PALE,
+                borderRadius: 12,
+                padding: 20,
+                marginBottom: 16,
+                border: `1.5px solid ${IOU_BLUE}22`,
+                position: 'relative',
+              }}
+            >
+              <div style={{ position: 'absolute', top: 12, right: 16, fontSize: 10, fontWeight: 600, color: IOU_GOLD, textTransform: 'uppercase' as const, letterSpacing: 1 }}>
+                Program yang Aku Lirik
               </div>
-            ))}
-          </div>
+              <div style={{ fontSize: 12, color: GRAY, fontWeight: 500, marginBottom: 6 }}>
+                Aku tertarik mengeksplorasi
+              </div>
+              <div style={{ fontSize: 22, fontWeight: 800, color: IOU_BLUE, marginBottom: 10 }}>
+                {topSelection.pathwayName}
+              </div>
+              <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' as const }}>
+                {topSelection.topTraits.map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontSize: 10,
+                      padding: '3px 10px',
+                      borderRadius: 20,
+                      background: WHITE,
+                      color: IOU_BLUE,
+                      border: `1px solid ${IOU_BLUE}33`,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Top dimensions */}
           <div

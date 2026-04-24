@@ -3,21 +3,22 @@ import { Share2, MessageCircle, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { DownloadCardButton } from './DownloadCardButton';
-import type { DimensionScores, PathwayMatch } from '@/lib/scoring';
+import type { DimensionScores, TopSelection } from '@/lib/scoring';
 
 interface ShareButtonsProps {
-  topPathwayName: string;
-  matchPercentage: number;
   scores: DimensionScores;
-  topMatch: PathwayMatch;
-  allMatches: PathwayMatch[];
+  topSelection: TopSelection;
 }
 
-export function ShareButtons({ topPathwayName, matchPercentage, scores, topMatch, allMatches }: ShareButtonsProps) {
+export function ShareButtons({ scores, topSelection }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  const shareText = `🔥 Aku baru selesai tes minat karier di Sulu by IOU!\n\nHasilnya: jalur ${topPathwayName} cocok ${matchPercentage}% sama aku!\n\nCoba juga yuk 👉 ${window.location.origin}`;
+  const programLabel = topSelection.pathwayName
+    ? `program ${topSelection.pathwayName} di IOU`
+    : 'program-program di IOU Indonesia';
+
+  const shareText = `🔥 Aku baru selesai tes minat karier di Sulu by IOU Indonesia!\n\nAku jadi tertarik untuk eksplorasi ${programLabel}.\n\nCoba juga yuk 👉 ${window.location.origin}`;
 
   const shareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
@@ -47,7 +48,7 @@ export function ShareButtons({ topPathwayName, matchPercentage, scores, topMatch
       <p className="text-sm text-muted-foreground mb-5">
         Ajak temanmu ikut tes juga!
       </p>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
         <Button onClick={shareWhatsApp} className="gap-2 w-full sm:w-auto bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white">
           <MessageCircle className="w-4 h-4" />
           WhatsApp
@@ -62,7 +63,7 @@ export function ShareButtons({ topPathwayName, matchPercentage, scores, topMatch
           {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           {copied ? 'Tersalin!' : 'Salin Teks'}
         </Button>
-        <DownloadCardButton scores={scores} topMatch={topMatch} allMatches={allMatches} />
+        <DownloadCardButton scores={scores} topSelection={topSelection} />
       </div>
     </div>
   );

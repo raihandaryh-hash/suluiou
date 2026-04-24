@@ -1,22 +1,23 @@
 import { useState, useRef, useCallback } from 'react';
 import html2canvas from 'html2canvas';
 import { Button } from '@/components/ui/button';
-import { Download, Loader2, Share, Instagram, MessageCircle } from 'lucide-react';
+import { Download, Loader2, Instagram, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ResultCard } from './ResultCard';
-import type { DimensionScores, PathwayMatch } from '@/lib/scoring';
+import type { DimensionScores, TopSelection } from '@/lib/scoring';
 
 interface DownloadCardButtonProps {
   scores: DimensionScores;
-  topMatch: PathwayMatch;
-  allMatches: PathwayMatch[];
+  topSelection: TopSelection;
 }
 
-export function DownloadCardButton({ scores, topMatch, allMatches }: DownloadCardButtonProps) {
+export function DownloadCardButton({ scores, topSelection }: DownloadCardButtonProps) {
   const [generating, setGenerating] = useState(false);
   const [shareTarget, setShareTarget] = useState<string | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  const fileSlug = topSelection.pathwayId || 'profil';
 
   const generateCanvas = useCallback(async () => {
     if (!cardRef.current) return null;
@@ -39,7 +40,7 @@ export function DownloadCardButton({ scores, topMatch, allMatches }: DownloadCar
       const canvas = await generateCanvas();
       if (!canvas) return;
       const link = document.createElement('a');
-      link.download = `sulu-hasil-${topMatch.pathway.id}.png`;
+      link.download = `sulu-hasil-${fileSlug}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
       toast({ title: 'Berhasil!', description: 'Kartu hasil berhasil di-download.' });
@@ -49,7 +50,7 @@ export function DownloadCardButton({ scores, topMatch, allMatches }: DownloadCar
       setGenerating(false);
       setShareTarget(null);
     }
-  }, [topMatch, toast, generateCanvas]);
+  }, [fileSlug, toast, generateCanvas]);
 
   const handleNativeShare = useCallback(async (target: string) => {
     setGenerating(true);
@@ -58,19 +59,22 @@ export function DownloadCardButton({ scores, topMatch, allMatches }: DownloadCar
       const canvas = await generateCanvas();
       if (!canvas) return;
       const blob = await canvasToBlob(canvas);
-      const file = new File([blob], `sulu-hasil-${topMatch.pathway.id}.png`, { type: 'image/png' });
+      const file = new File([blob], `sulu-hasil-${fileSlug}.png`, { type: 'image/png' });
+
+      const programLabel = topSelection.pathwayName
+        ? `program ${topSelection.pathwayName} di IOU`
+        : 'program-program di IOU Indonesia';
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: 'Hasil Assessment Sulu',
-          text: `🔥 Jalur ${topMatch.pathway.name} cocok ${topMatch.matchPercentage}% sama aku! Coba juga yuk 👉 ${window.location.origin}`,
+          text: `🔥 Aku jadi tertarik untuk eksplorasi ${programLabel}! Coba juga yuk 👉 ${window.location.origin}`,
           files: [file],
         });
         toast({ title: 'Berhasil!', description: 'Kartu berhasil di-share.' });
       } else {
-        // Fallback: download the image
         const link = document.createElement('a');
-        link.download = `sulu-hasil-${topMatch.pathway.id}.png`;
+        link.download = `sulu-hasil-${fileSlug}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
         toast({
@@ -85,15 +89,14 @@ export function DownloadCardButton({ scores, topMatch, allMatches }: DownloadCar
       setGenerating(false);
       setShareTarget(null);
     }
-  }, [topMatch, toast, generateCanvas]);
+  }, [fileSlug, toast, generateCanvas, topSelection.pathwayName]);
 
   const isActive = (target: string) => generating && shareTarget === target;
 
   return (
     <>
-      {/* Hidden card for capture */}
       <div style={{ position: 'absolute', left: '-9999px', top: 0 }} aria-hidden="true">
-        <ResultCard ref={cardRef} scores={scores} topMatch={topMatch} allMatches={allMatches} />
+        <ResultCard ref={cardRef} scores={scores} topSelection={topSelection} />
       </div>
 
       <Button onClick={handleDownload} disabled={generating} variant="outline" className="gap-2 w-full sm:w-auto">
