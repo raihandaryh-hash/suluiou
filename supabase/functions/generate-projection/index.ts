@@ -14,7 +14,7 @@ serve(async (req) => {
   try {
     const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
     const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.0-flash";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
     if (!AI_API_KEY) {
       throw new Error("AI_API_KEY is not configured");
     }
