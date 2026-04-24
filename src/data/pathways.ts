@@ -1,188 +1,79 @@
-import type { Dimension } from './questions';
+// src/data/pathways.ts
+// Sumber: bahasa.iou.edu.gm — fetched April 2026
+// riasecVector DIKOSONGKAN — menunggu validasi wakaprodi + Bu Hasna sebelum matching diaktifkan
+// careers & localIndustries DIHAPUS — menunggu data wakaprodi agar tidak misleading
 
-export interface Pathway {
-  id: string;
-  name: string;
-  faculty: string;
-  icon: string;
-  description: string;
-  careers: string[];
-  localIndustries: string[];
-  weights: Partial<Record<Dimension, number>>;
-  riasecVector?: number[]; // [R, I, A, S, E, C] normalized 0-1, order must match riasecDimensions
-  lensScore?: number;      // 0-1, placeholder until IOU Lens is implemented
-  projectionTemplates: string[];
+export const pathways = [
+  {
+    id: "bba",
+    name: "Administrasi Bisnis",
+    fullName: "Bachelor of Business Administration (BBA)",
+    degree: "S1",
+    faculty: "Fakultas Administrasi Bisnis",
+    url: "https://bahasa.iou.edu.gm/stream/bba/",
+    description:
+      "Program BBA IOU menggabungkan ilmu manajemen modern dengan perspektif Islam. Kamu akan mempelajari marketing, keuangan, SDM, kepemimpinan, dan kewirausahaan — sekaligus memahami bagaimana bisnis yang etis dijalankan dalam kerangka nilai Islam. Program ini mengembangkan kemampuan pengambilan keputusan dalam situasi bisnis nyata, keterampilan analitis, inovasi bisnis, dan tanggung jawab sosial-Islami.",
+    iouUniqueness:
+      "IOU mengintegrasikan perspektif Islam ke setiap aspek kurikulum bisnis — dari etika marketing hingga kepemimpinan berbasis nilai. Lulusan tidak hanya cerdas secara bisnis, tapi juga bertanggung jawab secara moral dan sosial.",
+  },
+  {
+    id: "psy",
+    name: "Psikologi",
+    fullName: "Bachelor of Science in Psychology (BSc PSY)",
+    degree: "S1",
+    faculty: "Fakultas Psikologi",
+    url: "https://bahasa.iou.edu.gm/stream/psy/",
+    description:
+      "Program Psikologi IOU menawarkan pendidikan luas dalam subdisiplin psikologi — perilaku normal dan patologis, emosi, kesejahteraan, kognisi, ilmu saraf, interaksi sosial, dan motivasi. Yang membedakan IOU: kurikulum mempertimbangkan interaksi antara pengaruh fisik, psikologis, budaya, agama, dan sosial untuk memahami manusia secara utuh. Tersedia juga pelatihan klinis terapan dan mata kuliah studi Islam.",
+    iouUniqueness:
+      "IOU mengintegrasikan psikologi Islam — pemahaman tentang jiwa (nafs) dalam perspektif Quran dan Sunnah — ke dalam kurikulum sains psikologi modern. Lulusan memahami manusia secara holistik: fisik, psikologis, dan ruhani.",
+  },
+  {
+    id: "bais",
+    name: "Studi Islam",
+    fullName: "Bachelor of Arts in Islamic Studies (BAIS)",
+    degree: "S1",
+    faculty: "Fakultas Studi Islam",
+    url: "https://bahasa.iou.edu.gm/stream/bais/",
+    description:
+      "Program BAIS IOU memberikan pemahaman mendalam dalam berbagai bidang kajian Islam: Aqidah, Fiqh, Tafsir, Seerah, dan dasar bahasa Arab. Program ini menghubungkan ajaran-ajaran klasik Islam dengan isu-isu kontemporer, memungkinkan mahasiswa memperluas studi teoretis Islam menjadi praktik yang bermakna. Gelar ini telah dibandingkan dengan universitas terkemuka di Timur Tengah, Afrika, dan Inggris untuk memastikan standar internasional.",
+    iouUniqueness:
+      "IOU didirikan oleh Dr. Bilal Philips dengan misi menyebarkan ilmu Islam otentik ke seluruh dunia. Kurikulum BAIS dirancang oleh ulama dan akademisi Islam bereputasi global, dengan penekanan pada metodologi yang benar dan relevansi kontemporer.",
+  },
+  {
+    id: "als",
+    name: "Bahasa Arab",
+    fullName: "Bachelor of Arts in Arabic Language Studies (BA ALS)",
+    degree: "S1",
+    faculty: "Fakultas Bahasa Arab & Linguistik",
+    url: "https://bahasa.iou.edu.gm/stream/ba-als/",
+    description:
+      "Program BA ALS IOU dirancang untuk memberikan fondasi yang kuat dalam bahasa Arab bagi penutur non-natif, dengan pendekatan pengajaran bahasa kedua. Program ini membangun kemampuan dari komunikasi sehari-hari hingga teks-teks akademis dan klasik Islam — membuka akses langsung ke khazanah keilmuan Islam yang sebagian besar masih dalam bahasa Arab.",
+    iouUniqueness:
+      "Program ALS IOU dirancang untuk menguasai bahasa Arab dari komunikasi dasar hingga sastra tinggi — dengan penekanan pada bahasa Arab fusha. Ini membuka akses ke ribuan kitab ulama yang belum diterjemahkan, menjadikan lulusan sebagai jembatan penting antara khazanah Islam klasik dan masyarakat modern.",
+  },
+  {
+    id: "med",
+    name: "Pendidikan",
+    fullName: "Master of Education (MEd)",
+    degree: "S2",
+    degreeNote:
+      "Program ini adalah jenjang S2 — cocok sebagai tujuan jangka panjang setelah menyelesaikan S1 di bidang apapun.",
+    faculty: "Fakultas Pendidikan",
+    url: "https://bahasa.iou.edu.gm/stream/med/",
+    description:
+      "Program MEd IOU dirancang untuk memperdalam pemahaman konseptual tentang pendidikan dan mendorong eksplorasi dalam bidang-bidang yang relevan. Mencakup penelitian mendalam, metodologi penelitian, analisis kritis, dan komunikasi akademis. Program ini mengadopsi pendekatan kontemporer dan mengangkat diskusi utama dalam bidang pendidikan — dengan nilai-nilai Islam tentang perdamaian, harmoni, dan toleransi yang tertanam dalam kurikulum.",
+    iouUniqueness:
+      "MEd IOU memandang pendidikan sebagai ibadah — meneruskan tradisi nabi sebagai mu'allim terbaik. Kurikulum mengintegrasikan metodologi penelitian pendidikan modern dengan falsafah tarbiyah Islamiyah, menghasilkan pendidik yang kompeten sekaligus berkarakter.",
+  },
+] as const;
+
+export type Pathway = (typeof pathways)[number];
+
+export function getPathwayById(id: string): Pathway | undefined {
+  return pathways.find((p) => p.id === id);
 }
 
-export const pathways: Pathway[] = [
-  {
-    id: 'business',
-    name: 'Business Administration',
-    faculty: 'Faculty of Business',
-    icon: '📊',
-    description:
-      'Membangun fondasi kewirausahaan dan manajemen bisnis yang kuat untuk menggerakkan ekonomi Indonesia.',
-    careers: [
-      'Entrepreneur',
-      'Business Consultant',
-      'Marketing Manager',
-      'Financial Analyst',
-      'Startup Founder',
-    ],
-    localIndustries: [
-      'UMKM Digital',
-      'E-commerce Lokal',
-      'Franchise F&B',
-      'Agribisnis Modern',
-      'Fintech',
-    ],
-    weights: {
-      enterprising: 3,
-      conscientiousness: 3,
-      extraversion: 2,
-      conventional: 2,
-      honesty: 2,
-    },
-    riasecVector: [0.2, 0.3, 0.2, 0.4, 0.9, 0.7],
-    projectionTemplates: [
-      'Tahun 2030. Kamu baru saja menutup laptop setelah meeting virtual dengan tim-mu yang terdiri dari 12 orang. Bisnis digital yang kamu rintis saat masih kuliah semester 4 kini sudah melayani lebih dari 500 UMKM di Jawa Timur. Keberanianmu mengambil risiko, dikombinasikan dengan kemampuan manajemen yang kamu asah, membuat para investor percaya pada visimu. Hari ini, kamu bukan hanya pengusaha — kamu adalah pembuka lapangan kerja.',
-      'Tahun 2030. Di usiamu yang masih muda, kamu sudah menjadi konsultan bisnis yang dipercaya oleh jaringan UMKM di kotamu. Kejelianmu membaca pasar dan kedisiplinanmu dalam mengelola data membuat setiap rekomendasi yang kamu berikan selalu tepat sasaran. Kamu membuktikan bahwa gelar tidak harus dari kampus mahal untuk bisa memberikan dampak nyata.',
-    ],
-  },
-  {
-    id: 'it',
-    name: 'Information Technology',
-    faculty: 'Faculty of IT',
-    icon: '💻',
-    description:
-      'Menguasai teknologi yang menggerakkan dunia digital, dari pengembangan software hingga keamanan siber.',
-    careers: [
-      'Software Developer',
-      'Data Analyst',
-      'Cybersecurity Specialist',
-      'AI Engineer',
-      'Tech Startup Founder',
-    ],
-    localIndustries: [
-      'Startup Teknologi',
-      'Digital Agency',
-      'Sistem Informasi Pemerintah',
-      'EdTech',
-      'HealthTech',
-    ],
-    weights: {
-      investigative: 3,
-      openness: 3,
-      realistic: 2,
-      conscientiousness: 2,
-      conventional: 1,
-    },
-    riasecVector: [0.6, 0.9, 0.3, 0.3, 0.4, 0.5],
-    projectionTemplates: [
-      'Tahun 2030. Layar monitormu menampilkan dashboard sistem yang kamu bangun untuk sebuah rumah sakit daerah. Sistem AI yang kamu kembangkan mampu memprediksi kebutuhan obat dengan akurasi 94%. Rasa ingin tahumu yang tak pernah padam dan kemampuan analitismu membawamu dari seorang mahasiswa IT biasa menjadi problem-solver yang dicari banyak institusi.',
-      'Tahun 2030. Kamu baru saja mendapat kontrak dari sebuah perusahaan logistik untuk mengembangkan sistem optimasi rute pengiriman. Tim remote-mu tersebar di 3 kota berbeda. Kemampuanmu memecahkan masalah kompleks dan ketekunanmu mempelajari teknologi baru menjadikanmu aset yang tak tergantikan di era digital ini.',
-    ],
-  },
-  {
-    id: 'psychology',
-    name: 'Psychology',
-    faculty: 'Faculty of Psychology',
-    icon: '🧠',
-    description:
-      'Memahami jiwa manusia untuk membantu individu dan organisasi mencapai potensi terbaiknya.',
-    careers: [
-      'Konselor',
-      'HR Specialist',
-      'UX Researcher',
-      'Organizational Psychologist',
-      'Life Coach',
-    ],
-    localIndustries: [
-      'Layanan Konseling',
-      'HR Consulting',
-      'Wellness Industry',
-      'UX Design Agency',
-      'NGO Sosial',
-    ],
-    weights: {
-      social: 3,
-      agreeableness: 3,
-      emotionality: 2,
-      openness: 2,
-      investigative: 2,
-    },
-    riasecVector: [0.1, 0.7, 0.3, 0.9, 0.4, 0.3],
-    projectionTemplates: [
-      'Tahun 2030. Kamu baru saja menyelesaikan sesi konseling online dengan seorang remaja di pelosok Kalimantan. Platform konseling digital yang kamu dirikan bersama 2 temanmu kini sudah menjangkau lebih dari 10.000 anak muda Indonesia. Empatimu yang natural dan kemampuanmu memahami orang lain bukan sekadar bakat — itu adalah senjata untuk mengubah kesehatan mental generasi ini.',
-      'Tahun 2030. Sebagai HR Psychologist di sebuah perusahaan teknologi, kamu baru saja merancang program wellbeing yang menurunkan tingkat burnout karyawan sebesar 40%. Kepekaan emosionalmu dan kemampuan analisis perilaku manusia menjadikanmu orang yang paling dicari saat perusahaan butuh membangun budaya kerja yang sehat.',
-    ],
-  },
-  {
-    id: 'education',
-    name: 'Education',
-    faculty: 'Faculty of Education',
-    icon: '📚',
-    description:
-      'Membentuk generasi masa depan melalui pendidikan yang inovatif dan memberdayakan.',
-    careers: [
-      'Guru Inovatif',
-      'Curriculum Designer',
-      'EdTech Specialist',
-      'Education Consultant',
-      'Training Manager',
-    ],
-    localIndustries: [
-      'Lembaga Pendidikan',
-      'Bimbingan Belajar Digital',
-      'Corporate Training',
-      'Pesantren Modern',
-      'EdTech Startup',
-    ],
-    weights: {
-      social: 3,
-      conscientiousness: 3,
-      agreeableness: 2,
-      extraversion: 2,
-      openness: 1,
-    },
-    riasecVector: [0.2, 0.4, 0.4, 0.9, 0.5, 0.5],
-    projectionTemplates: [
-      'Tahun 2030. Metode pembelajaran yang kamu kembangkan saat skripsi kini sudah diadopsi oleh 50 sekolah di Indonesia. Kamu bukan guru biasa — kamu adalah arsitek pendidikan yang menggabungkan teknologi dengan sentuhan manusiawi. Kesabaranmu dan kemampuanmu mengorganisir kurikulum membuat setiap siswa merasa dilihat dan dipahami.',
-      'Tahun 2030. Platform e-learning yang kamu rintis khusus untuk anak-anak pesantren kini sudah memiliki 25.000 pengguna aktif. Semangatmu untuk berbagi ilmu dan kedisiplinanmu dalam membuat konten berkualitas membuktikan bahwa pendidikan berkualitas tidak harus mahal.',
-    ],
-  },
-  {
-    id: 'islamic-studies',
-    name: 'Islamic Studies',
-    faculty: 'Faculty of Islamic Studies',
-    icon: '🌙',
-    description:
-      'Mendalami ilmu Islam yang relevan dengan tantangan kontemporer dan membangun kepemimpinan berbasis nilai.',
-    careers: [
-      'Islamic Finance Specialist',
-      'Halal Industry Consultant',
-      'Community Leader',
-      'Islamic Content Creator',
-      'Shariah Advisor',
-    ],
-    localIndustries: [
-      'Perbankan Syariah',
-      'Industri Halal',
-      'Wakaf Produktif',
-      'Media Dakwah Digital',
-      'Wisata Halal',
-    ],
-    weights: {
-      openness: 3,
-      honesty: 3,
-      social: 2,
-      artistic: 1,
-      conscientiousness: 2,
-    },
-    riasecVector: [0.1, 0.5, 0.5, 0.7, 0.4, 0.4],
-    projectionTemplates: [
-      'Tahun 2030. Kamu baru saja selesai memberikan konsultasi shariah untuk sebuah startup fintech yang ingin meluncurkan produk investasi halal. Pemahamanmu yang mendalam tentang prinsip-prinsip Islam, dikombinasikan dengan keterbukaan pikiranmu terhadap inovasi, menjadikanmu jembatan antara tradisi dan modernitas. Industri halal global bernilai $7 triliun, dan kamu ada di garis depannya.',
-      'Tahun 2030. Channel YouTube-mu tentang Islamic financial literacy sudah memiliki 500.000 subscriber. Kejujuranmu dalam menyampaikan ilmu dan kemampuanmu mengemas konten yang relevan dengan kehidupan anak muda membuktikan bahwa ilmu agama dan kesuksesan dunia bukan dua hal yang terpisah.',
-    ],
-  },
-];
+export function getPathwayName(id: string): string {
+  return getPathwayById(id)?.name ?? id;
+}

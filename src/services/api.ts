@@ -7,7 +7,6 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
 const USE_SUPABASE = !import.meta.env.VITE_API_BASE_URL;
 
 // Privacy: strip PII before sending to AI.
-// Real name / email / phone / school never leave the browser.
 function pseudonymizeForAI(profile: {
   name: string;
   province: string;
@@ -38,6 +37,7 @@ export const api = {
     top_pathway_name: string;
     match_percentage: number;
     all_matches: unknown;
+    selected_pathways?: string[] | null;
     projection: string;
     lead_score: number;
     layer1_text?: string | null;
@@ -46,7 +46,6 @@ export const api = {
   }): Promise<{ error: { message: string } | null; id?: string }> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
-      // Cast to satisfy generated Json typing for jsonb columns.
       const { data: inserted, error } = await supabase
         .from('assessment_results')
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,8 +68,6 @@ export const api = {
     return { error: null, id: json?.id };
   },
 
-  // Patch layer1_text into an existing assessment_results row.
-  // Used when AI narrative finishes after the row has been inserted.
   async updateLayer1(id: string, layer1_text: string): Promise<{ error: { message: string } | null }> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
@@ -96,8 +93,9 @@ export const api = {
   async generateProjection(payload: {
     scores: Record<string, number>;
     hollandCode?: string | null;
-    pathway: { name: string; careers: string[]; localIndustries: string[] };
     topTraits: string[];
+    selectedPathways: string[];
+    selectedPathwayNames: string[];
     studentProfile: {
       name: string;
       province: string;
@@ -169,7 +167,6 @@ export const api = {
     }
   },
 
-  // Returns a streaming Response so the chatbot can read SSE chunks.
   async careerChat(
     messages: unknown[],
     studentContext: {
@@ -182,7 +179,6 @@ export const api = {
       [k: string]: unknown;
     }
   ): Promise<Response> {
-    // Pseudonymize the profile inside studentContext too.
     const safeContext = {
       ...studentContext,
       studentProfile: studentContext.studentProfile

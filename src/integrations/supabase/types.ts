@@ -111,6 +111,7 @@ export type Database = {
           province: string | null
           school_name: string | null
           scores: Json
+          selected_pathways: Json | null
           student_class: string | null
           student_email: string | null
           student_name: string | null
@@ -143,6 +144,7 @@ export type Database = {
           province?: string | null
           school_name?: string | null
           scores: Json
+          selected_pathways?: Json | null
           student_class?: string | null
           student_email?: string | null
           student_name?: string | null
@@ -175,6 +177,7 @@ export type Database = {
           province?: string | null
           school_name?: string | null
           scores?: Json
+          selected_pathways?: Json | null
           student_class?: string | null
           student_email?: string | null
           student_name?: string | null
