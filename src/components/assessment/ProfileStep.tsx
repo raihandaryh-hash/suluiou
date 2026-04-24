@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -14,35 +13,118 @@ import {
 } from '@/components/ui/select';
 import { ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
-import type { StudentProfile } from '@/context/AssessmentContext';
+import { useAssessment, type StudentProfile } from '@/context/AssessmentContext';
 import { PROVINCES } from '@/lib/constants';
+import { getStudentSession } from '@/lib/classSession';
 
 const FAMILY_OPTIONS = [
-  'Keluargaku sebagian besar petani atau nelayan',
-  'Keluargaku bekerja sebagai karyawan atau pegawai',
-  'Keluargaku punya usaha sendiri',
-  'Beragam / tidak spesifik',
+  'Keluarga petani atau nelayan',
+  'Keluarga pedagang atau wirausaha',
+  'Keluarga karyawan atau pekerja',
+  'Keluarga pegawai negeri, TNI, atau Polri',
+  'Tidak ingin berbagi',
 ];
+
+const LEARNING_OPTIONS = [
+  'Belajar sendiri',
+  'Belajar bersama orang lain',
+  'Campuran keduanya',
+];
+
+const CERTAINTY_OPTIONS = [
+  'Sudah tahu mau ke mana',
+  'Masih bingung',
+  'Belum kepikiran sama sekali',
+];
+
+const CONTRIBUTION_OPTIONS = [
+  'Keluarga dan orang-orang terdekat',
+  'Komunitas atau lingkungan sekitar',
+  'Masyarakat luas',
+  'Belum tahu',
+];
+
+const EDUCATION_OPTIONS = ['D3 (Diploma 3)', 'S1 (Sarjana)', 'Belum tahu'];
 
 interface ProfileStepProps {
   onComplete: (profile: StudentProfile) => void;
 }
 
-const ProfileStep = ({ onComplete }: ProfileStepProps) => {
-  const [name, setName] = useState('');
-  const [province, setProvince] = useState('');
-  const [familyBackground, setFamilyBackground] = useState('');
-  const [aspiration, setAspiration] = useState('');
+interface RadioCardGroupProps {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+  name: string;
+}
 
-  const canSubmit = province && familyBackground;
+const RadioCardGroup = ({ label, options, value, onChange, name }: RadioCardGroupProps) => (
+  <div className="space-y-3">
+    <Label>{label}</Label>
+    <RadioGroup value={value} onValueChange={onChange} className="space-y-2">
+      {options.map((opt) => {
+        const id = `${name}-${opt}`;
+        return (
+          <label
+            key={opt}
+            htmlFor={id}
+            className="flex items-start gap-3 p-3 rounded-lg border border-border hover:border-primary/40 cursor-pointer transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+          >
+            <RadioGroupItem value={opt} id={id} className="mt-0.5" />
+            <span className="text-sm text-foreground">{opt}</span>
+          </label>
+        );
+      })}
+    </RadioGroup>
+  </div>
+);
+
+const ProfileStep = ({ onComplete }: ProfileStepProps) => {
+  const { studentProfile } = useAssessment();
+
+  // Pre-fill dari progress yang sudah ada atau dari session (untuk name).
+  const session = getStudentSession();
+  const sessionName =
+    session?.kind === 'google'
+      ? session.displayName ?? session.email ?? ''
+      : session?.kind === 'guest'
+      ? session.name
+      : '';
+
+  const [province, setProvince] = useState(studentProfile?.province ?? '');
+  const [familyBackground, setFamilyBackground] = useState(studentProfile?.familyBackground ?? '');
+  const [learningStyle, setLearningStyle] = useState(studentProfile?.learningStyle ?? '');
+  const [careerCertainty, setCareerCertainty] = useState(studentProfile?.careerCertainty ?? '');
+  const [contributionGoal, setContributionGoal] = useState(studentProfile?.contributionGoal ?? '');
+  const [educationPlan, setEducationPlan] = useState(studentProfile?.educationPlan ?? '');
+  const [aspiration, setAspiration] = useState(studentProfile?.aspiration ?? '');
+
+  // Jika studentProfile berubah (mis. selesai hydrate), refresh field yang masih kosong.
+  useEffect(() => {
+    if (!studentProfile) return;
+    setProvince((v) => v || studentProfile.province || '');
+    setFamilyBackground((v) => v || studentProfile.familyBackground || '');
+    setLearningStyle((v) => v || studentProfile.learningStyle || '');
+    setCareerCertainty((v) => v || studentProfile.careerCertainty || '');
+    setContributionGoal((v) => v || studentProfile.contributionGoal || '');
+    setEducationPlan((v) => v || studentProfile.educationPlan || '');
+    setAspiration((v) => v || studentProfile.aspiration || '');
+  }, [studentProfile]);
+
+  const canSubmit =
+    province && familyBackground && learningStyle && careerCertainty && contributionGoal && educationPlan;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
     onComplete({
-      name: name.trim(),
+      name: studentProfile?.name || sessionName || '',
       province,
       familyBackground,
+      learningStyle,
+      careerCertainty,
+      contributionGoal,
+      educationPlan,
       aspiration: aspiration.trim(),
     });
   };
@@ -70,35 +152,21 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 mb-6">
               <div className="w-2 h-2 rounded-full bg-accent" />
               <span className="text-xs text-primary uppercase tracking-wider font-semibold">
-                Langkah 1 dari 2
+                Langkah 1 dari 3
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3 leading-snug">
               Sebelum mulai, cerita sedikit tentang kamu
             </h1>
             <p className="text-sm text-muted-foreground">
-              Data ini membantu kami memberikan rekomendasi yang lebih relevan untukmu.
+              Jawabanmu membantu kami memberikan rekomendasi yang lebih relevan.
             </p>
           </div>
 
           <div className="space-y-6 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
-            {/* Name */}
+            {/* 1. Provinsi */}
             <div className="space-y-2">
-              <Label htmlFor="name">
-                Nama panggilan <span className="text-muted-foreground font-normal">(opsional)</span>
-              </Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Mis. Rara"
-                maxLength={50}
-              />
-            </div>
-
-            {/* Province */}
-            <div className="space-y-2">
-              <Label htmlFor="province">Provinsi</Label>
+              <Label htmlFor="province">Kamu tinggal di provinsi mana?</Label>
               <Select value={province} onValueChange={setProvince}>
                 <SelectTrigger id="province">
                   <SelectValue placeholder="Pilih provinsi tempat tinggalmu" />
@@ -113,40 +181,67 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
               </Select>
             </div>
 
-            {/* Family background */}
-            <div className="space-y-3">
-              <Label>Latar belakang keluarga</Label>
-              <RadioGroup
-                value={familyBackground}
-                onValueChange={setFamilyBackground}
-                className="space-y-2"
-              >
-                {FAMILY_OPTIONS.map((opt) => (
-                  <label
-                    key={opt}
-                    htmlFor={opt}
-                    className="flex items-start gap-3 p-3 rounded-lg border border-border hover:border-primary/40 cursor-pointer transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-                  >
-                    <RadioGroupItem value={opt} id={opt} className="mt-0.5" />
-                    <span className="text-sm text-foreground">{opt}</span>
-                  </label>
-                ))}
-              </RadioGroup>
-            </div>
+            {/* 2. Latar keluarga */}
+            <RadioCardGroup
+              label="Latar belakang keluargamu?"
+              name="family"
+              options={FAMILY_OPTIONS}
+              value={familyBackground}
+              onChange={setFamilyBackground}
+            />
 
-            {/* Aspiration */}
+            {/* 3. Cara belajar */}
+            <RadioCardGroup
+              label="Kamu paling nyaman belajar dengan cara apa?"
+              name="learning"
+              options={LEARNING_OPTIONS}
+              value={learningStyle}
+              onChange={setLearningStyle}
+            />
+
+            {/* 4. Keyakinan pilihan studi */}
+            <RadioCardGroup
+              label="Seberapa yakin kamu dengan pilihan studi setelah lulus nanti?"
+              name="certainty"
+              options={CERTAINTY_OPTIONS}
+              value={careerCertainty}
+              onChange={setCareerCertainty}
+            />
+
+            {/* 5. Tujuan kontribusi */}
+            <RadioCardGroup
+              label="Lewat pekerjaanmu nanti, kamu paling ingin berkontribusi untuk siapa?"
+              name="contribution"
+              options={CONTRIBUTION_OPTIONS}
+              value={contributionGoal}
+              onChange={setContributionGoal}
+            />
+
+            {/* 6. Jenjang pendidikan */}
+            <RadioCardGroup
+              label="Setelah SMA/SMK/MA, kamu berencana melanjutkan ke mana?"
+              name="education"
+              options={EDUCATION_OPTIONS}
+              value={educationPlan}
+              onChange={setEducationPlan}
+            />
+
+            {/* 7. Aspirasi (opsional) */}
             <div className="space-y-2">
-              <Label htmlFor="aspiration">Di masa depan, saya ingin... (opsional)</Label>
+              <Label htmlFor="aspiration">
+                Apa cita-cita atau bayangan masa depanmu?{' '}
+                <span className="text-muted-foreground font-normal">(opsional)</span>
+              </Label>
               <Textarea
                 id="aspiration"
                 value={aspiration}
-                onChange={(e) => setAspiration(e.target.value.slice(0, 150))}
-                placeholder="Ceritakan impian atau hal yang ingin kamu wujudkan..."
+                onChange={(e) => setAspiration(e.target.value.slice(0, 300))}
+                placeholder="Tidak ada jawaban yang salah. Boleh tulis 'belum tahu' juga."
                 rows={3}
-                maxLength={150}
+                maxLength={300}
               />
               <p className="text-xs text-muted-foreground text-right">
-                {aspiration.length}/150
+                {aspiration.length}/300
               </p>
             </div>
 
@@ -156,7 +251,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
               size="lg"
               className="w-full gap-2 bg-accent text-accent-foreground hover:bg-accent/90 shadow-md"
             >
-              Mulai Asesmen
+              Lanjut
               <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
