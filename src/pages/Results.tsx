@@ -190,7 +190,7 @@ const Results = () => {
               <RotateCcw className="w-4 h-4" />
               Mulai Ulang
             </Button>
-            <LogoutButton />
+            <LogoutButton mode="inline" />
           </div>
         </div>
       </header>
