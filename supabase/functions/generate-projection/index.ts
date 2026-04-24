@@ -71,8 +71,8 @@ serve(async (req) => {
   try {
     const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
       || "https://ai.gateway.lovable.dev/v1/chat/completions";
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
+    const apiKey = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
 
     if (!apiKey) throw new Error("AI API key is not configured");
 
