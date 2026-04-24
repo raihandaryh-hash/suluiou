@@ -49,7 +49,6 @@ const Results = () => {
 
   // Kick off AI narrative AFTER first paint. Page already shows radar + pathways.
   // triggerProjection() short-circuits if already running or already done.
-  const aiTriggeredRef = (Results as unknown as { _ref?: { current: boolean } });
   useEffect(() => {
     if (!isComplete || !scores || !pathwayMatches) return;
     void triggerProjection();
