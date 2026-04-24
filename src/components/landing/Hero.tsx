@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, BarChart3, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, BarChart3 } from 'lucide-react';
 import heroImage from '@/assets/hero-sulu.jpg';
 import Logo from '@/components/Logo';
 
@@ -61,7 +61,7 @@ const Hero = () => {
             >
               <Sparkles className="w-3 h-3 text-torch-gold" strokeWidth={2} />
               <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/85">
-                Didukung oleh IOU Indonesia
+                The Mirror — Layer 1
               </span>
             </motion.div>
 
@@ -82,9 +82,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Temukan arah karier yang tepat dengan panduan berbasis data.
-              Menggunakan metodologi <span className="text-white font-medium">HEXACO &amp; RIASEC</span>{' '}
-              yang divalidasi oleh institusi akademik terkemuka.
+              Temukan arah karier yang tepat dengan panduan berbasis data,
+              menggunakan metodologi <span className="text-white font-medium">HEXACO &amp; RIASEC</span>.
             </motion.p>
 
             <motion.div
@@ -113,36 +112,6 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            <motion.div
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3 mt-10 text-xs text-white/75"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {['AR', 'NS', 'FK'].map((initials) => (
-                    <div
-                      key={initials}
-                      className="w-8 h-8 rounded-full bg-white/15 border-2 border-navy-deep/40 backdrop-blur-sm flex items-center justify-center text-[10px] font-semibold text-white/90"
-                    >
-                      {initials}
-                    </div>
-                  ))}
-                  <div className="w-8 h-8 rounded-full bg-torch-gold border-2 border-navy-deep/40 flex items-center justify-center text-[10px] font-bold text-navy-deep">
-                    +5k
-                  </div>
-                </div>
-                <span className="text-white/80">
-                  <span className="font-semibold text-white">5,000+ siswa</span> telah menemukan arahnya
-                </span>
-              </div>
-              <div className="hidden sm:block w-px h-4 bg-white/20" />
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-torch-gold" strokeWidth={1.75} />
-                <span>Instrumen Tervalidasi</span>
-              </div>
-            </motion.div>
           </div>
 
           {/* Right: Floating glass preview card */}
