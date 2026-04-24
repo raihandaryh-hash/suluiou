@@ -20,10 +20,29 @@ import {
 } from '@/lib/progress';
 
 export interface StudentProfile {
+  // Identitas (auto dari Google / guest, tetap disimpan agar AI/PDF konsisten).
   name: string;
+  // Field Step 0 baru (Kloter 9):
   province: string;
   familyBackground: string;
+  learningStyle: string;
+  careerCertainty: string;
+  contributionGoal: string;
+  educationPlan: string;
   aspiration: string;
+}
+
+/** True jika 6 field wajib Step 0 sudah terisi. Aspirasi opsional. */
+export function isProfileComplete(p: StudentProfile | null | undefined): boolean {
+  if (!p) return false;
+  return Boolean(
+    p.province &&
+      p.familyBackground &&
+      p.learningStyle &&
+      p.careerCertainty &&
+      p.contributionGoal &&
+      p.educationPlan,
+  );
 }
 
 export type AssessmentStage = 'profile' | 'hexaco' | 'sds' | 'submitting';
