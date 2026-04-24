@@ -125,6 +125,7 @@ KONTEKS PERSONAL:
 - Keyakinan pilihan studi: ${sp.careerCertainty || "(tidak disebutkan)"}
 - Ingin berkontribusi untuk: ${sp.contributionGoal || "(tidak disebutkan)"}
 - Aspirasi: "${sp.aspiration || "tidak disebutkan"}"
+- Program IOU yang menarik minat siswa: ${selectedNames.length ? selectedNames.join(" dan ") : "(tidak ada yang dipilih — gunakan kalimat jembatan generik)"}
 
 180-220 kata, Bahasa Indonesia, 2-3 paragraf mengalir.`;
 
