@@ -6,8 +6,7 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
-import type { DimensionScores } from '@/lib/scoring';
-import type { PathwayMatch } from '@/lib/scoring';
+import type { DimensionScores, TopSelection } from '@/lib/scoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 import { useAssessment } from '@/context/AssessmentContext';
@@ -17,7 +16,7 @@ type Msg = { role: 'user' | 'assistant'; content: string };
 
 interface CareerChatbotProps {
   scores: DimensionScores;
-  topMatch: PathwayMatch;
+  topSelection: TopSelection;
 }
 
 const suggestedQuestions = [
@@ -26,7 +25,7 @@ const suggestedQuestions = [
   'Bagaimana prospek karier ini di Indonesia?',
 ];
 
-export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
+export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
@@ -35,14 +34,12 @@ export function CareerChatbot({ scores, topMatch }: CareerChatbotProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
-  const { studentProfile } = useAssessment();
+  const { studentProfile, selectedPathways } = useAssessment();
 
   const studentContext = {
-    topPathway: topMatch.pathway.name,
-    matchPercentage: topMatch.matchPercentage,
-    topTraits: topMatch.topTraits,
-    careers: topMatch.pathway.careers,
-    localIndustries: topMatch.pathway.localIndustries,
+    selectedPathway: topSelection.pathwayName || null,
+    selectedPathways,
+    topTraits: topSelection.topTraits,
     scores: Object.fromEntries(
       (Object.keys(traitLabels) as Dimension[]).map((k) => [traitLabels[k], scores[k]])
     ),
