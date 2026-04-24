@@ -93,7 +93,7 @@ const JoinClass = () => {
     }
 
     patchStudentSession({ classId: cls.id, className: cls.name });
-    navigate('/assessment');
+    navigate('/profile');
   };
 
   if (!hasSession) {
