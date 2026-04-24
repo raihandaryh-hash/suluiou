@@ -183,11 +183,17 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     state.stage,
     state.hexacoIndex,
     state.sdsSection,
+    state.consentGiven,
     state.isComplete,
   ]);
 
+  // Save profile only. Routing decisions belong to the router (see /profile → /consent).
   const setStudentProfile = (profile: StudentProfile) => {
-    setState((prev) => ({ ...prev, studentProfile: profile, stage: 'hexaco' }));
+    setState((prev) => ({ ...prev, studentProfile: profile }));
+  };
+
+  const setConsent = (given: boolean) => {
+    setState((prev) => ({ ...prev, consentGiven: given }));
   };
 
   const setHexacoAnswer = (id: number, value: number) => {
