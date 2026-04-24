@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sparkles, ArrowRight, RotateCcw, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import LogoutButton from '@/components/LogoutButton';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { api } from '@/services/api';
@@ -176,17 +177,21 @@ const Results = () => {
       <header className="p-6 border-b border-border">
         <div className="container mx-auto flex items-center justify-between">
           <Logo size="sm" />
-          <Button
-            variant="ghost"
-            className="gap-2"
-            onClick={() => {
-              resetAssessment();
-              navigate('/');
-            }}
-          >
-            <RotateCcw className="w-4 h-4" />
-            Mulai Ulang
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="gap-2"
+              onClick={() => {
+                resetAssessment();
+                navigate('/');
+              }}
+            >
+              <RotateCcw className="w-4 h-4" />
+              Mulai Ulang
+            </Button>
+            <LogoutButton />
+          </div>
         </div>
       </header>
 
