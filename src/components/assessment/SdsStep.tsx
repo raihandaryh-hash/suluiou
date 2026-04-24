@@ -50,7 +50,9 @@ const SdsStep = () => {
       goToSdsSection((sdsSection + 1) as SdsSection);
       window.scrollTo({ top: 0, behavior: 'auto' });
     } else {
-      await completeAssessment();
+      // Sync: compute scores instantly, then jump to results.
+      // /results triggers the AI projection itself after first paint.
+      completeAssessment();
       navigate('/results');
     }
   };

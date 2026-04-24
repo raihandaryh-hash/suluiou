@@ -26,8 +26,16 @@ import { ShareButtons } from '@/components/results/ShareButtons';
 import { IOU_WA_NUMBER, IOU_REGISTRATION_URL, IOU_WA_TEMPLATES } from '@/lib/constants';
 
 const Results = () => {
-  const { scores, pathwayMatches, projection, isComplete, resetAssessment, generatingProjection, studentProfile } =
-    useAssessment();
+  const {
+    scores,
+    pathwayMatches,
+    projection,
+    isComplete,
+    resetAssessment,
+    generatingProjection,
+    studentProfile,
+    triggerProjection,
+  } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
@@ -39,7 +47,15 @@ const Results = () => {
     }
   }, [isComplete, navigate]);
 
-  if (!scores || !pathwayMatches || !projection) return null;
+  // Kick off AI narrative AFTER first paint. Page already shows radar + pathways.
+  // triggerProjection() short-circuits if already running or already done.
+  useEffect(() => {
+    if (!isComplete || !scores || !pathwayMatches) return;
+    void triggerProjection();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComplete]);
+
+  if (!scores || !pathwayMatches) return null;
 
   const topMatch = pathwayMatches[0];
 
@@ -82,7 +98,7 @@ const Results = () => {
         pathway: { id: m.pathway.id, name: m.pathway.name, icon: m.pathway.icon },
         matchPercentage: m.matchPercentage,
       })),
-      projection,
+      projection: projection ?? '',
       lead_score: leadScore,
     };
 
@@ -315,14 +331,15 @@ const Results = () => {
               Dirimu di Tahun 2030
             </h2>
           </div>
-          {generatingProjection ? (
+          {generatingProjection || !projection ? (
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>AI sedang menulis narasimu...</span>
+                <span>Sedang menyusun proyeksimu di tahun 2030...</span>
               </div>
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
               <Skeleton className="h-4 w-3/4" />
             </div>
           ) : (
