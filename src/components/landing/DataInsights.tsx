@@ -48,19 +48,19 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 function StatCard({ icon, value, suffix, label, delay }: StatCardProps) {
   return (
     <motion.div
-      className="glass rounded-2xl p-6 md:p-8 text-center"
+      className="glass rounded-xl p-4 md:p-5 text-center"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
     >
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
+      <div className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary mb-3">
         {icon}
       </div>
-      <div className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-2">
+      <div className="text-xl md:text-2xl font-heading font-semibold text-foreground mb-1.5 tabular-nums">
         <AnimatedCounter target={value} suffix={suffix} />
       </div>
-      <p className="text-xs md:text-sm text-muted-foreground">{label}</p>
+      <p className="text-[11px] md:text-xs text-muted-foreground leading-snug">{label}</p>
     </motion.div>
   );
 }
