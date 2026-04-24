@@ -263,8 +263,13 @@ const AdminClassSession = () => {
           meta={meta}
           completed={completed.length}
           enrolled={enrolledCount}
+          inProgress={inProgressCount}
+          notStarted={notStartedCount}
+          avgMinutes={avgMinutes}
           hollandDist={hollandDist}
           hexacoData={hexacoData}
+          provinceDist={provinceDist}
+          insight={insight}
           onClose={() => setProjectorOpen(false)}
         />
       )}
