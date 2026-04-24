@@ -27,19 +27,12 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, hsl(var(--brand-navy) / 0.96) 0%, hsl(var(--mid-blue) / 0.88) 55%, hsl(var(--torch-gold) / 0.35) 100%)',
+              'linear-gradient(135deg, hsl(var(--brand-navy) / 0.97) 0%, hsl(var(--mid-blue) / 0.90) 60%, hsl(var(--torch-gold) / 0.20) 100%)',
           }}
         />
         {/* Scholarly bottom fade into page background */}
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       </div>
-
-      {/* Soft torch glow */}
-      <div
-        className="absolute top-1/4 right-[-8%] w-[520px] h-[520px] rounded-full blur-[140px] animate-pulse-glow"
-        style={{ background: 'hsl(var(--torch-gold) / 0.18)' }}
-        aria-hidden="true"
-      />
 
       {/* Top nav */}
       <header className="absolute top-0 left-0 right-0 z-20 py-5">
@@ -64,23 +57,23 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/25 bg-white/10 backdrop-blur-md mb-7"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/30 mb-7"
             >
-              <Sparkles className="w-3.5 h-3.5 text-torch-gold" strokeWidth={2} />
-              <span className="text-xs font-medium tracking-wider uppercase text-white/90">
+              <Sparkles className="w-3 h-3 text-torch-gold" strokeWidth={2} />
+              <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/85">
                 Didukung oleh IOU Indonesia
               </span>
             </motion.div>
 
             <motion.h1
-              className="font-heading font-bold leading-[1.05] tracking-tight text-white text-5xl md:text-6xl lg:text-7xl mb-6"
+              className="font-heading font-bold leading-[1.08] tracking-tight text-white text-5xl md:text-5xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
             >
               Masa Depanmu
               <br />
-              <span className="text-torch-gold">Bukan Kebetulan.</span>
+              Bukan Kebetulan.
             </motion.h1>
 
             <motion.p
@@ -121,19 +114,33 @@ const Hero = () => {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3 mt-10 text-xs text-white/70"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3 mt-10 text-xs text-white/75"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-torch-gold" strokeWidth={1.75} />
-                <span>Instrumen Tervalidasi</span>
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {['AR', 'NS', 'FK'].map((initials) => (
+                    <div
+                      key={initials}
+                      className="w-8 h-8 rounded-full bg-white/15 border-2 border-navy-deep/40 backdrop-blur-sm flex items-center justify-center text-[10px] font-semibold text-white/90"
+                    >
+                      {initials}
+                    </div>
+                  ))}
+                  <div className="w-8 h-8 rounded-full bg-torch-gold border-2 border-navy-deep/40 flex items-center justify-center text-[10px] font-bold text-navy-deep">
+                    +5k
+                  </div>
+                </div>
+                <span className="text-white/80">
+                  <span className="font-semibold text-white">5,000+ siswa</span> telah menemukan arahnya
+                </span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-white/20" />
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">5,000+</span>
-                <span>siswa SMA/SMK telah menemukan arahnya</span>
+                <ShieldCheck className="w-4 h-4 text-torch-gold" strokeWidth={1.75} />
+                <span>Instrumen Tervalidasi</span>
               </div>
             </motion.div>
           </div>
@@ -146,12 +153,6 @@ const Hero = () => {
             transition={{ duration: 0.9, delay: 0.5, ease: 'easeOut' }}
           >
             <div className="relative">
-              {/* Subtle gold halo */}
-              <div
-                className="absolute -inset-6 rounded-[28px] blur-2xl"
-                style={{ background: 'hsl(var(--torch-gold) / 0.12)' }}
-                aria-hidden="true"
-              />
               <div className="relative glass rounded-2xl p-7 shadow-2xl">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-11 h-11 rounded-xl bg-navy/10 flex items-center justify-center shrink-0">
@@ -167,16 +168,16 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {previewScores.map((s, i) => (
                     <div key={s.label}>
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between mb-1.5">
                         <span className="text-xs font-medium text-ink/80">{s.label}</span>
                         <span className="text-xs font-semibold text-navy tabular-nums">
                           {s.value}%
                         </span>
                       </div>
-                      <div className="h-1.5 rounded-full bg-navy/10 overflow-hidden">
+                      <div className="h-1 rounded-full bg-navy/10 overflow-hidden">
                         <motion.div
                           className="h-full rounded-full bg-navy"
                           initial={{ width: 0 }}
@@ -187,30 +188,12 @@ const Hero = () => {
                     </div>
                   ))}
                 </div>
-
-                <div className="mt-6 pt-5 border-t border-navy/10 flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-wider text-ink-muted font-medium">
-                    Sample Profile
-                  </span>
-                  <span className="text-[11px] text-navy font-semibold">Layer 1 Mirror</span>
-                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        aria-hidden="true"
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-torch-gold rounded-full" />
-        </div>
-      </motion.div>
     </section>
   );
 };
