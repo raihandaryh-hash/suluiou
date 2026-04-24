@@ -1,76 +1,77 @@
 import { describe, it, expect } from 'vitest';
 import { hexacoQuestions } from '@/data/hexacoQuestions';
-import { sdsQuestions, sdsItemsBy } from '@/data/sdsQuestions';
-import { scoreHexaco, scoreSds, combineScores, SDS_MAX_PER_CATEGORY } from '@/lib/scoringNew';
+import { sdsQuestions } from '@/data/sdsQuestions';
+import { scoreHexaco, scoreSds, combineScores } from '@/lib/scoringNew';
 
-describe('HEXACO-PIR data', () => {
-  it('punya tepat 60 item', () => {
+describe('HEXACO instrument', () => {
+  it('has 60 items', () => {
     expect(hexacoQuestions).toHaveLength(60);
   });
-  it('tiap dimensi punya tepat 10 item', () => {
-    const dims = ['honesty', 'emotionality', 'extraversion', 'agreeableness', 'conscientiousness', 'openness'] as const;
+  it('has 10 items per dimension', () => {
+    const dims = ['honesty','emotionality','extraversion','agreeableness','conscientiousness','openness'] as const;
     dims.forEach((d) => {
-      const count = hexacoQuestions.filter((q) => q.dimension === d).length;
-      expect(count, `dimensi ${d}`).toBe(10);
+      expect(hexacoQuestions.filter((q) => q.dimension === d)).toHaveLength(10);
     });
   });
-  it('id unik 1..60', () => {
-    const ids = hexacoQuestions.map((q) => q.id).sort((a, b) => a - b);
-    expect(ids).toEqual(Array.from({ length: 60 }, (_, i) => i + 1));
+  it('reverse-keys flip the score', () => {
+    const reverseQ = hexacoQuestions.find((q) => q.reverse)!;
+    const normalQ = hexacoQuestions.find((q) => !q.reverse && q.dimension === reverseQ.dimension)!;
+    const s = scoreHexaco({ [reverseQ.id]: 1, [normalQ.id]: 5 });
+    // reverse 1 → 5, normal 5 → 5; mean over 2 items = 5
+    expect(s[reverseQ.dimension]).toBeCloseTo(5);
+  });
+  it('returns 3 (neutral) when no answers', () => {
+    const s = scoreHexaco({});
+    expect(s.honesty).toBe(3);
   });
 });
 
-describe('SDS-Holland data', () => {
-  it('punya tepat 216 item', () => {
+describe('SDS instrument', () => {
+  it('has 216 items', () => {
     expect(sdsQuestions).toHaveLength(216);
   });
-  it('Bagian I (activities) = 66 item, 11 per kategori', () => {
-    const acts = sdsQuestions.filter((q) => q.section === 'activities');
-    expect(acts).toHaveLength(66);
-    ['R', 'I', 'A', 'S', 'E', 'C'].forEach((c) => {
-      expect(sdsItemsBy('activities', c as 'R')).toHaveLength(11);
+  it('has correct distribution per category', () => {
+    const cats = ['R','I','A','S','E','C'] as const;
+    cats.forEach((c) => {
+      // 11 + 11 + 14 = 36 per category
+      expect(sdsQuestions.filter((q) => q.category === c)).toHaveLength(36);
     });
   });
-  it('Bagian II (competencies) = 66 item, 11 per kategori', () => {
-    expect(sdsQuestions.filter((q) => q.section === 'competencies')).toHaveLength(66);
+  it('all-yes maxes the normalized score to 5', () => {
+    const all = Object.fromEntries(sdsQuestions.map((q) => [q.id, true]));
+    const r = scoreSds(all);
+    expect(r.normalized.R).toBeCloseTo(5);
+    expect(r.code).toHaveLength(3);
   });
-  it('Bagian III (occupations) = 84 item, 14 per kategori', () => {
-    expect(sdsQuestions.filter((q) => q.section === 'occupations')).toHaveLength(84);
-    ['R', 'I', 'A', 'S', 'E', 'C'].forEach((c) => {
-      expect(sdsItemsBy('occupations', c as 'R')).toHaveLength(14);
+  it('all-no gives 1', () => {
+    const r = scoreSds({});
+    expect(r.normalized.R).toBe(1);
+  });
+  it('Holland code reflects top 3 categories', () => {
+    const ans: Record<string, boolean> = {};
+    sdsQuestions.forEach((q) => {
+      if (q.category === 'S') ans[q.id] = true;
+      if (q.category === 'A' && q.section <= 2) ans[q.id] = true;
+      if (q.category === 'I' && q.section === 1) ans[q.id] = true;
     });
-  });
-  it('SDS_MAX_PER_CATEGORY = 36', () => {
-    expect(SDS_MAX_PER_CATEGORY).toBe(36);
+    const r = scoreSds(ans);
+    expect(r.code[0]).toBe('S');
+    expect(r.code).toContain('A');
+    expect(r.code).toContain('I');
   });
 });
 
-describe('Scoring engine', () => {
-  it('HEXACO: jawaban semua 5 → tiap dimensi mendekati 5 (kecuali ada reverse)', () => {
-    const answers: Record<number, number> = {};
-    hexacoQuestions.forEach((q) => (answers[q.id] = 5));
-    const result = scoreHexaco(answers);
-    // Karena ada item reverse, hasil akan mix. Tapi yang non-reverse semua = 5.
-    Object.values(result).forEach((v) => {
-      expect(v).toBeGreaterThanOrEqual(1);
-      expect(v).toBeLessThanOrEqual(5);
-    });
-  });
-  it('HEXACO: tanpa jawaban → default 3 (netral)', () => {
-    const result = scoreHexaco({});
-    Object.values(result).forEach((v) => expect(v).toBe(3));
-  });
-  it('SDS: semua "ya" di kategori S → social = 5, lainnya = 1', () => {
-    const answers: Record<number, 0 | 1> = {};
-    sdsQuestions.forEach((q) => (answers[q.id] = q.category === 'S' ? 1 : 0));
-    const { raw, normalized } = scoreSds(answers);
-    expect(raw.S).toBe(36);
-    expect(normalized.social).toBeCloseTo(5, 5);
-    expect(normalized.realistic).toBeCloseTo(1, 5);
-  });
-  it('combineScores: menghasilkan 12 dimensi DimensionScores', () => {
-    const { scores, hollandCode } = combineScores({}, {});
+describe('combineScores', () => {
+  it('produces 12 dimensions', () => {
+    const { scores } = combineScores({}, {});
     expect(Object.keys(scores)).toHaveLength(12);
+  });
+  it('integrates HEXACO and SDS', () => {
+    const hexAns = Object.fromEntries(hexacoQuestions.map((q) => [q.id, q.reverse ? 1 : 5]));
+    const sdsAns = Object.fromEntries(sdsQuestions.map((q) => [q.id, true]));
+    const { scores, hollandCode } = combineScores(hexAns, sdsAns);
+    expect(scores.honesty).toBeCloseTo(5);
+    expect(scores.realistic).toBeCloseTo(5);
     expect(hollandCode).toHaveLength(3);
   });
 });

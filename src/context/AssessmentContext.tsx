@@ -2,11 +2,12 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 import {
   DimensionScores,
   PathwayMatch,
-  calculateScores,
   matchPathways,
   generateProjection,
 } from '@/lib/scoring';
-import { questions } from '@/data/questions';
+import { combineScores } from '@/lib/scoringNew';
+import { hexacoQuestions } from '@/data/hexacoQuestions';
+import { sdsQuestions } from '@/data/sdsQuestions';
 import { pathways } from '@/data/pathways';
 import { api } from '@/services/api';
 
@@ -17,91 +18,113 @@ export interface StudentProfile {
   aspiration: string;
 }
 
+export type AssessmentStage = 'profile' | 'hexaco' | 'sds' | 'submitting';
+
 interface AssessmentState {
-  answers: Record<number, number>;
-  currentQuestion: number;
+  stage: AssessmentStage;
+  hexacoAnswers: Record<number, number>;       // questionId -> 1..5
+  sdsAnswers: Record<string, boolean>;         // questionId -> true (suka/mampu/menarik)
+  hexacoIndex: number;                          // 0..59
+  sdsSection: 1 | 2 | 3;
   isComplete: boolean;
   scores: DimensionScores | null;
+  hollandCode: string | null;
   pathwayMatches: PathwayMatch[] | null;
   projection: string | null;
   generatingProjection: boolean;
   studentProfile: StudentProfile | null;
-  profileCompleted: boolean;
 }
 
 interface AssessmentContextType extends AssessmentState {
-  setAnswer: (questionId: number, value: number) => void;
-  nextQuestion: () => void;
-  prevQuestion: () => void;
-  goToQuestion: (index: number) => void;
-  completeAssessment: () => void;
+  // Profile
+  setStudentProfile: (p: StudentProfile) => void;
+  // HEXACO
+  setHexacoAnswer: (id: number, value: number) => void;
+  nextHexaco: () => void;
+  prevHexaco: () => void;
+  // SDS
+  toggleSds: (id: string) => void;
+  goToSdsSection: (section: 1 | 2 | 3) => void;
+  // Lifecycle
+  startHexaco: () => void;
+  startSds: () => void;
+  completeAssessment: () => Promise<void>;
   resetAssessment: () => void;
-  setStudentProfile: (profile: StudentProfile) => void;
 }
 
 const AssessmentContext = createContext<AssessmentContextType | null>(null);
 
+const initialState: AssessmentState = {
+  stage: 'profile',
+  hexacoAnswers: {},
+  sdsAnswers: {},
+  hexacoIndex: 0,
+  sdsSection: 1,
+  isComplete: false,
+  scores: null,
+  hollandCode: null,
+  pathwayMatches: null,
+  projection: null,
+  generatingProjection: false,
+  studentProfile: null,
+};
+
 export function AssessmentProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<AssessmentState>({
-    answers: {},
-    currentQuestion: 0,
-    isComplete: false,
-    scores: null,
-    pathwayMatches: null,
-    projection: null,
-    generatingProjection: false,
-    studentProfile: null,
-    profileCompleted: false,
-  });
+  const [state, setState] = useState<AssessmentState>(initialState);
 
   const setStudentProfile = (profile: StudentProfile) => {
+    setState((prev) => ({ ...prev, studentProfile: profile, stage: 'hexaco' }));
+  };
+
+  const setHexacoAnswer = (id: number, value: number) => {
     setState((prev) => ({
       ...prev,
-      studentProfile: profile,
-      profileCompleted: true,
+      hexacoAnswers: { ...prev.hexacoAnswers, [id]: value },
     }));
   };
 
-  const setAnswer = (questionId: number, value: number) => {
+  const nextHexaco = () => {
     setState((prev) => ({
       ...prev,
-      answers: { ...prev.answers, [questionId]: value },
+      hexacoIndex: Math.min(prev.hexacoIndex + 1, hexacoQuestions.length - 1),
     }));
   };
 
-  const nextQuestion = () => {
+  const prevHexaco = () => {
     setState((prev) => ({
       ...prev,
-      currentQuestion: Math.min(prev.currentQuestion + 1, questions.length - 1),
+      hexacoIndex: Math.max(prev.hexacoIndex - 1, 0),
     }));
   };
 
-  const prevQuestion = () => {
-    setState((prev) => ({
-      ...prev,
-      currentQuestion: Math.max(prev.currentQuestion - 1, 0),
-    }));
+  const toggleSds = (id: string) => {
+    setState((prev) => {
+      const next = { ...prev.sdsAnswers };
+      if (next[id]) delete next[id];
+      else next[id] = true;
+      return { ...prev, sdsAnswers: next };
+    });
   };
 
-  const goToQuestion = (index: number) => {
-    setState((prev) => ({
-      ...prev,
-      currentQuestion: Math.max(0, Math.min(index, questions.length - 1)),
-    }));
+  const goToSdsSection = (section: 1 | 2 | 3) => {
+    setState((prev) => ({ ...prev, sdsSection: section }));
   };
+
+  const startHexaco = () => setState((p) => ({ ...p, stage: 'hexaco' }));
+  const startSds = () => setState((p) => ({ ...p, stage: 'sds', sdsSection: 1 }));
 
   const completeAssessment = async () => {
-    const activeQuestions = questions.filter(q => !q.text.startsWith('[EJ_PENDING]'));
-    const scores = calculateScores(state.answers, activeQuestions);
+    const { scores, hollandCode } = combineScores(state.hexacoAnswers, state.sdsAnswers);
     const matches = matchPathways(scores, pathways);
     const fallbackProjection = generateProjection(matches[0], scores);
     const topMatch = matches[0];
 
-    // Set complete immediately with fallback, then try AI
     setState((prev) => ({
       ...prev,
+      stage: 'submitting',
       isComplete: true,
       scores,
+      hollandCode,
       pathwayMatches: matches,
       projection: fallbackProjection,
       generatingProjection: true,
@@ -125,13 +148,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       });
 
       if (projection) {
-        setState((prev) => ({
-          ...prev,
-          projection,
-          generatingProjection: false,
-        }));
+        setState((prev) => ({ ...prev, projection, generatingProjection: false }));
       } else {
-        console.warn('AI projection failed, using fallback');
         setState((prev) => ({ ...prev, generatingProjection: false }));
       }
     } catch (err) {
@@ -140,31 +158,22 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const resetAssessment = () => {
-    setState({
-      answers: {},
-      currentQuestion: 0,
-      isComplete: false,
-      scores: null,
-      pathwayMatches: null,
-      projection: null,
-      generatingProjection: false,
-      studentProfile: null,
-      profileCompleted: false,
-    });
-  };
+  const resetAssessment = () => setState(initialState);
 
   return (
     <AssessmentContext.Provider
       value={{
         ...state,
-        setAnswer,
-        nextQuestion,
-        prevQuestion,
-        goToQuestion,
+        setStudentProfile,
+        setHexacoAnswer,
+        nextHexaco,
+        prevHexaco,
+        toggleSds,
+        goToSdsSection,
+        startHexaco,
+        startSds,
         completeAssessment,
         resetAssessment,
-        setStudentProfile,
       }}
     >
       {children}
@@ -173,9 +182,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
 }
 
 export function useAssessment() {
-  const context = useContext(AssessmentContext);
-  if (!context) {
-    throw new Error('useAssessment must be used within AssessmentProvider');
-  }
-  return context;
+  const ctx = useContext(AssessmentContext);
+  if (!ctx) throw new Error('useAssessment must be used within AssessmentProvider');
+  return ctx;
 }
