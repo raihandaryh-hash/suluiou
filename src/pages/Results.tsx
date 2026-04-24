@@ -127,6 +127,12 @@ const Results = () => {
 
     setProvinceUsed({ value: resolvedProvince, source: provinceSource });
     setSaved(true);
+    if (id) {
+      setSavedRowId(id);
+      // If layer1 was already there at insert time, mark it as persisted so the
+      // post-AI effect doesn't fire a no-op UPDATE.
+      if (layer1) setLayer1PersistedFor(layer1);
+    }
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
     window.open(
