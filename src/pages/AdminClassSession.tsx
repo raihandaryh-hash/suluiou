@@ -43,6 +43,16 @@ interface Row {
   scores: Record<string, number>;
   completed_at: string | null;
   submitted_at: string;
+  student_province: string | null;
+  top_pathway_name: string | null;
+}
+
+interface ProgressRow {
+  guest_identifier: string | null;
+  user_id: string | null;
+  started_at: string;
+  completed_at: string | null;
+  stage: string;
 }
 
 interface ClassMeta {
@@ -58,6 +68,7 @@ const AdminClassSession = () => {
   const { toast } = useToast();
   const [meta, setMeta] = useState<ClassMeta | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
+  const [progressRows, setProgressRows] = useState<ProgressRow[]>([]);
   const [enrolledCount, setEnrolledCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [exporting, setExporting] = useState(false);
@@ -67,20 +78,26 @@ const AdminClassSession = () => {
   const fetchAll = useCallback(async () => {
     if (!classId) return;
     setLoading(true);
-    const [{ data: cls }, { data: results }, { count: enrCount }] = await Promise.all([
-      supabase.from('classes').select('*').eq('id', classId).maybeSingle(),
-      supabase
-        .from('assessment_results')
-        .select('id, scores, submitted_at, completed_at')
-        .eq('class_id', classId),
-      supabase
-        .from('class_enrollments')
-        .select('id', { count: 'exact', head: true })
-        .eq('class_id', classId),
-    ]);
+    const [{ data: cls }, { data: results }, { count: enrCount }, { data: progress }] =
+      await Promise.all([
+        supabase.from('classes').select('*').eq('id', classId).maybeSingle(),
+        supabase
+          .from('assessment_results')
+          .select('id, scores, submitted_at, completed_at, student_province, top_pathway_name')
+          .eq('class_id', classId),
+        supabase
+          .from('class_enrollments')
+          .select('id', { count: 'exact', head: true })
+          .eq('class_id', classId),
+        supabase
+          .from('assessment_progress')
+          .select('guest_identifier, user_id, started_at, completed_at, stage')
+          .eq('class_id', classId),
+      ]);
 
     setMeta(cls as ClassMeta | null);
     setRows((results ?? []) as Row[]);
+    setProgressRows((progress ?? []) as ProgressRow[]);
     setEnrolledCount(enrCount ?? 0);
     setLoading(false);
   }, [classId]);
@@ -111,20 +128,72 @@ const AdminClassSession = () => {
     });
   }, [completed]);
 
+  // Holland Code distribution per LETTER (R/I/A/S/E/C) — bar per type, not combined string.
+  // For each completed student, take their TOP type and increment that letter.
   const hollandDist = useMemo(() => {
+    const counts: Record<string, number> = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+    completed.forEach((r) => {
+      const top = RIASEC_KEYS
+        .map((k) => ({ k, v: Number(r.scores?.[k]) || 0 }))
+        .sort((a, b) => b.v - a.v)[0];
+      if (top) counts[RIASEC_LETTER[top.k]] = (counts[RIASEC_LETTER[top.k]] ?? 0) + 1;
+    });
+    return (['R', 'I', 'A', 'S', 'E', 'C'] as const).map((code) => ({
+      code,
+      count: counts[code] ?? 0,
+    }));
+  }, [completed]);
+
+  // ── Live class metrics ──
+  const inProgressCount = useMemo(
+    () => progressRows.filter((p) => p.completed_at == null).length,
+    [progressRows],
+  );
+  const notStartedCount = useMemo(
+    () => Math.max(0, enrolledCount - progressRows.length),
+    [enrolledCount, progressRows],
+  );
+
+  // Average minutes for completed assessments (started_at → completed_at).
+  const avgMinutes = useMemo(() => {
+    const done = progressRows.filter((p) => p.completed_at);
+    if (!done.length) return 0;
+    const total = done.reduce((acc, p) => {
+      const start = new Date(p.started_at).getTime();
+      const end = new Date(p.completed_at as string).getTime();
+      return acc + Math.max(0, (end - start) / 60000);
+    }, 0);
+    return Math.round(total / done.length);
+  }, [progressRows]);
+
+  const provinceDist = useMemo(() => {
     const counts = new Map<string, number>();
     completed.forEach((r) => {
-      const sds = RIASEC_KEYS.map((k) => ({ k, v: Number(r.scores?.[k]) || 0 }))
-        .sort((a, b) => b.v - a.v)
-        .slice(0, 3)
-        .map((x) => RIASEC_LETTER[x.k])
-        .join('');
-      counts.set(sds, (counts.get(sds) ?? 0) + 1);
+      const p = (r.student_province ?? 'Tidak diketahui').trim() || 'Tidak diketahui';
+      counts.set(p, (counts.get(p) ?? 0) + 1);
     });
     return Array.from(counts.entries())
-      .map(([code, count]) => ({ code, count }))
+      .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count);
   }, [completed]);
+
+  // Templated insight — no AI. Identifies dominant Holland type & describes class.
+  const insight = useMemo(() => {
+    if (!completed.length) return '';
+    const top = [...hollandDist].sort((a, b) => b.count - a.count)[0];
+    if (!top || top.count === 0) return '';
+    const pct = Math.round((top.count / completed.length) * 100);
+    const desc: Record<string, string> = {
+      R: 'praktis dan suka aktivitas hands-on; cocok dengan jalur teknik, pertanian, atau keterampilan terapan.',
+      I: 'analitis dan suka memecahkan masalah; cocok dengan riset, sains, dan teknologi.',
+      A: 'kreatif dan ekspresif; cocok dengan desain, seni, media, dan komunikasi visual.',
+      S: 'peduli orang lain dan suka membantu; cocok dengan pendidikan, psikologi, dan pelayanan masyarakat.',
+      E: 'percaya diri dan suka memimpin; cocok dengan bisnis, kewirausahaan, dan manajemen.',
+      C: 'teratur dan teliti; cocok dengan administrasi, akuntansi, dan operasional.',
+    };
+    return `Kelas ini didominasi tipe ${top.code} (${pct}%) — siswa ${desc[top.code] ?? ''}`;
+  }, [completed, hollandDist]);
+
 
   const handleDownloadPdf = async () => {
     if (!reportRef.current || !meta) return;
@@ -194,8 +263,13 @@ const AdminClassSession = () => {
           meta={meta}
           completed={completed.length}
           enrolled={enrolledCount}
+          inProgress={inProgressCount}
+          notStarted={notStartedCount}
+          avgMinutes={avgMinutes}
           hollandDist={hollandDist}
           hexacoData={hexacoData}
+          provinceDist={provinceDist}
+          insight={insight}
           onClose={() => setProjectorOpen(false)}
         />
       )}
