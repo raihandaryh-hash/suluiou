@@ -115,7 +115,8 @@ export async function markProgressCompleted(session: StudentSession) {
   if (error) console.warn('markProgressCompleted failed:', error.message);
 }
 
-/** Convert DB row to context-shaped snapshot. */
+/** Convert DB row to context-shaped snapshot. Backfills missing fields so
+ *  legacy Step 0 rows don't break typing — UI gates via isProfileComplete. */
 export function rowToSnapshot(row: ProgressRow): ProgressSnapshot {
   const hexaco: Record<number, number> = {};
   Object.entries(row.hexaco_answers ?? {}).forEach(([k, v]) => {
@@ -127,12 +128,28 @@ export function rowToSnapshot(row: ProgressRow): ProgressSnapshot {
   const section = (row.sds_section >= 1 && row.sds_section <= 3
     ? row.sds_section
     : 1) as 1 | 2 | 3;
+
+  const sp = row.student_profile;
+  const studentProfile: StudentProfile | null = sp
+    ? {
+        name: sp.name ?? '',
+        province: sp.province ?? '',
+        familyBackground: sp.familyBackground ?? '',
+        learningStyle: sp.learningStyle ?? '',
+        careerCertainty: sp.careerCertainty ?? '',
+        contributionGoal: sp.contributionGoal ?? '',
+        educationPlan: sp.educationPlan ?? '',
+        aspiration: sp.aspiration ?? '',
+      }
+    : null;
+
   return {
-    studentProfile: row.student_profile,
+    studentProfile,
     hexacoAnswers: hexaco,
     sdsAnswers: (row.sds_answers ?? {}) as Record<string, boolean>,
     stage,
     hexacoIndex: row.hexaco_index ?? 0,
     sdsSection: section,
+    consentGiven: Boolean(row.consent_given),
   };
 }
