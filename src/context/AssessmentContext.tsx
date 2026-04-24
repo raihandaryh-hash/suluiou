@@ -169,6 +169,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         stage: state.stage,
         hexacoIndex: state.hexacoIndex,
         sdsSection: state.sdsSection,
+        consentGiven: state.consentGiven,
       });
     }, 600);
 
