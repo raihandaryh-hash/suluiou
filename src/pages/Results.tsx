@@ -42,6 +42,8 @@ const Results = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
+  const [savedRowId, setSavedRowId] = useState<string | null>(null);
+  const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
   const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
   const [showProjection, setShowProjection] = useState(false);
 
@@ -58,6 +60,17 @@ const Results = () => {
     void triggerLayer1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);
+
+  // If the user submitted the form before the AI finished, patch layer1_text
+  // into their existing row as soon as it arrives. Runs once per narrative.
+  useEffect(() => {
+    if (!savedRowId || !layer1) return;
+    if (layer1PersistedFor === layer1) return;
+    void api.updateLayer1(savedRowId, layer1).then(({ error }) => {
+      if (!error) setLayer1PersistedFor(layer1);
+      else console.warn('updateLayer1 failed:', error.message);
+    });
+  }, [savedRowId, layer1, layer1PersistedFor]);
 
   const handleRevealProjection = () => {
     setShowProjection(true);
@@ -109,9 +122,10 @@ const Results = () => {
       })),
       projection: projection ?? '',
       lead_score: leadScore,
+      layer1_text: layer1 ?? null,
     };
 
-    const { error } = await api.saveResult(insertData);
+    const { error, id } = await api.saveResult(insertData);
 
     if (error) {
       toast({
@@ -124,6 +138,12 @@ const Results = () => {
 
     setProvinceUsed({ value: resolvedProvince, source: provinceSource });
     setSaved(true);
+    if (id) {
+      setSavedRowId(id);
+      // If layer1 was already there at insert time, mark it as persisted so the
+      // post-AI effect doesn't fire a no-op UPDATE.
+      if (layer1) setLayer1PersistedFor(layer1);
+    }
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
     window.open(
