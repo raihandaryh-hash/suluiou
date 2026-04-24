@@ -78,31 +78,33 @@ serve(async (req) => {
 
     if (!apiKey) throw new Error("AI API key is not configured");
 
-    const { scores, hollandCode, pathway, topTraits, studentProfile, selectedPathwayNames } = await req.json();
+    const {
+      scores,
+      hollandCode,
+      hollandNarrative,
+      topTwoHEXACO,
+      tensionPair,
+      topTraits,
+      studentProfile,
+      selectedPathwayNames,
+    } = await req.json();
     const selectedNames: string[] = Array.isArray(selectedPathwayNames) ? selectedPathwayNames : [];
+    const topTwo: Array<{ dim: string; interpretation: string }> = Array.isArray(topTwoHEXACO) ? topTwoHEXACO : [];
+    const tension = tensionPair && typeof tensionPair === 'object' ? tensionPair : null;
 
     const sp = studentProfile || {};
 
-    const userPrompt = `Tulis proyeksi 2030 untuk siswa ini.
+    const userPrompt = `Tulis proyeksi 2030 untuk siswa ini, mengikuti aturan editorial di system prompt.
 
-KEPRIBADIAN (HEXACO, skala 1-5):
-- Kejujuran & Kerendahan Hati: ${scores.honesty}
-- Emosionalitas: ${scores.emotionality}
-- Ekstraversi: ${scores.extraversion}
-- Keramahan: ${scores.agreeableness}
-- Kehati-hatian: ${scores.conscientiousness}
-- Keterbukaan: ${scores.openness}
-
-MINAT KARIER (RIASEC, skala 1-5):
-- Realistic: ${scores.realistic}
-- Investigative: ${scores.investigative}
-- Artistic: ${scores.artistic}
-- Social: ${scores.social}
-- Enterprising: ${scores.enterprising}
-- Conventional: ${scores.conventional}
-
+PROFIL SISWA:
 Holland Code: ${hollandCode || "(tidak tersedia)"}
-Trait dominan (bahasa sehari-hari): ${(topTraits || []).join(", ") || "(tidak ada yang menonjol)"}
+Pola minat: ${hollandNarrative || "(tidak tersedia)"}
+
+Kekuatan dominan: ${topTwo[0]?.dim ? `${topTwo[0].dim} — ${topTwo[0].interpretation}` : "(tidak ada yang menonjol)"}
+Kekuatan sekunder: ${topTwo[1]?.dim ? `${topTwo[1].dim} — ${topTwo[1].interpretation}` : "(tidak ada yang menonjol)"}
+Ketegangan utama: ${tension?.label || "(profil seimbang)"}
+
+Trait dominan (kata sehari-hari): ${(topTraits || []).join(", ") || "(tidak ada yang menonjol)"}
 
 KONTEKS PERSONAL:
 - Provinsi: ${sp.province || "(tidak disebutkan)"}
@@ -110,10 +112,11 @@ KONTEKS PERSONAL:
 - Cara belajar: ${sp.learningStyle || "(tidak disebutkan)"}
 - Keyakinan pilihan studi: ${sp.careerCertainty || "(tidak disebutkan)"}
 - Ingin berkontribusi untuk: ${sp.contributionGoal || "(tidak disebutkan)"}
-- Aspirasi: "${sp.aspiration || "tidak disebutkan"}"
-- Program IOU yang menarik minat siswa: ${selectedNames.length ? selectedNames.join(" dan ") : "(tidak ada yang dipilih — gunakan kalimat jembatan generik)"}
+- Aspirasi (kata-kata siswa sendiri): "${sp.aspiration || "tidak disebutkan"}"
 
-180-220 kata, Bahasa Indonesia, 2-3 paragraf mengalir.`;
+PROGRAM IOU YANG DIPILIH SISWA: ${selectedNames.length ? selectedNames.join(" dan ") : "(tidak ada yang dipilih — gunakan kalimat jembatan generik)"}
+
+Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip angka makro.`;
 
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
     let response: Response | null = null;
