@@ -19,18 +19,18 @@ const CTASection = () => {
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-accent" />
 
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-white">
+          <h2 className="text-2xl md:text-3xl lg:text-[2.25rem] font-heading font-semibold mb-3 text-white leading-tight">
             Temukan <span className="text-accent">Jalanmu</span> Sekarang
           </h2>
-          <p className="text-white/70 text-lg max-w-lg mx-auto mb-8">
+          <p className="text-white/70 text-sm md:text-base max-w-lg mx-auto mb-8">
             24 pertanyaan. 10 menit. Satu langkah yang bisa mengubah arah
             hidupmu.
           </p>
 
-          <Button asChild size="lg" className="group text-lg px-10 py-6 bg-accent text-primary-foreground hover:bg-accent/90">
+          <Button asChild size="default" className="group text-sm px-8 py-5 bg-accent text-primary-foreground hover:bg-accent/90">
             <Link to="/login">
               Mulai Assessment Gratis
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
 

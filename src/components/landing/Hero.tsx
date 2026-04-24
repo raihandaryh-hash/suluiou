@@ -42,7 +42,7 @@ const Hero = () => {
             asChild
             variant="outline"
             size="sm"
-            className="border-white/40 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+            className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 backdrop-blur-sm"
           >
             <a href="#data-insights">Lihat Data</a>
           </Button>
@@ -104,7 +104,7 @@ const Hero = () => {
                 asChild
                 variant="outline"
                 size="default"
-                className="text-sm px-6 py-5 border-white/25 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                className="text-sm px-6 py-5 bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 backdrop-blur-sm"
               >
                 <Link to="/suar">Pelajari Metodologi</Link>
               </Button>
