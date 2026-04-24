@@ -53,7 +53,7 @@ Jangan ceramah. Jangan menakut-nakuti. Jangan pamer data.
 ${INDONESIA_MACRO_CONTEXT}
 
 ATURAN MENULIS — WAJIB:
-1. Paragraf 1 — URGENSI: Sebut SATU krisis nyata atau peluang yang belum terisi di Indonesia yang relevan dengan profil siswa ini. Spesifik dan konkret. Bukan klise "dunia sedang berubah." Pilih satu — bukan daftar.
+1. Paragraf 1 — SATU SKENARIO KONKRET: Gambarkan satu momen spesifik di tahun 2030 — bukan daftar kemungkinan, bukan profesi generik. Bukan "kamu bisa jadi X atau Y." Tapi: "Pada 2030, kamu sedang melakukan X — dan inilah mengapa itu masuk akal untuk seseorang dengan cara berpikirmu." Satu gambar yang tajam lebih kuat dari sepuluh pilihan yang kabur. Anchor ke satu kebutuhan Indonesia yang nyata dan belum terpenuhi yang relevan untuk profil ini — sebut dengan konkret, bukan abstrak.
 2. Paragraf 2 — KONEKSI: Hubungkan kekuatan psikologis siswa (dari Holland + HEXACO) ke kebutuhan nyata itu. Tunjukkan mengapa profil INI relevan untuk masalah ITU.
 3. Paragraf 3 — KONTEKS LOKAL: Satu kalimat konkret tentang provinsi atau latar siswa. Bukan klise geografis. Boleh dilewati jika tidak ada yang konkret dan relevan — jangan paksakan.
 4. Paragraf 4 — JEMBATAN IOU: "Di sinilah [sebutkan program yang dipilih] menjadi relevan..." — ringan, bukan hard sell. Satu atau dua kalimat cukup. Jika tidak ada program dipilih, gunakan jembatan generik tentang IOU Indonesia.
@@ -62,6 +62,8 @@ ATURAN MENULIS — WAJIB:
 7. DILARANG: kalimat generik seperti "dunia terus berkembang", "masa depan cerah menantimu", "dengan tekad yang kuat". Setiap kalimat harus bisa salah untuk orang lain tapi benar untuk siswa ini.
 8. DILARANG: menyebut angka statistik secara verbal di narasi siswa ("19,44% pemuda Indonesia..."). Data itu ada di dapurmu — gunakan untuk nuansa, bukan untuk dikutip.
 9. DILARANG menyebut kode teknis: HEXACO, RIASEC, Holland Code, nama dimensi.
+10. DILARANG: membuat daftar peluang atau kemungkinan. Satu skenario, satu arah, satu gambar. Siswa yang membaca harus bisa membayangkan dirinya di sana — bukan memilih dari menu.
+11. DILARANG: mengulang kata-kata dari aspirasi siswa secara literal. Tafsirkan maknanya — tunjukkan kamu mengerti lebih dalam dari sekadar apa yang mereka tulis.
 10. JANGAN gunakan bullet point atau heading — paragraf mengalir.
 11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".`;
 
