@@ -52,64 +52,91 @@ const Login = () => {
   // 4) no enrollment → /join
   useEffect(() => {
     let active = true;
-    supabase.auth.getUser().then(async ({ data }) => {
-      if (!active) return;
-      const u = data.user;
-      if (!u) return;
+    (async () => {
+      try {
+        const { data } = await supabase.auth.getUser();
+        if (!active) return;
+        const u = data.user;
+        if (!u) return;
 
-      setStudentSession({
-        kind: 'google',
-        userId: u.id,
-        email: u.email ?? '',
-        displayName:
-          (u.user_metadata?.full_name as string | undefined) ??
-          (u.user_metadata?.name as string | undefined) ??
-          null,
-        classId: null,
-        className: null,
-      });
+        console.log('[Login] OAuth session detected, routing user', u.id);
 
-      // 1) Finished assessment?
-      const { data: done } = await supabase
-        .from('assessment_results')
-        .select('id')
-        .eq('user_id', u.id)
-        .not('completed_at', 'is', null)
-        .limit(1)
-        .maybeSingle();
-      if (done) {
-        navigate('/results');
-        return;
+        setStudentSession({
+          kind: 'google',
+          userId: u.id,
+          email: u.email ?? '',
+          displayName:
+            (u.user_metadata?.full_name as string | undefined) ??
+            (u.user_metadata?.name as string | undefined) ??
+            null,
+          classId: null,
+          className: null,
+        });
+
+        // 1) Finished assessment?
+        try {
+          const { data: done } = await supabase
+            .from('assessment_results')
+            .select('id')
+            .eq('user_id', u.id)
+            .not('completed_at', 'is', null)
+            .limit(1)
+            .maybeSingle();
+          if (done) {
+            console.log('[Login] → /results');
+            navigate('/results', { replace: true });
+            return;
+          }
+        } catch (e) {
+          console.warn('[Login] results check failed', e);
+        }
+
+        // 2) In-progress assessment?
+        try {
+          const { data: prog } = await supabase
+            .from('assessment_progress')
+            .select('id, class_id')
+            .eq('user_id', u.id)
+            .is('completed_at', null)
+            .limit(1)
+            .maybeSingle();
+          if (prog) {
+            console.log('[Login] → /assessment (resume)');
+            navigate('/assessment', { replace: true });
+            return;
+          }
+        } catch (e) {
+          console.warn('[Login] progress check failed', e);
+        }
+
+        // 3) Enrolled in a class but not started?
+        try {
+          const { data: enr } = await supabase
+            .from('class_enrollments')
+            .select('class_id')
+            .eq('user_id', u.id)
+            .limit(1)
+            .maybeSingle();
+          if (enr?.class_id) {
+            console.log('[Login] → /assessment (enrolled)');
+            navigate('/assessment', { replace: true });
+            return;
+          }
+        } catch (e) {
+          console.warn('[Login] enrollment check failed', e);
+        }
+
+        // 4) No enrollment
+        console.log('[Login] → /join');
+        navigate('/join', { replace: true });
+      } catch (e) {
+        console.error('[Login] OAuth post-redirect routing failed', e);
+        // Fail-safe: never leave the user stuck on a spinner.
+        if (active) navigate('/join', { replace: true });
+      } finally {
+        if (active) setGoogleLoading(false);
       }
-
-      // 2) In-progress assessment?
-      const { data: prog } = await supabase
-        .from('assessment_progress')
-        .select('id, class_id')
-        .eq('user_id', u.id)
-        .is('completed_at', null)
-        .limit(1)
-        .maybeSingle();
-      if (prog) {
-        navigate('/assessment');
-        return;
-      }
-
-      // 3) Enrolled in a class but not started?
-      const { data: enr } = await supabase
-        .from('class_enrollments')
-        .select('class_id, classes(id, name)')
-        .eq('user_id', u.id)
-        .limit(1)
-        .maybeSingle();
-      if (enr?.class_id) {
-        navigate('/assessment');
-        return;
-      }
-
-      // 4) No enrollment
-      navigate('/join');
-    });
+    })();
     return () => {
       active = false;
     };
