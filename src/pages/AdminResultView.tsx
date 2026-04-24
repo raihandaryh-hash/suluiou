@@ -176,7 +176,7 @@ const AdminResultView = () => {
           </ResponsiveContainer>
         </motion.div>
 
-        {/* Top Pathways */}
+        {/* Selected Pathways */}
         <motion.div
           className="mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -184,48 +184,48 @@ const AdminResultView = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h2 className="text-2xl font-heading font-bold mb-6 text-center">
-            Jalur yang Cocok
+            Program IOU yang Dipilih Peserta
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {result.all_matches.slice(0, 3).map((match, index) => {
-              const pw = pathways.find((p) => p.id === match.pathway.id);
+          {(() => {
+            const selectedIds = ((result as unknown as { selected_pathways?: string[] }).selected_pathways) || [];
+            const selected = selectedIds
+              .map((id) => pathways.find((p) => p.id === id))
+              .filter(Boolean) as typeof pathways[number][];
+            if (selected.length === 0) {
               return (
-                <motion.div
-                  key={match.pathway.id}
-                  className={`glass rounded-2xl p-6 relative overflow-hidden ${
-                    index === 0 ? 'md:scale-105 glow-primary border-primary/30' : ''
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
-                >
-                  {index === 0 && (
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-torch-glow to-accent" />
-                  )}
-                  <div className="text-4xl mb-3">{match.pathway.icon}</div>
-                  <div className="text-3xl font-heading font-bold text-primary mb-1">
-                    {match.matchPercentage}%
-                  </div>
-                  <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
-                    {match.pathway.name}
-                  </h3>
-                  {pw && (
-                    <>
-                      <p className="text-sm text-muted-foreground mb-4">{pw.description}</p>
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                        Karier Potensial
-                      </h4>
-                      <div className="flex flex-wrap gap-1">
-                        {pw.careers.slice(0, 3).map((c) => (
-                          <span key={c} className="text-xs text-muted-foreground">• {c}</span>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </motion.div>
+                <p className="text-center text-muted-foreground italic">
+                  Peserta belum memilih program.
+                </p>
               );
-            })}
-          </div>
+            }
+            return (
+              <div className="grid md:grid-cols-2 gap-6">
+                {selected.map((pw, index) => (
+                  <motion.div
+                    key={pw.id}
+                    className="glass rounded-2xl p-6 relative overflow-hidden"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-torch-glow to-accent" />
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-semibold">
+                        {pw.degree}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{pw.faculty}</span>
+                    </div>
+                    <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
+                      {pw.name}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mb-3">{pw.fullName}</p>
+                    <p className="text-sm text-muted-foreground mb-3">{pw.description}</p>
+                    <p className="text-xs italic text-primary/80">{pw.iouUniqueness}</p>
+                  </motion.div>
+                ))}
+              </div>
+            );
+          })()}
         </motion.div>
 
         {/* Projection */}
