@@ -5,7 +5,7 @@ import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
 import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
-import { buildTopHexacoTraits } from '@/lib/hexacoTraits';
+
 import { getStudentSession } from '@/lib/classSession';
 import {
   fetchProgress,
@@ -51,6 +51,7 @@ interface AssessmentState {
   isComplete: boolean;
   scores: DimensionScores | null;
   hollandCode: string | null;
+  sdsCounts: { R: number; I: number; A: number; S: number; E: number; C: number } | null;
   topTraits: string[];
   /** Programs the student picked in Layer 2 (1–2 ids). */
   selectedPathways: string[];
@@ -91,6 +92,7 @@ const initialState: AssessmentState = {
   isComplete: false,
   scores: null,
   hollandCode: null,
+  sdsCounts: null,
   topTraits: [],
   selectedPathways: [],
   projection: null,
@@ -225,7 +227,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
 
   // Compute scores only. No pathway matching — Layer 2 is now student-driven.
   const completeAssessment = () => {
-    const { scores, hollandCode } = combineScores(state.hexacoAnswers, state.sdsAnswers);
+    const { scores, hollandCode, sdsCounts } = combineScores(state.hexacoAnswers, state.sdsAnswers);
     const topTraits = computeTopTraits(scores);
 
     setState((prev) => ({
@@ -234,6 +236,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       isComplete: true,
       scores,
       hollandCode,
+      sdsCounts,
       topTraits,
       projection: null,
       generatingProjection: false,
@@ -304,11 +307,26 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         R: cur.scores.realistic, I: cur.scores.investigative, A: cur.scores.artistic,
         S: cur.scores.social, E: cur.scores.enterprising, C: cur.scores.conventional,
       };
+      const { buildHEXACOInterpretations, interpretHolland, detectTension } = await import('@/lib/narrativePrep');
+      const hexacoInterpretations = buildHEXACOInterpretations(hexaco);
+      const hollandNarrative = cur.hollandCode ? interpretHolland(cur.hollandCode) : '';
+      const tensionPair = detectTension(hexaco);
+
       const layer1 = await api.generateLayer1({
-        hexaco, riasec,
+        hexaco,
+        riasec,
         hollandCode: cur.hollandCode,
-        topHexacoTraits: buildTopHexacoTraits(hexaco as unknown as Record<string, number>),
-        profile: { aspiration: cur.studentProfile?.aspiration },
+        hollandNarrative,
+        hexacoInterpretations,
+        tensionPair,
+        profile: {
+          province: cur.studentProfile?.province,
+          familyBackground: cur.studentProfile?.familyBackground,
+          learningStyle: cur.studentProfile?.learningStyle,
+          careerCertainty: cur.studentProfile?.careerCertainty,
+          contributionGoal: cur.studentProfile?.contributionGoal,
+          aspiration: cur.studentProfile?.aspiration,
+        },
       });
       setState((prev) => ({ ...prev, layer1: layer1 ?? null, generatingLayer1: false }));
     } catch (err) {
