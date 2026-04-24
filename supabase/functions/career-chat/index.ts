@@ -13,7 +13,7 @@ serve(async (req) => {
 
   try {
     const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta/openai";
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
     const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.0-flash";
     if (!AI_API_KEY) {
       throw new Error("AI_API_KEY is not configured");
@@ -56,20 +56,20 @@ Tugasmu:
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 15000);
     const response = await fetch(
-      `${AI_BASE_URL}/chat/completions`,
+      `${AI_BASE_URL}/models/${AI_MODEL}:streamGenerateContent?key=${AI_API_KEY}&alt=sse`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${AI_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: AI_MODEL,
-          messages: [
-            { role: "system", content: systemPrompt },
-            ...messages,
+          contents: [
+            { role: "user", parts: [{ text: systemPrompt + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
           ],
-          stream: true,
+          generationConfig: {
+            maxOutputTokens: 1024,
+            temperature: 0.8,
+          },
         }),
         signal: controller.signal,
       }

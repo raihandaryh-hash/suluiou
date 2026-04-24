@@ -13,7 +13,7 @@ serve(async (req) => {
 
   try {
     const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta/openai";
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
     const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.0-flash";
     if (!AI_API_KEY) {
       throw new Error("AI_API_KEY is not configured");
@@ -67,20 +67,20 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000);
     const response = await fetch(
-      `${AI_BASE_URL}/chat/completions`,
+      `${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${AI_API_KEY}`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${AI_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: AI_MODEL,
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userPrompt },
+          contents: [
+            { role: "user", parts: [{ text: systemPrompt + "\n\n" + userPrompt }] }
           ],
-          stream: false,
+          generationConfig: {
+            maxOutputTokens: 1024,
+            temperature: 0.9,
+          },
         }),
         signal: controller.signal,
       }
@@ -106,7 +106,7 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     }
 
     const data = await response.json();
-    const projection = data.choices?.[0]?.message?.content?.trim();
+    const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
       throw new Error("No content in AI response");
