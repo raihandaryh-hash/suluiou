@@ -14,12 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_users: {
+        Row: {
+          created_at: string
+          email: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
       assessment_results: {
         Row: {
           all_matches: Json
           aspiration: string | null
+          class_id: string | null
+          completed_at: string | null
           family_background: string | null
           follow_up_status: string
+          guest_identifier: string | null
           id: string
           layer1_text: string | null
           lead_score: number
@@ -39,12 +57,16 @@ export type Database = {
           submitted_at: string
           top_pathway_id: string
           top_pathway_name: string
+          user_id: string | null
         }
         Insert: {
           all_matches: Json
           aspiration?: string | null
+          class_id?: string | null
+          completed_at?: string | null
           family_background?: string | null
           follow_up_status?: string
+          guest_identifier?: string | null
           id?: string
           layer1_text?: string | null
           lead_score?: number
@@ -64,12 +86,16 @@ export type Database = {
           submitted_at?: string
           top_pathway_id: string
           top_pathway_name: string
+          user_id?: string | null
         }
         Update: {
           all_matches?: Json
           aspiration?: string | null
+          class_id?: string | null
+          completed_at?: string | null
           family_background?: string | null
           follow_up_status?: string
+          guest_identifier?: string | null
           id?: string
           layer1_text?: string | null
           lead_score?: number
@@ -89,6 +115,112 @@ export type Database = {
           submitted_at?: string
           top_pathway_id?: string
           top_pathway_name?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_results_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      class_enrollments: {
+        Row: {
+          class_id: string
+          enrolled_at: string
+          guest_identifier: string | null
+          guest_name: string | null
+          guest_phone: string | null
+          id: string
+          user_id: string | null
+        }
+        Insert: {
+          class_id: string
+          enrolled_at?: string
+          guest_identifier?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          user_id?: string | null
+        }
+        Update: {
+          class_id?: string
+          enrolled_at?: string
+          guest_identifier?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "class_enrollments_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      class_insights: {
+        Row: {
+          class_id: string
+          generated_at: string
+          insight_text: string
+        }
+        Insert: {
+          class_id: string
+          generated_at?: string
+          insight_text: string
+        }
+        Update: {
+          class_id?: string
+          generated_at?: string
+          insight_text?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "class_insights_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: true
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      classes: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          join_code: string
+          name: string
+          school_name: string | null
+          session_closed: boolean
+          session_closed_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          join_code: string
+          name: string
+          school_name?: string | null
+          session_closed?: boolean
+          session_closed_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          join_code?: string
+          name?: string
+          school_name?: string | null
+          session_closed?: boolean
+          session_closed_at?: string | null
         }
         Relationships: []
       }
@@ -176,6 +308,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_admin: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "user"

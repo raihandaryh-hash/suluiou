@@ -11,6 +11,10 @@ import Suar from "./pages/Suar";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
+import AdminClasses from "./pages/AdminClasses";
+import AdminClassSession from "./pages/AdminClassSession";
+import Login from "./pages/Login";
+import JoinClass from "./pages/JoinClass";
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
@@ -26,6 +30,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/join" element={<JoinClass />} />
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/results" element={<Results />} />
             <Route path="/suar" element={<Suar />} />
@@ -35,6 +41,22 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/classes"
+              element={
+                <ProtectedRoute>
+                  <AdminClasses />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/class/:classId/session"
+              element={
+                <ProtectedRoute>
+                  <AdminClassSession />
                 </ProtectedRoute>
               }
             />
