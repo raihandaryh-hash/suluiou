@@ -106,7 +106,7 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     }
 
     const data = await response.json();
-    const projection = data.choices?.[0]?.message?.content?.trim();
+    const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
       throw new Error("No content in AI response");
