@@ -93,7 +93,7 @@ Edge functions (`generate-projection`, `career-chat`) sudah pakai `Access-Contro
 Buka `https://bahasa.iou.edu.gm/sulu` di browser, jalankan checklist:
 
 - [ ] Halaman landing muncul, tidak ada 404 asset
-- [ ] Klik "Mulai Asesmen" → 24 pertanyaan tampil
+- [ ] Klik "Mulai Asesmen" → 276 item (HEXACO 60 + RIASEC 216) tampil
 - [ ] Selesaikan asesmen → form profil muncul → submit → redirect ke /results
 - [ ] Halaman results menampilkan jalur karier + AI projection (tunggu ~5 detik)
 - [ ] Buka `/admin/login` → login dengan akun admin → dashboard tampil
