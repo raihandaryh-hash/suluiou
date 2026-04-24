@@ -136,8 +136,12 @@ export const api = {
     hexaco: { H: number; E: number; X: number; A: number; C: number; O: number };
     riasec: { R: number; I: number; A: number; S: number; E: number; C: number };
     hollandCode: string | null;
-    topHexacoTraits: string[];
+    hollandNarrative?: string;
+    hexacoInterpretations?: { H: string; E: string; X: string; A: string; C: string; O: string };
+    tensionPair?: { label: string; detail: string };
     profile: {
+      province?: string;
+      familyBackground?: string;
       learningStyle?: string;
       careerCertainty?: string;
       contributionGoal?: string;
