@@ -22,34 +22,34 @@ export function interpretHEXACO(dim: keyof HEXACOScores, score: number): string 
   const level = score >= 3.7 ? 'high' : score >= 2.4 ? 'mid' : 'low';
   const map: Record<keyof HEXACOScores, Record<string, string>> = {
     H: {
-      high: 'cenderung jujur bahkan saat tidak menguntungkan, menolak manipulasi, tidak tergiur keuntungan instan yang mengorbankan integritas',
-      mid: 'menyeimbangkan kejujuran dengan kepraktisan — tahu kapan harus tegas dan kapan harus fleksibel',
-      low: 'pragmatis dan adaptif terhadap ekspektasi sosial, bisa tampak lebih fleksibel dari yang orang kira soal aturan',
+      high: 'orang yang akan memilih diam daripada mengatakan sesuatu yang tidak sepenuhnya benar — bahkan ketika berbohong kecil jauh lebih mudah',
+      mid: 'tahu kapan harus jujur penuh dan kapan harus memilih kata dengan hati-hati — kejujuran baginya bukan absolut, tapi juga bukan sesuatu yang bisa diperjualbelikan',
+      low: 'pragmatis dalam cara ia menyampaikan sesuatu — lebih mementingkan tujuan tercapai daripada apakah caranya sepenuhnya sesuai ekspektasi orang lain',
     },
     E: {
-      high: 'peka secara emosional, mudah merasakan apa yang dirasakan orang lain, butuh rasa aman untuk bekerja optimal',
-      mid: 'cukup peka terhadap perasaan tanpa mudah terbawa arus, bisa memisahkan emosi dari keputusan ketika perlu',
-      low: 'tenang di bawah tekanan, tidak mudah goyah oleh kritik atau ketidakpastian, cenderung mandiri secara emosional',
+      high: 'bisa merasakan ketegangan di ruangan sebelum ada yang bicara — dan biasanya menahan diri untuk tidak langsung bereaksi, meski sudah merasakannya duluan',
+      mid: 'tidak mudah terbawa arus perasaan orang lain, tapi juga tidak dingin — ia tahu kapan harus hadir sepenuhnya dan kapan harus menjaga jarak',
+      low: 'tidak mudah goyah ketika tekanan datang — orang-orang di sekitarnya sering datang justru karena ia tidak panik ketika semua orang lain panik',
     },
     X: {
-      high: 'energik di lingkungan sosial, mudah membangun koneksi, tumbuh dari interaksi dan mendapat energi dari orang-orang di sekitar',
-      mid: 'fleksibel antara dunia sosial dan ruang pribadi, nyaman di keduanya tergantung konteks',
-      low: 'lebih dalam dari yang terlihat di permukaan, bekerja terbaik saat punya ruang berpikir, tidak perlu banyak validasi eksternal',
+      high: 'ruangan berenergi berbeda ketika ia masuk — bukan karena ia berusaha, tapi karena kehadirannya yang natural menarik orang mendekat',
+      mid: 'nyaman di keramaian maupun kesendirian, tergantung apa yang dibutuhkan saat itu — tidak merasa kehilangan di salah satunya',
+      low: 'bekerja terbaik ketika tidak ada yang menginterupsi alur berpikirnya — bukan antisosial, tapi pikirannya butuh ruang untuk sampai ke tempat yang dalam',
     },
     A: {
-      high: 'hangat dan mudah berempati, menjaga harmoni dengan tulus, orang-orang cenderung merasa nyaman berbicara jujur dengannya',
-      mid: 'bisa bekerja sama dengan baik sekaligus tidak segan mengungkapkan perbedaan pendapat ketika perlu',
-      low: 'tegas dan tidak mudah mengalah demi menjaga ketenangan semu, punya standar yang jelas dan tidak ragu mempertahankannya',
+      high: 'orang yang sulit menolak permintaan bantuan, bukan karena lemah, tapi karena genuinely tidak nyaman melihat orang lain kesulitan sendirian',
+      mid: 'bisa bersikap hangat sekaligus tegas — tidak perlu memilih antara menjaga hubungan dan menyampaikan pendapat yang berbeda',
+      low: 'tidak segan menyampaikan ketidaksetujuan, bahkan ketika itu membuat suasana tidak nyaman — baginya kebenaran lebih penting dari ketenangan palsu',
     },
     C: {
-      high: 'terstruktur, bisa diandalkan, menyelesaikan apa yang dimulai — orang tipe ini jarang meninggalkan sesuatu setengah jalan',
-      mid: 'cukup teratur untuk produktif tanpa terlalu kaku, bisa beradaptasi ketika rencana berubah',
-      low: 'spontan dan fleksibel, ide datang cepat tapi menyelesaikannya butuh dorongan atau sistem eksternal yang kuat',
+      high: 'ketika ia berkomitmen pada sesuatu, orang lain tahu itu akan selesai — bukan karena dipaksa, tapi karena ia tidak bisa hidup dengan sesuatu yang tergantung setengah jalan',
+      mid: 'cukup terstruktur untuk bisa diandalkan, tapi tidak kaku ketika situasi berubah — tahu kapan harus berpegang pada rencana dan kapan harus banting setir',
+      low: 'ide datang cepat dan ia langsung ingin mengerjakannya — tapi menyelesaikan satu hal sebelum loncat ke hal berikutnya adalah perjuangan tersendiri',
     },
     O: {
-      high: 'selalu mencari cara pandang baru, senang dengan ide-ide yang tidak lazim, tidak nyaman dengan keseragaman dan rutinitas yang stagnan',
-      mid: 'terbuka pada hal baru tanpa kehilangan pijakan pada yang sudah terbukti, tahu kapan harus eksplor dan kapan harus eksekusi',
-      low: 'praktis dan fokus pada yang sudah terbukti bekerja, tidak tertarik berputar-putar di wilayah abstrak tanpa tujuan konkret',
+      high: 'tidak nyaman dengan jawaban "karena memang begini caranya" — selalu ingin tahu apakah ada cara yang lebih baik, lebih elegan, atau lebih tidak biasa',
+      mid: 'terbuka pada hal baru tapi tidak latah — bisa membedakan mana yang genuinely menarik dan mana yang sekadar hype',
+      low: 'lebih percaya pada yang sudah terbukti daripada yang masih teori — bukan karena tidak imajinatif, tapi karena ia tahu bahwa eksekusi yang solid lebih langka dari ide yang bagus',
     },
   };
   return map[dim][level];
@@ -98,43 +98,43 @@ export function detectTension(scores: HEXACOScores): TensionPair {
     {
       highDim: 'O', lowDim: 'C', minGap: 0.8,
       label: 'visioner yang belum menemukan ritme eksekusi',
-      detail: 'Ide datang dengan mudah dan kamu senang mengeksplorasi kemungkinan baru — tapi menyelesaikan satu hal sebelum pindah ke hal lain bukan sesuatu yang alami bagimu. Kekuatan terbesarmu sekaligus tantangan terbesarmu ada di titik yang sama.',
+      detail: 'Kamu punya banyak ide yang bagus — dan graveyard dari ide-ide yang belum selesai mungkin lebih panjang dari yang kamu akui. Ini bukan kelemahan karakter. Tapi ini adalah sesuatu yang perlu sistem, bukan sekadar niat.',
     },
     {
       highDim: 'C', lowDim: 'O', minGap: 0.8,
-      label: 'pelaksana handal yang mungkin belum menemukan peta besarnya',
-      detail: 'Kamu bisa diandalkan dan konsisten — itu langka. Tapi ada kalanya kamu bertanya-tanya apakah jalur yang kamu jalankan dengan baik ini benar-benar milikmu, atau sekadar yang tersedia.',
+      label: 'pelaksana handal yang mungkin bermain terlalu aman',
+      detail: 'Kamu bisa diandalkan — dan itu langka. Tapi ada kalanya kamu bertanya-tanya: apakah jalur yang kamu jalankan dengan sangat baik ini benar-benar pilihanmu, atau sekadar yang paling aman untuk dipilih?',
     },
     {
       highDim: 'X', lowDim: 'E', minGap: 0.8,
-      label: 'aktif di luar, lebih mandiri di dalam dari yang terlihat',
-      detail: 'Di permukaan kamu mudah hadir dan energik — tapi secara emosional kamu jauh lebih mandiri dari yang orang kira. Ini bisa menjadi kekuatan, tapi juga bisa membuat orang sulit benar-benar mengenalmu.',
+      label: 'mudah hadir di luar, sulit benar-benar dikenal di dalam',
+      detail: 'Kamu mudah membuat orang merasa nyaman di dekatmu. Tapi ada jarak antara dikenal dan benar-benar dikenal — dan kamu yang mengendalikan seberapa dekat orang bisa masuk.',
     },
     {
       highDim: 'E', lowDim: 'X', minGap: 0.8,
-      label: 'peka secara emosional, tapi ekspresinya lebih ke dalam',
-      detail: 'Kamu merasakan banyak hal — lebih dari yang kamu tunjukkan. Ini membuatmu sangat empatik, tapi juga kadang membuat energimu habis di lingkungan yang terlalu ramai atau penuh konflik.',
+      label: 'merasakan lebih banyak dari yang ditampilkan',
+      detail: 'Kamu sering sudah tahu bagaimana perasaan seseorang sebelum mereka mengatakannya. Tapi energi itu ada harganya — lingkungan yang terlalu bising atau penuh konflik menguras kamu lebih cepat dari yang orang kira.',
     },
     {
       highDim: 'A', lowDim: 'H', minGap: 0.8,
-      label: 'hangat dan menjaga harmoni, kadang mengorbankan ketegasan',
-      detail: 'Kamu sangat baik dalam menjaga hubungan tetap harmonis — tapi ada momen di mana kamu perlu mengatakan sesuatu yang tidak nyaman, dan itu bukan hal yang datang secara alami.',
+      label: 'menjaga hubungan, tapi kadang dengan harga yang terlalu mahal',
+      detail: 'Kamu pandai membuat orang merasa diterima. Tapi ada momen di mana kamu tahu ada sesuatu yang perlu dikatakan — dan kamu memilih diam untuk menjaga suasana. Itu pilihan, bukan kewajiban.',
     },
     {
       highDim: 'H', lowDim: 'A', minGap: 0.8,
-      label: 'berprinsip kuat, tapi mungkin tampak kurang mudah didekati',
-      detail: 'Integritas adalah identitasmu — dan itu berharga. Tapi standar yang kamu pegang bisa membuat orang merasa dinilai, bahkan ketika kamu tidak bermaksud demikian.',
+      label: 'berprinsip, tapi standarnya tidak selalu terasa ringan bagi orang lain',
+      detail: 'Integritasmu bukan performatif — itu genuinely siapa kamu. Tapi standar yang kamu pegang terhadap dirimu kadang tanpa sadar diproyeksikan ke orang lain, dan mereka merasakannya.',
     },
     {
       highDim: 'O', lowDim: 'A', minGap: 0.8,
-      label: 'eksplorasi ide yang kuat, tapi kurang sabar dengan yang berbeda cara',
-      detail: 'Kamu sangat terbuka pada ide baru — tapi itu tidak selalu berarti terbuka pada orang yang berpikirnya berbeda. Ada gap kecil antara keterbukaan intelektual dan keterbukaan interpersonal.',
+      label: 'terbuka pada ide, tapi kurang sabar dengan cara orang lain berpikir',
+      detail: 'Kamu sangat terbuka pada kemungkinan baru — tapi keterbukaan itu lebih mudah kamu rasakan untuk ide daripada untuk orang. Ada gap kecil di sana yang mungkin belum kamu sadari.',
     },
   ];
 
   let bestPair: TensionPair = {
-    label: 'profil yang seimbang — kekuatanmu adalah fleksibilitas',
-    detail: 'Skor-skormu cukup merata, yang artinya kamu punya fleksibilitas besar dalam banyak situasi. Tapi fleksibilitas tanpa arah bisa membuat kamu belum tahu di mana kamu paling tajam. Itu bukan masalah — itu undangan untuk bereksperimen.',
+    label: 'profil yang seimbang — belum ketemu ujian yang sesungguhnya',
+    detail: 'Skor-skormu cukup merata — kamu fleksibel dalam banyak situasi. Tapi fleksibilitas baru ketahuan kualitasnya ketika ada tekanan. Pertanyaannya bukan apa kekuatanmu — tapi apa yang kamu lakukan ketika kekuatan itu diuji.',
   };
   let maxGap = 0;
 
