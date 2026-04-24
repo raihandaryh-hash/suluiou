@@ -93,6 +93,9 @@ export const api = {
   async generateProjection(payload: {
     scores: Record<string, number>;
     hollandCode?: string | null;
+    hollandNarrative?: string;
+    topTwoHEXACO?: { dim: string; interpretation: string }[];
+    tensionPair?: { label: string; detail: string };
     topTraits: string[];
     selectedPathways: string[];
     selectedPathwayNames: string[];

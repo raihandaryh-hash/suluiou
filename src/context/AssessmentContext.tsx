@@ -266,9 +266,26 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     setState((prev) => ({ ...prev, generatingProjection: true }));
 
     try {
+      const hexaco = {
+        H: cur.scores.honesty, E: cur.scores.emotionality, X: cur.scores.extraversion,
+        A: cur.scores.agreeableness, C: cur.scores.conscientiousness, O: cur.scores.openness,
+      };
+      const { interpretHEXACO, interpretHolland, detectTension } = await import('@/lib/narrativePrep');
+      const hexacoEntries = (Object.entries(hexaco) as Array<[keyof typeof hexaco, number]>);
+      const sortedHEXACO = [...hexacoEntries].sort((a, b) => b[1] - a[1]);
+      const topTwoHEXACO = sortedHEXACO.slice(0, 2).map(([dim, score]) => ({
+        dim,
+        interpretation: interpretHEXACO(dim, score),
+      }));
+      const hollandNarrative = cur.hollandCode ? interpretHolland(cur.hollandCode) : '';
+      const tensionPair = detectTension(hexaco);
+
       const projection = await api.generateProjection({
         scores: cur.scores,
         hollandCode: cur.hollandCode,
+        hollandNarrative,
+        topTwoHEXACO,
+        tensionPair,
         topTraits: cur.topTraits,
         selectedPathways: cur.selectedPathways,
         selectedPathwayNames: cur.selectedPathways.map(getPathwayName),
