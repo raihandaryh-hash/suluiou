@@ -1,14 +1,9 @@
 import React, { createContext, useContext, useEffect, useRef, useState, ReactNode } from 'react';
-import {
-  DimensionScores,
-  PathwayMatch,
-  matchPathways,
-  generateProjection,
-} from '@/lib/scoring';
+import { DimensionScores, computeTopTraits } from '@/lib/scoring';
 import { combineScores } from '@/lib/scoringNew';
 import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
-import { pathways } from '@/data/pathways';
+import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
 import { buildTopHexacoTraits } from '@/lib/hexacoTraits';
 import { getStudentSession } from '@/lib/classSession';
@@ -49,14 +44,16 @@ export type AssessmentStage = 'profile' | 'hexaco' | 'sds' | 'submitting';
 
 interface AssessmentState {
   stage: AssessmentStage;
-  hexacoAnswers: Record<number, number>;       // questionId -> 1..5
-  sdsAnswers: Record<string, boolean>;         // questionId -> true (suka/mampu/menarik)
-  hexacoIndex: number;                          // 0..59
+  hexacoAnswers: Record<number, number>;
+  sdsAnswers: Record<string, boolean>;
+  hexacoIndex: number;
   sdsSection: 1 | 2 | 3;
   isComplete: boolean;
   scores: DimensionScores | null;
   hollandCode: string | null;
-  pathwayMatches: PathwayMatch[] | null;
+  topTraits: string[];
+  /** Programs the student picked in Layer 2 (1–2 ids). */
+  selectedPathways: string[];
   projection: string | null;
   generatingProjection: boolean;
   layer1: string | null;
@@ -67,22 +64,19 @@ interface AssessmentState {
 }
 
 interface AssessmentContextType extends AssessmentState {
-  // Profile
   setStudentProfile: (p: StudentProfile) => void;
   setConsent: (given: boolean) => void;
-  // HEXACO
   setHexacoAnswer: (id: number, value: number) => void;
   nextHexaco: () => void;
   prevHexaco: () => void;
-  // SDS
   toggleSds: (id: string) => void;
   goToSdsSection: (section: 1 | 2 | 3) => void;
-  // Lifecycle
   startHexaco: () => void;
   startSds: () => void;
-  completeAssessment: () => void;            // sync — only computes & stores scores
-  triggerLayer1: () => Promise<void>;        // async — fetches profile narrative on demand
-  triggerProjection: () => Promise<void>;    // async — fetches AI narrative on demand
+  completeAssessment: () => void;
+  togglePathway: (id: string) => void;
+  triggerLayer1: () => Promise<void>;
+  triggerProjection: () => Promise<void>;
   resetAssessment: () => void;
 }
 
@@ -97,7 +91,8 @@ const initialState: AssessmentState = {
   isComplete: false,
   scores: null,
   hollandCode: null,
-  pathwayMatches: null,
+  topTraits: [],
+  selectedPathways: [],
   projection: null,
   generatingProjection: false,
   layer1: null,
@@ -112,7 +107,6 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   const hydratedRef = useRef(false);
   const saveTimerRef = useRef<number | null>(null);
 
-  // 1) Hydrate from DB on mount if there is a student session.
   useEffect(() => {
     let active = true;
     (async () => {
@@ -148,12 +142,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         hydratedRef.current = true;
       }
     })();
-    return () => {
-      active = false;
-    };
+    return () => { active = false; };
   }, []);
 
-  // 2) Auto-save (debounced) any time answers/stage change after hydration.
   useEffect(() => {
     if (!hydratedRef.current) return;
     if (state.isComplete) return;
@@ -187,7 +178,6 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     state.isComplete,
   ]);
 
-  // Save profile only. Routing decisions belong to the router (see /profile → /consent).
   const setStudentProfile = (profile: StudentProfile) => {
     setState((prev) => ({ ...prev, studentProfile: profile }));
   };
@@ -233,12 +223,10 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   const startHexaco = () => setState((p) => ({ ...p, stage: 'hexaco' }));
   const startSds = () => setState((p) => ({ ...p, stage: 'sds', sdsSection: 1 }));
 
-  // Pure & instant: compute scores → match pathways → store. No AI here.
-  // Caller redirects to /results immediately, then triggers AI from the page.
+  // Compute scores only. No pathway matching — Layer 2 is now student-driven.
   const completeAssessment = () => {
     const { scores, hollandCode } = combineScores(state.hexacoAnswers, state.sdsAnswers);
-    const matches = matchPathways(scores, pathways);
-    const fallbackProjection = generateProjection(matches[0], scores);
+    const topTraits = computeTopTraits(scores);
 
     setState((prev) => ({
       ...prev,
@@ -246,27 +234,31 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       isComplete: true,
       scores,
       hollandCode,
-      pathwayMatches: matches,
-      projection: fallbackProjection, // static template — shown only if AI fails
+      topTraits,
+      projection: null,
       generatingProjection: false,
     }));
 
-    // Mark progress as completed so future logins skip resume.
     const session = getStudentSession();
-    if (session) {
-      void markProgressCompleted(session);
-    }
+    if (session) void markProgressCompleted(session);
   };
 
-  // Called by /results after first paint. Safe to call multiple times — it
-  // short-circuits if a non-fallback projection already exists or a request
-  // is already in flight.
+  // Toggle a program selection. Cap at 2 picks.
+  const togglePathway = (id: string) => {
+    setState((prev) => {
+      const has = prev.selectedPathways.includes(id);
+      if (has) {
+        return { ...prev, selectedPathways: prev.selectedPathways.filter((x) => x !== id) };
+      }
+      if (prev.selectedPathways.length >= 2) return prev; // cap
+      return { ...prev, selectedPathways: [...prev.selectedPathways, id] };
+    });
+  };
+
   const triggerProjection = async () => {
     const cur = state;
     if (cur.generatingProjection) return;
-    if (!cur.scores || !cur.pathwayMatches || cur.pathwayMatches.length === 0) return;
-
-    const topMatch = cur.pathwayMatches[0];
+    if (!cur.scores) return;
 
     setState((prev) => ({ ...prev, generatingProjection: true }));
 
@@ -274,12 +266,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       const projection = await api.generateProjection({
         scores: cur.scores,
         hollandCode: cur.hollandCode,
-        pathway: {
-          name: topMatch.pathway.name,
-          careers: topMatch.pathway.careers,
-          localIndustries: topMatch.pathway.localIndustries,
-        },
-        topTraits: topMatch.topTraits,
+        topTraits: cur.topTraits,
+        selectedPathways: cur.selectedPathways,
+        selectedPathwayNames: cur.selectedPathways.map(getPathwayName),
         studentProfile: cur.studentProfile ?? {
           name: '',
           province: '',
@@ -291,11 +280,10 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       if (projection) {
         setState((prev) => ({ ...prev, projection, generatingProjection: false }));
       } else {
-        // Keep fallback already in state. User sees something instead of nothing.
         setState((prev) => ({ ...prev, generatingProjection: false }));
       }
     } catch (err) {
-      console.warn('AI projection error, using fallback:', err);
+      console.warn('AI projection error:', err);
       setState((prev) => ({ ...prev, generatingProjection: false }));
     }
   };
@@ -309,40 +297,28 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
 
     try {
       const hexaco = {
-        H: cur.scores.honesty,
-        E: cur.scores.emotionality,
-        X: cur.scores.extraversion,
-        A: cur.scores.agreeableness,
-        C: cur.scores.conscientiousness,
-        O: cur.scores.openness,
+        H: cur.scores.honesty, E: cur.scores.emotionality, X: cur.scores.extraversion,
+        A: cur.scores.agreeableness, C: cur.scores.conscientiousness, O: cur.scores.openness,
       };
       const riasec = {
-        R: cur.scores.realistic,
-        I: cur.scores.investigative,
-        A: cur.scores.artistic,
-        S: cur.scores.social,
-        E: cur.scores.enterprising,
-        C: cur.scores.conventional,
+        R: cur.scores.realistic, I: cur.scores.investigative, A: cur.scores.artistic,
+        S: cur.scores.social, E: cur.scores.enterprising, C: cur.scores.conventional,
       };
       const layer1 = await api.generateLayer1({
-        hexaco,
-        riasec,
+        hexaco, riasec,
         hollandCode: cur.hollandCode,
         topHexacoTraits: buildTopHexacoTraits(hexaco as unknown as Record<string, number>),
-        profile: {
-          aspiration: cur.studentProfile?.aspiration,
-          // learningStyle / careerCertainty / contributionGoal not yet collected
-        },
+        profile: { aspiration: cur.studentProfile?.aspiration },
       });
       setState((prev) => ({ ...prev, layer1: layer1 ?? null, generatingLayer1: false }));
     } catch (err) {
-      console.warn('AI layer1 error, using fallback:', err);
+      console.warn('AI layer1 error:', err);
       setState((prev) => ({ ...prev, generatingLayer1: false }));
     }
   };
 
   const resetAssessment = () => {
-    hydratedRef.current = true; // prevent re-hydration overwriting reset
+    hydratedRef.current = true;
     setState({ ...initialState, hydrating: false });
   };
 
@@ -360,6 +336,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         startHexaco,
         startSds,
         completeAssessment,
+        togglePathway,
         triggerLayer1,
         triggerProjection,
         resetAssessment,
