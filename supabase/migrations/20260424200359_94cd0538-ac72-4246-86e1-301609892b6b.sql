@@ -1,0 +1,1 @@
+DELETE FROM public.assessment_results WHERE notes = 'dummy_test';
