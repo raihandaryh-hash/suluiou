@@ -92,7 +92,8 @@ serve(async (req) => {
 
     if (!apiKey) throw new Error("AI API key is not configured");
 
-    const { scores, hollandCode, pathway, topTraits, studentProfile } = await req.json();
+    const { scores, hollandCode, pathway, topTraits, studentProfile, selectedPathwayNames } = await req.json();
+    const selectedNames: string[] = Array.isArray(selectedPathwayNames) ? selectedPathwayNames : [];
 
     const sp = studentProfile || {};
 
