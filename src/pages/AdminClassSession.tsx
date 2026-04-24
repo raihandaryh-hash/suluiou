@@ -94,9 +94,10 @@ const AdminClassSession = () => {
     return () => clearInterval(t);
   }, [meta, fetchAll]);
 
-  // Filter completed only
+  // Filter strictly by completed_at — submitted_at has default now() so it's
+  // always present and would inflate the "completed" count.
   const completed = useMemo(
-    () => rows.filter((r) => r.completed_at != null || r.submitted_at != null),
+    () => rows.filter((r) => r.completed_at != null),
     [rows]
   );
 
