@@ -35,11 +35,15 @@ const Results = () => {
     generatingProjection,
     studentProfile,
     triggerProjection,
+    layer1,
+    generatingLayer1,
+    triggerLayer1,
   } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
   const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
+  const [showProjection, setShowProjection] = useState(false);
 
   useEffect(() => {
     if (!isComplete) {
@@ -47,13 +51,18 @@ const Results = () => {
     }
   }, [isComplete, navigate]);
 
-  // Kick off AI narrative AFTER first paint. Page already shows radar + pathways.
-  // triggerProjection() short-circuits if already running or already done.
+  // After first paint, kick off Layer 1 (profile narrative). Layer 3 (projection)
+  // only fires when the user clicks the "Lihat Proyeksi 2030-mu" button.
   useEffect(() => {
     if (!isComplete || !scores || !pathwayMatches) return;
-    void triggerProjection();
+    void triggerLayer1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);
+
+  const handleRevealProjection = () => {
+    setShowProjection(true);
+    void triggerProjection();
+  };
 
   if (!scores || !pathwayMatches) return null;
 
