@@ -1,55 +1,75 @@
 
-# AI-Powered Parallel Self Projection
 
-## Overview
-Replace the current template-based projection system with dynamic AI-generated narratives. Instead of selecting from 2 hardcoded templates per pathway, the app will call an edge function that uses Lovable AI (Gemini) to generate a unique, personalized "Dirimu di Tahun 2030" narrative based on each student's specific HEXACO and RIASEC scores.
+# Handover Package untuk Mas Shofiq (PHP 7.4 + MySQL 8.0)
 
-## How It Works Today
-- `generateProjection()` in `src/lib/scoring.ts` picks 1 of 2 static templates per pathway based on the dominant HEXACO trait
-- Every student with the same top pathway and dominant trait group gets the identical narrative
+Berdasarkan stack Mas Shofiq, saya rekomendasikan **Opsi A (frontend static di IOU, backend tetap Lovable Cloud)** sebagai jalur utama, dengan **Opsi B (full PHP/MySQL)** sebagai dokumen siap-pakai kalau nanti mau full migrasi.
 
-## What Changes
+Alasan: PHP 7.4 sudah end-of-life (no security patches sejak Nov 2022). Bikin backend baru di PHP 7.4 untuk handle AI streaming (SSE) + auth modern itu beresiko & effort tinggi. Opsi A bikin Mas Shofiq cuma perlu host file static — zero PHP code.
 
-### 1. New Edge Function: `generate-projection`
-- Receives: scores (HEXACO + RIASEC), top pathway info (name, careers, local industries), and top 3 trait labels
-- Sends a carefully crafted Indonesian-language system prompt to Lovable AI (`google/gemini-3-flash-preview`) instructing it to write a vivid, second-person, 2030 narrative paragraph
-- Returns the generated projection text
-- Non-streaming (single response) since output is short (~150 words)
-- Handles 429/402 rate limit errors gracefully
+## Yang Akan Dibuat
 
-### 2. Update `supabase/config.toml`
-- Register the new function with `verify_jwt = false` (public, same as assessment submission)
+### 1. `docs/DEPLOYMENT_OPSI_A.md` — Jalur Cepat (rekomendasi)
+Langkah deploy untuk Mas Shofiq:
+- Cara build: `npm install && npm run build` → folder `dist/`
+- Upload `dist/` ke `bahasa.iou.edu.gm/sulu/` via FTP/cPanel
+- Konfigurasi `.htaccess` untuk SPA routing (React Router) di Apache
+- Update Supabase Auth allowed redirect URLs (saya kasih screenshot path-nya)
+- Set custom domain di publish settings Lovable
+- Checklist verifikasi (assessment jalan, admin login, AI projection muncul)
 
-### 3. Update `AssessmentContext.tsx`
-- Make `completeAssessment()` async
-- After calculating scores and matches, call the edge function to get the AI projection
-- Add a `generatingProjection` loading state
-- Fall back to the existing template-based `generateProjection()` if the AI call fails
+### 2. `docs/API_CONTRACT.md` — Spesifikasi untuk Opsi B
+Kalau nanti Mas Shofiq mau full migrasi ke PHP/MySQL, dokumen ini berisi:
+- 3 endpoint REST yang harus dibikin (`POST /api/results`, `POST /api/generate-projection`, `POST /api/career-chat`)
+- Request/response JSON schema lengkap untuk masing-masing
+- Format SSE streaming untuk chatbot (penting: PHP 7.4 perlu `ob_flush()` + `flush()` + disable output buffering)
+- Auth endpoint contract (admin login + session)
+- CORS requirements
+- Contoh skeleton PHP 7.4 untuk endpoint paling sederhana (`/api/results`) sebagai starting point
 
-### 4. Update `Results.tsx`
-- Show a loading skeleton/spinner for the projection section while AI generates
-- Display the AI-generated text once ready
+### 3. `docs/MYSQL_SCHEMA.sql` — Database Schema untuk MySQL 8.0
+Konversi schema Postgres → MySQL 8.0:
+- `CREATE TABLE` untuk `assessment_results`, `province_contexts`, `admin_users` (+ `user_sessions`)
+- Tipe data dipetakan: `uuid` → `CHAR(36)`, `jsonb` → `JSON`, `timestamp with time zone` → `TIMESTAMP`, `text[]` → `JSON`
+- Index untuk kolom yang sering di-query admin (`submitted_at DESC`, `lead_score DESC`, `follow_up_status`)
+- Catatan: tanpa RLS — security harus di-handle di PHP layer (validasi session admin sebelum SELECT)
 
-### 5. Update `AdminResultView.tsx`
-- No changes needed -- it already reads projection from the database
+### 4. `docs/DATA_MIGRATION.md` + script export
+- Cara export data existing dari Lovable Cloud (pakai Supabase dashboard atau `pg_dump` via connection string)
+- Script Node.js sederhana (`scripts/export-to-mysql.js`) yang convert Postgres dump → MySQL `INSERT` statements
+- Cara import 38 row `province_contexts` + semua `assessment_results` ke MySQL Mas Shofiq
 
-## Technical Details
+### 5. `docs/AI_PROXY_PHP.md` — Panduan AI calls di PHP 7.4
+Khusus untuk Opsi B, karena AI integration paling tricky:
+- Cara proxy Gemini API dari PHP (pakai `cURL` dengan `CURLOPT_WRITEFUNCTION` untuk streaming)
+- Penanganan API key Gemini (taruh di env / config terpisah, jangan commit)
+- Code snippet PHP 7.4-compatible untuk endpoint `/api/career-chat` yang stream SSE ke browser
+- Catatan: shared hosting kadang block long-lived connections — perlu cek dengan IOU sysadmin
 
-**Edge Function prompt strategy:**
+### 6. `.env.production.example`
+Template env vars dengan komentar mana yang dipakai untuk Opsi A vs B:
 ```
-You are a career narrative writer for Indonesian high school students.
-Write a vivid, inspiring 2nd-person narrative set in 2030.
-The student's profile: [scores + pathway details]
-Write in Bahasa Indonesia, ~100-150 words, one paragraph.
-Make it specific to their personality traits and chosen pathway.
+# Opsi A: kosongkan, frontend langsung pakai Lovable Cloud
+VITE_API_BASE_URL=
+
+# Opsi B: isi dengan root URL backend PHP Mas Shofiq
+# VITE_API_BASE_URL=https://bahasa.iou.edu.gm/sulu
 ```
 
-**Fallback:** If the AI call fails (network error, rate limit), the app silently falls back to the existing template system so the user always sees a result.
+## Catatan Penting tentang PHP 7.4
 
-**Files to create:**
-- `supabase/functions/generate-projection/index.ts`
+Akan saya tulis di docs sebagai disclaimer:
+- PHP 7.4 EOL → minta Mas Shofiq pertimbangkan upgrade ke PHP 8.1+ kalau memungkinkan, terutama untuk handle AI streaming
+- Beberapa library modern (e.g., GuzzleHttp v7+) butuh PHP 7.4 minimum tapi sebagian fitur baru perlu 8.0+
+- Session handling untuk admin lebih aman pakai JWT (`firebase/php-jwt` library) daripada PHP native sessions
 
-**Files to modify:**
-- `supabase/config.toml` -- add function entry
-- `src/context/AssessmentContext.tsx` -- async completion with AI call + loading state
-- `src/pages/Results.tsx` -- loading indicator for projection section
+## Yang TIDAK Akan Saya Buat (kecuali diminta)
+
+- Full PHP backend implementation — itu kerjaan Mas Shofiq berdasarkan contract
+- MySQL data migration eksekusi — saya kasih script, eksekusi pas siap pindah
+- Auth replacement (Supabase Auth → PHP session) — design-nya ada di API contract, implementasi di Mas Shofiq
+
+## Pertanyaan Konfirmasi
+
+Sebelum saya generate semua docs di atas, satu hal cepat:
+- **Setuju jalur utamanya Opsi A** (frontend di IOU, backend tetap Lovable Cloud) dan Opsi B disiapkan sebagai dokumen siap-pakai untuk nanti? Atau Mas Shofiq memang sudah committed full migrasi sekarang ke PHP/MySQL (Opsi B saja)?
+
