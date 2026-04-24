@@ -5,7 +5,7 @@ import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
 import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
-import { buildTopHexacoTraits } from '@/lib/hexacoTraits';
+
 import { getStudentSession } from '@/lib/classSession';
 import {
   fetchProgress,
