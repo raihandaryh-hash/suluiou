@@ -351,6 +351,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       value={{
         ...state,
         setStudentProfile,
+        setConsent,
         setHexacoAnswer,
         nextHexaco,
         prevHexaco,
