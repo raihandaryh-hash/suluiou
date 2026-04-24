@@ -135,6 +135,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
             stage: snap.stage,
             hexacoIndex: snap.hexacoIndex,
             sdsSection: snap.sdsSection,
+            consentGiven: snap.consentGiven,
             hydrating: false,
           }));
         } else {
