@@ -43,6 +43,16 @@ interface Row {
   scores: Record<string, number>;
   completed_at: string | null;
   submitted_at: string;
+  student_province: string | null;
+  top_pathway_name: string | null;
+}
+
+interface ProgressRow {
+  guest_identifier: string | null;
+  user_id: string | null;
+  started_at: string;
+  completed_at: string | null;
+  stage: string;
 }
 
 interface ClassMeta {
