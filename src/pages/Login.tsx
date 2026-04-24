@@ -17,6 +17,7 @@ import {
   type StudentSession,
 } from '@/lib/classSession';
 import { routeAfterAuth } from '@/lib/authRouter';
+import AdminQuickAccess from '@/components/AdminQuickAccess';
 
 const guestSchema = z.object({
   name: z
@@ -213,6 +214,7 @@ const Login = () => {
             </div>
           ) : existing ? (
             <div className="space-y-4">
+              <AdminQuickAccess variant="inline" />
               <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
                 <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
                   Sesi tersimpan
