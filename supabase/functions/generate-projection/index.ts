@@ -12,14 +12,13 @@ serve(async (req) => {
   }
 
   try {
-    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("LOVABLE_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-    if (!AI_API_KEY) {
-      throw new Error("AI_API_KEY is not configured");
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
+    if (!LOVABLE_API_KEY) {
+      throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const { scores, pathway, topTraits, studentProfile } = await req.json();
+    const { scores, hollandCode, pathway, topTraits, studentProfile } = await req.json();
 
     const systemPrompt = `Kamu adalah penulis narasi karier untuk siswa SMA di Indonesia. Tugasmu menulis narasi inspiratif orang kedua ("kamu") yang menggambarkan kehidupan profesional siswa di tahun 2030.
 
@@ -43,19 +42,23 @@ Aturan:
 
     const userPrompt = `Profil siswa:
 
-Skor kepribadian (skala 1-5):
-- Kejujuran: ${scores.honesty}
-- Sensitivitas: ${scores.emotionality}
-- Sosial: ${scores.extraversion}
+Kepribadian (HEXACO, skala 1-5):
+- Kejujuran & Kerendahan Hati: ${scores.honesty}
+- Emosionalitas: ${scores.emotionality}
+- Ekstraversi: ${scores.extraversion}
 - Keramahan: ${scores.agreeableness}
-- Keteraturan: ${scores.conscientiousness}
+- Kehati-hatian: ${scores.conscientiousness}
 - Keterbukaan: ${scores.openness}
-- Praktis: ${scores.realistic}
-- Analitis: ${scores.investigative}
-- Kreatif: ${scores.artistic}
-- Penolong: ${scores.social}
-- Wirausaha: ${scores.enterprising}
-- Terstruktur: ${scores.conventional}
+
+Minat karier (RIASEC, skala 1-5):
+- Realistic (teknis/konkret): ${scores.realistic}
+- Investigative (analitis/ilmiah): ${scores.investigative}
+- Artistic (kreatif/ekspresif): ${scores.artistic}
+- Social (membantu/mengajar): ${scores.social}
+- Enterprising (memimpin/wirausaha): ${scores.enterprising}
+- Conventional (terstruktur/administratif): ${scores.conventional}
+
+Holland Code (3 minat tertinggi): ${hollandCode || "(tidak tersedia)"}
 
 Jalur terbaik: ${pathway.name}
 Karier potensial: ${pathway.careers.join(", ")}
@@ -67,20 +70,21 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000);
     const response = await fetch(
-      `${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${AI_API_KEY}`,
+      "https://ai.gateway.lovable.dev/v1/chat/completions",
       {
         method: "POST",
         headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          contents: [
-            { role: "user", parts: [{ text: systemPrompt + "\n\n" + userPrompt }] }
+          model: AI_MODEL,
+          max_tokens: 1024,
+          temperature: 0.65,
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
           ],
-          generationConfig: {
-            maxOutputTokens: 1024,
-            temperature: 0.9,
-          },
         }),
         signal: controller.signal,
       }
@@ -96,7 +100,7 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
       }
       if (response.status === 402) {
         return new Response(
-          JSON.stringify({ error: "Payment required." }),
+          JSON.stringify({ error: "Payment required, please add credits to your Lovable AI workspace." }),
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
@@ -106,9 +110,10 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     }
 
     const data = await response.json();
-    const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    const projection = data.choices?.[0]?.message?.content?.trim();
 
     if (!projection) {
+      console.error("No content in AI response:", JSON.stringify(data));
       throw new Error("No content in AI response");
     }
 
@@ -117,7 +122,7 @@ Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
     });
   } catch (e) {
     console.error("generate-projection error:", e);
-    if (e instanceof Error && e.name === 'AbortError') {
+    if (e instanceof Error && e.name === "AbortError") {
       return new Response(
         JSON.stringify({ error: "AI request timed out" }),
         { status: 504, headers: { ...corsHeaders, "Content-Type": "application/json" } }
