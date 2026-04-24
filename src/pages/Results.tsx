@@ -42,6 +42,8 @@ const Results = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
+  const [savedRowId, setSavedRowId] = useState<string | null>(null);
+  const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
   const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
   const [showProjection, setShowProjection] = useState(false);
 
