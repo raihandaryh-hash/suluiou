@@ -43,7 +43,15 @@
     --sidebar-border: 213 30% 28%;
     --sidebar-ring: 42 68% 54%;
 
-    /* Custom tokens */
+    /* Brand tokens — Sulu × IOU v1.0 */
+    --brand-navy: 213 62% 26%;
+    --mid-blue: 213 55% 38%;
+    --torch-gold: 42 68% 54%;
+    --ink-deep: 213 50% 18%;
+    --ink-muted: 213 15% 46%;
+    --bg-scholarly: 210 33% 97%;
+
+    /* Signature gradient stops */
     --gradient-start: 213 62% 26%;
     --gradient-mid: 213 55% 38%;
     --gradient-end: 42 68% 54%;
@@ -79,18 +87,42 @@
     background-clip: text;
   }
 
+  /* Institutional Glass — per brand guideline §4.1 */
   .glass {
-    background: hsl(var(--card) / 0.85);
+    background: hsl(0 0% 100% / 0.85);
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border));
-    box-shadow: 0 4px 24px -4px hsl(var(--primary) / 0.06);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--brand-navy) / 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px -4px hsl(var(--brand-navy) / 0.08);
   }
 
   .glow-primary {
     box-shadow: 0 0 30px -8px hsl(var(--primary) / 0.25);
   }
 
+  /* Torch glow — per brand guideline §2.2 */
   .glow-accent {
-    box-shadow: 0 0 30px -8px hsl(var(--accent) / 0.2);
+    box-shadow: 0 0 40px -10px hsl(var(--torch-gold) / 0.3);
+  }
+
+  .bg-torch-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-navy)) 0%,
+      hsl(var(--mid-blue)) 50%,
+      hsl(var(--torch-gold)) 100%
+    );
+  }
+
+  /* Subtle scholarly section divider */
+  .divider-scholarly {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--brand-navy) / 0.15),
+      transparent
+    );
+    height: 1px;
   }
 }

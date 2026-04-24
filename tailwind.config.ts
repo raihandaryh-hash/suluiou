@@ -57,8 +57,18 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         torch: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(var(--torch-gold))",
+          gold: "hsl(var(--torch-gold))",
           glow: "hsl(var(--torch-glow))",
+        },
+        navy: {
+          DEFAULT: "hsl(var(--brand-navy))",
+          deep: "hsl(var(--ink-deep))",
+        },
+        "mid-blue": "hsl(var(--mid-blue))",
+        ink: {
+          DEFAULT: "hsl(var(--ink-deep))",
+          muted: "hsl(var(--ink-muted))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
