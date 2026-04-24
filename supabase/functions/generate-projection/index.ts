@@ -67,46 +67,66 @@ Trait dominan: ${topTraits.join(", ")}${profileBlock}
 
 Tulis narasi "Dirimu di Tahun 2030" untuk siswa ini.`;
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000);
-    const response = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: AI_MODEL,
-          max_tokens: 1024,
-          temperature: 0.65,
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userPrompt },
-          ],
-        }),
-        signal: controller.signal,
-      }
-    );
-    clearTimeout(timeoutId);
+    // Exponential backoff for transient AI gateway errors (429/5xx).
+    // Max 3 attempts with 1s → 2s → 4s waits. Total worst case ≈ 7s + request time.
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    let response: Response | null = null;
+    let lastErrText = '';
 
-    if (!response.ok) {
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Rate limit exceeded, please try again later." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      try {
+        response = await fetch(
+          "https://ai.gateway.lovable.dev/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              model: AI_MODEL,
+              max_tokens: 1024,
+              temperature: 0.65,
+              messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: userPrompt },
+              ],
+            }),
+            signal: controller.signal,
+          }
         );
+      } finally {
+        clearTimeout(timeoutId);
       }
-      if (response.status === 402) {
+
+      if (response.ok) break;
+
+      // Retry only on rate limit (429) or 5xx; bail out on 4xx (auth/payment/etc).
+      const isRetryable = response.status === 429 || response.status >= 500;
+      lastErrText = await response.text().catch(() => '');
+      console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status} ${lastErrText}`);
+      if (!isRetryable || attempt === 2) break;
+      await sleep((2 ** attempt) * 1000); // 1s, 2s
+    }
+
+    if (!response || !response.ok) {
+      const status = response?.status ?? 502;
+      if (status === 402) {
         return new Response(
           JSON.stringify({ error: "Payment required, please add credits to your Lovable AI workspace." }),
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      const text = await response.text();
-      console.error("AI gateway error:", response.status, text);
-      throw new Error(`AI gateway error: ${response.status}`);
+      if (status === 429) {
+        return new Response(
+          JSON.stringify({ error: "Rate limit exceeded after retries." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      console.error("AI gateway error after retries:", status, lastErrText);
+      throw new Error(`AI gateway error: ${status}`);
     }
 
     const data = await response.json();
