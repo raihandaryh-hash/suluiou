@@ -41,14 +41,32 @@ export function useAuth() {
 
   const checkAdminRole = async (userId: string) => {
     try {
-      const { data, error } = await supabase
+      // 1. Cek user_roles (admin lama)
+      const { data: roleData } = await supabase
         .from('user_roles')
         .select('role')
         .eq('user_id', userId)
         .eq('role', 'admin')
         .maybeSingle();
 
-      setIsAdmin(!!data && !error);
+      if (roleData) {
+        setIsAdmin(true);
+        return;
+      }
+
+      // 2. Cek admin_users by email (admin baru)
+      const { data: userData } = await supabase.auth.getUser();
+      const email = userData.user?.email?.toLowerCase();
+      if (email) {
+        const { data: emailAdmin } = await supabase
+          .from('admin_users')
+          .select('email')
+          .ilike('email', email)
+          .maybeSingle();
+        setIsAdmin(!!emailAdmin);
+      } else {
+        setIsAdmin(false);
+      }
     } catch {
       setIsAdmin(false);
     } finally {
