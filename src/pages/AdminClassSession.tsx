@@ -68,6 +68,7 @@ const AdminClassSession = () => {
   const { toast } = useToast();
   const [meta, setMeta] = useState<ClassMeta | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
+  const [progressRows, setProgressRows] = useState<ProgressRow[]>([]);
   const [enrolledCount, setEnrolledCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [exporting, setExporting] = useState(false);
@@ -77,20 +78,26 @@ const AdminClassSession = () => {
   const fetchAll = useCallback(async () => {
     if (!classId) return;
     setLoading(true);
-    const [{ data: cls }, { data: results }, { count: enrCount }] = await Promise.all([
-      supabase.from('classes').select('*').eq('id', classId).maybeSingle(),
-      supabase
-        .from('assessment_results')
-        .select('id, scores, submitted_at, completed_at')
-        .eq('class_id', classId),
-      supabase
-        .from('class_enrollments')
-        .select('id', { count: 'exact', head: true })
-        .eq('class_id', classId),
-    ]);
+    const [{ data: cls }, { data: results }, { count: enrCount }, { data: progress }] =
+      await Promise.all([
+        supabase.from('classes').select('*').eq('id', classId).maybeSingle(),
+        supabase
+          .from('assessment_results')
+          .select('id, scores, submitted_at, completed_at, student_province, top_pathway_name')
+          .eq('class_id', classId),
+        supabase
+          .from('class_enrollments')
+          .select('id', { count: 'exact', head: true })
+          .eq('class_id', classId),
+        supabase
+          .from('assessment_progress')
+          .select('guest_identifier, user_id, started_at, completed_at, stage')
+          .eq('class_id', classId),
+      ]);
 
     setMeta(cls as ClassMeta | null);
     setRows((results ?? []) as Row[]);
+    setProgressRows((progress ?? []) as ProgressRow[]);
     setEnrolledCount(enrCount ?? 0);
     setLoading(false);
   }, [classId]);
