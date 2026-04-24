@@ -443,7 +443,8 @@ const Results = () => {
           )}
         </motion.div>
 
-        {/* Share Buttons */}
+        {/* Parent consent (opsional) — muncul setelah Layer 3 */}
+        <ParentConsentSection resultId={savedRowId} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
