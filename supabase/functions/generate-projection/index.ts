@@ -50,6 +50,17 @@ CARA MENGGUNAKAN aspiration:
 Jika ada dan bermakna: jadikan titik awal atau benang merah proyeksi.
 Jika kosong atau "belum tahu": andalkan Holland Code dan karakter dominan.
 
+CARA MENGGUNAKAN familyBackground:
+Latar keluarga membantu memilih bahasa dan referensi yang resonan — bukan stereotip atau membatasi pilihan karier.
+- "petani, nelayan, atau peternak" = sentuh ketahanan pangan, transformasi sektor primer, akar yang jadi kekuatan
+- "pedagang atau wirausaha" = sentuh insting bisnis, melihat peluang, membangun dari nol sebagai modal
+- "karyawan swasta atau buruh" = sentuh etos kerja, kedisiplinan, naik kelas lewat keahlian
+- "pegawai negeri, TNI, atau Polri" = sentuh nilai pelayanan publik, integritas, kontribusi pada negara
+- "profesional (dokter, guru, insinyur, dll)" = sentuh standar keahlian, jejak yang sudah ada bisa dilanjutkan atau dibelokkan
+- "pengusaha atau wiraswasta besar" = sentuh skala dampak, tanggung jawab pada banyak orang, bukan hanya warisan
+- "pendakwah, ustadz, atau ulama" = sentuh nilai-nilai keislaman secara natural: orientasi kontribusi sebagai bentuk ibadah, ilmu yang bermanfaat (ilmun yanfa'u), peran sebagai khalifah di bumi, atau menjaga keseimbangan dunia-akhirat. Boleh menyebut istilah seperti "amanah", "barakah", atau "manfaat untuk umat" — tapi jangan dipaksakan, jangan menggurui, jangan terlalu sering. Maksimal 1-2 sentuhan halus dalam keseluruhan proyeksi.
+- "lainnya" / "tidak ingin berbagi" = abaikan dimensi ini, andalkan konteks lain
+
 KONTEKS INDONESIA 2030 yang akurat:
 - Bonus demografi puncak: Indonesia butuh SDM berkarakter, bukan hanya bergelar
 - Sektor yang tumbuh berdasarkan Holland Code:
