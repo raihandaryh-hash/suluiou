@@ -45,13 +45,18 @@ const Login = () => {
   const [phone, setPhone] = useState('');
   const [joinCode, setJoinCode] = useState('');
 
-  // If a Google user is already logged in, route them to /join (or resume).
+  // If a Google user is already logged in, route them with strict priority:
+  // 1) finished assessment → /results
+  // 2) in-progress assessment → /assessment (resume happens inside)
+  // 3) enrolled in class but not started → /assessment (Step 0)
+  // 4) no enrollment → /join
   useEffect(() => {
     let active = true;
     supabase.auth.getUser().then(async ({ data }) => {
       if (!active) return;
       const u = data.user;
       if (!u) return;
+
       setStudentSession({
         kind: 'google',
         userId: u.id,
@@ -63,7 +68,34 @@ const Login = () => {
         classId: null,
         className: null,
       });
-      // Cek enrollment
+
+      // 1) Finished assessment?
+      const { data: done } = await supabase
+        .from('assessment_results')
+        .select('id')
+        .eq('user_id', u.id)
+        .not('completed_at', 'is', null)
+        .limit(1)
+        .maybeSingle();
+      if (done) {
+        navigate('/results');
+        return;
+      }
+
+      // 2) In-progress assessment?
+      const { data: prog } = await supabase
+        .from('assessment_progress')
+        .select('id, class_id')
+        .eq('user_id', u.id)
+        .is('completed_at', null)
+        .limit(1)
+        .maybeSingle();
+      if (prog) {
+        navigate('/assessment');
+        return;
+      }
+
+      // 3) Enrolled in a class but not started?
       const { data: enr } = await supabase
         .from('class_enrollments')
         .select('class_id, classes(id, name)')
@@ -72,9 +104,11 @@ const Login = () => {
         .maybeSingle();
       if (enr?.class_id) {
         navigate('/assessment');
-      } else {
-        navigate('/join');
+        return;
       }
+
+      // 4) No enrollment
+      navigate('/join');
     });
     return () => {
       active = false;
