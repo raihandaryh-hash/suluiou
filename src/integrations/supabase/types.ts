@@ -29,6 +29,62 @@ export type Database = {
         }
         Relationships: []
       }
+      assessment_progress: {
+        Row: {
+          class_id: string | null
+          completed_at: string | null
+          guest_identifier: string | null
+          hexaco_answers: Json
+          hexaco_index: number
+          id: string
+          sds_answers: Json
+          sds_section: number
+          stage: string
+          started_at: string
+          student_profile: Json | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          class_id?: string | null
+          completed_at?: string | null
+          guest_identifier?: string | null
+          hexaco_answers?: Json
+          hexaco_index?: number
+          id?: string
+          sds_answers?: Json
+          sds_section?: number
+          stage?: string
+          started_at?: string
+          student_profile?: Json | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          class_id?: string | null
+          completed_at?: string | null
+          guest_identifier?: string | null
+          hexaco_answers?: Json
+          hexaco_index?: number
+          id?: string
+          sds_answers?: Json
+          sds_section?: number
+          stage?: string
+          started_at?: string
+          student_profile?: Json | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_progress_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       assessment_results: {
         Row: {
           all_matches: Json
