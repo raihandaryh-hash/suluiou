@@ -66,18 +66,16 @@ const Hero = () => {
             </motion.div>
 
             <motion.h1
-              className="font-heading font-bold leading-[1.08] tracking-tight text-white text-5xl md:text-5xl lg:text-6xl mb-6"
+              className="font-heading font-semibold leading-[1.15] tracking-tight text-white text-3xl md:text-4xl lg:text-[2.75rem] mb-5"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
             >
-              Masa Depanmu
-              <br />
-              Bukan Kebetulan.
+              Masa Depanmu Bukan Kebetulan.
             </motion.h1>
 
             <motion.p
-              className="text-base md:text-lg text-white/80 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              className="text-sm md:text-base text-white/75 max-w-lg mx-auto lg:mx-0 mb-9 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -94,19 +92,19 @@ const Hero = () => {
             >
               <Button
                 asChild
-                size="lg"
-                className="group text-base px-7 py-6 bg-torch-gold hover:bg-torch-gold/90 text-navy-deep font-semibold glow-accent shadow-lg"
+                size="default"
+                className="group text-sm px-6 py-5 bg-torch-gold hover:bg-torch-gold/90 text-navy-deep font-semibold shadow-md"
               >
                 <Link to="/login">
                   Mulai Assessment
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                size="lg"
-                className="text-base px-7 py-6 border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                size="default"
+                className="text-sm px-6 py-5 border-white/25 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
               >
                 <Link to="/suar">Pelajari Metodologi</Link>
               </Button>
