@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 const Consent = () => {
   const navigate = useNavigate();
-  const { setConsent, studentProfile, hydrating, consentGiven } = useAssessment();
+  const { setConsent, studentProfile, hydrating, consentGiven, startHexaco } = useAssessment();
   const [checked, setChecked] = useState(consentGiven);
 
   // If user lands here without finishing Step 0, send them back.
@@ -25,6 +25,7 @@ const Consent = () => {
   const handleStart = () => {
     if (!checked) return;
     setConsent(true);
+    startHexaco();
     navigate('/assessment', { replace: true });
   };
 
