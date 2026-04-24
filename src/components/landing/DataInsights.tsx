@@ -48,44 +48,44 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 function StatCard({ icon, value, suffix, label, delay }: StatCardProps) {
   return (
     <motion.div
-      className="glass rounded-2xl p-6 md:p-8 text-center"
+      className="glass rounded-xl p-4 md:p-5 text-center"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
     >
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
+      <div className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary mb-3">
         {icon}
       </div>
-      <div className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-2">
+      <div className="text-xl md:text-2xl font-heading font-semibold text-foreground mb-1.5 tabular-nums">
         <AnimatedCounter target={value} suffix={suffix} />
       </div>
-      <p className="text-xs md:text-sm text-muted-foreground">{label}</p>
+      <p className="text-[11px] md:text-xs text-muted-foreground leading-snug">{label}</p>
     </motion.div>
   );
 }
 
 const stats = [
   {
-    icon: <Brain className="w-6 h-6" />,
+    icon: <Brain className="w-4 h-4" />,
     value: 70,
     suffix: '%',
     label: 'Pekerjaan berubah akibat AI di 2030',
   },
   {
-    icon: <Users className="w-6 h-6" />,
+    icon: <Users className="w-4 h-4" />,
     value: 64,
     suffix: ' Juta',
     label: 'Generasi muda usia produktif di 2030',
   },
   {
-    icon: <Building2 className="w-6 h-6" />,
+    icon: <Building2 className="w-4 h-4" />,
     value: 99,
     suffix: '%',
     label: 'Ekonomi Indonesia digerakkan UMKM',
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
+    icon: <TrendingUp className="w-4 h-4" />,
     value: 3,
     suffix: 'x lipat',
     label: 'Pertumbuhan ekonomi digital Indonesia',
