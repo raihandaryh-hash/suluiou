@@ -61,6 +61,17 @@ const Results = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);
 
+  // If the user submitted the form before the AI finished, patch layer1_text
+  // into their existing row as soon as it arrives. Runs once per narrative.
+  useEffect(() => {
+    if (!savedRowId || !layer1) return;
+    if (layer1PersistedFor === layer1) return;
+    void api.updateLayer1(savedRowId, layer1).then(({ error }) => {
+      if (!error) setLayer1PersistedFor(layer1);
+      else console.warn('updateLayer1 failed:', error.message);
+    });
+  }, [savedRowId, layer1, layer1PersistedFor]);
+
   const handleRevealProjection = () => {
     setShowProjection(true);
     void triggerProjection();
