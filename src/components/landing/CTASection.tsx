@@ -34,7 +34,7 @@ const CTASection = () => {
           </Button>
 
           <p className="text-xs text-white/50 mt-6">
-            Berbasis instrumen Kepribadian & Minat — diakui secara internasional
+            Berbasis HEXACO & RIASEC — instrumen psikometri yang digunakan dalam riset karier global
           </p>
         </motion.div>
       </div>
