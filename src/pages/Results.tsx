@@ -159,10 +159,7 @@ const Results = () => {
     }
     toast({ title: 'Tersimpan!', description: 'Tim IOU akan segera menghubungimu.' });
 
-    window.open(
-      'https://wa.me/' + IOU_WA_NUMBER + '?text=' + encodeURIComponent(IOU_WA_TEMPLATES.afterAssessment),
-      '_blank'
-    );
+    // Tidak auto-open WA — siswa pilih sendiri tombol ikhwan/akhwat di bawah.
   };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
