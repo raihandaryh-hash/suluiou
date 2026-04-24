@@ -19,7 +19,7 @@ import {
   statusConfig,
   type FollowUpStatus,
 } from '@/lib/leadScoring';
-import { Flame, LogOut, RefreshCw, X } from 'lucide-react';
+import { Flame, LogOut, RefreshCw, X, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface LeadResult {
