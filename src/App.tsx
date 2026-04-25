@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
 import Results from "./pages/Results";
 import Suar from "./pages/Suar";
+import Insight from "./pages/Insight";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/results" element={<Results />} />
             <Route path="/suar" element={<Suar />} />
+            <Route path="/insight" element={<Insight />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
