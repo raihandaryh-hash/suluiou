@@ -24,7 +24,16 @@ import {
   type FollowUpStatus,
 } from '@/lib/leadScoring';
 import { LeadDetailDialog } from './LeadDetailDialog';
-import { Eye, Search, SlidersHorizontal } from 'lucide-react';
+import { Eye, Search, SlidersHorizontal, MessageCircle } from 'lucide-react';
+
+function normalizeWa(phone: string | null): string | null {
+  if (!phone) return null;
+  const digits = phone.replace(/\D/g, '');
+  if (!digits) return null;
+  if (digits.startsWith('0')) return '62' + digits.slice(1);
+  if (digits.startsWith('62')) return digits;
+  return digits;
+}
 
 interface LeadResult {
   id: string;
