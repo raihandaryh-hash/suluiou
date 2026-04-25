@@ -16,6 +16,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
 import AdminClasses from "./pages/AdminClasses";
 import AdminClassSession from "./pages/AdminClassSession";
+import AdminSuar from "./pages/AdminSuar";
 import Login from "./pages/Login";
 import JoinClass from "./pages/JoinClass";
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
@@ -71,6 +72,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <AdminResultView />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/suar"
+              element={
+                <ProtectedRoute>
+                  <AdminSuar />
                 </ProtectedRoute>
               }
             />
