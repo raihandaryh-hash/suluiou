@@ -1,11 +1,17 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useAssessment } from '@/context/AssessmentContext';
 import { hexacoQuestions, hexacoLikertLabels } from '@/data/hexacoQuestions';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import { ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ArrowLeft, CheckCircle2, AlertCircle } from 'lucide-react';
 import Logo from '@/components/Logo';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const HexacoStep = () => {
   const {
@@ -23,21 +29,46 @@ const HexacoStep = () => {
   const progress = (answeredCount / total) * 100;
   const currentAnswer = hexacoAnswers[question.id];
   const allAnswered = answeredCount === total;
+  const currentAnswered = currentAnswer !== undefined;
+
+  // Highlight saat user coba lanjut tapi item belum dijawab
+  const [shake, setShake] = useState(false);
+  useEffect(() => {
+    if (currentAnswered && shake) setShake(false);
+  }, [currentAnswered, shake]);
 
   const handleAnswer = useCallback(
     (value: number) => {
       setHexacoAnswer(question.id, value);
-      // satset: pindah otomatis tanpa delay/animasi besar
       if (hexacoIndex < total - 1) {
-        // small microtask to let state commit
         requestAnimationFrame(() => nextHexaco());
       }
     },
     [question.id, hexacoIndex, total, setHexacoAnswer, nextHexaco]
   );
 
+  const handleNext = () => {
+    if (!currentAnswered) {
+      setShake(true);
+      return;
+    }
+    nextHexaco();
+  };
+
   const handleProceed = () => {
-    if (!allAnswered) return;
+    if (!allAnswered) {
+      // Navigasi ke item pertama yang belum terjawab + highlight
+      const firstUnansweredIdx = hexacoQuestions.findIndex(
+        (q) => hexacoAnswers[q.id] === undefined
+      );
+      if (firstUnansweredIdx !== -1) {
+        const delta = firstUnansweredIdx - hexacoIndex;
+        if (delta > 0) for (let i = 0; i < delta; i++) nextHexaco();
+        else if (delta < 0) for (let i = 0; i < -delta; i++) prevHexaco();
+        setShake(true);
+      }
+      return;
+    }
     startSds();
   };
 
@@ -73,7 +104,12 @@ const HexacoStep = () => {
             {question.text}
           </h2>
 
-          <div className="flex flex-col gap-2.5 max-w-xl mx-auto">
+          <div
+            className={cn(
+              'flex flex-col gap-2.5 max-w-xl mx-auto rounded-2xl transition-all',
+              shake && !currentAnswered && 'ring-2 ring-destructive ring-offset-4 ring-offset-background animate-pulse p-2'
+            )}
+          >
             {hexacoLikertLabels.map((label, i) => {
               const value = i + 1;
               const isSelected = currentAnswer === value;
@@ -85,7 +121,9 @@ const HexacoStep = () => {
                     'w-full py-3.5 px-5 rounded-xl border-2 text-left font-medium transition-colors',
                     isSelected
                       ? 'bg-primary/10 border-primary text-foreground'
-                      : 'bg-card border-border hover:border-primary/40 text-muted-foreground hover:text-foreground'
+                      : shake && !currentAnswered
+                        ? 'bg-card border-destructive/60 text-foreground hover:border-destructive'
+                        : 'bg-card border-border hover:border-primary/40 text-muted-foreground hover:text-foreground'
                   )}
                 >
                   <span className="flex items-center gap-3">
@@ -105,6 +143,13 @@ const HexacoStep = () => {
               );
             })}
           </div>
+
+          {shake && !currentAnswered && (
+            <p className="mt-4 text-sm text-destructive flex items-center justify-center gap-2 font-medium">
+              <AlertCircle className="w-4 h-4" />
+              Pertanyaan ini wajib dijawab sebelum lanjut.
+            </p>
+          )}
         </div>
       </div>
 
@@ -124,24 +169,51 @@ const HexacoStep = () => {
             {answeredCount}/{total} dijawab
           </span>
 
-          {allAnswered ? (
-            <Button
-              onClick={handleProceed}
-              className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              Lanjut ke Bagian 2
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+          {hexacoIndex === total - 1 ? (
+            <TooltipProvider>
+              <Tooltip open={!allAnswered ? undefined : false}>
+                <TooltipTrigger asChild>
+                  <span>
+                    <Button
+                      onClick={handleProceed}
+                      disabled={!allAnswered}
+                      className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50"
+                    >
+                      Lanjut ke Bagian 2
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </span>
+                </TooltipTrigger>
+                {!allAnswered && (
+                  <TooltipContent>
+                    <p>Masih ada {total - answeredCount} pertanyaan yang belum dijawab.</p>
+                  </TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
           ) : (
-            <Button
-              variant="ghost"
-              onClick={nextHexaco}
-              disabled={hexacoIndex === total - 1}
-              className="gap-2"
-            >
-              <span className="hidden sm:inline">Lewati</span>
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <TooltipProvider>
+              <Tooltip open={!currentAnswered ? undefined : false}>
+                <TooltipTrigger asChild>
+                  <span>
+                    <Button
+                      variant="default"
+                      onClick={handleNext}
+                      disabled={!currentAnswered}
+                      className="gap-2 disabled:opacity-50"
+                    >
+                      <span className="hidden sm:inline">Lanjut</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </span>
+                </TooltipTrigger>
+                {!currentAnswered && (
+                  <TooltipContent>
+                    <p>Pilih salah satu jawaban dulu.</p>
+                  </TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
           )}
         </div>
       </footer>
