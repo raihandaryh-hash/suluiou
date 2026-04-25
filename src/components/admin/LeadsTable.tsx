@@ -24,7 +24,16 @@ import {
   type FollowUpStatus,
 } from '@/lib/leadScoring';
 import { LeadDetailDialog } from './LeadDetailDialog';
-import { Eye, Search, SlidersHorizontal } from 'lucide-react';
+import { Eye, Search, SlidersHorizontal, MessageCircle } from 'lucide-react';
+
+function normalizeWa(phone: string | null): string | null {
+  if (!phone) return null;
+  const digits = phone.replace(/\D/g, '');
+  if (!digits) return null;
+  if (digits.startsWith('0')) return '62' + digits.slice(1);
+  if (digits.startsWith('62')) return digits;
+  return digits;
+}
 
 interface LeadResult {
   id: string;
@@ -128,8 +137,7 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
               <TableHead className="text-muted-foreground">Prioritas</TableHead>
               <TableHead className="text-muted-foreground">Nama</TableHead>
               <TableHead className="text-muted-foreground hidden md:table-cell">Sekolah</TableHead>
-              <TableHead className="text-muted-foreground">Pathway</TableHead>
-              <TableHead className="text-muted-foreground text-center">Match</TableHead>
+              <TableHead className="text-muted-foreground">Program Pilihan</TableHead>
               <TableHead className="text-muted-foreground text-center">Skor</TableHead>
               <TableHead className="text-muted-foreground">Status</TableHead>
               <TableHead className="text-muted-foreground text-center">Aksi</TableHead>
@@ -138,7 +146,7 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center py-12 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
                   {leads.length === 0 ? 'Belum ada data assessment.' : 'Tidak ada hasil yang cocok.'}
                 </TableCell>
               </TableRow>
@@ -170,9 +178,6 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
                       {lead.top_pathway_name}
                     </TableCell>
                     <TableCell className="text-center">
-                      <span className="text-sm font-semibold text-primary">{lead.match_percentage}%</span>
-                    </TableCell>
-                    <TableCell className="text-center">
                       <span className="text-sm font-bold text-foreground">{lead.lead_score}</span>
                     </TableCell>
                     <TableCell>
@@ -181,16 +186,39 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
                       </span>
                     </TableCell>
                     <TableCell className="text-center">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => {
-                          setSelectedLead(lead);
-                          setDialogOpen(true);
-                        }}
-                      >
-                        <Eye className="w-4 h-4" />
-                      </Button>
+                      <div className="flex items-center justify-center gap-1">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => {
+                            setSelectedLead(lead);
+                            setDialogOpen(true);
+                          }}
+                          title="Lihat detail"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                        {(() => {
+                          const wa = normalizeWa(lead.student_phone);
+                          return wa ? (
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="icon"
+                              title="Hubungi via WhatsApp"
+                            >
+                              <a
+                                href={`https://wa.me/${wa}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <MessageCircle className="w-4 h-4 text-[hsl(142,70%,40%)]" />
+                              </a>
+                            </Button>
+                          ) : null;
+                        })()}
+                      </div>
                     </TableCell>
                   </TableRow>
                 );

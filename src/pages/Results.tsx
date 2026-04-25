@@ -20,13 +20,14 @@ import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import { ShareButtons } from '@/components/results/ShareButtons';
+import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
   IOU_WA_NUMBER_AKHWAT,
   IOU_REGISTRATION_URL,
-  IOU_WA_TEMPLATES,
+  buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
@@ -98,7 +99,7 @@ const Results = () => {
     topTraits,
   };
 
-  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string }) => {
+  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string; email_requested: boolean }) => {
     const formProvince = info.province?.trim() ?? '';
     const profileProvince = studentProfile?.province?.trim() ?? '';
     const resolvedProvince = formProvince || profileProvince || '';
@@ -136,6 +137,7 @@ const Results = () => {
       projection: projection ?? '',
       lead_score: leadScore,
       layer1_text: layer1 ?? null,
+      email_requested: info.email_requested,
     };
 
     // user_id / class_id / etc.
@@ -206,45 +208,49 @@ const Results = () => {
             </div>
           </div>
 
-          <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <h2 className="text-2xl font-heading font-bold mb-6 text-center">Profil Dimensi</h2>
-            <ResponsiveContainer width="100%" height={300} className="md:!h-[380px]">
-              <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-                <PolarGrid stroke="hsl(225, 20%, 18%)" />
-                <PolarAngleAxis dataKey="dimension" tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 10 }} />
-                <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
-                <Radar name="Skor" dataKey="value" stroke="hsl(38, 92%, 50%)" fill="hsl(38, 92%, 50%)" fillOpacity={0.25} strokeWidth={2} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </motion.div>
+          <div id="results-capture-zone" className="bg-background">
+            <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <h2 className="text-2xl font-heading font-bold mb-6 text-center">Profil Dimensi</h2>
+              <ResponsiveContainer width="100%" height={300} className="md:!h-[380px]">
+                <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
+                  <PolarGrid stroke="hsl(225, 20%, 18%)" />
+                  <PolarAngleAxis dataKey="dimension" tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 10 }} />
+                  <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
+                  <Radar name="Skor" dataKey="value" stroke="hsl(38, 92%, 50%)" fill="hsl(38, 92%, 50%)" fillOpacity={0.25} strokeWidth={2} />
+                </RadarChart>
+              </ResponsiveContainer>
+            </motion.div>
 
-          <p className="text-xs text-muted-foreground text-center mb-6">
-            Profil ini berlaku secara umum, terlepas dari program studi manapun.
-          </p>
+            <p className="text-xs text-muted-foreground text-center mb-6">
+              Profil ini berlaku secara umum, terlepas dari program studi manapun.
+            </p>
 
-          {/* Data Saya — collapsible, default tertutup */}
-          <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
+            {/* Data Saya — collapsible, default tertutup */}
+            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
 
-          {/* Cermin Dirimu (Layer 1) */}
-          <motion.div className="glass rounded-2xl p-6 md:p-8 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            <h2 className="text-2xl font-heading font-bold mb-4">Cermin Dirimu</h2>
-            {generatingLayer1 ? (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sedang membaca profilmu...</span>
+            {/* Cermin Dirimu (Layer 1) */}
+            <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+              <h2 className="text-2xl font-heading font-bold mb-4">Cermin Dirimu</h2>
+              {generatingLayer1 ? (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sedang membaca profilmu...</span>
+                  </div>
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-5/6" />
+                  <Skeleton className="h-4 w-3/4" />
                 </div>
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-5/6" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            ) : (
-              <p className="text-base md:text-lg leading-relaxed text-foreground/90 whitespace-pre-line">
-                {layer1 ?? 'Profil kepribadian dan minatmu sudah terekam.'}
-              </p>
-            )}
-          </motion.div>
+              ) : (
+                <p className="text-base md:text-lg leading-relaxed text-foreground/90 whitespace-pre-line">
+                  {layer1 ?? 'Profil kepribadian dan minatmu sudah terekam.'}
+                </p>
+              )}
+            </motion.div>
+          </div>
+
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
@@ -425,32 +431,32 @@ const Results = () => {
                 Konsultasi via WhatsApp dengan konselor sesuai gendermu:
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      buildWaUrl(IOU_WA_NUMBER_IKHWAN, IOU_WA_TEMPLATES.afterAssessment),
-                      '_blank'
-                    )
-                  }
-                >
-                  Konselor Ikhwan (Ikhwah)
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      buildWaUrl(IOU_WA_NUMBER_AKHWAT, IOU_WA_TEMPLATES.afterAssessment),
-                      '_blank'
-                    )
-                  }
-                >
-                  Konselor Akhwat (Muslimah)
-                </Button>
+                {(() => {
+                  const waMessage = buildAfterAssessmentMessage({
+                    studentName: studentProfile?.name ?? null,
+                    pathwayName: topSelection.pathwayName ?? null,
+                  });
+                  return (
+                    <>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                        onClick={() => window.open(buildWaUrl(IOU_WA_NUMBER_IKHWAN, waMessage), '_blank')}
+                      >
+                        Konselor Ikhwan (Ikhwah)
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                        onClick={() => window.open(buildWaUrl(IOU_WA_NUMBER_AKHWAT, waMessage), '_blank')}
+                      >
+                        Konselor Akhwat (Muslimah)
+                      </Button>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </motion.div>

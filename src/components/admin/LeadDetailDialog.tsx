@@ -25,7 +25,16 @@ import {
 } from '@/lib/leadScoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
-import { Save, Eye } from 'lucide-react';
+import { Save, Eye, MessageCircle } from 'lucide-react';
+
+function normalizeWa(phone: string | null | undefined): string | null {
+  if (!phone) return null;
+  const digits = phone.replace(/\D/g, '');
+  if (!digits) return null;
+  if (digits.startsWith('0')) return '62' + digits.slice(1);
+  if (digits.startsWith('62')) return digits;
+  return digits;
+}
 
 interface LeadResult {
   id: string;
@@ -50,6 +59,9 @@ interface LeadResult {
   submitted_at: string;
   lm_name: string | null;
   lm_id: string | null;
+  parent_consent?: boolean | null;
+  parent_name?: string | null;
+  parent_phone?: string | null;
 }
 
 interface LeadDetailDialogProps {
@@ -156,6 +168,48 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
             </div>
           </div>
 
+          {/* Data Orang Tua */}
+          <div className="border-t border-border pt-4">
+            <Label className="text-xs text-muted-foreground mb-3 block font-semibold uppercase tracking-wider">
+              Data Orang Tua
+            </Label>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="text-xs text-muted-foreground">Consent</Label>
+                <p className="text-sm text-foreground">
+                  {lead.parent_consent ? (
+                    <span className="text-green-500 font-medium">✓ Diberikan</span>
+                  ) : (
+                    <span className="text-muted-foreground">Belum diberikan</span>
+                  )}
+                </p>
+              </div>
+              <div>
+                <Label className="text-xs text-muted-foreground">Nama Orang Tua</Label>
+                <p className="text-sm text-foreground">{lead.parent_name || '—'}</p>
+              </div>
+              <div className="col-span-2">
+                <Label className="text-xs text-muted-foreground">No. WhatsApp Orang Tua</Label>
+                <p className="text-sm text-foreground flex items-center gap-2">
+                  <span>{lead.parent_phone || '—'}</span>
+                  {(() => {
+                    const wa = normalizeWa(lead.parent_phone);
+                    return wa ? (
+                      <a
+                        href={`https://wa.me/${wa}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-[hsl(142,70%,40%)] hover:underline"
+                      >
+                        <MessageCircle className="w-3 h-3" /> Chat
+                      </a>
+                    ) : null;
+                  })()}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Top dimensions */}
           <div>
             <Label className="text-xs text-muted-foreground mb-2 block">Top 5 Dimensi</Label>
@@ -222,6 +276,22 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
                 className="bg-input border-border min-h-[80px]"
               />
             </div>
+
+            {(() => {
+              const wa = normalizeWa(lead.student_phone);
+              return wa ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full gap-2 border-[hsl(142,70%,40%)]/40 text-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,40%)]/10"
+                >
+                  <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-4 h-4" />
+                    Hubungi via WA ({lead.student_phone})
+                  </a>
+                </Button>
+              ) : null;
+            })()}
 
             <div className="flex gap-2">
               <Button

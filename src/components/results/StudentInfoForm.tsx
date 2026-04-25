@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Save, CheckCircle } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 import { PROVINCES } from '@/lib/constants';
 
 export interface StudentInfo {
@@ -19,6 +20,7 @@ export interface StudentInfo {
   school: string;
   student_class: string;
   province: string;
+  email_requested: boolean;
 }
 
 interface StudentInfoFormProps {
@@ -36,6 +38,7 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
     school: '',
     student_class: '',
     province: defaultProvince ?? '',
+    email_requested: true,
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -157,6 +160,16 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
             onChange={(e) => setInfo((p) => ({ ...p, school: e.target.value }))}
             className="bg-input border-border"
           />
+        </div>
+        <div className="sm:col-span-2 flex items-start gap-2 pt-1">
+          <Checkbox
+            id="email_requested"
+            checked={info.email_requested}
+            onCheckedChange={(v) => setInfo((p) => ({ ...p, email_requested: v === true }))}
+          />
+          <Label htmlFor="email_requested" className="text-sm font-normal cursor-pointer leading-snug">
+            Kirim hasil ke email saya
+          </Label>
         </div>
         <div className="sm:col-span-2">
           <Button type="submit" disabled={submitting} className="w-full gap-2">

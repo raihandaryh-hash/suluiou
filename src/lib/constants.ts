@@ -9,6 +9,21 @@ export const IOU_WA_TEMPLATES = {
   afterAssessment: 'Halo, saya baru menyelesaikan asesmen Sulu dan ingin konsultasi lebih lanjut 🙏',
 };
 
+/** Build a personalized WA message after assessment.
+ *  Falls back gracefully when name or program is missing. */
+export const buildAfterAssessmentMessage = (opts: {
+  studentName?: string | null;
+  pathwayName?: string | null;
+}): string => {
+  const name = opts.studentName?.trim();
+  const program = opts.pathwayName?.trim();
+  const intro = name
+    ? `Halo, saya ${name} baru menyelesaikan asesmen Sulu.`
+    : 'Halo, saya baru menyelesaikan asesmen Sulu.';
+  const interest = program ? `\nProgram yang saya minati: ${program}.` : '';
+  return `${intro}${interest}\nIngin konsultasi lebih lanjut 🙏`;
+};
+
 export const buildWaUrl = (number: string, message: string) =>
   `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 
