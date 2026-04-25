@@ -43,6 +43,7 @@ export const api = {
     layer1_text?: string | null;
     lm_name?: string | null;
     lm_id?: string | null;
+    email_requested?: boolean;
   }): Promise<{ error: { message: string } | null; id?: string }> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
