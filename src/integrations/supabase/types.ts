@@ -94,6 +94,7 @@ export type Database = {
           aspiration: string | null
           class_id: string | null
           completed_at: string | null
+          email_requested: boolean
           family_background: string | null
           follow_up_status: string
           guest_identifier: string | null
@@ -127,6 +128,7 @@ export type Database = {
           aspiration?: string | null
           class_id?: string | null
           completed_at?: string | null
+          email_requested?: boolean
           family_background?: string | null
           follow_up_status?: string
           guest_identifier?: string | null
@@ -160,6 +162,7 @@ export type Database = {
           aspiration?: string | null
           class_id?: string | null
           completed_at?: string | null
+          email_requested?: boolean
           family_background?: string | null
           follow_up_status?: string
           guest_identifier?: string | null
