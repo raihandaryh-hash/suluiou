@@ -168,6 +168,48 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
             </div>
           </div>
 
+          {/* Data Orang Tua */}
+          <div className="border-t border-border pt-4">
+            <Label className="text-xs text-muted-foreground mb-3 block font-semibold uppercase tracking-wider">
+              Data Orang Tua
+            </Label>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="text-xs text-muted-foreground">Consent</Label>
+                <p className="text-sm text-foreground">
+                  {lead.parent_consent ? (
+                    <span className="text-green-500 font-medium">✓ Diberikan</span>
+                  ) : (
+                    <span className="text-muted-foreground">Belum diberikan</span>
+                  )}
+                </p>
+              </div>
+              <div>
+                <Label className="text-xs text-muted-foreground">Nama Orang Tua</Label>
+                <p className="text-sm text-foreground">{lead.parent_name || '—'}</p>
+              </div>
+              <div className="col-span-2">
+                <Label className="text-xs text-muted-foreground">No. WhatsApp Orang Tua</Label>
+                <p className="text-sm text-foreground flex items-center gap-2">
+                  <span>{lead.parent_phone || '—'}</span>
+                  {(() => {
+                    const wa = normalizeWa(lead.parent_phone);
+                    return wa ? (
+                      <a
+                        href={`https://wa.me/${wa}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-[hsl(142,70%,40%)] hover:underline"
+                      >
+                        <MessageCircle className="w-3 h-3" /> Chat
+                      </a>
+                    ) : null;
+                  })()}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Top dimensions */}
           <div>
             <Label className="text-xs text-muted-foreground mb-2 block">Top 5 Dimensi</Label>
