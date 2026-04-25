@@ -26,7 +26,7 @@ import {
   IOU_WA_NUMBER_IKHWAN,
   IOU_WA_NUMBER_AKHWAT,
   IOU_REGISTRATION_URL,
-  IOU_WA_TEMPLATES,
+  buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
