@@ -38,6 +38,7 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
     school: '',
     student_class: '',
     province: defaultProvince ?? '',
+    email_requested: true,
   });
   const [submitting, setSubmitting] = useState(false);
 
