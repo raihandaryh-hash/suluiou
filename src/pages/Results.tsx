@@ -98,7 +98,7 @@ const Results = () => {
     topTraits,
   };
 
-  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string }) => {
+  const handleSaveStudent = async (info: { name: string; email: string; phone: string; school: string; student_class: string; province: string; email_requested: boolean }) => {
     const formProvince = info.province?.trim() ?? '';
     const profileProvince = studentProfile?.province?.trim() ?? '';
     const resolvedProvince = formProvince || profileProvince || '';
