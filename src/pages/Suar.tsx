@@ -149,16 +149,40 @@ const Suar = () => {
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex flex-col">
-            <div className="glass rounded-2xl overflow-hidden mb-4 bg-card">
+          <div
+            ref={stageRef}
+            className={cn(
+              'flex-1 flex flex-col',
+              isFullscreen &&
+                'bg-black p-6 justify-center items-center w-screen h-screen',
+            )}
+          >
+            <div
+              className={cn(
+                'overflow-hidden mb-4 bg-card',
+                isFullscreen
+                  ? 'rounded-none bg-black w-full flex-1 flex items-center justify-center'
+                  : 'glass rounded-2xl',
+              )}
+            >
               <img
                 src={slideUrls[current]}
                 alt={`Slide ${current + 1}`}
-                className="w-full h-auto object-contain max-h-[60vh] mx-auto"
+                className={cn(
+                  'object-contain mx-auto',
+                  isFullscreen
+                    ? 'max-h-[90vh] max-w-full w-auto h-auto'
+                    : 'w-full h-auto max-h-[60vh]',
+                )}
               />
             </div>
 
-            <div className="flex items-center justify-between gap-4 mb-4">
+            <div
+              className={cn(
+                'flex items-center justify-between gap-4 mb-4 w-full',
+                isFullscreen && 'max-w-3xl',
+              )}
+            >
               <Button
                 variant="outline"
                 size="icon"
@@ -169,22 +193,49 @@ const Suar = () => {
                 <ChevronLeft className="w-4 h-4" />
               </Button>
 
-              <span className="text-sm text-muted-foreground tabular-nums">
+              <span
+                className={cn(
+                  'text-sm tabular-nums',
+                  isFullscreen ? 'text-white/80' : 'text-muted-foreground',
+                )}
+              >
                 {current + 1} / {slideUrls.length}
               </span>
 
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={next}
-                disabled={current === slideUrls.length - 1}
-                aria-label="Slide berikutnya"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={toggleFullscreen}
+                  aria-label={
+                    isFullscreen ? 'Keluar fullscreen' : 'Mode fullscreen (F)'
+                  }
+                  title={isFullscreen ? 'Keluar (Esc)' : 'Fullscreen (F)'}
+                >
+                  {isFullscreen ? (
+                    <Minimize className="w-4 h-4" />
+                  ) : (
+                    <Maximize className="w-4 h-4" />
+                  )}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={next}
+                  disabled={current === slideUrls.length - 1}
+                  aria-label="Slide berikutnya"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
 
-            <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
+            <div
+              className={cn(
+                'flex items-center justify-center gap-2 mb-8 flex-wrap',
+                isFullscreen && 'mb-2',
+              )}
+            >
               {slideUrls.map((_, i) => (
                 <button
                   key={i}
@@ -193,7 +244,9 @@ const Suar = () => {
                     'w-2 h-2 rounded-full transition-all',
                     i === current
                       ? 'bg-primary w-4'
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/60',
+                      : isFullscreen
+                        ? 'bg-white/30 hover:bg-white/60'
+                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/60',
                   )}
                   aria-label={`Slide ${i + 1}`}
                 />
