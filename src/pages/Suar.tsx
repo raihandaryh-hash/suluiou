@@ -97,7 +97,11 @@ const Suar = () => {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowRight' || e.key === ' ') next();
+      if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault();
+        toggleFullscreen();
+      }
       if (e.key === 'Enter') {
         if (current === slideUrls.length - 1) {
           navigate('/assessment');
@@ -108,7 +112,7 @@ const Suar = () => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next, current, slideUrls.length, navigate]);
+  }, [prev, next, current, slideUrls.length, navigate, toggleFullscreen]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
