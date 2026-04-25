@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Save, CheckCircle } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 import { PROVINCES } from '@/lib/constants';
 
 export interface StudentInfo {
@@ -19,6 +20,7 @@ export interface StudentInfo {
   school: string;
   student_class: string;
   province: string;
+  email_requested: boolean;
 }
 
 interface StudentInfoFormProps {
