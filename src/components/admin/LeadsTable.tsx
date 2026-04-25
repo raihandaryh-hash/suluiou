@@ -178,9 +178,6 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
                       {lead.top_pathway_name}
                     </TableCell>
                     <TableCell className="text-center">
-                      <span className="text-sm font-semibold text-primary">{lead.match_percentage}%</span>
-                    </TableCell>
-                    <TableCell className="text-center">
                       <span className="text-sm font-bold text-foreground">{lead.lead_score}</span>
                     </TableCell>
                     <TableCell>
@@ -189,16 +186,39 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
                       </span>
                     </TableCell>
                     <TableCell className="text-center">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => {
-                          setSelectedLead(lead);
-                          setDialogOpen(true);
-                        }}
-                      >
-                        <Eye className="w-4 h-4" />
-                      </Button>
+                      <div className="flex items-center justify-center gap-1">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => {
+                            setSelectedLead(lead);
+                            setDialogOpen(true);
+                          }}
+                          title="Lihat detail"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                        {(() => {
+                          const wa = normalizeWa(lead.student_phone);
+                          return wa ? (
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="icon"
+                              title="Hubungi via WhatsApp"
+                            >
+                              <a
+                                href={`https://wa.me/${wa}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <MessageCircle className="w-4 h-4 text-[hsl(142,70%,40%)]" />
+                              </a>
+                            </Button>
+                          ) : null;
+                        })()}
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
