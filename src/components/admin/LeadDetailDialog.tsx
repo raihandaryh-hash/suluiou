@@ -277,6 +277,22 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
               />
             </div>
 
+            {(() => {
+              const wa = normalizeWa(lead.student_phone);
+              return wa ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full gap-2 border-[hsl(142,70%,40%)]/40 text-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,40%)]/10"
+                >
+                  <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-4 h-4" />
+                    Hubungi via WA ({lead.student_phone})
+                  </a>
+                </Button>
+              ) : null;
+            })()}
+
             <div className="flex gap-2">
               <Button
                 variant="outline"
