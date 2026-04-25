@@ -426,32 +426,32 @@ const Results = () => {
                 Konsultasi via WhatsApp dengan konselor sesuai gendermu:
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      buildWaUrl(IOU_WA_NUMBER_IKHWAN, IOU_WA_TEMPLATES.afterAssessment),
-                      '_blank'
-                    )
-                  }
-                >
-                  Konselor Ikhwan (Ikhwah)
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
-                  onClick={() =>
-                    window.open(
-                      buildWaUrl(IOU_WA_NUMBER_AKHWAT, IOU_WA_TEMPLATES.afterAssessment),
-                      '_blank'
-                    )
-                  }
-                >
-                  Konselor Akhwat (Muslimah)
-                </Button>
+                {(() => {
+                  const waMessage = buildAfterAssessmentMessage({
+                    studentName: studentProfile?.name ?? null,
+                    pathwayName: topSelection.pathwayName ?? null,
+                  });
+                  return (
+                    <>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                        onClick={() => window.open(buildWaUrl(IOU_WA_NUMBER_IKHWAN, waMessage), '_blank')}
+                      >
+                        Konselor Ikhwan (Ikhwah)
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="text-base px-6 py-5 gap-2 w-full sm:w-auto"
+                        onClick={() => window.open(buildWaUrl(IOU_WA_NUMBER_AKHWAT, waMessage), '_blank')}
+                      >
+                        Konselor Akhwat (Muslimah)
+                      </Button>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </motion.div>
