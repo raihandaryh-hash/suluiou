@@ -25,7 +25,16 @@ import {
 } from '@/lib/leadScoring';
 import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
-import { Save, Eye } from 'lucide-react';
+import { Save, Eye, MessageCircle } from 'lucide-react';
+
+function normalizeWa(phone: string | null | undefined): string | null {
+  if (!phone) return null;
+  const digits = phone.replace(/\D/g, '');
+  if (!digits) return null;
+  if (digits.startsWith('0')) return '62' + digits.slice(1);
+  if (digits.startsWith('62')) return digits;
+  return digits;
+}
 
 interface LeadResult {
   id: string;
@@ -50,6 +59,9 @@ interface LeadResult {
   submitted_at: string;
   lm_name: string | null;
   lm_id: string | null;
+  parent_consent?: boolean | null;
+  parent_name?: string | null;
+  parent_phone?: string | null;
 }
 
 interface LeadDetailDialogProps {
