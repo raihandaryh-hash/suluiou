@@ -207,45 +207,49 @@ const Results = () => {
             </div>
           </div>
 
-          <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <h2 className="text-2xl font-heading font-bold mb-6 text-center">Profil Dimensi</h2>
-            <ResponsiveContainer width="100%" height={300} className="md:!h-[380px]">
-              <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-                <PolarGrid stroke="hsl(225, 20%, 18%)" />
-                <PolarAngleAxis dataKey="dimension" tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 10 }} />
-                <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
-                <Radar name="Skor" dataKey="value" stroke="hsl(38, 92%, 50%)" fill="hsl(38, 92%, 50%)" fillOpacity={0.25} strokeWidth={2} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </motion.div>
+          <div id="results-capture-zone" className="bg-background">
+            <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <h2 className="text-2xl font-heading font-bold mb-6 text-center">Profil Dimensi</h2>
+              <ResponsiveContainer width="100%" height={300} className="md:!h-[380px]">
+                <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
+                  <PolarGrid stroke="hsl(225, 20%, 18%)" />
+                  <PolarAngleAxis dataKey="dimension" tick={{ fill: 'hsl(220, 15%, 55%)', fontSize: 10 }} />
+                  <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
+                  <Radar name="Skor" dataKey="value" stroke="hsl(38, 92%, 50%)" fill="hsl(38, 92%, 50%)" fillOpacity={0.25} strokeWidth={2} />
+                </RadarChart>
+              </ResponsiveContainer>
+            </motion.div>
 
-          <p className="text-xs text-muted-foreground text-center mb-6">
-            Profil ini berlaku secara umum, terlepas dari program studi manapun.
-          </p>
+            <p className="text-xs text-muted-foreground text-center mb-6">
+              Profil ini berlaku secara umum, terlepas dari program studi manapun.
+            </p>
 
-          {/* Data Saya — collapsible, default tertutup */}
-          <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
+            {/* Data Saya — collapsible, default tertutup */}
+            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
 
-          {/* Cermin Dirimu (Layer 1) */}
-          <motion.div className="glass rounded-2xl p-6 md:p-8 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            <h2 className="text-2xl font-heading font-bold mb-4">Cermin Dirimu</h2>
-            {generatingLayer1 ? (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sedang membaca profilmu...</span>
+            {/* Cermin Dirimu (Layer 1) */}
+            <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+              <h2 className="text-2xl font-heading font-bold mb-4">Cermin Dirimu</h2>
+              {generatingLayer1 ? (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sedang membaca profilmu...</span>
+                  </div>
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-5/6" />
+                  <Skeleton className="h-4 w-3/4" />
                 </div>
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-5/6" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            ) : (
-              <p className="text-base md:text-lg leading-relaxed text-foreground/90 whitespace-pre-line">
-                {layer1 ?? 'Profil kepribadian dan minatmu sudah terekam.'}
-              </p>
-            )}
-          </motion.div>
+              ) : (
+                <p className="text-base md:text-lg leading-relaxed text-foreground/90 whitespace-pre-line">
+                  {layer1 ?? 'Profil kepribadian dan minatmu sudah terekam.'}
+                </p>
+              )}
+            </motion.div>
+          </div>
+
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
