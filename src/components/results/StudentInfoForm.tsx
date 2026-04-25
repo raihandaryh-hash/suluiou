@@ -161,6 +161,16 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
             className="bg-input border-border"
           />
         </div>
+        <div className="sm:col-span-2 flex items-start gap-2 pt-1">
+          <Checkbox
+            id="email_requested"
+            checked={info.email_requested}
+            onCheckedChange={(v) => setInfo((p) => ({ ...p, email_requested: v === true }))}
+          />
+          <Label htmlFor="email_requested" className="text-sm font-normal cursor-pointer leading-snug">
+            Kirim hasil ke email saya
+          </Label>
+        </div>
         <div className="sm:col-span-2">
           <Button type="submit" disabled={submitting} className="w-full gap-2">
             <Save className="w-4 h-4" />
