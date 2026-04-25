@@ -53,18 +53,6 @@ const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left: Headline + CTA */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/30 mb-7"
-            >
-              <Sparkles className="w-3 h-3 text-torch-gold" strokeWidth={2} />
-              <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/85">
-                The Mirror — Layer 1
-              </span>
-            </motion.div>
-
             <motion.h1
               className="font-heading font-semibold leading-[1.15] tracking-tight text-white text-3xl md:text-4xl lg:text-[2.75rem] mb-5"
               initial={{ opacity: 0, y: 30 }}
