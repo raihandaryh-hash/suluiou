@@ -29,21 +29,46 @@ const HexacoStep = () => {
   const progress = (answeredCount / total) * 100;
   const currentAnswer = hexacoAnswers[question.id];
   const allAnswered = answeredCount === total;
+  const currentAnswered = currentAnswer !== undefined;
+
+  // Highlight saat user coba lanjut tapi item belum dijawab
+  const [shake, setShake] = useState(false);
+  useEffect(() => {
+    if (currentAnswered && shake) setShake(false);
+  }, [currentAnswered, shake]);
 
   const handleAnswer = useCallback(
     (value: number) => {
       setHexacoAnswer(question.id, value);
-      // satset: pindah otomatis tanpa delay/animasi besar
       if (hexacoIndex < total - 1) {
-        // small microtask to let state commit
         requestAnimationFrame(() => nextHexaco());
       }
     },
     [question.id, hexacoIndex, total, setHexacoAnswer, nextHexaco]
   );
 
+  const handleNext = () => {
+    if (!currentAnswered) {
+      setShake(true);
+      return;
+    }
+    nextHexaco();
+  };
+
   const handleProceed = () => {
-    if (!allAnswered) return;
+    if (!allAnswered) {
+      // Navigasi ke item pertama yang belum terjawab + highlight
+      const firstUnansweredIdx = hexacoQuestions.findIndex(
+        (q) => hexacoAnswers[q.id] === undefined
+      );
+      if (firstUnansweredIdx !== -1) {
+        const delta = firstUnansweredIdx - hexacoIndex;
+        if (delta > 0) for (let i = 0; i < delta; i++) nextHexaco();
+        else if (delta < 0) for (let i = 0; i < -delta; i++) prevHexaco();
+        setShake(true);
+      }
+      return;
+    }
     startSds();
   };
 
