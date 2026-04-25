@@ -136,6 +136,7 @@ const Results = () => {
       projection: projection ?? '',
       lead_score: leadScore,
       layer1_text: layer1 ?? null,
+      email_requested: info.email_requested,
     };
 
     // user_id / class_id / etc.
