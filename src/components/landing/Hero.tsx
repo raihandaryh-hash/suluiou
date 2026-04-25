@@ -38,14 +38,24 @@ const Hero = () => {
       <header className="absolute top-0 left-0 right-0 z-20 py-5">
         <div className="container mx-auto flex items-center justify-between px-6">
           <Logo variant="white" size="md" linkTo="/" />
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 backdrop-blur-sm"
-          >
-            <a href="#data-insights">Lihat Data</a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <Link to="/insight">Mengapa ini penting? →</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 backdrop-blur-sm"
+            >
+              <a href="#data-insights">Lihat Data</a>
+            </Button>
+          </div>
         </div>
       </header>
 

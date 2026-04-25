@@ -411,6 +411,29 @@ const Results = () => {
             <ShareButtons scores={scores} topSelection={topSelection} />
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.97 }}
+            className="mb-12"
+          >
+            <button
+              type="button"
+              onClick={() => navigate('/insight')}
+              className="w-full text-left bg-secondary/60 hover:bg-secondary border border-border rounded-2xl p-5 flex items-center justify-between gap-4 transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+              <div>
+                <p className="text-sm font-medium text-foreground leading-snug">
+                  Ingin tahu konteks lebih dalam tentang dunia yang akan kamu masuki?
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Lihat data riset pemuda Indonesia & peluang 2030.
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
+            </button>
+          </motion.div>
+
           <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1 }}>
             <h2 className="text-2xl font-heading font-bold mb-4">Siap Memulai Perjalanan?</h2>
             <p className="text-muted-foreground mb-8">
