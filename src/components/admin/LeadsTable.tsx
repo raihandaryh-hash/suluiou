@@ -137,8 +137,7 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
               <TableHead className="text-muted-foreground">Prioritas</TableHead>
               <TableHead className="text-muted-foreground">Nama</TableHead>
               <TableHead className="text-muted-foreground hidden md:table-cell">Sekolah</TableHead>
-              <TableHead className="text-muted-foreground">Pathway</TableHead>
-              <TableHead className="text-muted-foreground text-center">Match</TableHead>
+              <TableHead className="text-muted-foreground">Program Pilihan</TableHead>
               <TableHead className="text-muted-foreground text-center">Skor</TableHead>
               <TableHead className="text-muted-foreground">Status</TableHead>
               <TableHead className="text-muted-foreground text-center">Aksi</TableHead>
@@ -147,7 +146,7 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center py-12 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
                   {leads.length === 0 ? 'Belum ada data assessment.' : 'Tidak ada hasil yang cocok.'}
                 </TableCell>
               </TableRow>
