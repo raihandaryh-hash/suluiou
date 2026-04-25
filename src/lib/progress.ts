@@ -91,12 +91,38 @@ export async function saveProgress(
   const conflict =
     session.kind === 'google' ? 'user_id' : 'guest_identifier,class_id';
 
-  const { error } = await supabase
-    .from('assessment_progress')
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .upsert(row as any, { onConflict: conflict });
+  // Upsert via partial unique index. We do a manual two-step (lookup → update/insert)
+  // because Postgres won't auto-pick a partial unique index for ON CONFLICT
+  // without explicitly naming all index columns + WHERE predicate, which
+  // PostgREST doesn't expose. This keeps logic simple and bug-free.
+  let existingId: string | null = null;
+  {
+    let q = supabase.from('assessment_progress').select('id').is('completed_at', null);
+    if (session.kind === 'google') {
+      q = q.eq('user_id', session.userId);
+    } else {
+      q = q.eq('guest_identifier', session.guestIdentifier);
+      if (session.classId) q = q.eq('class_id', session.classId);
+      else q = q.is('class_id', null);
+    }
+    const { data: found } = await q.maybeSingle();
+    existingId = (found as { id?: string } | null)?.id ?? null;
+  }
 
-  if (error) console.warn('saveProgress failed:', error.message);
+  if (existingId) {
+    const { error } = await supabase
+      .from('assessment_progress')
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .update(row as any)
+      .eq('id', existingId);
+    if (error) console.warn('saveProgress update failed:', error.message, '| conflict:', conflict);
+  } else {
+    const { error } = await supabase
+      .from('assessment_progress')
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .insert(row as any);
+    if (error) console.warn('saveProgress insert failed:', error.message, '| conflict:', conflict);
+  }
 }
 
 /** Mark progress completed so it's not resumed again. */
