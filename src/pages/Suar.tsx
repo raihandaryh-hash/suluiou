@@ -4,31 +4,67 @@ import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { supabase } from '@/integrations/supabase/client';
+
+const BUCKET = 'suar-slides';
 
 const Suar = () => {
-  const [slides, setSlides] = useState<string[]>([]);
+  const [slideUrls, setSlideUrls] = useState<string[]>([]);
   const [current, setCurrent] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch('/suar-slides/manifest.json')
-      .then((r) => r.json())
-      .then((files: string[]) => {
-        setSlides(Array.isArray(files) ? files : []);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setSlides([]);
-        setIsLoading(false);
-      });
+    let cancelled = false;
+    const load = async () => {
+      setIsLoading(true);
+      // 1. Try Supabase Storage (so admin uploads reflect without redeploy)
+      try {
+        const { data, error } = await supabase.storage
+          .from(BUCKET)
+          .list('', { limit: 200, sortBy: { column: 'name', order: 'asc' } });
+        if (!error && data && data.length > 0) {
+          const files = data
+            .filter((f) => /\.(jpe?g|png|webp)$/i.test(f.name))
+            .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+          if (files.length > 0) {
+            const urls = files.map(
+              (f) => supabase.storage.from(BUCKET).getPublicUrl(f.name).data.publicUrl,
+            );
+            if (!cancelled) {
+              setSlideUrls(urls);
+              setIsLoading(false);
+              return;
+            }
+          }
+        }
+      } catch {
+        // fall through to manifest
+      }
+      // 2. Fallback to bundled manifest
+      try {
+        const res = await fetch('/suar-slides/manifest.json');
+        const files: string[] = await res.json();
+        if (!cancelled) {
+          setSlideUrls(
+            Array.isArray(files) ? files.map((f) => `/suar-slides/${f}`) : [],
+          );
+        }
+      } catch {
+        if (!cancelled) setSlideUrls([]);
+      }
+      if (!cancelled) setIsLoading(false);
+    };
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const prev = useCallback(() => setCurrent((c) => Math.max(0, c - 1)), []);
   const next = useCallback(
-    () => setCurrent((c) => Math.min(slides.length - 1, c + 1)),
-    [slides.length],
+    () => setCurrent((c) => Math.min(slideUrls.length - 1, c + 1)),
+    [slideUrls.length],
   );
 
   useEffect(() => {
@@ -36,7 +72,7 @@ const Suar = () => {
       if (e.key === 'ArrowLeft') prev();
       if (e.key === 'ArrowRight') next();
       if (e.key === 'Enter') {
-        if (current === slides.length - 1) {
+        if (current === slideUrls.length - 1) {
           navigate('/assessment');
         } else {
           next();
@@ -45,7 +81,7 @@ const Suar = () => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next, current, slides.length, navigate]);
+  }, [prev, next, current, slideUrls.length, navigate]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -73,7 +109,7 @@ const Suar = () => {
               <p className="text-muted-foreground">Memuat tayangan...</p>
             </div>
           </div>
-        ) : slides.length === 0 ? (
+        ) : slideUrls.length === 0 ? (
           <div className="flex-1 flex items-center justify-center">
             <div className="glass rounded-2xl p-12 text-center max-w-md">
               <p className="text-muted-foreground">
@@ -85,7 +121,7 @@ const Suar = () => {
           <div className="flex-1 flex flex-col">
             <div className="glass rounded-2xl overflow-hidden mb-4 bg-card">
               <img
-                src={`/suar-slides/${slides[current]}`}
+                src={slideUrls[current]}
                 alt={`Slide ${current + 1}`}
                 className="w-full h-auto object-contain max-h-[60vh] mx-auto"
               />
@@ -103,22 +139,22 @@ const Suar = () => {
               </Button>
 
               <span className="text-sm text-muted-foreground tabular-nums">
-                {current + 1} / {slides.length}
+                {current + 1} / {slideUrls.length}
               </span>
 
               <Button
                 variant="outline"
                 size="icon"
                 onClick={next}
-                disabled={current === slides.length - 1}
+                disabled={current === slideUrls.length - 1}
                 aria-label="Slide berikutnya"
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
 
-            <div className="flex items-center justify-center gap-2 mb-8">
-              {slides.map((_, i) => (
+            <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
+              {slideUrls.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
