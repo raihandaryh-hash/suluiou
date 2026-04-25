@@ -1,8 +1,14 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  Maximize,
+  Minimize,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -12,7 +18,28 @@ const Suar = () => {
   const [slideUrls, setSlideUrls] = useState<string[]>([]);
   const [current, setCurrent] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Sync state with browser fullscreen changes (e.g. user presses Esc)
+  useEffect(() => {
+    const onFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange', onFsChange);
+    return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
+  const toggleFullscreen = useCallback(async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await stageRef.current?.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -70,7 +97,11 @@ const Suar = () => {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowRight' || e.key === ' ') next();
+      if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault();
+        toggleFullscreen();
+      }
       if (e.key === 'Enter') {
         if (current === slideUrls.length - 1) {
           navigate('/assessment');
@@ -81,7 +112,7 @@ const Suar = () => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next, current, slideUrls.length, navigate]);
+  }, [prev, next, current, slideUrls.length, navigate, toggleFullscreen]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -118,16 +149,40 @@ const Suar = () => {
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex flex-col">
-            <div className="glass rounded-2xl overflow-hidden mb-4 bg-card">
+          <div
+            ref={stageRef}
+            className={cn(
+              'flex-1 flex flex-col',
+              isFullscreen &&
+                'bg-black p-6 justify-center items-center w-screen h-screen',
+            )}
+          >
+            <div
+              className={cn(
+                'overflow-hidden mb-4 bg-card',
+                isFullscreen
+                  ? 'rounded-none bg-black w-full flex-1 flex items-center justify-center'
+                  : 'glass rounded-2xl',
+              )}
+            >
               <img
                 src={slideUrls[current]}
                 alt={`Slide ${current + 1}`}
-                className="w-full h-auto object-contain max-h-[60vh] mx-auto"
+                className={cn(
+                  'object-contain mx-auto',
+                  isFullscreen
+                    ? 'max-h-[90vh] max-w-full w-auto h-auto'
+                    : 'w-full h-auto max-h-[60vh]',
+                )}
               />
             </div>
 
-            <div className="flex items-center justify-between gap-4 mb-4">
+            <div
+              className={cn(
+                'flex items-center justify-between gap-4 mb-4 w-full',
+                isFullscreen && 'max-w-3xl',
+              )}
+            >
               <Button
                 variant="outline"
                 size="icon"
@@ -138,22 +193,49 @@ const Suar = () => {
                 <ChevronLeft className="w-4 h-4" />
               </Button>
 
-              <span className="text-sm text-muted-foreground tabular-nums">
+              <span
+                className={cn(
+                  'text-sm tabular-nums',
+                  isFullscreen ? 'text-white/80' : 'text-muted-foreground',
+                )}
+              >
                 {current + 1} / {slideUrls.length}
               </span>
 
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={next}
-                disabled={current === slideUrls.length - 1}
-                aria-label="Slide berikutnya"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={toggleFullscreen}
+                  aria-label={
+                    isFullscreen ? 'Keluar fullscreen' : 'Mode fullscreen (F)'
+                  }
+                  title={isFullscreen ? 'Keluar (Esc)' : 'Fullscreen (F)'}
+                >
+                  {isFullscreen ? (
+                    <Minimize className="w-4 h-4" />
+                  ) : (
+                    <Maximize className="w-4 h-4" />
+                  )}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={next}
+                  disabled={current === slideUrls.length - 1}
+                  aria-label="Slide berikutnya"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
 
-            <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
+            <div
+              className={cn(
+                'flex items-center justify-center gap-2 mb-8 flex-wrap',
+                isFullscreen && 'mb-2',
+              )}
+            >
               {slideUrls.map((_, i) => (
                 <button
                   key={i}
@@ -162,7 +244,9 @@ const Suar = () => {
                     'w-2 h-2 rounded-full transition-all',
                     i === current
                       ? 'bg-primary w-4'
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/60',
+                      : isFullscreen
+                        ? 'bg-white/30 hover:bg-white/60'
+                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/60',
                   )}
                   aria-label={`Slide ${i + 1}`}
                 />
