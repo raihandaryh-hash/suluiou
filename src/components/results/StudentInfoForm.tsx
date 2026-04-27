@@ -174,7 +174,7 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
         <div className="sm:col-span-2">
           <Button type="submit" disabled={submitting} className="w-full gap-2">
             <Save className="w-4 h-4" />
-            {submitting ? 'Menyimpan...' : 'Simpan & Hubungi Tim IOU'}
+            {submitting ? 'Mengirim...' : 'Hubungi Tim IOU'}
           </Button>
         </div>
       </form>
