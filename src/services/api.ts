@@ -69,6 +69,42 @@ export const api = {
     return { error: null, id: json?.id };
   },
 
+  async updateResultContact(
+    id: string,
+    data: {
+      student_name?: string | null;
+      student_email?: string | null;
+      student_phone?: string | null;
+      student_class?: string | null;
+      school_name?: string | null;
+      student_province?: string | null;
+      province?: string | null;
+      email_requested?: boolean;
+      lead_score?: number;
+    },
+  ): Promise<{ error: { message: string } | null }> {
+    if (USE_SUPABASE) {
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { error } = await supabase
+        .from('assessment_results')
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .update(data as any)
+        .eq('id', id);
+      if (error) return { error: { message: error.message } };
+      return { error: null };
+    }
+    const res = await fetch(`${API_BASE}/api/results/${id}/contact`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      return { error: { message: text || `HTTP ${res.status}` } };
+    }
+    return { error: null };
+  },
+
   async updateLayer1(id: string, layer1_text: string): Promise<{ error: { message: string } | null }> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');

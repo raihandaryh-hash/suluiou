@@ -82,10 +82,10 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
   return (
     <div className="glass rounded-2xl p-6 md:p-8">
       <h3 className="text-lg font-heading font-semibold mb-1">
-        Simpan Hasilmu
+        Lengkapi profilmu
       </h3>
       <p className="text-sm text-muted-foreground mb-5">
-        Isi data berikut agar tim IOU bisa menghubungimu untuk konsultasi gratis.
+        Datamu sudah tersimpan. Lengkapi ini agar tim IOU bisa menghubungimu untuk konsultasi gratis.
       </p>
       <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
@@ -174,7 +174,7 @@ export function StudentInfoForm({ onSubmit, saved, defaultProvince, provinceUsed
         <div className="sm:col-span-2">
           <Button type="submit" disabled={submitting} className="w-full gap-2">
             <Save className="w-4 h-4" />
-            {submitting ? 'Menyimpan...' : 'Simpan & Hubungi Tim IOU'}
+            {submitting ? 'Mengirim...' : 'Hubungi Tim IOU'}
           </Button>
         </div>
       </form>
