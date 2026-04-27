@@ -62,6 +62,11 @@ const Results = () => {
     if (!isComplete) navigate('/assessment');
   }, [isComplete, navigate]);
 
+  // Scroll to top when results page mounts (fix UX: user lands mid-page after assessment)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     if (!isComplete || !scores) return;
     void triggerLayer1();
