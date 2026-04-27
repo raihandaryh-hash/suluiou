@@ -196,8 +196,15 @@ const Results = () => {
 
         <div className="container mx-auto px-6 py-12 max-w-5xl">
           <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+              <Sparkles className="w-3 h-3 text-primary" />
+              <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                Hasil Asesmenmu
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-3">
               Ini Adalah <span className="text-gradient">Cerminmu</span>
+              {studentProfile?.name ? <>, <span className="text-foreground">{studentProfile.name.split(' ')[0]}</span></> : null}
             </h1>
             <p className="text-muted-foreground text-lg">
               Berdasarkan analisis Kepribadian & Minat, inilah profil unikmu.
