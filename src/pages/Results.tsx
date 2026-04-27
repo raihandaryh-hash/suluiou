@@ -54,6 +54,8 @@ const Results = () => {
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
   const [savedRowId, setSavedRowId] = useState<string | null>(null);
+  const [autoSaving, setAutoSaving] = useState(false);
+  const autoSaveTriedRef = useRef(false);
   const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
   const [provinceUsed, setProvinceUsed] = useState<{ value: string; source: 'form' | 'profile' | 'none' } | null>(null);
   const [showProjection, setShowProjection] = useState(false);
@@ -72,6 +74,101 @@ const Results = () => {
     void triggerLayer1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete]);
+
+  // AUTO-SAVE: INSERT row to assessment_results as soon as Results page mounts
+  // with a complete assessment. Form submission later UPDATES this same row.
+  // This ensures no student loses their score data, even if they never fill the form.
+  useEffect(() => {
+    if (!isComplete || !scores) return;
+    if (autoSaveTriedRef.current) return;
+    if (savedRowId) return;
+    autoSaveTriedRef.current = true;
+
+    (async () => {
+      setAutoSaving(true);
+      const session = getStudentSession();
+      const profileProvince = studentProfile?.province?.trim() ?? '';
+
+      // Check if a row already exists for this session (handles refresh/re-entry).
+      try {
+        const { supabase } = await import('@/integrations/supabase/client');
+        let existingId: string | null = null;
+        if (session?.kind === 'google' && session.userId) {
+          const { data } = await supabase
+            .from('assessment_results')
+            .select('id')
+            .eq('user_id', session.userId)
+            .order('submitted_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+          existingId = data?.id ?? null;
+        } else if (session?.kind === 'guest' && session.guestIdentifier) {
+          const { data } = await supabase
+            .from('assessment_results')
+            .select('id')
+            .eq('guest_identifier', session.guestIdentifier)
+            .order('submitted_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+          existingId = data?.id ?? null;
+        }
+        if (existingId) {
+          setSavedRowId(existingId);
+          setAutoSaving(false);
+          return;
+        }
+      } catch (err) {
+        console.warn('check existing result failed:', err);
+      }
+
+      // No existing row → INSERT minimal row with score data.
+      const leadScore = calculateLeadScore({
+        student_name: studentProfile?.name || null,
+        student_email: session?.kind === 'google' ? session.email : null,
+        student_phone: session?.kind === 'guest' ? session.phone : null,
+        school_name: null,
+        match_percentage: 0,
+        scores: scores as Record<string, number>,
+      });
+
+      const insertData: Parameters<typeof api.saveResult>[0] & Record<string, unknown> = {
+        student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
+        student_email: session?.kind === 'google' ? session.email : null,
+        student_phone: session?.kind === 'guest' ? session.phone : null,
+        student_class: session?.className ?? null,
+        school_name: null,
+        student_province: profileProvince || null,
+        province: profileProvince || null,
+        family_background: studentProfile?.familyBackground || null,
+        aspiration: studentProfile?.aspiration || null,
+        scores: scores as Record<string, number>,
+        top_pathway_id: selectedPathways[0] ?? 'none',
+        top_pathway_name: selectedPathways[0] ? getPathwayName(selectedPathways[0]) : '-',
+        match_percentage: 0,
+        all_matches: selectedPathways.map((id) => ({ pathway: { id, name: getPathwayName(id) } })),
+        selected_pathways: selectedPathways,
+        projection: '',
+        lead_score: leadScore,
+        layer1_text: layer1 ?? null,
+        email_requested: false,
+        class_id: session?.classId ?? null,
+        guest_identifier: session?.kind === 'guest' ? session.guestIdentifier : null,
+        user_id: session?.kind === 'google' ? session.userId : null,
+        completed_at: new Date().toISOString(),
+      };
+
+      const { error, id } = await api.saveResult(insertData);
+      if (error) {
+        console.error('AUTO-SAVE failed:', error.message);
+        autoSaveTriedRef.current = false; // allow retry
+      } else if (id) {
+        setSavedRowId(id);
+        if (layer1) setLayer1PersistedFor(layer1);
+        console.log('AUTO-SAVE success, row id:', id);
+      }
+      setAutoSaving(false);
+    })();
+  }, [isComplete, scores, savedRowId, studentProfile, selectedPathways, layer1]);
 
   useEffect(() => {
     if (!savedRowId || !layer1) return;
