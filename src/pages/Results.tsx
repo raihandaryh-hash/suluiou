@@ -30,7 +30,7 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
-import { getStudentSession } from '@/lib/classSession';
+import { getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 
 const Results = () => {
   const {
@@ -65,8 +65,10 @@ const Results = () => {
   }, [isComplete, navigate]);
 
   // Scroll to top when results page mounts (fix UX: user lands mid-page after assessment)
+  // Also mark assessment as complete so the session storage TTL (24h) starts.
   useEffect(() => {
     window.scrollTo(0, 0);
+    markAssessmentComplete();
   }, []);
 
   useEffect(() => {
