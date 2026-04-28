@@ -161,7 +161,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         studentProfile: state.studentProfile,
         hexacoAnswers: state.hexacoAnswers,
         sdsAnswers: state.sdsAnswers,
-        stage: state.stage,
+        // 'hexaco-done' is a transient UI transition; persist it as 'hexaco'.
+        stage: state.stage === 'hexaco-done' ? 'hexaco' : state.stage,
         hexacoIndex: state.hexacoIndex,
         sdsSection: state.sdsSection,
         consentGiven: state.consentGiven,
