@@ -40,7 +40,7 @@ export function isProfileComplete(p: StudentProfile | null | undefined): boolean
   );
 }
 
-export type AssessmentStage = 'profile' | 'hexaco' | 'sds' | 'submitting';
+export type AssessmentStage = 'profile' | 'hexaco' | 'hexaco-done' | 'sds' | 'submitting';
 
 interface AssessmentState {
   stage: AssessmentStage;
@@ -70,6 +70,8 @@ interface AssessmentContextType extends AssessmentState {
   setHexacoAnswer: (id: number, value: number) => void;
   nextHexaco: () => void;
   prevHexaco: () => void;
+  jumpToHexaco: (index: number) => void;
+  finishHexaco: () => void;
   toggleSds: (id: string) => void;
   goToSdsSection: (section: 1 | 2 | 3) => void;
   startHexaco: () => void;
@@ -208,6 +210,15 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       hexacoIndex: Math.max(prev.hexacoIndex - 1, 0),
     }));
   };
+
+  const jumpToHexaco = (index: number) => {
+    setState((prev) => ({
+      ...prev,
+      hexacoIndex: Math.max(0, Math.min(index, hexacoQuestions.length - 1)),
+    }));
+  };
+
+  const finishHexaco = () => setState((p) => ({ ...p, stage: 'hexaco-done' }));
 
   const toggleSds = (id: string) => {
     setState((prev) => {
@@ -366,6 +377,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         setHexacoAnswer,
         nextHexaco,
         prevHexaco,
+        jumpToHexaco,
+        finishHexaco,
         toggleSds,
         goToSdsSection,
         startHexaco,
