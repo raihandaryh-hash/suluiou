@@ -20,7 +20,8 @@ const HexacoStep = () => {
     setHexacoAnswer,
     nextHexaco,
     prevHexaco,
-    startSds,
+    jumpToHexaco,
+    finishHexaco,
   } = useAssessment();
 
   const question = hexacoQuestions[hexacoIndex];
@@ -31,20 +32,59 @@ const HexacoStep = () => {
   const allAnswered = answeredCount === total;
   const currentAnswered = currentAnswer !== undefined;
 
-  // Highlight saat user coba lanjut tapi item belum dijawab
   const [shake, setShake] = useState(false);
   useEffect(() => {
     if (currentAnswered && shake) setShake(false);
   }, [currentAnswered, shake]);
 
+  /**
+   * Skip-aware: cari item ter-skip pertama di antara index 0..hexacoIndex.
+   * Return -1 kalau tidak ada item yang ter-skip di belakang/sebelum index aktif.
+   */
+  const findSkippedBefore = useCallback(
+    (fromIndex: number): number => {
+      for (let i = 0; i < fromIndex; i++) {
+        if (hexacoAnswers[hexacoQuestions[i].id] === undefined) return i;
+      }
+      return -1;
+    },
+    [hexacoAnswers]
+  );
+
+  const advance = useCallback(() => {
+    // 1) Kalau ada skip di antara 0..(hexacoIndex), lompat ke skip pertama.
+    const skipped = findSkippedBefore(hexacoIndex);
+    if (skipped !== -1) {
+      jumpToHexaco(skipped);
+      return;
+    }
+    // 2) Tidak ada skip di belakang → lanjut ke item berikutnya.
+    if (hexacoIndex < total - 1) {
+      nextHexaco();
+    }
+  }, [findSkippedBefore, hexacoIndex, jumpToHexaco, nextHexaco, total]);
+
   const handleAnswer = useCallback(
     (value: number) => {
       setHexacoAnswer(question.id, value);
-      if (hexacoIndex < total - 1) {
-        requestAnimationFrame(() => nextHexaco());
-      }
+      // Auto-advance dengan logika skip-aware.
+      requestAnimationFrame(() => {
+        // Hitung skip menggunakan state baru (asumsi item aktif baru saja terjawab).
+        let nextSkipped = -1;
+        for (let i = 0; i < hexacoIndex; i++) {
+          if (hexacoAnswers[hexacoQuestions[i].id] === undefined) {
+            nextSkipped = i;
+            break;
+          }
+        }
+        if (nextSkipped !== -1) {
+          jumpToHexaco(nextSkipped);
+        } else if (hexacoIndex < total - 1) {
+          nextHexaco();
+        }
+      });
     },
-    [question.id, hexacoIndex, total, setHexacoAnswer, nextHexaco]
+    [question.id, hexacoIndex, total, setHexacoAnswer, nextHexaco, jumpToHexaco, hexacoAnswers]
   );
 
   const handleNext = () => {
@@ -52,35 +92,35 @@ const HexacoStep = () => {
       setShake(true);
       return;
     }
-    nextHexaco();
+    advance();
   };
 
   const handleProceed = () => {
     if (!allAnswered) {
-      // Navigasi ke item pertama yang belum terjawab + highlight
       const firstUnansweredIdx = hexacoQuestions.findIndex(
         (q) => hexacoAnswers[q.id] === undefined
       );
       if (firstUnansweredIdx !== -1) {
-        const delta = firstUnansweredIdx - hexacoIndex;
-        if (delta > 0) for (let i = 0; i < delta; i++) nextHexaco();
-        else if (delta < 0) for (let i = 0; i < -delta; i++) prevHexaco();
+        jumpToHexaco(firstUnansweredIdx);
         setShake(true);
       }
       return;
     }
-    startSds();
+    finishHexaco();
   };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="bg-card border-b border-border shadow-sm">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
             <Logo size="sm" />
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
               <span className="text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
                 Bagian 1 dari 2 · Kepribadian
+              </span>
+              <span className="text-xs font-semibold text-foreground bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                {answeredCount} dari {total} pertanyaan terjawab
               </span>
               <span className="text-sm font-heading font-bold text-primary">
                 {hexacoIndex + 1}/{total}
@@ -169,9 +209,17 @@ const HexacoStep = () => {
             {answeredCount}/{total} dijawab
           </span>
 
-          {hexacoIndex === total - 1 ? (
+          {hexacoIndex === total - 1 && allAnswered ? (
+            <Button
+              onClick={handleProceed}
+              className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              Lanjut ke Bagian 2
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          ) : hexacoIndex === total - 1 ? (
             <TooltipProvider>
-              <Tooltip open={!allAnswered ? undefined : false}>
+              <Tooltip>
                 <TooltipTrigger asChild>
                   <span>
                     <Button
@@ -184,11 +232,9 @@ const HexacoStep = () => {
                     </Button>
                   </span>
                 </TooltipTrigger>
-                {!allAnswered && (
-                  <TooltipContent>
-                    <p>Masih ada {total - answeredCount} pertanyaan yang belum dijawab.</p>
-                  </TooltipContent>
-                )}
+                <TooltipContent>
+                  <p>Masih ada {total - answeredCount} pertanyaan yang belum dijawab.</p>
+                </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           ) : (

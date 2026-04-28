@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import HexacoStep from '@/components/assessment/HexacoStep';
+import HexacoDoneStep from '@/components/assessment/HexacoDoneStep';
 import SdsStep from '@/components/assessment/SdsStep';
 import Logo from '@/components/Logo';
 import LogoutButton from '@/components/LogoutButton';
@@ -46,6 +47,15 @@ const Assessment = () => {
       <LogoutButton />
     </header>
   );
+
+  if (stage === 'hexaco-done') {
+    return (
+      <div className="relative">
+        {Header}
+        <HexacoDoneStep />
+      </div>
+    );
+  }
 
   if (stage === 'sds') {
     return (

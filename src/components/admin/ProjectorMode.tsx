@@ -153,24 +153,12 @@ const ProjectorMode = ({
           </div>
         </header>
 
-        {/* ── 2. STAT ROW: 4 metric cards ───────────────────────── */}
-        <section className="grid grid-cols-4 gap-5">
-          <StatCard
-            label="Selesai"
-            value={completed}
-            tone="primary"
-            sub={enrolled > 0 ? `dari ${enrolled} terdaftar` : undefined}
-          />
-          <StatCard
-            label="Sedang Mengerjakan"
-            value={inProgress}
-            tone="accent"
-          />
-          <StatCard
-            label="Belum Mulai"
-            value={notStarted}
-            tone="muted"
-          />
+        {/* ── 2. STAT ROW: 5 metric cards (angka absolut, tanpa rasio) ── */}
+        <section className="grid grid-cols-5 gap-4">
+          <StatCard label="Selesai" value={completed} tone="primary" />
+          <StatCard label="Sedang Mengerjakan" value={inProgress} tone="accent" />
+          <StatCard label="Belum Mulai" value={notStarted} tone="muted" />
+          <StatCard label="Terdaftar" value={enrolled} tone="default" />
           <StatCard
             label="Rata-rata Menit"
             value={avgMinutes}
