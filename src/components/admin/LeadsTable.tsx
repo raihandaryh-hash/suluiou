@@ -58,6 +58,7 @@ interface LeadResult {
   submitted_at: string;
   lm_name: string | null;
   lm_id: string | null;
+  parent_consent?: boolean | null;
 }
 
 interface LeadsTableProps {
@@ -140,13 +141,14 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
               <TableHead className="text-muted-foreground">Program Pilihan</TableHead>
               <TableHead className="text-muted-foreground text-center">Skor</TableHead>
               <TableHead className="text-muted-foreground">Status</TableHead>
+              <TableHead className="text-muted-foreground text-center">Consent Ortu</TableHead>
               <TableHead className="text-muted-foreground text-center">Aksi</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
+                <TableCell colSpan={8} className="text-center py-12 text-muted-foreground">
                   {leads.length === 0 ? 'Belum ada data assessment.' : 'Tidak ada hasil yang cocok.'}
                 </TableCell>
               </TableRow>
@@ -184,6 +186,13 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
                       <span className={`text-xs px-2 py-1 rounded-full ${sConfig.color}`}>
                         {sConfig.label}
                       </span>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {lead.parent_consent ? (
+                        <span title="Orang tua sudah memberi consent" className="text-base text-[hsl(142,70%,40%)]">✅</span>
+                      ) : (
+                        <span title="Belum ada consent ortu" className="text-base text-muted-foreground">➖</span>
+                      )}
                     </TableCell>
                     <TableCell className="text-center">
                       <div className="flex items-center justify-center gap-1">
