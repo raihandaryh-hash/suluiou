@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import { useAssessment } from '@/context/AssessmentContext';
 import { hexacoQuestions, hexacoLikertLabels } from '@/data/hexacoQuestions';
 import { Button } from '@/components/ui/button';
@@ -37,46 +37,44 @@ const HexacoStep = () => {
     if (currentAnswered && shake) setShake(false);
   }, [currentAnswered, shake]);
 
+  // Re-entry guard: prevents double-fire (mobile ghost click, double tap,
+  // re-render race) from advancing the index more than once per interaction.
+  const isAdvancingRef = useRef(false);
+  const guardAdvance = useCallback((fn: () => void) => {
+    if (isAdvancingRef.current) return;
+    isAdvancingRef.current = true;
+    fn();
+    window.setTimeout(() => {
+      isAdvancingRef.current = false;
+    }, 250);
+  }, []);
+
   /**
-   * Skip-aware: cari item ter-skip pertama di antara index 0..hexacoIndex.
-   * Return -1 kalau tidak ada item yang ter-skip di belakang/sebelum index aktif.
+   * Skip-aware: cari item ter-skip pertama di antara index 0..fromIndex
+   * berdasarkan answers map yang DIBERIKAN (bukan dari closure stale).
    */
-  const findSkippedBefore = useCallback(
-    (fromIndex: number): number => {
+  const findSkippedBeforeIn = useCallback(
+    (answers: Record<number, number>, fromIndex: number): number => {
       for (let i = 0; i < fromIndex; i++) {
-        if (hexacoAnswers[hexacoQuestions[i].id] === undefined) return i;
+        if (answers[hexacoQuestions[i].id] === undefined) return i;
       }
       return -1;
     },
-    [hexacoAnswers]
+    []
   );
-
-  const advance = useCallback(() => {
-    // 1) Kalau ada skip di antara 0..(hexacoIndex), lompat ke skip pertama.
-    const skipped = findSkippedBefore(hexacoIndex);
-    if (skipped !== -1) {
-      jumpToHexaco(skipped);
-      return;
-    }
-    // 2) Tidak ada skip di belakang → lanjut ke item berikutnya.
-    if (hexacoIndex < total - 1) {
-      nextHexaco();
-    }
-  }, [findSkippedBefore, hexacoIndex, jumpToHexaco, nextHexaco, total]);
 
   const handleAnswer = useCallback(
     (value: number) => {
+      if (isAdvancingRef.current) return;
+
+      // Persist jawaban dulu.
       setHexacoAnswer(question.id, value);
-      // Auto-advance dengan logika skip-aware.
-      requestAnimationFrame(() => {
-        // Hitung skip menggunakan state baru (asumsi item aktif baru saja terjawab).
-        let nextSkipped = -1;
-        for (let i = 0; i < hexacoIndex; i++) {
-          if (hexacoAnswers[hexacoQuestions[i].id] === undefined) {
-            nextSkipped = i;
-            break;
-          }
-        }
+
+      // Hitung navigasi langsung dari snapshot baru (tanpa rAF / tanpa closure stale).
+      const nextAnswers = { ...hexacoAnswers, [question.id]: value };
+
+      guardAdvance(() => {
+        const nextSkipped = findSkippedBeforeIn(nextAnswers, hexacoIndex);
         if (nextSkipped !== -1) {
           jumpToHexaco(nextSkipped);
         } else if (hexacoIndex < total - 1) {
@@ -84,7 +82,17 @@ const HexacoStep = () => {
         }
       });
     },
-    [question.id, hexacoIndex, total, setHexacoAnswer, nextHexaco, jumpToHexaco, hexacoAnswers]
+    [
+      question.id,
+      hexacoIndex,
+      total,
+      hexacoAnswers,
+      setHexacoAnswer,
+      nextHexaco,
+      jumpToHexaco,
+      findSkippedBeforeIn,
+      guardAdvance,
+    ]
   );
 
   const handleNext = () => {
@@ -92,7 +100,14 @@ const HexacoStep = () => {
       setShake(true);
       return;
     }
-    advance();
+    guardAdvance(() => {
+      const skipped = findSkippedBeforeIn(hexacoAnswers, hexacoIndex);
+      if (skipped !== -1) {
+        jumpToHexaco(skipped);
+        return;
+      }
+      if (hexacoIndex < total - 1) nextHexaco();
+    });
   };
 
   const handleProceed = () => {
@@ -120,10 +135,7 @@ const HexacoStep = () => {
                 Bagian 1 dari 2 · Kepribadian
               </span>
               <span className="text-xs font-semibold text-foreground bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
-                {answeredCount} dari {total} pertanyaan terjawab
-              </span>
-              <span className="text-sm font-heading font-bold text-primary">
-                {hexacoIndex + 1}/{total}
+                {answeredCount} dari {total} terjawab
               </span>
             </div>
           </div>
@@ -136,7 +148,7 @@ const HexacoStep = () => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 mb-8">
             <div className="w-2 h-2 rounded-full bg-accent" />
             <span className="text-xs text-primary uppercase tracking-wider font-semibold">
-              HEXACO-PIR
+              HEXACO-PIR · Pertanyaan {hexacoIndex + 1}
             </span>
           </div>
 
@@ -157,8 +169,9 @@ const HexacoStep = () => {
                 <button
                   key={value}
                   onClick={() => handleAnswer(value)}
+                  style={{ touchAction: 'manipulation' }}
                   className={cn(
-                    'w-full py-3.5 px-5 rounded-xl border-2 text-left font-medium transition-colors',
+                    'w-full py-3.5 px-5 rounded-xl border-2 text-left font-medium transition-colors select-none',
                     isSelected
                       ? 'bg-primary/10 border-primary text-foreground'
                       : shake && !currentAnswered
@@ -206,7 +219,7 @@ const HexacoStep = () => {
           </Button>
 
           <span className="text-xs text-muted-foreground">
-            {answeredCount}/{total} dijawab
+            Pertanyaan {hexacoIndex + 1} dari {total}
           </span>
 
           {hexacoIndex === total - 1 && allAnswered ? (
