@@ -300,11 +300,19 @@ const AdminClassSession = () => {
                   ) : (
                     <Badge className="bg-accent text-accent-foreground">Sesi Aktif</Badge>
                   )}
-                  <div className="text-right">
-                    <p className="text-2xl font-heading font-bold text-foreground">
-                      {completed.length}/{enrolledCount}
-                    </p>
-                    <p className="text-xs text-muted-foreground">Selesai / Terdaftar</p>
+                  <div className="flex items-center gap-4">
+                    <div className="text-right">
+                      <p className="text-2xl font-heading font-bold text-primary">{completed.length}</p>
+                      <p className="text-xs text-muted-foreground">Selesai</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-heading font-bold text-accent">{inProgressCount}</p>
+                      <p className="text-xs text-muted-foreground">Mengerjakan</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-heading font-bold text-foreground">{enrolledCount}</p>
+                      <p className="text-xs text-muted-foreground">Terdaftar</p>
+                    </div>
                   </div>
                 </div>
               </div>
