@@ -29,7 +29,40 @@ async function findEnrolledClass(
   }
 }
 
-export type AuthRoute = '/results' | '/assessment' | '/consent' | '/profile' | '/join';
+export type AuthRoute = '/results' | '/assessment' | '/consent' | '/profile';
+
+/** Try to auto-enroll a Google user using a pending `?kode=` code captured earlier. */
+async function tryEnrollFromPendingCode(
+  session: StudentSession,
+): Promise<{ classId: string; className: string | null } | null> {
+  const code = getPendingClassCode();
+  if (!code) return null;
+  try {
+    const { data: cls } = await supabase
+      .from('classes')
+      .select('id, name, session_closed')
+      .eq('join_code', code)
+      .maybeSingle();
+    if (!cls || cls.session_closed) {
+      clearPendingClassCode();
+      return null;
+    }
+    if (session.kind === 'google') {
+      const { error } = await supabase
+        .from('class_enrollments')
+        .insert({ class_id: cls.id, user_id: session.userId });
+      if (error && !error.message.toLowerCase().includes('duplicate')) {
+        console.warn('[tryEnrollFromPendingCode] insert failed', error);
+        return null;
+      }
+    }
+    clearPendingClassCode();
+    return { classId: cls.id, className: cls.name ?? null };
+  } catch (e) {
+    console.warn('[tryEnrollFromPendingCode] failed', e);
+    return null;
+  }
+}
 
 interface ProgressLite {
   consent_given?: boolean;
@@ -54,6 +87,15 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
   // Always try to ensure session has classId populated from DB.
   if (!session.classId) {
     const enr = await findEnrolledClass(session);
+    if (enr) {
+      patchStudentSession({ classId: enr.classId, className: enr.className });
+      session = { ...session, classId: enr.classId, className: enr.className };
+    }
+  }
+
+  // If still no class but a pending ?kode= was captured earlier, try to enroll now.
+  if (!session.classId) {
+    const enr = await tryEnrollFromPendingCode(session);
     if (enr) {
       patchStudentSession({ classId: enr.classId, className: enr.className });
       session = { ...session, classId: enr.classId, className: enr.className };
@@ -100,9 +142,7 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
     return '/assessment';
   }
 
-  // 4) Enrolled but never started → go to profile (Step 0).
-  if (session.classId) return '/profile';
-
-  // 5) No enrollment → must input class code first.
-  return '/join';
+  // 4) Default landing → Step 0 (profile). Class code is now optional and
+  //    collected within Step 0 if the student doesn't have one yet.
+  return '/profile';
 }
