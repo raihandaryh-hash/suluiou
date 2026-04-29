@@ -97,6 +97,15 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
       ? session.name
       : '';
 
+  // Class binding state. If session already has a classId we lock the field.
+  // Otherwise we offer an optional input, prefilled from any captured ?kode=.
+  const alreadyBoundToClass = Boolean(session?.classId);
+  const pendingFromUrl = getPendingClassCode();
+  const [classCode, setClassCode] = useState<string>(
+    alreadyBoundToClass ? '' : pendingFromUrl ?? '',
+  );
+  const codeLocked = alreadyBoundToClass || Boolean(pendingFromUrl);
+
   const [province, setProvince] = useState(studentProfile?.province ?? '');
   const [familyBackground, setFamilyBackground] = useState(studentProfile?.familyBackground ?? '');
   const [learningStyle, setLearningStyle] = useState(studentProfile?.learningStyle ?? '');
@@ -123,16 +132,22 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
-    onComplete({
-      name: studentProfile?.name || sessionName || '',
-      province,
-      familyBackground,
-      learningStyle,
-      careerCertainty,
-      contributionGoal,
-      educationPlan,
-      aspiration: aspiration.trim(),
-    });
+    const code = alreadyBoundToClass
+      ? null
+      : classCode.trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || null;
+    onComplete(
+      {
+        name: studentProfile?.name || sessionName || '',
+        province,
+        familyBackground,
+        learningStyle,
+        careerCertainty,
+        contributionGoal,
+        educationPlan,
+        aspiration: aspiration.trim(),
+      },
+      code,
+    );
   };
 
   return (
