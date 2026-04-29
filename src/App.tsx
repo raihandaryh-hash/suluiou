@@ -2,8 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import { AssessmentProvider } from "@/context/AssessmentContext";
+import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
 import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
@@ -18,14 +20,20 @@ import AdminClasses from "./pages/AdminClasses";
 import AdminClassSession from "./pages/AdminClassSession";
 import AdminSuar from "./pages/AdminSuar";
 import Login from "./pages/Login";
-import JoinClass from "./pages/JoinClass";
+// /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  // Capture ?kode=ABCD from any landing URL before routes mount.
+  useEffect(() => {
+    captureClassCodeFromUrl();
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <AssessmentProvider>
@@ -35,7 +43,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/join" element={<JoinClass />} />
+            {/* Legacy /join route — kept as a redirect into the new Step 0 flow. */}
+            <Route path="/join" element={<Navigate to="/profile" replace />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/consent" element={<Consent />} />
             <Route path="/assessment" element={<Assessment />} />
@@ -91,6 +100,7 @@ const App = () => (
       </AssessmentProvider>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

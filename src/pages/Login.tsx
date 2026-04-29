@@ -16,6 +16,7 @@ import {
   getStudentSession,
   type StudentSession,
 } from '@/lib/classSession';
+import { getPendingClassCode } from '@/lib/pendingClassCode';
 import { routeAfterAuth } from '@/lib/authRouter';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 
@@ -33,7 +34,9 @@ const guestSchema = z.object({
     .string()
     .trim()
     .toUpperCase()
-    .regex(/^[A-Z0-9]{4}$/, { message: 'Kode kelas 4 karakter.' }),
+    .regex(/^[A-Z0-9]{4}$/, { message: 'Kode kelas 4 karakter.' })
+    .optional()
+    .or(z.literal('')),
 });
 
 const Login = () => {
@@ -47,7 +50,7 @@ const Login = () => {
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [joinCode, setJoinCode] = useState('');
+  const [joinCode, setJoinCode] = useState(() => getPendingClassCode() ?? '');
 
   const [existing, setExisting] = useState<StudentSession | null>(null);
   const [checking, setChecking] = useState(true);
@@ -133,38 +136,52 @@ const Login = () => {
 
     setGuestLoading(true);
 
-    const code = parsed.data.joinCode;
-    const { data: cls, error: clsErr } = await supabase
-      .from('classes')
-      .select('id, name, school_name, session_closed')
-      .eq('join_code', code)
-      .maybeSingle();
+    const code = (parsed.data.joinCode || '').toUpperCase();
+    let classId: string | null = null;
+    let className: string | null = null;
 
-    if (clsErr || !cls) {
-      setError('Kode tidak valid. Tanyakan ke gurumu.');
-      setGuestLoading(false);
-      return;
-    }
-    if (cls.session_closed) {
-      setError('Sesi kelas ini sudah ditutup.');
-      setGuestLoading(false);
-      return;
+    // Class code is now optional. If provided, enroll into that class; otherwise
+    // proceed as a public/Umum guest with no class binding.
+    if (code) {
+      const { data: cls, error: clsErr } = await supabase
+        .from('classes')
+        .select('id, name, school_name, session_closed')
+        .eq('join_code', code)
+        .maybeSingle();
+
+      if (clsErr || !cls) {
+        setError('Kode tidak valid. Tanyakan ke gurumu.');
+        setGuestLoading(false);
+        return;
+      }
+      if (cls.session_closed) {
+        setError('Sesi kelas ini sudah ditutup.');
+        setGuestLoading(false);
+        return;
+      }
+      classId = cls.id;
+      className = cls.name;
     }
 
-    const guestIdentifier = makeGuestIdentifier(parsed.data.phone, code);
+    // Identifier still needs a stable suffix even without a code so two guests
+    // on the same phone can't collide. Use 'UMUM' as the bucket for public.
+    const guestIdentifier = makeGuestIdentifier(parsed.data.phone, code || 'UMUM');
 
     clearStudentSession();
-    const { error: enrErr } = await supabase.from('class_enrollments').insert({
-      class_id: cls.id,
-      guest_identifier: guestIdentifier,
-      guest_name: parsed.data.name,
-      guest_phone: parsed.data.phone,
-    });
 
-    if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
-      setError('Gagal mendaftar ke kelas. Coba lagi.');
-      setGuestLoading(false);
-      return;
+    if (classId) {
+      const { error: enrErr } = await supabase.from('class_enrollments').insert({
+        class_id: classId,
+        guest_identifier: guestIdentifier,
+        guest_name: parsed.data.name,
+        guest_phone: parsed.data.phone,
+      });
+
+      if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
+        setError('Gagal mendaftar ke kelas. Coba lagi.');
+        setGuestLoading(false);
+        return;
+      }
     }
 
     const session: StudentSession = {
@@ -172,8 +189,8 @@ const Login = () => {
       guestIdentifier,
       name: parsed.data.name,
       phone: parsed.data.phone,
-      classId: cls.id,
-      className: cls.name,
+      classId,
+      className,
     };
     setStudentSession(session);
 
@@ -337,7 +354,10 @@ const Login = () => {
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="g-code">Kode Kelas</Label>
+                    <Label htmlFor="g-code">
+                      Kode Kelas{' '}
+                      <span className="text-muted-foreground font-normal">(opsional)</span>
+                    </Label>
                     <Input
                       id="g-code"
                       value={joinCode}
@@ -347,10 +367,9 @@ const Login = () => {
                       placeholder="ABCD"
                       maxLength={4}
                       className="uppercase tracking-widest font-mono text-center text-lg"
-                      required
                     />
                     <p className="text-xs text-muted-foreground">
-                      4 karakter dari gurumu.
+                      Isi kalau dapat kode dari gurumu. Kosongkan kalau ikut sendiri.
                     </p>
                   </div>
                   <Button
