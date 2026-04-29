@@ -185,6 +185,39 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
           </div>
 
           <div className="space-y-6 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
+            {/* 0. Kode Kelas — opsional, hanya tampil jika belum terdaftar di kelas. */}
+            {!alreadyBoundToClass && (
+              <div className="space-y-2">
+                <Label htmlFor="class-code">
+                  Kode Kelas{' '}
+                  <span className="text-muted-foreground font-normal">(opsional)</span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="class-code"
+                    value={classCode}
+                    onChange={(e) =>
+                      setClassCode(
+                        e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4),
+                      )
+                    }
+                    placeholder="ABCD"
+                    maxLength={4}
+                    disabled={codeLocked && Boolean(classCode)}
+                    className="uppercase tracking-widest font-mono text-center text-lg pr-9"
+                  />
+                  {codeLocked && classCode && (
+                    <Lock className="w-4 h-4 text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2" />
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  {codeLocked && classCode
+                    ? 'Kode kelas sudah terisi otomatis dari tautan yang kamu buka.'
+                    : 'Isi kalau dapat kode dari gurumu. Kosongkan kalau ikut sendiri.'}
+                </p>
+              </div>
+            )}
+
             {/* 1. Provinsi */}
             <div className="space-y-2">
               <Label htmlFor="province">Kamu tinggal di provinsi mana?</Label>
