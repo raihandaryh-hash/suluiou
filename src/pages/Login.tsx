@@ -16,6 +16,7 @@ import {
   getStudentSession,
   type StudentSession,
 } from '@/lib/classSession';
+import { getPendingClassCode } from '@/lib/pendingClassCode';
 import { routeAfterAuth } from '@/lib/authRouter';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 
@@ -49,7 +50,7 @@ const Login = () => {
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [joinCode, setJoinCode] = useState('');
+  const [joinCode, setJoinCode] = useState(() => getPendingClassCode() ?? '');
 
   const [existing, setExisting] = useState<StudentSession | null>(null);
   const [checking, setChecking] = useState(true);
