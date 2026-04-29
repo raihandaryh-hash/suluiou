@@ -6,6 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { ArrowRight, ArrowLeft, CheckCircle2, AlertCircle } from 'lucide-react';
 import Logo from '@/components/Logo';
+import SaveStatusIndicator from '@/components/assessment/SaveStatusIndicator';
 import {
   Tooltip,
   TooltipContent,
@@ -137,6 +138,7 @@ const HexacoStep = () => {
               <span className="text-xs font-semibold text-foreground bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
                 {answeredCount} dari {total} terjawab
               </span>
+              <SaveStatusIndicator />
             </div>
           </div>
           <Progress value={progress} className="h-2" />
