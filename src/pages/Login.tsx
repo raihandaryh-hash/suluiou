@@ -33,7 +33,9 @@ const guestSchema = z.object({
     .string()
     .trim()
     .toUpperCase()
-    .regex(/^[A-Z0-9]{4}$/, { message: 'Kode kelas 4 karakter.' }),
+    .regex(/^[A-Z0-9]{4}$/, { message: 'Kode kelas 4 karakter.' })
+    .optional()
+    .or(z.literal('')),
 });
 
 const Login = () => {
