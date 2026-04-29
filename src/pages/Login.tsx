@@ -354,7 +354,10 @@ const Login = () => {
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="g-code">Kode Kelas</Label>
+                    <Label htmlFor="g-code">
+                      Kode Kelas{' '}
+                      <span className="text-muted-foreground font-normal">(opsional)</span>
+                    </Label>
                     <Input
                       id="g-code"
                       value={joinCode}
@@ -364,10 +367,9 @@ const Login = () => {
                       placeholder="ABCD"
                       maxLength={4}
                       className="uppercase tracking-widest font-mono text-center text-lg"
-                      required
                     />
                     <p className="text-xs text-muted-foreground">
-                      4 karakter dari gurumu.
+                      Isi kalau dapat kode dari gurumu. Kosongkan kalau ikut sendiri.
                     </p>
                   </div>
                   <Button
