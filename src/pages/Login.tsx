@@ -135,38 +135,52 @@ const Login = () => {
 
     setGuestLoading(true);
 
-    const code = parsed.data.joinCode;
-    const { data: cls, error: clsErr } = await supabase
-      .from('classes')
-      .select('id, name, school_name, session_closed')
-      .eq('join_code', code)
-      .maybeSingle();
+    const code = (parsed.data.joinCode || '').toUpperCase();
+    let classId: string | null = null;
+    let className: string | null = null;
 
-    if (clsErr || !cls) {
-      setError('Kode tidak valid. Tanyakan ke gurumu.');
-      setGuestLoading(false);
-      return;
-    }
-    if (cls.session_closed) {
-      setError('Sesi kelas ini sudah ditutup.');
-      setGuestLoading(false);
-      return;
+    // Class code is now optional. If provided, enroll into that class; otherwise
+    // proceed as a public/Umum guest with no class binding.
+    if (code) {
+      const { data: cls, error: clsErr } = await supabase
+        .from('classes')
+        .select('id, name, school_name, session_closed')
+        .eq('join_code', code)
+        .maybeSingle();
+
+      if (clsErr || !cls) {
+        setError('Kode tidak valid. Tanyakan ke gurumu.');
+        setGuestLoading(false);
+        return;
+      }
+      if (cls.session_closed) {
+        setError('Sesi kelas ini sudah ditutup.');
+        setGuestLoading(false);
+        return;
+      }
+      classId = cls.id;
+      className = cls.name;
     }
 
-    const guestIdentifier = makeGuestIdentifier(parsed.data.phone, code);
+    // Identifier still needs a stable suffix even without a code so two guests
+    // on the same phone can't collide. Use 'UMUM' as the bucket for public.
+    const guestIdentifier = makeGuestIdentifier(parsed.data.phone, code || 'UMUM');
 
     clearStudentSession();
-    const { error: enrErr } = await supabase.from('class_enrollments').insert({
-      class_id: cls.id,
-      guest_identifier: guestIdentifier,
-      guest_name: parsed.data.name,
-      guest_phone: parsed.data.phone,
-    });
 
-    if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
-      setError('Gagal mendaftar ke kelas. Coba lagi.');
-      setGuestLoading(false);
-      return;
+    if (classId) {
+      const { error: enrErr } = await supabase.from('class_enrollments').insert({
+        class_id: classId,
+        guest_identifier: guestIdentifier,
+        guest_name: parsed.data.name,
+        guest_phone: parsed.data.phone,
+      });
+
+      if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
+        setError('Gagal mendaftar ke kelas. Coba lagi.');
+        setGuestLoading(false);
+        return;
+      }
     }
 
     const session: StudentSession = {
@@ -174,8 +188,8 @@ const Login = () => {
       guestIdentifier,
       name: parsed.data.name,
       phone: parsed.data.phone,
-      classId: cls.id,
-      className: cls.name,
+      classId,
+      className,
     };
     setStudentSession(session);
 
