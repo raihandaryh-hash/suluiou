@@ -11,11 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 import Logo from '@/components/Logo';
 import { useAssessment, type StudentProfile } from '@/context/AssessmentContext';
 import { PROVINCES } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
+import { getPendingClassCode } from '@/lib/pendingClassCode';
 
 const FAMILY_OPTIONS = [
   'Keluarga petani, nelayan, atau peternak',
@@ -51,7 +53,7 @@ const CONTRIBUTION_OPTIONS = [
 const EDUCATION_OPTIONS = ['D3 (Diploma 3)', 'S1 (Sarjana)', 'Belum tahu'];
 
 interface ProfileStepProps {
-  onComplete: (profile: StudentProfile) => void;
+  onComplete: (profile: StudentProfile, classCode: string | null) => void;
 }
 
 interface RadioCardGroupProps {
