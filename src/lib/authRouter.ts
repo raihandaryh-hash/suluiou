@@ -2,6 +2,7 @@
 // Used by Login (after Google OAuth or guest enroll) and by /consent / /assessment.
 import { supabase } from '@/integrations/supabase/client';
 import { patchStudentSession, type StudentSession } from '@/lib/classSession';
+import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
 
 /** Look up a student's most recent class enrollment and return class info. */
 async function findEnrolledClass(
