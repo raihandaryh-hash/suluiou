@@ -12,6 +12,7 @@ import {
   rowToSnapshot,
   saveProgress,
   markProgressCompleted,
+  syncBackupProgress,
 } from '@/lib/progress';
 
 export interface StudentProfile {
@@ -147,6 +148,23 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       }
     })();
     return () => { active = false; };
+  }, []);
+
+  // Flush any locally-backed-up progress to DB on mount + visibility change.
+  useEffect(() => {
+    const flush = () => {
+      const session = getStudentSession();
+      if (!session) return;
+      void syncBackupProgress(session);
+    };
+    flush();
+    const onVis = () => { if (document.visibilityState === 'visible') flush(); };
+    document.addEventListener('visibilitychange', onVis);
+    window.addEventListener('online', flush);
+    return () => {
+      document.removeEventListener('visibilitychange', onVis);
+      window.removeEventListener('online', flush);
+    };
   }, []);
 
   useEffect(() => {

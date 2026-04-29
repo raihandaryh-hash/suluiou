@@ -13,6 +13,7 @@ import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react';
 import Logo from '@/components/Logo';
+import SaveStatusIndicator from '@/components/assessment/SaveStatusIndicator';
 
 const CATEGORIES: RiasecCategory[] = ['R', 'I', 'A', 'S', 'E', 'C'];
 
@@ -77,6 +78,7 @@ const SdsStep = () => {
               <span className="text-sm font-heading font-bold text-primary">
                 {sdsSection}/3
               </span>
+              <SaveStatusIndicator />
             </div>
           </div>
           <Progress value={progress} className="h-1.5" />

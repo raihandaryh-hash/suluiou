@@ -1,4 +1,7 @@
 // Helpers for persisting & resuming assessment progress in DB.
+// Now resilient to flaky networks: 3 attempts with exponential backoff,
+// localStorage backup as last-resort, and a sync-on-online helper that
+// retries the backup whenever the tab regains focus.
 import { supabase } from '@/integrations/supabase/client';
 import type { StudentSession } from '@/lib/classSession';
 import type { StudentProfile } from '@/context/AssessmentContext';
@@ -28,6 +31,56 @@ export interface ProgressSnapshot {
   consentGiven: boolean;
 }
 
+// ===== Save status broadcasting =====
+// HEXACO/SDS components subscribe to show a small indicator in the header.
+export type SaveStatus = 'idle' | 'saving' | 'saved' | 'local';
+type SaveListener = (s: SaveStatus) => void;
+const listeners = new Set<SaveListener>();
+let lastStatus: SaveStatus = 'idle';
+
+export function subscribeSaveStatus(fn: SaveListener): () => void {
+  listeners.add(fn);
+  fn(lastStatus);
+  return () => listeners.delete(fn);
+}
+function emit(s: SaveStatus) {
+  lastStatus = s;
+  listeners.forEach((l) => {
+    try { l(s); } catch { /* ignore */ }
+  });
+}
+
+// ===== localStorage backup =====
+function backupKey(session: StudentSession): string {
+  return session.kind === 'google'
+    ? `sulu.progressBackup.user_${session.userId}`
+    : `sulu.progressBackup.guest_${session.guestIdentifier}`;
+}
+
+function writeBackup(session: StudentSession, snap: ProgressSnapshot) {
+  try {
+    localStorage.setItem(
+      backupKey(session),
+      JSON.stringify({ snap, ts: Date.now() })
+    );
+  } catch { /* ignore quota */ }
+}
+
+function readBackup(session: StudentSession): ProgressSnapshot | null {
+  try {
+    const raw = localStorage.getItem(backupKey(session));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { snap: ProgressSnapshot };
+    return parsed.snap ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function clearBackup(session: StudentSession) {
+  try { localStorage.removeItem(backupKey(session)); } catch { /* ignore */ }
+}
+
 /** Look up an unfinished progress row for the given session. */
 export async function fetchProgress(
   session: StudentSession
@@ -52,16 +105,13 @@ export async function fetchProgress(
   return (data as unknown as ProgressRow) ?? null;
 }
 
-/** Upsert a progress snapshot. Idempotent thanks to unique indexes. */
-export async function saveProgress(
+// ===== Core upsert (one attempt) =====
+async function attemptSave(
   session: StudentSession,
   snap: ProgressSnapshot
-) {
-  // Convert numeric-keyed hexaco answers to string keys for jsonb.
+): Promise<{ ok: boolean; error?: string }> {
   const hexaco: Record<string, number> = {};
-  Object.entries(snap.hexacoAnswers).forEach(([k, v]) => {
-    hexaco[k] = v;
-  });
+  Object.entries(snap.hexacoAnswers).forEach(([k, v]) => { hexaco[k] = v; });
 
   const base = {
     student_profile: snap.studentProfile,
@@ -73,28 +123,11 @@ export async function saveProgress(
     consent_given: snap.consentGiven,
   };
 
-  const row =
-    session.kind === 'google'
-      ? {
-          ...base,
-          user_id: session.userId,
-          guest_identifier: null,
-          class_id: session.classId,
-        }
-      : {
-          ...base,
-          user_id: null,
-          guest_identifier: session.guestIdentifier,
-          class_id: session.classId,
-        };
+  const row = session.kind === 'google'
+    ? { ...base, user_id: session.userId, guest_identifier: null, class_id: session.classId }
+    : { ...base, user_id: null, guest_identifier: session.guestIdentifier, class_id: session.classId };
 
-  const conflict =
-    session.kind === 'google' ? 'user_id' : 'guest_identifier,class_id';
-
-  // Upsert via partial unique index. We do a manual two-step (lookup → update/insert)
-  // because Postgres won't auto-pick a partial unique index for ON CONFLICT
-  // without explicitly naming all index columns + WHERE predicate, which
-  // PostgREST doesn't expose. This keeps logic simple and bug-free.
+  // Lookup existing row id (PostgREST can't pick a partial unique index).
   let existingId: string | null = null;
   {
     let q = supabase.from('assessment_progress').select('id').is('completed_at', null);
@@ -105,7 +138,8 @@ export async function saveProgress(
       if (session.classId) q = q.eq('class_id', session.classId);
       else q = q.is('class_id', null);
     }
-    const { data: found } = await q.maybeSingle();
+    const { data: found, error: findErr } = await q.maybeSingle();
+    if (findErr) return { ok: false, error: findErr.message };
     existingId = (found as { id?: string } | null)?.id ?? null;
   }
 
@@ -115,13 +149,61 @@ export async function saveProgress(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .update(row as any)
       .eq('id', existingId);
-    if (error) console.warn('saveProgress update failed:', error.message, '| conflict:', conflict);
+    if (error) return { ok: false, error: error.message };
   } else {
     const { error } = await supabase
       .from('assessment_progress')
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .insert(row as any);
-    if (error) console.warn('saveProgress insert failed:', error.message, '| conflict:', conflict);
+    if (error) return { ok: false, error: error.message };
+  }
+  return { ok: true };
+}
+
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/** Upsert a progress snapshot with retry + localStorage backup fallback. */
+export async function saveProgress(
+  session: StudentSession,
+  snap: ProgressSnapshot
+) {
+  emit('saving');
+
+  // Attempt 1, then retry with 1s, then 2s backoff.
+  const delays = [0, 1000, 2000];
+  for (let i = 0; i < delays.length; i++) {
+    if (delays[i] > 0) await sleep(delays[i]);
+    const res = await attemptSave(session, snap);
+    if (res.ok) {
+      // Successful — drop any previous backup.
+      clearBackup(session);
+      emit('saved');
+      return;
+    }
+    if (i < delays.length - 1) {
+      console.warn(`saveProgress attempt ${i + 1} failed:`, res.error);
+    } else {
+      console.warn('saveProgress all attempts failed:', res.error);
+    }
+  }
+
+  // All attempts failed → keep snapshot locally so we don't lose progress.
+  writeBackup(session, snap);
+  emit('local');
+}
+
+/** Try to flush any locally-backed-up progress for this session to the DB.
+ *  Called on mount and when the tab regains visibility. */
+export async function syncBackupProgress(session: StudentSession): Promise<void> {
+  const snap = readBackup(session);
+  if (!snap) return;
+  emit('saving');
+  const res = await attemptSave(session, snap);
+  if (res.ok) {
+    clearBackup(session);
+    emit('saved');
+  } else {
+    emit('local');
   }
 }
 
@@ -140,6 +222,22 @@ export async function markProgressCompleted(session: StudentSession) {
   }
   const { error } = await query;
   if (error) console.warn('markProgressCompleted failed:', error.message);
+  // Clear any leftover backup once the assessment is done.
+  clearBackup(session);
+}
+
+/** Delete the in-progress row (used by "Mulai asesmen baru"). */
+export async function deleteProgress(session: StudentSession) {
+  let q = supabase.from('assessment_progress').delete().is('completed_at', null);
+  if (session.kind === 'google') {
+    q = q.eq('user_id', session.userId);
+  } else {
+    q = q.eq('guest_identifier', session.guestIdentifier);
+    if (session.classId) q = q.eq('class_id', session.classId);
+  }
+  const { error } = await q;
+  if (error) console.warn('deleteProgress failed:', error.message);
+  clearBackup(session);
 }
 
 /** Convert DB row to context-shaped snapshot. Backfills missing fields so
