@@ -23,6 +23,7 @@ import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
+import { SaveToGoogleSection } from '@/components/results/SaveToGoogleSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
   IOU_WA_NUMBER_AKHWAT,
@@ -30,7 +31,7 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
-import { getStudentSession, markAssessmentComplete } from '@/lib/classSession';
+import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 
 const Results = () => {
   const {
@@ -551,6 +552,8 @@ const Results = () => {
 
           <ParentConsentSection resultId={savedRowId} />
 
+          <SaveToGoogleSection resultId={savedRowId} />
+
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.95 }} className="mb-12">
             <ShareButtons scores={scores} topSelection={topSelection} resultId={savedRowId} />
           </motion.div>
@@ -625,6 +628,26 @@ const Results = () => {
                   );
                 })()}
               </div>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-border/40">
+              <p className="text-xs text-muted-foreground mb-3">
+                Device ini akan dipakai siswa lain?
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => {
+                  if (!confirm('Mulai asesmen baru? Sesi saat ini akan diakhiri di device ini. Hasilmu tetap tersimpan dan bisa kamu akses lagi via login.')) return;
+                  resetAssessment();
+                  clearStudentSession();
+                  navigate('/login', { replace: true });
+                }}
+              >
+                <RotateCcw className="w-4 h-4" />
+                Mulai asesmen baru (siswa lain)
+              </Button>
             </div>
           </motion.div>
         </div>

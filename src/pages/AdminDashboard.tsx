@@ -20,6 +20,7 @@ import {
   type FollowUpStatus,
 } from '@/lib/leadScoring';
 import { Flame, LogOut, RefreshCw, X, Users, Presentation } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 
 interface LeadResult {
@@ -48,13 +49,15 @@ interface LeadResult {
 }
 
 const AdminDashboard = () => {
-  const { signOut } = useAuth();
+  const { signOut, isSuperAdmin } = useAuth();
   const { toast } = useToast();
   const [leads, setLeads] = useState<LeadResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterProvince, setFilterProvince] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
   const [filterLm, setFilterLm] = useState('');
+  // Bucket: 'all' (super-admin only sees this), 'igs' (any IGS school), 'umum' (no school / "Umum")
+  const [bucket, setBucket] = useState<'all' | 'igs' | 'umum'>('igs');
 
   const fetchLeads = useCallback(async () => {
     setLoading(true);
@@ -137,13 +140,24 @@ const AdminDashboard = () => {
   ).length;
   const enrolled = leads.filter((l) => l.follow_up_status === 'enrolled').length;
 
+  // Bucket helper: a lead is "umum" if school_name is empty/null or literally "Umum"
+  const isUmumLead = (l: LeadResult) => {
+    const s = (l.school_name ?? '').trim().toLowerCase();
+    return s === '' || s === 'umum';
+  };
+
   // Filtering
   const filteredLeads = leads.filter((l) => {
+    if (bucket === 'igs' && isUmumLead(l)) return false;
+    if (bucket === 'umum' && !isUmumLead(l)) return false;
     if (filterProvince && (l.student_province || l.province) !== filterProvince) return false;
     if (filterStatus && l.follow_up_status !== filterStatus) return false;
     if (filterLm && l.lm_name !== filterLm) return false;
     return true;
   });
+
+  const igsCount = leads.filter((l) => !isUmumLead(l)).length;
+  const umumCount = leads.filter((l) => isUmumLead(l)).length;
 
   const provinceOptions = [...new Set(leads.map((l) => l.student_province || l.province).filter(Boolean))].sort() as string[];
   const lmOptions = [...new Set(leads.map((l) => l.lm_name).filter(Boolean))].sort() as string[];
@@ -212,6 +226,25 @@ const AdminDashboard = () => {
           contacted={contacted}
           enrolled={enrolled}
         />
+
+        {/* Bucket tabs — IGS vs Umum. Super-admin sees an extra "Semua" tab. */}
+        {!loading && leads.length > 0 && (
+          <Tabs value={bucket} onValueChange={(v) => setBucket(v as 'all' | 'igs' | 'umum')}>
+            <TabsList>
+              <TabsTrigger value="igs">
+                IGS <span className="ml-1.5 text-xs opacity-60">({igsCount})</span>
+              </TabsTrigger>
+              <TabsTrigger value="umum">
+                Umum <span className="ml-1.5 text-xs opacity-60">({umumCount})</span>
+              </TabsTrigger>
+              {isSuperAdmin && (
+                <TabsTrigger value="all">
+                  Semua <span className="ml-1.5 text-xs opacity-60">({leads.length})</span>
+                </TabsTrigger>
+              )}
+            </TabsList>
+          </Tabs>
+        )}
 
         {/* Filter Bar */}
         {!loading && leads.length > 0 && (

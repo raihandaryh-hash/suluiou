@@ -6,6 +6,7 @@ export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export function useAuth() {
           }, 0);
         } else {
           setIsAdmin(false);
+          setIsSuperAdmin(false);
           setLoading(false);
         }
       }
@@ -49,26 +51,26 @@ export function useAuth() {
         .eq('role', 'admin')
         .maybeSingle();
 
-      if (roleData) {
-        setIsAdmin(true);
-        return;
-      }
-
-      // 2. Cek admin_users by email (admin baru)
+      // 2. Cek admin_users by email (admin baru) — also reads is_super_admin.
       const { data: userData } = await supabase.auth.getUser();
       const email = userData.user?.email?.toLowerCase();
+      let emailAdmin: { is_super_admin: boolean | null } | null = null;
       if (email) {
-        const { data: emailAdmin } = await supabase
+        const { data } = await supabase
           .from('admin_users')
-          .select('email')
+          .select('is_super_admin')
           .ilike('email', email)
           .maybeSingle();
-        setIsAdmin(!!emailAdmin);
-      } else {
-        setIsAdmin(false);
+        emailAdmin = (data as { is_super_admin: boolean | null } | null) ?? null;
       }
+
+      const admin = !!roleData || !!emailAdmin;
+      const superAdmin = !!emailAdmin?.is_super_admin;
+      setIsAdmin(admin);
+      setIsSuperAdmin(superAdmin);
     } catch {
       setIsAdmin(false);
+      setIsSuperAdmin(false);
     } finally {
       setLoading(false);
     }
@@ -97,7 +99,8 @@ export function useAuth() {
     setUser(null);
     setSession(null);
     setIsAdmin(false);
+    setIsSuperAdmin(false);
   };
 
-  return { user, session, isAdmin, loading, signIn, signUp, signOut };
+  return { user, session, isAdmin, isSuperAdmin, loading, signIn, signUp, signOut };
 }

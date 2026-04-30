@@ -17,7 +17,9 @@ import {
   type StudentSession,
 } from '@/lib/classSession';
 import { getPendingClassCode } from '@/lib/pendingClassCode';
+import { applyClaim, clearPendingClaim, getPendingClaim } from '@/lib/claimGuestResult';
 import { routeAfterAuth } from '@/lib/authRouter';
+import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 
 const guestSchema = z.object({
@@ -41,6 +43,7 @@ const guestSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const [tab, setTab] = useState<'google' | 'guest'>('google');
   const [error, setError] = useState('');
@@ -60,16 +63,59 @@ const Login = () => {
     let active = true;
     (async () => {
       try {
-        // 1) Guest session in storage
+        // 0) Pending claim from guest "Save to Google" — must run BEFORE we read
+        //    any local guest session, because the OAuth roundtrip should not
+        //    re-resurrect the guest session.
+        const claim = getPendingClaim();
+
+        // 1) Google user via Supabase first if we have a pending claim or no
+        //    local guest session.
+        const { data: authData } = await supabase.auth.getUser();
+        const u = authData.user;
+
+        if (claim && u) {
+          // Apply claim: rewrite guest_identifier rows to user_id.
+          try {
+            await applyClaim(claim, u.id);
+            toast({
+              title: 'Hasil tersimpan ke Google',
+              description: 'Sekarang kamu bisa lihat hasilmu dari device manapun.',
+            });
+          } catch (e) {
+            console.warn('[claim] failed', e);
+          } finally {
+            clearPendingClaim();
+            // Drop the old guest session — we're now Google-authenticated.
+            clearStudentSession();
+          }
+
+          const session: StudentSession = {
+            kind: 'google',
+            userId: u.id,
+            email: u.email ?? '',
+            displayName:
+              (u.user_metadata?.full_name as string | undefined) ??
+              (u.user_metadata?.name as string | undefined) ??
+              null,
+            classId: claim.classId,
+            className: claim.className,
+          };
+          setStudentSession(session);
+          if (active) {
+            navigate('/results', { replace: true });
+          }
+          return;
+        }
+
+        // 2) Otherwise: a stored local guest session takes priority.
         const cur = getStudentSession();
         if (cur) {
           if (active) setExisting(cur);
           return;
         }
-        // 2) Google user via Supabase
-        const { data } = await supabase.auth.getUser();
+
+        // 3) Plain Google login (no claim, no guest) — set session, route normally.
         if (!active) return;
-        const u = data.user;
         if (u) {
           const session: StudentSession = {
             kind: 'google',
@@ -92,6 +138,7 @@ const Login = () => {
     return () => {
       active = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleContinue = async () => {
