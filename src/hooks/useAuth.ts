@@ -21,6 +21,7 @@ export function useAuth() {
           }, 0);
         } else {
           setIsAdmin(false);
+          setIsSuperAdmin(false);
           setLoading(false);
         }
       }
