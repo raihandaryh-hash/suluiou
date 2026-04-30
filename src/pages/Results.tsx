@@ -394,7 +394,7 @@ const Results = () => {
             </motion.div>
           </div>
 
-          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} />
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={savedRowId} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
