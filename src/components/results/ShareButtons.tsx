@@ -8,9 +8,11 @@ import type { DimensionScores, TopSelection } from '@/lib/scoring';
 interface ShareButtonsProps {
   scores: DimensionScores;
   topSelection: TopSelection;
+  /** When provided, share text/links will point to the public result URL instead of the homepage. */
+  resultId?: string | null;
 }
 
-export function ShareButtons({ scores, topSelection }: ShareButtonsProps) {
+export function ShareButtons({ scores, topSelection, resultId }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -18,7 +20,13 @@ export function ShareButtons({ scores, topSelection }: ShareButtonsProps) {
     ? `program ${topSelection.pathwayName} di IOU`
     : 'program-program di IOU Indonesia';
 
-  const shareText = `🔥 Aku baru selesai tes minat karier di Sulu by IOU Indonesia!\n\nAku jadi tertarik untuk eksplorasi ${programLabel}.\n\nCoba juga yuk 👉 ${window.location.origin}`;
+  const shareUrl = resultId
+    ? `${window.location.origin}/hasil/${resultId}`
+    : window.location.origin;
+
+  const shareText = resultId
+    ? `🔥 Aku baru selesai tes minat karier di Sulu by IOU Indonesia!\n\nAku jadi tertarik untuk eksplorasi ${programLabel}.\n\nLihat hasilku 👉 ${shareUrl}\n\nCoba juga yuk 👉 ${window.location.origin}`
+    : `🔥 Aku baru selesai tes minat karier di Sulu by IOU Indonesia!\n\nAku jadi tertarik untuk eksplorasi ${programLabel}.\n\nCoba juga yuk 👉 ${window.location.origin}`;
 
   const shareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');

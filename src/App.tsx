@@ -11,6 +11,7 @@ import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
 import Results from "./pages/Results";
+import PublicResult from "./pages/PublicResult";
 import Suar from "./pages/Suar";
 import Insight from "./pages/Insight";
 import AdminLogin from "./pages/AdminLogin";
@@ -49,6 +50,7 @@ const App = () => {
             <Route path="/consent" element={<Consent />} />
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/hasil/:resultId" element={<PublicResult />} />
             <Route path="/suar" element={<Suar />} />
             <Route path="/insight" element={<Insight />} />
             <Route path="/admin/login" element={<AdminLogin />} />

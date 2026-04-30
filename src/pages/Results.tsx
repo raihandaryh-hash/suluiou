@@ -394,7 +394,7 @@ const Results = () => {
             </motion.div>
           </div>
 
-          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} />
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={savedRowId} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
@@ -552,7 +552,7 @@ const Results = () => {
           <ParentConsentSection resultId={savedRowId} />
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.95 }} className="mb-12">
-            <ShareButtons scores={scores} topSelection={topSelection} />
+            <ShareButtons scores={scores} topSelection={topSelection} resultId={savedRowId} />
           </motion.div>
 
           <motion.div

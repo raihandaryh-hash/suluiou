@@ -8,9 +8,11 @@ interface CaptureShareButtonProps {
   /** id of the DOM element to capture */
   targetId: string;
   fileSlug?: string;
+  /** When provided, the WA share link will point to the public result URL. */
+  resultId?: string | null;
 }
 
-export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil' }: CaptureShareButtonProps) {
+export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil', resultId }: CaptureShareButtonProps) {
   const [busy, setBusy] = useState<null | 'download' | 'wa'>(null);
   const { toast } = useToast();
 
@@ -41,7 +43,8 @@ export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil' }: Captur
   };
 
   const handleWhatsApp = () => {
-    const text = `Lihat hasil asesmen minat dan kepribadianku di Sulu — ${window.location.href}`;
+    const url = resultId ? `${window.location.origin}/hasil/${resultId}` : window.location.href;
+    const text = `Lihat hasil asesmen minat dan kepribadianku di Sulu — ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
