@@ -32,7 +32,6 @@ import {
   buildWaUrl,
 } from '@/lib/constants';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
-import { clearProgressBackup } from '@/lib/progress';
 
 const Results = () => {
   const {
