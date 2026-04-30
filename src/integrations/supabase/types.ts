@@ -18,14 +18,17 @@ export type Database = {
         Row: {
           created_at: string
           email: string
+          is_super_admin: boolean
         }
         Insert: {
           created_at?: string
           email: string
+          is_super_admin?: boolean
         }
         Update: {
           created_at?: string
           email?: string
+          is_super_admin?: boolean
         }
         Relationships: []
       }
@@ -375,6 +378,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_public_result: {
+        Args: { result_id: string }
+        Returns: {
+          all_matches: Json
+          id: string
+          layer1_text: string
+          match_percentage: number
+          scores: Json
+          selected_pathways: Json
+          student_name: string
+          submitted_at: string
+          top_pathway_id: string
+          top_pathway_name: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
