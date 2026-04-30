@@ -31,6 +31,7 @@ const Consent = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-background flex flex-col">
       <header className="bg-card border-b border-border shadow-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -135,7 +136,7 @@ const Consent = () => {
       </div>
     </div>
       <SwitchAccountChip />
-    </div>
+    </>
   );
 };
 
