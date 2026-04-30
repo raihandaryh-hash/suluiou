@@ -51,26 +51,26 @@ export function useAuth() {
         .eq('role', 'admin')
         .maybeSingle();
 
-      if (roleData) {
-        setIsAdmin(true);
-        return;
-      }
-
-      // 2. Cek admin_users by email (admin baru)
+      // 2. Cek admin_users by email (admin baru) — also reads is_super_admin.
       const { data: userData } = await supabase.auth.getUser();
       const email = userData.user?.email?.toLowerCase();
+      let emailAdmin: { is_super_admin: boolean | null } | null = null;
       if (email) {
-        const { data: emailAdmin } = await supabase
+        const { data } = await supabase
           .from('admin_users')
-          .select('email')
+          .select('is_super_admin')
           .ilike('email', email)
           .maybeSingle();
-        setIsAdmin(!!emailAdmin);
-      } else {
-        setIsAdmin(false);
+        emailAdmin = (data as { is_super_admin: boolean | null } | null) ?? null;
       }
+
+      const admin = !!roleData || !!emailAdmin;
+      const superAdmin = !!emailAdmin?.is_super_admin;
+      setIsAdmin(admin);
+      setIsSuperAdmin(superAdmin);
     } catch {
       setIsAdmin(false);
+      setIsSuperAdmin(false);
     } finally {
       setLoading(false);
     }
