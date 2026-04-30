@@ -49,13 +49,15 @@ interface LeadResult {
 }
 
 const AdminDashboard = () => {
-  const { signOut } = useAuth();
+  const { signOut, isSuperAdmin } = useAuth();
   const { toast } = useToast();
   const [leads, setLeads] = useState<LeadResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterProvince, setFilterProvince] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
   const [filterLm, setFilterLm] = useState('');
+  // Bucket: 'all' (super-admin only sees this), 'igs' (any IGS school), 'umum' (no school / "Umum")
+  const [bucket, setBucket] = useState<'all' | 'igs' | 'umum'>('igs');
 
   const fetchLeads = useCallback(async () => {
     setLoading(true);
