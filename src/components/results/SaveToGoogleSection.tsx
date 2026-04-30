@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { LogIn, Loader2, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { lovable } from '@/integrations/lovable';
+import { lovable } from '@/integrations/lovable/index';
 import { getStudentSession } from '@/lib/classSession';
 import { setPendingClaim } from '@/lib/claimGuestResult';
 
