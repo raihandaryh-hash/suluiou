@@ -140,13 +140,24 @@ const AdminDashboard = () => {
   ).length;
   const enrolled = leads.filter((l) => l.follow_up_status === 'enrolled').length;
 
+  // Bucket helper: a lead is "umum" if school_name is empty/null or literally "Umum"
+  const isUmumLead = (l: LeadResult) => {
+    const s = (l.school_name ?? '').trim().toLowerCase();
+    return s === '' || s === 'umum';
+  };
+
   // Filtering
   const filteredLeads = leads.filter((l) => {
+    if (bucket === 'igs' && isUmumLead(l)) return false;
+    if (bucket === 'umum' && !isUmumLead(l)) return false;
     if (filterProvince && (l.student_province || l.province) !== filterProvince) return false;
     if (filterStatus && l.follow_up_status !== filterStatus) return false;
     if (filterLm && l.lm_name !== filterLm) return false;
     return true;
   });
+
+  const igsCount = leads.filter((l) => !isUmumLead(l)).length;
+  const umumCount = leads.filter((l) => isUmumLead(l)).length;
 
   const provinceOptions = [...new Set(leads.map((l) => l.student_province || l.province).filter(Boolean))].sort() as string[];
   const lmOptions = [...new Set(leads.map((l) => l.lm_name).filter(Boolean))].sort() as string[];
