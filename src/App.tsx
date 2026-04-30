@@ -11,6 +11,7 @@ import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
 import Results from "./pages/Results";
+import PublicResult from "./pages/PublicResult";
 import Suar from "./pages/Suar";
 import Insight from "./pages/Insight";
 import AdminLogin from "./pages/AdminLogin";
