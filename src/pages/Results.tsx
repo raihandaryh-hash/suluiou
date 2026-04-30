@@ -629,6 +629,26 @@ const Results = () => {
                 })()}
               </div>
             </div>
+
+            <div className="mt-10 pt-8 border-t border-border/40">
+              <p className="text-xs text-muted-foreground mb-3">
+                Device ini akan dipakai siswa lain?
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => {
+                  if (!confirm('Mulai asesmen baru? Sesi saat ini akan diakhiri di device ini. Hasilmu tetap tersimpan dan bisa kamu akses lagi via login.')) return;
+                  resetAssessment();
+                  clearStudentSession();
+                  navigate('/login', { replace: true });
+                }}
+              >
+                <RotateCcw className="w-4 h-4" />
+                Mulai asesmen baru (siswa lain)
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
