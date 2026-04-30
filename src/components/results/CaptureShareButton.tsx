@@ -43,7 +43,8 @@ export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil', resultId
   };
 
   const handleWhatsApp = () => {
-    const text = `Lihat hasil asesmen minat dan kepribadianku di Sulu — ${window.location.href}`;
+    const url = resultId ? `${window.location.origin}/hasil/${resultId}` : window.location.href;
+    const text = `Lihat hasil asesmen minat dan kepribadianku di Sulu — ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
