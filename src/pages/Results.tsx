@@ -31,7 +31,8 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
-import { getStudentSession, markAssessmentComplete } from '@/lib/classSession';
+import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
+import { clearProgressBackup } from '@/lib/progress';
 
 const Results = () => {
   const {
