@@ -227,6 +227,25 @@ const AdminDashboard = () => {
           enrolled={enrolled}
         />
 
+        {/* Bucket tabs — IGS vs Umum. Super-admin sees an extra "Semua" tab. */}
+        {!loading && leads.length > 0 && (
+          <Tabs value={bucket} onValueChange={(v) => setBucket(v as 'all' | 'igs' | 'umum')}>
+            <TabsList>
+              <TabsTrigger value="igs">
+                IGS <span className="ml-1.5 text-xs opacity-60">({igsCount})</span>
+              </TabsTrigger>
+              <TabsTrigger value="umum">
+                Umum <span className="ml-1.5 text-xs opacity-60">({umumCount})</span>
+              </TabsTrigger>
+              {isSuperAdmin && (
+                <TabsTrigger value="all">
+                  Semua <span className="ml-1.5 text-xs opacity-60">({leads.length})</span>
+                </TabsTrigger>
+              )}
+            </TabsList>
+          </Tabs>
+        )}
+
         {/* Filter Bar */}
         {!loading && leads.length > 0 && (
           <div className="glass rounded-xl p-4 flex flex-wrap items-center gap-3">
