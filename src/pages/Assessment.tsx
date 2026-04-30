@@ -6,6 +6,7 @@ import HexacoDoneStep from '@/components/assessment/HexacoDoneStep';
 import SdsStep from '@/components/assessment/SdsStep';
 import Logo from '@/components/Logo';
 import LogoutButton from '@/components/LogoutButton';
+import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { Loader2 } from 'lucide-react';
 import { getStudentSession } from '@/lib/classSession';
 
@@ -53,6 +54,7 @@ const Assessment = () => {
       <div className="relative">
         {Header}
         <HexacoDoneStep />
+        <SwitchAccountChip />
       </div>
     );
   }
@@ -62,6 +64,7 @@ const Assessment = () => {
       <div className="relative">
         {Header}
         <SdsStep />
+        <SwitchAccountChip />
       </div>
     );
   }
@@ -81,6 +84,7 @@ const Assessment = () => {
     <div className="relative">
       {Header}
       <HexacoStep />
+      <SwitchAccountChip />
     </div>
   );
 };

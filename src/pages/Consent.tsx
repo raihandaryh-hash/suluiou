@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
 import LogoutButton from '@/components/LogoutButton';
+import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import { useEffect } from 'react';
 
@@ -132,6 +133,8 @@ const Consent = () => {
           </article>
         </motion.div>
       </div>
+    </div>
+      <SwitchAccountChip />
     </div>
   );
 };
