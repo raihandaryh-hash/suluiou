@@ -13,7 +13,10 @@
 
 const KEY = 'sulu.studentSession.v1';
 const COMPLETE_KEY = 'sulu.assessmentComplete.v1';
-const COMPLETE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+// Auto-clear the saved student session 1 hour after completion so a shared
+// device (e.g. classroom laptop) is ready for the next student quickly,
+// while still letting the same student briefly revisit /results.
+const COMPLETE_TTL_MS = 60 * 60 * 1000; // 1 hour
 
 export type StudentSession =
   | {

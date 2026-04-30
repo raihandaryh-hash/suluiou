@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ProfileStep from '@/components/assessment/ProfileStep';
 import LogoutButton from '@/components/LogoutButton';
+import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { useAssessment, type StudentProfile } from '@/context/AssessmentContext';
 import { Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -113,6 +114,7 @@ const ProfilePage = () => {
         <LogoutButton />
       </header>
       <ProfileStep onComplete={handleComplete} />
+      <SwitchAccountChip />
     </div>
   );
 };

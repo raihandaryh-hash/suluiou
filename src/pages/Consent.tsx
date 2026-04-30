@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
 import LogoutButton from '@/components/LogoutButton';
+import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import { useEffect } from 'react';
 
@@ -30,6 +31,7 @@ const Consent = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-background flex flex-col">
       <header className="bg-card border-b border-border shadow-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -133,6 +135,8 @@ const Consent = () => {
         </motion.div>
       </div>
     </div>
+      <SwitchAccountChip />
+    </>
   );
 };
 
