@@ -43,6 +43,7 @@ const guestSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const [tab, setTab] = useState<'google' | 'guest'>('google');
   const [error, setError] = useState('');
