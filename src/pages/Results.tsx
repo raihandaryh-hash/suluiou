@@ -23,6 +23,7 @@ import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
 import { ParentConsentSection } from '@/components/results/ParentConsentSection';
+import { SaveToGoogleSection } from '@/components/results/SaveToGoogleSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
   IOU_WA_NUMBER_AKHWAT,
