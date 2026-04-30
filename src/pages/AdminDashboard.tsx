@@ -20,6 +20,7 @@ import {
   type FollowUpStatus,
 } from '@/lib/leadScoring';
 import { Flame, LogOut, RefreshCw, X, Users, Presentation } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 
 interface LeadResult {
