@@ -17,7 +17,9 @@ import {
   type StudentSession,
 } from '@/lib/classSession';
 import { getPendingClassCode } from '@/lib/pendingClassCode';
+import { applyClaim, clearPendingClaim, getPendingClaim } from '@/lib/claimGuestResult';
 import { routeAfterAuth } from '@/lib/authRouter';
+import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 
 const guestSchema = z.object({
