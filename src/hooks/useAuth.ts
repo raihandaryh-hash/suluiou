@@ -99,7 +99,8 @@ export function useAuth() {
     setUser(null);
     setSession(null);
     setIsAdmin(false);
+    setIsSuperAdmin(false);
   };
 
-  return { user, session, isAdmin, loading, signIn, signUp, signOut };
+  return { user, session, isAdmin, isSuperAdmin, loading, signIn, signUp, signOut };
 }
