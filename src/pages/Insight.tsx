@@ -5,18 +5,8 @@ import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
-import {
-  type StatCardContent,
-  insightMeta,
-  insightNav,
-  insightHero,
-  insightIndonesiaSection,
-  insightNeetSection,
-  insightWorldSection,
-  insightOpportunitiesSection,
-  insightCtaSection,
-  insightLabels,
-} from '@/data/insightContent';
+import { type StatCardContent } from '@/data/insightContent';
+import { useInsightContent } from '@/lib/insightContentStore';
 
 // ---------- Helpers ----------
 function useCountdownTo(targetIso: string) {
@@ -27,8 +17,6 @@ function useCountdownTo(targetIso: string) {
   }, []);
   return useMemo(() => {
     const target = new Date(targetIso);
-    const diffMs = target.getTime() - now.getTime();
-    const totalDays = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
     const years = Math.max(0, target.getFullYear() - now.getFullYear() - (
       (now.getMonth() > target.getMonth() ||
         (now.getMonth() === target.getMonth() && now.getDate() > target.getDate())) ? 1 : 0
@@ -37,12 +25,19 @@ function useCountdownTo(targetIso: string) {
       0,
       (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth())
     );
-    return { years, months: totalMonths, days: totalDays };
+    return { years, months: totalMonths };
   }, [now, targetIso]);
 }
 
 // ---------- Stat Card (collapsible) ----------
-function StatCard({ value, label, detail, source, tone = 'neutral' }: StatCardContent) {
+function StatCard({
+  card,
+  sourcePrefix,
+}: {
+  card: StatCardContent;
+  sourcePrefix: string;
+}) {
+  const { value, label, detail, source, tone = 'neutral' } = card;
   const [open, setOpen] = useState(false);
   const valueColor =
     tone === 'negative' ? 'text-destructive' :
@@ -83,7 +78,7 @@ function StatCard({ value, label, detail, source, tone = 'neutral' }: StatCardCo
         <div className="overflow-hidden">
           <p className="text-sm text-foreground/80 leading-relaxed">{detail}</p>
           <p className="text-xs text-muted-foreground mt-3 italic">
-            {insightLabels.sourcePrefix} {source}
+            {sourcePrefix} {source}
           </p>
         </div>
       </div>
@@ -93,7 +88,8 @@ function StatCard({ value, label, detail, source, tone = 'neutral' }: StatCardCo
 
 // ---------- Page ----------
 const Insight = () => {
-  const { years, months } = useCountdownTo(insightMeta.countdownTargetIso);
+  const { content } = useInsightContent();
+  const { years, months } = useCountdownTo(content.meta.countdownTargetIso);
 
   return (
     <main className="min-h-screen bg-background">
@@ -102,8 +98,8 @@ const Insight = () => {
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <Logo size="sm" linkTo="/" />
           <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link to={insightNav.backHref}>
-              <ArrowLeft className="w-4 h-4" /> {insightNav.backLabel}
+            <Link to={content.nav.backHref}>
+              <ArrowLeft className="w-4 h-4" /> {content.nav.backLabel}
             </Link>
           </Button>
         </div>
@@ -117,9 +113,9 @@ const Insight = () => {
           transition={{ duration: 0.7 }}
           className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.1] text-foreground"
         >
-          {insightHero.titleLine1}
+          {content.hero.titleLine1}
           <br />
-          <span className="text-muted-foreground">{insightHero.titleLine2}</span>
+          <span className="text-muted-foreground">{content.hero.titleLine2}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -127,7 +123,7 @@ const Insight = () => {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
         >
-          {insightHero.subtitle}
+          {content.hero.subtitle}
         </motion.p>
 
         {/* Countdown */}
@@ -139,26 +135,26 @@ const Insight = () => {
         >
           <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
             <span className="font-semibold text-foreground">{years}</span>{' '}
-            <span className="text-muted-foreground">{insightHero.countdown.yearsSuffix}</span>
+            <span className="text-muted-foreground">{content.hero.countdown.yearsSuffix}</span>
           </div>
           <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
             <span className="font-semibold text-foreground">{months}</span>{' '}
-            <span className="text-muted-foreground">{insightHero.countdown.monthsSuffix}</span>
+            <span className="text-muted-foreground">{content.hero.countdown.monthsSuffix}</span>
           </div>
           <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
             <span className="font-semibold text-foreground">
-              {insightHero.countdown.demographic.value}
+              {content.hero.countdown.demographic.value}
             </span>{' '}
             <span className="text-muted-foreground">
-              {insightHero.countdown.demographic.label}
+              {content.hero.countdown.demographic.label}
             </span>
           </div>
         </motion.div>
 
         <div className="mt-10">
           <Button asChild size="lg" className="gap-2">
-            <Link to={insightHero.cta.href}>
-              {insightHero.cta.label}
+            <Link to={content.hero.cta.href}>
+              {content.hero.cta.label}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
@@ -168,11 +164,11 @@ const Insight = () => {
       {/* SECTION 2 — Indonesia hari ini */}
       <section className="container mx-auto px-6 py-16 max-w-6xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {insightIndonesiaSection.eyebrow}
+          {content.indonesiaSection.eyebrow}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {insightIndonesiaSection.cards.map((c) => (
-            <StatCard key={c.label} {...c} />
+          {content.indonesiaSection.cards.map((c, i) => (
+            <StatCard key={`${c.label}-${i}`} card={c} sourcePrefix={content.labels.sourcePrefix} />
           ))}
         </div>
       </section>
@@ -180,11 +176,11 @@ const Insight = () => {
       {/* SECTION 3 — NEET ASEAN bar chart */}
       <section className="container mx-auto px-6 py-16 max-w-4xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {insightNeetSection.eyebrow}
+          {content.neetSection.eyebrow}
         </p>
         <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
-          {insightNeetSection.rows.map((row) => (
-            <div key={row.country}>
+          {content.neetSection.rows.map((row, i) => (
+            <div key={`${row.country}-${i}`}>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-foreground">{row.country}</span>
                 <span className="text-sm tabular-nums text-muted-foreground">
@@ -195,7 +191,7 @@ const Insight = () => {
                 <motion.div
                   className={cn('h-full rounded-full', row.color)}
                   initial={{ width: 0 }}
-                  whileInView={{ width: `${(row.value / insightMeta.neetChartMaxPercent) * 100}%` }}
+                  whileInView={{ width: `${(row.value / content.meta.neetChartMaxPercent) * 100}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: 'easeOut' }}
                 />
@@ -203,7 +199,7 @@ const Insight = () => {
             </div>
           ))}
           <p className="text-xs text-muted-foreground italic pt-2">
-            {insightNeetSection.source}
+            {content.neetSection.source}
           </p>
         </div>
       </section>
@@ -211,11 +207,11 @@ const Insight = () => {
       {/* SECTION 4 — Dunia yang sedang berubah */}
       <section className="container mx-auto px-6 py-16 max-w-6xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {insightWorldSection.eyebrow}
+          {content.worldSection.eyebrow}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {insightWorldSection.cards.map((c) => (
-            <StatCard key={c.label} {...c} />
+          {content.worldSection.cards.map((c, i) => (
+            <StatCard key={`${c.label}-${i}`} card={c} sourcePrefix={content.labels.sourcePrefix} />
           ))}
         </div>
       </section>
@@ -223,16 +219,16 @@ const Insight = () => {
       {/* SECTION 5 — Peluang yang belum diisi */}
       <section className="container mx-auto px-6 py-16 max-w-6xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {insightOpportunitiesSection.eyebrow}
+          {content.opportunitiesSection.eyebrow}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {insightOpportunitiesSection.items.map((o, i) => (
+          {content.opportunitiesSection.items.map((o, i) => (
             <div
-              key={o.title}
+              key={`${o.title}-${i}`}
               className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors"
             >
               <div className="text-xs font-semibold text-primary tabular-nums mb-3">
-                0{i + 1}
+                {String(i + 1).padStart(2, '0')}
               </div>
               <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">
                 {o.title}
@@ -252,14 +248,14 @@ const Insight = () => {
           transition={{ duration: 0.6 }}
           className="font-heading font-semibold text-3xl md:text-4xl tracking-tight leading-[1.15]"
         >
-          {insightCtaSection.titleLine1}
+          {content.ctaSection.titleLine1}
           <br />
-          <span className="text-primary">{insightCtaSection.titleLine2}</span>
+          <span className="text-primary">{content.ctaSection.titleLine2}</span>
         </motion.h2>
         <div className="mt-8">
           <Button asChild size="lg" className="gap-2 text-base">
-            <Link to={insightCtaSection.primaryCta.href}>
-              {insightCtaSection.primaryCta.label}
+            <Link to={content.ctaSection.primaryCta.href}>
+              {content.ctaSection.primaryCta.label}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
@@ -267,11 +263,11 @@ const Insight = () => {
 
         <div className="mt-16 pt-10 border-t border-border max-w-xl mx-auto">
           <p className="text-sm text-muted-foreground mb-4 leading-relaxed whitespace-pre-line">
-            {insightCtaSection.footer.body}
+            {content.ctaSection.footer.body}
           </p>
           <Button asChild variant="outline" size="sm">
-            <Link to={insightCtaSection.footer.cta.href}>
-              {insightCtaSection.footer.cta.label}
+            <Link to={content.ctaSection.footer.cta.href}>
+              {content.ctaSection.footer.cta.label}
             </Link>
           </Button>
         </div>

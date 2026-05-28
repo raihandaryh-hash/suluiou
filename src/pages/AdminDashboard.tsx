@@ -19,7 +19,7 @@ import {
   statusConfig,
   type FollowUpStatus,
 } from '@/lib/leadScoring';
-import { Flame, LogOut, RefreshCw, X, Users, Presentation } from 'lucide-react';
+import { Flame, LogOut, RefreshCw, X, Users, Presentation, FileText } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 
@@ -185,6 +185,12 @@ const AdminDashboard = () => {
               <Button variant="outline" size="sm" className="gap-2">
                 <Presentation className="w-4 h-4" />
                 Kelola Suar
+              </Button>
+            </Link>
+            <Link to="/admin/insight">
+              <Button variant="outline" size="sm" className="gap-2">
+                <FileText className="w-4 h-4" />
+                Edit Insight
               </Button>
             </Link>
             <Button
