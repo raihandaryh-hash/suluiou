@@ -45,19 +45,19 @@ export async function saveInsightContent(
 ): Promise<{ error: string | null }> {
   const { error } = await supabase
     .from('site_content')
-  const { error } = await supabase
-    .from('site_content')
     .upsert(
       [
         {
           slug: SLUG,
-          content: content as unknown as Record<string, unknown>,
+          // The DB column is jsonb; cast through unknown to satisfy generated Json type.
+          content: content as unknown as never,
           updated_by: updatedBy ?? undefined,
         },
       ],
       { onConflict: 'slug' }
     );
   return { error: error?.message ?? null };
+}
 }
 
 export function useInsightContent() {
