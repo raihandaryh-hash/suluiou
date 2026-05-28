@@ -187,6 +187,12 @@ const AdminDashboard = () => {
                 Kelola Suar
               </Button>
             </Link>
+            <Link to="/admin/insight">
+              <Button variant="outline" size="sm" className="gap-2">
+                <FileText className="w-4 h-4" />
+                Edit Insight
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
