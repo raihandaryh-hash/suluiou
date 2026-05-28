@@ -95,6 +95,15 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/admin/insight"
+              element={
+                <ProtectedRoute>
+                  <AdminInsight />
+                </ProtectedRoute>
+              }
+            />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
