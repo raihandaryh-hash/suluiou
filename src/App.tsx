@@ -20,6 +20,7 @@ import AdminResultView from "./pages/AdminResultView";
 import AdminClasses from "./pages/AdminClasses";
 import AdminClassSession from "./pages/AdminClassSession";
 import AdminSuar from "./pages/AdminSuar";
+import AdminInsight from "./pages/AdminInsight";
 import Login from "./pages/Login";
 // /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
