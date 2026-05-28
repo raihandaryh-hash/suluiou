@@ -58,7 +58,6 @@ export async function saveInsightContent(
     );
   return { error: error?.message ?? null };
 }
-}
 
 export function useInsightContent() {
   const [content, setContent] = useState<InsightContent>(defaultInsightContent);
