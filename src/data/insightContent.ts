@@ -51,45 +51,68 @@ export const indonesiaSection = {
   cards: [
     {
       value: '19,44%', label: 'pemuda Indonesia berstatus NEET',
-      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangannya tajam: perempuan 35,77%, laki-laki 16,38%.',
+      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangan gender tajam: perempuan 35,77%, laki-laki 16,38%.',
       source: 'BPS Sakernas 2025, data 38 provinsi', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
-        gurubk: 'Sebagian dari angka ini adalah siswa yang meninggalkan sekolah tanpa program pengganti.',
+        gurubk: 'Titik awal percakapan karier yang lebih jujur dengan siswa.',
       } as Record<Persona, string>,
     },
     {
-      value: '87%', label: 'mahasiswa Indonesia mengaku salah jurusan',
-      detail: 'Bukan malas atau tidak pintar. Mereka tidak punya cukup informasi tentang diri sendiri saat memilih. 43% mengalami gangguan kesehatan mental akibatnya. 26% nilai akademik turun signifikan.',
-      source: 'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network', tone: 'negative' as Tone,
-      artinya: {
-        siswa: 'Mayoritas yang sudah masuk kuliah menyesal. Kamu masih punya waktu untuk mengenal diri sebelum memilih.',
-        orangtua: 'Pilihan yang terburu-buru lebih mahal daripada waktu yang diambil untuk mengenal anak lebih dalam.',
-        gurubk: 'Ini bukan masalah motivasi. Ini masalah minimnya data diri yang valid saat keputusan diambil di kelas 12.',
-      } as Record<Persona, string>,
-    },
-    {
-      value: '17,32%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
-      detail: 'Tiga kali lipat rata-rata nasional (4,76%). Lulusan SMK yang dirancang siap kerja justru punya angka tertinggi: 9,01%. Hanya 35,4% bekerja sesuai keahliannya.',
+      value: '17,54%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
+      detail: 'Tiga kali lipat rata-rata nasional (4,91%). Lulusan SMK yang dirancang siap kerja justru punya angka tertinggi antar jenjang: 8,63%. Hanya 35% bekerja sesuai keahliannya.',
       source: 'BPS Sakernas Agustus 2024', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Ijazah tanpa kecocokan arah tidak melindungi dari pengangguran.',
         orangtua: 'Nama kampus lebih sedikit pengaruhnya dari kecocokan antara jurusan dan kemampuan nyata anak.',
-        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus. Dimulai dari pilihan di kelas 12.',
+        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus — dimulai dari pilihan di kelas 12.',
       } as Record<Persona, string>,
     },
     {
-      value: '20%', label: 'penurunan pekerjaan entry-level di sektor terpapar AI',
-      detail: 'Developer usia 22–25 tahun kehilangan 20% lapangan kerja sejak 2022. Bukan karena tidak cakap, tapi karena tugas-tugas junior kini dikerjakan AI. Pola yang sama mulai terlihat di customer service dan riset hukum.',
-      source: 'Stanford AI Index 2026', tone: 'negative' as Tone,
+      value: '35,36% & 70%', label: 'mismatch pendidikan dan pekerjaan',
+      detail: '35,36% pemuda mengalami vertical mismatch — bekerja di bawah kualifikasi pendidikan yang sudah ditempuh. Sementara itu, 70% lulusan perguruan tinggi bekerja di bidang yang berbeda dari jurusannya.',
+      source: 'BPS Sakernas 2025 (vertical mismatch); Mandiri Institute (mismatch jurusan, catatan: bukan survei nasional representatif)', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
+        orangtua: 'Pilihan yang terburu-buru jauh lebih mahal dari waktu yang diambil untuk mengenal anak.',
+        gurubk: 'Bukan masalah motivasi — masalah minimnya refleksi diri saat keputusan diambil.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '20%', label: 'penurunan pekerjaan entry-level di sektor digital dan tech',
+      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2022. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
+      source: 'Stanford AI Index 2026 (sektor tech/knowledge work)', tone: 'negative' as Tone,
       artinya: {
         siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
         orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
         gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
       } as Record<Persona, string>,
     },
+    {
+      value: '1,72 juta', label: 'kebutuhan tenaga kerja di sektor ekonomi hijau Indonesia hingga 2030',
+      detail: 'Indonesia membutuhkan 1,72 juta tenaga terampil di energi terbarukan. Target pelatihan pemerintah: 15.000 orang sampai 2029. Gap ini bukan hanya tantangan — ini peluang yang nyata dan terdokumentasi.',
+      source: 'IESR (Institute for Essential Services Reform) 2024; Kemnaker RTKN 2025-2029', tone: 'positive' as Tone,
+      artinya: {
+        siswa: 'Ada sektor besar yang tumbuh cepat dan belum ada cukup orang yang datang.',
+        orangtua: 'Jalur karier dengan prospek jangka panjang yang kuat dan shortage nyata.',
+        gurubk: 'Alternatif konkret bagi siswa yang menyukai sains, lingkungan, atau teknologi.',
+      } as Record<Persona, string>,
+    },
   ],
+};
+
+// ─── LINK AND MATCH ───────────────────────────────────────────────
+export const linkMatchSection = {
+  tag: 'LINK AND MATCH',
+  headline: 'Upaya Menjembatani Pendidikan dan Dunia Kerja',
+  body: 'Pemerintah Indonesia melalui program Link and Match 8+i mendorong kerjasama SMK dengan industri. Namun realisasinya menghadapi tantangan nyata: tingkat pengangguran lulusan SMK masih 8,63%, banyak kerjasama bersifat formalitas, dan kurikulum sulit mengikuti perubahan teknologi. Yang paling sering terabaikan: pemahaman diri siswa terhadap kekuatan dan minat mereka sendiri.',
+  source: 'BPS Sakernas 2024; Kemendikbudristek Evaluasi Program Link and Match 2023',
+  artinya: {
+    siswa: 'Link and Match akan lebih berhasil jika kamu memilih bidang yang sesuai dengan kekuatanmu, bukan hanya yang "sedang dibutuhkan industri" secara umum.',
+    orangtua: 'Kerjasama sekolah-industri penting, tapi pemahaman mendalam tentang anak lebih menentukan pilihan yang tepat.',
+    gurubk: 'Data pasar kerja terkini dapat memperkuat peran Anda membimbing siswa memilih kompetensi untuk industri masa depan.',
+  } as Record<Persona, string>,
 };
 
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
