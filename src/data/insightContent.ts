@@ -4,14 +4,18 @@
 export type Persona = 'siswa' | 'orangtua' | 'gurubk';
 export type Tone = 'negative' | 'positive' | 'neutral';
 
-// ─── PERSONA GATE ──────────────────────────────────────────────────
-export const personaGate = {
-  prompt: 'Siapa kamu?',
+// ─── PERSONA TEASER (soft, non-blocking) ──────────────────────────
+export const personaTeaserSection = {
+  headline: 'Pilih sudut pandangmu',
+  subtext: 'Konten yang sama, framing yang relevan untuk kamu.',
   options: [
-    { id: 'siswa' as Persona, label: 'Siswa atau gap year', description: 'Masih cari arah, bingung jurusan, atau baru gagal seleksi' },
-    { id: 'orangtua' as Persona, label: 'Orang tua', description: 'Mendampingi anak memilih jalur pendidikan dan karier' },
-    { id: 'gurubk' as Persona, label: 'Guru BK atau konselor', description: 'Mendampingi siswa setiap hari dengan data yang sering tidak cukup' },
+    { id: 'siswa' as Persona, label: 'Siswa atau gap year', description: 'Masih cari arah, bingung jurusan, atau baru gagal seleksi', icon: 'GraduationCap' },
+    { id: 'orangtua' as Persona, label: 'Orang tua', description: 'Mendampingi anak memilih jalur pendidikan dan karier', icon: 'Heart' },
+    { id: 'gurubk' as Persona, label: 'Guru BK atau konselor', description: 'Mendampingi siswa setiap hari dengan data yang sering tidak cukup', icon: 'BookOpen' },
   ],
+  defaultPersona: 'siswa' as Persona,
+  localStorageKey: 'sulu_insight_persona',
+  neutralOption: { id: 'neutral' as const, label: 'Lihat semua perspektif' },
 };
 
 export const personaShortLabel: Record<Persona, string> = {
