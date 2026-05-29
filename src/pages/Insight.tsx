@@ -358,11 +358,7 @@ const Insight = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <>
-        {(
-          <>
-          <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
-          <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
+      <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
 
           {/* Top nav */}
           <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
