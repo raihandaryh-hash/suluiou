@@ -1,14 +1,35 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
-import { type StatCardContent } from '@/data/insightContent';
-import { useInsightContent } from '@/lib/insightContentStore';
+import { supabase } from '@/integrations/supabase/client';
+import {
+  hero,
+  personaGate,
+  personaShortLabel,
+  indonesiaSection,
+  neetSection,
+  skillSection,
+  roiSection,
+  bkSection,
+  worldSection,
+  opportunitySection,
+  skillMapTeaser,
+  personaCallout,
+  ctaSection,
+  dataSources,
+  dataSourcesLabel,
+  sourcePrefix,
+  type Persona,
+  type Tone,
+} from '@/data/insightContent';
 
-// ---------- Helpers ----------
+// ───── Countdown hook ─────
 function useCountdownTo(targetIso: string) {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
@@ -21,257 +42,504 @@ function useCountdownTo(targetIso: string) {
       (now.getMonth() > target.getMonth() ||
         (now.getMonth() === target.getMonth() && now.getDate() > target.getDate())) ? 1 : 0
     ));
-    const totalMonths = Math.max(
-      0,
-      (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth())
-    );
-    return { years, months: totalMonths };
+    const months = Math.max(0, (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth()));
+    return { years, months };
   }, [now, targetIso]);
 }
 
-// ---------- Stat Card (collapsible) ----------
-function StatCard({
-  card,
-  sourcePrefix,
-}: {
-  card: StatCardContent;
-  sourcePrefix: string;
-}) {
-  const { value, label, detail, source, tone = 'neutral' } = card;
+// ───── Persona Gate ─────
+function PersonaGate({ onPick }: { onPick: (p: Persona) => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      className="fixed inset-0 z-50 bg-background flex items-center justify-center px-6"
+    >
+      <div className="w-full max-w-5xl">
+        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 text-center">
+          SEBELUM MULAI
+        </p>
+        <h1 className="font-heading font-semibold text-3xl md:text-5xl tracking-tight text-center mb-12">
+          {personaGate.prompt}
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {personaGate.options.map((opt) => (
+            <button
+              key={opt.id}
+              onClick={() => onPick(opt.id)}
+              className="text-left p-6 md:p-8 rounded-2xl border border-border bg-secondary/40 hover:bg-secondary hover:border-primary/40 transition-all group"
+            >
+              <div className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                {opt.label}
+              </div>
+              <div className="text-sm text-muted-foreground leading-relaxed">
+                {opt.description}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ───── Floating Persona Switch ─────
+function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwitch: (p: Persona) => void }) {
+  const [open, setOpen] = useState(false);
+  const others = personaGate.options.filter((o) => o.id !== persona);
+
+  return (
+    <div className="fixed bottom-5 right-5 z-40">
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            className="absolute bottom-full right-0 mb-2 bg-background border border-border rounded-xl shadow-lg p-1 min-w-[200px]"
+          >
+            {others.map((o) => (
+              <button
+                key={o.id}
+                onClick={() => { onSwitch(o.id); setOpen(false); }}
+                className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-secondary transition-colors"
+              >
+                {o.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2 bg-secondary border border-border rounded-full px-4 py-2 text-sm shadow-sm hover:bg-secondary/80 transition-colors"
+      >
+        <span className="w-2 h-2 rounded-full bg-primary" />
+        <span className="text-foreground">{personaShortLabel[persona]}</span>
+        <ChevronUp className={cn('w-3.5 h-3.5 text-muted-foreground transition-transform', open && 'rotate-180')} />
+      </button>
+    </div>
+  );
+}
+
+// ───── StatCard with always-visible "Artinya:" ─────
+type StatCardData = {
+  value: string;
+  label: string;
+  detail: string;
+  source: string;
+  tone: Tone;
+  artinya?: Record<Persona, string>;
+};
+
+function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
   const [open, setOpen] = useState(false);
   const valueColor =
-    tone === 'negative' ? 'text-destructive' :
-    tone === 'positive' ? 'text-primary' :
+    card.tone === 'negative' ? 'text-destructive' :
+    card.tone === 'positive' ? 'text-primary' :
     'text-foreground';
 
   return (
     <button
       type="button"
       onClick={() => setOpen((v) => !v)}
-      className={cn(
-        'group text-left w-full bg-secondary/60 hover:bg-secondary',
-        'border border-border rounded-2xl p-6 transition-all',
-        'focus:outline-none focus:ring-2 focus:ring-ring'
-      )}
+      className="group text-left w-full bg-secondary/60 hover:bg-secondary border border-border rounded-2xl p-6 transition-all focus:outline-none focus:ring-2 focus:ring-ring"
       aria-expanded={open}
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="space-y-2">
+        <div className="space-y-2 flex-1">
           <div className={cn('font-heading font-medium tracking-tight text-3xl md:text-4xl', valueColor)}>
-            {value}
+            {card.value}
           </div>
-          <div className="text-sm text-muted-foreground leading-snug">{label}</div>
-        </div>
-        <ChevronDown
-          className={cn(
-            'w-4 h-4 text-muted-foreground shrink-0 mt-1 transition-transform',
-            open && 'rotate-180'
+          <div className="text-sm text-muted-foreground leading-snug">{card.label}</div>
+          {card.artinya && (
+            <p className="text-xs text-muted-foreground italic leading-relaxed pt-2">
+              Artinya: {card.artinya[persona]}
+            </p>
           )}
-        />
+        </div>
+        <ChevronDown className={cn('w-4 h-4 text-muted-foreground shrink-0 mt-1 transition-transform', open && 'rotate-180')} />
       </div>
-      <div
-        className={cn(
-          'grid transition-all duration-300 ease-out',
-          open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
-        )}
-      >
+      <div className={cn('grid transition-all duration-300 ease-out', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
         <div className="overflow-hidden">
-          <p className="text-sm text-foreground/80 leading-relaxed">{detail}</p>
-          <p className="text-xs text-muted-foreground mt-3 italic">
-            {sourcePrefix} {source}
-          </p>
+          <p className="text-sm text-foreground/80 leading-relaxed">{card.detail}</p>
+          <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {card.source}</p>
         </div>
       </div>
     </button>
   );
 }
 
-// ---------- Page ----------
+// ───── Eyebrow + intro helper ─────
+function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
+  return (
+    <div className="mb-8">
+      <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3">{tag}</p>
+      {intro && <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">{intro}</p>}
+    </div>
+  );
+}
+
+// ───── Skill Landscape (siswa) ─────
+function SkillLandscape() {
+  const [tab, setTab] = useState<'growing' | 'declining'>('growing');
+  const data = tab === 'growing' ? skillSection.growing : skillSection.declining;
+  const accent = tab === 'growing' ? 'border-l-primary' : 'border-l-destructive';
+
+  return (
+    <section className="container mx-auto px-6 py-16 max-w-5xl">
+      <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
+      <div className="flex gap-2 mb-6">
+        {(['growing', 'declining'] as const).map((t) => (
+          <button
+            key={t}
+            onClick={() => setTab(t)}
+            className={cn(
+              'px-4 py-2 rounded-full text-sm border transition-colors',
+              tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
+            )}
+          >
+            {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
+          </button>
+        ))}
+      </div>
+      <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
+      <div className="space-y-3">
+        {data.items.map((it, i) => (
+          <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
+            <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
+            <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+          </div>
+        ))}
+      </div>
+      <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
+      <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+    </section>
+  );
+}
+
+// ───── ROI Section (orangtua) ─────
+function RoiBlock() {
+  return (
+    <section className="container mx-auto px-6 py-16 max-w-6xl">
+      <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {roiSection.cards.map((c, i) => (
+          <StatCard key={i} card={c as StatCardData} persona="orangtua" />
+        ))}
+      </div>
+      <p className="text-xs text-muted-foreground mt-6 italic">{roiSection.note}</p>
+    </section>
+  );
+}
+
+// ───── BK Section (gurubk) ─────
+function BkBlock() {
+  return (
+    <section className="container mx-auto px-6 py-16 max-w-6xl">
+      <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {bkSection.cards.map((c, i) => (
+          <StatCard key={i} card={c as StatCardData} persona="gurubk" />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ───── Waitlist Form ─────
+function WaitlistForm({ persona }: { persona: Persona }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [state, setState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const f = ctaSection.waitlist.fields;
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !whatsapp.trim()) return;
+    setState('submitting');
+    const { error } = await supabase
+      .from('waitlist_sulu' as never)
+      .insert([{ name: name.trim(), email: email.trim(), whatsapp: whatsapp.trim(), persona } as never]);
+    setState(error ? 'error' : 'success');
+  }
+
+  if (state === 'success') {
+    return (
+      <div className="bg-secondary/60 border border-border rounded-2xl p-6 text-center">
+        <p className="text-foreground">{ctaSection.waitlist.successMessage}</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5 text-left">
+      <div>
+        <h3 className="font-heading font-semibold text-lg text-foreground mb-2">{ctaSection.waitlist.headline}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{ctaSection.waitlist.subtext}</p>
+      </div>
+      <div className="space-y-3">
+        <div>
+          <Label htmlFor="wl-name" className="text-xs text-muted-foreground">{f.name.label}</Label>
+          <Input id="wl-name" value={name} onChange={(e) => setName(e.target.value)} placeholder={f.name.placeholder} required />
+        </div>
+        <div>
+          <Label htmlFor="wl-email" className="text-xs text-muted-foreground">{f.email.label}</Label>
+          <Input id="wl-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={f.email.placeholder} required />
+        </div>
+        <div>
+          <Label htmlFor="wl-wa" className="text-xs text-muted-foreground">{f.whatsapp.label}</Label>
+          <Input id="wl-wa" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder={f.whatsapp.placeholder} required />
+          <p className="text-xs text-muted-foreground mt-1">{f.whatsapp.note}</p>
+        </div>
+      </div>
+      <Button type="submit" disabled={state === 'submitting'} className="w-full">
+        {state === 'submitting' ? ctaSection.waitlist.submitting : ctaSection.waitlist.submit}
+      </Button>
+      {state === 'error' && (
+        <p className="text-sm text-destructive">{ctaSection.waitlist.errorMessage}</p>
+      )}
+    </form>
+  );
+}
+
+// ───── Footer Sources (collapsible) ─────
+function FooterSources() {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="container mx-auto px-6 py-12 max-w-4xl">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ChevronDown className={cn('w-4 h-4 transition-transform', open && 'rotate-180')} />
+        {dataSourcesLabel} ({dataSources.length})
+      </button>
+      <div className={cn('grid transition-all duration-300', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
+        <div className="overflow-hidden">
+          <ul className="space-y-1.5 text-xs text-muted-foreground leading-relaxed pl-6 list-disc">
+            {dataSources.map((s, i) => <li key={i}>{s}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ───── Page ─────
+const PERSONA_KEY = 'sulu_insight_persona';
+
 const Insight = () => {
-  const { content } = useInsightContent();
-  const { years, months } = useCountdownTo(content.meta.countdownTargetIso);
+  const [persona, setPersona] = useState<Persona | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const stored = localStorage.getItem(PERSONA_KEY);
+    return (stored === 'siswa' || stored === 'orangtua' || stored === 'gurubk') ? stored : null;
+  });
+  const { years, months } = useCountdownTo(hero.countdown.targetIso);
+
+  const handlePick = (p: Persona) => {
+    setPersona(p);
+    localStorage.setItem(PERSONA_KEY, p);
+  };
+
+  const handleSwitch = (p: Persona) => {
+    setPersona(p);
+    localStorage.setItem(PERSONA_KEY, p);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Top nav */}
-      <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Logo size="sm" linkTo="/" />
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link to={content.nav.backHref}>
-              <ArrowLeft className="w-4 h-4" /> {content.nav.backLabel}
-            </Link>
-          </Button>
-        </div>
-      </header>
+      <AnimatePresence>
+        {!persona && <PersonaGate onPick={handlePick} />}
+      </AnimatePresence>
 
-      {/* SECTION 1 — Hero */}
-      <section className="container mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 max-w-4xl">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.1] text-foreground"
-        >
-          {content.hero.titleLine1}
-          <br />
-          <span className="text-muted-foreground">{content.hero.titleLine2}</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
-        >
-          {content.hero.subtitle}
-        </motion.p>
+      {persona && (
+        <>
+          <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
 
-        {/* Countdown */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-10 flex flex-wrap gap-3"
-        >
-          <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-            <span className="font-semibold text-foreground">{years}</span>{' '}
-            <span className="text-muted-foreground">{content.hero.countdown.yearsSuffix}</span>
-          </div>
-          <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-            <span className="font-semibold text-foreground">{months}</span>{' '}
-            <span className="text-muted-foreground">{content.hero.countdown.monthsSuffix}</span>
-          </div>
-          <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-            <span className="font-semibold text-foreground">
-              {content.hero.countdown.demographic.value}
-            </span>{' '}
-            <span className="text-muted-foreground">
-              {content.hero.countdown.demographic.label}
-            </span>
-          </div>
-        </motion.div>
-
-        <div className="mt-10">
-          <Button asChild size="lg" className="gap-2">
-            <Link to={content.hero.cta.href}>
-              {content.hero.cta.label}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* SECTION 2 — Indonesia hari ini */}
-      <section className="container mx-auto px-6 py-16 max-w-6xl">
-        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {content.indonesiaSection.eyebrow}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {content.indonesiaSection.cards.map((c, i) => (
-            <StatCard key={`${c.label}-${i}`} card={c} sourcePrefix={content.labels.sourcePrefix} />
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 3 — NEET ASEAN bar chart */}
-      <section className="container mx-auto px-6 py-16 max-w-4xl">
-        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {content.neetSection.eyebrow}
-        </p>
-        <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
-          {content.neetSection.rows.map((row, i) => (
-            <div key={`${row.country}-${i}`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-foreground">{row.country}</span>
-                <span className="text-sm tabular-nums text-muted-foreground">
-                  {row.value.toString().replace('.', ',')}%
-                </span>
-              </div>
-              <div className="h-2 rounded-full bg-background overflow-hidden">
-                <motion.div
-                  className={cn('h-full rounded-full', row.color)}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${(row.value / content.meta.neetChartMaxPercent) * 100}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: 'easeOut' }}
-                />
-              </div>
+          {/* Top nav */}
+          <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
+            <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+              <Logo size="sm" linkTo="/" />
+              <Button asChild variant="ghost" size="sm" className="gap-2">
+                <Link to="/">
+                  <ArrowLeft className="w-4 h-4" /> Kembali
+                </Link>
+              </Button>
             </div>
-          ))}
-          <p className="text-xs text-muted-foreground italic pt-2">
-            {content.neetSection.source}
-          </p>
-        </div>
-      </section>
+          </header>
 
-      {/* SECTION 4 — Dunia yang sedang berubah */}
-      <section className="container mx-auto px-6 py-16 max-w-6xl">
-        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {content.worldSection.eyebrow}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {content.worldSection.cards.map((c, i) => (
-            <StatCard key={`${c.label}-${i}`} card={c} sourcePrefix={content.labels.sourcePrefix} />
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 5 — Peluang yang belum diisi */}
-      <section className="container mx-auto px-6 py-16 max-w-6xl">
-        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6">
-          {content.opportunitiesSection.eyebrow}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {content.opportunitiesSection.items.map((o, i) => (
-            <div
-              key={`${o.title}-${i}`}
-              className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors"
+          {/* SECTION 1 — Hero */}
+          <section className="container mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 max-w-4xl">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.1] text-foreground whitespace-pre-line"
             >
-              <div className="text-xs font-semibold text-primary tabular-nums mb-3">
-                {String(i + 1).padStart(2, '0')}
+              {hero.headline}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
+            >
+              {hero.subtext[persona]}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="mt-10 flex flex-wrap gap-3"
+            >
+              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+                <span className="font-semibold text-foreground">{years}</span>{' '}
+                <span className="text-muted-foreground">{hero.countdown.years.suffix}</span>
               </div>
-              <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">
-                {o.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
+              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+                <span className="font-semibold text-foreground">{months}</span>{' '}
+                <span className="text-muted-foreground">{hero.countdown.months.suffix}</span>
+              </div>
+              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+                <span className="font-semibold text-foreground">{hero.countdown.fixed.value}</span>{' '}
+                <span className="text-muted-foreground">{hero.countdown.fixed.suffix}</span>
+              </div>
+            </motion.div>
+          </section>
+
+          {/* SECTION 2 — Indonesia hari ini */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {indonesiaSection.cards.map((c, i) => (
+                <StatCard key={i} card={c as StatCardData} persona={persona} />
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* SECTION 6 — CTA */}
-      <section className="container mx-auto px-6 py-20 md:py-28 max-w-3xl text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-heading font-semibold text-3xl md:text-4xl tracking-tight leading-[1.15]"
-        >
-          {content.ctaSection.titleLine1}
-          <br />
-          <span className="text-primary">{content.ctaSection.titleLine2}</span>
-        </motion.h2>
-        <div className="mt-8">
-          <Button asChild size="lg" className="gap-2 text-base">
-            <Link to={content.ctaSection.primaryCta.href}>
-              {content.ctaSection.primaryCta.label}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
-        </div>
+          {/* SECTION 3 — NEET ASEAN */}
+          <section className="container mx-auto px-6 py-16 max-w-4xl">
+            <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
+            <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
+              {neetSection.data.map((row, i) => (
+                <div key={i}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-foreground">{row.country}</span>
+                    <span className="text-sm tabular-nums text-muted-foreground">
+                      {row.value.toString().replace('.', ',')}%
+                    </span>
+                  </div>
+                  <div className="h-2 rounded-full bg-background overflow-hidden">
+                    <motion.div
+                      className={cn('h-full rounded-full', row.colorClass)}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut' }}
+                    />
+                  </div>
+                </div>
+              ))}
+              <div className="pt-2 space-y-1">
+                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
+                <p className="text-xs text-muted-foreground">{neetSection.note}</p>
+              </div>
+            </div>
+          </section>
 
-        <div className="mt-16 pt-10 border-t border-border max-w-xl mx-auto">
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed whitespace-pre-line">
-            {content.ctaSection.footer.body}
-          </p>
-          <Button asChild variant="outline" size="sm">
-            <Link to={content.ctaSection.footer.cta.href}>
-              {content.ctaSection.footer.cta.label}
-            </Link>
-          </Button>
-        </div>
-      </section>
+          {/* SECTION 4 — Persona-specific middle */}
+          {persona === 'siswa' && <SkillLandscape />}
+          {persona === 'orangtua' && <RoiBlock />}
+          {persona === 'gurubk' && <BkBlock />}
+
+          {/* SECTION 5 — Dunia 2025–2030 */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <SectionHeader tag={worldSection.tag} intro={worldSection.intro[persona]} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {worldSection.cards.map((c, i) => (
+                <StatCard key={i} card={c as StatCardData} persona={persona} />
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION 6 — Peluang SDM */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {opportunitySection.items.map((o, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                  <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
+                  <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION 7 — Skill Map Teaser */}
+          <section className="container mx-auto px-6 py-16 max-w-4xl">
+            <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
+              <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3">{skillMapTeaser.tag}</p>
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
+                {skillMapTeaser.headline}
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+                {skillMapTeaser.body}
+              </p>
+              <Button asChild variant="outline" className="gap-2">
+                <Link to={skillMapTeaser.href}>
+                  {skillMapTeaser.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </section>
+
+          {/* SECTION 8 — Persona Callout */}
+          <section className="container mx-auto px-6 py-16 max-w-3xl">
+            <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4">
+                {personaCallout[persona].headline}
+              </h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {personaCallout[persona].body}
+              </p>
+            </div>
+          </section>
+
+          {/* SECTION 9 — CTA + Waitlist */}
+          <section className="container mx-auto px-6 py-20 md:py-24 max-w-2xl text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-heading font-semibold text-3xl md:text-4xl tracking-tight leading-[1.15] text-foreground"
+            >
+              {ctaSection.headline}
+            </motion.h2>
+            <p className="text-sm md:text-base text-muted-foreground mt-4">
+              {ctaSection.subtext[persona]}
+            </p>
+            <div className="mt-8">
+              <Button size="lg" disabled={ctaSection.button.disabled} className="gap-2">
+                {ctaSection.button.label}
+              </Button>
+            </div>
+            <div className="mt-12">
+              <WaitlistForm persona={persona} />
+            </div>
+          </section>
+
+          {/* SECTION 10 — Footer sources */}
+          <FooterSources />
+        </>
+      )}
     </main>
   );
 };
