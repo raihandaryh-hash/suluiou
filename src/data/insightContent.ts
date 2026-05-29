@@ -233,19 +233,19 @@ export const worldSection = {
       } as Record<Persona, string>,
     },
     {
-      value: '83%', label: 'bisnis di Indonesia melihat digitalisasi sebagai perubahan terbesar di pasar kerja',
-      detail: 'Jauh di atas rata-rata global (60%). McKinsey memperkirakan 16% jam kerja Indonesia, setara 23 juta pekerja, bisa diotomasi secara teknis sebelum 2030.',
-      source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute', tone: 'negative' as Tone,
+      value: '39%', label: 'skill inti hari ini yang tidak akan relevan pada 2030',
+      detail: 'WEF memproyeksikan 39% keterampilan kerja inti akan berubah sebelum akhir dekade ini. Di Indonesia, BAPPENAS dan WEF memperkirakan 36% skill akan berubah dalam lima tahun akibat adopsi digital dan transisi hijau.',
+      source: 'WEF Future of Jobs Report 2025; BAPPENAS-WEF Jobs and Skills Accelerator 2025', tone: 'negative' as Tone,
       artinya: {
-        siswa: 'Indonesia bergerak lebih cepat dari rata-rata global. Adaptasinya perlu lebih cepat juga.',
-        orangtua: 'Jurusan yang aman lima tahun lalu tidak otomatis aman sekarang.',
+        siswa: 'Lebih dari sepertiga skill yang diajarkan sekarang mungkin tidak relevan saat kamu lulus.',
+        orangtua: 'Bukan berarti kuliah sia-sia — tapi jenis kuliah dan fokus belajarnya yang perlu dipilih dengan tepat.',
         gurubk: 'Data untuk mendampingi siswa yang mempertanyakan relevansi pilihan studinya.',
       } as Record<Persona, string>,
     },
     {
-      value: '47,27%', label: 'kontribusi sektor halal ke PDB Indonesia',
-      detail: 'Sekitar Rp10.600 triliun pada 2024. Indonesia nomor 1 dunia modest fashion, nomor 2 halal tourism. Aset perbankan syariah tumbuh 33,92% dalam setahun. SDM yang paham fikih muamalah sekaligus bisnis modern sangat sedikit.',
-      source: 'KNEKS 2024; SGIE Report 2024/2025', tone: 'positive' as Tone,
+      value: '23–25%', label: 'kontribusi Halal Value Chain ke PDB Indonesia',
+      detail: 'Bank Indonesia dan KNEKS mencatat sektor prioritas halal (makanan-minuman, fashion muslim, pariwisata halal) menopang 23-25% PDB nasional. Indonesia #1 dunia modest fashion, #2 halal tourism. SDM yang paham fikih muamalah sekaligus bisnis modern sangat sedikit.',
+      source: 'Laporan Halal Value Chain, Bank Indonesia dan KNEKS 2024; SGIE Report 2024/2025', tone: 'positive' as Tone,
       artinya: {
         siswa: 'Ada sektor besar yang kekurangan orang yang tahu cara kerjanya dari dalam.',
         orangtua: 'Jalur pendidikan berbasis nilai Islam tidak harus menutup peluang karier.',
