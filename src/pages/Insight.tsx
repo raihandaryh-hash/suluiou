@@ -49,48 +49,10 @@ function useCountdownTo(targetIso: string) {
   }, [now, targetIso]);
 }
 
-// ───── Persona Gate ─────
-function PersonaGate({ onPick }: { onPick: (p: Persona) => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className="fixed inset-0 z-50 bg-background flex items-center justify-center px-6"
-    >
-      <div className="w-full max-w-5xl">
-        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 text-center">
-          SEBELUM MULAI
-        </p>
-        <h1 className="font-heading font-semibold text-3xl md:text-5xl tracking-tight text-center mb-12">
-          {personaGate.prompt}
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {personaGate.options.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => onPick(opt.id)}
-              className="text-left p-6 md:p-8 rounded-2xl border border-border bg-secondary/40 hover:bg-secondary hover:border-primary/40 transition-all group"
-            >
-              <div className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                {opt.label}
-              </div>
-              <div className="text-sm text-muted-foreground leading-relaxed">
-                {opt.description}
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 // ───── Floating Persona Switch ─────
 function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwitch: (p: Persona) => void }) {
   const [open, setOpen] = useState(false);
-  const others = personaGate.options.filter((o) => o.id !== persona);
+  const others = personaTeaserSection.options.filter((o) => o.id !== persona);
 
   return (
     <div className="fixed bottom-5 right-5 z-40">
@@ -100,7 +62,7 @@ function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwit
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
-            className="absolute bottom-full right-0 mb-2 bg-background border border-border rounded-xl shadow-lg p-1 min-w-[200px]"
+            className="absolute bottom-full right-0 mb-2 bg-background border border-border rounded-xl shadow-lg p-1 min-w-[220px]"
           >
             {others.map((o) => (
               <button
@@ -123,6 +85,40 @@ function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwit
         <ChevronUp className={cn('w-3.5 h-3.5 text-muted-foreground transition-transform', open && 'rotate-180')} />
       </button>
     </div>
+  );
+}
+
+// ───── Persona Teaser (soft, non-blocking) ─────
+function PersonaTeaser({ persona, onSwitch }: { persona: Persona; onSwitch: (p: Persona) => void }) {
+  return (
+    <section className="container mx-auto px-6 pb-8 max-w-4xl">
+      <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">
+        {personaTeaserSection.headline}
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {personaTeaserSection.options.map((opt) => (
+          <button
+            key={opt.id}
+            onClick={() => onSwitch(opt.id)}
+            className={cn(
+              'text-left rounded-xl border p-4 transition-all',
+              persona === opt.id
+                ? 'border-primary bg-primary/5'
+                : 'border-border bg-secondary/40 hover:bg-secondary'
+            )}
+          >
+            <p className={cn(
+              'font-heading font-semibold text-sm mb-1',
+              persona === opt.id ? 'text-primary' : 'text-foreground'
+            )}>
+              {opt.label}
+            </p>
+            <p className="text-xs text-muted-foreground leading-snug">{opt.description}</p>
+          </button>
+        ))}
+      </div>
+      <p className="text-xs text-muted-foreground mt-3">{personaTeaserSection.subtext}</p>
+    </section>
   );
 }
 
