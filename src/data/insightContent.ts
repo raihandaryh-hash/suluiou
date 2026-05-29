@@ -274,12 +274,38 @@ export const opportunitySection = {
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
   } as Record<Persona, string>,
   items: [
-    { number: '01', title: 'Keuangan syariah', body: 'Aset tumbuh 33,92% per tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi.' },
-    { number: '02', title: 'Ekonomi hijau dan energi terbarukan', body: '1,72 juta tenaga kerja terampil diproyeksikan dibutuhkan di sektor ini sampai 2030 (IESR). SDM-nya hampir tidak ada sekarang.' },
-    { number: '03', title: 'Konten digital Islam', body: 'Pasar besar, sangat kekurangan kreator yang punya otoritas keagamaan sekaligus keterampilan produksi media.' },
-    { number: '04', title: 'Care economy', body: 'WEF mencatat perawat, konselor, dan pekerja sosial sebagai pekerjaan dengan pertumbuhan absolut tertinggi. Di Indonesia, angkanya belum proporsional dengan kebutuhan.' },
-    { number: '05', title: 'Agritech dan ketahanan pangan', body: 'Indonesia masih impor gandum, kedelai, bawang putih. Infrastruktur dibangun, tapi SDM teknologi pertanian hampir tidak ada.' },
-    { number: '06', title: 'Bimbingan karier berbasis data', body: 'Rasio 1:250 di sekolah bukan hanya masalah, itu kebutuhan yang belum ada supplainya. Yang bisa mengisi celah ini adalah orang yang paham psikologi dan data.' },
+    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM dan perusahaan. Kebutuhan Penyelia Halal dan Auditor Halal melonjak, tapi tenaga tersertifikasi sangat sedikit. Jalur ini sangat relevan untuk lulusan pendidikan Islam yang juga memahami sains.', badge: 'Shortage regulasi — data BPJPH/Kemenag' },
+    { number: '02', title: 'Keuangan Syariah dan Fintech', body: 'Aset perbankan syariah tumbuh dengan pesat. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena skill mismatch.', badge: 'Shortage terdokumentasi — OJK, KNEKS' },
+    { number: '03', title: 'Energi Terbarukan dan Ekonomi Hijau', body: '1,72 juta tenaga terampil dibutuhkan di sektor ini sampai 2030 (IESR). Target pelatihan pemerintah jauh di bawah angka ini. Termasuk teknisi PLTS, insinyur sistem energi, dan konsultan carbon accounting.', badge: 'Gap 1,72 juta vs 15.000 terlatih' },
+    { number: '04', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce) yang butuh regenerasi dan modernisasi. Indonesia masih impor gandum, kedelai, bawang putih. Hanya 12-14% pemuda bekerja di pertanian — sebagian besar karena tidak ada jalur masuk yang modern.', badge: 'Shortage demografis + teknologi' },
+    { number: '05', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker, psikolog — pertumbuhan absolut tertinggi secara global (WEF). Di Indonesia, rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental: 1:30.000+.', badge: 'Shortage akut — Kemenkes, INAMHS' },
+    { number: '06', title: 'Halal Logistics dan Supply Chain', body: 'Ekspansi rantai pasok global menuntut standarisasi Halal Supply Chain. Industri kekurangan pengawas rantai pasok yang memahami regulasi higienitas dan halal traceability — posisi yang cocok untuk lulusan SMA/MA dengan pelatihan spesifik.', badge: 'Emerging — data Asosiasi Logistik Indonesia' },
+    { number: '07', title: 'Talenta Digital (Software, Data, Cybersecurity)', body: 'Indonesia kekurangan rata-rata 600.000 talenta digital per tahun (Bank Dunia, Kominfo). Posisi junior di data analytics dan cybersecurity terbuka untuk fresh graduate. Catatan: AI mengotomasi entry-level coding — yang bertahan adalah yang bisa mengawasi sistem AI.', badge: 'Shortage — Bank Dunia, Kominfo' },
+  ],
+};
+
+// ─── EXPERT QUOTES ────────────────────────────────────────────────
+export const expertSection = {
+  tag: 'KATA PARA AHLI',
+  intro: {
+    siswa: 'Ini bukan opini acak. Ini pakar Indonesia dengan rekam jejak yang bisa dicek.',
+    orangtua: 'Pandangan akademisi dan pejabat Indonesia tentang arah pendidikan.',
+    gurubk: 'Referensi yang bisa dikutip dalam presentasi atau advokasi kepada pihak sekolah.',
+  } as Record<Persona, string>,
+  quotes: [
+    {
+      quote: 'Dunia berubah, namun masih banyak perguruan tinggi masih bergerak dengan tempo lama. Belum lagi hadirnya AI yang meruntuhkan monopoli pengetahuan. Perguruan tinggi yang mampu membaca momentum akan bertahan, yang tidak akan ditinggalkan.',
+      speaker: 'Prof. Rhenald Kasali, Ph.D.',
+      title: 'Guru Besar FEB Universitas Indonesia, Pendiri Rumah Perubahan',
+      source: 'Executive Workshop SEVIMA, Jakarta, 12 Februari 2026',
+      url: 'https://sevima.com/ai-hancurkan-monopoli-pengetahuan-kampus-sevima-prof-rhenald-kasali-ajak-pendidikan-tinggi-berubah/',
+    },
+    {
+      quote: 'Produktivitas adalah prasyarat utama bagi Indonesia untuk keluar dari middle income trap, yang ditopang oleh kualitas SDM melalui investasi strategis bidang pendidikan dan kesehatan.',
+      speaker: 'Sri Mulyani Indrawati',
+      title: 'Menteri Keuangan Republik Indonesia',
+      source: 'Pernyataan kebijakan fiskal dan investasi SDM, 2025',
+    },
   ],
 };
 
