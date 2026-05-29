@@ -537,8 +537,6 @@ const Insight = () => {
 
           {/* SECTION 10 — Footer sources */}
           <FooterSources />
-        </>
-      )}
     </main>
   );
 };
