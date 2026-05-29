@@ -414,10 +414,6 @@ const Insight = () => {
           {/* Persona Teaser (non-blocking) */}
           <PersonaTeaser persona={persona} onSwitch={handleSwitch} />
 
-          {/* dummy to keep next block aligned */}
-          <div style={{ display: 'none' }}>
-          </section>
-
           {/* SECTION 2 — Indonesia hari ini */}
           <section className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
@@ -425,6 +421,20 @@ const Insight = () => {
               {indonesiaSection.cards.map((c, i) => (
                 <StatCard key={i} card={c as StatCardData} persona={persona} />
               ))}
+            </div>
+          </section>
+
+          {/* Link and Match */}
+          <section className="container mx-auto px-6 py-12 max-w-4xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">{linkMatchSection.tag}</p>
+            <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
+              <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{linkMatchSection.body}</p>
+              <div className="border-t border-border pt-4">
+                <p className="text-xs text-muted-foreground mb-1">Artinya untuk kamu:</p>
+                <p className="text-sm text-foreground/80 leading-relaxed italic">{linkMatchSection.artinya[persona]}</p>
+              </div>
+              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {linkMatchSection.source}</p>
             </div>
           </section>
 
