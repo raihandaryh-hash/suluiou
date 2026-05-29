@@ -4,14 +4,18 @@
 export type Persona = 'siswa' | 'orangtua' | 'gurubk';
 export type Tone = 'negative' | 'positive' | 'neutral';
 
-// ─── PERSONA GATE ──────────────────────────────────────────────────
-export const personaGate = {
-  prompt: 'Siapa kamu?',
+// ─── PERSONA TEASER (soft, non-blocking) ──────────────────────────
+export const personaTeaserSection = {
+  headline: 'Pilih sudut pandangmu',
+  subtext: 'Konten yang sama, framing yang relevan untuk kamu.',
   options: [
-    { id: 'siswa' as Persona, label: 'Siswa atau gap year', description: 'Masih cari arah, bingung jurusan, atau baru gagal seleksi' },
-    { id: 'orangtua' as Persona, label: 'Orang tua', description: 'Mendampingi anak memilih jalur pendidikan dan karier' },
-    { id: 'gurubk' as Persona, label: 'Guru BK atau konselor', description: 'Mendampingi siswa setiap hari dengan data yang sering tidak cukup' },
+    { id: 'siswa' as Persona, label: 'Siswa atau gap year', description: 'Masih cari arah, bingung jurusan, atau baru gagal seleksi', icon: 'GraduationCap' },
+    { id: 'orangtua' as Persona, label: 'Orang tua', description: 'Mendampingi anak memilih jalur pendidikan dan karier', icon: 'Heart' },
+    { id: 'gurubk' as Persona, label: 'Guru BK atau konselor', description: 'Mendampingi siswa setiap hari dengan data yang sering tidak cukup', icon: 'BookOpen' },
   ],
+  defaultPersona: 'siswa' as Persona,
+  localStorageKey: 'sulu_insight_persona',
+  neutralOption: { id: 'neutral' as const, label: 'Lihat semua perspektif' },
 };
 
 export const personaShortLabel: Record<Persona, string> = {
@@ -47,45 +51,68 @@ export const indonesiaSection = {
   cards: [
     {
       value: '19,44%', label: 'pemuda Indonesia berstatus NEET',
-      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangannya tajam: perempuan 35,77%, laki-laki 16,38%.',
+      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangan gender tajam: perempuan 35,77%, laki-laki 16,38%.',
       source: 'BPS Sakernas 2025, data 38 provinsi', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
-        gurubk: 'Sebagian dari angka ini adalah siswa yang meninggalkan sekolah tanpa program pengganti.',
+        gurubk: 'Titik awal percakapan karier yang lebih jujur dengan siswa.',
       } as Record<Persona, string>,
     },
     {
-      value: '87%', label: 'mahasiswa Indonesia mengaku salah jurusan',
-      detail: 'Bukan malas atau tidak pintar. Mereka tidak punya cukup informasi tentang diri sendiri saat memilih. 43% mengalami gangguan kesehatan mental akibatnya. 26% nilai akademik turun signifikan.',
-      source: 'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network', tone: 'negative' as Tone,
-      artinya: {
-        siswa: 'Mayoritas yang sudah masuk kuliah menyesal. Kamu masih punya waktu untuk mengenal diri sebelum memilih.',
-        orangtua: 'Pilihan yang terburu-buru lebih mahal daripada waktu yang diambil untuk mengenal anak lebih dalam.',
-        gurubk: 'Ini bukan masalah motivasi. Ini masalah minimnya data diri yang valid saat keputusan diambil di kelas 12.',
-      } as Record<Persona, string>,
-    },
-    {
-      value: '17,32%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
-      detail: 'Tiga kali lipat rata-rata nasional (4,76%). Lulusan SMK yang dirancang siap kerja justru punya angka tertinggi: 9,01%. Hanya 35,4% bekerja sesuai keahliannya.',
+      value: '17,54%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
+      detail: 'Tiga kali lipat rata-rata nasional (4,91%). Lulusan SMK yang dirancang siap kerja justru punya angka tertinggi antar jenjang: 8,63%. Hanya 35% bekerja sesuai keahliannya.',
       source: 'BPS Sakernas Agustus 2024', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Ijazah tanpa kecocokan arah tidak melindungi dari pengangguran.',
         orangtua: 'Nama kampus lebih sedikit pengaruhnya dari kecocokan antara jurusan dan kemampuan nyata anak.',
-        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus. Dimulai dari pilihan di kelas 12.',
+        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus — dimulai dari pilihan di kelas 12.',
       } as Record<Persona, string>,
     },
     {
-      value: '20%', label: 'penurunan pekerjaan entry-level di sektor terpapar AI',
-      detail: 'Developer usia 22–25 tahun kehilangan 20% lapangan kerja sejak 2022. Bukan karena tidak cakap, tapi karena tugas-tugas junior kini dikerjakan AI. Pola yang sama mulai terlihat di customer service dan riset hukum.',
-      source: 'Stanford AI Index 2026', tone: 'negative' as Tone,
+      value: '35,36% & 70%', label: 'mismatch pendidikan dan pekerjaan',
+      detail: '35,36% pemuda mengalami vertical mismatch — bekerja di bawah kualifikasi pendidikan yang sudah ditempuh. Sementara itu, 70% lulusan perguruan tinggi bekerja di bidang yang berbeda dari jurusannya.',
+      source: 'BPS Sakernas 2025 (vertical mismatch); Mandiri Institute (mismatch jurusan, catatan: bukan survei nasional representatif)', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
+        orangtua: 'Pilihan yang terburu-buru jauh lebih mahal dari waktu yang diambil untuk mengenal anak.',
+        gurubk: 'Bukan masalah motivasi — masalah minimnya refleksi diri saat keputusan diambil.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '20%', label: 'penurunan pekerjaan entry-level di sektor digital dan tech',
+      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2022. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
+      source: 'Stanford AI Index 2026 (sektor tech/knowledge work)', tone: 'negative' as Tone,
       artinya: {
         siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
         orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
         gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
       } as Record<Persona, string>,
     },
+    {
+      value: '1,72 juta', label: 'kebutuhan tenaga kerja di sektor ekonomi hijau Indonesia hingga 2030',
+      detail: 'Indonesia membutuhkan 1,72 juta tenaga terampil di energi terbarukan. Target pelatihan pemerintah: 15.000 orang sampai 2029. Gap ini bukan hanya tantangan — ini peluang yang nyata dan terdokumentasi.',
+      source: 'IESR (Institute for Essential Services Reform) 2024; Kemnaker RTKN 2025-2029', tone: 'positive' as Tone,
+      artinya: {
+        siswa: 'Ada sektor besar yang tumbuh cepat dan belum ada cukup orang yang datang.',
+        orangtua: 'Jalur karier dengan prospek jangka panjang yang kuat dan shortage nyata.',
+        gurubk: 'Alternatif konkret bagi siswa yang menyukai sains, lingkungan, atau teknologi.',
+      } as Record<Persona, string>,
+    },
   ],
+};
+
+// ─── LINK AND MATCH ───────────────────────────────────────────────
+export const linkMatchSection = {
+  tag: 'LINK AND MATCH',
+  headline: 'Upaya Menjembatani Pendidikan dan Dunia Kerja',
+  body: 'Pemerintah Indonesia melalui program Link and Match 8+i mendorong kerjasama SMK dengan industri. Namun realisasinya menghadapi tantangan nyata: tingkat pengangguran lulusan SMK masih 8,63%, banyak kerjasama bersifat formalitas, dan kurikulum sulit mengikuti perubahan teknologi. Yang paling sering terabaikan: pemahaman diri siswa terhadap kekuatan dan minat mereka sendiri.',
+  source: 'BPS Sakernas 2024; Kemendikbudristek Evaluasi Program Link and Match 2023',
+  artinya: {
+    siswa: 'Link and Match akan lebih berhasil jika kamu memilih bidang yang sesuai dengan kekuatanmu, bukan hanya yang "sedang dibutuhkan industri" secara umum.',
+    orangtua: 'Kerjasama sekolah-industri penting, tapi pemahaman mendalam tentang anak lebih menentukan pilihan yang tepat.',
+    gurubk: 'Data pasar kerja terkini dapat memperkuat peran Anda membimbing siswa memilih kompetensi untuk industri masa depan.',
+  } as Record<Persona, string>,
 };
 
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
@@ -135,14 +162,14 @@ export const roiSection = {
   intro: 'Pertanyaan yang wajar untuk ditanyakan: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
   cards: [
     {
-      value: 'Rp 1,5–2,4 jt', label: 'biaya per semester kuliah online dengan ijazah penyetaraan Kemendikbud',
-      detail: 'Siswa bisa kuliah sambil menjalani kegiatan lain, tanpa harus meninggalkan lingkungan keluarga. Ijazah sudah mendapat penyetaraan resmi Kemendikbud RI.',
-      source: 'IOU Indonesia, data biaya semester 2025', tone: 'positive' as Tone,
+      value: 'Rp 4,63 jt', label: 'rata-rata gaji bulanan lulusan perguruan tinggi Indonesia',
+      detail: 'Lebih tinggi dari lulusan SMA/SMK (Rp3,2-3,4 juta) dan rata-rata nasional (Rp3,33 juta). Tapi fresh graduate baru masuk kerja (usia 20-25) sering hanya mendapat Rp2,0-2,5 juta — bahkan lulusan PTN rata-rata lebih rendah (Rp2,0 juta) dari PTS (Rp2,5 juta) di awal karier.',
+      source: 'BPS Sakernas November 2025', tone: 'neutral' as Tone,
     },
     {
-      value: '27%', label: 'lulusan perguruan tinggi yang bekerja sesuai jurusannya',
-      detail: 'Dari seluruh lulusan S1 Indonesia. Artinya 73% bekerja di bidang yang berbeda dari yang dipelajari. Yang menentukan outcome bukan nama jurusan, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
-      source: 'BPS Sakernas 2024; data Kemendikbud', tone: 'negative' as Tone,
+      value: '4–8 tahun', label: 'estimasi waktu balik modal investasi S1 di PTN (kelas menengah)',
+      detail: 'Dengan UKT kelompok menengah PTN (Rp4-7 juta/semester) + biaya hidup di kota (Rp2,5-4 juta/bulan), total investasi 4 tahun bisa mencapai Rp100-200 juta. Dengan gaji awal Rp2-3 juta, balik modal membutuhkan 4-8 tahun — asumsi tidak ada pengeluaran lain.',
+      source: 'Kalkulasi dari data BPS Sakernas November 2025 + data UKT Kemendikbud 2025', tone: 'neutral' as Tone,
     },
     {
       value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
@@ -150,7 +177,12 @@ export const roiSection = {
       source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
     },
   ],
-  note: 'Data ROI pendidikan per jalur studi per sektor sedang dalam proses verifikasi dan akan ditambahkan.',
+  expertQuote: {
+    quote: 'Anak-anak Indonesia yang lahir dengan kondisi sosial berbeda harus diberikan kesempatan yang sama dalam hal pendidikan dan kesehatan.',
+    speaker: 'Sri Mulyani Indrawati',
+    title: 'Menteri Keuangan RI',
+    context: 'Tentang perlunya investasi SDM untuk keluar dari middle-income trap',
+  },
 };
 
 // ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
@@ -201,19 +233,19 @@ export const worldSection = {
       } as Record<Persona, string>,
     },
     {
-      value: '83%', label: 'bisnis di Indonesia melihat digitalisasi sebagai perubahan terbesar di pasar kerja',
-      detail: 'Jauh di atas rata-rata global (60%). McKinsey memperkirakan 16% jam kerja Indonesia, setara 23 juta pekerja, bisa diotomasi secara teknis sebelum 2030.',
-      source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute', tone: 'negative' as Tone,
+      value: '39%', label: 'skill inti hari ini yang tidak akan relevan pada 2030',
+      detail: 'WEF memproyeksikan 39% keterampilan kerja inti akan berubah sebelum akhir dekade ini. Di Indonesia, BAPPENAS dan WEF memperkirakan 36% skill akan berubah dalam lima tahun akibat adopsi digital dan transisi hijau.',
+      source: 'WEF Future of Jobs Report 2025; BAPPENAS-WEF Jobs and Skills Accelerator 2025', tone: 'negative' as Tone,
       artinya: {
-        siswa: 'Indonesia bergerak lebih cepat dari rata-rata global. Adaptasinya perlu lebih cepat juga.',
-        orangtua: 'Jurusan yang aman lima tahun lalu tidak otomatis aman sekarang.',
+        siswa: 'Lebih dari sepertiga skill yang diajarkan sekarang mungkin tidak relevan saat kamu lulus.',
+        orangtua: 'Bukan berarti kuliah sia-sia — tapi jenis kuliah dan fokus belajarnya yang perlu dipilih dengan tepat.',
         gurubk: 'Data untuk mendampingi siswa yang mempertanyakan relevansi pilihan studinya.',
       } as Record<Persona, string>,
     },
     {
-      value: '47,27%', label: 'kontribusi sektor halal ke PDB Indonesia',
-      detail: 'Sekitar Rp10.600 triliun pada 2024. Indonesia nomor 1 dunia modest fashion, nomor 2 halal tourism. Aset perbankan syariah tumbuh 33,92% dalam setahun. SDM yang paham fikih muamalah sekaligus bisnis modern sangat sedikit.',
-      source: 'KNEKS 2024; SGIE Report 2024/2025', tone: 'positive' as Tone,
+      value: '23–25%', label: 'kontribusi Halal Value Chain ke PDB Indonesia',
+      detail: 'Bank Indonesia dan KNEKS mencatat sektor prioritas halal (makanan-minuman, fashion muslim, pariwisata halal) menopang 23-25% PDB nasional. Indonesia #1 dunia modest fashion, #2 halal tourism. SDM yang paham fikih muamalah sekaligus bisnis modern sangat sedikit.',
+      source: 'Laporan Halal Value Chain, Bank Indonesia dan KNEKS 2024; SGIE Report 2024/2025', tone: 'positive' as Tone,
       artinya: {
         siswa: 'Ada sektor besar yang kekurangan orang yang tahu cara kerjanya dari dalam.',
         orangtua: 'Jalur pendidikan berbasis nilai Islam tidak harus menutup peluang karier.',
@@ -242,12 +274,38 @@ export const opportunitySection = {
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
   } as Record<Persona, string>,
   items: [
-    { number: '01', title: 'Keuangan syariah', body: 'Aset tumbuh 33,92% per tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi.' },
-    { number: '02', title: 'Ekonomi hijau dan energi terbarukan', body: '1,72 juta tenaga kerja terampil diproyeksikan dibutuhkan di sektor ini sampai 2030 (IESR). SDM-nya hampir tidak ada sekarang.' },
-    { number: '03', title: 'Konten digital Islam', body: 'Pasar besar, sangat kekurangan kreator yang punya otoritas keagamaan sekaligus keterampilan produksi media.' },
-    { number: '04', title: 'Care economy', body: 'WEF mencatat perawat, konselor, dan pekerja sosial sebagai pekerjaan dengan pertumbuhan absolut tertinggi. Di Indonesia, angkanya belum proporsional dengan kebutuhan.' },
-    { number: '05', title: 'Agritech dan ketahanan pangan', body: 'Indonesia masih impor gandum, kedelai, bawang putih. Infrastruktur dibangun, tapi SDM teknologi pertanian hampir tidak ada.' },
-    { number: '06', title: 'Bimbingan karier berbasis data', body: 'Rasio 1:250 di sekolah bukan hanya masalah, itu kebutuhan yang belum ada supplainya. Yang bisa mengisi celah ini adalah orang yang paham psikologi dan data.' },
+    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM dan perusahaan. Kebutuhan Penyelia Halal dan Auditor Halal melonjak, tapi tenaga tersertifikasi sangat sedikit. Jalur ini sangat relevan untuk lulusan pendidikan Islam yang juga memahami sains.', badge: 'Shortage regulasi — data BPJPH/Kemenag' },
+    { number: '02', title: 'Keuangan Syariah dan Fintech', body: 'Aset perbankan syariah tumbuh dengan pesat. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena skill mismatch.', badge: 'Shortage terdokumentasi — OJK, KNEKS' },
+    { number: '03', title: 'Energi Terbarukan dan Ekonomi Hijau', body: '1,72 juta tenaga terampil dibutuhkan di sektor ini sampai 2030 (IESR). Target pelatihan pemerintah jauh di bawah angka ini. Termasuk teknisi PLTS, insinyur sistem energi, dan konsultan carbon accounting.', badge: 'Gap 1,72 juta vs 15.000 terlatih' },
+    { number: '04', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce) yang butuh regenerasi dan modernisasi. Indonesia masih impor gandum, kedelai, bawang putih. Hanya 12-14% pemuda bekerja di pertanian — sebagian besar karena tidak ada jalur masuk yang modern.', badge: 'Shortage demografis + teknologi' },
+    { number: '05', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker, psikolog — pertumbuhan absolut tertinggi secara global (WEF). Di Indonesia, rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental: 1:30.000+.', badge: 'Shortage akut — Kemenkes, INAMHS' },
+    { number: '06', title: 'Halal Logistics dan Supply Chain', body: 'Ekspansi rantai pasok global menuntut standarisasi Halal Supply Chain. Industri kekurangan pengawas rantai pasok yang memahami regulasi higienitas dan halal traceability — posisi yang cocok untuk lulusan SMA/MA dengan pelatihan spesifik.', badge: 'Emerging — data Asosiasi Logistik Indonesia' },
+    { number: '07', title: 'Talenta Digital (Software, Data, Cybersecurity)', body: 'Indonesia kekurangan rata-rata 600.000 talenta digital per tahun (Bank Dunia, Kominfo). Posisi junior di data analytics dan cybersecurity terbuka untuk fresh graduate. Catatan: AI mengotomasi entry-level coding — yang bertahan adalah yang bisa mengawasi sistem AI.', badge: 'Shortage — Bank Dunia, Kominfo' },
+  ],
+};
+
+// ─── EXPERT QUOTES ────────────────────────────────────────────────
+export const expertSection = {
+  tag: 'KATA PARA AHLI',
+  intro: {
+    siswa: 'Ini bukan opini acak. Ini pakar Indonesia dengan rekam jejak yang bisa dicek.',
+    orangtua: 'Pandangan akademisi dan pejabat Indonesia tentang arah pendidikan.',
+    gurubk: 'Referensi yang bisa dikutip dalam presentasi atau advokasi kepada pihak sekolah.',
+  } as Record<Persona, string>,
+  quotes: [
+    {
+      quote: 'Dunia berubah, namun masih banyak perguruan tinggi masih bergerak dengan tempo lama. Belum lagi hadirnya AI yang meruntuhkan monopoli pengetahuan. Perguruan tinggi yang mampu membaca momentum akan bertahan, yang tidak akan ditinggalkan.',
+      speaker: 'Prof. Rhenald Kasali, Ph.D.',
+      title: 'Guru Besar FEB Universitas Indonesia, Pendiri Rumah Perubahan',
+      source: 'Executive Workshop SEVIMA, Jakarta, 12 Februari 2026',
+      url: 'https://sevima.com/ai-hancurkan-monopoli-pengetahuan-kampus-sevima-prof-rhenald-kasali-ajak-pendidikan-tinggi-berubah/',
+    },
+    {
+      quote: 'Produktivitas adalah prasyarat utama bagi Indonesia untuk keluar dari middle income trap, yang ditopang oleh kualitas SDM melalui investasi strategis bidang pendidikan dan kesehatan.',
+      speaker: 'Sri Mulyani Indrawati',
+      title: 'Menteri Keuangan Republik Indonesia',
+      source: 'Pernyataan kebijakan fiskal dan investasi SDM, 2025',
+    },
   ],
 };
 
