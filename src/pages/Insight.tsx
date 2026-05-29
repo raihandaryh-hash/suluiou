@@ -483,6 +483,28 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* Expert Quotes */}
+          <section className="container mx-auto px-6 py-12 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6 uppercase">{expertSection.tag}</p>
+            <p className="text-sm text-muted-foreground mb-6">{expertSection.intro[persona]}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {expertSection.quotes.map((q, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                  <blockquote className="text-sm text-foreground/90 leading-relaxed italic mb-4">&ldquo;{q.quote}&rdquo;</blockquote>
+                  <div>
+                    <p className="font-heading font-semibold text-sm text-foreground">{q.speaker}</p>
+                    <p className="text-xs text-muted-foreground">{q.title}</p>
+                    {q.url ? (
+                      <a href={q.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline mt-1 inline-block">{q.source} ↗</a>
+                    ) : (
+                      <p className="text-xs text-muted-foreground mt-1 italic">{q.source}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* SECTION 6 — Peluang SDM */}
           <section className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
