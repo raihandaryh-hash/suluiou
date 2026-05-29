@@ -280,6 +280,14 @@ export default function SkillMap() {
             Sumber: WEF Future of Jobs Report 2025 · BPS Sakernas Agustus 2024 · ILO ASEAN GenAI Impact 2024 · IESR 2024 · Kemnaker RTKN 2025-2029 · Bappenas Peta Jalan Tenaga Kerja Hijau 2025 · Krol & Bartz (2021) DOI: 10.1037/emo0000943 · Pikouli et al. (2023) DOI: 10.3390/jintelligence11090182 · Journal of Intelligence Vol. 13 No. 3 (2025) · O*NET Content Model v30.3 · KNEKS 2024 · SGIE Report 2024/2025
           </p>
         </div>
+
+        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center">
+          <p className="font-heading font-semibold text-foreground mb-2">Ingin tahu skill mana yang paling relevan untuk profilmu?</p>
+          <p className="text-sm text-muted-foreground mb-4">Asesmen Sulu akan mencocokkan peta skill ini dengan kepribadian dan minatmu. Sedang dalam pengembangan.</p>
+          <Link to="/insight#waitlist" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
+            Daftarkan diri untuk diberitahu <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </main>
   );
