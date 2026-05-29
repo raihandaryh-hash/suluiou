@@ -167,7 +167,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
 
 export default function SkillMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState(new Set([0, 1, 2, 3]));
+  const [expanded, setExpanded] = useState(new Set([0]));
   const activeNode = NODES.find(n => n.id === activeId) || null;
   const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
   const hasActive = activeId !== null;
