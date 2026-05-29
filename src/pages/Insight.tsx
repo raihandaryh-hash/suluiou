@@ -10,14 +10,16 @@ import Logo from '@/components/Logo';
 import { supabase } from '@/integrations/supabase/client';
 import {
   hero,
-  personaGate,
+  personaTeaserSection,
   personaShortLabel,
   indonesiaSection,
+  linkMatchSection,
   neetSection,
   skillSection,
   roiSection,
   bkSection,
   worldSection,
+  expertSection,
   opportunitySection,
   skillMapTeaser,
   personaCallout,
