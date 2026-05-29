@@ -408,7 +408,14 @@ const Insight = () => {
                 <span className="font-semibold text-foreground">{hero.countdown.fixed.value}</span>{' '}
                 <span className="text-muted-foreground">{hero.countdown.fixed.suffix}</span>
               </div>
-            </motion.div>
+          </motion.div>
+          </section>
+
+          {/* Persona Teaser (non-blocking) */}
+          <PersonaTeaser persona={persona} onSwitch={handleSwitch} />
+
+          {/* dummy to keep next block aligned */}
+          <div style={{ display: 'none' }}>
           </section>
 
           {/* SECTION 2 — Indonesia hari ini */}
