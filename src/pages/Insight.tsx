@@ -339,32 +339,29 @@ function FooterSources() {
 const PERSONA_KEY = 'sulu_insight_persona';
 
 const Insight = () => {
-  const [persona, setPersona] = useState<Persona | null>(() => {
-    if (typeof window === 'undefined') return null;
+  const [persona, setPersona] = useState<Persona>(() => {
+    if (typeof window === 'undefined') return personaTeaserSection.defaultPersona;
     const stored = localStorage.getItem(PERSONA_KEY);
-    return (stored === 'siswa' || stored === 'orangtua' || stored === 'gurubk') ? stored : null;
+    return (stored === 'siswa' || stored === 'orangtua' || stored === 'gurubk')
+      ? stored as Persona
+      : personaTeaserSection.defaultPersona;
   });
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
 
-  const handlePick = (p: Persona) => {
-    setPersona(p);
-    localStorage.setItem(PERSONA_KEY, p);
-  };
-
   const handleSwitch = (p: Persona) => {
     setPersona(p);
-    localStorage.setItem(PERSONA_KEY, p);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(PERSONA_KEY, p);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
     <main className="min-h-screen bg-background">
-      <AnimatePresence>
-        {!persona && <PersonaGate onPick={handlePick} />}
-      </AnimatePresence>
-
-      {persona && (
-        <>
+      <>
+        {(
+          <>
+          <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
           <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
 
           {/* Top nav */}
