@@ -55,6 +55,7 @@ const App = () => {
             <Route path="/hasil/:resultId" element={<PublicResult />} />
             <Route path="/suar" element={<Suar />} />
             <Route path="/insight" element={<Insight />} />
+            <Route path="/skill-map" element={<SkillMap />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
