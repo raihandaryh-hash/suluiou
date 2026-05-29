@@ -1,243 +1,322 @@
-// All textual content, numbers, and narrative for the Insight page (/insight).
-// This file holds the DEFAULTS. Admins can override these via /admin/insight,
-// which writes to the `site_content` table (slug = 'insight').
-// Components only render — they never hardcode strings.
+// All textual content for the /insight page. No strings hardcoded in JSX.
+// Persona-aware: 'siswa' | 'orangtua' | 'gurubk'.
 
+export type Persona = 'siswa' | 'orangtua' | 'gurubk';
 export type Tone = 'negative' | 'positive' | 'neutral';
 
-export interface StatCardContent {
-  value: string;
-  label: string;
-  detail: string;
-  source: string;
-  tone?: Tone;
-}
+// ─── PERSONA GATE ──────────────────────────────────────────────────
+export const personaGate = {
+  prompt: 'Siapa kamu?',
+  options: [
+    { id: 'siswa' as Persona, label: 'Siswa atau gap year', description: 'Masih cari arah, bingung jurusan, atau baru gagal seleksi' },
+    { id: 'orangtua' as Persona, label: 'Orang tua', description: 'Mendampingi anak memilih jalur pendidikan dan karier' },
+    { id: 'gurubk' as Persona, label: 'Guru BK atau konselor', description: 'Mendampingi siswa setiap hari dengan data yang sering tidak cukup' },
+  ],
+};
 
-export interface NeetRow {
-  country: string;
-  value: number;
-  color: string; // tailwind bg-* class
-}
+export const personaShortLabel: Record<Persona, string> = {
+  siswa: 'Siswa',
+  orangtua: 'Orang tua',
+  gurubk: 'Guru BK',
+};
 
-export interface OpportunityItem {
-  title: string;
-  body: string;
-}
-
-export interface InsightContent {
-  meta: {
-    countdownTargetIso: string;
-    neetChartMaxPercent: number;
-  };
-  nav: {
-    backLabel: string;
-    backHref: string;
-  };
-  hero: {
-    titleLine1: string;
-    titleLine2: string;
-    subtitle: string;
-    countdown: {
-      yearsSuffix: string;
-      monthsSuffix: string;
-      demographic: { value: string; label: string };
-    };
-    cta: { label: string; href: string };
-  };
-  indonesiaSection: {
-    eyebrow: string;
-    cards: StatCardContent[];
-  };
-  neetSection: {
-    eyebrow: string;
-    source: string;
-    rows: NeetRow[];
-  };
-  worldSection: {
-    eyebrow: string;
-    cards: StatCardContent[];
-  };
-  opportunitiesSection: {
-    eyebrow: string;
-    items: OpportunityItem[];
-  };
-  ctaSection: {
-    titleLine1: string;
-    titleLine2: string;
-    primaryCta: { label: string; href: string };
-    footer: {
-      body: string;
-      cta: { label: string; href: string };
-    };
-  };
-  labels: {
-    sourcePrefix: string;
-  };
-}
-
-export const defaultInsightContent: InsightContent = {
-  meta: {
-    countdownTargetIso: '2030-01-01',
-    neetChartMaxPercent: 25,
-  },
-  nav: {
-    backLabel: 'Kembali',
-    backHref: '/',
-  },
-  hero: {
-    titleLine1: 'Dunia yang akan kamu masuki',
-    titleLine2: 'sudah berubah sebelum kamu siap.',
-    subtitle: 'Bukan untuk menakut-nakuti. Tapi karena kamu berhak tahu.',
-    countdown: {
-      yearsSuffix: 'tahun tersisa menuju 2030',
-      monthsSuffix: 'bulan untuk bergerak',
-      demographic: {
-        value: '208 juta',
-        label: 'jiwa produktif pada puncak bonus demografi',
-      },
-    },
-    cta: {
-      label: 'Kenali profilmu sekarang',
-      href: '/',
-    },
-  },
-  indonesiaSection: {
-    eyebrow: 'INDONESIA HARI INI',
-    cards: [
-      {
-        value: '19,44%',
-        label: 'pemuda Indonesia berstatus NEET',
-        detail:
-          'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara lebih dari 9 juta anak muda yang terputus dari jalur pengembangan diri — di tengah puncak bonus demografi. Kesenjangan gender tajam: perempuan 35,77% vs laki-laki 16,38%.',
-        source: 'BPS Sakernas 2025',
-        tone: 'negative',
-      },
-      {
-        value: '87%',
-        label: 'mahasiswa mengaku salah jurusan',
-        detail:
-          'Bukan kebetulan — ini akibat sistem bimbingan karir yang hampir tidak ada. Rasio guru BK di madrasah: 1:150. Dampaknya: 43% mengalami gangguan mental health, 26% nilai akademik turun drastis.',
-        source: 'Survei nasional IDF 2023–2024; OECD',
-        tone: 'negative',
-      },
-      {
-        value: '17,32%',
-        label: 'tingkat pengangguran pemuda usia 15–24',
-        detail:
-          'Lebih dari 3× lipat rata-rata nasional (4,76%). Ironinya: lulusan SMK — yang dirancang siap kerja — justru penganggurannya paling tinggi (9,01%). Hanya 35,4% bekerja sesuai keahlian.',
-        source: 'BPS Sakernas Agustus 2024',
-        tone: 'negative',
-      },
-      {
-        value: '20%',
-        label: 'penurunan posisi entry-level di sektor terpapar AI',
-        detail:
-          '"Junior Squeeze" — AI mengambil alih tugas yang biasanya diberikan ke karyawan junior. Yang survive bukan yang sekadar terampil teknis, tapi yang punya judgment manusia + nilai yang tidak bisa direplikasi mesin.',
-        source: 'Stanford AI Index 2026',
-        tone: 'negative',
-      },
-    ],
-  },
-  neetSection: {
-    eyebrow: 'NEET INDONESIA VS ASEAN',
-    source: 'Sumber: BPS Sakernas 2025; ASEAN Statistical Yearbook 2024.',
-    rows: [
-      { country: 'Indonesia', value: 19.44, color: 'bg-destructive' },
-      { country: 'Malaysia', value: 13.63, color: 'bg-amber-500' },
-      { country: 'Vietnam', value: 10.82, color: 'bg-amber-500' },
-      { country: 'Singapura', value: 4.1, color: 'bg-primary' },
-    ],
-  },
-  worldSection: {
-    eyebrow: 'DUNIA YANG SEDANG BERUBAH — 2025–2030',
-    cards: [
-      {
-        value: '+78 juta',
-        label: 'pertumbuhan neto lapangan kerja global',
-        detail:
-          '170 juta pekerjaan baru tercipta, 92 juta hilang. Tapi tidak merata — negara berkembang seperti Indonesia menghadapi instabilitas lebih besar karena ketergantungan pada sektor yang mudah diotomasi. 59 dari 100 pekerja butuh pelatihan ulang sebelum 2030.',
-        source: 'WEF Future of Jobs Report 2025',
-        tone: 'neutral',
-      },
-      {
-        value: '39%',
-        label: 'skill inti hari ini akan usang pada 2030',
-        detail:
-          'Yang bertahan: analytical thinking, kreativitas, resiliensi, literasi AI, kepemimpinan — semua human-core skills yang tidak bisa direplikasi mesin.',
-        source: 'WEF Future of Jobs Report 2025',
-        tone: 'negative',
-      },
-      {
-        value: '47,27%',
-        label: 'kontribusi sektor halal ke PDB Indonesia',
-        detail:
-          '~Rp10.600 triliun pada 2024. Indonesia #1 dunia modest fashion, #2 halal tourism. Masalahnya: SDM yang paham fiqh muamalah sekaligus bisnis modern sangat langka.',
-        source: 'KNEKS 2024, SGIE Report 2024/2025',
-        tone: 'positive',
-      },
-      {
-        value: '1:150',
-        label: 'rasio guru BK di madrasah Indonesia',
-        detail:
-          'OECD membuktikan: bimbingan karir usia 15 berkorelasi kuat dengan outcome kerja usia 25. Kebutuhan nyata yang hampir tidak ada supplainya — ini peluang, bukan sekadar masalah.',
-        source: 'OECD Education at a Glance; data Kemendikbud',
-        tone: 'neutral',
-      },
-    ],
-  },
-  opportunitiesSection: {
-    eyebrow: 'PELUANG YANG BELUM DIISI — SHORTAGE SDM 2030',
-    items: [
-      {
-        title: 'Agritech & ketahanan pangan',
-        body:
-          'Indonesia masih impor gandum, kedelai, bawang putih. Infrastruktur sedang dibangun, SDM belum ada.',
-      },
-      {
-        title: 'Keuangan syariah',
-        body:
-          'Aset tumbuh 33,92% tapi mismatch SDM akut. Dibutuhkan analis yang paham keduanya.',
-      },
-      {
-        title: 'Konten digital Islam',
-        body:
-          'Pasar besar, sangat kekurangan kreator yang punya otoritas keagamaan sekaligus keterampilan media digital.',
-      },
-      {
-        title: 'Bimbingan karir berbasis nilai',
-        body:
-          'Rasio 1:150 di madrasah. Kebutuhan nyata yang hampir tidak ada supplainya.',
-      },
-    ],
-  },
-  ctaSection: {
-    titleLine1: 'Kamu sudah tahu kondisinya.',
-    titleLine2: 'Sekarang, kenali dirimu.',
-    primaryCta: {
-      label: 'Mulai asesmen Sulu — gratis',
-      href: '/',
-    },
-    footer: {
-      body: 'Mendampingi siswa menentukan arah?\nSulu membantu membuka percakapan yang bermakna.',
-      cta: { label: 'Pelajari lebih lanjut', href: '/' },
-    },
-  },
-  labels: {
-    sourcePrefix: 'Sumber:',
+// ─── HERO ──────────────────────────────────────────────────────────
+export const hero = {
+  headline: 'Dunia yang akan kamu masuki\nsudah berubah sebelum kamu siap.',
+  subtext: {
+    siswa: 'Bukan untuk menakut-nakuti. Karena kamu berhak tahu sebelum memilih.',
+    orangtua: 'Bukan untuk menakut-nakuti. Karena keputusan hari ini punya konsekuensi panjang.',
+    gurubk: 'Data yang selama ini sulit kamu temukan dalam satu tempat, dikurasi untuk keperluan konseling.',
+  } as Record<Persona, string>,
+  countdown: {
+    targetIso: '2030-01-01',
+    years: { suffix: 'tahun tersisa menuju 2030' },
+    months: { suffix: 'bulan untuk bergerak' },
+    fixed: { value: '208 juta', suffix: 'jiwa produktif pada puncak bonus demografi' },
   },
 };
 
-// Available tailwind bg-* classes for the NEET chart bar color picker.
-export const neetBarColorOptions: { label: string; value: string }[] = [
-  { label: 'Merah (destructive)', value: 'bg-destructive' },
-  { label: 'Kuning (amber)', value: 'bg-amber-500' },
-  { label: 'Biru (primary)', value: 'bg-primary' },
-  { label: 'Hijau (emerald)', value: 'bg-emerald-500' },
-  { label: 'Abu (muted)', value: 'bg-muted-foreground' },
+// ─── SECTION 1: INDONESIA ─────────────────────────────────────────
+export const indonesiaSection = {
+  tag: 'INDONESIA HARI INI',
+  intro: {
+    siswa: 'Ini lapangan yang akan kamu masuki. Bukan prediksi, ini yang sedang terjadi.',
+    orangtua: 'Generasi anak Anda menghadapi kondisi yang berbeda dari yang Anda hadapi dulu. Datanya spesifik.',
+    gurubk: 'Data ini bisa jadi titik masuk percakapan karier yang lebih jujur bersama siswa Anda.',
+  } as Record<Persona, string>,
+  cards: [
+    {
+      value: '19,44%', label: 'pemuda Indonesia berstatus NEET',
+      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangannya tajam: perempuan 35,77%, laki-laki 16,38%.',
+      source: 'BPS Sakernas 2025, data 38 provinsi', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
+        orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
+        gurubk: 'Sebagian dari angka ini adalah siswa yang meninggalkan sekolah tanpa program pengganti.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '87%', label: 'mahasiswa Indonesia mengaku salah jurusan',
+      detail: 'Bukan malas atau tidak pintar. Mereka tidak punya cukup informasi tentang diri sendiri saat memilih. 43% mengalami gangguan kesehatan mental akibatnya. 26% nilai akademik turun signifikan.',
+      source: 'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Mayoritas yang sudah masuk kuliah menyesal. Kamu masih punya waktu untuk mengenal diri sebelum memilih.',
+        orangtua: 'Pilihan yang terburu-buru lebih mahal daripada waktu yang diambil untuk mengenal anak lebih dalam.',
+        gurubk: 'Ini bukan masalah motivasi. Ini masalah minimnya data diri yang valid saat keputusan diambil di kelas 12.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '17,32%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
+      detail: 'Tiga kali lipat rata-rata nasional (4,76%). Lulusan SMK yang dirancang siap kerja justru punya angka tertinggi: 9,01%. Hanya 35,4% bekerja sesuai keahliannya.',
+      source: 'BPS Sakernas Agustus 2024', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Ijazah tanpa kecocokan arah tidak melindungi dari pengangguran.',
+        orangtua: 'Nama kampus lebih sedikit pengaruhnya dari kecocokan antara jurusan dan kemampuan nyata anak.',
+        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus. Dimulai dari pilihan di kelas 12.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '20%', label: 'penurunan pekerjaan entry-level di sektor terpapar AI',
+      detail: 'Developer usia 22–25 tahun kehilangan 20% lapangan kerja sejak 2022. Bukan karena tidak cakap, tapi karena tugas-tugas junior kini dikerjakan AI. Pola yang sama mulai terlihat di customer service dan riset hukum.',
+      source: 'Stanford AI Index 2026', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
+        orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
+        gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
+      } as Record<Persona, string>,
+    },
+  ],
+};
+
+// ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
+export const neetSection = {
+  tag: 'NEET INDONESIA VS ASEAN',
+  intro: 'Indonesia bukan yang terburuk di kawasan. Tapi gap-nya cukup untuk dipikirkan.',
+  maxPercent: 25,
+  data: [
+    { country: 'Indonesia', value: 19.44, colorClass: 'bg-destructive' },
+    { country: 'Malaysia', value: 13.63, colorClass: 'bg-amber-500' },
+    { country: 'Vietnam', value: 10.82, colorClass: 'bg-amber-500' },
+    { country: 'Singapura', value: 4.1, colorClass: 'bg-primary' },
+  ],
+  source: 'BPS Sakernas 2025; ASEAN Statistical Yearbook 2024',
+  note: 'Definisi NEET tiap negara sedikit berbeda. Gunakan sebagai gambaran, bukan perbandingan absolut.',
+};
+
+// ─── SECTION 3a: SKILL LANDSCAPE (siswa) ──────────────────────────
+export const skillSection = {
+  tag: 'PETA SKILL 2025–2030',
+  intro: 'Skill bukan tentang apa yang tren sekarang. Skill adalah tentang apa yang masih dibutuhkan ketika kamu lulus.',
+  growing: {
+    label: 'Yang Tumbuh', subtitle: 'Dibutuhkan, belum cukup tersedia',
+    items: [
+      { skill: 'Analytical thinking', note: '7 dari 10 perusahaan menyebutnya skill paling dicari pada 2025' },
+      { skill: 'AI dan data literacy', note: 'Bukan coding. Kemampuan bekerja dengan sistem AI dan membaca data untuk mengambil keputusan' },
+      { skill: 'Resiliensi dan adaptabilitas', note: 'Tumbuh paling cepat di sektor pertanian, telekomunikasi, dan teknologi' },
+      { skill: 'Kreativitas', note: 'Naik karena AI mengambil tugas rutin. Yang tersisa adalah yang butuh penilaian manusia' },
+      { skill: 'Kepemimpinan', note: 'Kemampuan mengelola tim manusia sambil mengawasi sistem AI' },
+    ],
+  },
+  declining: {
+    label: 'Yang Menyusut', subtitle: 'Bukan hilang seketika, tapi peluang kerjanya menyempit',
+    items: [
+      { skill: 'Entri data dan administrasi rutin', note: '1,7 juta posisi admin di Indonesia berisiko tinggi (ILO)' },
+      { skill: 'Desain grafis dasar', note: 'Masuk daftar declining untuk pertama kali di WEF 2025 akibat generative AI' },
+      { skill: 'Tugas fisik terstruktur dan prediktif', note: 'Perakitan linier, pembukuan dasar, pemrosesan data standar' },
+    ],
+  },
+  note: '39% skill inti hari ini diperkirakan tidak relevan pada 2030. Turun dari 44% di 2023 karena reskilling mulai berjalan.',
+  source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute',
+};
+
+// ─── SECTION 3b: ROI PENDIDIKAN (orangtua) ────────────────────────
+export const roiSection = {
+  tag: 'INVESTASI PENDIDIKAN',
+  intro: 'Pertanyaan yang wajar untuk ditanyakan: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
+  cards: [
+    {
+      value: 'Rp 1,5–2,4 jt', label: 'biaya per semester kuliah online dengan ijazah penyetaraan Kemendikbud',
+      detail: 'Siswa bisa kuliah sambil menjalani kegiatan lain, tanpa harus meninggalkan lingkungan keluarga. Ijazah sudah mendapat penyetaraan resmi Kemendikbud RI.',
+      source: 'IOU Indonesia, data biaya semester 2025', tone: 'positive' as Tone,
+    },
+    {
+      value: '27%', label: 'lulusan perguruan tinggi yang bekerja sesuai jurusannya',
+      detail: 'Dari seluruh lulusan S1 Indonesia. Artinya 73% bekerja di bidang yang berbeda dari yang dipelajari. Yang menentukan outcome bukan nama jurusan, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
+      source: 'BPS Sakernas 2024; data Kemendikbud', tone: 'negative' as Tone,
+    },
+    {
+      value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
+      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi yang akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
+      source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
+    },
+  ],
+  note: 'Data ROI pendidikan per jalur studi per sektor sedang dalam proses verifikasi dan akan ditambahkan.',
+};
+
+// ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
+export const bkSection = {
+  tag: 'KONDISI BIMBINGAN KARIER DI SEKOLAH',
+  intro: 'Data tentang kondisi BK di Indonesia, untuk referensi dan advokasi.',
+  cards: [
+    {
+      value: '1:250–350', label: 'rasio guru BK terhadap siswa di SMA Indonesia',
+      detail: 'Standar Permendikbud No. 111/2014: 1:150. Kenyataan: rata-rata 1:250 sampai 1:350. Di daerah terpencil bisa 1:500. Hanya 35–40% sekolah memenuhi standar. Di madrasah aliyah: 1:350 sampai 1:400.',
+      source: 'Data Dapodik Kemendikbud; EMIS Kemenag; Permendikbud No. 111/2014', tone: 'negative' as Tone,
+    },
+    {
+      value: '80–85%', label: 'siswa yang hanya mendapat layanan BK administratif',
+      detail: 'Layanan yang bermakna, konseling berbasis data minat bakat, tindak lanjut individual, hanya diterima 15–20% siswa. Sisanya: mengisi angket, mendengar sosialisasi universitas, mengisi formulir tanpa analisis.',
+      source: 'Jurnal Kajian Bimbingan dan Konseling; Survei Mutu Pendidikan', tone: 'negative' as Tone,
+    },
+    {
+      value: '88%', label: 'guru BK yang membutuhkan platform asesmen karier terstandarisasi dan gratis',
+      detail: 'Lisensi alat tes psikologi mahal jika harus diadakan mandiri untuk seluruh siswa. 74% membutuhkan dashboard data pasar kerja yang diperbarui berkala. 62% kesulitan mengintegrasikan asesmen non-kognitif sesuai Kurikulum Merdeka.',
+      source: 'Riset ABKIN; Universitas Pendidikan Indonesia (UPI); Universitas Negeri Yogyakarta (UNY)', tone: 'neutral' as Tone,
+    },
+    {
+      value: '28%', label: 'siswa usia 15 tahun di Indonesia dengan rencana karier yang realistis',
+      detail: 'OECD menemukan: bimbingan karier di usia 15 berkorelasi kuat dengan outcome kerja di usia 25. Indonesia berada di kuadran bawah dalam efektivitas career guidance. Mayoritas siswa mendambakan pekerjaan kerah putih tradisional yang kuota pasarnya sedang menyusut.',
+      source: 'OECD State of Global Teenage Career Preparation 2024', tone: 'negative' as Tone,
+    },
+  ],
+};
+
+// ─── SECTION 4: DUNIA 2025–2030 ───────────────────────────────────
+export const worldSection = {
+  tag: 'DUNIA 2025–2030',
+  intro: {
+    siswa: 'Ini bukan krisis global yang abstrak. Ini yang akan membentuk pilihan karier kamu.',
+    orangtua: 'Investasi pendidikan yang paling aman adalah yang mempersiapkan anak untuk jenis pekerjaan yang akan ada, bukan yang sudah ada.',
+    gurubk: 'Data dari WEF, McKinsey, dan Stanford. Sumber yang bisa dikutip dalam konseling.',
+  } as Record<Persona, string>,
+  cards: [
+    {
+      value: '+78 juta', label: 'pertumbuhan neto lapangan kerja global pada 2030',
+      detail: '170 juta pekerjaan baru tercipta, 92 juta hilang. Neto positif secara global. Tapi distribusinya tidak merata: negara berkembang seperti Indonesia lebih rentan karena ketergantungan pada sektor yang paling mudah diotomasi.',
+      source: 'WEF Future of Jobs Report 2025', tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Ada pekerjaan baru, tapi butuh skill berbeda dari yang diajarkan sekarang.',
+        orangtua: 'Skill anak Anda pada 2030 lebih penting dari nama kampusnya.',
+        gurubk: 'Basis data untuk menjawab pertanyaan siswa soal "masih ada pekerjaan tidak nanti?"',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '83%', label: 'bisnis di Indonesia melihat digitalisasi sebagai perubahan terbesar di pasar kerja',
+      detail: 'Jauh di atas rata-rata global (60%). McKinsey memperkirakan 16% jam kerja Indonesia, setara 23 juta pekerja, bisa diotomasi secara teknis sebelum 2030.',
+      source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Indonesia bergerak lebih cepat dari rata-rata global. Adaptasinya perlu lebih cepat juga.',
+        orangtua: 'Jurusan yang aman lima tahun lalu tidak otomatis aman sekarang.',
+        gurubk: 'Data untuk mendampingi siswa yang mempertanyakan relevansi pilihan studinya.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '47,27%', label: 'kontribusi sektor halal ke PDB Indonesia',
+      detail: 'Sekitar Rp10.600 triliun pada 2024. Indonesia nomor 1 dunia modest fashion, nomor 2 halal tourism. Aset perbankan syariah tumbuh 33,92% dalam setahun. SDM yang paham fikih muamalah sekaligus bisnis modern sangat sedikit.',
+      source: 'KNEKS 2024; SGIE Report 2024/2025', tone: 'positive' as Tone,
+      artinya: {
+        siswa: 'Ada sektor besar yang kekurangan orang yang tahu cara kerjanya dari dalam.',
+        orangtua: 'Jalur pendidikan berbasis nilai Islam tidak harus menutup peluang karier.',
+        gurubk: 'Sektor ini bisa jadi alternatif konkret untuk siswa yang selama ini tidak melihat jalurnya.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '2030–2035', label: 'puncak bonus demografi Indonesia',
+      detail: 'Proporsi penduduk usia produktif mencapai 68–70% dari total populasi. Bappenas memproyeksikan angkatan kerja potensial mencapai 201 juta jiwa pada 2030. Setelah 2035, rasio ketergantungan mulai naik. Jendela ini tidak berulang.',
+      source: 'Proyeksi Penduduk Indonesia 2020–2050, Bappenas/BPS; RPJPN 2025–2045', tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Generasimu adalah generasi yang paling menentukan apakah bonus demografi jadi aset atau beban.',
+        orangtua: 'Keputusan yang dibuat hari ini untuk anak Anda adalah bagian dari keputusan nasional yang lebih besar.',
+        gurubk: 'Framing ini berguna untuk menjelaskan urgency kepada siswa tanpa terasa menakut-nakuti.',
+      } as Record<Persona, string>,
+    },
+  ],
+};
+
+// ─── SECTION 5: PELUANG SDM ───────────────────────────────────────
+export const opportunitySection = {
+  tag: 'PELUANG YANG BELUM DIISI',
+  intro: {
+    siswa: 'Ada sektor-sektor yang butuh orang tapi belum ada cukup yang datang. Ini shortage yang terdokumentasi, bukan hype.',
+    orangtua: 'Jalur karier yang paling aman bukan yang paling populer sekarang.',
+    gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
+  } as Record<Persona, string>,
+  items: [
+    { number: '01', title: 'Keuangan syariah', body: 'Aset tumbuh 33,92% per tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi.' },
+    { number: '02', title: 'Ekonomi hijau dan energi terbarukan', body: '1,72 juta tenaga kerja terampil diproyeksikan dibutuhkan di sektor ini sampai 2030 (IESR). SDM-nya hampir tidak ada sekarang.' },
+    { number: '03', title: 'Konten digital Islam', body: 'Pasar besar, sangat kekurangan kreator yang punya otoritas keagamaan sekaligus keterampilan produksi media.' },
+    { number: '04', title: 'Care economy', body: 'WEF mencatat perawat, konselor, dan pekerja sosial sebagai pekerjaan dengan pertumbuhan absolut tertinggi. Di Indonesia, angkanya belum proporsional dengan kebutuhan.' },
+    { number: '05', title: 'Agritech dan ketahanan pangan', body: 'Indonesia masih impor gandum, kedelai, bawang putih. Infrastruktur dibangun, tapi SDM teknologi pertanian hampir tidak ada.' },
+    { number: '06', title: 'Bimbingan karier berbasis data', body: 'Rasio 1:250 di sekolah bukan hanya masalah, itu kebutuhan yang belum ada supplainya. Yang bisa mengisi celah ini adalah orang yang paham psikologi dan data.' },
+  ],
+};
+
+// ─── SECTION 6: SKILL MAP TEASER ─────────────────────────────────
+export const skillMapTeaser = {
+  tag: 'PETA SKILL LENGKAP',
+  headline: 'Bukan daftar jargon. Peta yang bisa kamu baca.',
+  body: 'Dari karakter dasar yang tidak bisa digantikan AI, sampai domain teknis per sektor. Lengkap dengan relasi kausal yang terbukti secara eksperimental dan data pasar kerja Indonesia.',
+  cta: 'Buka Peta Skill',
+  href: '/skill-map',
+};
+
+// ─── PERSONA CALLOUT ──────────────────────────────────────────────
+export const personaCallout: Record<Persona, { headline: string; body: string }> = {
+  siswa: {
+    headline: 'Kamu sudah tahu kondisinya.',
+    body: 'Data yang kamu baca bukan takdir. Itu peta. Yang menentukan kamu ada di mana dalam peta itu adalah pilihan yang kamu buat sekarang, dan seberapa dalam kamu mengenal diri sendiri sebelum memilih.',
+  },
+  orangtua: {
+    headline: 'Mendampingi bukan berarti menentukan.',
+    body: 'Pengaruh yang paling kuat dari orang tua bukan pada jurusan yang dipilihkan, tapi pada kualitas percakapan yang terjadi sebelum keputusan diambil. Data yang valid membuat percakapan itu lebih jujur.',
+  },
+  gurubk: {
+    headline: 'Kamu menghadapi 200+ siswa dengan pertanyaan yang semakin kompleks.',
+    body: 'Bukan salahmu bahwa datanya tidak cukup. Tapi ada cara untuk memulai percakapan yang lebih bermakna, bahkan dalam waktu yang terbatas.',
+  },
+};
+
+// ─── CTA + WAITLIST ───────────────────────────────────────────────
+export const ctaSection = {
+  headline: 'Sekarang, kenali dirimu.',
+  subtext: {
+    siswa: 'Asesmen minat dan kepribadian yang dirancang untuk konteks Indonesia. Gratis.',
+    orangtua: 'Bisa diisi sendiri, atau bersama anak.',
+    gurubk: 'Tersedia juga mode kelas untuk digunakan bersama siswa.',
+  } as Record<Persona, string>,
+  button: { label: 'Mulai asesmen', disabled: true },
+  waitlist: {
+    headline: 'Asesmen sedang dalam pengembangan.',
+    subtext: 'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
+    fields: {
+      name: { label: 'Nama', placeholder: 'Nama lengkap' },
+      email: { label: 'Email', placeholder: 'email@kamu.com' },
+      whatsapp: { label: 'Nomor WhatsApp', placeholder: '08xxxxxxxxxx', note: 'Kami hubungi via WA ketika asesmen siap.' },
+    },
+    submit: 'Daftarkan saya',
+    submitting: 'Menyimpan...',
+    successMessage: 'Terdaftar. Kami akan menghubungimu segera setelah asesmen siap.',
+    errorMessage: 'Terjadi kesalahan. Coba lagi.',
+  },
+};
+
+// ─── FOOTER SOURCES ───────────────────────────────────────────────
+export const dataSources = [
+  'BPS Sakernas 2024 dan 2025',
+  'WEF Future of Jobs Report 2025',
+  'Stanford AI Index 2026',
+  'McKinsey Global Institute — Future of Work Indonesia',
+  'ILO ASEAN in Transformation 2024',
+  'Bappenas — Proyeksi Penduduk Indonesia 2020–2050',
+  'RPJPN 2025–2045 (UU No. 59/2024)',
+  'KNEKS 2024; SGIE Report 2024/2025',
+  'OECD State of Global Teenage Career Preparation 2024',
+  'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network',
+  'Jurnal ABKIN; UPI; UNY — Riset kebutuhan guru BK',
+  'Permendikbud No. 111/2014; Data Dapodik; EMIS Kemenag',
+  'IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025',
+  'Kemnaker RTKN 2025-2029',
 ];
 
-export const toneOptions: { label: string; value: Tone }[] = [
-  { label: 'Negatif (merah)', value: 'negative' },
-  { label: 'Positif (biru)', value: 'positive' },
-  { label: 'Netral (default)', value: 'neutral' },
-];
+export const sourcePrefix = 'Sumber:';
+export const dataSourcesLabel = 'Daftar sumber data';
