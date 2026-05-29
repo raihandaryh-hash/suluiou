@@ -228,7 +228,15 @@ function RoiBlock() {
           <StatCard key={i} card={c as StatCardData} persona="orangtua" />
         ))}
       </div>
-      <p className="text-xs text-muted-foreground mt-6 italic">{roiSection.note}</p>
+      <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-5">
+        <p className="text-sm text-foreground/80 leading-relaxed italic">
+          &ldquo;{roiSection.expertQuote.quote}&rdquo;
+        </p>
+        <p className="text-xs text-muted-foreground mt-3">
+          <span className="font-semibold text-foreground">{roiSection.expertQuote.speaker}</span> — {roiSection.expertQuote.title}
+        </p>
+        <p className="text-xs text-muted-foreground mt-1 italic">{roiSection.expertQuote.context}</p>
+      </div>
     </section>
   );
 }
