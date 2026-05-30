@@ -212,30 +212,29 @@ export const skillSection = {
 // ─── SECTION 3b: ROI PENDIDIKAN (orangtua) ────────────────────────
 export const roiSection = {
   tag: 'INVESTASI PENDIDIKAN',
-  intro: 'Pertanyaan yang wajar untuk ditanyakan: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
+  intro: 'Pertanyaan yang wajar: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
   cards: [
     {
+      value: 'Rp 12–19 jt', label: 'total biaya kuliah S1 di IOU Indonesia (4 tahun)',
+      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Ijazah sudah mendapat penyetaraan Kemendikbud. Kuliah dari rumah — tidak ada biaya hidup terpisah.',
+      source: 'IOU Indonesia, data biaya semester 2025; Kemendikbud penyetaraan 2024', tone: 'positive' as Tone,
+    },
+    {
+      value: 'Rp 150–250 jt', label: 'estimasi total biaya kuliah S1 di PTN (termasuk biaya hidup di kota)',
+      detail: 'UKT kelompok menengah PTN: Rp 4-7 juta/semester × 8 semester = Rp 32-56 juta (SPP saja). Ditambah biaya hidup di kota Rp 2,5-4 juta/bulan × 48 bulan = Rp 120-192 juta. Total: bisa mencapai Rp 150-250 juta untuk 4 tahun.',
+      source: 'Data UKT Kemendikbud 2025; BPS Survei Biaya Hidup 2024', tone: 'neutral' as Tone,
+    },
+    {
       value: 'Rp 4,63 jt', label: 'rata-rata gaji bulanan lulusan perguruan tinggi Indonesia',
-      detail: 'Lebih tinggi dari lulusan SMA/SMK (Rp3,2-3,4 juta) dan rata-rata nasional (Rp3,33 juta). Tapi fresh graduate baru masuk kerja (usia 20-25) sering hanya mendapat Rp2,0-2,5 juta — bahkan lulusan PTN rata-rata lebih rendah (Rp2,0 juta) dari PTS (Rp2,5 juta) di awal karier.',
+      detail: 'Lebih tinggi dari rata-rata nasional (Rp 3,33 juta). Tapi fresh graduate usia 20-25 tahun sering hanya mendapat Rp 2-2,5 juta di awal karier. Yang menentukan outcome bukan nama kampus, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
       source: 'BPS Sakernas November 2025', tone: 'neutral' as Tone,
     },
     {
-      value: '4–8 tahun', label: 'estimasi waktu balik modal investasi S1 di PTN (kelas menengah)',
-      detail: 'Dengan UKT kelompok menengah PTN (Rp4-7 juta/semester) + biaya hidup di kota (Rp2,5-4 juta/bulan), total investasi 4 tahun bisa mencapai Rp100-200 juta. Dengan gaji awal Rp2-3 juta, balik modal membutuhkan 4-8 tahun — asumsi tidak ada pengeluaran lain.',
-      source: 'Kalkulasi dari data BPS Sakernas November 2025 + data UKT Kemendikbud 2025', tone: 'neutral' as Tone,
-    },
-    {
       value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
-      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi yang akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
+      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
       source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
     },
   ],
-  expertQuote: {
-    quote: 'Anak-anak Indonesia yang lahir dengan kondisi sosial berbeda harus diberikan kesempatan yang sama dalam hal pendidikan dan kesehatan.',
-    speaker: 'Sri Mulyani Indrawati',
-    title: 'Menteri Keuangan RI',
-    context: 'Tentang perlunya investasi SDM untuk keluar dari middle-income trap',
-  },
 };
 
 // ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
