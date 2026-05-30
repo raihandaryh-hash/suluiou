@@ -580,6 +580,23 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* Alumni yang Sudah Membuktikan */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{alumniSection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-3xl">{alumniSection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{alumniSection.subtext}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {alumniSection.stories.map((s, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col">
+                  <p className="text-[10px] font-semibold tracking-[0.15em] text-primary uppercase mb-3">{s.sector}</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed mb-4">{s.story}</p>
+                  <p className="text-sm text-foreground/80 italic leading-relaxed mb-4 border-l-2 border-primary/40 pl-3">{s.insight}</p>
+                  <p className="text-xs text-muted-foreground mt-auto italic">{sourcePrefix} {s.source}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* SECTION 8 — Persona Callout */}
           <section className="container mx-auto px-6 py-16 max-w-3xl">
             <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
@@ -592,8 +609,8 @@ const Insight = () => {
             </div>
           </section>
 
-          {/* SECTION 9 — CTA + Waitlist */}
-          <section className="container mx-auto px-6 py-20 md:py-24 max-w-2xl text-center">
+          {/* SECTION 9 — CTA dual-path + Waitlist */}
+          <section className="container mx-auto px-6 py-20 md:py-24 max-w-3xl text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -606,10 +623,27 @@ const Insight = () => {
             <p className="text-sm md:text-base text-muted-foreground mt-4">
               {ctaSection.subtext[persona]}
             </p>
-            <div className="mt-8">
-              <Button size="lg" disabled={ctaSection.button.disabled} className="gap-2">
-                {ctaSection.button.label}
-              </Button>
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              {ctaSection.paths.map((p) => (
+                <Link
+                  key={p.href}
+                  to={p.href}
+                  className={cn(
+                    'group rounded-2xl border p-6 transition-all',
+                    p.variant === 'default'
+                      ? 'bg-primary text-primary-foreground border-primary hover:opacity-90'
+                      : 'bg-secondary/60 border-border hover:border-primary/40'
+                  )}
+                >
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <span className="font-heading font-semibold text-base md:text-lg">{p.label}</span>
+                    <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                  </div>
+                  <p className={cn('text-sm leading-relaxed', p.variant === 'default' ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
+                    {p.description}
+                  </p>
+                </Link>
+              ))}
             </div>
             <div className="mt-12">
               <WaitlistForm persona={persona} />
