@@ -167,6 +167,12 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
       <div className={cn('grid transition-all duration-300 ease-out', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
         <div className="overflow-hidden">
           <p className="text-sm text-foreground/80 leading-relaxed">{card.detail}</p>
+          {card.glossaryTerm && (
+            <div className="mt-3 bg-secondary/40 border border-border rounded-lg p-3">
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-1">Istilah ini</p>
+              <p className="text-xs text-foreground/75 leading-relaxed">{card.glossaryTerm}</p>
+            </div>
+          )}
           <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {card.source}</p>
         </div>
       </div>
