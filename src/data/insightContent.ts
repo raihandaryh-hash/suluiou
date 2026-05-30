@@ -491,6 +491,13 @@ export const dataSources = [
   'Permendikbud No. 111/2014; Data Dapodik; EMIS Kemenag',
   'IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025',
   'Kemnaker RTKN 2025-2029',
+  'BPS Sakernas 2024-2025 (informal economy, pekerja lepas, poly-jobbing)',
+  'World Bank Indonesia — Kelas Menengah 2024',
+  'BPS Jawa Barat 2025; Bank Indonesia Jawa Barat Q1 2026',
+  'BPJPH 2026 — Data Sertifikasi Halal Jawa Barat',
+  'British Council/AVPN DICE Study — Social Enterprise Indonesia',
+  'Tracer Study UIN Jakarta; Data PBSB Kemenag RI',
+  'Ioda Academy Indonesia — Survei Poly-jobbing Gen Z 2024',
 ];
 
 export const sourcePrefix = 'Sumber:';
