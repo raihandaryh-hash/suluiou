@@ -440,15 +440,28 @@ export const personaCallout: Record<Persona, { headline: string; body: string }>
 
 // ─── CTA + WAITLIST ───────────────────────────────────────────────
 export const ctaSection = {
-  headline: 'Sekarang, kenali dirimu.',
+  headline: 'Kamu sudah tahu kondisi dunianya.',
   subtext: {
-    siswa: 'Asesmen minat dan kepribadian yang dirancang untuk konteks Indonesia. Gratis.',
-    orangtua: 'Bisa diisi sendiri, atau bersama anak.',
-    gurubk: 'Tersedia juga mode kelas untuk digunakan bersama siswa.',
+    siswa: 'Ada dua langkah yang bisa diambil sekarang.',
+    orangtua: 'Ada dua langkah yang bisa diambil sekarang.',
+    gurubk: 'Ada dua langkah yang bisa diambil sekarang.',
   } as Record<Persona, string>,
-  button: { label: 'Mulai asesmen', disabled: true },
+  paths: [
+    {
+      label: 'Lihat peta skill lengkap',
+      description: 'Skill apa yang tumbuh, apa yang menyusut, dan bagaimana relasinya satu sama lain.',
+      href: '/skill-map',
+      variant: 'outline' as const,
+    },
+    {
+      label: 'Kenali dirimu',
+      description: 'Refleksi terarah tentang siapa kamu dan apa yang kamu bawa ke dunia ini.',
+      href: '/compass',
+      variant: 'default' as const,
+    },
+  ],
   waitlist: {
-    headline: 'Asesmen sedang dalam pengembangan.',
+    headline: 'Asesmen Sulu — Segera Hadir',
     subtext: 'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
     fields: {
       name: { label: 'Nama', placeholder: 'Nama lengkap' },
@@ -457,7 +470,7 @@ export const ctaSection = {
     },
     submit: 'Daftarkan saya',
     submitting: 'Menyimpan...',
-    successMessage: 'Terdaftar. Kami akan menghubungimu segera setelah asesmen siap.',
+    successMessage: 'Terdaftar. Kami akan menghubungimu begitu asesmen siap.',
     errorMessage: 'Terjadi kesalahan. Coba lagi.',
   },
 };
