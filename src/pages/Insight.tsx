@@ -469,6 +469,23 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* Realita Dunia Kerja */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {laborRealitySection.cards.map((c, i) => (
+                <StatCard key={i} card={c as StatCardData} persona={persona} />
+              ))}
+            </div>
+            <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-6">
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Catatan praktisi</p>
+              <p className="text-sm text-foreground/85 leading-relaxed italic">{laborRealitySection.practitionerNote.text}</p>
+              <p className="text-xs text-muted-foreground mt-3">{laborRealitySection.practitionerNote.attribution}</p>
+            </div>
+          </section>
+
           {/* SECTION 4 — Persona-specific middle */}
           {persona === 'siswa' && <SkillLandscape />}
           {persona === 'orangtua' && <RoiBlock />}
@@ -482,6 +499,30 @@ const Insight = () => {
                 <StatCard key={i} card={c as StatCardData} persona={persona} />
               ))}
             </div>
+          </section>
+
+          {/* Konteks Jawa Barat */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {jabarSection.stats.map((s, i) => {
+                const valueColor =
+                  s.tone === 'negative' ? 'text-destructive' :
+                  s.tone === 'positive' ? 'text-primary' :
+                  'text-foreground';
+                return (
+                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                    <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
+                    <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
+            <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
           </section>
 
           {/* Expert Quotes */}
