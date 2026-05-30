@@ -115,6 +115,59 @@ export const linkMatchSection = {
   } as Record<Persona, string>,
 };
 
+// ─── REALITA DUNIA KERJA ──────────────────────────────────────────
+export const laborRealitySection = {
+  tag: 'REALITA DUNIA KERJA',
+  headline: 'Bukan hanya AI. Ini yang paling langsung terasa sekarang.',
+  intro: {
+    siswa: 'Sebelum memilih jalur, kenali dulu medan yang akan kamu masuki.',
+    orangtua: 'Dunia kerja yang akan dimasuki anak Anda berbeda secara struktural dari yang Anda masuki dulu.',
+    gurubk: 'Data ini berguna untuk membangun percakapan karier yang jujur, bukan yang hanya menenangkan.',
+  } as Record<Persona, string>,
+  cards: [
+    {
+      value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
+      detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran — ini mayoritas. Tren ini naik, bukan turun.',
+      source: 'BPS Sakernas 2024-2025',
+      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja — termasuk yang berpendidikan — bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
+      tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Sistem tidak sedang mempersiapkan tempat untukmu secara otomatis. Kamu yang harus mempersiapkan diri.',
+        orangtua: 'Stabilitas kerja yang Anda rasakan dulu bukan standar yang bisa dijanjikan untuk anak Anda.',
+        gurubk: 'Mayoritas siswa Anda akan masuk ke ekosistem kerja tanpa jaring pengaman formal.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: 'K-Shaped', label: 'pemulihan ekonomi yang tidak merata',
+      detail: 'Gini index Indonesia mencapai 0,381 (September 2024). Kelas menengah menyusut 10 juta orang dalam 5 tahun. Pertumbuhan ekonomi terjadi, tapi terkonsentrasi di atas. Gelombang protes pemuda yang terjadi sejak awal 2025 adalah ekspresi langsung dari ketidakmerataan ini.',
+      source: 'BPS; World Bank Indonesia 2024; ISEAS Agustus 2025',
+      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K — sektor yang sudah kuat tumbuh lebih cepat (bagian atas), sementara sektor padat karya dan pekerja informal tertinggal (bagian bawah).',
+      tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
+        orangtua: 'Pertumbuhan ekonomi yang terlihat di berita tidak selalu dirasakan oleh semua lapisan masyarakat.',
+        gurubk: 'Data ini membantu menjelaskan mengapa banyak siswa merasa frustrasi meski ekonomi "tumbuh".',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '15,45%', label: 'tenaga kerja Indonesia yang punya pekerjaan tambahan',
+      detail: 'Tertinggi dalam 5 tahun terakhir (BPS 2023). 57% Gen Z dan 48% Milenial Indonesia sudah menjalankan setidaknya satu pekerjaan sampingan. Catatan: sebagian besar karena gaji satu pekerjaan tidak cukup, bukan karena pilihan strategis. Keduanya perlu diantisipasi.',
+      source: 'BPS 2023; Ioda Academy Indonesia 2024',
+      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus — bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
+      tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Membangun lebih dari satu keahlian yang bisa menghasilkan adalah strategi, bukan kemewahan.',
+        orangtua: 'Generasi anak Anda kemungkinan besar tidak akan hanya bekerja di satu tempat seumur hidup.',
+        gurubk: 'Siswa perlu disiapkan untuk mengelola karier yang lebih dinamis dari generasi sebelumnya.',
+      } as Record<Persona, string>,
+    },
+  ],
+  practitionerNote: {
+    text: 'Dari perspektif HR dengan 30 tahun pengalaman merekrut di perusahaan multinasional: pola yang paling sering berakhir dengan stagnasi adalah kombinasi antara gelar tanpa bukti kerja nyata, keahlian yang tidak bisa dibawa ke tempat lain, dan ketergantungan pada satu sumber penghasilan. Ini bukan data dari satu laporan — ini pola yang konsisten terlihat di lapangan.',
+    attribution: 'Berdasarkan perspektif praktisi HR, disintesis dari pengalaman lapangan 2024-2025.',
+  },
+};
+
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
 export const neetSection = {
   tag: 'NEET INDONESIA VS ASEAN',
