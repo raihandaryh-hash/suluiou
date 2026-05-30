@@ -284,6 +284,12 @@ export const opportunitySection = {
   ],
 };
 
+// ─── DATA DISCLAIMER (standar untuk semua angka income/salary) ───
+export const dataDisclaimer = {
+  income:
+    'Angka penghasilan di halaman ini adalah rata-rata atau estimasi dari sumber terverifikasi. Penghasilan aktual sangat bervariasi berdasarkan pengalaman, spesialisasi, akses ke klien, dan kondisi pasar lokal. Selalu verifikasi dengan sumber terpercaya sebelum mengambil keputusan berdasarkan angka ini.',
+};
+
 // ─── EXPERT QUOTES ────────────────────────────────────────────────
 export const expertSection = {
   tag: 'KATA PARA AHLI',
