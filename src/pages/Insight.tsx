@@ -233,19 +233,10 @@ function RoiBlock() {
   return (
     <section className="container mx-auto px-6 py-16 max-w-6xl">
       <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {roiSection.cards.map((c, i) => (
           <StatCard key={i} card={c as StatCardData} persona="orangtua" />
         ))}
-      </div>
-      <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-5">
-        <p className="text-sm text-foreground/80 leading-relaxed italic">
-          &ldquo;{roiSection.expertQuote.quote}&rdquo;
-        </p>
-        <p className="text-xs text-muted-foreground mt-3">
-          <span className="font-semibold text-foreground">{roiSection.expertQuote.speaker}</span> — {roiSection.expertQuote.title}
-        </p>
-        <p className="text-xs text-muted-foreground mt-1 italic">{roiSection.expertQuote.context}</p>
       </div>
     </section>
   );
