@@ -115,6 +115,59 @@ export const linkMatchSection = {
   } as Record<Persona, string>,
 };
 
+// ─── REALITA DUNIA KERJA ──────────────────────────────────────────
+export const laborRealitySection = {
+  tag: 'REALITA DUNIA KERJA',
+  headline: 'Bukan hanya AI. Ini yang paling langsung terasa sekarang.',
+  intro: {
+    siswa: 'Sebelum memilih jalur, kenali dulu medan yang akan kamu masuki.',
+    orangtua: 'Dunia kerja yang akan dimasuki anak Anda berbeda secara struktural dari yang Anda masuki dulu.',
+    gurubk: 'Data ini berguna untuk membangun percakapan karier yang jujur, bukan yang hanya menenangkan.',
+  } as Record<Persona, string>,
+  cards: [
+    {
+      value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
+      detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran — ini mayoritas. Tren ini naik, bukan turun.',
+      source: 'BPS Sakernas 2024-2025',
+      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja — termasuk yang berpendidikan — bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
+      tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Sistem tidak sedang mempersiapkan tempat untukmu secara otomatis. Kamu yang harus mempersiapkan diri.',
+        orangtua: 'Stabilitas kerja yang Anda rasakan dulu bukan standar yang bisa dijanjikan untuk anak Anda.',
+        gurubk: 'Mayoritas siswa Anda akan masuk ke ekosistem kerja tanpa jaring pengaman formal.',
+      } as Record<Persona, string>,
+    },
+    {
+      value: 'K-Shaped', label: 'pemulihan ekonomi yang tidak merata',
+      detail: 'Gini index Indonesia mencapai 0,381 (September 2024). Kelas menengah menyusut 10 juta orang dalam 5 tahun. Pertumbuhan ekonomi terjadi, tapi terkonsentrasi di atas. Gelombang protes pemuda yang terjadi sejak awal 2025 adalah ekspresi langsung dari ketidakmerataan ini.',
+      source: 'BPS; World Bank Indonesia 2024; ISEAS Agustus 2025',
+      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K — sektor yang sudah kuat tumbuh lebih cepat (bagian atas), sementara sektor padat karya dan pekerja informal tertinggal (bagian bawah).',
+      tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
+        orangtua: 'Pertumbuhan ekonomi yang terlihat di berita tidak selalu dirasakan oleh semua lapisan masyarakat.',
+        gurubk: 'Data ini membantu menjelaskan mengapa banyak siswa merasa frustrasi meski ekonomi "tumbuh".',
+      } as Record<Persona, string>,
+    },
+    {
+      value: '15,45%', label: 'tenaga kerja Indonesia yang punya pekerjaan tambahan',
+      detail: 'Tertinggi dalam 5 tahun terakhir (BPS 2023). 57% Gen Z dan 48% Milenial Indonesia sudah menjalankan setidaknya satu pekerjaan sampingan. Catatan: sebagian besar karena gaji satu pekerjaan tidak cukup, bukan karena pilihan strategis. Keduanya perlu diantisipasi.',
+      source: 'BPS 2023; Ioda Academy Indonesia 2024',
+      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus — bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
+      tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Membangun lebih dari satu keahlian yang bisa menghasilkan adalah strategi, bukan kemewahan.',
+        orangtua: 'Generasi anak Anda kemungkinan besar tidak akan hanya bekerja di satu tempat seumur hidup.',
+        gurubk: 'Siswa perlu disiapkan untuk mengelola karier yang lebih dinamis dari generasi sebelumnya.',
+      } as Record<Persona, string>,
+    },
+  ],
+  practitionerNote: {
+    text: 'Dari perspektif HR dengan 30 tahun pengalaman merekrut di perusahaan multinasional: pola yang paling sering berakhir dengan stagnasi adalah kombinasi antara gelar tanpa bukti kerja nyata, keahlian yang tidak bisa dibawa ke tempat lain, dan ketergantungan pada satu sumber penghasilan. Ini bukan data dari satu laporan — ini pola yang konsisten terlihat di lapangan.',
+    attribution: 'Berdasarkan perspektif praktisi HR, disintesis dari pengalaman lapangan 2024-2025.',
+  },
+};
+
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
 export const neetSection = {
   tag: 'NEET INDONESIA VS ASEAN',
@@ -159,30 +212,29 @@ export const skillSection = {
 // ─── SECTION 3b: ROI PENDIDIKAN (orangtua) ────────────────────────
 export const roiSection = {
   tag: 'INVESTASI PENDIDIKAN',
-  intro: 'Pertanyaan yang wajar untuk ditanyakan: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
+  intro: 'Pertanyaan yang wajar: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
   cards: [
     {
+      value: 'Rp 12–19 jt', label: 'total biaya kuliah S1 di IOU Indonesia (4 tahun)',
+      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Ijazah sudah mendapat penyetaraan Kemendikbud. Kuliah dari rumah — tidak ada biaya hidup terpisah.',
+      source: 'IOU Indonesia, data biaya semester 2025; Kemendikbud penyetaraan 2024', tone: 'positive' as Tone,
+    },
+    {
+      value: 'Rp 150–250 jt', label: 'estimasi total biaya kuliah S1 di PTN (termasuk biaya hidup di kota)',
+      detail: 'UKT kelompok menengah PTN: Rp 4-7 juta/semester × 8 semester = Rp 32-56 juta (SPP saja). Ditambah biaya hidup di kota Rp 2,5-4 juta/bulan × 48 bulan = Rp 120-192 juta. Total: bisa mencapai Rp 150-250 juta untuk 4 tahun.',
+      source: 'Data UKT Kemendikbud 2025; BPS Survei Biaya Hidup 2024', tone: 'neutral' as Tone,
+    },
+    {
       value: 'Rp 4,63 jt', label: 'rata-rata gaji bulanan lulusan perguruan tinggi Indonesia',
-      detail: 'Lebih tinggi dari lulusan SMA/SMK (Rp3,2-3,4 juta) dan rata-rata nasional (Rp3,33 juta). Tapi fresh graduate baru masuk kerja (usia 20-25) sering hanya mendapat Rp2,0-2,5 juta — bahkan lulusan PTN rata-rata lebih rendah (Rp2,0 juta) dari PTS (Rp2,5 juta) di awal karier.',
+      detail: 'Lebih tinggi dari rata-rata nasional (Rp 3,33 juta). Tapi fresh graduate usia 20-25 tahun sering hanya mendapat Rp 2-2,5 juta di awal karier. Yang menentukan outcome bukan nama kampus, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
       source: 'BPS Sakernas November 2025', tone: 'neutral' as Tone,
     },
     {
-      value: '4–8 tahun', label: 'estimasi waktu balik modal investasi S1 di PTN (kelas menengah)',
-      detail: 'Dengan UKT kelompok menengah PTN (Rp4-7 juta/semester) + biaya hidup di kota (Rp2,5-4 juta/bulan), total investasi 4 tahun bisa mencapai Rp100-200 juta. Dengan gaji awal Rp2-3 juta, balik modal membutuhkan 4-8 tahun — asumsi tidak ada pengeluaran lain.',
-      source: 'Kalkulasi dari data BPS Sakernas November 2025 + data UKT Kemendikbud 2025', tone: 'neutral' as Tone,
-    },
-    {
       value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
-      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi yang akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
+      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
       source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
     },
   ],
-  expertQuote: {
-    quote: 'Anak-anak Indonesia yang lahir dengan kondisi sosial berbeda harus diberikan kesempatan yang sama dalam hal pendidikan dan kesehatan.',
-    speaker: 'Sri Mulyani Indrawati',
-    title: 'Menteri Keuangan RI',
-    context: 'Tentang perlunya investasi SDM untuk keluar dari middle-income trap',
-  },
 };
 
 // ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
@@ -274,13 +326,59 @@ export const opportunitySection = {
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
   } as Record<Persona, string>,
   items: [
-    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM dan perusahaan. Kebutuhan Penyelia Halal dan Auditor Halal melonjak, tapi tenaga tersertifikasi sangat sedikit. Jalur ini sangat relevan untuk lulusan pendidikan Islam yang juga memahami sains.', badge: 'Shortage regulasi — data BPJPH/Kemenag' },
-    { number: '02', title: 'Keuangan Syariah dan Fintech', body: 'Aset perbankan syariah tumbuh dengan pesat. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena skill mismatch.', badge: 'Shortage terdokumentasi — OJK, KNEKS' },
-    { number: '03', title: 'Energi Terbarukan dan Ekonomi Hijau', body: '1,72 juta tenaga terampil dibutuhkan di sektor ini sampai 2030 (IESR). Target pelatihan pemerintah jauh di bawah angka ini. Termasuk teknisi PLTS, insinyur sistem energi, dan konsultan carbon accounting.', badge: 'Gap 1,72 juta vs 15.000 terlatih' },
-    { number: '04', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce) yang butuh regenerasi dan modernisasi. Indonesia masih impor gandum, kedelai, bawang putih. Hanya 12-14% pemuda bekerja di pertanian — sebagian besar karena tidak ada jalur masuk yang modern.', badge: 'Shortage demografis + teknologi' },
-    { number: '05', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker, psikolog — pertumbuhan absolut tertinggi secara global (WEF). Di Indonesia, rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental: 1:30.000+.', badge: 'Shortage akut — Kemenkes, INAMHS' },
-    { number: '06', title: 'Halal Logistics dan Supply Chain', body: 'Ekspansi rantai pasok global menuntut standarisasi Halal Supply Chain. Industri kekurangan pengawas rantai pasok yang memahami regulasi higienitas dan halal traceability — posisi yang cocok untuk lulusan SMA/MA dengan pelatihan spesifik.', badge: 'Emerging — data Asosiasi Logistik Indonesia' },
-    { number: '07', title: 'Talenta Digital (Software, Data, Cybersecurity)', body: 'Indonesia kekurangan rata-rata 600.000 talenta digital per tahun (Bank Dunia, Kominfo). Posisi junior di data analytics dan cybersecurity terbuka untuk fresh graduate. Catatan: AI mengotomasi entry-level coding — yang bertahan adalah yang bisa mengawasi sistem AI.', badge: 'Shortage — Bank Dunia, Kominfo' },
+    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM. 882.000 UMKM di Jawa Barat sudah bersertifikat (terbanyak nasional). Kebutuhan Penyelia Halal dan Auditor Halal sangat besar, supply sangat sedikit. Jalur yang sangat relevan untuk lulusan pendidikan Islam yang memahami sains.', badge: 'BPJPH Februari 2026; KDEKS Jabar' },
+    { number: '02', title: 'Keuangan Syariah', body: 'Aset perbankan syariah tumbuh 33,92% dalam satu tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena mismatch skills.', badge: 'OJK; KNEKS 2024' },
+    { number: '03', title: 'Energi Terbarukan', body: '1,72 juta tenaga kerja diproyeksikan dibutuhkan di sektor EBT pada 2030 (IESR, skenario optimal). Target pelatihan pemerintah: 15.000 orang. Gap ini adalah peluang bagi yang menyiapkan diri lebih awal.', badge: 'IESR 2024; Kemnaker RTKN 2025-2029' },
+    { number: '04', title: 'Kerja Lepas Digital', body: 'BPS Sakernas mencatat 7,2 juta pekerja lepas di Indonesia dengan rata-rata penghasilan Rp 3,73 juta/bulan secara nasional. Penghasilan aktual sangat bervariasi — ditentukan oleh spesialisasi, akses ke klien, dan reputasi yang dibangun. Untuk berlatar pendidikan Islam, bidang yang paling accessible: penerjemahan teks Arab-Indonesia, pengajaran bahasa Arab dan Al-Quran, dan penulisan konten berbasis kajian Islam.', badge: 'BPS Sakernas 2024' },
+    { number: '05', title: 'Wirausaha Sosial', body: '67% pemimpin wirausaha sosial di Indonesia berusia 18-34 tahun. 70% entitas ini didirikan dalam 5 tahun terakhir. Model yang memadukan profitabilitas dengan pemecahan masalah sosial — selaras dengan konsep khairu ummah.', badge: 'British Council/AVPN DICE Study; UNESCAP' },
+    { number: '06', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker — pertumbuhan absolut tertinggi secara global (WEF). Rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental di Indonesia: 1:30.000+.', badge: 'WEF FoJ 2025; Kemenkes RI 2024' },
+    { number: '07', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce, 40,76 juta orang) yang butuh generasi baru dengan literasi teknologi. Indonesia masih impor gandum, kedelai, bawang putih. SDM agritech modern sangat langka.', badge: 'BPS Sakernas 2024; Kementan RI' },
+  ],
+};
+
+// ─── KONTEKS JAWA BARAT ───────────────────────────────────────────
+export const jabarSection = {
+  tag: 'KONTEKS JAWA BARAT',
+  headline: 'Paradoks provinsi dengan ekonomi terkuat sekaligus pengangguran pemuda tertinggi.',
+  subtext: 'Ekonomi Jawa Barat tumbuh 5,79% di kuartal pertama 2026, tercepat di Indonesia. Tapi tingkat pengangguran pemudanya 16,89%, tertinggi ketiga secara nasional. Pertumbuhan dan pengangguran bisa hidup berdampingan. Yang menentukan kamu ada di sisi mana adalah persiapan.',
+  source: 'BPS Jawa Barat 2025; Bank Indonesia Jawa Barat Q1 2026',
+  stats: [
+    { label: 'TPT Pemuda Jabar', value: '16,89%', context: 'Tertinggi ke-3 nasional', tone: 'negative' as Tone },
+    { label: 'TPT Lulusan SMK Jabar', value: '12,42%', context: 'Lebih tinggi dari lulusan universitas (9,47%)', tone: 'negative' as Tone },
+    { label: 'Tasikmalaya TPT', value: '3,74%', context: 'Terendah di Jabar. Ekosistem: pesantren + kerajinan + ekonomi Islam komunitas.', tone: 'positive' as Tone },
+    { label: 'UMKM bersertifikat halal di Jabar', value: '882.000', context: 'Terbanyak di Indonesia (BPJPH, Feb 2026)', tone: 'positive' as Tone },
+  ],
+  closingNote: {
+    siswa: 'Kamu tinggal di provinsi dengan salah satu paradoks terbesar Indonesia. Keputusan hari ini menentukan kamu ada di sisi pertumbuhan atau sisi pengangguran.',
+    orangtua: 'Data Jabar berbeda dari rata-rata nasional. Informasi lokal ini lebih relevan untuk keputusan pendidikan anak Anda.',
+    gurubk: 'Data per-kabupaten sangat bervariasi. Kabupaten asal siswa menentukan konteks peluang yang berbeda.',
+  } as Record<Persona, string>,
+};
+
+// ─── ALUMNI YANG SUDAH MEMBUKTIKAN ────────────────────────────────
+export const alumniSection = {
+  tag: 'MEREKA YANG SUDAH MEMBUKTIKAN',
+  headline: 'Lulusan madrasah dan pesantren bukan hanya ustaz dan guru agama.',
+  subtext: 'Ini pola yang terdokumentasi dari alumni pendidikan Islam Indonesia yang masuk ke sektor-sektor yang tidak pernah diduga.',
+  stories: [
+    {
+      sector: 'Energi Terbarukan',
+      story: 'Santri Pesantren Al-Amiin Prenduan (Sumenep, Madura) memasang dan mengelola PLTS Atap 10.000 Watt secara mandiri — sebagai santri yang dilatih langsung, bukan kontraktor eksternal. Sistem ini kemudian direplikasi di komunitas asal mereka.',
+      insight: 'Teknologi hijau dibangun di atas nilai kekhilafahan — menjaga bumi adalah ibadah, bukan karier sekuler.',
+      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
+    },
+    {
+      sector: 'Sains dan Teknologi Global',
+      story: 'Prof. Muhammad Nurhuda, Guru Besar Fisika Komputasi Universitas Brawijaya, mengembangkan kompor biomassa gasifikasi yang kini diproduksi massal di Norwegia dan didistribusikan ke India, Meksiko, Peru, Timor Leste, dan Kamboja.',
+      insight: 'Ilmu yang bermanfaat tidak punya batas sektor. Kombinasi kedalaman akademik dan orientasi kemaslahatan adalah jalur karier yang tidak bisa digantikan mesin.',
+      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
+    },
+    {
+      sector: 'Pendidikan Tinggi',
+      story: 'Universitas Islam Negeri Syarif Hidayatullah Jakarta mencatat hampir 50% lulusannya sudah terserap kerja sebelum wisuda. Alumni PBSB (Beasiswa Santri Berprestasi) Kemenag tersebar di kementerian, kedutaan besar, dan universitas.',
+      insight: 'Latar belakang Islam tidak mengurangi daya saing. Yang mengurangi daya saing adalah tidak mengenal potensi diri.',
+      source: 'Tracer Study UIN Jakarta; Data PBSB Kemenag',
+    },
   ],
 };
 
@@ -342,15 +440,28 @@ export const personaCallout: Record<Persona, { headline: string; body: string }>
 
 // ─── CTA + WAITLIST ───────────────────────────────────────────────
 export const ctaSection = {
-  headline: 'Sekarang, kenali dirimu.',
+  headline: 'Kamu sudah tahu kondisi dunianya.',
   subtext: {
-    siswa: 'Asesmen minat dan kepribadian yang dirancang untuk konteks Indonesia. Gratis.',
-    orangtua: 'Bisa diisi sendiri, atau bersama anak.',
-    gurubk: 'Tersedia juga mode kelas untuk digunakan bersama siswa.',
+    siswa: 'Ada dua langkah yang bisa diambil sekarang.',
+    orangtua: 'Ada dua langkah yang bisa diambil sekarang.',
+    gurubk: 'Ada dua langkah yang bisa diambil sekarang.',
   } as Record<Persona, string>,
-  button: { label: 'Mulai asesmen', disabled: true },
+  paths: [
+    {
+      label: 'Lihat peta skill lengkap',
+      description: 'Skill apa yang tumbuh, apa yang menyusut, dan bagaimana relasinya satu sama lain.',
+      href: '/skill-map',
+      variant: 'outline' as const,
+    },
+    {
+      label: 'Kenali dirimu',
+      description: 'Refleksi terarah tentang siapa kamu dan apa yang kamu bawa ke dunia ini.',
+      href: '/compass',
+      variant: 'default' as const,
+    },
+  ],
   waitlist: {
-    headline: 'Asesmen sedang dalam pengembangan.',
+    headline: 'Asesmen Sulu — Segera Hadir',
     subtext: 'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
     fields: {
       name: { label: 'Nama', placeholder: 'Nama lengkap' },
@@ -359,7 +470,7 @@ export const ctaSection = {
     },
     submit: 'Daftarkan saya',
     submitting: 'Menyimpan...',
-    successMessage: 'Terdaftar. Kami akan menghubungimu segera setelah asesmen siap.',
+    successMessage: 'Terdaftar. Kami akan menghubungimu begitu asesmen siap.',
     errorMessage: 'Terjadi kesalahan. Coba lagi.',
   },
 };
@@ -380,6 +491,13 @@ export const dataSources = [
   'Permendikbud No. 111/2014; Data Dapodik; EMIS Kemenag',
   'IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025',
   'Kemnaker RTKN 2025-2029',
+  'BPS Sakernas 2024-2025 (informal economy, pekerja lepas, poly-jobbing)',
+  'World Bank Indonesia — Kelas Menengah 2024',
+  'BPS Jawa Barat 2025; Bank Indonesia Jawa Barat Q1 2026',
+  'BPJPH 2026 — Data Sertifikasi Halal Jawa Barat',
+  'British Council/AVPN DICE Study — Social Enterprise Indonesia',
+  'Tracer Study UIN Jakarta; Data PBSB Kemenag RI',
+  'Ioda Academy Indonesia — Survei Poly-jobbing Gen Z 2024',
 ];
 
 export const sourcePrefix = 'Sumber:';

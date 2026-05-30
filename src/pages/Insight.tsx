@@ -15,12 +15,15 @@ import {
   indonesiaSection,
   linkMatchSection,
   neetSection,
+  laborRealitySection,
   skillSection,
   roiSection,
   bkSection,
   worldSection,
   expertSection,
   opportunitySection,
+  jabarSection,
+  alumniSection,
   skillMapTeaser,
   personaCallout,
   ctaSection,
@@ -130,6 +133,7 @@ type StatCardData = {
   source: string;
   tone: Tone;
   artinya?: Record<Persona, string>;
+  glossaryTerm?: string;
 };
 
 function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
@@ -163,6 +167,12 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
       <div className={cn('grid transition-all duration-300 ease-out', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
         <div className="overflow-hidden">
           <p className="text-sm text-foreground/80 leading-relaxed">{card.detail}</p>
+          {card.glossaryTerm && (
+            <div className="mt-3 bg-secondary/40 border border-border rounded-lg p-3">
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-1">Istilah ini</p>
+              <p className="text-xs text-foreground/75 leading-relaxed">{card.glossaryTerm}</p>
+            </div>
+          )}
           <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {card.source}</p>
         </div>
       </div>
@@ -223,19 +233,10 @@ function RoiBlock() {
   return (
     <section className="container mx-auto px-6 py-16 max-w-6xl">
       <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {roiSection.cards.map((c, i) => (
           <StatCard key={i} card={c as StatCardData} persona="orangtua" />
         ))}
-      </div>
-      <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-5">
-        <p className="text-sm text-foreground/80 leading-relaxed italic">
-          &ldquo;{roiSection.expertQuote.quote}&rdquo;
-        </p>
-        <p className="text-xs text-muted-foreground mt-3">
-          <span className="font-semibold text-foreground">{roiSection.expertQuote.speaker}</span> — {roiSection.expertQuote.title}
-        </p>
-        <p className="text-xs text-muted-foreground mt-1 italic">{roiSection.expertQuote.context}</p>
       </div>
     </section>
   );
@@ -468,6 +469,23 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* Realita Dunia Kerja */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {laborRealitySection.cards.map((c, i) => (
+                <StatCard key={i} card={c as StatCardData} persona={persona} />
+              ))}
+            </div>
+            <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-6">
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Catatan praktisi</p>
+              <p className="text-sm text-foreground/85 leading-relaxed italic">{laborRealitySection.practitionerNote.text}</p>
+              <p className="text-xs text-muted-foreground mt-3">{laborRealitySection.practitionerNote.attribution}</p>
+            </div>
+          </section>
+
           {/* SECTION 4 — Persona-specific middle */}
           {persona === 'siswa' && <SkillLandscape />}
           {persona === 'orangtua' && <RoiBlock />}
@@ -481,6 +499,30 @@ const Insight = () => {
                 <StatCard key={i} card={c as StatCardData} persona={persona} />
               ))}
             </div>
+          </section>
+
+          {/* Konteks Jawa Barat */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {jabarSection.stats.map((s, i) => {
+                const valueColor =
+                  s.tone === 'negative' ? 'text-destructive' :
+                  s.tone === 'positive' ? 'text-primary' :
+                  'text-foreground';
+                return (
+                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                    <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
+                    <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
+            <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
           </section>
 
           {/* Expert Quotes */}
@@ -538,6 +580,23 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* Alumni yang Sudah Membuktikan */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{alumniSection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-3xl">{alumniSection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{alumniSection.subtext}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {alumniSection.stories.map((s, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col">
+                  <p className="text-[10px] font-semibold tracking-[0.15em] text-primary uppercase mb-3">{s.sector}</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed mb-4">{s.story}</p>
+                  <p className="text-sm text-foreground/80 italic leading-relaxed mb-4 border-l-2 border-primary/40 pl-3">{s.insight}</p>
+                  <p className="text-xs text-muted-foreground mt-auto italic">{sourcePrefix} {s.source}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* SECTION 8 — Persona Callout */}
           <section className="container mx-auto px-6 py-16 max-w-3xl">
             <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
@@ -550,8 +609,8 @@ const Insight = () => {
             </div>
           </section>
 
-          {/* SECTION 9 — CTA + Waitlist */}
-          <section className="container mx-auto px-6 py-20 md:py-24 max-w-2xl text-center">
+          {/* SECTION 9 — CTA dual-path + Waitlist */}
+          <section className="container mx-auto px-6 py-20 md:py-24 max-w-3xl text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -564,10 +623,27 @@ const Insight = () => {
             <p className="text-sm md:text-base text-muted-foreground mt-4">
               {ctaSection.subtext[persona]}
             </p>
-            <div className="mt-8">
-              <Button size="lg" disabled={ctaSection.button.disabled} className="gap-2">
-                {ctaSection.button.label}
-              </Button>
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              {ctaSection.paths.map((p) => (
+                <Link
+                  key={p.href}
+                  to={p.href}
+                  className={cn(
+                    'group rounded-2xl border p-6 transition-all',
+                    p.variant === 'default'
+                      ? 'bg-primary text-primary-foreground border-primary hover:opacity-90'
+                      : 'bg-secondary/60 border-border hover:border-primary/40'
+                  )}
+                >
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <span className="font-heading font-semibold text-base md:text-lg">{p.label}</span>
+                    <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                  </div>
+                  <p className={cn('text-sm leading-relaxed', p.variant === 'default' ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
+                    {p.description}
+                  </p>
+                </Link>
+              ))}
             </div>
             <div className="mt-12">
               <WaitlistForm persona={persona} />
