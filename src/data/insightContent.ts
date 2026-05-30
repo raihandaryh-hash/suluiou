@@ -326,13 +326,59 @@ export const opportunitySection = {
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
   } as Record<Persona, string>,
   items: [
-    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM dan perusahaan. Kebutuhan Penyelia Halal dan Auditor Halal melonjak, tapi tenaga tersertifikasi sangat sedikit. Jalur ini sangat relevan untuk lulusan pendidikan Islam yang juga memahami sains.', badge: 'Shortage regulasi — data BPJPH/Kemenag' },
-    { number: '02', title: 'Keuangan Syariah dan Fintech', body: 'Aset perbankan syariah tumbuh dengan pesat. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut dan belum terpenuhi. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena skill mismatch.', badge: 'Shortage terdokumentasi — OJK, KNEKS' },
-    { number: '03', title: 'Energi Terbarukan dan Ekonomi Hijau', body: '1,72 juta tenaga terampil dibutuhkan di sektor ini sampai 2030 (IESR). Target pelatihan pemerintah jauh di bawah angka ini. Termasuk teknisi PLTS, insinyur sistem energi, dan konsultan carbon accounting.', badge: 'Gap 1,72 juta vs 15.000 terlatih' },
-    { number: '04', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce) yang butuh regenerasi dan modernisasi. Indonesia masih impor gandum, kedelai, bawang putih. Hanya 12-14% pemuda bekerja di pertanian — sebagian besar karena tidak ada jalur masuk yang modern.', badge: 'Shortage demografis + teknologi' },
-    { number: '05', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker, psikolog — pertumbuhan absolut tertinggi secara global (WEF). Di Indonesia, rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental: 1:30.000+.', badge: 'Shortage akut — Kemenkes, INAMHS' },
-    { number: '06', title: 'Halal Logistics dan Supply Chain', body: 'Ekspansi rantai pasok global menuntut standarisasi Halal Supply Chain. Industri kekurangan pengawas rantai pasok yang memahami regulasi higienitas dan halal traceability — posisi yang cocok untuk lulusan SMA/MA dengan pelatihan spesifik.', badge: 'Emerging — data Asosiasi Logistik Indonesia' },
-    { number: '07', title: 'Talenta Digital (Software, Data, Cybersecurity)', body: 'Indonesia kekurangan rata-rata 600.000 talenta digital per tahun (Bank Dunia, Kominfo). Posisi junior di data analytics dan cybersecurity terbuka untuk fresh graduate. Catatan: AI mengotomasi entry-level coding — yang bertahan adalah yang bisa mengawasi sistem AI.', badge: 'Shortage — Bank Dunia, Kominfo' },
+    { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM. 882.000 UMKM di Jawa Barat sudah bersertifikat (terbanyak nasional). Kebutuhan Penyelia Halal dan Auditor Halal sangat besar, supply sangat sedikit. Jalur yang sangat relevan untuk lulusan pendidikan Islam yang memahami sains.', badge: 'BPJPH Februari 2026; KDEKS Jabar' },
+    { number: '02', title: 'Keuangan Syariah', body: 'Aset perbankan syariah tumbuh 33,92% dalam satu tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena mismatch skills.', badge: 'OJK; KNEKS 2024' },
+    { number: '03', title: 'Energi Terbarukan', body: '1,72 juta tenaga kerja diproyeksikan dibutuhkan di sektor EBT pada 2030 (IESR, skenario optimal). Target pelatihan pemerintah: 15.000 orang. Gap ini adalah peluang bagi yang menyiapkan diri lebih awal.', badge: 'IESR 2024; Kemnaker RTKN 2025-2029' },
+    { number: '04', title: 'Kerja Lepas Digital', body: 'BPS Sakernas mencatat 7,2 juta pekerja lepas di Indonesia dengan rata-rata penghasilan Rp 3,73 juta/bulan secara nasional. Penghasilan aktual sangat bervariasi — ditentukan oleh spesialisasi, akses ke klien, dan reputasi yang dibangun. Untuk berlatar pendidikan Islam, bidang yang paling accessible: penerjemahan teks Arab-Indonesia, pengajaran bahasa Arab dan Al-Quran, dan penulisan konten berbasis kajian Islam.', badge: 'BPS Sakernas 2024' },
+    { number: '05', title: 'Wirausaha Sosial', body: '67% pemimpin wirausaha sosial di Indonesia berusia 18-34 tahun. 70% entitas ini didirikan dalam 5 tahun terakhir. Model yang memadukan profitabilitas dengan pemecahan masalah sosial — selaras dengan konsep khairu ummah.', badge: 'British Council/AVPN DICE Study; UNESCAP' },
+    { number: '06', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker — pertumbuhan absolut tertinggi secara global (WEF). Rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental di Indonesia: 1:30.000+.', badge: 'WEF FoJ 2025; Kemenkes RI 2024' },
+    { number: '07', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce, 40,76 juta orang) yang butuh generasi baru dengan literasi teknologi. Indonesia masih impor gandum, kedelai, bawang putih. SDM agritech modern sangat langka.', badge: 'BPS Sakernas 2024; Kementan RI' },
+  ],
+};
+
+// ─── KONTEKS JAWA BARAT ───────────────────────────────────────────
+export const jabarSection = {
+  tag: 'KONTEKS JAWA BARAT',
+  headline: 'Paradoks provinsi dengan ekonomi terkuat sekaligus pengangguran pemuda tertinggi.',
+  subtext: 'Ekonomi Jawa Barat tumbuh 5,79% di kuartal pertama 2026, tercepat di Indonesia. Tapi tingkat pengangguran pemudanya 16,89%, tertinggi ketiga secara nasional. Pertumbuhan dan pengangguran bisa hidup berdampingan. Yang menentukan kamu ada di sisi mana adalah persiapan.',
+  source: 'BPS Jawa Barat 2025; Bank Indonesia Jawa Barat Q1 2026',
+  stats: [
+    { label: 'TPT Pemuda Jabar', value: '16,89%', context: 'Tertinggi ke-3 nasional', tone: 'negative' as Tone },
+    { label: 'TPT Lulusan SMK Jabar', value: '12,42%', context: 'Lebih tinggi dari lulusan universitas (9,47%)', tone: 'negative' as Tone },
+    { label: 'Tasikmalaya TPT', value: '3,74%', context: 'Terendah di Jabar. Ekosistem: pesantren + kerajinan + ekonomi Islam komunitas.', tone: 'positive' as Tone },
+    { label: 'UMKM bersertifikat halal di Jabar', value: '882.000', context: 'Terbanyak di Indonesia (BPJPH, Feb 2026)', tone: 'positive' as Tone },
+  ],
+  closingNote: {
+    siswa: 'Kamu tinggal di provinsi dengan salah satu paradoks terbesar Indonesia. Keputusan hari ini menentukan kamu ada di sisi pertumbuhan atau sisi pengangguran.',
+    orangtua: 'Data Jabar berbeda dari rata-rata nasional. Informasi lokal ini lebih relevan untuk keputusan pendidikan anak Anda.',
+    gurubk: 'Data per-kabupaten sangat bervariasi. Kabupaten asal siswa menentukan konteks peluang yang berbeda.',
+  } as Record<Persona, string>,
+};
+
+// ─── ALUMNI YANG SUDAH MEMBUKTIKAN ────────────────────────────────
+export const alumniSection = {
+  tag: 'MEREKA YANG SUDAH MEMBUKTIKAN',
+  headline: 'Lulusan madrasah dan pesantren bukan hanya ustaz dan guru agama.',
+  subtext: 'Ini pola yang terdokumentasi dari alumni pendidikan Islam Indonesia yang masuk ke sektor-sektor yang tidak pernah diduga.',
+  stories: [
+    {
+      sector: 'Energi Terbarukan',
+      story: 'Santri Pesantren Al-Amiin Prenduan (Sumenep, Madura) memasang dan mengelola PLTS Atap 10.000 Watt secara mandiri — sebagai santri yang dilatih langsung, bukan kontraktor eksternal. Sistem ini kemudian direplikasi di komunitas asal mereka.',
+      insight: 'Teknologi hijau dibangun di atas nilai kekhilafahan — menjaga bumi adalah ibadah, bukan karier sekuler.',
+      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
+    },
+    {
+      sector: 'Sains dan Teknologi Global',
+      story: 'Prof. Muhammad Nurhuda, Guru Besar Fisika Komputasi Universitas Brawijaya, mengembangkan kompor biomassa gasifikasi yang kini diproduksi massal di Norwegia dan didistribusikan ke India, Meksiko, Peru, Timor Leste, dan Kamboja.',
+      insight: 'Ilmu yang bermanfaat tidak punya batas sektor. Kombinasi kedalaman akademik dan orientasi kemaslahatan adalah jalur karier yang tidak bisa digantikan mesin.',
+      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
+    },
+    {
+      sector: 'Pendidikan Tinggi',
+      story: 'Universitas Islam Negeri Syarif Hidayatullah Jakarta mencatat hampir 50% lulusannya sudah terserap kerja sebelum wisuda. Alumni PBSB (Beasiswa Santri Berprestasi) Kemenag tersebar di kementerian, kedutaan besar, dan universitas.',
+      insight: 'Latar belakang Islam tidak mengurangi daya saing. Yang mengurangi daya saing adalah tidak mengenal potensi diri.',
+      source: 'Tracer Study UIN Jakarta; Data PBSB Kemenag',
+    },
   ],
 };
 
