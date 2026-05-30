@@ -133,6 +133,7 @@ type StatCardData = {
   source: string;
   tone: Tone;
   artinya?: Record<Persona, string>;
+  glossaryTerm?: string;
 };
 
 function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
