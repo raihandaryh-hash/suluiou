@@ -301,9 +301,7 @@ export default function Compass() {
       {/* Sticky header */}
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <Logo className="h-7 w-auto" />
-          </Link>
+          <Logo size="sm" />
           <Link
             to="/insight"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
