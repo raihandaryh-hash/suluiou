@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search } from "lucide-react";
 import Logo from "@/components/Logo";
 
 const LAYERS = [
@@ -63,12 +63,18 @@ interface NodeType { id: string; layer: number; name: string; techName: string; 
 
 function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
-  let style: React.CSSProperties = { backgroundColor: "#F8FAFC", borderColor: "#E2E8F0", color: "#64748B", opacity: dimmed ? 0.3 : 1 };
-  if (isActive) style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1 };
-  else if (isConnected) style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+  let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1 };
+  let className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all bg-background border-border text-muted-foreground";
+  if (isActive) {
+    style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  } else if (isConnected) {
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
   return (
-    <button onClick={onClick} className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all" style={{ ...style, borderWidth: 1.5 }}>
+    <button onClick={onClick} className={className} style={{ ...style, borderWidth: 1.5 }}>
       {sectorDot && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: sectorDot }} />}
       <span>{node.name}</span>
       {node.isProvenCausal && <span className="text-violet-400 text-xs font-bold ml-0.5">★</span>}
@@ -96,7 +102,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
   const ai = AI_RISK[node.aiRisk];
   const lc = LAYERS[node.layer].colors;
   return (
-    <div className="bg-white rounded-2xl border shadow-sm overflow-hidden mt-3" style={{ borderColor: lc.border }}>
+    <div className="bg-card rounded-2xl border shadow-sm overflow-hidden mt-3" style={{ borderColor: lc.border }}>
       <div className="px-5 pt-4 pb-3" style={{ backgroundColor: lc.bg }}>
         <div className="flex justify-between gap-3">
           <div>
@@ -104,9 +110,9 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
               <h3 className="font-bold text-base leading-tight" style={{ color: lc.text }}>{node.name}</h3>
               {node.isProvenCausal && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-violet-100 text-violet-700">★ Relasi kausal terbukti secara eksperimental</span>}
             </div>
-            <p className="text-xs font-mono" style={{ color: "#94A3B8" }}>{node.techName}</p>
+            <p className="text-xs font-mono text-muted-foreground">{node.techName}</p>
           </div>
-          <button onClick={onClose}><X className="w-4 h-4 text-gray-400" /></button>
+          <button onClick={onClose}><X className="w-4 h-4 text-muted-foreground" /></button>
         </div>
         <div className="flex flex-wrap gap-2 mt-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full" style={{ backgroundColor: ai.bg, color: ai.text }}>
@@ -120,7 +126,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
         </div>
       </div>
       <div className="px-5 py-4 space-y-3">
-        <p className="text-sm leading-relaxed text-gray-700">{node.description}</p>
+        <p className="text-sm leading-relaxed text-foreground/80">{node.description}</p>
         {node.aiNote && <DataBox colorKey="amber" label="Posisi terhadap AI">{node.aiNote}</DataBox>}
         {node.wefData && <DataBox colorKey="blue" label="Data WEF Future of Jobs 2025">{node.wefData}</DataBox>}
         {node.indonesiaData && <DataBox colorKey="violet" label="Data Indonesia">{node.indonesiaData}</DataBox>}
@@ -143,7 +149,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
         )}
         {node.connections && node.connections.length > 0 && (
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#94A3B8" }}>Terhubung ke</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2 text-muted-foreground">Terhubung ke</p>
             <div className="flex flex-wrap gap-2">
               {node.connections.map(cid => {
                 const cn = NODES.find(n => n.id === cid); if (!cn) return null;
@@ -154,11 +160,11 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
           </div>
         )}
         <div>
-          <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600">
+          <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSrc ? "rotate-180" : ""}`} />
             {showSrc ? "Sembunyikan sumber" : "Lihat sumber"}
           </button>
-          {showSrc && <p className="mt-2 text-xs text-gray-400 leading-relaxed">{node.source}</p>}
+          {showSrc && <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{node.source}</p>}
         </div>
       </div>
     </div>
