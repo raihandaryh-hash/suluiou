@@ -293,6 +293,11 @@ export default function SkillMap() {
           );
         })}
 
+        {(() => {
+          const growingFiltered = growingNodes.filter(n => !isFiltering || filteredIds.has(n.id));
+          const vulnFiltered = vulnNodes.filter(n => !isFiltering || filteredIds.has(n.id));
+          if (isFiltering && growingFiltered.length === 0 && vulnFiltered.length === 0) return null;
+          return (
         <div className="bg-card rounded-2xl border overflow-hidden border-border">
           <button onClick={() => toggleLayer(3)} className="w-full flex items-start gap-3 px-5 py-4 text-left bg-secondary/30">
             <span className="w-3 h-3 rounded-full mt-1 shrink-0 bg-muted-foreground/50" />
@@ -305,15 +310,18 @@ export default function SkillMap() {
           {expanded.has(3) && (
             <div className="px-5 pb-5 pt-3">
               <p className="text-xs text-muted-foreground italic mb-4">{LAYERS[3].note}</p>
+              {growingFiltered.length > 0 && (
               <div className="mb-5">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Tumbuh — shortage SDM terdokumentasi</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {growingNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
+              )}
+              {vulnFiltered.length > 0 && (
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-destructive" />
@@ -321,13 +329,22 @@ export default function SkillMap() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Yang berisiko adalah tugas-tugas spesifik, bukan semua orang dalam sektor ini. ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya.</p>
                 <div className="flex flex-wrap gap-2">
-                  {vulnNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
+              )}
               {activeNode && activeNode.layer === 3 && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
             </div>
           )}
         </div>
+          );
+        })()}
+
+        {isFiltering && filteredNodes.length === 0 && (
+          <div className="bg-card rounded-2xl border border-border p-6 text-center text-sm text-muted-foreground">
+            Tidak ada skill atau sektor yang cocok. Coba kata kunci lain atau reset filter.
+          </div>
+        )}
 
         <div className="bg-card rounded-2xl border border-border px-5 py-4 space-y-3">
           <p className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Panduan Membaca</p>
