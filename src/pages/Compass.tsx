@@ -168,11 +168,11 @@ function SectionCard({
       <div
         className={cn(
           "mt-10 rounded-xl border-l-4 px-5 py-4 bg-background/50",
-          c.color === "navy"
+          section.color === "navy"
             ? "border-primary"
-            : c.color === "gold"
+            : section.color === "gold"
               ? "border-accent"
-              : c.color === "teal"
+              : section.color === "teal"
                 ? "border-[hsl(180_45%_30%)]"
                 : "border-[hsl(var(--mid-blue))]",
         )}
