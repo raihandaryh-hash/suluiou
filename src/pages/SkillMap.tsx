@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search } from "lucide-react";
 import Logo from "@/components/Logo";
 
 const LAYERS = [
@@ -63,12 +63,18 @@ interface NodeType { id: string; layer: number; name: string; techName: string; 
 
 function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
-  let style: React.CSSProperties = { backgroundColor: "#F8FAFC", borderColor: "#E2E8F0", color: "#64748B", opacity: dimmed ? 0.3 : 1 };
-  if (isActive) style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1 };
-  else if (isConnected) style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+  let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1 };
+  let className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all bg-background border-border text-muted-foreground";
+  if (isActive) {
+    style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  } else if (isConnected) {
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
   return (
-    <button onClick={onClick} className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all" style={{ ...style, borderWidth: 1.5 }}>
+    <button onClick={onClick} className={className} style={{ ...style, borderWidth: 1.5 }}>
       {sectorDot && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: sectorDot }} />}
       <span>{node.name}</span>
       {node.isProvenCausal && <span className="text-violet-400 text-xs font-bold ml-0.5">★</span>}
@@ -96,7 +102,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
   const ai = AI_RISK[node.aiRisk];
   const lc = LAYERS[node.layer].colors;
   return (
-    <div className="bg-white rounded-2xl border shadow-sm overflow-hidden mt-3" style={{ borderColor: lc.border }}>
+    <div className="bg-card rounded-2xl border shadow-sm overflow-hidden mt-3" style={{ borderColor: lc.border }}>
       <div className="px-5 pt-4 pb-3" style={{ backgroundColor: lc.bg }}>
         <div className="flex justify-between gap-3">
           <div>
@@ -104,9 +110,9 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
               <h3 className="font-bold text-base leading-tight" style={{ color: lc.text }}>{node.name}</h3>
               {node.isProvenCausal && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-violet-100 text-violet-700">★ Relasi kausal terbukti secara eksperimental</span>}
             </div>
-            <p className="text-xs font-mono" style={{ color: "#94A3B8" }}>{node.techName}</p>
+            <p className="text-xs font-mono text-muted-foreground">{node.techName}</p>
           </div>
-          <button onClick={onClose}><X className="w-4 h-4 text-gray-400" /></button>
+          <button onClick={onClose}><X className="w-4 h-4 text-muted-foreground" /></button>
         </div>
         <div className="flex flex-wrap gap-2 mt-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full" style={{ backgroundColor: ai.bg, color: ai.text }}>
@@ -120,7 +126,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
         </div>
       </div>
       <div className="px-5 py-4 space-y-3">
-        <p className="text-sm leading-relaxed text-gray-700">{node.description}</p>
+        <p className="text-sm leading-relaxed text-foreground/80">{node.description}</p>
         {node.aiNote && <DataBox colorKey="amber" label="Posisi terhadap AI">{node.aiNote}</DataBox>}
         {node.wefData && <DataBox colorKey="blue" label="Data WEF Future of Jobs 2025">{node.wefData}</DataBox>}
         {node.indonesiaData && <DataBox colorKey="violet" label="Data Indonesia">{node.indonesiaData}</DataBox>}
@@ -143,7 +149,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
         )}
         {node.connections && node.connections.length > 0 && (
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#94A3B8" }}>Terhubung ke</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2 text-muted-foreground">Terhubung ke</p>
             <div className="flex flex-wrap gap-2">
               {node.connections.map(cid => {
                 const cn = NODES.find(n => n.id === cid); if (!cn) return null;
@@ -154,11 +160,11 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
           </div>
         )}
         <div>
-          <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600">
+          <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSrc ? "rotate-180" : ""}`} />
             {showSrc ? "Sembunyikan sumber" : "Lihat sumber"}
           </button>
-          {showSrc && <p className="mt-2 text-xs text-gray-400 leading-relaxed">{node.source}</p>}
+          {showSrc && <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{node.source}</p>}
         </div>
       </div>
     </div>
@@ -168,9 +174,34 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
 export default function SkillMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(new Set([0]));
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
   const activeNode = NODES.find(n => n.id === activeId) || null;
   const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
   const hasActive = activeId !== null;
+
+  const filteredNodes = useMemo(() => {
+    return NODES.filter(node => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch = !q || node.name.toLowerCase().includes(q) || node.techName.toLowerCase().includes(q);
+      const matchesFilter =
+        activeFilter === "all" ||
+        (activeFilter === "growing" && node.sectorStatus === "growing") ||
+        (activeFilter === "safe" && node.aiRisk === "safe") ||
+        (activeFilter === "layer0" && node.layer === 0);
+      return matchesSearch && matchesFilter;
+    });
+  }, [searchQuery, activeFilter]);
+  const filteredIds = useMemo(() => new Set(filteredNodes.map(n => n.id)), [filteredNodes]);
+  const isFiltering = searchQuery.length > 0 || activeFilter !== "all";
+
+  useEffect(() => {
+    if (isFiltering) {
+      setExpanded(new Set(filteredNodes.map(n => n.layer)));
+    } else {
+      setExpanded(new Set([0]));
+    }
+  }, [isFiltering, filteredNodes]);
 
   function toggleLayer(id: number) { setExpanded(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; }); }
   function handleClick(node: NodeType) { setActiveId(prev => prev === node.id ? null : node.id); }
@@ -178,6 +209,12 @@ export default function SkillMap() {
 
   const growingNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "growing");
   const vulnNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "vulnerable");
+  const FILTERS: { id: typeof activeFilter; label: string }[] = [
+    { id: "all", label: "Semua" },
+    { id: "growing", label: "↑ Tumbuh" },
+    { id: "safe", label: "Aman dari AI" },
+    { id: "layer0", label: "Karakter Dasar" },
+  ];
 
   return (
     <main className="min-h-screen bg-background">
@@ -196,9 +233,43 @@ export default function SkillMap() {
         <p className="text-sm text-muted-foreground mt-1.5">Berdasarkan WEF Future of Jobs 2025, BPS Sakernas 2024, ILO, IESR, Kemnaker RTKN 2025-2029, dan riset psikologi karier terverifikasi.</p>
       </div>
 
+      <div className="max-w-4xl mx-auto px-4 pt-4 pb-2 md:px-8">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Cari skill atau sektor..."
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-xl bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {FILTERS.map(f => (
+              <button
+                key={f.id}
+                onClick={() => setActiveFilter(f.id)}
+                className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                  activeFilter === f.id
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-background border-border text-muted-foreground hover:border-primary/50"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {isFiltering && (
+          <p className="text-xs text-muted-foreground mt-2">{filteredNodes.length} hasil ditemukan</p>
+        )}
+      </div>
+
       <div className="max-w-4xl mx-auto px-4 py-6 md:px-8 space-y-3">
         {[0, 1, 2].map(lid => {
-          const L = LAYERS[lid]; const layerNodes = NODES.filter(n => n.layer === lid); const isOpen = expanded.has(lid);
+          const L = LAYERS[lid]; const layerNodes = NODES.filter(n => n.layer === lid && (!isFiltering || filteredIds.has(n.id))); const isOpen = expanded.has(lid);
+          if (isFiltering && layerNodes.length === 0) return null;
           return (
             <div key={lid} className="bg-card rounded-2xl border overflow-hidden" style={{ borderColor: L.colors.border }}>
               <button onClick={() => toggleLayer(lid)} className="w-full flex items-start gap-3 px-5 py-4 text-left" style={{ backgroundColor: L.colors.bg }}>
@@ -222,6 +293,11 @@ export default function SkillMap() {
           );
         })}
 
+        {(() => {
+          const growingFiltered = growingNodes.filter(n => !isFiltering || filteredIds.has(n.id));
+          const vulnFiltered = vulnNodes.filter(n => !isFiltering || filteredIds.has(n.id));
+          if (isFiltering && growingFiltered.length === 0 && vulnFiltered.length === 0) return null;
+          return (
         <div className="bg-card rounded-2xl border overflow-hidden border-border">
           <button onClick={() => toggleLayer(3)} className="w-full flex items-start gap-3 px-5 py-4 text-left bg-secondary/30">
             <span className="w-3 h-3 rounded-full mt-1 shrink-0 bg-muted-foreground/50" />
@@ -234,15 +310,18 @@ export default function SkillMap() {
           {expanded.has(3) && (
             <div className="px-5 pb-5 pt-3">
               <p className="text-xs text-muted-foreground italic mb-4">{LAYERS[3].note}</p>
+              {growingFiltered.length > 0 && (
               <div className="mb-5">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Tumbuh — shortage SDM terdokumentasi</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {growingNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
+              )}
+              {vulnFiltered.length > 0 && (
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-destructive" />
@@ -250,13 +329,22 @@ export default function SkillMap() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Yang berisiko adalah tugas-tugas spesifik, bukan semua orang dalam sektor ini. ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya.</p>
                 <div className="flex flex-wrap gap-2">
-                  {vulnNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
+              )}
               {activeNode && activeNode.layer === 3 && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
             </div>
           )}
         </div>
+          );
+        })()}
+
+        {isFiltering && filteredNodes.length === 0 && (
+          <div className="bg-card rounded-2xl border border-border p-6 text-center text-sm text-muted-foreground">
+            Tidak ada skill atau sektor yang cocok. Coba kata kunci lain atau reset filter.
+          </div>
+        )}
 
         <div className="bg-card rounded-2xl border border-border px-5 py-4 space-y-3">
           <p className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Panduan Membaca</p>
