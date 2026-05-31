@@ -57,6 +57,7 @@ const App = () => {
             <Route path="/suar" element={<Suar />} />
             <Route path="/insight" element={<Insight />} />
             <Route path="/skill-map" element={<SkillMap />} />
+            <Route path="/compass" element={<Compass />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
