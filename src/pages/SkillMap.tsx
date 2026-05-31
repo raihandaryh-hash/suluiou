@@ -174,9 +174,34 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
 export default function SkillMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(new Set([0]));
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
   const activeNode = NODES.find(n => n.id === activeId) || null;
   const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
   const hasActive = activeId !== null;
+
+  const filteredNodes = useMemo(() => {
+    return NODES.filter(node => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch = !q || node.name.toLowerCase().includes(q) || node.techName.toLowerCase().includes(q);
+      const matchesFilter =
+        activeFilter === "all" ||
+        (activeFilter === "growing" && node.sectorStatus === "growing") ||
+        (activeFilter === "safe" && node.aiRisk === "safe") ||
+        (activeFilter === "layer0" && node.layer === 0);
+      return matchesSearch && matchesFilter;
+    });
+  }, [searchQuery, activeFilter]);
+  const filteredIds = useMemo(() => new Set(filteredNodes.map(n => n.id)), [filteredNodes]);
+  const isFiltering = searchQuery.length > 0 || activeFilter !== "all";
+
+  useEffect(() => {
+    if (isFiltering) {
+      setExpanded(new Set(filteredNodes.map(n => n.layer)));
+    } else {
+      setExpanded(new Set([0]));
+    }
+  }, [isFiltering, filteredNodes]);
 
   function toggleLayer(id: number) { setExpanded(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; }); }
   function handleClick(node: NodeType) { setActiveId(prev => prev === node.id ? null : node.id); }
@@ -184,6 +209,12 @@ export default function SkillMap() {
 
   const growingNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "growing");
   const vulnNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "vulnerable");
+  const FILTERS: { id: typeof activeFilter; label: string }[] = [
+    { id: "all", label: "Semua" },
+    { id: "growing", label: "↑ Tumbuh" },
+    { id: "safe", label: "Aman dari AI" },
+    { id: "layer0", label: "Karakter Dasar" },
+  ];
 
   return (
     <main className="min-h-screen bg-background">
