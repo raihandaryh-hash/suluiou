@@ -15,6 +15,7 @@ import PublicResult from "./pages/PublicResult";
 import Suar from "./pages/Suar";
 import Insight from "./pages/Insight";
 import SkillMap from "./pages/SkillMap";
+import Compass from "./pages/Compass";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
