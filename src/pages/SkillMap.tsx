@@ -233,9 +233,43 @@ export default function SkillMap() {
         <p className="text-sm text-muted-foreground mt-1.5">Berdasarkan WEF Future of Jobs 2025, BPS Sakernas 2024, ILO, IESR, Kemnaker RTKN 2025-2029, dan riset psikologi karier terverifikasi.</p>
       </div>
 
+      <div className="max-w-4xl mx-auto px-4 pt-4 pb-2 md:px-8">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Cari skill atau sektor..."
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-xl bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {FILTERS.map(f => (
+              <button
+                key={f.id}
+                onClick={() => setActiveFilter(f.id)}
+                className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                  activeFilter === f.id
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-background border-border text-muted-foreground hover:border-primary/50"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {isFiltering && (
+          <p className="text-xs text-muted-foreground mt-2">{filteredNodes.length} hasil ditemukan</p>
+        )}
+      </div>
+
       <div className="max-w-4xl mx-auto px-4 py-6 md:px-8 space-y-3">
         {[0, 1, 2].map(lid => {
-          const L = LAYERS[lid]; const layerNodes = NODES.filter(n => n.layer === lid); const isOpen = expanded.has(lid);
+          const L = LAYERS[lid]; const layerNodes = NODES.filter(n => n.layer === lid && (!isFiltering || filteredIds.has(n.id))); const isOpen = expanded.has(lid);
+          if (isFiltering && layerNodes.length === 0) return null;
           return (
             <div key={lid} className="bg-card rounded-2xl border overflow-hidden" style={{ borderColor: L.colors.border }}>
               <button onClick={() => toggleLayer(lid)} className="w-full flex items-start gap-3 px-5 py-4 text-left" style={{ backgroundColor: L.colors.bg }}>
