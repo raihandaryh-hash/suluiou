@@ -654,15 +654,17 @@ const Insight = () => {
           {/* SECTION 6 — Peluang SDM */}
           <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {opportunitySection.items.map((o, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
-                  <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
-                  <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
-                </div>
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {opportunitySection.items.map((o, i) => (
+                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                    <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
+                    <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
+                  </div>
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="peluang" persona={persona} />
 
