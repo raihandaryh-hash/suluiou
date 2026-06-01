@@ -465,7 +465,7 @@ export const dataSources = [
   'Bappenas — Proyeksi Penduduk Indonesia 2020–2050',
   'RPJPN 2025–2045 (UU No. 59/2024)',
   'KNEKS 2024; SGIE Report 2024/2025',
-  'OECD State of Global Teenage Career Preparation 2024',
+  'OECD State of Global Teenage Career Preparation 2025 (data PISA 2022)',
   'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network',
   'Jurnal ABKIN; UPI; UNY — Riset kebutuhan guru BK',
   'Permendikbud No. 111/2014; Data Dapodik; EMIS Kemenag',
