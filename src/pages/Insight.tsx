@@ -388,6 +388,8 @@ const Insight = () => {
             </div>
           </header>
 
+          <FirstTimerBanner />
+
           {/* SECTION 1 — Hero */}
           <section className="container mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 max-w-4xl">
             <motion.h1
