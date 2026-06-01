@@ -54,7 +54,7 @@ const Hero = () => {
               size="sm"
               className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 backdrop-blur-sm"
             >
-              <a href="#data-insights">Lihat Data</a>
+              <Link to="/insight">Lihat Data</Link>
             </Button>
           </div>
         </div>
@@ -93,18 +93,10 @@ const Hero = () => {
                 size="default"
                 className="group text-sm px-6 py-5 bg-torch-gold hover:bg-torch-gold/90 text-navy-deep font-semibold shadow-md"
               >
-                <Link to="/login">
-                  Mulai Assessment
+                <Link to="/insight">
+                  Lihat Duniamu
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="default"
-                className="text-sm px-6 py-5 bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 backdrop-blur-sm"
-              >
-                <Link to="/suar">Pelajari Metodologi</Link>
               </Button>
             </motion.div>
 
@@ -126,14 +118,14 @@ const Hero = () => {
                 asChild
                 variant="ghost"
                 size="sm"
-                className="text-white/60 hover:text-white/90 hover:bg-white/5 px-0 h-auto text-sm font-normal"
+                className="text-white/90 hover:text-white hover:bg-white/5 px-0 h-auto text-sm font-normal"
               >
                 <Link to="/programs">
                   Belum dapat PTN / masih menimbang?
                 </Link>
               </Button>
 
-              <p className="text-[11px] text-white/40 leading-snug max-w-xs">
+              <p className="text-[11px] text-white/80 leading-snug max-w-xs">
                 Info semua jalur tersedia — termasuk yang sering terlewat.
               </p>
             </motion.div>
