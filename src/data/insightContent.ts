@@ -152,8 +152,8 @@ export const laborRealitySection = {
     {
       value: '15,45%', label: 'tenaga kerja Indonesia yang punya pekerjaan tambahan',
       detail: 'Tertinggi dalam 5 tahun terakhir (BPS 2023). 57% Gen Z dan 48% Milenial Indonesia sudah menjalankan setidaknya satu pekerjaan sampingan. Catatan: sebagian besar karena gaji satu pekerjaan tidak cukup, bukan karena pilihan strategis. Keduanya perlu diantisipasi.',
-      source: 'BPS 2023; Ioda Academy Indonesia 2024',
-      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus — bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
+      source: 'BPS Sakernas 2023; IDN Media Indonesian Millennials & Gen Z Report 2024',
+      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus: bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
       tone: 'neutral' as Tone,
       artinya: {
         siswa: 'Membangun lebih dari satu keahlian yang bisa menghasilkan adalah strategi, bukan kemewahan.',
