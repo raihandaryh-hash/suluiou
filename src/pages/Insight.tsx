@@ -316,34 +316,6 @@ function BkBlock({ persona }: { persona: Persona }) {
   );
 }
 
-// ───── ROI Section (orangtua) ─────
-function RoiBlock() {
-  return (
-    <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
-      <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {roiSection.cards.map((c, i) => (
-          <StatCard key={i} card={c as StatCardData} persona="orangtua" />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// ───── BK Section (gurubk) ─────
-function BkBlock() {
-  return (
-    <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
-      <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {bkSection.cards.map((c, i) => (
-          <StatCard key={i} card={c as StatCardData} persona="gurubk" />
-        ))}
-      </div>
-    </section>
-  );
-}
-
 // ───── Waitlist Form ─────
 function WaitlistForm({ persona }: { persona: Persona }) {
   const [name, setName] = useState('');
