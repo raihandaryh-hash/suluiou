@@ -56,7 +56,7 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
-        gurubk: 'Titik awal percakapan karier yang lebih jujur dengan siswa.',
+        gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
       } as Record<Persona, string>,
     },
     {
