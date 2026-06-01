@@ -311,11 +311,13 @@ function RoiBlock({ persona }: { persona: Persona }) {
     <>
       <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
         <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {roiSection.cards.map((c, i) => (
-            <StatCard key={i} card={c as StatCardData} persona="orangtua" />
-          ))}
-        </div>
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {roiSection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona="orangtua" />
+            ))}
+          </div>
+        </DataReveal>
       </section>
       <UsefulFeedback section="roi" persona={persona} />
     </>
