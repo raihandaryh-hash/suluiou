@@ -17,6 +17,7 @@ import Insight from "./pages/Insight";
 import SkillMap from "./pages/SkillMap";
 import Compass from "./pages/Compass";
 import Programs from "./pages/Programs";
+import KenaliDirimu from "./pages/KenaliDirimu";
 import AppLayout from "./components/AppLayout";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -63,6 +64,7 @@ const App = () => {
               <Route path="/compass" element={<Compass />} />
             </Route>
             <Route path="/programs" element={<Programs />} />
+            <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
