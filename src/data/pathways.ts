@@ -43,6 +43,8 @@ export const pathways = [
       "Program BAIS IOU memberikan pemahaman mendalam dalam berbagai bidang kajian Islam: Aqidah, Fiqh, Tafsir, Seerah, dan dasar bahasa Arab. Program ini menghubungkan ajaran-ajaran klasik Islam dengan isu-isu kontemporer, memungkinkan mahasiswa memperluas studi teoretis Islam menjadi praktik yang bermakna. Kurikulum mengacu pada standar program studi Islam internasional.",
     iouUniqueness:
       "IOU didirikan oleh Dr. Bilal Philips dengan misi menyebarkan ilmu Islam otentik ke seluruh dunia. Kurikulum BAIS dirancang oleh ulama dan akademisi Islam bereputasi global, dengan penekanan pada metodologi yang benar dan relevansi kontemporer.",
+    matchingRationale:
+      "Cocok untuk kamu yang ingin mendalami Islam dari sumbernya, memiliki minat pada kajian teks Arab, dan ingin berkontribusi lewat dakwah, penelitian, atau pendidikan Islam.",
   },
   {
     id: "als",
