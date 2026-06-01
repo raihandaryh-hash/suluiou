@@ -242,40 +242,77 @@ function UsefulFeedback({ section, persona }: { section: string; persona: Person
 }
 
 // ───── Skill Landscape (siswa) ─────
-function SkillLandscape() {
+function SkillLandscape({ persona }: { persona: Persona }) {
   const [tab, setTab] = useState<'growing' | 'declining'>('growing');
   const data = tab === 'growing' ? skillSection.growing : skillSection.declining;
   const accent = tab === 'growing' ? 'border-l-primary' : 'border-l-destructive';
 
   return (
-    <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
-      <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
-      <div className="flex gap-2 mb-6">
-        {(['growing', 'declining'] as const).map((t) => (
-          <button
-            key={t}
-            onClick={() => setTab(t)}
-            className={cn(
-              'px-4 py-2 rounded-full text-sm border transition-colors',
-              tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
-            )}
-          >
-            {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
-          </button>
-        ))}
-      </div>
-      <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
-      <div className="space-y-3">
-        {data.items.map((it, i) => (
-          <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
-            <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
-            <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
-          </div>
-        ))}
-      </div>
-      <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
-      <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
-    </section>
+    <>
+      <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
+        <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
+        <div className="flex gap-2 mb-6">
+          {(['growing', 'declining'] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={cn(
+                'px-4 py-2 rounded-full text-sm border transition-colors',
+                tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
+              )}
+            >
+              {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
+        <div className="space-y-3">
+          {data.items.map((it, i) => (
+            <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
+              <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
+              <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
+        <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+      </section>
+      <UsefulFeedback section="skill" persona={persona} />
+    </>
+  );
+}
+
+// ───── ROI Section (orangtua) ─────
+function RoiBlock({ persona }: { persona: Persona }) {
+  return (
+    <>
+      <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {roiSection.cards.map((c, i) => (
+            <StatCard key={i} card={c as StatCardData} persona="orangtua" />
+          ))}
+        </div>
+      </section>
+      <UsefulFeedback section="roi" persona={persona} />
+    </>
+  );
+}
+
+// ───── BK Section (gurubk) ─────
+function BkBlock({ persona }: { persona: Persona }) {
+  return (
+    <>
+      <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {bkSection.cards.map((c, i) => (
+            <StatCard key={i} card={c as StatCardData} persona="gurubk" />
+          ))}
+        </div>
+      </section>
+      <UsefulFeedback section="bk" persona={persona} />
+    </>
   );
 }
 
