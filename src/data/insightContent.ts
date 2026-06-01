@@ -141,7 +141,7 @@ export const laborRealitySection = {
       value: 'K-Shaped', label: 'pemulihan ekonomi yang tidak merata',
       detail: 'Gini index Indonesia mencapai 0,381 (September 2024). Kelas menengah menyusut 10 juta orang dalam 5 tahun. Pertumbuhan ekonomi terjadi, tapi terkonsentrasi di atas. Gelombang protes pemuda yang terjadi sejak awal 2025 adalah ekspresi langsung dari ketidakmerataan ini.',
       source: 'BPS; World Bank Indonesia 2024; ISEAS Agustus 2025',
-      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K — sektor yang sudah kuat tumbuh lebih cepat (bagian atas), sementara sektor padat karya dan pekerja informal tertinggal (bagian bawah).',
+      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K: bagian atas tumbuh cepat, bagian bawah pekerja informal tertinggal.',
       tone: 'negative' as Tone,
       artinya: {
         siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
