@@ -211,7 +211,7 @@ function SkillLandscape() {
   const accent = tab === 'growing' ? 'border-l-primary' : 'border-l-destructive';
 
   return (
-    <section className="container mx-auto px-6 py-16 max-w-5xl">
+    <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
       <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
       <div className="flex gap-2 mb-6">
         {(['growing', 'declining'] as const).map((t) => (
@@ -245,7 +245,7 @@ function SkillLandscape() {
 // ───── ROI Section (orangtua) ─────
 function RoiBlock() {
   return (
-    <section className="container mx-auto px-6 py-16 max-w-6xl">
+    <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
       <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {roiSection.cards.map((c, i) => (
@@ -259,7 +259,7 @@ function RoiBlock() {
 // ───── BK Section (gurubk) ─────
 function BkBlock() {
   return (
-    <section className="container mx-auto px-6 py-16 max-w-6xl">
+    <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
       <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {bkSection.cards.map((c, i) => (
@@ -430,7 +430,7 @@ const Insight = () => {
           <PersonaTeaser persona={persona} onSwitch={handleSwitch} />
 
           {/* SECTION 2 — Indonesia hari ini */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {indonesiaSection.cards.map((c, i) => (
@@ -440,7 +440,7 @@ const Insight = () => {
           </section>
 
           {/* Link and Match */}
-          <section className="container mx-auto px-6 py-12 max-w-4xl">
+          <section id="link-match" className="container mx-auto px-6 py-12 max-w-4xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">{linkMatchSection.tag}</p>
             <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
               <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
@@ -454,7 +454,7 @@ const Insight = () => {
           </section>
 
           {/* SECTION 3 — NEET ASEAN */}
-          <section className="container mx-auto px-6 py-16 max-w-4xl">
+          <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
             <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
             <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
               {neetSection.data.map((row, i) => (
@@ -484,7 +484,7 @@ const Insight = () => {
           </section>
 
           {/* Realita Dunia Kerja */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <section id="realita" className="container mx-auto px-6 py-16 max-w-6xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
@@ -501,7 +501,7 @@ const Insight = () => {
           {persona === 'gurubk' && <BkBlock />}
 
           {/* SECTION 5 — Dunia 2025–2030 */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={worldSection.tag} intro={worldSection.intro[persona]} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {worldSection.cards.map((c, i) => (
@@ -511,7 +511,7 @@ const Insight = () => {
           </section>
 
           {/* Konteks Jawa Barat */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
@@ -557,7 +557,7 @@ const Insight = () => {
           </section>
 
           {/* SECTION 6 — Peluang SDM */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {opportunitySection.items.map((o, i) => (
