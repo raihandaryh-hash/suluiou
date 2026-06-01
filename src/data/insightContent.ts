@@ -129,7 +129,7 @@ export const laborRealitySection = {
       value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
       detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran — ini mayoritas. Tren ini naik, bukan turun.',
       source: 'BPS Sakernas 2024-2025',
-      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja — termasuk yang berpendidikan — bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
+      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja, termasuk yang berpendidikan, bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
       tone: 'negative' as Tone,
       artinya: {
         siswa: 'Sistem tidak sedang mempersiapkan tempat untukmu secara otomatis. Kamu yang harus mempersiapkan diri.',
