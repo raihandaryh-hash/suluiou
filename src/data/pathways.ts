@@ -15,6 +15,8 @@ export const pathways = [
       "Program BBA IOU menggabungkan ilmu manajemen modern dengan perspektif Islam. Kamu akan mempelajari marketing, keuangan, SDM, kepemimpinan, dan kewirausahaan — sekaligus memahami bagaimana bisnis yang etis dijalankan dalam kerangka nilai Islam. Program ini mengembangkan kemampuan pengambilan keputusan dalam situasi bisnis nyata, keterampilan analitis, inovasi bisnis, dan tanggung jawab sosial-Islami.",
     iouUniqueness:
       "IOU mengintegrasikan perspektif Islam ke setiap aspek kurikulum bisnis — dari etika marketing hingga kepemimpinan berbasis nilai. Lulusan tidak hanya cerdas secara bisnis, tapi juga bertanggung jawab secara moral dan sosial.",
+    matchingRationale:
+      "Cocok untuk kamu yang berpikir sistematis, tertarik pada cara organisasi dan ekonomi bekerja, dan ingin membangun atau mengelola sesuatu yang berdampak.",
   },
   {
     id: "psy",
