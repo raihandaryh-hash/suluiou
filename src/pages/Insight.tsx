@@ -211,6 +211,22 @@ function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
   );
 }
 
+// ───── DataReveal — progressive disclosure wrapper ─────
+function DataReveal({ children, label = 'Lihat datanya' }: { children: React.ReactNode; label?: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen} className="mt-4">
+      <CollapsibleTrigger className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <span>{open ? 'Sembunyikan' : label}</span>
+        <ChevronDown className={cn('w-3.5 h-3.5 transition-transform', open && 'rotate-180')} />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+        <div className="pt-5">{children}</div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+
 // ───── Useful? feedback (1-tap) — subtle, per-section ─────
 function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
   const [vote, setVote] = useState<'yes' | 'no' | null>(null);
