@@ -225,11 +225,6 @@ export const roiSection = {
       detail: 'Lebih tinggi dari rata-rata nasional (Rp 3,33 juta). Tapi fresh graduate usia 20-25 tahun sering hanya mendapat Rp 2-2,5 juta di awal karier. Yang menentukan outcome bukan nama kampus, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
       source: 'BPS Sakernas November 2025', tone: 'neutral' as Tone,
     },
-    {
-      value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
-      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
-      source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
-    },
   ],
 };
 
