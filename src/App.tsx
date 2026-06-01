@@ -18,6 +18,7 @@ import SkillMap from "./pages/SkillMap";
 import Compass from "./pages/Compass";
 import Programs from "./pages/Programs";
 import KenaliDirimu from "./pages/KenaliDirimu";
+import Ringkasan from "./pages/Ringkasan";
 import AppLayout from "./components/AppLayout";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
