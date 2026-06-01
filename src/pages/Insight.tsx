@@ -606,25 +606,28 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {jabarSection.stats.map((s, i) => {
-                const valueColor =
-                  s.tone === 'negative' ? 'text-destructive' :
-                  s.tone === 'positive' ? 'text-primary' :
-                  'text-foreground';
-                return (
-                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
-                    <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
-                    <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
-            <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
+            <p className="text-sm text-foreground/80 italic mb-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {jabarSection.stats.map((s, i) => {
+                  const valueColor =
+                    s.tone === 'negative' ? 'text-destructive' :
+                    s.tone === 'positive' ? 'text-primary' :
+                    'text-foreground';
+                  return (
+                    <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                      <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
+                      <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {jabarSection.source}</p>
+            </DataReveal>
           </section>
           <UsefulFeedback section="jabar" persona={persona} />
+
 
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
