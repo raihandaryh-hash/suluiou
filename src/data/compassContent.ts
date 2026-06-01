@@ -77,7 +77,7 @@ Pohon yang baik punya akar yang kokoh sebelum bisa menghasilkan buah yang berkel
     headline: 'Kamu tidak "tidak punya kelebihan".\nKamu belum menggalinya.',
     body: `Dari perspektif psikologi, kebingungan karier bukan karena kurang pintar atau kurang mau berusaha. Ini karena kurangnya self-awareness yang terstruktur — pemahaman yang akurat tentang kekuatan, kecenderungan, dan cara kamu berfungsi terbaik.
 
-Self-awareness adalah prasyarat kausal untuk empati dan kolaborasi yang efektif. Metakognisi — kemampuan memantau cara berpikirmu sendiri — adalah prasyarat kausal untuk analytical thinking. Ini bukan teori — ini relasi yang terbukti secara eksperimental dalam riset psikologi.
+Self-awareness adalah fondasi dari empati dan kerja sama yang nyata. Ketika kamu bisa memantau cara kamu sendiri berpikir — menyadari apakah strategimu sudah tepat di tengah proses — itulah yang membuat seseorang bisa berpikir analitis, bukan sekadar bekerja keras. Ini bukan teori abstrak. Ini yang terlihat setiap hari di tempat kerja nyata.
 
 Overthinking yang sering dikeluhkan generasi muda bukan lawan dari critical thinking. Overthinking adalah pikiran yang berputar tanpa menghasilkan keputusan. Critical thinking adalah proses memecah masalah kompleks menjadi bagian-bagian yang bisa diperiksa. Yang pertama menguras energi, yang kedua membangunnya.
 
