@@ -59,7 +59,7 @@ function buildConnectionMap() {
 }
 const CONNECTION_MAP = buildConnectionMap();
 
-interface NodeType { id: string; layer: number; name: string; techName: string; description: string; aiRisk: keyof typeof AI_RISK; aiNote: string; source: string; wefData?: string; indonesiaData?: string; connections: string[]; causal?: { to: string; direction: "to"|"from"|"bidirectional"; citation: string }[]; isProvenCausal?: boolean; sectorStatus?: "growing"|"vulnerable" }
+interface NodeType { id: string; layer: number; name: string; techName: string; description: string; aiRisk: keyof typeof AI_RISK; aiNote: string; source: string; wefData?: string; indonesiaData?: string; connections: string[]; causal?: { to: string; direction: "to"|"from"|"bidirectional"; citation: string }[]; isProvenCausal?: boolean; sectorStatus?: "growing"|"vulnerable"; localContextExample?: string }
 
 function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
@@ -130,6 +130,12 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
         {node.aiNote && <DataBox colorKey="amber" label="Posisi terhadap AI">{node.aiNote}</DataBox>}
         {node.wefData && <DataBox colorKey="blue" label="Data WEF Future of Jobs 2025">{node.wefData}</DataBox>}
         {node.indonesiaData && <DataBox colorKey="violet" label="Data Indonesia">{node.indonesiaData}</DataBox>}
+        {node.localContextExample && (
+          <div className="rounded-xl p-3 border border-border bg-muted/40">
+            <p className="text-xs font-bold tracking-widest uppercase mb-1 text-muted-foreground">Contoh nyata</p>
+            <p className="text-sm text-foreground/80 leading-relaxed">{node.localContextExample}</p>
+          </div>
+        )}
         {node.causal && node.causal.length > 0 && (
           <div className="rounded-xl p-4 border border-violet-200 bg-violet-50">
             <p className="text-xs font-bold text-violet-700 mb-3">Relasi kausal yang terbukti secara eksperimental — bukan hanya korelasi</p>

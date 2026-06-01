@@ -231,12 +231,23 @@ export default function Ringkasan() {
       {/* CTA — hidden in print */}
       <section className="mt-8 flex flex-col gap-3 print:hidden">
         <Button asChild size="lg" className="w-full sm:w-auto">
-          <a href={waHref} target="_blank" rel="noopener noreferrer">
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track('export_ringkasan', { method: 'wa' })}
+          >
             <MessageCircle className="mr-2 h-4 w-4" /> Bagikan ke Orang Tua (WA)
           </a>
         </Button>
         <div className="flex flex-col gap-2 sm:flex-row">
-          <Button variant="outline" onClick={() => window.print()}>
+          <Button
+            variant="outline"
+            onClick={() => {
+              track('export_ringkasan', { method: 'print' });
+              window.print();
+            }}
+          >
             <Printer className="mr-2 h-4 w-4" /> Cetak / Simpan PDF
           </Button>
           <Button asChild variant="ghost">

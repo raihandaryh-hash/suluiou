@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Logo from '@/components/Logo';
+import { track } from '@/lib/track';
+
+type JalurId = 'mandiri_ptn' | 'um_ptkin' | 'pbsb' | 'kip_kuliah' | 'iou' | 'gap_year';
 
 interface PathwayCard {
   name: string;
