@@ -64,28 +64,32 @@ const ModuleShowcase = () => {
           {modules.map((mod, i) => (
             <motion.div
               key={mod.title}
-              className="group glass rounded-2xl p-6 hover:glow-primary transition-shadow duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
             >
-              {/* Top gradient line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-torch-glow to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Link
+                to={moduleHrefs[mod.title] ?? '/'}
+                className="group glass rounded-2xl p-6 hover:glow-primary transition-shadow duration-500 relative overflow-hidden cursor-pointer block h-full"
+              >
+                {/* Top gradient line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-torch-glow to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:scale-110 transition-transform duration-300">
-                {mod.icon}
-              </div>
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-5 group-hover:scale-110 transition-transform duration-300">
+                  {mod.icon}
+                </div>
 
-              <p className="text-xs uppercase tracking-widest text-primary/70 mb-1 font-medium">
-                {mod.subtitle}
-              </p>
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
-                {mod.title}
-              </h3>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                {mod.description}
-              </p>
+                <p className="text-xs uppercase tracking-widest text-primary/70 mb-1 font-medium">
+                  {mod.subtitle}
+                </p>
+                <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
+                  {mod.title}
+                </h3>
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                  {mod.description}
+                </p>
+              </Link>
             </motion.div>
           ))}
         </div>
