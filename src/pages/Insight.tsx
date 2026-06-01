@@ -486,6 +486,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="indonesia" persona={persona} />
 
           {/* Link and Match */}
           <section id="link-match" className="container mx-auto px-6 py-12 max-w-4xl">
@@ -500,6 +501,7 @@ const Insight = () => {
               <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {linkMatchSection.source}</p>
             </div>
           </section>
+          <UsefulFeedback section="link-match" persona={persona} />
 
           {/* SECTION 3 — NEET ASEAN */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
@@ -530,6 +532,7 @@ const Insight = () => {
               </div>
             </div>
           </section>
+          <UsefulFeedback section="neet" persona={persona} />
 
           {/* Realita Dunia Kerja */}
           <section id="realita" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -542,11 +545,12 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="realita" persona={persona} />
 
           {/* SECTION 4 — Persona-specific middle */}
-          {persona === 'siswa' && <SkillLandscape />}
-          {persona === 'orangtua' && <RoiBlock />}
-          {persona === 'gurubk' && <BkBlock />}
+          {persona === 'siswa' && <SkillLandscape persona={persona} />}
+          {persona === 'orangtua' && <RoiBlock persona={persona} />}
+          {persona === 'gurubk' && <BkBlock persona={persona} />}
 
           {/* SECTION 5 — Dunia 2025–2030 */}
           <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -557,6 +561,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="dunia" persona={persona} />
 
           {/* Konteks Jawa Barat */}
           <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -581,6 +586,7 @@ const Insight = () => {
             <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
             <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
           </section>
+          <UsefulFeedback section="jabar" persona={persona} />
 
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
