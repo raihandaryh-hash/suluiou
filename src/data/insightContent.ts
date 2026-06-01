@@ -251,7 +251,7 @@ export const bkSection = {
     {
       value: '28%', label: 'siswa usia 15 tahun di Indonesia dengan rencana karier yang realistis',
       detail: 'OECD menemukan: bimbingan karier di usia 15 berkorelasi kuat dengan outcome kerja di usia 25. Indonesia berada di kuadran bawah dalam efektivitas career guidance. Mayoritas siswa mendambakan pekerjaan kerah putih tradisional yang kuota pasarnya sedang menyusut.',
-      source: 'OECD State of Global Teenage Career Preparation 2024', tone: 'negative' as Tone,
+      source: 'OECD State of Global Teenage Career Preparation 2025 (data PISA 2022)', tone: 'negative' as Tone,
     },
   ],
 };
