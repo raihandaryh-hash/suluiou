@@ -73,6 +73,8 @@ export const pathways = [
       "Program MEd IOU dirancang untuk memperdalam pemahaman konseptual tentang pendidikan dan mendorong eksplorasi dalam bidang-bidang yang relevan. Mencakup penelitian mendalam, metodologi penelitian, analisis kritis, dan komunikasi akademis. Program ini mengadopsi pendekatan kontemporer dan mengangkat diskusi utama dalam bidang pendidikan — dengan nilai-nilai Islam tentang perdamaian, harmoni, dan toleransi yang tertanam dalam kurikulum.",
     iouUniqueness:
       "MEd IOU memandang pendidikan sebagai ibadah — meneruskan tradisi nabi sebagai mu'allim terbaik. Kurikulum mengintegrasikan metodologi penelitian pendidikan modern dengan falsafah tarbiyah Islamiyah, menghasilkan pendidik yang kompeten sekaligus berkarakter.",
+    matchingRationale:
+      "Cocok untuk kamu yang percaya bahwa perubahan dimulai dari pendidikan, ingin mengajar atau merancang kurikulum, dan ingin mendampingi generasi berikutnya tumbuh.",
   },
 ] as const;
 
