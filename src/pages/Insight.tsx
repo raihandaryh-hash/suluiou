@@ -330,11 +330,13 @@ function BkBlock({ persona }: { persona: Persona }) {
     <>
       <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
         <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {bkSection.cards.map((c, i) => (
-            <StatCard key={i} card={c as StatCardData} persona="gurubk" />
-          ))}
-        </div>
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {bkSection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona="gurubk" />
+            ))}
+          </div>
+        </DataReveal>
       </section>
       <UsefulFeedback section="bk" persona={persona} />
     </>
