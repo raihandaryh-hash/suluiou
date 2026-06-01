@@ -479,11 +479,6 @@ const Insight = () => {
                 <StatCard key={i} card={c as StatCardData} persona={persona} />
               ))}
             </div>
-            <div className="mt-6 bg-secondary/40 border border-border rounded-2xl p-6">
-              <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Catatan praktisi</p>
-              <p className="text-sm text-foreground/85 leading-relaxed italic">{laborRealitySection.practitionerNote.text}</p>
-              <p className="text-xs text-muted-foreground mt-3">{laborRealitySection.practitionerNote.attribution}</p>
-            </div>
           </section>
 
           {/* SECTION 4 — Persona-specific middle */}
