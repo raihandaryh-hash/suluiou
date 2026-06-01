@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, Share2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +12,7 @@ import Logo from '@/components/Logo';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import { track } from '@/lib/track';
+import { useShareCard } from '@/hooks/useShareCard';
 import {
   hero,
   personaTeaserSection,
