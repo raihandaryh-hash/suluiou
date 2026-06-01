@@ -29,6 +29,8 @@ export const pathways = [
       "Program Psikologi IOU menawarkan pendidikan luas dalam subdisiplin psikologi — perilaku normal dan patologis, emosi, kesejahteraan, kognisi, ilmu saraf, interaksi sosial, dan motivasi. Yang membedakan IOU: kurikulum mempertimbangkan interaksi antara pengaruh fisik, psikologis, budaya, agama, dan sosial untuk memahami manusia secara utuh. Tersedia juga pelatihan klinis terapan dan mata kuliah studi Islam.",
     iouUniqueness:
       "IOU mengintegrasikan psikologi Islam — pemahaman tentang jiwa (nafs) dalam perspektif Quran dan Sunnah — ke dalam kurikulum sains psikologi modern. Lulusan memahami manusia secara holistik: fisik, psikologis, dan ruhani.",
+    matchingRationale:
+      "Cocok untuk kamu yang peka terhadap orang lain, ingin memahami perilaku manusia, dan tertarik bekerja di konseling, pendidikan, atau pengembangan komunitas.",
   },
   {
     id: "bais",
