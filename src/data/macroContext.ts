@@ -16,14 +16,14 @@ MOMENTUM SEJARAH (anchor narasi ke sini):
 
 KRISIS YANG BELUM TERPECAHKAN (= peluang nyata bagi yang siap):
 - 19,44% pemuda Indonesia NEET (BPS Sakernas 2025) — tidak bekerja, tidak sekolah, tidak pelatihan
-- 87% mahasiswa mengaku salah jurusan — mismatch identitas-karir massif sejak SMA
-- Rasio guru BK di madrasah: 1:150 — bimbingan karir hampir tidak ada
+- 87% mahasiswa mengaku salah jurusan — mismatch identitas-karir massif sejak SMA  // Sumber: ICCN 2017 — survei mandiri, metodologi tidak dipublikasikan
+- Rasio guru BK di madrasah: 1:150 — bimbingan karir hampir tidak ada  // Catatan: ini STANDAR Permendikbud, bukan realita. Realita MA: 1:350-1:400
 - Junior Squeeze: posisi entry-level turun 20% di sektor AI-exposed (Stanford AI Index 2026)
 - Ketahanan pangan: Indonesia masih impor gandum, kedelai, bawang putih — kemandirian pangan agenda strategis nasional
 
 SEKTOR YANG AKAN SHORTAGE SDM BERKUALITAS 2030:
-- Ekonomi halal: 47,27% PDB sudah, tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka
-- Keuangan syariah: aset tumbuh 33,92% — mismatch SDM akut
+- Ekonomi halal: 47,27% PDB sudah, tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka  // Sumber: KNEKS 2024 — ini AUS (Aktivitas Usaha Syariah keseluruhan), BUKAN HVC (~25%)
+- Keuangan syariah: aset tumbuh 33,92% — mismatch SDM akut  // Sumber: Bank Indonesia KEKSI 2023
 - Agritech & ketahanan pangan: prioritas BAPPENAS, infrastruktur dibangun, SDM belum ada
 - Konten digital Islam: pasar besar, sangat kekurangan kreator dengan otoritas keagamaan
 - Bimbingan karir berbasis nilai: OECD — bimbingan usia 15 berkorelasi kuat dengan outcome kerja usia 25
@@ -36,4 +36,22 @@ KONTEKS AI & DISRUPSI:
 GEOPOLITIK:
 - Fragmentasi rantai pasok global → Indonesia harus mandiri atau jadi alternatif dalam rantai baru
 - OKI sebagai pasar alternatif → kemampuan bahasa Arab + fiqh = keunggulan nyata yang langka
+`;
+
+export const macroContextGuardrail = `
+PETUNJUK PENGGUNAAN DATA INI UNTUK AI:
+
+- Semua angka di atas adalah konteks faktual dari sumber yang tertera.
+
+- JANGAN generate angka statistik baru yang tidak ada di sini.
+
+- JANGAN ekstrapolasi ke klaim yang melampaui apa yang sumber katakan.
+
+- Jika tidak ada data presisi, gunakan framing kualitatif: 
+  "berdasarkan tren yang ada..."
+
+- Jika butuh angka yang tidak tersedia, katakan: 
+  "data lebih lanjut perlu dikonfirmasi."
+
+- Nama asli siswa TIDAK dikirim ke AI. Gunakan "kamu" saja.
 `;
