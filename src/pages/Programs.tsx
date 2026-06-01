@@ -16,6 +16,7 @@ interface PathwayCard {
   deadline: string;
   ctaText: string;
   ctaLink: string;
+  jalur: JalurId;
   extraBullets?: string[];
   smallNote?: string;
 }
@@ -30,6 +31,7 @@ const pathways: PathwayCard[] = [
     deadline: 'Cek website PTN masing-masing',
     ctaText: 'Cara cek jadwal mandiri →',
     ctaLink: 'https://snpmb.bppp.kemdikbud.go.id',
+    jalur: 'mandiri_ptn',
   },
   {
     name: 'UM-PTKIN',
@@ -40,6 +42,7 @@ const pathways: PathwayCard[] = [
     deadline: 'Pendaftaran: cek spmb-ptkin.ac.id',
     ctaText: 'Info UM-PTKIN →',
     ctaLink: 'https://spmb-ptkin.ac.id',
+    jalur: 'um_ptkin',
   },
   {
     name: 'PBSB Kemenag',
@@ -50,6 +53,7 @@ const pathways: PathwayCard[] = [
     deadline: 'Cek jadwal di website Kemenag',
     ctaText: 'Info PBSB →',
     ctaLink: 'https://pbsb.kemenag.go.id',
+    jalur: 'pbsb',
   },
   {
     name: 'KIP Kuliah',
@@ -60,6 +64,7 @@ const pathways: PathwayCard[] = [
     deadline: 'Daftar: Feb–Okt 2026 (cek kip-kuliah.kemdikbud.go.id)',
     ctaText: 'Info KIP Kuliah →',
     ctaLink: 'https://kip-kuliah.kemdikbud.go.id',
+    jalur: 'kip_kuliah',
   },
   {
     name: 'IOU Indonesia',
@@ -70,6 +75,7 @@ const pathways: PathwayCard[] = [
     deadline: '',
     ctaText: 'Pelajari IOU →',
     ctaLink: 'https://bahasa.iou.edu.gm',
+    jalur: 'iou',
     extraBullets: [
       'Biaya: Rp 1,5–2,4 juta per semester',
       'Pendaftaran: gratis, sepanjang tahun',
