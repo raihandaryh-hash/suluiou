@@ -18,14 +18,14 @@ MOMENTUM SEJARAH (anchor narasi ke sini):
 
 KRISIS YANG BELUM TERPECAHKAN (= peluang nyata bagi yang siap):
 - 19,44% pemuda Indonesia NEET (BPS Sakernas 2025) — tidak bekerja, tidak sekolah, tidak pelatihan
-- 87% mahasiswa mengaku salah jurusan — mismatch identitas-karir massif sejak SMA
-- Rasio guru BK di madrasah: 1:150 — bimbingan karir hampir tidak ada
+- 87% mahasiswa mengaku salah jurusan [CATATAN: Sumber: ICCN 2017 — survei mandiri, metodologi tidak dipublikasikan. Gunakan sebagai indikasi.] — mismatch identitas-karir massif sejak SMA
+- Rasio guru BK di madrasah: 1:150 [CATATAN: ini STANDAR Permendikbud, bukan realita. Realita MA: 1:350–1:400] — bimbingan karir hampir tidak ada
 - Junior Squeeze: posisi entry-level turun 20% di sektor AI-exposed (Stanford AI Index 2026)
 - Ketahanan pangan: Indonesia masih impor gandum, kedelai, bawang putih — kemandirian pangan agenda strategis nasional
 
 SEKTOR YANG AKAN SHORTAGE SDM BERKUALITAS 2030:
-- Ekonomi halal: 47,27% PDB sudah, tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka
-- Keuangan syariah: aset tumbuh 33,92% — mismatch SDM akut
+- Ekonomi halal: 47,27% PDB sudah [CATATAN: Sumber: KNEKS 2024 — ini AUS, Aktivitas Usaha Syariah keseluruhan, BUKAN hanya sektor halal konsumen yang ~25%], tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka
+- Keuangan syariah: aset tumbuh 33,92% [CATATAN: Sumber: Bank Indonesia KEKSI 2023] — mismatch SDM akut
 - Agritech & ketahanan pangan: prioritas BAPPENAS, infrastruktur dibangun, SDM belum ada
 - Konten digital Islam: pasar besar, sangat kekurangan kreator dengan otoritas keagamaan
 - Bimbingan karir berbasis nilai: OECD — bimbingan usia 15 berkorelasi kuat dengan outcome kerja usia 25
@@ -65,7 +65,15 @@ ATURAN MENULIS — WAJIB:
 10. DILARANG: membuat daftar peluang atau kemungkinan. Satu skenario, satu arah, satu gambar. Siswa yang membaca harus bisa membayangkan dirinya di sana — bukan memilih dari menu.
 11. DILARANG: mengulang kata-kata dari aspirasi siswa secara literal. Tafsirkan maknanya — tunjukkan kamu mengerti lebih dalam dari sekadar apa yang mereka tulis.
 10. JANGAN gunakan bullet point atau heading — paragraf mengalir.
-11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".`;
+11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".
+
+ATURAN DATA YANG TIDAK BOLEH DILANGGAR:
+- Semua angka yang kamu sebut dalam narasi HARUS berasal dari data konteks yang diberikan di atas. Tidak boleh mengarang angka baru.
+- Jika tidak ada data presisi untuk suatu klaim, gunakan framing kualitatif: "berdasarkan tren yang ada" atau "diperkirakan".
+- JANGAN gunakan "kamu akan" — gunakan "kamu mungkin" atau "kamu cenderung".
+- JANGAN gunakan "kamu adalah" untuk menyebut sifat atau karakter — gunakan "dari yang kamu ceritakan, kamu cenderung".
+- Narasi ini adalah bayangan skenario, bukan ramalan. Framing harus selalu "ikhtiar kita, hasil milik Allah."
+- Nama asli siswa sudah diganti dengan "kamu" sebelum sampai ke sini. Pertahankan "kamu".`;
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
