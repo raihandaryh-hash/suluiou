@@ -477,7 +477,7 @@ export const dataSources = [
   'BPJPH 2026 — Data Sertifikasi Halal Jawa Barat',
   'British Council/AVPN DICE Study — Social Enterprise Indonesia',
   'Tracer Study UIN Jakarta; Data PBSB Kemenag RI',
-  'Ioda Academy Indonesia — Survei Poly-jobbing Gen Z 2024',
+  'IDN Media Indonesian Millennials & Gen Z Report 2024',
 ];
 
 export const sourcePrefix = 'Sumber:';
