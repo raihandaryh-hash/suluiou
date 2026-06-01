@@ -134,6 +134,7 @@ type StatCardData = {
   tone: Tone;
   artinya?: Record<Persona, string>;
   glossaryTerm?: string;
+  dampak?: string[];
 };
 
 function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
