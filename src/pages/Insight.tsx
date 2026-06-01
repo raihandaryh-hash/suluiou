@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
+import { track } from '@/lib/track';
 import {
   hero,
   personaTeaserSection,
@@ -201,6 +202,41 @@ function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
     <div className="mb-8">
       <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3">{tag}</p>
       {intro && <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">{intro}</p>}
+    </div>
+  );
+}
+
+// ───── Useful? feedback (1-tap) — subtle, per-section ─────
+function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
+  const [vote, setVote] = useState<'yes' | 'no' | null>(null);
+  function handle(value: 'yes' | 'no') {
+    if (vote) return;
+    setVote(value);
+    track('useful_feedback', { section, persona, value });
+  }
+  return (
+    <div className="container mx-auto px-6 max-w-4xl">
+      <div className="flex items-center justify-end gap-2 text-xs text-muted-foreground/70 pb-2">
+        {vote ? (
+          <span>Terima kasih!</span>
+        ) : (
+          <>
+            <span>Berguna?</span>
+            <button
+              type="button"
+              onClick={() => handle('yes')}
+              aria-label="Berguna"
+              className="rounded-full px-2 py-1 hover:bg-secondary transition-colors"
+            >👍</button>
+            <button
+              type="button"
+              onClick={() => handle('no')}
+              aria-label="Tidak berguna"
+              className="rounded-full px-2 py-1 hover:bg-secondary transition-colors"
+            >👎</button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
