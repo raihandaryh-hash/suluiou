@@ -78,8 +78,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Temukan arah karier yang tepat dengan panduan berbasis data,
-              menggunakan metodologi <span className="text-white font-medium">HEXACO &amp; RIASEC</span>.
+              Kenali dunianya. Kenali dirimu. Temukan arahmu — dengan panduan yang berbasis data, bukan tebakan.
             </motion.p>
 
             <motion.div

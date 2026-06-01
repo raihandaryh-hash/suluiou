@@ -56,7 +56,7 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
-        gurubk: 'Titik awal percakapan karier yang lebih jujur dengan siswa.',
+        gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
       } as Record<Persona, string>,
     },
     {
@@ -76,15 +76,15 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
         orangtua: 'Pilihan yang terburu-buru jauh lebih mahal dari waktu yang diambil untuk mengenal anak.',
-        gurubk: 'Bukan masalah motivasi — masalah minimnya refleksi diri saat keputusan diambil.',
+        gurubk: 'Bukan masalah motivasi. Masalah minimnya refleksi diri saat keputusan diambil.',
       } as Record<Persona, string>,
     },
     {
       value: '20%', label: 'penurunan pekerjaan entry-level di sektor digital dan tech',
-      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2022. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
+      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2024. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
       source: 'Stanford AI Index 2026 (sektor tech/knowledge work)', tone: 'negative' as Tone,
       artinya: {
-        siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
+        siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa; ia mengambil titik masuk pertama ke karier.',
         orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
         gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
       } as Record<Persona, string>,
@@ -129,7 +129,7 @@ export const laborRealitySection = {
       value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
       detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran — ini mayoritas. Tren ini naik, bukan turun.',
       source: 'BPS Sakernas 2024-2025',
-      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja — termasuk yang berpendidikan — bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
+      glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja, termasuk yang berpendidikan, bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
       tone: 'negative' as Tone,
       artinya: {
         siswa: 'Sistem tidak sedang mempersiapkan tempat untukmu secara otomatis. Kamu yang harus mempersiapkan diri.',
@@ -141,7 +141,7 @@ export const laborRealitySection = {
       value: 'K-Shaped', label: 'pemulihan ekonomi yang tidak merata',
       detail: 'Gini index Indonesia mencapai 0,381 (September 2024). Kelas menengah menyusut 10 juta orang dalam 5 tahun. Pertumbuhan ekonomi terjadi, tapi terkonsentrasi di atas. Gelombang protes pemuda yang terjadi sejak awal 2025 adalah ekspresi langsung dari ketidakmerataan ini.',
       source: 'BPS; World Bank Indonesia 2024; ISEAS Agustus 2025',
-      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K — sektor yang sudah kuat tumbuh lebih cepat (bagian atas), sementara sektor padat karya dan pekerja informal tertinggal (bagian bawah).',
+      glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K: bagian atas tumbuh cepat, bagian bawah pekerja informal tertinggal.',
       tone: 'negative' as Tone,
       artinya: {
         siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
@@ -152,8 +152,8 @@ export const laborRealitySection = {
     {
       value: '15,45%', label: 'tenaga kerja Indonesia yang punya pekerjaan tambahan',
       detail: 'Tertinggi dalam 5 tahun terakhir (BPS 2023). 57% Gen Z dan 48% Milenial Indonesia sudah menjalankan setidaknya satu pekerjaan sampingan. Catatan: sebagian besar karena gaji satu pekerjaan tidak cukup, bukan karena pilihan strategis. Keduanya perlu diantisipasi.',
-      source: 'BPS 2023; Ioda Academy Indonesia 2024',
-      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus — bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
+      source: 'BPS Sakernas 2023; IDN Media Indonesian Millennials & Gen Z Report 2024',
+      glossaryTerm: 'Portfolio Career / Poly-jobbing: memiliki beberapa sumber penghasilan dari beberapa klien atau pekerjaan sekaligus: bisa karena terpaksa (gaji tidak cukup) atau karena direncanakan sebagai strategi ketahanan.',
       tone: 'neutral' as Tone,
       artinya: {
         siswa: 'Membangun lebih dari satu keahlian yang bisa menghasilkan adalah strategi, bukan kemewahan.',
@@ -162,10 +162,6 @@ export const laborRealitySection = {
       } as Record<Persona, string>,
     },
   ],
-  practitionerNote: {
-    text: 'Dari perspektif HR dengan 30 tahun pengalaman merekrut di perusahaan multinasional: pola yang paling sering berakhir dengan stagnasi adalah kombinasi antara gelar tanpa bukti kerja nyata, keahlian yang tidak bisa dibawa ke tempat lain, dan ketergantungan pada satu sumber penghasilan. Ini bukan data dari satu laporan — ini pola yang konsisten terlihat di lapangan.',
-    attribution: 'Berdasarkan perspektif praktisi HR, disintesis dari pengalaman lapangan 2024-2025.',
-  },
 };
 
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
@@ -205,7 +201,7 @@ export const skillSection = {
       { skill: 'Tugas fisik terstruktur dan prediktif', note: 'Perakitan linier, pembukuan dasar, pemrosesan data standar' },
     ],
   },
-  note: '39% skill inti hari ini diperkirakan tidak relevan pada 2030. Turun dari 44% di 2023 karena reskilling mulai berjalan.',
+  note: '39% skill inti hari ini diperkirakan akan berubah sebelum 2030. Turun dari 44% di 2023 karena reskilling mulai berjalan.',
   source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute',
 };
 
@@ -228,11 +224,6 @@ export const roiSection = {
       value: 'Rp 4,63 jt', label: 'rata-rata gaji bulanan lulusan perguruan tinggi Indonesia',
       detail: 'Lebih tinggi dari rata-rata nasional (Rp 3,33 juta). Tapi fresh graduate usia 20-25 tahun sering hanya mendapat Rp 2-2,5 juta di awal karier. Yang menentukan outcome bukan nama kampus, tapi kecocokan antara kemampuan nyata dan kebutuhan industri.',
       source: 'BPS Sakernas November 2025', tone: 'neutral' as Tone,
-    },
-    {
-      value: '76%', label: 'keputusan pilihan jurusan dipengaruhi orang tua',
-      detail: 'Orang tua adalah faktor terbesar dalam keputusan karier anak, lebih besar dari guru. Pengaruh yang didasari informasi akurat menghasilkan keputusan yang lebih baik untuk semua pihak.',
-      source: 'Jurnal Nusantara of Research 2024; Anne Roe career theory', tone: 'neutral' as Tone,
     },
   ],
 };
@@ -260,7 +251,7 @@ export const bkSection = {
     {
       value: '28%', label: 'siswa usia 15 tahun di Indonesia dengan rencana karier yang realistis',
       detail: 'OECD menemukan: bimbingan karier di usia 15 berkorelasi kuat dengan outcome kerja di usia 25. Indonesia berada di kuadran bawah dalam efektivitas career guidance. Mayoritas siswa mendambakan pekerjaan kerah putih tradisional yang kuota pasarnya sedang menyusut.',
-      source: 'OECD State of Global Teenage Career Preparation 2024', tone: 'negative' as Tone,
+      source: 'OECD State of Global Teenage Career Preparation 2025 (data PISA 2022)', tone: 'negative' as Tone,
     },
   ],
 };
@@ -309,7 +300,7 @@ export const worldSection = {
       detail: 'Proporsi penduduk usia produktif mencapai 68–70% dari total populasi. Bappenas memproyeksikan angkatan kerja potensial mencapai 201 juta jiwa pada 2030. Setelah 2035, rasio ketergantungan mulai naik. Jendela ini tidak berulang.',
       source: 'Proyeksi Penduduk Indonesia 2020–2050, Bappenas/BPS; RPJPN 2025–2045', tone: 'neutral' as Tone,
       artinya: {
-        siswa: 'Generasimu adalah generasi yang paling menentukan apakah bonus demografi jadi aset atau beban.',
+        siswa: 'Kamu masuk pasar kerja tepat di puncak bonus demografi. Ini bisa jadi keuntungan atau tekanan, tergantung persiapanmu.',
         orangtua: 'Keputusan yang dibuat hari ini untuk anak Anda adalah bagian dari keputusan nasional yang lebih besar.',
         gurubk: 'Framing ini berguna untuk menjelaskan urgency kepada siswa tanpa terasa menakut-nakuti.',
       } as Record<Persona, string>,
@@ -362,18 +353,6 @@ export const alumniSection = {
   subtext: 'Ini pola yang terdokumentasi dari alumni pendidikan Islam Indonesia yang masuk ke sektor-sektor yang tidak pernah diduga.',
   stories: [
     {
-      sector: 'Energi Terbarukan',
-      story: 'Santri Pesantren Al-Amiin Prenduan (Sumenep, Madura) memasang dan mengelola PLTS Atap 10.000 Watt secara mandiri — sebagai santri yang dilatih langsung, bukan kontraktor eksternal. Sistem ini kemudian direplikasi di komunitas asal mereka.',
-      insight: 'Teknologi hijau dibangun di atas nilai kekhilafahan — menjaga bumi adalah ibadah, bukan karier sekuler.',
-      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
-    },
-    {
-      sector: 'Sains dan Teknologi Global',
-      story: 'Prof. Muhammad Nurhuda, Guru Besar Fisika Komputasi Universitas Brawijaya, mengembangkan kompor biomassa gasifikasi yang kini diproduksi massal di Norwegia dan didistribusikan ke India, Meksiko, Peru, Timor Leste, dan Kamboja.',
-      insight: 'Ilmu yang bermanfaat tidak punya batas sektor. Kombinasi kedalaman akademik dan orientasi kemaslahatan adalah jalur karier yang tidak bisa digantikan mesin.',
-      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
-    },
-    {
       sector: 'Pendidikan Tinggi',
       story: 'Universitas Islam Negeri Syarif Hidayatullah Jakarta mencatat hampir 50% lulusannya sudah terserap kerja sebelum wisuda. Alumni PBSB (Beasiswa Santri Berprestasi) Kemenag tersebar di kementerian, kedutaan besar, dan universitas.',
       insight: 'Latar belakang Islam tidak mengurangi daya saing. Yang mengurangi daya saing adalah tidak mengenal potensi diri.',
@@ -408,7 +387,8 @@ export const expertSection = {
       quote: 'Produktivitas adalah prasyarat utama bagi Indonesia untuk keluar dari middle income trap, yang ditopang oleh kualitas SDM melalui investasi strategis bidang pendidikan dan kesehatan.',
       speaker: 'Sri Mulyani Indrawati',
       title: 'Menteri Keuangan Republik Indonesia',
-      source: 'Pernyataan kebijakan fiskal dan investasi SDM, 2025',
+      source: 'Pertemuan Musim Semi IMF-World Bank, Washington D.C., April 2024',
+      url: 'https://www.tempo.co/ekonomi/di-washington-dc-sri-mulyani-beberkan-soal-bonus-demografi-muda-hingga-reformasi-kesehatan--66336',
     },
   ],
 };
@@ -485,7 +465,7 @@ export const dataSources = [
   'Bappenas — Proyeksi Penduduk Indonesia 2020–2050',
   'RPJPN 2025–2045 (UU No. 59/2024)',
   'KNEKS 2024; SGIE Report 2024/2025',
-  'OECD State of Global Teenage Career Preparation 2024',
+  'OECD State of Global Teenage Career Preparation 2025 (data PISA 2022)',
   'Irene Guntur, Psikolog Pendidikan IDF; Indonesia Career Center Network',
   'Jurnal ABKIN; UPI; UNY — Riset kebutuhan guru BK',
   'Permendikbud No. 111/2014; Data Dapodik; EMIS Kemenag',
@@ -497,7 +477,7 @@ export const dataSources = [
   'BPJPH 2026 — Data Sertifikasi Halal Jawa Barat',
   'British Council/AVPN DICE Study — Social Enterprise Indonesia',
   'Tracer Study UIN Jakarta; Data PBSB Kemenag RI',
-  'Ioda Academy Indonesia — Survei Poly-jobbing Gen Z 2024',
+  'IDN Media Indonesian Millennials & Gen Z Report 2024',
 ];
 
 export const sourcePrefix = 'Sumber:';

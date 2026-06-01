@@ -52,7 +52,7 @@ Kemandirian bukan motivasi. Ini adalah kumpulan kemampuan konkret: belajar hal b
     role: 'Dosen IOU, Kepala Labschool Tarbiyah Sunnah, Direktur Bidang Pendidikan Yayasan Tarbiyah Sunnah.',
     tag: 'AKAR: NILAI DAN IDENTITAS',
     headline: 'Barangsiapa mengenal Allah, ia akan mengenal dirinya.',
-    body: `Allah berfirman dalam QS Al-Isra: 84 bahwa setiap orang berbuat sesuai dengan pembawaan (syakilah) masing-masing. Ini bukan sekadar ayat tentang perbedaan — ini adalah pernyataan teologis bahwa setiap manusia diciptakan dengan nature yang unik, dan Allah yang paling mengetahui jalur terbaik untuknya.
+    body: `Allah berfirman dalam QS Al-Isra: 84 bahwa setiap orang berbuat sesuai dengan pembawaan (syakilah) masing-masing. Ini bukan sekadar ayat tentang perbedaan — ini adalah pesan yang dalam bahwa setiap manusia diciptakan dengan nature yang unik, dan Allah yang paling mengetahui jalur terbaik untuknya.
 
 Dalam QS Ar-Ra'd: 11, Allah menegaskan bahwa perubahan dimulai dari dalam diri. Kemandirian yang dibutuhkan dunia kerja era ini tidak bisa berdiri tanpa akar nilai yang tidak goyah ketika dunia berubah.
 
@@ -77,7 +77,7 @@ Pohon yang baik punya akar yang kokoh sebelum bisa menghasilkan buah yang berkel
     headline: 'Kamu tidak "tidak punya kelebihan".\nKamu belum menggalinya.',
     body: `Dari perspektif psikologi, kebingungan karier bukan karena kurang pintar atau kurang mau berusaha. Ini karena kurangnya self-awareness yang terstruktur — pemahaman yang akurat tentang kekuatan, kecenderungan, dan cara kamu berfungsi terbaik.
 
-Self-awareness adalah prasyarat kausal untuk empati dan kolaborasi yang efektif. Metakognisi — kemampuan memantau cara berpikirmu sendiri — adalah prasyarat kausal untuk analytical thinking. Ini bukan teori — ini relasi yang terbukti secara eksperimental dalam riset psikologi.
+Self-awareness adalah fondasi dari empati dan kerja sama yang nyata. Ketika kamu bisa memantau cara kamu sendiri berpikir — menyadari apakah strategimu sudah tepat di tengah proses — itulah yang membuat seseorang bisa berpikir analitis, bukan sekadar bekerja keras. Ini bukan teori abstrak. Ini yang terlihat setiap hari di tempat kerja nyata.
 
 Overthinking yang sering dikeluhkan generasi muda bukan lawan dari critical thinking. Overthinking adalah pikiran yang berputar tanpa menghasilkan keputusan. Critical thinking adalah proses memecah masalah kompleks menjadi bagian-bagian yang bisa diperiksa. Yang pertama menguras energi, yang kedua membangunnya.
 
@@ -147,3 +147,45 @@ export const compassSources = [
   'BPS Sakernas 2024-2025 (data informal economy)',
   'WEF Future of Jobs Report 2025 (skill landscape)',
 ];
+
+export const iouBridgeSection = {
+  tag: 'DARI ILMU KE DAMPAK',
+  headline: 'Di mana kamu bisa menempa semua ini?',
+  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Mahasiswa — bukan menunggu lulus untuk mulai berkontribusi.',
+  programs: [
+    {
+      code: 'BBA',
+      name: 'Business Administration',
+      character: 'Untuk kamu yang ingin membangun ekosistem ekonomi yang lebih adil dan tahu cara mengelola organisasi dari dalam.',
+    },
+    {
+      code: 'PSY',
+      name: 'Psychology',
+      character: 'Untuk kamu yang ingin memahami manusia dan berkontribusi di bidang konseling, pendidikan, atau pengembangan komunitas.',
+    },
+    {
+      code: 'BAIS',
+      name: 'Arabic & Islamic Studies',
+      character: 'Untuk kamu yang ingin mendalami Islam dari sumbernya dan berkontribusi lewat dakwah, penelitian, atau pendidikan Islam.',
+    },
+    {
+      code: 'ALS',
+      name: 'Arabic Language Studies',
+      character: 'Untuk kamu yang jatuh cinta pada bahasa Arab dan ingin bekerja sebagai penerjemah, pengajar, atau peneliti linguistik Arab.',
+    },
+    {
+      code: 'MEd',
+      name: 'Education',
+      character: 'Untuk kamu yang percaya perubahan dimulai dari pendidikan dan ingin mendampingi generasi berikutnya tumbuh.',
+    },
+  ],
+  khazilmu: {
+    label: 'Ekosistem Belajar',
+    text: 'Mahasiswa IOU terhubung ke Khazilmu.com — platform belajar dan komunitas yang menjahit ilmu ke dampak nyata.',
+    url: 'https://khazilmu.com',
+  },
+  cta: {
+    label: 'Pelajari lebih lanjut tentang IOU',
+    href: 'https://bahasa.iou.edu.gm',
+  },
+};

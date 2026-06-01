@@ -15,6 +15,8 @@ export const pathways = [
       "Program BBA IOU menggabungkan ilmu manajemen modern dengan perspektif Islam. Kamu akan mempelajari marketing, keuangan, SDM, kepemimpinan, dan kewirausahaan — sekaligus memahami bagaimana bisnis yang etis dijalankan dalam kerangka nilai Islam. Program ini mengembangkan kemampuan pengambilan keputusan dalam situasi bisnis nyata, keterampilan analitis, inovasi bisnis, dan tanggung jawab sosial-Islami.",
     iouUniqueness:
       "IOU mengintegrasikan perspektif Islam ke setiap aspek kurikulum bisnis — dari etika marketing hingga kepemimpinan berbasis nilai. Lulusan tidak hanya cerdas secara bisnis, tapi juga bertanggung jawab secara moral dan sosial.",
+    matchingRationale:
+      "Cocok untuk kamu yang berpikir sistematis, tertarik pada cara organisasi dan ekonomi bekerja, dan ingin membangun atau mengelola sesuatu yang berdampak.",
   },
   {
     id: "psy",
@@ -27,6 +29,8 @@ export const pathways = [
       "Program Psikologi IOU menawarkan pendidikan luas dalam subdisiplin psikologi — perilaku normal dan patologis, emosi, kesejahteraan, kognisi, ilmu saraf, interaksi sosial, dan motivasi. Yang membedakan IOU: kurikulum mempertimbangkan interaksi antara pengaruh fisik, psikologis, budaya, agama, dan sosial untuk memahami manusia secara utuh. Tersedia juga pelatihan klinis terapan dan mata kuliah studi Islam.",
     iouUniqueness:
       "IOU mengintegrasikan psikologi Islam — pemahaman tentang jiwa (nafs) dalam perspektif Quran dan Sunnah — ke dalam kurikulum sains psikologi modern. Lulusan memahami manusia secara holistik: fisik, psikologis, dan ruhani.",
+    matchingRationale:
+      "Cocok untuk kamu yang peka terhadap orang lain, ingin memahami perilaku manusia, dan tertarik bekerja di konseling, pendidikan, atau pengembangan komunitas.",
   },
   {
     id: "bais",
@@ -39,6 +43,8 @@ export const pathways = [
       "Program BAIS IOU memberikan pemahaman mendalam dalam berbagai bidang kajian Islam: Aqidah, Fiqh, Tafsir, Seerah, dan dasar bahasa Arab. Program ini menghubungkan ajaran-ajaran klasik Islam dengan isu-isu kontemporer, memungkinkan mahasiswa memperluas studi teoretis Islam menjadi praktik yang bermakna. Kurikulum mengacu pada standar program studi Islam internasional.",
     iouUniqueness:
       "IOU didirikan oleh Dr. Bilal Philips dengan misi menyebarkan ilmu Islam otentik ke seluruh dunia. Kurikulum BAIS dirancang oleh ulama dan akademisi Islam bereputasi global, dengan penekanan pada metodologi yang benar dan relevansi kontemporer.",
+    matchingRationale:
+      "Cocok untuk kamu yang ingin mendalami Islam dari sumbernya, memiliki minat pada kajian teks Arab, dan ingin berkontribusi lewat dakwah, penelitian, atau pendidikan Islam.",
   },
   {
     id: "als",
@@ -51,6 +57,8 @@ export const pathways = [
       "Program BA ALS IOU dirancang untuk memberikan fondasi yang kuat dalam bahasa Arab bagi penutur non-natif, dengan pendekatan pengajaran bahasa kedua. Program ini membangun kemampuan dari komunikasi sehari-hari hingga teks-teks akademis dan klasik Islam — membuka akses langsung ke khazanah keilmuan Islam yang sebagian besar masih dalam bahasa Arab.",
     iouUniqueness:
       "Program ALS IOU dirancang untuk menguasai bahasa Arab dari komunikasi dasar hingga sastra tinggi — dengan penekanan pada bahasa Arab fusha. Ini membuka akses ke ribuan kitab ulama yang belum diterjemahkan, menjadikan lulusan sebagai jembatan penting antara khazanah Islam klasik dan masyarakat modern.",
+    matchingRationale:
+      "Cocok untuk kamu yang jatuh cinta pada bahasa Arab, ingin bekerja sebagai penerjemah, pengajar, atau peneliti dalam literatur dan linguistik Arab.",
   },
   {
     id: "med",
@@ -65,6 +73,8 @@ export const pathways = [
       "Program MEd IOU dirancang untuk memperdalam pemahaman konseptual tentang pendidikan dan mendorong eksplorasi dalam bidang-bidang yang relevan. Mencakup penelitian mendalam, metodologi penelitian, analisis kritis, dan komunikasi akademis. Program ini mengadopsi pendekatan kontemporer dan mengangkat diskusi utama dalam bidang pendidikan — dengan nilai-nilai Islam tentang perdamaian, harmoni, dan toleransi yang tertanam dalam kurikulum.",
     iouUniqueness:
       "MEd IOU memandang pendidikan sebagai ibadah — meneruskan tradisi nabi sebagai mu'allim terbaik. Kurikulum mengintegrasikan metodologi penelitian pendidikan modern dengan falsafah tarbiyah Islamiyah, menghasilkan pendidik yang kompeten sekaligus berkarakter.",
+    matchingRationale:
+      "Cocok untuk kamu yang percaya bahwa perubahan dimulai dari pendidikan, ingin mengajar atau merancang kurikulum, dan ingin mendampingi generasi berikutnya tumbuh.",
   },
 ] as const;
 
