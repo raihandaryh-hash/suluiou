@@ -118,6 +118,9 @@ const cardVariants = {
 };
 
 const Programs = () => {
+  useEffect(() => {
+    track('programs_viewed');
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -221,6 +224,7 @@ const Programs = () => {
                     href={p.ctaLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => track('program_cta_clicked', { jalur: p.jalur })}
                   >
                     {p.ctaText}
                     <ExternalLink className="ml-1.5 w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
