@@ -52,7 +52,7 @@ Kemandirian bukan motivasi. Ini adalah kumpulan kemampuan konkret: belajar hal b
     role: 'Dosen IOU, Kepala Labschool Tarbiyah Sunnah, Direktur Bidang Pendidikan Yayasan Tarbiyah Sunnah.',
     tag: 'AKAR: NILAI DAN IDENTITAS',
     headline: 'Barangsiapa mengenal Allah, ia akan mengenal dirinya.',
-    body: `Allah berfirman dalam QS Al-Isra: 84 bahwa setiap orang berbuat sesuai dengan pembawaan (syakilah) masing-masing. Ini bukan sekadar ayat tentang perbedaan — ini adalah pernyataan teologis bahwa setiap manusia diciptakan dengan nature yang unik, dan Allah yang paling mengetahui jalur terbaik untuknya.
+    body: `Allah berfirman dalam QS Al-Isra: 84 bahwa setiap orang berbuat sesuai dengan pembawaan (syakilah) masing-masing. Ini bukan sekadar ayat tentang perbedaan — ini adalah pesan yang dalam bahwa setiap manusia diciptakan dengan nature yang unik, dan Allah yang paling mengetahui jalur terbaik untuknya.
 
 Dalam QS Ar-Ra'd: 11, Allah menegaskan bahwa perubahan dimulai dari dalam diri. Kemandirian yang dibutuhkan dunia kerja era ini tidak bisa berdiri tanpa akar nilai yang tidak goyah ketika dunia berubah.
 
