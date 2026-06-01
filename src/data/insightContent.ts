@@ -51,13 +51,19 @@ export const indonesiaSection = {
   cards: [
     {
       value: '19,44%', label: 'pemuda Indonesia berstatus NEET',
-      detail: 'Tidak bekerja, tidak sekolah, tidak pelatihan. Setara 9 juta anak muda di tengah puncak bonus demografi. Kesenjangan gender tajam: perempuan 35,77%, laki-laki 16,38%.',
+      detail: 'Sekitar 9 juta anak muda berada dalam kondisi ini tepat di masa bonus demografi. Kesenjangan gender cukup tajam: perempuan 35,77%, laki-laki 16,38%.',
       source: 'BPS Sakernas 2025, data 38 provinsi', tone: 'negative' as Tone,
       artinya: {
-        siswa: 'Satu dari lima orang seusiamu sudah terputus dari jalur apapun.',
+        siswa: 'Satu dari lima pemuda seusiamu saat ini belum terlibat dalam pendidikan, pekerjaan, atau pelatihan apa pun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
         gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
       } as Record<Persona, string>,
+      dampak: [
+        'Hilangnya bonus demografi — Potensi tenaga kerja besar terbuang, sehingga pertumbuhan ekonomi melambat.',
+        'Beban negara & keluarga — Meningkatkan pengeluaran sosial dan mengurangi pendapatan nasional.',
+        'Penurunan daya saing — Indonesia kalah bersaing dengan negara ASEAN lain karena kekurangan tenaga kerja terampil.',
+        'Efek jangka panjang — Pemuda NEET sulit bangkit, gaji lebih rendah, dan risiko kemiskinan meningkat.',
+      ],
     },
     {
       value: '17,54%', label: 'tingkat pengangguran pemuda usia 15–24 tahun',
