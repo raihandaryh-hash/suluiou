@@ -147,3 +147,45 @@ export const compassSources = [
   'BPS Sakernas 2024-2025 (data informal economy)',
   'WEF Future of Jobs Report 2025 (skill landscape)',
 ];
+
+export const iouBridgeSection = {
+  tag: 'DARI ILMU KE DAMPAK',
+  headline: 'Di mana kamu bisa menempa semua ini?',
+  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Mahasiswa — bukan menunggu lulus untuk mulai berkontribusi.',
+  programs: [
+    {
+      code: 'BBA',
+      name: 'Business Administration',
+      character: 'Untuk kamu yang ingin membangun ekosistem ekonomi yang lebih adil dan tahu cara mengelola organisasi dari dalam.',
+    },
+    {
+      code: 'PSY',
+      name: 'Psychology',
+      character: 'Untuk kamu yang ingin memahami manusia dan berkontribusi di bidang konseling, pendidikan, atau pengembangan komunitas.',
+    },
+    {
+      code: 'BAIS',
+      name: 'Arabic & Islamic Studies',
+      character: 'Untuk kamu yang ingin mendalami Islam dari sumbernya dan berkontribusi lewat dakwah, penelitian, atau pendidikan Islam.',
+    },
+    {
+      code: 'ALS',
+      name: 'Arabic Language Studies',
+      character: 'Untuk kamu yang jatuh cinta pada bahasa Arab dan ingin bekerja sebagai penerjemah, pengajar, atau peneliti linguistik Arab.',
+    },
+    {
+      code: 'MEd',
+      name: 'Education',
+      character: 'Untuk kamu yang percaya perubahan dimulai dari pendidikan dan ingin mendampingi generasi berikutnya tumbuh.',
+    },
+  ],
+  khazilmu: {
+    label: 'Ekosistem Belajar',
+    text: 'Mahasiswa IOU terhubung ke Khazilmu.com — platform belajar dan komunitas yang menjahit ilmu ke dampak nyata.',
+    url: 'https://khazilmu.com',
+  },
+  cta: {
+    label: 'Pelajari lebih lanjut tentang IOU',
+    href: 'https://bahasa.iou.edu.gm',
+  },
+};
