@@ -480,6 +480,9 @@ const Insight = () => {
             >
               {hero.subtext[persona]}
             </motion.p>
+            <div className="mt-4">
+              <Badge variant="outline" className="text-[10px] text-muted-foreground font-normal">≈ 4 menit</Badge>
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
