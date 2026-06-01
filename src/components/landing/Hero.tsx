@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, BarChart3 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { ArrowRight, BarChart3 } from 'lucide-react';
 import heroImage from '@/assets/hero-sulu.jpg';
 import Logo from '@/components/Logo';
 
@@ -105,6 +106,36 @@ const Hero = () => {
               >
                 <Link to="/suar">Pelajari Metodologi</Link>
               </Button>
+            </motion.div>
+
+            {/* Seasonal Fast-Path — second entry */}
+            <motion.div
+              className="mt-6 flex flex-col items-center lg:items-start gap-2.5"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.65 }}
+            >
+              <Badge
+                variant="outline"
+                className="w-fit text-[11px] font-normal px-2.5 py-1 rounded-full bg-white/10 border-white/20 text-white/80 backdrop-blur-sm"
+              >
+                UM-PTKIN: 30 Jun · Mandiri PTN: Juli–Agt · IOU: kapan saja
+              </Badge>
+
+              <Button
+                asChild
+                variant="ghost"
+                size="sm"
+                className="text-white/60 hover:text-white/90 hover:bg-white/5 px-0 h-auto text-sm font-normal"
+              >
+                <Link to="/programs">
+                  Belum dapat PTN / masih menimbang?
+                </Link>
+              </Button>
+
+              <p className="text-[11px] text-white/40 leading-snug max-w-xs">
+                Info semua jalur tersedia — termasuk yang sering terlewat.
+              </p>
             </motion.div>
 
           </div>
