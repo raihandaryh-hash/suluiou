@@ -573,11 +573,13 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {laborRealitySection.cards.map((c, i) => (
-                <StatCard key={i} card={c as StatCardData} persona={persona} />
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {laborRealitySection.cards.map((c, i) => (
+                  <StatCard key={i} card={c as StatCardData} persona={persona} />
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="realita" persona={persona} />
 
