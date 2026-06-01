@@ -81,7 +81,7 @@ export const indonesiaSection = {
     },
     {
       value: '20%', label: 'penurunan pekerjaan entry-level di sektor digital dan tech',
-      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2022. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
+      detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2024. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
       source: 'Stanford AI Index 2026 (sektor tech/knowledge work)', tone: 'negative' as Tone,
       artinya: {
         siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
