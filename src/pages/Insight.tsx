@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, Share2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +12,7 @@ import Logo from '@/components/Logo';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import { track } from '@/lib/track';
+import { useShareCard } from '@/hooks/useShareCard';
 import {
   hero,
   personaTeaserSection,
@@ -143,16 +144,40 @@ type StatCardData = {
 
 function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
   const [open, setOpen] = useState(false);
+  const { shareCard, isSharing } = useShareCard();
+  const [thisSharing, setThisSharing] = useState(false);
   const valueColor =
     card.tone === 'negative' ? 'text-destructive' :
     card.tone === 'positive' ? 'text-primary' :
     'text-foreground';
 
+  const canShare = !!card.artinya;
+
+  async function handleShare(e: React.MouseEvent) {
+    e.stopPropagation();
+    if (!card.artinya || thisSharing) return;
+    setThisSharing(true);
+    try {
+      const res = await shareCard({
+        value: card.value,
+        label: card.label,
+        artinya: card.artinya[persona],
+        persona,
+        source: card.source,
+      });
+      track('share_card', { value: card.value, persona, method: res.ok ? (res as { method: string }).method : 'failed' });
+    } finally {
+      setThisSharing(false);
+    }
+  }
+
   return (
-    <button
-      type="button"
+    <div
+      role="button"
+      tabIndex={0}
       onClick={() => setOpen((v) => !v)}
-      className="group text-left w-full bg-secondary/60 hover:bg-secondary border border-border rounded-2xl p-6 transition-all focus:outline-none focus:ring-2 focus:ring-ring"
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen((v) => !v); } }}
+      className="group text-left w-full bg-secondary/60 hover:bg-secondary border border-border rounded-2xl p-6 transition-all focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
       aria-expanded={open}
     >
       <div className="flex items-start justify-between gap-3">
@@ -167,7 +192,25 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
             </p>
           )}
         </div>
-        <ChevronDown className={cn('w-4 h-4 text-muted-foreground shrink-0 mt-1 transition-transform', open && 'rotate-180')} />
+        <div className="flex flex-col items-end gap-2 shrink-0">
+          {canShare && (
+            <button
+              type="button"
+              onClick={handleShare}
+              disabled={thisSharing || isSharing}
+              aria-label="Bagikan kartu ini"
+              className="inline-flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-md hover:bg-background/60 disabled:opacity-50"
+            >
+              {thisSharing ? (
+                <Loader2 className="w-3 h-3 animate-spin" />
+              ) : (
+                <Share2 className="w-3 h-3" />
+              )}
+              <span>Bagikan</span>
+            </button>
+          )}
+          <ChevronDown className={cn('w-4 h-4 text-muted-foreground transition-transform', open && 'rotate-180')} />
+        </div>
       </div>
       <div className={cn('grid transition-all duration-300 ease-out', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
         <div className="overflow-hidden">
@@ -197,7 +240,7 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
           </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
