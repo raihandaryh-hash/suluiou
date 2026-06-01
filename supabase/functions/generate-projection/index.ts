@@ -65,7 +65,15 @@ ATURAN MENULIS — WAJIB:
 10. DILARANG: membuat daftar peluang atau kemungkinan. Satu skenario, satu arah, satu gambar. Siswa yang membaca harus bisa membayangkan dirinya di sana — bukan memilih dari menu.
 11. DILARANG: mengulang kata-kata dari aspirasi siswa secara literal. Tafsirkan maknanya — tunjukkan kamu mengerti lebih dalam dari sekadar apa yang mereka tulis.
 10. JANGAN gunakan bullet point atau heading — paragraf mengalir.
-11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".`;
+11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".
+
+ATURAN DATA YANG TIDAK BOLEH DILANGGAR:
+- Semua angka yang kamu sebut dalam narasi HARUS berasal dari data konteks yang diberikan di atas. Tidak boleh mengarang angka baru.
+- Jika tidak ada data presisi untuk suatu klaim, gunakan framing kualitatif: "berdasarkan tren yang ada" atau "diperkirakan".
+- JANGAN gunakan "kamu akan" — gunakan "kamu mungkin" atau "kamu cenderung".
+- JANGAN gunakan "kamu adalah" untuk menyebut sifat atau karakter — gunakan "dari yang kamu ceritakan, kamu cenderung".
+- Narasi ini adalah bayangan skenario, bukan ramalan. Framing harus selalu "ikhtiar kita, hasil milik Allah."
+- Nama asli siswa sudah diganti dengan "kamu" sebelum sampai ke sini. Pertahankan "kamu".`;
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
