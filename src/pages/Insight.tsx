@@ -623,6 +623,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="peluang" persona={persona} />
 
           {/* SECTION 7 — Skill Map Teaser */}
           <section className="container mx-auto px-6 py-16 max-w-4xl">
