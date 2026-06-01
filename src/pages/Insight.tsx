@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
@@ -210,6 +211,22 @@ function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
   );
 }
 
+// ───── DataReveal — progressive disclosure wrapper ─────
+function DataReveal({ children, label = 'Lihat datanya' }: { children: ReactNode; label?: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen} className="mt-4">
+      <CollapsibleTrigger className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <span>{open ? 'Sembunyikan' : label}</span>
+        <ChevronDown className={cn('w-3.5 h-3.5 transition-transform', open && 'rotate-180')} />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+        <div className="pt-5">{children}</div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+
 // ───── Useful? feedback (1-tap) — subtle, per-section ─────
 function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
   const [vote, setVote] = useState<'yes' | 'no' | null>(null);
@@ -255,31 +272,33 @@ function SkillLandscape({ persona }: { persona: Persona }) {
     <>
       <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
         <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
-        <div className="flex gap-2 mb-6">
-          {(['growing', 'declining'] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={cn(
-                'px-4 py-2 rounded-full text-sm border transition-colors',
-                tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
-              )}
-            >
-              {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
-            </button>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
-        <div className="space-y-3">
-          {data.items.map((it, i) => (
-            <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
-              <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
-              <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
-            </div>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
-        <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+        <DataReveal>
+          <div className="flex gap-2 mb-6">
+            {(['growing', 'declining'] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm border transition-colors',
+                  tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
+                )}
+              >
+                {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
+          <div className="space-y-3">
+            {data.items.map((it, i) => (
+              <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
+                <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
+          <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+        </DataReveal>
       </section>
       <UsefulFeedback section="skill" persona={persona} />
     </>
@@ -292,11 +311,13 @@ function RoiBlock({ persona }: { persona: Persona }) {
     <>
       <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
         <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {roiSection.cards.map((c, i) => (
-            <StatCard key={i} card={c as StatCardData} persona="orangtua" />
-          ))}
-        </div>
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {roiSection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona="orangtua" />
+            ))}
+          </div>
+        </DataReveal>
       </section>
       <UsefulFeedback section="roi" persona={persona} />
     </>
@@ -309,11 +330,13 @@ function BkBlock({ persona }: { persona: Persona }) {
     <>
       <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
         <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {bkSection.cards.map((c, i) => (
-            <StatCard key={i} card={c as StatCardData} persona="gurubk" />
-          ))}
-        </div>
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {bkSection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona="gurubk" />
+            ))}
+          </div>
+        </DataReveal>
       </section>
       <UsefulFeedback section="bk" persona={persona} />
     </>
@@ -457,6 +480,9 @@ const Insight = () => {
             >
               {hero.subtext[persona]}
             </motion.p>
+            <div className="mt-4">
+              <Badge variant="outline" className="text-[10px] text-muted-foreground font-normal">≈ 4 menit</Badge>
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -484,11 +510,13 @@ const Insight = () => {
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {indonesiaSection.cards.map((c, i) => (
-                <StatCard key={i} card={c as StatCardData} persona={persona} />
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {indonesiaSection.cards.map((c, i) => (
+                  <StatCard key={i} card={c as StatCardData} persona={persona} />
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="indonesia" persona={persona} />
 
@@ -497,44 +525,49 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">{linkMatchSection.tag}</p>
             <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
               <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{linkMatchSection.body}</p>
               <div className="border-t border-border pt-4">
                 <p className="text-xs text-muted-foreground mb-1">Artinya untuk kamu:</p>
                 <p className="text-sm text-foreground/80 leading-relaxed italic">{linkMatchSection.artinya[persona]}</p>
               </div>
-              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {linkMatchSection.source}</p>
+              <DataReveal>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{linkMatchSection.body}</p>
+                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {linkMatchSection.source}</p>
+              </DataReveal>
             </div>
           </section>
           <UsefulFeedback section="link-match" persona={persona} />
 
+
           {/* SECTION 3 — NEET ASEAN */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
             <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
-            <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
-              {neetSection.data.map((row, i) => (
-                <div key={i}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-foreground">{row.country}</span>
-                    <span className="text-sm tabular-nums text-muted-foreground">
-                      {row.value.toString().replace('.', ',')}%
-                    </span>
+            <DataReveal>
+              <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
+                {neetSection.data.map((row, i) => (
+                  <div key={i}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-foreground">{row.country}</span>
+                      <span className="text-sm tabular-nums text-muted-foreground">
+                        {row.value.toString().replace('.', ',')}%
+                      </span>
+                    </div>
+                    <div className="h-2 rounded-full bg-background overflow-hidden">
+                      <motion.div
+                        className={cn('h-full rounded-full', row.colorClass)}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: 'easeOut' }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-2 rounded-full bg-background overflow-hidden">
-                    <motion.div
-                      className={cn('h-full rounded-full', row.colorClass)}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                    />
-                  </div>
+                ))}
+                <div className="pt-2 space-y-1">
+                  <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
+                  <p className="text-xs text-muted-foreground">{neetSection.note}</p>
                 </div>
-              ))}
-              <div className="pt-2 space-y-1">
-                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
-                <p className="text-xs text-muted-foreground">{neetSection.note}</p>
               </div>
-            </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="neet" persona={persona} />
 
@@ -543,11 +576,13 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {laborRealitySection.cards.map((c, i) => (
-                <StatCard key={i} card={c as StatCardData} persona={persona} />
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {laborRealitySection.cards.map((c, i) => (
+                  <StatCard key={i} card={c as StatCardData} persona={persona} />
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="realita" persona={persona} />
 
@@ -559,11 +594,13 @@ const Insight = () => {
           {/* SECTION 5 — Dunia 2025–2030 */}
           <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={worldSection.tag} intro={worldSection.intro[persona]} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {worldSection.cards.map((c, i) => (
-                <StatCard key={i} card={c as StatCardData} persona={persona} />
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {worldSection.cards.map((c, i) => (
+                  <StatCard key={i} card={c as StatCardData} persona={persona} />
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="dunia" persona={persona} />
 
@@ -572,25 +609,28 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {jabarSection.stats.map((s, i) => {
-                const valueColor =
-                  s.tone === 'negative' ? 'text-destructive' :
-                  s.tone === 'positive' ? 'text-primary' :
-                  'text-foreground';
-                return (
-                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
-                    <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
-                    <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
-            <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
+            <p className="text-sm text-foreground/80 italic mb-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {jabarSection.stats.map((s, i) => {
+                  const valueColor =
+                    s.tone === 'negative' ? 'text-destructive' :
+                    s.tone === 'positive' ? 'text-primary' :
+                    'text-foreground';
+                  return (
+                    <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                      <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
+                      <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {jabarSection.source}</p>
+            </DataReveal>
           </section>
           <UsefulFeedback section="jabar" persona={persona} />
+
 
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
@@ -617,15 +657,17 @@ const Insight = () => {
           {/* SECTION 6 — Peluang SDM */}
           <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {opportunitySection.items.map((o, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
-                  <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
-                  <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
-                </div>
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {opportunitySection.items.map((o, i) => (
+                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                    <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
+                    <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
+                  </div>
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="peluang" persona={persona} />
 
