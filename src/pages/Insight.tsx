@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
+import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import {
   hero,
@@ -386,6 +387,8 @@ const Insight = () => {
               </Button>
             </div>
           </header>
+
+          <FirstTimerBanner />
 
           {/* SECTION 1 — Hero */}
           <section className="container mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 max-w-4xl">
