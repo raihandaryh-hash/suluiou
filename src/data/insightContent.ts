@@ -4,6 +4,26 @@
 export type Persona = 'siswa' | 'orangtua' | 'gurubk';
 export type Tone = 'negative' | 'positive' | 'neutral';
 
+// Shared optional-concrete-steps shape used by stat cards / data items.
+// Field is optional — not yet populated in any card data.
+export type LangkahKongkret = {
+  siswa: string;
+  orangtua?: string;
+  gurubk?: string;
+};
+
+export type InsightCard = {
+  value: string;
+  label: string;
+  detail: string;
+  source: string;
+  tone: Tone;
+  artinya?: Record<Persona, string>;
+  glossaryTerm?: string;
+  dampak?: string[];
+  langkahKongkret?: LangkahKongkret;
+};
+
 // ─── PERSONA TEASER (soft, non-blocking) ──────────────────────────
 export const personaTeaserSection = {
   headline: 'Pilih sudut pandangmu',

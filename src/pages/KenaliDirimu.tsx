@@ -10,6 +10,7 @@ import { Loader2, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useKenaliDirimuSession, OdysseyPlan, PossibleSelves } from "@/hooks/useKenaliDirimuSession";
 import ValuesCardSort from "@/components/kenali/ValuesCardSort";
+import { track } from "@/lib/track";
 
 type Step = 0 | 1 | 2 | 3 | 4;
 
@@ -96,6 +97,8 @@ export default function KenaliDirimu() {
       const text = (data as any)?.narrative as string | undefined;
       if (text) {
         setNarrative(text);
+        await upsert({ ai_narrative: text, completed: true });
+        track('reflection_completed', { values_top3: valuesSorted.slice(0, 3) });
       } else {
         setNarrative("Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat ulang halaman ini.");
       }

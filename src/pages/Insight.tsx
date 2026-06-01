@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
+import { track } from '@/lib/track';
 import {
   hero,
   personaTeaserSection,
@@ -205,69 +206,113 @@ function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
   );
 }
 
+// ───── Useful? feedback (1-tap) — subtle, per-section ─────
+function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
+  const [vote, setVote] = useState<'yes' | 'no' | null>(null);
+  function handle(value: 'yes' | 'no') {
+    if (vote) return;
+    setVote(value);
+    track('useful_feedback', { section, persona, value });
+  }
+  return (
+    <div className="container mx-auto px-6 max-w-4xl">
+      <div className="flex items-center justify-end gap-2 text-xs text-muted-foreground/70 pb-2">
+        {vote ? (
+          <span>Terima kasih!</span>
+        ) : (
+          <>
+            <span>Berguna?</span>
+            <button
+              type="button"
+              onClick={() => handle('yes')}
+              aria-label="Berguna"
+              className="rounded-full px-2 py-1 hover:bg-secondary transition-colors"
+            >👍</button>
+            <button
+              type="button"
+              onClick={() => handle('no')}
+              aria-label="Tidak berguna"
+              className="rounded-full px-2 py-1 hover:bg-secondary transition-colors"
+            >👎</button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ───── Skill Landscape (siswa) ─────
-function SkillLandscape() {
+function SkillLandscape({ persona }: { persona: Persona }) {
   const [tab, setTab] = useState<'growing' | 'declining'>('growing');
   const data = tab === 'growing' ? skillSection.growing : skillSection.declining;
   const accent = tab === 'growing' ? 'border-l-primary' : 'border-l-destructive';
 
   return (
-    <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
-      <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
-      <div className="flex gap-2 mb-6">
-        {(['growing', 'declining'] as const).map((t) => (
-          <button
-            key={t}
-            onClick={() => setTab(t)}
-            className={cn(
-              'px-4 py-2 rounded-full text-sm border transition-colors',
-              tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
-            )}
-          >
-            {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
-          </button>
-        ))}
-      </div>
-      <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
-      <div className="space-y-3">
-        {data.items.map((it, i) => (
-          <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
-            <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
-            <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
-          </div>
-        ))}
-      </div>
-      <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
-      <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
-    </section>
+    <>
+      <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
+        <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
+        <div className="flex gap-2 mb-6">
+          {(['growing', 'declining'] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={cn(
+                'px-4 py-2 rounded-full text-sm border transition-colors',
+                tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
+              )}
+            >
+              {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
+        <div className="space-y-3">
+          {data.items.map((it, i) => (
+            <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
+              <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
+              <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
+        <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+      </section>
+      <UsefulFeedback section="skill" persona={persona} />
+    </>
   );
 }
 
 // ───── ROI Section (orangtua) ─────
-function RoiBlock() {
+function RoiBlock({ persona }: { persona: Persona }) {
   return (
-    <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
-      <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {roiSection.cards.map((c, i) => (
-          <StatCard key={i} card={c as StatCardData} persona="orangtua" />
-        ))}
-      </div>
-    </section>
+    <>
+      <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {roiSection.cards.map((c, i) => (
+            <StatCard key={i} card={c as StatCardData} persona="orangtua" />
+          ))}
+        </div>
+      </section>
+      <UsefulFeedback section="roi" persona={persona} />
+    </>
   );
 }
 
 // ───── BK Section (gurubk) ─────
-function BkBlock() {
+function BkBlock({ persona }: { persona: Persona }) {
   return (
-    <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
-      <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {bkSection.cards.map((c, i) => (
-          <StatCard key={i} card={c as StatCardData} persona="gurubk" />
-        ))}
-      </div>
-    </section>
+    <>
+      <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {bkSection.cards.map((c, i) => (
+            <StatCard key={i} card={c as StatCardData} persona="gurubk" />
+          ))}
+        </div>
+      </section>
+      <UsefulFeedback section="bk" persona={persona} />
+    </>
   );
 }
 
@@ -441,6 +486,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="indonesia" persona={persona} />
 
           {/* Link and Match */}
           <section id="link-match" className="container mx-auto px-6 py-12 max-w-4xl">
@@ -455,6 +501,7 @@ const Insight = () => {
               <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {linkMatchSection.source}</p>
             </div>
           </section>
+          <UsefulFeedback section="link-match" persona={persona} />
 
           {/* SECTION 3 — NEET ASEAN */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
@@ -485,6 +532,7 @@ const Insight = () => {
               </div>
             </div>
           </section>
+          <UsefulFeedback section="neet" persona={persona} />
 
           {/* Realita Dunia Kerja */}
           <section id="realita" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -497,11 +545,12 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="realita" persona={persona} />
 
           {/* SECTION 4 — Persona-specific middle */}
-          {persona === 'siswa' && <SkillLandscape />}
-          {persona === 'orangtua' && <RoiBlock />}
-          {persona === 'gurubk' && <BkBlock />}
+          {persona === 'siswa' && <SkillLandscape persona={persona} />}
+          {persona === 'orangtua' && <RoiBlock persona={persona} />}
+          {persona === 'gurubk' && <BkBlock persona={persona} />}
 
           {/* SECTION 5 — Dunia 2025–2030 */}
           <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -512,6 +561,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="dunia" persona={persona} />
 
           {/* Konteks Jawa Barat */}
           <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -536,6 +586,7 @@ const Insight = () => {
             <p className="text-sm text-foreground/80 italic mt-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
             <p className="text-xs text-muted-foreground mt-2 italic">{sourcePrefix} {jabarSection.source}</p>
           </section>
+          <UsefulFeedback section="jabar" persona={persona} />
 
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
@@ -572,6 +623,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          <UsefulFeedback section="peluang" persona={persona} />
 
           {/* SECTION 7 — Skill Map Teaser */}
           <section className="container mx-auto px-6 py-16 max-w-4xl">
