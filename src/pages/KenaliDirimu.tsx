@@ -331,9 +331,18 @@ export default function KenaliDirimu() {
                 Ini bukan penilaian — ini rangkuman dari apa yang kamu tuliskan sendiri.
               </p>
               {genError && <p className="mt-3 text-sm text-destructive">{genError}</p>}
-              <article className="mt-6 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90">
+              <div className="mt-6">
+                <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-primary/50 text-primary">
+                  Refleksi dari jawabanmu
+                </Badge>
+              </div>
+              <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90">
                 {narrative}
               </article>
+
+              <p className="mt-3 text-sm italic text-muted-foreground">
+                Teks ini dirangkai dari jawaban yang kamu tulis sendiri, bukan dari tes psikologi.
+              </p>
 
               <div className="mt-6 rounded-lg border border-border bg-secondary/40 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -345,11 +354,6 @@ export default function KenaliDirimu() {
                   ))}
                 </div>
               </div>
-
-              <p className="mt-4 text-xs italic text-muted-foreground">
-                Teks di atas dihasilkan dari jawabanmu sendiri, bukan dari tes psikologi. Ini adalah
-                titik awal refleksi, bukan kesimpulan tentang kepribadianmu.
-              </p>
 
               <div className="mt-8 flex flex-col gap-3">
                 <Button asChild className="w-full sm:w-auto">

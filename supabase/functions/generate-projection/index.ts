@@ -75,6 +75,9 @@ ATURAN DATA YANG TIDAK BOLEH DILANGGAR:
 - Narasi ini adalah bayangan skenario, bukan ramalan. Framing harus selalu "ikhtiar kita, hasil milik Allah."
 - Nama asli siswa sudah diganti dengan "kamu" sebelum sampai ke sini. Pertahankan "kamu".`;
 
+// TODO(Round 2b): Badge "Bayangan, bukan ramalan" — untuk UI assessment locked.
+// Sisipkan label confidence ini saat hasil proyeksi ditampilkan ke pengguna di masa depan.
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
