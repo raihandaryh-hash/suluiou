@@ -17,6 +17,7 @@ import Insight from "./pages/Insight";
 import SkillMap from "./pages/SkillMap";
 import Compass from "./pages/Compass";
 import Programs from "./pages/Programs";
+import AppLayout from "./components/AppLayout";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
@@ -56,9 +57,11 @@ const App = () => {
             <Route path="/results" element={<Results />} />
             <Route path="/hasil/:resultId" element={<PublicResult />} />
             <Route path="/suar" element={<Suar />} />
-            <Route path="/insight" element={<Insight />} />
-            <Route path="/skill-map" element={<SkillMap />} />
-            <Route path="/compass" element={<Compass />} />
+            <Route element={<AppLayout />}>
+              <Route path="/insight" element={<Insight />} />
+              <Route path="/skill-map" element={<SkillMap />} />
+              <Route path="/compass" element={<Compass />} />
+            </Route>
             <Route path="/programs" element={<Programs />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
