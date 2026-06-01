@@ -162,10 +162,6 @@ export const laborRealitySection = {
       } as Record<Persona, string>,
     },
   ],
-  practitionerNote: {
-    text: 'Dari perspektif HR dengan 30 tahun pengalaman merekrut di perusahaan multinasional: pola yang paling sering berakhir dengan stagnasi adalah kombinasi antara gelar tanpa bukti kerja nyata, keahlian yang tidak bisa dibawa ke tempat lain, dan ketergantungan pada satu sumber penghasilan. Ini bukan data dari satu laporan — ini pola yang konsisten terlihat di lapangan.',
-    attribution: 'Berdasarkan perspektif praktisi HR, disintesis dari pengalaman lapangan 2024-2025.',
-  },
 };
 
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
