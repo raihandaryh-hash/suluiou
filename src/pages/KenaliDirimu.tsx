@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 import { Loader2, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useKenaliDirimuSession, OdysseyPlan, PossibleSelves } from "@/hooks/useKenaliDirimuSession";
