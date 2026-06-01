@@ -16,6 +16,7 @@ import Suar from "./pages/Suar";
 import Insight from "./pages/Insight";
 import SkillMap from "./pages/SkillMap";
 import Compass from "./pages/Compass";
+import Programs from "./pages/Programs";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminResultView from "./pages/AdminResultView";
@@ -58,6 +59,7 @@ const App = () => {
             <Route path="/insight" element={<Insight />} />
             <Route path="/skill-map" element={<SkillMap />} />
             <Route path="/compass" element={<Compass />} />
+            <Route path="/programs" element={<Programs />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
