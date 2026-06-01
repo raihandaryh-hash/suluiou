@@ -212,7 +212,7 @@ function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
 }
 
 // ───── DataReveal — progressive disclosure wrapper ─────
-function DataReveal({ children, label = 'Lihat datanya' }: { children: React.ReactNode; label?: string }) {
+function DataReveal({ children, label = 'Lihat datanya' }: { children: ReactNode; label?: string }) {
   const [open, setOpen] = useState(false);
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="mt-4">
