@@ -522,15 +522,18 @@ const Insight = () => {
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">{linkMatchSection.tag}</p>
             <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
               <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{linkMatchSection.body}</p>
               <div className="border-t border-border pt-4">
                 <p className="text-xs text-muted-foreground mb-1">Artinya untuk kamu:</p>
                 <p className="text-sm text-foreground/80 leading-relaxed italic">{linkMatchSection.artinya[persona]}</p>
               </div>
-              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {linkMatchSection.source}</p>
+              <DataReveal>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{linkMatchSection.body}</p>
+                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {linkMatchSection.source}</p>
+              </DataReveal>
             </div>
           </section>
           <UsefulFeedback section="link-match" persona={persona} />
+
 
           {/* SECTION 3 — NEET ASEAN */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
