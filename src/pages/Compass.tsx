@@ -14,6 +14,7 @@ import {
   compassSections,
   compassCTA,
   compassSources,
+  iouBridgeSection,
   type CompassSection,
 } from "@/data/compassContent";
 
@@ -358,6 +359,79 @@ export default function Compass() {
         {compassSections.map((s, i) => (
           <SectionCard key={s.id} section={s} index={i} />
         ))}
+      </section>
+
+      {/* IOU Bridge */}
+      <section className="container mx-auto px-4 md:px-6 max-w-4xl pb-12 md:pb-16">
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="relative rounded-2xl border border-accent/25 bg-accent/10 p-6 md:p-10 lg:p-14"
+        >
+          <span className="inline-flex items-center rounded-full bg-accent text-accent-foreground px-3 py-1 text-xs font-semibold tracking-wider">
+            {iouBridgeSection.tag}
+          </span>
+
+          <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl leading-[1.15] tracking-tight text-foreground whitespace-pre-line mt-6 mb-4">
+            {iouBridgeSection.headline}
+          </h2>
+
+          <p className="text-foreground/85 leading-[1.8] text-base md:text-[17px] mb-8 max-w-2xl">
+            {iouBridgeSection.body}
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {iouBridgeSection.programs.map((program) => (
+              <div
+                key={program.code}
+                className="rounded-xl border border-border/80 bg-background/70 p-5"
+              >
+                <span className="inline-flex items-center rounded bg-accent text-accent-foreground px-2 py-0.5 text-[10px] font-semibold tracking-wider mb-2">
+                  {program.code}
+                </span>
+                <h4 className="font-semibold text-foreground text-sm mb-1">
+                  {program.name}
+                </h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {program.character}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-xl border border-border/80 bg-background/50 p-5 mb-6">
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-1">
+              {iouBridgeSection.khazilmu.label}
+            </p>
+            <p className="text-sm text-foreground/80 leading-relaxed mb-2">
+              {iouBridgeSection.khazilmu.text}
+            </p>
+            <a
+              href={iouBridgeSection.khazilmu.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-primary hover:underline"
+            >
+              {iouBridgeSection.khazilmu.url.replace("https://", "")}
+            </a>
+          </div>
+
+          <a
+            href={iouBridgeSection.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            {iouBridgeSection.cta.label}
+            <ArrowRight className="h-4 w-4" />
+          </a>
+
+          <p className="text-[11px] text-muted-foreground mt-6 leading-relaxed">
+            IOU Indonesia adalah mitra penyelenggara platform Sulu.
+          </p>
+        </motion.article>
       </section>
 
       {/* CTA + Waitlist */}
