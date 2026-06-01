@@ -92,6 +92,7 @@ const pathways: PathwayCard[] = [
     deadline: '(tidak ada deadline)',
     ctaText: 'Sumber gap year →',
     ctaLink: 'https://kampusgratis.id',
+    jalur: 'gap_year',
   },
 ];
 
