@@ -66,6 +66,7 @@ const App = () => {
             </Route>
             <Route path="/programs" element={<Programs />} />
             <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
+            <Route path="/ringkasan" element={<Ringkasan />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
