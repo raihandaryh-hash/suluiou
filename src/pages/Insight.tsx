@@ -507,11 +507,13 @@ const Insight = () => {
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {indonesiaSection.cards.map((c, i) => (
-                <StatCard key={i} card={c as StatCardData} persona={persona} />
-              ))}
-            </div>
+            <DataReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {indonesiaSection.cards.map((c, i) => (
+                  <StatCard key={i} card={c as StatCardData} persona={persona} />
+                ))}
+              </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="indonesia" persona={persona} />
 
