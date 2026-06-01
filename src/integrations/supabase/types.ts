@@ -301,6 +301,45 @@ export type Database = {
         }
         Relationships: []
       }
+      kenali_dirimu_sessions: {
+        Row: {
+          ai_narrative: string | null
+          completed: boolean
+          created_at: string
+          id: string
+          odyssey_plans: Json | null
+          possible_selves: Json | null
+          session_id: string
+          updated_at: string
+          values_sorted: string[] | null
+          wa_number: string | null
+        }
+        Insert: {
+          ai_narrative?: string | null
+          completed?: boolean
+          created_at?: string
+          id?: string
+          odyssey_plans?: Json | null
+          possible_selves?: Json | null
+          session_id: string
+          updated_at?: string
+          values_sorted?: string[] | null
+          wa_number?: string | null
+        }
+        Update: {
+          ai_narrative?: string | null
+          completed?: boolean
+          created_at?: string
+          id?: string
+          odyssey_plans?: Json | null
+          possible_selves?: Json | null
+          session_id?: string
+          updated_at?: string
+          values_sorted?: string[] | null
+          wa_number?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
