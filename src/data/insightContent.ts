@@ -84,7 +84,7 @@ export const indonesiaSection = {
       detail: 'Di sektor teknologi, developer usia 22–25 tahun kehilangan 20% peluang kerja sejak 2024. Pola serupa mulai terlihat di administrasi digital dan customer service. Catatan: angka ini spesifik untuk sektor terpapar AI generatif, bukan semua sektor.',
       source: 'Stanford AI Index 2026 (sektor tech/knowledge work)', tone: 'negative' as Tone,
       artinya: {
-        siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa. Ia mengambil titik masuk ke karier.',
+        siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa; ia mengambil titik masuk pertama ke karier.',
         orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
         gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
       } as Record<Persona, string>,
