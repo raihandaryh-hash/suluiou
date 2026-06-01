@@ -134,6 +134,7 @@ type StatCardData = {
   tone: Tone;
   artinya?: Record<Persona, string>;
   glossaryTerm?: string;
+  dampak?: string[];
 };
 
 function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
@@ -167,6 +168,19 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
       <div className={cn('grid transition-all duration-300 ease-out', open ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0')}>
         <div className="overflow-hidden">
           <p className="text-sm text-foreground/80 leading-relaxed">{card.detail}</p>
+          {card.dampak && (
+            <div className="mt-4">
+              <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Dampak Utama</p>
+              <ul className="space-y-2">
+                {card.dampak.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-foreground/80 leading-relaxed">
+                    <span className="shrink-0 mt-1.5 w-1 h-1 rounded-full bg-foreground/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {card.glossaryTerm && (
             <div className="mt-3 bg-secondary/40 border border-border rounded-lg p-3">
               <p className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-1">Istilah ini</p>
