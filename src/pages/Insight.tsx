@@ -190,7 +190,10 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
               <p className="text-xs text-foreground/75 leading-relaxed">{card.glossaryTerm}</p>
             </div>
           )}
-          <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {card.source}</p>
+          <div className="mt-3 flex items-center gap-2">
+            <p className="text-xs text-muted-foreground italic">{sourcePrefix} {card.source}</p>
+            <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-4">Data terverifikasi</Badge>
+          </div>
         </div>
       </div>
     </button>
