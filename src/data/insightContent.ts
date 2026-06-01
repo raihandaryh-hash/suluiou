@@ -201,7 +201,7 @@ export const skillSection = {
       { skill: 'Tugas fisik terstruktur dan prediktif', note: 'Perakitan linier, pembukuan dasar, pemrosesan data standar' },
     ],
   },
-  note: '39% skill inti hari ini diperkirakan tidak relevan pada 2030. Turun dari 44% di 2023 karena reskilling mulai berjalan.',
+  note: '39% skill inti hari ini diperkirakan akan berubah sebelum 2030. Turun dari 44% di 2023 karena reskilling mulai berjalan.',
   source: 'WEF Future of Jobs Report 2025; McKinsey Global Institute',
 };
 
