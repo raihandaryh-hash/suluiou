@@ -272,31 +272,33 @@ function SkillLandscape({ persona }: { persona: Persona }) {
     <>
       <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
         <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
-        <div className="flex gap-2 mb-6">
-          {(['growing', 'declining'] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={cn(
-                'px-4 py-2 rounded-full text-sm border transition-colors',
-                tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
-              )}
-            >
-              {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
-            </button>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
-        <div className="space-y-3">
-          {data.items.map((it, i) => (
-            <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
-              <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
-              <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
-            </div>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
-        <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+        <DataReveal>
+          <div className="flex gap-2 mb-6">
+            {(['growing', 'declining'] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm border transition-colors',
+                  tab === t ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary'
+                )}
+              >
+                {t === 'growing' ? skillSection.growing.label : skillSection.declining.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mb-5">{data.subtitle}</p>
+          <div className="space-y-3">
+            {data.items.map((it, i) => (
+              <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
+                <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
+          <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+        </DataReveal>
       </section>
       <UsefulFeedback section="skill" persona={persona} />
     </>
