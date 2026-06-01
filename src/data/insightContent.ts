@@ -300,7 +300,7 @@ export const worldSection = {
       detail: 'Proporsi penduduk usia produktif mencapai 68–70% dari total populasi. Bappenas memproyeksikan angkatan kerja potensial mencapai 201 juta jiwa pada 2030. Setelah 2035, rasio ketergantungan mulai naik. Jendela ini tidak berulang.',
       source: 'Proyeksi Penduduk Indonesia 2020–2050, Bappenas/BPS; RPJPN 2025–2045', tone: 'neutral' as Tone,
       artinya: {
-        siswa: 'Generasimu adalah generasi yang paling menentukan apakah bonus demografi jadi aset atau beban.',
+        siswa: 'Kamu masuk pasar kerja tepat di puncak bonus demografi. Ini bisa jadi keuntungan atau tekanan, tergantung persiapanmu.',
         orangtua: 'Keputusan yang dibuat hari ini untuk anak Anda adalah bagian dari keputusan nasional yang lebih besar.',
         gurubk: 'Framing ini berguna untuk menjelaskan urgency kepada siswa tanpa terasa menakut-nakuti.',
       } as Record<Persona, string>,
