@@ -57,6 +57,8 @@ export const pathways = [
       "Program BA ALS IOU dirancang untuk memberikan fondasi yang kuat dalam bahasa Arab bagi penutur non-natif, dengan pendekatan pengajaran bahasa kedua. Program ini membangun kemampuan dari komunikasi sehari-hari hingga teks-teks akademis dan klasik Islam — membuka akses langsung ke khazanah keilmuan Islam yang sebagian besar masih dalam bahasa Arab.",
     iouUniqueness:
       "Program ALS IOU dirancang untuk menguasai bahasa Arab dari komunikasi dasar hingga sastra tinggi — dengan penekanan pada bahasa Arab fusha. Ini membuka akses ke ribuan kitab ulama yang belum diterjemahkan, menjadikan lulusan sebagai jembatan penting antara khazanah Islam klasik dan masyarakat modern.",
+    matchingRationale:
+      "Cocok untuk kamu yang jatuh cinta pada bahasa Arab, ingin bekerja sebagai penerjemah, pengajar, atau peneliti dalam literatur dan linguistik Arab.",
   },
   {
     id: "med",
