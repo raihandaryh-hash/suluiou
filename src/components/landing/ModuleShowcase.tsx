@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Eye, Fingerprint, Compass, HeartHandshake } from 'lucide-react';
+
+const moduleHrefs: Record<string, string> = {
+  'The Awakening': '/insight',
+  'The Mirror': '/compass',
+  'The Pathway': '/skill-map',
+  'The Bridge': '/compass',
+};
 
 const modules = [
   {
