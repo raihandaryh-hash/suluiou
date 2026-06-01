@@ -11,7 +11,7 @@ export async function track(
       .insert({
         event_name: eventName,
         session_id: sessionId ?? null,
-        props: props ?? {}
+        props: (props ?? {}) as never,
       });
   } catch {
     // Silent fail — tracking tidak boleh break UX apapun
