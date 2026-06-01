@@ -76,7 +76,7 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
         orangtua: 'Pilihan yang terburu-buru jauh lebih mahal dari waktu yang diambil untuk mengenal anak.',
-        gurubk: 'Bukan masalah motivasi — masalah minimnya refleksi diri saat keputusan diambil.',
+        gurubk: 'Bukan masalah motivasi. Masalah minimnya refleksi diri saat keputusan diambil.',
       } as Record<Persona, string>,
     },
     {
