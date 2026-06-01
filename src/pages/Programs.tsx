@@ -103,7 +103,7 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' as const } },
 };
 
 const Programs = () => {
@@ -112,7 +112,7 @@ const Programs = () => {
       {/* Header */}
       <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Logo variant="dark" size="md" linkTo="/" />
+          <Logo variant="default" size="md" linkTo="/" />
           <Button
             asChild
             variant="ghost"
