@@ -349,18 +349,9 @@ export default function KenaliDirimu() {
               </p>
 
               <div className="mt-8 flex flex-col gap-3">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="inline-block">
-                        <Button disabled className="w-full sm:w-auto">
-                          Buat ringkasan untuk orang tua →
-                        </Button>
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent>Segera tersedia</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <Button asChild className="w-full sm:w-auto">
+                  <Link to="/ringkasan">Buat ringkasan untuk orang tua →</Link>
+                </Button>
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <Button asChild variant="outline">
                     <Link to="/compass">Kembali ke Sulu</Link>
