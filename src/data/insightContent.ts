@@ -387,7 +387,8 @@ export const expertSection = {
       quote: 'Produktivitas adalah prasyarat utama bagi Indonesia untuk keluar dari middle income trap, yang ditopang oleh kualitas SDM melalui investasi strategis bidang pendidikan dan kesehatan.',
       speaker: 'Sri Mulyani Indrawati',
       title: 'Menteri Keuangan Republik Indonesia',
-      source: 'Pernyataan kebijakan fiskal dan investasi SDM, 2025',
+      source: 'Pertemuan Musim Semi IMF-World Bank, Washington D.C., April 2024',
+      url: 'https://www.tempo.co/ekonomi/di-washington-dc-sri-mulyani-beberkan-soal-bonus-demografi-muda-hingga-reformasi-kesehatan--66336',
     },
   ],
 };
