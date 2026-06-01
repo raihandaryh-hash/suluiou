@@ -353,18 +353,6 @@ export const alumniSection = {
   subtext: 'Ini pola yang terdokumentasi dari alumni pendidikan Islam Indonesia yang masuk ke sektor-sektor yang tidak pernah diduga.',
   stories: [
     {
-      sector: 'Energi Terbarukan',
-      story: 'Santri Pesantren Al-Amiin Prenduan (Sumenep, Madura) memasang dan mengelola PLTS Atap 10.000 Watt secara mandiri — sebagai santri yang dilatih langsung, bukan kontraktor eksternal. Sistem ini kemudian direplikasi di komunitas asal mereka.',
-      insight: 'Teknologi hijau dibangun di atas nilai kekhilafahan — menjaga bumi adalah ibadah, bukan karier sekuler.',
-      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
-    },
-    {
-      sector: 'Sains dan Teknologi Global',
-      story: 'Prof. Muhammad Nurhuda, Guru Besar Fisika Komputasi Universitas Brawijaya, mengembangkan kompor biomassa gasifikasi yang kini diproduksi massal di Norwegia dan didistribusikan ke India, Meksiko, Peru, Timor Leste, dan Kamboja.',
-      insight: 'Ilmu yang bermanfaat tidak punya batas sektor. Kombinasi kedalaman akademik dan orientasi kemaslahatan adalah jalur karier yang tidak bisa digantikan mesin.',
-      source: 'Riset Ekosistem Alumni Pendidikan Islam Non-Konvensional, 2026',
-    },
-    {
       sector: 'Pendidikan Tinggi',
       story: 'Universitas Islam Negeri Syarif Hidayatullah Jakarta mencatat hampir 50% lulusannya sudah terserap kerja sebelum wisuda. Alumni PBSB (Beasiswa Santri Berprestasi) Kemenag tersebar di kementerian, kedutaan besar, dan universitas.',
       insight: 'Latar belakang Islam tidak mengurangi daya saing. Yang mengurangi daya saing adalah tidak mengenal potensi diri.',
