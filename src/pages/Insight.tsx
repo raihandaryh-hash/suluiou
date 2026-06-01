@@ -538,31 +538,33 @@ const Insight = () => {
           {/* SECTION 3 — NEET ASEAN */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
             <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
-            <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
-              {neetSection.data.map((row, i) => (
-                <div key={i}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-foreground">{row.country}</span>
-                    <span className="text-sm tabular-nums text-muted-foreground">
-                      {row.value.toString().replace('.', ',')}%
-                    </span>
+            <DataReveal>
+              <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
+                {neetSection.data.map((row, i) => (
+                  <div key={i}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-foreground">{row.country}</span>
+                      <span className="text-sm tabular-nums text-muted-foreground">
+                        {row.value.toString().replace('.', ',')}%
+                      </span>
+                    </div>
+                    <div className="h-2 rounded-full bg-background overflow-hidden">
+                      <motion.div
+                        className={cn('h-full rounded-full', row.colorClass)}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: 'easeOut' }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-2 rounded-full bg-background overflow-hidden">
-                    <motion.div
-                      className={cn('h-full rounded-full', row.colorClass)}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
-                    />
-                  </div>
+                ))}
+                <div className="pt-2 space-y-1">
+                  <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
+                  <p className="text-xs text-muted-foreground">{neetSection.note}</p>
                 </div>
-              ))}
-              <div className="pt-2 space-y-1">
-                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
-                <p className="text-xs text-muted-foreground">{neetSection.note}</p>
               </div>
-            </div>
+            </DataReveal>
           </section>
           <UsefulFeedback section="neet" persona={persona} />
 
