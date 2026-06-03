@@ -336,6 +336,11 @@ function SkillLandscape({ persona }: { persona: Persona }) {
               <div key={i} className={cn('bg-secondary/60 border border-border border-l-4 rounded-xl p-5', accent)}>
                 <div className="font-heading font-medium text-lg text-foreground mb-1">{it.skill}</div>
                 <div className="text-sm text-muted-foreground leading-relaxed">{it.note}</div>
+                {'href' in it && it.href && (
+                  <Link to={it.href} className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2">
+                    Lihat di Peta Skill <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
               </div>
             ))}
           </div>
