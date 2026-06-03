@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search } from "lucide-react";
 import Logo from "@/components/Logo";
+import { cn } from "@/lib/utils";
 
 const LAYERS = [
   { id: 0, name: "Sikap dan Disposisi", subtitle: "Berkembang melalui pengalaman dan refleksi — bukan dari pelatihan teknis", note: "WEF Global Skills Taxonomy menyebutnya Attitudes — karakter yang mendasari semua kapasitas lain.", colors: { bg: "#FEF3C7", border: "#FCD34D", text: "#92400E", pill: "#FFFBEB", pillBorder: "#FDE68A", pillText: "#78350F", dot: "#F59E0B", ring: "#FCD34D" } },
