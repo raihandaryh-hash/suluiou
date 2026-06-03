@@ -323,6 +323,31 @@ export default function SkillMap() {
   function handleClick(node: NodeType) { setActiveId(prev => prev === node.id ? null : node.id); }
   function handleNavigate(node: NodeType) { setActiveId(node.id); setExpanded(prev => new Set([...prev, node.layer])); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+  function handleJembatanNavigate(nodeId: string) {
+    const target = NODES.find(n => n.id === nodeId);
+    if (!target) return;
+    setActiveId(nodeId);
+    setExpanded(prev => new Set([...prev, target.layer]));
+    setTimeout(() => {
+      const el = document.getElementById(`node-${nodeId}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 200);
+  }
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const target = NODES.find(n => n.id === hash);
+    if (!target) return;
+    setActiveId(hash);
+    setExpanded(prev => new Set([...prev, target.layer]));
+    setTimeout(() => {
+      const el = document.getElementById(`node-${hash}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 350);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const growingNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "growing");
   const vulnNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "vulnerable");
   const FILTERS: { id: typeof activeFilter; label: string }[] = [
