@@ -178,6 +178,115 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
   );
 }
 
+const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; id: string | null; note?: string }[]; primary: string | false }[] = [
+  { popular: "Soft skills", layer: "Layer 0 + Layer 1", nodes: [
+    { label: "Sikap & Disposisi", id: null, note: "(seluruh Layer 0)" },
+    { label: "Kapasitas Manusia", id: null, note: "(seluruh Layer 1)" },
+  ], primary: false },
+  { popular: "Critical thinking", layer: "Layer 1", nodes: [
+    { label: "Berpikir Analitis", id: "berpikir-analitis" },
+    { label: "Metakognisi", id: "metakognisi" },
+  ], primary: "berpikir-analitis" },
+  { popular: "Teamwork", layer: "Layer 1–2", nodes: [
+    { label: "Empati", id: "empati" },
+    { label: "Kepemimpinan", id: "kepemimpinan" },
+    { label: "Komunikasi Kompleks", id: "komunikasi-kompleks" },
+  ], primary: "empati" },
+  { popular: "Emotional Intelligence / EQ", layer: "Layer 0–1", nodes: [
+    { label: "Empati", id: "empati" },
+    { label: "Kesadaran Diri", id: "kesadaran-diri" },
+  ], primary: "empati" },
+  { popular: "Problem solving", layer: "Layer 1", nodes: [
+    { label: "Berpikir Analitis", id: "berpikir-analitis" },
+    { label: "Berpikir Kreatif", id: "berpikir-kreatif" },
+  ], primary: "berpikir-analitis" },
+  { popular: "Komunikasi", layer: "Layer 1–2", nodes: [
+    { label: "Komunikasi Kompleks", id: "komunikasi-kompleks" },
+    { label: "Empati", id: "empati" },
+  ], primary: "komunikasi-kompleks" },
+  { popular: "Adaptability", layer: "Layer 0", nodes: [{ label: "Resiliensi", id: "resiliensi" }], primary: "resiliensi" },
+  { popular: "Growth mindset", layer: "Layer 0", nodes: [
+    { label: "Rasa Ingin Tahu", id: "rasa-ingin-tahu" },
+    { label: "Resiliensi", id: "resiliensi" },
+  ], primary: "rasa-ingin-tahu" },
+];
+
+function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const [activeChip, setActiveChip] = useState<string | null>(null);
+  const visibleItems = expanded ? ISTILAH_BRIDGE : ISTILAH_BRIDGE.slice(0, 5);
+
+  function handleChip(item: typeof ISTILAH_BRIDGE[0]) {
+    setActiveChip(item.popular);
+    if (item.primary && typeof item.primary === "string") onNavigate(item.primary);
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 pt-5 md:px-8">
+      <div className="bg-secondary/40 border border-border rounded-2xl p-5">
+        <p className="text-xs font-bold tracking-[0.18em] text-muted-foreground uppercase mb-1">Jembatan Istilah</p>
+        <p className="text-sm text-foreground/80 mb-4">Sering dengar kata-kata ini di sekolah atau media? Temukan di mana letaknya di peta.</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {visibleItems.map((item) => (
+            <button
+              key={item.popular}
+              onClick={() => handleChip(item)}
+              className={cn(
+                "text-sm px-3 py-1.5 rounded-full border transition-all",
+                activeChip === item.popular
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-background border-border text-foreground/80 hover:border-primary/50"
+              )}
+            >
+              {item.popular}
+            </button>
+          ))}
+          {ISTILAH_BRIDGE.length > 5 && (
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="text-sm px-3 py-1.5 rounded-full border border-dashed border-border text-muted-foreground hover:border-primary/50 transition-all"
+            >
+              {expanded ? "Lebih sedikit ↑" : `+ ${ISTILAH_BRIDGE.length - 5} lainnya`}
+            </button>
+          )}
+        </div>
+        {activeChip && (() => {
+          const item = ISTILAH_BRIDGE.find((i) => i.popular === activeChip);
+          if (!item) return null;
+          return (
+            <div className="rounded-xl border border-border bg-background/60 p-4 mt-2">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-semibold text-sm text-foreground">{item.popular}</span>
+                <span className="text-xs text-muted-foreground">→ {item.layer}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {item.nodes.map((node) => (
+                  <button
+                    key={node.label}
+                    onClick={() => node.id && onNavigate(node.id)}
+                    disabled={!node.id}
+                    className={cn(
+                      "text-xs px-3 py-1.5 rounded-full border transition-all",
+                      node.id
+                        ? "bg-secondary/60 border-border hover:border-primary/60 hover:bg-primary/5 text-foreground"
+                        : "bg-secondary/30 border-border/50 text-muted-foreground cursor-default"
+                    )}
+                  >
+                    {node.label}
+                    {node.note && <span className="ml-1 text-muted-foreground">{node.note}</span>}
+                    {node.id && " →"}
+                  </button>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat node terkait. Klik nama node → loncat langsung ke peta.</p>
+      </div>
+    </div>
+  );
+}
+
 export default function SkillMap() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(new Set([0]));
