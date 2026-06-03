@@ -411,31 +411,52 @@ export default function SkillMap() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-6 md:px-8 space-y-3">
-        {[0, 1, 2].map(lid => {
-          const L = LAYERS[lid]; const layerNodes = NODES.filter(n => n.layer === lid && (!isFiltering || filteredIds.has(n.id))); const isOpen = expanded.has(lid);
-          if (isFiltering && layerNodes.length === 0) return null;
-          return (
-            <div key={lid} className="bg-card rounded-2xl border overflow-hidden" style={{ borderColor: L.colors.border }}>
-              <button onClick={() => toggleLayer(lid)} className="w-full flex items-start gap-3 px-5 py-4 text-left" style={{ backgroundColor: L.colors.bg }}>
-                <span className="w-3 h-3 rounded-full mt-1 shrink-0" style={{ backgroundColor: L.colors.dot }} />
-                <div className="flex-1">
-                  <p className="font-bold text-sm md:text-base" style={{ color: L.colors.text }}>{L.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{L.subtitle}</p>
-                </div>
-                <ChevronDown className={`w-4 h-4 text-muted-foreground mt-1 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-              </button>
-              {isOpen && (
-                <div className="px-5 pb-4 pt-3">
-                  <p className="text-xs text-muted-foreground italic mb-3">{L.note}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+        {(() => {
+          const renderLayer = (lid: number, outerClass = "bg-card rounded-xl border overflow-hidden") => {
+            const L = LAYERS[lid];
+            const layerNodes = NODES.filter(n => n.layer === lid && (!isFiltering || filteredIds.has(n.id)));
+            const isOpen = expanded.has(lid);
+            if (isFiltering && layerNodes.length === 0) return null;
+            return (
+              <div key={lid} className={outerClass} style={{ borderColor: L.colors.border }}>
+                <button onClick={() => toggleLayer(lid)} className="w-full flex items-start gap-3 px-5 py-4 text-left" style={{ backgroundColor: L.colors.bg }}>
+                  <span className="w-3 h-3 rounded-full mt-1 shrink-0" style={{ backgroundColor: L.colors.dot }} />
+                  <div className="flex-1">
+                    <p className="font-bold text-sm md:text-base" style={{ color: L.colors.text }}>{L.name}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{L.subtitle}</p>
                   </div>
-                  {activeNode && activeNode.layer === lid && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
+                  <ChevronDown className={`w-4 h-4 text-muted-foreground mt-1 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isOpen && (
+                  <div className="px-5 pb-4 pt-3">
+                    <p className="text-xs text-muted-foreground italic mb-3">{L.note}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                    </div>
+                    {activeNode && activeNode.layer === lid && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
+                  </div>
+                )}
+              </div>
+            );
+          };
+          return (
+            <>
+              {/* SOFT SKILLS UMBRELLA — Layer 0 + Layer 1 */}
+              <div className="rounded-2xl border-2 border-dashed border-amber-300/60 bg-amber-50/20 p-3 space-y-3">
+                <div className="flex flex-wrap items-center gap-2 px-2 pt-1">
+                  <span className="font-heading font-bold text-sm text-amber-800 uppercase tracking-wider">Soft Skills</span>
+                  <span className="text-xs bg-amber-100 text-amber-700 border border-amber-200 rounded-full px-2 py-0.5">Istilah populer</span>
+                  <p className="w-full text-xs text-amber-700/80 leading-relaxed mt-0.5">
+                    <em>Soft skills</em> adalah istilah sehari-hari. Dalam riset akademis, keterampilan ini biasanya disebut <em>"Non-Cognitive Skills"</em> (Heckman et al.), <em>"Essential Skills"</em> (ILO), atau dipisah menjadi <em>"Attitudes and Mindsets"</em> dan <em>"Cognitive Skills"</em> dalam WEF Global Skills Taxonomy.
+                  </p>
                 </div>
-              )}
-            </div>
+                {renderLayer(0)}
+                {renderLayer(1)}
+              </div>
+              {renderLayer(2, "bg-card rounded-2xl border overflow-hidden")}
+            </>
           );
-        })}
+        })()}
 
         {(() => {
           const growingFiltered = growingNodes.filter(n => !isFiltering || filteredIds.has(n.id));
