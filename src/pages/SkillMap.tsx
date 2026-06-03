@@ -75,7 +75,7 @@ function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: Node
   }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
   return (
-    <button onClick={onClick} className={className} style={{ ...style, borderWidth: 1.5 }}>
+    <button id={`node-${node.id}`} onClick={onClick} className={className} style={{ ...style, borderWidth: 1.5 }}>
       {sectorDot && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: sectorDot }} />}
       <span>{node.name}</span>
       {node.isProvenCausal && <span className="text-violet-400 text-xs font-bold ml-0.5">★</span>}
