@@ -368,11 +368,14 @@ export default function SkillMap() {
         </div>
       </header>
 
-      <div className="border-b border-border bg-background px-6 py-5 md:px-8">
+      <div className="border-b border-border bg-background px-6 py-6 md:px-8">
         <p className="text-xs font-bold tracking-widest text-muted-foreground mb-1.5 uppercase">Peta Skill 2025–2030</p>
-        <h1 className="font-heading font-bold text-xl md:text-2xl text-foreground leading-tight">Skill yang akan bertahan, tumbuh, dan terancam</h1>
-        <p className="text-sm text-muted-foreground mt-1.5">Berdasarkan WEF Future of Jobs 2025, BPS Sakernas 2024, ILO, IESR, Kemnaker RTKN 2025-2029, dan riset psikologi karier terverifikasi.</p>
+        <h1 className="font-heading font-bold text-xl md:text-2xl text-foreground leading-tight">Pohon Keterampilan</h1>
+        <p className="text-base text-muted-foreground mt-1.5 max-w-xl">Setiap cabang memiliki perannya masing-masing. Mari kita pahami dari akar hingga daun.</p>
+        <p className="text-xs text-muted-foreground mt-2 leading-relaxed max-w-2xl">Berdasarkan WEF Future of Jobs 2025, BPS Sakernas 2024, ILO, IESR, Kemnaker RTKN 2025–2029, dan riset psikologi karier terverifikasi.</p>
       </div>
+
+      <JembatanIstilah onNavigate={handleJembatanNavigate} />
 
       <div className="max-w-4xl mx-auto px-4 pt-4 pb-2 md:px-8">
         <div className="flex flex-col sm:flex-row gap-3">
