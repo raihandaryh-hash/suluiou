@@ -459,7 +459,7 @@ export default function SkillMap() {
                   <div className="px-5 pb-4 pt-3">
                     <p className="text-xs text-muted-foreground italic mb-3">{L.note}</p>
                     <div className="flex flex-wrap gap-2">
-                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                     </div>
                     {activeNode && activeNode.layer === lid && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
                   </div>
@@ -510,7 +510,7 @@ export default function SkillMap() {
                   <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Tumbuh — shortage SDM terdokumentasi</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
               )}
@@ -522,7 +522,7 @@ export default function SkillMap() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Yang berisiko adalah tugas-tugas spesifik, bukan semua orang dalam sektor ini. ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya.</p>
                 <div className="flex flex-wrap gap-2">
-                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
               )}
