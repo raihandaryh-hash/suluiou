@@ -36,8 +36,10 @@ import {
   dataSources,
   dataSourcesLabel,
   sourcePrefix,
+  penamparSection,
   type Persona,
   type Tone,
+  type PenamparCard,
 } from '@/data/insightContent';
 
 // ───── Countdown hook ─────
@@ -130,6 +132,40 @@ function PersonaInlineHint({ onSwitch }: { onSwitch: (p: Persona) => void }) {
         </PopoverContent>
       </Popover>
     </section>
+  );
+}
+
+// ───── Penampar Card Item ─────
+function PenamparCardItem({ card }: { card: PenamparCard }) {
+  return (
+    <div className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col gap-4 h-full">
+      {/* Klaster tag */}
+      <span className="inline-flex self-start text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase bg-background/60 border border-border rounded-full px-3 py-1">
+        {card.klaster}
+      </span>
+
+      {/* Title */}
+      <h3 className="font-heading font-medium text-xl text-foreground leading-tight">
+        {card.title}
+      </h3>
+
+      {/* Hook */}
+      <p className="text-sm text-foreground/80 leading-relaxed">
+        {card.hook}
+      </p>
+
+      {/* Stat — the "penampar" */}
+      <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4">
+        <p className="text-sm font-medium text-destructive leading-relaxed">
+          {card.stat}
+        </p>
+      </div>
+
+      {/* Peluang */}
+      <p className="text-sm text-foreground/80 leading-relaxed mt-auto">
+        {card.peluang}
+      </p>
+    </div>
   );
 }
 
@@ -557,6 +593,24 @@ const Insight = () => {
 
           {/* Persona inline hint (one-liner) */}
           <PersonaInlineHint onSwitch={handleSwitch} />
+
+          {/* 4 KARTU PENAMPAR */}
+          <section className="container mx-auto px-6 py-16 max-w-6xl">
+            <div className="mb-8">
+              <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">KARTU PENAMPAR</p>
+              <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
+                {penamparSection.headline}
+              </h2>
+              <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">
+                Bukan untuk menakut-nakuti — tapi untuk menunjukkan ruang yang bisa kamu isi.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {penamparSection.cards.map((card) => (
+                <PenamparCardItem key={card.id} card={card} />
+              ))}
+            </div>
+          </section>
 
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">

@@ -481,6 +481,54 @@ export const ctaSection = {
   },
 };
 
+// ─── 4 KARTU PENAMPAR ─────────────────────────────────────────────
+export type PenamparCard = {
+  id: string;
+  title: string;
+  hook: string;
+  stat: string;
+  peluang: string;
+  klaster: string;
+};
+
+export const penamparSection = {
+  headline: 'Dari Ilmu ke Dampak — Mulai dari Sini',
+  cards: [
+    {
+      id: 'pendidikan',
+      title: 'Di Balik Papan Tulis',
+      hook: 'Di banyak madrasah, siswa datang penuh semangat setiap pagi — tapi gurunya masih berjuang untuk bisa mengajar dengan lebih baik.',
+      stat: '6 dari 10 guru madrasah belum bersertifikat',
+      peluang: 'Ada ruang yang terbuka bagi mereka yang ingin membawa kualitas pendidikan yang lebih baik ke generasi berikutnya.',
+      klaster: 'Pendidikan & Ilmu',
+    },
+    {
+      id: 'kepemimpinan',
+      title: 'Yang Pergi, Yang Tidak Kembali',
+      hook: 'Banyak kepala desa bekerja dengan tulus melayani warganya, meski latar belakang pendidikannya terbatas.',
+      stat: '57% kepala desa tidak melanjutkan ke pendidikan tinggi',
+      peluang: 'Ada tempat bagi generasi muda yang ingin membawa ilmu dan perspektif baru ke kepemimpinan di tingkat desa.',
+      klaster: 'Kepemimpinan & Tata Kelola',
+    },
+    {
+      id: 'kesehatan',
+      title: 'Ditanggung Sendiri',
+      hook: 'Di balik senyuman banyak remaja, ada yang sedang berusaha menahan beban sendirian karena tidak tahu harus bicara dengan siapa.',
+      stat: 'hanya 10,4% yang mencari pengobatan',
+      peluang: 'Ada ruang yang luas bagi mereka yang ingin hadir — sebagai pendamping, konselor, atau tenaga kesehatan — untuk orang-orang yang selama ini menanggung sendiri.',
+      klaster: 'Kesehatan & Kesejahteraan',
+    },
+    {
+      id: 'ekonomi',
+      title: '65 Juta UMKM, 7 Persen Syariah',
+      hook: 'Ada jutaan pemilik warung, pedagang kecil, dan pengusaha rumahan yang ingin menjalankan usahanya sesuai nilai agama — tapi sering kesulitan mencari jalan yang tepat dan dukungan yang sesuai.',
+      stat: '7,4% — porsi keuangan syariah Indonesia',
+      peluang: 'Ada ruang yang terbuka bagi yang ingin membantu membangun jalan keuangan dan bisnis yang lebih selaras dengan nilai Islam.',
+      klaster: 'Ekonomi Adil & Keuangan',
+    },
+  ] satisfies PenamparCard[],
+};
+
 // ─── FOOTER SOURCES ───────────────────────────────────────────────
 export const dataSources = [
   'BPS Sakernas 2024 dan 2025',
