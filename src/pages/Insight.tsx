@@ -178,141 +178,296 @@ function EvanInsights() {
   const [open, setOpen] = useState(false);
   const d = evanInsights;
 
+  function SectionTitle({ children }: { children: React.ReactNode }) {
+    return (
+      <h3 className="font-heading font-semibold text-xl text-foreground mb-1">
+        {children}
+      </h3>
+    );
+  }
+
+  const maxJuta = Math.max(...d.kondisi.ageChart.map(r => r.juta));
+  function AgeChart() {
+    return (
+      <div className="space-y-2">
+        {d.kondisi.ageChart.map((row) => {
+          const pct = (row.juta / maxJuta) * 100;
+          const isYoung = row.age === '20–24';
+          return (
+            <div key={row.age} className="flex items-center gap-3">
+              <div className="w-14 text-xs text-right text-muted-foreground shrink-0">{row.age}</div>
+              <div className="flex-1 flex items-center gap-2">
+                <div
+                  className={cn(
+                    'h-5 rounded-sm transition-all',
+                    isYoung ? 'bg-[hsl(var(--torch-gold))]' : 'bg-secondary border border-border'
+                  )}
+                  style={{ width: `${pct}%` }}
+                />
+                <span className={cn('text-xs font-semibold shrink-0', isYoung ? 'text-[hsl(var(--torch-gold))]' : 'text-muted-foreground')}>
+                  {row.juta} jt
+                </span>
+              </div>
+            </div>
+          );
+        })}
+        <p className="text-[10px] text-muted-foreground/60 pt-1">{d.kondisi.ageChartNote}</p>
+      </div>
+    );
+  }
+
+  const maxTpt = Math.max(...d.ironi.eduChart.map(r => r.tpt));
+  function EduChart() {
+    return (
+      <div className="space-y-2">
+        {d.ironi.eduChart.map((row) => {
+          const pct = (row.tpt / maxTpt) * 100;
+          return (
+            <div key={row.edu} className="flex items-center gap-3">
+              <div className="w-20 text-xs text-right text-muted-foreground shrink-0 leading-tight">{row.edu}</div>
+              <div className="flex-1 flex items-center gap-2">
+                <div
+                  className={cn('h-5 rounded-sm', row.highlight ? 'bg-[hsl(var(--torch-gold))]' : 'bg-secondary border border-border')}
+                  style={{ width: `${pct}%` }}
+                />
+                <span className={cn('text-xs font-semibold shrink-0', row.highlight ? 'text-[hsl(var(--torch-gold))]' : 'text-muted-foreground')}>
+                  {row.tpt}%
+                </span>
+              </div>
+            </div>
+          );
+        })}
+        <p className="text-[10px] text-muted-foreground/60 pt-1">{d.ironi.eduChartNote}</p>
+      </div>
+    );
+  }
+
   return (
-    <section className="container mx-auto px-6 py-16 max-w-4xl">
-      {/* Accordion trigger */}
+    <section className="container mx-auto px-6 max-w-4xl">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-4
-                   bg-secondary/60 border border-border rounded-2xl px-6 py-4
-                   hover:bg-secondary/80 transition-colors text-left"
+        className="w-full flex items-center justify-between gap-4 bg-secondary/60 border border-border rounded-2xl px-6 py-4 hover:bg-secondary/80 transition-colors text-left"
       >
         <div>
-          <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
-            INSIGHTS PRAKTISI
-          </span>
-          <span className="font-heading font-medium text-foreground">
-            {d.buttonLabel}
-          </span>
+          <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">INSIGHTS PRAKTISI HR</span>
+          <span className="font-heading font-semibold text-base text-foreground">{d.buttonLabel}</span>
         </div>
         <ChevronDown className={cn('w-5 h-5 text-muted-foreground transition-transform shrink-0', open && 'rotate-180')} />
       </button>
 
-      {/* Accordion content */}
       {open && (
-        <div className="mt-4 space-y-12">
+        <div className="border border-t-0 border-border rounded-b-2xl bg-background divide-y divide-border">
           {/* Profile */}
-          <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-8">
-            <p className="font-heading font-semibold text-lg text-foreground">{d.profile.name}</p>
-            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{d.profile.bio}</p>
-            <p className="text-xs text-muted-foreground mt-2">{d.profile.role}</p>
+          <div className="px-6 py-6">
+            <p className="font-heading font-semibold text-base text-foreground">{d.profile.name}</p>
+            <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{d.profile.bio}</p>
           </div>
 
-          {/* 4 Tamparan */}
-          <div>
-            <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
-              {d.tamparanSection.title}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              {d.tamparanSection.subtitle}
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {d.tamparanSection.items.map((item, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
-                  <p className="font-heading font-medium text-foreground mb-2">{item.label}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+          {/* Kondisi */}
+          <div className="px-6 py-8 space-y-6">
+            <SectionTitle>{d.kondisi.title}</SectionTitle>
+            <div className="bg-secondary/60 border border-border rounded-2xl p-5">
+              <p className="font-heading font-bold text-3xl text-[hsl(var(--torch-gold))] leading-tight">{d.kondisi.highlight}</p>
+              <p className="text-sm text-muted-foreground mt-1">{d.kondisi.highlightSub}</p>
+              <p className="text-xs text-muted-foreground/60 mt-2">{d.kondisi.highlightSource}</p>
+            </div>
+            <div className="bg-secondary/40 border border-border rounded-2xl p-5">
+              <AgeChart />
+            </div>
+            <div>
+              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-4">INI BUKAN STATISTIK — INI MANUSIA</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {d.kondisi.kisah.map((k, i) => (
+                  <div key={i} className="border-l-2 border-[hsl(var(--torch-gold))] pl-4 py-1">
+                    <p className="text-sm font-semibold text-foreground">{k.label}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mt-0.5">{k.story}</p>
+                    <p className="text-[10px] text-muted-foreground/60 mt-1 italic">{k.source}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-secondary/40 border border-border rounded-xl p-4">
+              <p className="text-sm text-foreground/80 leading-relaxed">{d.kondisi.neetNote}</p>
+              <p className="text-xs text-muted-foreground/70 mt-1">Sumber: {d.kondisi.neetSource}</p>
             </div>
           </div>
 
-          {/* Kisah nyata */}
-          <div>
-            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-              {d.kisahSection.title}
-            </h3>
-            <div className="space-y-4">
-              {d.kisahSection.items.map((k, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
-                  <p className="font-heading font-medium text-foreground mb-1">{k.name}</p>
-                  <p className="text-sm text-foreground/80 leading-relaxed">{k.story}</p>
-                  <p className="text-xs text-muted-foreground mt-2 italic">{k.source}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 bg-destructive/5 border border-destructive/20 rounded-xl p-5">
-              <p className="text-sm text-destructive leading-relaxed">{d.kisahSection.neetNote}</p>
-              <p className="text-xs text-muted-foreground mt-2">Sumber: {d.kisahSection.neetSource}</p>
-            </div>
-          </div>
-
-          {/* 2 Pilar */}
-          <div>
-            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-              {d.pilarSection.title}
-            </h3>
-            <blockquote className="border-l-2 border-primary pl-4 py-1 mb-6">
-              <p className="text-sm text-foreground/80 italic leading-relaxed">{d.pilarSection.quote}</p>
+          {/* Ironi */}
+          <div className="px-6 py-8 space-y-6">
+            <SectionTitle>{d.ironi.title}</SectionTitle>
+            <blockquote className="border-l-4 border-[hsl(var(--torch-gold))] pl-4 py-1">
+              <p className="font-heading font-semibold text-lg text-foreground leading-snug">"{d.ironi.pullQuote}"</p>
+              <p className="text-xs text-muted-foreground mt-1">— {d.ironi.pullQuoteSource}</p>
             </blockquote>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {d.pilarSection.items.map((p, i) => (
+            <div className="bg-secondary/40 border border-border rounded-2xl p-5">
+              <p className="text-sm font-semibold text-foreground mb-4">{d.ironi.eduChartTitle}</p>
+              <EduChart />
+            </div>
+            <div className="bg-secondary/60 border border-border rounded-xl p-4">
+              <p className="text-sm text-foreground/80 italic leading-relaxed">"{d.ironi.apindoInsight}"</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-3">KESENJANGAN SUPPLY & DEMAND</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-secondary/40 border border-border rounded-2xl p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">Yang Ditawarkan</p>
+                  <ul className="space-y-2">
+                    {d.ironi.supply.map((s, i) => (
+                      <li key={i} className="text-xs text-muted-foreground leading-relaxed flex gap-2 items-start">
+                        <span className="shrink-0 mt-1 text-muted-foreground/50">·</span>{s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-secondary/60 border border-[hsl(var(--torch-gold))]/30 rounded-2xl p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[hsl(var(--torch-gold))] mb-3">Yang Dibutuhkan</p>
+                  <ul className="space-y-2">
+                    {d.ironi.demand.map((s, i) => (
+                      <li key={i} className="text-xs text-foreground/80 leading-relaxed flex gap-2 items-start">
+                        <span className="shrink-0 mt-1 text-[hsl(var(--torch-gold))]">·</span>{s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p className="text-sm text-foreground/80">
+              <span className="font-semibold text-[hsl(var(--torch-gold))]">63% </span>
+              {d.ironi.wef.replace('63% ', '')}
+              <span className="text-xs text-muted-foreground"> ({d.ironi.wefSource})</span>
+            </p>
+          </div>
+
+          {/* Arah */}
+          <div className="px-6 py-8 space-y-6">
+            <SectionTitle>{d.arah.title}</SectionTitle>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {d.arah.tamparan.map((t, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-4">
+                  <p className="font-semibold text-sm text-foreground mb-1">{t.label}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-secondary/40 border border-border rounded-2xl p-5 space-y-3">
+              <p className="font-heading font-bold text-2xl text-foreground">"{d.arah.paradoksPQ}"</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{d.arah.paradoksDesc}</p>
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                {d.arah.paradoksStats.map((s, i) => (
+                  <div key={i}>
+                    <p className="font-heading font-bold text-xl text-[hsl(var(--torch-gold))]">{s.angka}</p>
+                    <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.sub}</p>
+                    <p className="text-[10px] text-muted-foreground/50 mt-0.5">{s.source}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="border border-border rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-2 divide-x divide-border">
+                <div className="p-5 bg-secondary/60">
+                  <p className="font-heading font-bold text-2xl text-muted-foreground">{d.arah.mckinsey.displaced}</p>
+                  <p className="text-xs text-muted-foreground mt-1 leading-snug">{d.arah.mckinsey.displacedLabel}</p>
+                </div>
+                <div className="p-5 bg-secondary/40">
+                  <p className="font-heading font-bold text-2xl text-[hsl(var(--torch-gold))]">{d.arah.mckinsey.created}</p>
+                  <p className="text-xs text-muted-foreground mt-1 leading-snug">{d.arah.mckinsey.createdLabel}</p>
+                </div>
+              </div>
+              <div className="px-5 py-3 bg-background border-t border-border">
+                <p className="text-xs text-muted-foreground">{d.arah.mckinsey.note}</p>
+                <p className="text-[10px] text-muted-foreground/50 mt-0.5">{d.arah.mckinsey.source}</p>
+              </div>
+            </div>
+            <div className="bg-foreground text-background rounded-2xl p-5">
+              <p className="font-heading font-semibold text-lg leading-snug">"{d.arah.closing}"</p>
+            </div>
+          </div>
+
+          {/* Survive */}
+          <div className="px-6 py-8 space-y-6">
+            <SectionTitle>{d.survive.title}</SectionTitle>
+            <blockquote className="border-l-2 border-border pl-4 py-1">
+              <p className="text-sm text-foreground/80 italic leading-relaxed">{d.survive.quote}</p>
+            </blockquote>
+            <div className="bg-secondary/40 border border-border rounded-2xl p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-3">{d.survive.aiCantTitle}</p>
+              <ul className="space-y-2 mb-4">
+                {d.survive.aiCant.map((item, i) => (
+                  <li key={i} className="flex gap-3 items-start text-sm text-foreground/80 leading-relaxed">
+                    <span className="shrink-0 mt-1 text-[hsl(var(--torch-gold))]">✦</span>{item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-muted-foreground border-t border-border pt-3">{d.survive.aiCantNote}</p>
+              <div className="mt-3 text-center">
+                <p className="text-base text-foreground/90 leading-relaxed" dir="rtl">{d.survive.ayatAliImran.arabic}</p>
+                <p className="text-xs text-muted-foreground italic mt-1">{d.survive.ayatAliImran.translation}</p>
+                <p className="text-[10px] text-muted-foreground/60">{d.survive.ayatAliImran.ref}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {d.survive.pilars.map((p, i) => (
                 <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
-                  <p className="font-heading font-medium text-foreground mb-3">{p.label}</p>
+                  <p className="font-semibold text-sm text-foreground mb-3">{p.label}</p>
                   <ul className="space-y-2">
                     {p.points.map((pt, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
-                        <span className="shrink-0 mt-1.5 w-1 h-1 rounded-full bg-primary" />
-                        {pt}
+                      <li key={j} className="flex gap-2 items-start text-sm text-muted-foreground leading-relaxed">
+                        <span className="shrink-0 mt-1.5 w-1 h-1 rounded-full bg-[hsl(var(--torch-gold))]" />{pt}
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-4">
-              {d.pilarSection.wefNote}{' '}
-              <span className="italic">({d.pilarSection.wefSource})</span>
-            </p>
           </div>
 
-          {/* 4 Pilar Ekosistem */}
-          <div>
-            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-              {d.ekosistemSection.title}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {d.ekosistemSection.items.map((p, i) => (
-                <div key={i} className="flex gap-4 bg-secondary/60 border border-border rounded-2xl p-5">
-                  <span className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-heading font-semibold text-primary">
-                    {p.num}
-                  </span>
+          {/* Ekosistem */}
+          <div className="px-6 py-8 space-y-6">
+            <SectionTitle>{d.ekosistem.title}</SectionTitle>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {d.ekosistem.items.map((p, i) => (
+                <div key={i} className="flex gap-4 bg-secondary/60 border border-border rounded-2xl p-4">
+                  <span className="font-heading font-bold text-2xl text-[hsl(var(--torch-gold))] leading-none shrink-0">{p.num}</span>
                   <div>
-                    <p className="font-heading font-medium text-foreground mb-1">{p.label}</p>
+                    <p className="font-semibold text-sm text-foreground mb-1">{p.label}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-6 bg-amber-500/5 border border-amber-500/20 rounded-xl p-4">
-              <p className="text-sm text-foreground/80 leading-relaxed">
-                ⚠️ {d.ekosistemSection.projection.text} — {d.ekosistemSection.projection.source}
-              </p>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-3">ROADMAP: MULAI DARI SEKARANG</p>
+              <div className="space-y-0">
+                {d.ekosistem.roadmap.map((r, i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-secondary border border-border flex items-center justify-center text-xs font-heading font-semibold text-foreground">{r.step}</div>
+                      {i < d.ekosistem.roadmap.length - 1 && (
+                        <div className="w-px flex-1 bg-border mt-1 mb-1 min-h-[1.5rem]" />
+                      )}
+                    </div>
+                    <div className="pb-4">
+                      <p className="font-semibold text-sm text-foreground">{r.label}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed mt-0.5">{r.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+            <p className="text-xs text-muted-foreground/70 italic">⚠️ {d.ekosistem.projection}</p>
           </div>
 
           {/* Footer dalil */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[d.footer.ayat, d.footer.hadith].map((item, i) => (
-              <div key={i} className="bg-secondary/40 border border-border rounded-2xl p-5 text-center">
-                <p className="text-lg text-foreground/90 font-serif leading-relaxed mb-2" dir="rtl">
-                  {item.arabic}
-                </p>
-                <p className="text-sm text-foreground/80 italic leading-relaxed mb-1">
-                  {item.translation}
-                </p>
-                <p className="text-xs text-muted-foreground">{item.ref}</p>
-              </div>
-            ))}
+          <div className="px-6 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[d.footer.ayat, d.footer.hadith].map((item, i) => (
+                <div key={i} className="bg-secondary/40 border border-border rounded-2xl p-5 text-center">
+                  <p className="text-lg text-foreground/90 leading-relaxed mb-2" dir="rtl">{item.arabic}</p>
+                  <p className="text-sm text-foreground/80 italic leading-relaxed mb-1">{item.translation}</p>
+                  <p className="text-xs text-muted-foreground">{item.ref}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
