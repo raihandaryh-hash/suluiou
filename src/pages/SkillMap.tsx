@@ -303,6 +303,7 @@ export default function SkillMap() {
   const [expanded, setExpanded] = useState(new Set([0]));
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
+  const [jembatanHighlightIds, setJembatanHighlightIds] = useState<Set<string>>(new Set());
   const activeNode = NODES.find(n => n.id === activeId) || null;
   const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
   const hasActive = activeId !== null;
@@ -331,18 +332,31 @@ export default function SkillMap() {
   }, [isFiltering, filteredNodes]);
 
   function toggleLayer(id: number) { setExpanded(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; }); }
-  function handleClick(node: NodeType) { setActiveId(prev => prev === node.id ? null : node.id); }
+  function handleClick(node: NodeType) {
+    setJembatanHighlightIds(new Set());
+    setActiveId(prev => prev === node.id ? null : node.id);
+  }
   function handleNavigate(node: NodeType) { setActiveId(node.id); setExpanded(prev => new Set([...prev, node.layer])); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
-  function handleJembatanNavigate(nodeId: string) {
-    const target = NODES.find(n => n.id === nodeId);
-    if (!target) return;
-    setActiveId(nodeId);
-    setExpanded(prev => new Set([...prev, target.layer]));
-    setTimeout(() => {
-      const el = document.getElementById(`node-${nodeId}`);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 200);
+  function handleJembatanNavigate(nodeIds: string[]) {
+    if (nodeIds.length === 1) {
+      const target = NODES.find(n => n.id === nodeIds[0]);
+      if (!target) return;
+      setActiveId(nodeIds[0]);
+      setJembatanHighlightIds(new Set());
+      setExpanded(prev => new Set([...prev, target.layer]));
+      setTimeout(() => {
+        const el = document.getElementById(`node-${nodeIds[0]}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 200);
+    } else {
+      setJembatanHighlightIds(new Set(nodeIds));
+      setActiveId(null);
+      const relevantLayers = nodeIds
+        .map(id => NODES.find(n => n.id === id)?.layer)
+        .filter((l): l is number => l !== undefined);
+      setExpanded(prev => new Set([...prev, ...relevantLayers]));
+    }
   }
 
   useEffect(() => {
