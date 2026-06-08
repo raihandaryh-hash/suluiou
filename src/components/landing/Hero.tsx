@@ -1,186 +1,86 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ArrowRight, BarChart3 } from 'lucide-react';
-import heroImage from '@/assets/hero-sulu.jpg';
+import { ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
-
-const previewScores = [
-  { label: 'Kejujuran & Kerendahan Hati (H)', value: 85 },
-  { label: 'Emosionalitas (E)', value: 62 },
-  { label: 'Ekstraversi (X)', value: 78 },
-];
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Background image with scholarly overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt=""
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        />
-        {/* Signature torch gradient overlay (navy → mid-blue → subtle gold) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(135deg, hsl(var(--brand-navy) / 0.97) 0%, hsl(var(--mid-blue) / 0.90) 60%, hsl(var(--torch-gold) / 0.20) 100%)',
-          }}
-        />
-        {/* Scholarly bottom fade into page background */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
-      </div>
-
+    <section className="relative min-h-screen flex flex-col bg-background">
       {/* Top nav */}
-      <header className="absolute top-0 left-0 right-0 z-20 py-5">
+      <header className="py-5">
         <div className="container mx-auto flex items-center justify-between px-6">
-          <Logo variant="white" size="md" linkTo="/" />
+          <Logo size="md" linkTo="/" />
           <div className="flex items-center gap-2">
-            <Button
-              asChild
-              variant="ghost"
-              size="sm"
-              className="text-white/80 hover:bg-white/10 hover:text-white"
-            >
+            <Button asChild variant="ghost" size="sm">
               <Link to="/insight">Mengapa ini penting? →</Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white/60 backdrop-blur-sm"
-            >
+            <Button asChild variant="outline" size="sm">
               <Link to="/insight">Lihat Data</Link>
             </Button>
           </div>
         </div>
       </header>
 
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20 lg:pt-24 lg:pb-16">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left: Headline + CTA */}
-          <div className="lg:col-span-7 text-center lg:text-left">
-            <motion.h1
-              className="font-heading font-semibold leading-[1.15] tracking-tight text-white text-3xl md:text-4xl lg:text-[2.75rem] mb-5"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-            >
-              Masa Depanmu Bukan Kebetulan.
-            </motion.h1>
-
-            <motion.p
-              className="text-sm md:text-base text-white/75 max-w-lg mx-auto lg:mx-0 mb-9 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              Kenali dunianya. Kenali dirimu. Temukan arahmu — dengan panduan yang berbasis data, bukan tebakan.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
-            >
-              <Button
-                asChild
-                size="default"
-                className="group text-sm px-6 py-5 bg-torch-gold hover:bg-torch-gold/90 text-navy-deep font-semibold shadow-md"
-              >
-                <Link to="/insight">
-                  Lihat Duniamu
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </motion.div>
-
-            {/* Seasonal Fast-Path — second entry */}
-            <motion.div
-              className="mt-6 flex flex-col items-center lg:items-start gap-2.5"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.65 }}
-            >
-              <Badge
-                variant="outline"
-                className="w-fit text-[11px] font-normal px-2.5 py-1 rounded-full bg-white/10 border-white/20 text-white/80 backdrop-blur-sm"
-              >
-                UM-PTKIN: 30 Jun · Mandiri PTN: Juli–Agt · IOU: kapan saja
-              </Badge>
-
-              <Button
-                asChild
-                variant="ghost"
-                size="sm"
-                className="text-white/90 hover:text-white hover:bg-white/5 px-0 h-auto text-sm font-normal"
-              >
-                <Link to="/programs">
-                  Belum dapat PTN / masih menimbang?
-                </Link>
-              </Button>
-
-              <p className="text-[11px] text-white/80 leading-snug max-w-xs">
-                Info semua jalur tersedia — termasuk yang sering terlewat.
-              </p>
-            </motion.div>
-
-          </div>
-
-          {/* Right: Floating glass preview card */}
-          <motion.div
-            className="lg:col-span-5 hidden lg:block"
-            initial={{ opacity: 0, x: 40, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.5, ease: 'easeOut' }}
+      <div className="flex-1 flex items-center">
+        <div className="container mx-auto px-6 py-16 md:py-24 max-w-2xl text-center">
+          <motion.h1
+            className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.15] text-foreground mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <div className="relative">
-              <div className="relative glass rounded-2xl p-7 shadow-2xl">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-11 h-11 rounded-xl bg-navy/10 flex items-center justify-center shrink-0">
-                    <BarChart3 className="w-5 h-5 text-navy" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <p className="font-heading font-semibold text-ink text-base leading-tight">
-                      Validasi Akademik
-                    </p>
-                    <p className="text-xs text-ink-muted mt-0.5">
-                      HEXACO Personality Inventory
-                    </p>
-                  </div>
-                </div>
+            Kamu sedang berada di titik yang sangat penting.
+          </motion.h1>
 
-                <div className="space-y-4">
-                  {previewScores.map((s, i) => (
-                    <div key={s.label}>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-xs font-medium text-ink/80">{s.label}</span>
-                        <span className="text-xs font-semibold text-navy tabular-nums">
-                          {s.value}%
-                        </span>
-                      </div>
-                      <div className="h-1 rounded-full bg-navy/10 overflow-hidden">
-                        <motion.div
-                          className="h-full rounded-full bg-navy"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${s.value}%` }}
-                          transition={{ duration: 1.1, delay: 0.9 + i * 0.15, ease: 'easeOut' }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <motion.p
+            className="text-base md:text-lg text-muted-foreground mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Bonus demografi hanya datang sekali.
+          </motion.p>
+
+          <motion.div
+            className="space-y-5 text-left md:text-center text-foreground/85 text-base md:text-[17px] leading-relaxed mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <p>
+              Kamu lahir di masa yang tepat. Tahun 2030 nanti, 68 juta Gen Z akan
+              menjadi mayoritas penduduk produktif Indonesia. Namun banyak di antara
+              kita yang masih bingung arah.
+            </p>
+            <p>Kamu tidak sendiri dalam kebingungan ini.</p>
           </motion.div>
+
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+          >
+            <Button asChild size="lg" className="group">
+              <Link to="/insight">
+                Kenali Duniamu Dulu
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </motion.div>
+
+          <motion.p
+            className="text-sm text-muted-foreground mt-8 max-w-md mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            Platform ini dirancang untuk membantu kamu menjelajahi diri, memahami
+            dunia, dan menemukan arah kontribusimu.
+          </motion.p>
         </div>
       </div>
-
     </section>
   );
 };
