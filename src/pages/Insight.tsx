@@ -154,10 +154,13 @@ function PenamparCardItem({ card }: { card: PenamparCard }) {
         {card.hook}
       </p>
 
-      {/* Stat — the "penampar" */}
-      <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4">
-        <p className="text-sm font-medium text-destructive leading-relaxed">
-          {card.stat}
+      {/* Stat block */}
+      <div className="border-t border-border pt-4">
+        <p className="font-heading font-bold text-2xl md:text-3xl text-[hsl(var(--torch-gold))] leading-tight">
+          {card.statNumber}
+        </p>
+        <p className="text-xs text-muted-foreground mt-1 leading-snug">
+          {card.statLabel}
         </p>
       </div>
 
@@ -605,7 +608,7 @@ const Insight = () => {
                 Bukan untuk menakut-nakuti — tapi untuk menunjukkan ruang yang bisa kamu isi.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {penamparSection.cards.map((card) => (
                 <PenamparCardItem key={card.id} card={card} />
               ))}
