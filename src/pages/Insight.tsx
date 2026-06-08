@@ -828,6 +828,7 @@ const Insight = () => {
       : personaTeaserSection.defaultPersona;
   });
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
+  const [dataOpen, setDataOpen] = useState(false);
 
   const handleSwitch = (p: Persona) => {
     setPersona(p);
@@ -921,6 +922,35 @@ const Insight = () => {
           {/* PAK EVAN INSIGHTS */}
           <EvanInsights />
 
+          {/* DATA LANJUTAN TOGGLE */}
+          <section className="container mx-auto px-6 pt-4 max-w-4xl">
+            <button
+              onClick={() => setDataOpen((v) => !v)}
+              className="w-full flex items-center justify-between gap-4
+                         bg-secondary/40 border border-border border-dashed
+                         rounded-2xl px-6 py-4 hover:bg-secondary/60
+                         transition-colors text-left group"
+            >
+              <div>
+                <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
+                  DATA LANJUTAN
+                </span>
+                <span className="text-sm text-foreground">
+                  {dataOpen
+                    ? 'Sembunyikan data statistik lengkap'
+                    : 'Eksplorasi data statistik selengkapnya — kondisi kerja, NEET, skill landscape, dan tren global'}
+                </span>
+              </div>
+              <ChevronDown
+                className={cn(
+                  'w-5 h-5 text-muted-foreground transition-transform shrink-0',
+                  dataOpen && 'rotate-180'
+                )}
+              />
+            </button>
+          </section>
+
+          {dataOpen && (<>
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
@@ -1067,6 +1097,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
+          </>)}
 
           {/* SECTION 6 — Peluang SDM */}
           <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
