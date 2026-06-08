@@ -555,8 +555,8 @@ const Insight = () => {
           </motion.div>
           </section>
 
-          {/* Persona Teaser (non-blocking) */}
-          <PersonaTeaser persona={persona} onSwitch={handleSwitch} />
+          {/* Persona inline hint (one-liner) */}
+          <PersonaInlineHint onSwitch={handleSwitch} />
 
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
