@@ -97,36 +97,38 @@ function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwit
   );
 }
 
-// ───── Persona Teaser (soft, non-blocking) ─────
-function PersonaTeaser({ persona, onSwitch }: { persona: Persona; onSwitch: (p: Persona) => void }) {
+// ───── Inline Persona Hint (one-liner under hero) ─────
+function PersonaInlineHint({ onSwitch }: { onSwitch: (p: Persona) => void }) {
+  const [open, setOpen] = useState(false);
   return (
-    <section className="container mx-auto px-6 pb-8 max-w-4xl">
-      <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">
-        {personaTeaserSection.headline}
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {personaTeaserSection.options.map((opt) => (
+    <section className="container mx-auto px-6 pb-4 max-w-4xl">
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
           <button
-            key={opt.id}
-            onClick={() => onSwitch(opt.id)}
-            className={cn(
-              'text-left rounded-xl border p-4 transition-all',
-              persona === opt.id
-                ? 'border-primary bg-primary/5'
-                : 'border-border bg-secondary/40 hover:bg-secondary'
-            )}
+            type="button"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
-            <p className={cn(
-              'font-heading font-semibold text-sm mb-1',
-              persona === opt.id ? 'text-primary' : 'text-foreground'
-            )}>
-              {opt.label}
-            </p>
-            <p className="text-xs text-muted-foreground leading-snug">{opt.description}</p>
+            <span>Kamu orang tua atau guru BK? Ada data khusus untukmu.</span>
+            <ChevronRight className="w-3 h-3" />
           </button>
-        ))}
-      </div>
-      <p className="text-xs text-muted-foreground mt-3">{personaTeaserSection.subtext}</p>
+        </PopoverTrigger>
+        <PopoverContent align="start" className="w-auto p-1">
+          <div className="flex flex-col min-w-[200px]">
+            <button
+              onClick={() => { onSwitch('orangtua'); setOpen(false); }}
+              className="text-left px-3 py-2 text-sm rounded-md hover:bg-secondary transition-colors"
+            >
+              Saya orang tua
+            </button>
+            <button
+              onClick={() => { onSwitch('gurubk'); setOpen(false); }}
+              className="text-left px-3 py-2 text-sm rounded-md hover:bg-secondary transition-colors"
+            >
+              Saya guru BK / konselor
+            </button>
+          </div>
+        </PopoverContent>
+      </Popover>
     </section>
   );
 }
