@@ -62,7 +62,7 @@ const CONNECTION_MAP = buildConnectionMap();
 
 interface NodeType { id: string; layer: number; name: string; techName: string; description: string; aiRisk: keyof typeof AI_RISK; aiNote: string; source: string; wefData?: string; indonesiaData?: string; connections: string[]; causal?: { to: string; direction: "to"|"from"|"bidirectional"; citation: string }[]; isProvenCausal?: boolean; sectorStatus?: "growing"|"vulnerable"; localContextExample?: string }
 
-function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; dimmed: boolean; onClick: () => void }) {
+function NodePill({ node, isActive, isConnected, isJembatanHighlighted, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; isJembatanHighlighted: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
   let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1 };
   let className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all bg-background border-border text-muted-foreground";
@@ -71,6 +71,9 @@ function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: Node
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   } else if (isConnected) {
     style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  } else if (isJembatanHighlighted) {
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", boxShadow: "0 0 0 2px #FCD34D", opacity: 1 };
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
