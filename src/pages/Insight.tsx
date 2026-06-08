@@ -950,7 +950,7 @@ const Insight = () => {
             </button>
           </section>
 
-          {dataOpen && (
+          {dataOpen && (<>
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
@@ -1097,7 +1097,7 @@ const Insight = () => {
               ))}
             </div>
           </section>
-          )}
+          </>)}
 
           {/* SECTION 6 — Peluang SDM */}
           <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
