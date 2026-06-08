@@ -211,14 +211,13 @@ const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; 
   ], primary: "rasa-ingin-tahu" },
 ];
 
-function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void }) {
+function JembatanIstilah({ onNavigate }: { onNavigate: (nodeIds: string[]) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const visibleItems = expanded ? ISTILAH_BRIDGE : ISTILAH_BRIDGE.slice(0, 5);
 
   function handleChip(item: typeof ISTILAH_BRIDGE[0]) {
-    setActiveChip(item.popular);
-    if (item.primary && typeof item.primary === "string") onNavigate(item.primary);
+    setActiveChip(item.popular === activeChip ? null : item.popular);
   }
 
   return (
@@ -253,17 +252,21 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void 
         {activeChip && (() => {
           const item = ISTILAH_BRIDGE.find((i) => i.popular === activeChip);
           if (!item) return null;
+          const navigableIds = item.nodes.map((n) => n.id).filter((id): id is string => !!id);
           return (
             <div className="rounded-xl border border-border bg-background/60 p-4 mt-2">
               <div className="flex items-center gap-2 mb-3">
                 <span className="font-semibold text-sm text-foreground">{item.popular}</span>
                 <span className="text-xs text-muted-foreground">→ {item.layer}</span>
               </div>
+              {item.note && (
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">{item.note}</p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {item.nodes.map((node) => (
                   <button
                     key={node.label}
-                    onClick={() => node.id && onNavigate(node.id)}
+                    onClick={() => node.id && onNavigate([node.id])}
                     disabled={!node.id}
                     className={cn(
                       "text-xs px-3 py-1.5 rounded-full border transition-all",
@@ -278,10 +281,18 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void 
                   </button>
                 ))}
               </div>
+              {navigableIds.length > 0 && (
+                <button
+                  onClick={() => onNavigate(navigableIds)}
+                  className="text-xs px-3 py-1.5 rounded-full bg-primary text-primary-foreground mt-3 hover:bg-primary/90 transition-colors"
+                >
+                  Lihat di Peta Skill →
+                </button>
+              )}
             </div>
           );
         })()}
-        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat node terkait. Klik nama node → loncat langsung ke peta.</p>
+        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat deskripsi. Klik "Lihat di Peta Skill" → sorot semua node terkait di peta.</p>
       </div>
     </div>
   );
