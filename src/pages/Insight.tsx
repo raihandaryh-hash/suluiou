@@ -154,10 +154,13 @@ function PenamparCardItem({ card }: { card: PenamparCard }) {
         {card.hook}
       </p>
 
-      {/* Stat — the "penampar" */}
-      <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4">
-        <p className="text-sm font-medium text-destructive leading-relaxed">
-          {card.stat}
+      {/* Stat block */}
+      <div className="border-t border-border pt-4">
+        <p className="font-heading font-bold text-2xl md:text-3xl text-[hsl(var(--torch-gold))] leading-tight">
+          {card.statNumber}
+        </p>
+        <p className="text-xs text-muted-foreground mt-1 leading-snug">
+          {card.statLabel}
         </p>
       </div>
 
