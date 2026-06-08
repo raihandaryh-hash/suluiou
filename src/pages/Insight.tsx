@@ -37,6 +37,7 @@ import {
   dataSourcesLabel,
   sourcePrefix,
   penamparSection,
+  evanInsights,
   type Persona,
   type Tone,
   type PenamparCard,
@@ -169,6 +170,153 @@ function PenamparCardItem({ card }: { card: PenamparCard }) {
         {card.peluang}
       </p>
     </div>
+  );
+}
+
+// ───── Evan Insights (accordion) ─────
+function EvanInsights() {
+  const [open, setOpen] = useState(false);
+  const d = evanInsights;
+
+  return (
+    <section className="container mx-auto px-6 py-16 max-w-4xl">
+      {/* Accordion trigger */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4
+                   bg-secondary/60 border border-border rounded-2xl px-6 py-4
+                   hover:bg-secondary/80 transition-colors text-left"
+      >
+        <div>
+          <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
+            INSIGHTS PRAKTISI
+          </span>
+          <span className="font-heading font-medium text-foreground">
+            {d.buttonLabel}
+          </span>
+        </div>
+        <ChevronDown className={cn('w-5 h-5 text-muted-foreground transition-transform shrink-0', open && 'rotate-180')} />
+      </button>
+
+      {/* Accordion content */}
+      {open && (
+        <div className="mt-4 space-y-12">
+          {/* Profile */}
+          <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-8">
+            <p className="font-heading font-semibold text-lg text-foreground">{d.profile.name}</p>
+            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{d.profile.bio}</p>
+            <p className="text-xs text-muted-foreground mt-2">{d.profile.role}</p>
+          </div>
+
+          {/* 4 Tamparan */}
+          <div>
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+              {d.tamparanSection.title}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              {d.tamparanSection.subtitle}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {d.tamparanSection.items.map((item, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
+                  <p className="font-heading font-medium text-foreground mb-2">{item.label}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Kisah nyata */}
+          <div>
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+              {d.kisahSection.title}
+            </h3>
+            <div className="space-y-4">
+              {d.kisahSection.items.map((k, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
+                  <p className="font-heading font-medium text-foreground mb-1">{k.name}</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">{k.story}</p>
+                  <p className="text-xs text-muted-foreground mt-2 italic">{k.source}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 bg-destructive/5 border border-destructive/20 rounded-xl p-5">
+              <p className="text-sm text-destructive leading-relaxed">{d.kisahSection.neetNote}</p>
+              <p className="text-xs text-muted-foreground mt-2">Sumber: {d.kisahSection.neetSource}</p>
+            </div>
+          </div>
+
+          {/* 2 Pilar */}
+          <div>
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+              {d.pilarSection.title}
+            </h3>
+            <blockquote className="border-l-2 border-primary pl-4 py-1 mb-6">
+              <p className="text-sm text-foreground/80 italic leading-relaxed">{d.pilarSection.quote}</p>
+            </blockquote>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {d.pilarSection.items.map((p, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-5">
+                  <p className="font-heading font-medium text-foreground mb-3">{p.label}</p>
+                  <ul className="space-y-2">
+                    {p.points.map((pt, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
+                        <span className="shrink-0 mt-1.5 w-1 h-1 rounded-full bg-primary" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              {d.pilarSection.wefNote}{' '}
+              <span className="italic">({d.pilarSection.wefSource})</span>
+            </p>
+          </div>
+
+          {/* 4 Pilar Ekosistem */}
+          <div>
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+              {d.ekosistemSection.title}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {d.ekosistemSection.items.map((p, i) => (
+                <div key={i} className="flex gap-4 bg-secondary/60 border border-border rounded-2xl p-5">
+                  <span className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-heading font-semibold text-primary">
+                    {p.num}
+                  </span>
+                  <div>
+                    <p className="font-heading font-medium text-foreground mb-1">{p.label}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 bg-amber-500/5 border border-amber-500/20 rounded-xl p-4">
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                ⚠️ {d.ekosistemSection.projection.text} — {d.ekosistemSection.projection.source}
+              </p>
+            </div>
+          </div>
+
+          {/* Footer dalil */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[d.footer.ayat, d.footer.hadith].map((item, i) => (
+              <div key={i} className="bg-secondary/40 border border-border rounded-2xl p-5 text-center">
+                <p className="text-lg text-foreground/90 font-serif leading-relaxed mb-2" dir="rtl">
+                  {item.arabic}
+                </p>
+                <p className="text-sm text-foreground/80 italic leading-relaxed mb-1">
+                  {item.translation}
+                </p>
+                <p className="text-xs text-muted-foreground">{item.ref}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
 
@@ -614,6 +762,9 @@ const Insight = () => {
               ))}
             </div>
           </section>
+
+          {/* PAK EVAN INSIGHTS */}
+          <EvanInsights />
 
           {/* SECTION 2 — Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
