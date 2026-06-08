@@ -5,10 +5,10 @@ import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const LAYERS = [
-  { id: 0, name: "Sikap dan Disposisi", subtitle: "Ini akar dari segalanya. Bukan yang diajarkan di kelas, tapi terbentuk dari cara kamu menghadapi hidup sehari-hari — pilihan kecil, kegagalan, dan bagaimana kamu bangkit lagi. Tanpa fondasi ini, skill lain mudah goyah.", note: "Contoh: Rasa ingin tahu yang terus menyala, ulet menghadapi kesulitan, jujur pada diri sendiri, dan bertanggung jawab atas pilihanmu. — WEF Global Skills Taxonomy menyebutnya 'Attitudes and Mindsets'.", colors: { bg: "#FEF3C7", border: "#FCD34D", text: "#92400E", pill: "#FFFBEB", pillBorder: "#FDE68A", pillText: "#78350F", dot: "#F59E0B", ring: "#FCD34D" } },
-  { id: 1, name: "Kapasitas Manusia", subtitle: "Ini yang membuat manusia sulit digantikan AI, setidaknya untuk waktu yang lama. Mesin bisa menghitung dan mengolah data, tapi belum bisa benar-benar memahami orang, memimpin dengan hati, atau menemukan solusi di situasi yang rumit.", note: "Contoh: Empati, berpikir analitis, kepemimpinan, dan kreativitas. — WEF/Indeed (2025): skills dengan 0% substitution potential AI saat ini.", colors: { bg: "#F0FDFA", border: "#5EEAD4", text: "#134E4A", pill: "#F0FDFA", pillBorder: "#99F6E4", pillText: "#0F766E", dot: "#14B8A6", ring: "#5EEAD4" } },
-  { id: 2, name: "Skill Lintas Bidang", subtitle: "Keterampilan yang berguna di hampir semua pekerjaan. Bisa dilatih melalui kursus, pengalaman, dan latihan berulang. Hasilnya jauh lebih kuat kalau ditopang oleh Layer 0 dan 1 di bawahnya.", note: "Contoh: Komunikasi yang jelas di berbagai situasi, literasi data dan AI, mengajar atau membimbing orang lain, kepedulian terhadap lingkungan. — O*NET menyebutnya 'Cross-Functional Skills'.", colors: { bg: "#EFF6FF", border: "#93C5FD", text: "#1E3A5F", pill: "#EFF6FF", pillBorder: "#BFDBFE", pillText: "#1D4ED8", dot: "#3B82F6", ring: "#93C5FD" } },
-  { id: 3, name: "Domain dan Sektor", subtitle: "Keahlian khusus yang dibutuhkan di bidang atau industri tertentu. Inilah yang biasanya membuatmu dibutuhkan oleh tempat kerja spesifik.", note: "Contoh: Keuangan syariah, energi terbarukan, pendidikan anak, atau pelayanan kesehatan masyarakat. — Berdasarkan data BPS, RTKN Kemnaker, dan IESR.", colors: { bg: "#F8FAFC", border: "#CBD5E1", text: "#334155", pill: "#F8FAFC", pillBorder: "#E2E8F0", pillText: "#475569", dot: "#64748B", ring: "#CBD5E1" } },
+  { id: 0, name: "Sikap dan Disposisi", subtitle: "Ini akar dari segalanya. Bukan yang diajarkan di kelas, tapi terbentuk dari cara kamu menghadapi hidup sehari-hari — pilihan kecil, kegagalan, dan bagaimana kamu bangkit lagi. Tanpa fondasi ini, skill lain mudah goyah.", note: "Contoh: Rasa ingin tahu yang terus menyala, ulet menghadapi kesulitan, jujur pada diri sendiri, dan bertanggung jawab atas pilihanmu.", colors: { bg: "#FEF3C7", border: "#FCD34D", text: "#92400E", pill: "#FFFBEB", pillBorder: "#FDE68A", pillText: "#78350F", dot: "#F59E0B", ring: "#FCD34D" } },
+  { id: 1, name: "Kapasitas Manusia", subtitle: "Ini yang membuat manusia sulit digantikan AI, setidaknya untuk waktu yang lama. Mesin bisa menghitung dan mengolah data, tapi belum bisa benar-benar memahami orang, memimpin dengan hati, atau menemukan solusi di situasi yang rumit.", note: "Contoh: Empati, berpikir kritis, kepemimpinan, dan kreativitas.", colors: { bg: "#F0FDFA", border: "#5EEAD4", text: "#134E4A", pill: "#F0FDFA", pillBorder: "#99F6E4", pillText: "#0F766E", dot: "#14B8A6", ring: "#5EEAD4" } },
+  { id: 2, name: "Skill Lintas Bidang", subtitle: "Keterampilan yang berguna di hampir semua pekerjaan. Bisa dilatih melalui kursus, pengalaman, dan latihan berulang. Tapi hasilnya akan jauh lebih kuat kalau ditopang oleh Layer 0 dan 1.", note: "Contoh: Komunikasi yang jelas di berbagai situasi, literasi data dan AI, mengajar atau membimbing orang lain, serta kepedulian terhadap lingkungan.", colors: { bg: "#EFF6FF", border: "#93C5FD", text: "#1E3A5F", pill: "#EFF6FF", pillBorder: "#BFDBFE", pillText: "#1D4ED8", dot: "#3B82F6", ring: "#93C5FD" } },
+  { id: 3, name: "Domain dan Sektor", subtitle: "Keahlian khusus yang dibutuhkan di bidang atau industri tertentu. Inilah yang biasanya membuatmu dibutuhkan oleh tempat kerja tertentu.", note: "Contoh: Keuangan syariah, energi terbarukan, pendidikan anak, atau pelayanan kesehatan masyarakat.", colors: { bg: "#F8FAFC", border: "#CBD5E1", text: "#334155", pill: "#F8FAFC", pillBorder: "#E2E8F0", pillText: "#475569", dot: "#64748B", ring: "#CBD5E1" } },
 ];
 
 const AI_RISK = {
@@ -62,7 +62,7 @@ const CONNECTION_MAP = buildConnectionMap();
 
 interface NodeType { id: string; layer: number; name: string; techName: string; description: string; aiRisk: keyof typeof AI_RISK; aiNote: string; source: string; wefData?: string; indonesiaData?: string; connections: string[]; causal?: { to: string; direction: "to"|"from"|"bidirectional"; citation: string }[]; isProvenCausal?: boolean; sectorStatus?: "growing"|"vulnerable"; localContextExample?: string }
 
-function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; dimmed: boolean; onClick: () => void }) {
+function NodePill({ node, isActive, isConnected, isJembatanHighlighted, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; isJembatanHighlighted: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
   let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1 };
   let className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all bg-background border-border text-muted-foreground";
@@ -71,6 +71,9 @@ function NodePill({ node, isActive, isConnected, dimmed, onClick }: { node: Node
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   } else if (isConnected) {
     style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+    className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
+  } else if (isJembatanHighlighted) {
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", boxShadow: "0 0 0 2px #FCD34D", opacity: 1 };
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
@@ -178,15 +181,15 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
   );
 }
 
-const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; id: string | null; note?: string }[]; primary: string | false }[] = [
+const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; id: string | null; note?: string }[]; primary: string | false; note?: string }[] = [
   { popular: "Soft skills", layer: "Layer 0 + Layer 1", nodes: [
     { label: "Sikap & Disposisi", id: null, note: "(seluruh Layer 0)" },
     { label: "Kapasitas Manusia", id: null, note: "(seluruh Layer 1)" },
   ], primary: false },
-  { popular: "Critical thinking", layer: "Layer 1", nodes: [
+  { popular: "Berpikir Kritis / Critical Thinking", layer: "Layer 1", nodes: [
     { label: "Berpikir Analitis", id: "berpikir-analitis" },
-    { label: "Metakognisi", id: "metakognisi" },
-  ], primary: "berpikir-analitis" },
+    { label: "Berpikir Sistemik", id: "berpikir-sistemik" },
+  ], primary: "berpikir-analitis", note: "Dalam OECD Learning Compass dan framework Pak Dillo, Critical Thinking mencakup kemampuan mengevaluasi bukti dan mempertanyakan asumsi — ini terdistribusi di Berpikir Analitis dan Berpikir Sistemik di peta ini." },
   { popular: "Teamwork", layer: "Layer 1–2", nodes: [
     { label: "Empati", id: "empati" },
     { label: "Kepemimpinan", id: "kepemimpinan" },
@@ -211,14 +214,13 @@ const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; 
   ], primary: "rasa-ingin-tahu" },
 ];
 
-function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void }) {
+function JembatanIstilah({ onNavigate }: { onNavigate: (nodeIds: string[]) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const visibleItems = expanded ? ISTILAH_BRIDGE : ISTILAH_BRIDGE.slice(0, 5);
 
   function handleChip(item: typeof ISTILAH_BRIDGE[0]) {
-    setActiveChip(item.popular);
-    if (item.primary && typeof item.primary === "string") onNavigate(item.primary);
+    setActiveChip(item.popular === activeChip ? null : item.popular);
   }
 
   return (
@@ -253,17 +255,21 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void 
         {activeChip && (() => {
           const item = ISTILAH_BRIDGE.find((i) => i.popular === activeChip);
           if (!item) return null;
+          const navigableIds = item.nodes.map((n) => n.id).filter((id): id is string => !!id);
           return (
             <div className="rounded-xl border border-border bg-background/60 p-4 mt-2">
               <div className="flex items-center gap-2 mb-3">
                 <span className="font-semibold text-sm text-foreground">{item.popular}</span>
                 <span className="text-xs text-muted-foreground">→ {item.layer}</span>
               </div>
+              {item.note && (
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">{item.note}</p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {item.nodes.map((node) => (
                   <button
                     key={node.label}
-                    onClick={() => node.id && onNavigate(node.id)}
+                    onClick={() => node.id && onNavigate([node.id])}
                     disabled={!node.id}
                     className={cn(
                       "text-xs px-3 py-1.5 rounded-full border transition-all",
@@ -278,10 +284,18 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeId: string) => void 
                   </button>
                 ))}
               </div>
+              {navigableIds.length > 0 && (
+                <button
+                  onClick={() => onNavigate(navigableIds)}
+                  className="text-xs px-3 py-1.5 rounded-full bg-primary text-primary-foreground mt-3 hover:bg-primary/90 transition-colors"
+                >
+                  Lihat di Peta Skill →
+                </button>
+              )}
             </div>
           );
         })()}
-        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat node terkait. Klik nama node → loncat langsung ke peta.</p>
+        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat deskripsi. Klik "Lihat di Peta Skill" → sorot semua node terkait di peta.</p>
       </div>
     </div>
   );
@@ -292,6 +306,7 @@ export default function SkillMap() {
   const [expanded, setExpanded] = useState(new Set([0]));
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
+  const [jembatanHighlightIds, setJembatanHighlightIds] = useState<Set<string>>(new Set());
   const activeNode = NODES.find(n => n.id === activeId) || null;
   const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
   const hasActive = activeId !== null;
@@ -320,18 +335,31 @@ export default function SkillMap() {
   }, [isFiltering, filteredNodes]);
 
   function toggleLayer(id: number) { setExpanded(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; }); }
-  function handleClick(node: NodeType) { setActiveId(prev => prev === node.id ? null : node.id); }
+  function handleClick(node: NodeType) {
+    setJembatanHighlightIds(new Set());
+    setActiveId(prev => prev === node.id ? null : node.id);
+  }
   function handleNavigate(node: NodeType) { setActiveId(node.id); setExpanded(prev => new Set([...prev, node.layer])); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
-  function handleJembatanNavigate(nodeId: string) {
-    const target = NODES.find(n => n.id === nodeId);
-    if (!target) return;
-    setActiveId(nodeId);
-    setExpanded(prev => new Set([...prev, target.layer]));
-    setTimeout(() => {
-      const el = document.getElementById(`node-${nodeId}`);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 200);
+  function handleJembatanNavigate(nodeIds: string[]) {
+    if (nodeIds.length === 1) {
+      const target = NODES.find(n => n.id === nodeIds[0]);
+      if (!target) return;
+      setActiveId(nodeIds[0]);
+      setJembatanHighlightIds(new Set());
+      setExpanded(prev => new Set([...prev, target.layer]));
+      setTimeout(() => {
+        const el = document.getElementById(`node-${nodeIds[0]}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 200);
+    } else {
+      setJembatanHighlightIds(new Set(nodeIds));
+      setActiveId(null);
+      const relevantLayers = nodeIds
+        .map(id => NODES.find(n => n.id === id)?.layer)
+        .filter((l): l is number => l !== undefined);
+      setExpanded(prev => new Set([...prev, ...relevantLayers]));
+    }
   }
 
   useEffect(() => {
@@ -431,7 +459,7 @@ export default function SkillMap() {
                   <div className="px-5 pb-4 pt-3">
                     <p className="text-xs text-muted-foreground italic mb-3">{L.note}</p>
                     <div className="flex flex-wrap gap-2">
-                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                     </div>
                     {activeNode && activeNode.layer === lid && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
                   </div>
@@ -482,7 +510,7 @@ export default function SkillMap() {
                   <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Tumbuh — shortage SDM terdokumentasi</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
               )}
@@ -494,7 +522,7 @@ export default function SkillMap() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Yang berisiko adalah tugas-tugas spesifik, bukan semua orang dalam sektor ini. ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya.</p>
                 <div className="flex flex-wrap gap-2">
-                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
+                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
                 </div>
               </div>
               )}
