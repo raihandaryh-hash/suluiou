@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, Share2, Loader2 } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, ChevronRight, Share2, Loader2 } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
