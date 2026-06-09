@@ -1,415 +1,465 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { Share2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-
-import { Loader2, Check } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { useKenaliDirimuSession, OdysseyPlan, PossibleSelves } from "@/hooks/useKenaliDirimuSession";
-import ValuesCardSort from "@/components/kenali/ValuesCardSort";
-import { track } from "@/lib/track";
+import { useAuth } from "@/hooks/useAuth";
 
-type Step = 0 | 1 | 2 | 3 | 4;
+const LS_KEY = "sulu_phase2a";
 
-const LANE_META: Record<"A" | "B" | "C", { desc: string; tone: string }> = {
-  A: { desc: "Yang sudah kamu bayangkan", tone: "bg-[hsl(var(--brand-navy))] text-white" },
-  B: { desc: "Jika Lintasan A tidak ada atau tidak mungkin", tone: "bg-[hsl(var(--mid-blue))] text-white" },
-  C: { desc: "Yang sebenarnya ingin kamu coba — yang mungkin belum pernah kamu ucapkan", tone: "bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))]" },
+type Answers = Record<string, string>;
+
+// ─── Reusable components ──────────────────────────────────────────
+function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+  return (
+    <div className="mb-5">
+      <h2 className="font-heading text-xl font-semibold text-foreground">{title}</h2>
+      {subtitle && <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{subtitle}</p>}
+    </div>
+  );
+}
+
+function JournalingPrompt({
+  question,
+  starter,
+  value,
+  onChange,
+  minH = "min-h-[100px]",
+}: {
+  question: string;
+  starter?: string;
+  value: string;
+  onChange: (v: string) => void;
+  minH?: string;
+}) {
+  return (
+    <div>
+      <p className="text-base text-foreground leading-relaxed">{question}</p>
+      {starter && <p className="text-sm text-muted-foreground italic mt-1">{starter}</p>}
+      <Textarea
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={starter || "Tuliskan di sini..."}
+        className={`mt-2 ${minH}`}
+      />
+    </div>
+  );
+}
+
+// ─── Prompt registry (id → label for share summary) ──────────────
+const PROMPT_LABELS: Record<string, string> = {
+  d1_q1: "Fondasi Keimanan — Ayat/doa yang menenangkan",
+  d1_q2: "Fondasi Keimanan — Nilai Islam yang membimbing",
+  d1_q3: "Fondasi Keimanan — Rutinitas amal",
+  d2_q1: "Karakter — Momen 'ini saya banget'",
+  d2_q2: "Karakter — Yang orang lain perhatikan",
+  d2_q3: "Karakter — Peran yang cocok",
+  d3_q1: "Modal Relasional — Komentar positif",
+  d3_q2: "Modal Relasional — Penyadaran baru",
+  d3_q3: "Modal Relasional — Manfaat ke komunitas",
+  d4_q1: "Adaptabilitas — 5 tahun mendatang",
+  d4_q2: "Adaptabilitas — Yang ingin dihindari",
+  d4_q3: "Adaptabilitas — Sumber keyakinan",
+  free_nikmat: "Nikmat lainnya",
+  ach_q1: "Pengalaman & peran",
+  ach_q2: "Memberi manfaat nyata",
+  ach_q3: "Pengalaman sulit yang berbuah baik",
+  abu_q1: "Yang paling jelas terlihat",
+  final_free: "Catatan tambahan",
+};
+
+const DOMAIN_KEYS = {
+  d1: ["d1_q1", "d1_q2", "d1_q3"],
+  d2: ["d2_q1", "d2_q2", "d2_q3"],
+  d3: ["d3_q1", "d3_q2", "d3_q3"],
+  d4: ["d4_q1", "d4_q2", "d4_q3"],
 };
 
 export default function KenaliDirimu() {
-  const { sessionId, session, loading, upsert } = useKenaliDirimuSession();
-  const [step, setStep] = useState<Step>(0);
+  const { user, loading: authLoading } = useAuth();
+  const [a, setA] = useState<Answers>({});
+  const [showAchOpt, setShowAchOpt] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
-  // values
-  const [valuesSorted, setValuesSorted] = useState<string[]>([]);
-  const [savedTick, setSavedTick] = useState(false);
-  const [waNumber, setWaNumber] = useState("");
+  const set = (k: string) => (v: string) => setA((prev) => ({ ...prev, [k]: v }));
 
-  // possible selves
-  const [ps, setPs] = useState<PossibleSelves>({});
-  const [psSubStep, setPsSubStep] = useState<0 | 1 | 2>(0);
-
-  // odyssey
-  const [plans, setPlans] = useState<OdysseyPlan[]>([]);
-  const [planSubStep, setPlanSubStep] = useState<0 | 1 | 2>(0);
-  const [draftJudul, setDraftJudul] = useState("");
-  const [draftGambaran, setDraftGambaran] = useState("");
-
-  // result
-  const [narrative, setNarrative] = useState<string>("");
-  const [generating, setGenerating] = useState(false);
-  const [genError, setGenError] = useState<string>("");
-
-  // Hydrate from session
+  // Hydrate
   useEffect(() => {
-    if (!session) return;
-    if (session.values_sorted) setValuesSorted(session.values_sorted);
-    if (session.possible_selves) setPs(session.possible_selves);
-    if (session.odyssey_plans) setPlans(session.odyssey_plans);
-    if (session.wa_number) setWaNumber(session.wa_number);
-    if (session.ai_narrative) setNarrative(session.ai_narrative);
-  }, [session]);
-
-  const hasIncomplete = !!session && !session.completed && (session.values_sorted?.length ?? 0) > 0;
-
-  async function saveValues(sorted: string[]) {
-    setValuesSorted(sorted);
-    try { localStorage.setItem("kd_values", JSON.stringify(sorted)); } catch {}
-    await upsert({ values_sorted: sorted });
-    setSavedTick(true);
-    window.setTimeout(() => setSavedTick(false), 1800);
-  }
-
-  async function savePs(next: PossibleSelves) {
-    setPs(next);
-    try { localStorage.setItem("kd_ps", JSON.stringify(next)); } catch {}
-    await upsert({ possible_selves: next });
-  }
-
-  async function savePlans(next: OdysseyPlan[]) {
-    setPlans(next);
-    try { localStorage.setItem("kd_plans", JSON.stringify(next)); } catch {}
-    await upsert({ odyssey_plans: next });
-  }
-
-  async function saveWa() {
-    if (!waNumber.trim()) return;
-    await upsert({ wa_number: waNumber.trim() });
-  }
-
-  async function generateReflection(finalPlans: OdysseyPlan[]) {
-    setGenerating(true);
-    setGenError("");
-    try {
-      const { data, error } = await supabase.functions.invoke("generate-reflection", {
-        body: {
-          session_id: sessionId,
-          values_top3: valuesSorted.slice(0, 3),
-          possible_selves: ps,
-          odyssey_plans: finalPlans,
-        },
-      });
-      if (error) throw error;
-      const text = (data as any)?.narrative as string | undefined;
-      if (text) {
-        setNarrative(text);
-        await upsert({ ai_narrative: text, completed: true });
-        track('reflection_completed', { values_top3: valuesSorted.slice(0, 3) });
-      } else {
-        setNarrative("Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat ulang halaman ini.");
+    if (authLoading) return;
+    (async () => {
+      try {
+        if (user) {
+          const { data } = await supabase
+            .from("phase_2a_inventory")
+            .select("data")
+            .eq("user_id", user.id)
+            .maybeSingle();
+          if (data?.data) setA(data.data as Answers);
+        } else {
+          const raw = localStorage.getItem(LS_KEY);
+          if (raw) setA(JSON.parse(raw));
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setHydrated(true);
       }
-    } catch (e: any) {
+    })();
+  }, [user, authLoading]);
+
+  // Auto-show optional achievement if it has content
+  useEffect(() => {
+    if (a.ach_q3 && a.ach_q3.trim()) setShowAchOpt(true);
+  }, [a.ach_q3]);
+
+  const domainsDone = useMemo(() => {
+    return (Object.values(DOMAIN_KEYS) as string[][]).filter((keys) =>
+      keys.some((k) => (a[k] || "").trim().length > 0),
+    ).length;
+  }, [a]);
+
+  async function handleSave() {
+    setSaving(true);
+    try {
+      if (user) {
+        const { error } = await supabase
+          .from("phase_2a_inventory")
+          .upsert(
+            { user_id: user.id, data: a, updated_at: new Date().toISOString() },
+            { onConflict: "user_id" },
+          );
+        if (error) throw error;
+      } else {
+        localStorage.setItem(LS_KEY, JSON.stringify(a));
+      }
+      toast.success("Catatan tersimpan ✓");
+    } catch (e) {
       console.error(e);
-      setGenError("Gagal menyusun ringkasan. Refleksimu sudah tersimpan — coba muat ulang halaman.");
-      setNarrative("Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat ulang halaman ini.");
+      toast.error("Gagal menyimpan, coba lagi");
     } finally {
-      setGenerating(false);
+      setSaving(false);
     }
   }
 
-  const progressLabel = useMemo(() => {
-    if (step === 1) return "Latihan 1 dari 3";
-    if (step === 2) return "Latihan 2 dari 3";
-    if (step === 3) return "Latihan 3 dari 3";
-    return "";
-  }, [step]);
+  function handleShareWA() {
+    const lines: string[] = ["Hai, ini catatan refleksi diri saya dari platform Sulu IOU:", ""];
+    Object.entries(PROMPT_LABELS).forEach(([k, label]) => {
+      const v = (a[k] || "").trim();
+      if (v) lines.push(`${label}:\n${v}\n`);
+    });
+    const summary = lines.join("\n");
+    window.open(`https://wa.me/?text=${encodeURIComponent(summary)}`, "_blank");
+  }
 
-  if (loading) {
+  if (!hydrated) {
     return (
-      <main className="mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-4">
+      <main className="container mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-6">
         <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
       </main>
     );
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 md:py-12">
-      {progressLabel && (
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          {progressLabel}
+    <main className="container mx-auto px-6 py-12 max-w-2xl">
+      {/* Sticky progress */}
+      <div className="sticky top-12 z-20 -mx-6 mb-6 border-b border-border bg-background/85 px-6 py-2 backdrop-blur">
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          {domainsDone} dari 4 domain selesai
         </p>
-      )}
+      </div>
 
-      {step === 0 && (
-        <section>
-          <h1 className="font-[Outfit] text-3xl font-bold text-[hsl(var(--ink-deep))] md:text-4xl">
-            Kenali Dirimu
-          </h1>
-          <p className="mt-2 text-lg text-[hsl(var(--mid-blue))]">
-            Tiga latihan refleksi. Tidak ada jawaban benar atau salah.
-          </p>
-          <p className="mt-6 text-base leading-relaxed text-foreground/80">
-            Kamu akan diminta mengurutkan nilai-nilai hidupmu, menggambarkan dirimu di masa
-            depan, dan membayangkan tiga lintasan hidup yang mungkin. Setiap jawabanmu tersimpan
-            otomatis. Kamu bisa kembali melanjutkan kapan saja.
-          </p>
-          <div className="mt-6">
-            <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs">± 15 menit</Badge>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button size="lg" onClick={() => setStep(1)}>Mulai Refleksi</Button>
-            {hasIncomplete && (
-              <Button size="lg" variant="outline" onClick={() => {
-                if (session?.odyssey_plans?.length) setStep(3);
-                else if (session?.possible_selves) setStep(2);
-                else setStep(1);
-              }}>
-                Lanjutkan dari terakhir
-              </Button>
-            )}
-          </div>
-          {hasIncomplete && (
-            <p className="mt-3 text-sm text-muted-foreground">Lanjutkan refleksimu — kami menyimpan progresmu.</p>
-          )}
-        </section>
-      )}
+      {/* ── NARASI PEMBUKA SYUKUR ── */}
+      <section className="prose-sm space-y-4">
+        <p className="text-base leading-relaxed text-foreground/90">
+          Allah berjanji:
+        </p>
+        <blockquote className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 italic text-foreground/90">
+          "Sesungguhnya jika kamu bersyukur, niscaya Aku akan menambah (nikmat) kepadamu..."
+          <span className="not-italic block mt-1 text-sm text-muted-foreground">— QS Ibrahim: 7</span>
+        </blockquote>
+        <p className="text-base leading-relaxed text-foreground/90">
+          Mensyukuri dimulai dari mengenali. Barangkali ada nikmat yang belum kamu sadari sepenuhnya.
+          Di sini, mari kita ingat dan petakan bersama.
+        </p>
+        <h1 className="font-heading text-2xl font-bold text-foreground mt-8">Kenali Yang Sudah Ada</h1>
+        <p className="text-sm text-muted-foreground mt-2">
+          Bukan untuk menilai dirimu. Tapi, untuk mensyukuri modal yang sudah Allah titipkan untuk
+          jalan gerakmu ke depan.
+        </p>
+      </section>
 
-      {step === 1 && (
-        <section>
-          <h2 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">
-            Apa yang paling penting bagimu?
-          </h2>
-          <p className="mt-2 text-base text-muted-foreground">
-            Urutkan kartu-kartu ini dari yang paling bermakna (atas) ke yang kurang bermakna (bawah).
-          </p>
-          <div className="mt-6">
-            <ValuesCardSort initial={valuesSorted.length ? valuesSorted : null} onChange={saveValues} />
-          </div>
-          <div className="mt-3 h-5 text-right text-xs text-muted-foreground">
-            {savedTick && <span className="inline-flex items-center gap-1"><Check size={12} /> Tersimpan</span>}
-          </div>
+      <Separator className="my-10" />
 
-          <div className="mt-8 rounded-lg border border-border bg-card p-4">
-            <p className="text-sm text-foreground/80">Mau diingatkan untuk melanjutkan?</p>
-            <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-              <Input
-                inputMode="tel"
-                placeholder="0812xxxx"
-                value={waNumber}
-                onChange={(e) => setWaNumber(e.target.value)}
-                className="flex-1"
-              />
-              <Button variant="outline" onClick={saveWa}>Ingatkan saya via WA</Button>
-            </div>
-          </div>
+      {/* ── UST. HILMAN TOUCHPOINT ── */}
+      <div className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 mb-6 italic text-foreground/90">
+        "Rasulullah ﷺ mengingatkan: di dalam tubuh ada segumpal daging. Bila ia baik, baiklah
+        seluruh tubuh. Dari sana kita mulai."
+      </div>
 
-          <div className="mt-8 flex justify-end">
-            <Button onClick={() => setStep(2)} disabled={valuesSorted.length === 0}>
-              Lanjut ke Latihan 2 →
-            </Button>
-          </div>
-        </section>
-      )}
+      {/* ── DOMAIN 1 ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader
+          title="Fondasi Keimanan"
+          subtitle="Fondasi imanmu adalah nikmat yang paling mendasar. Di sini kamu mengingat apa yang sudah ada: ayat yang menguatkan, pemahaman yang membimbing, dan kebiasaan yang menopang."
+        />
+        <div className="space-y-6">
+          <JournalingPrompt
+            question="Ayat, doa, atau momen ibadah mana yang paling sering membawa ketenangan saat hatimu terasa berat?"
+            starter="Yang paling sering membawa ketenangan bagi saya adalah..."
+            value={a.d1_q1 || ""}
+            onChange={set("d1_q1")}
+          />
+          <JournalingPrompt
+            question="Pemahaman atau nilai dalam Islam mana yang paling melekat dalam dirimu — yang memberi arah ketika kamu bimbang, atau kekuatan ketika kamu hampir menyerah?"
+            starter="Pemahaman atau nilai dalam Islam yang paling melekat dan membimbing saya adalah..."
+            value={a.d1_q2 || ""}
+            onChange={set("d1_q2")}
+          />
+          <JournalingPrompt
+            question="Rutinitas amal apa yang biasanya memberi kamu ketenangan dan kekuatan di hari-hari biasa?"
+            starter="Rutinitas amal yang biasanya memberi saya ketenangan dan kekuatan adalah..."
+            value={a.d1_q3 || ""}
+            onChange={set("d1_q3")}
+          />
+        </div>
+      </section>
 
-      {step === 2 && (
-        <section>
-          <h2 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">
-            Dirimu di 2030
-          </h2>
-          <p className="mt-2 text-base text-muted-foreground">Tulis dengan jujur. Tidak ada yang menilai.</p>
+      {/* ── DOMAIN 2 ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader
+          title="Karakter dan Keterampilan Latent"
+          subtitle="Setiap orang diciptakan dengan kekuatan dan cara kerja yang unik. Di sini kamu akan mengenali pola yang sudah ada dalam dirimu."
+        />
+        <div className="space-y-6">
+          <JournalingPrompt
+            question="Pernahkah kamu mengerjakan sesuatu yang terasa mudah, mengalir, dan merasa 'ini saya banget' — sangat cocok dan terasa benar? Apa yang sedang kamu lakukan saat itu, dan kenapa rasanya begitu?"
+            starter="Momen ketika saya merasa 'ini saya banget' dan semuanya terasa mengalir adalah..."
+            value={a.d2_q1 || ""}
+            onChange={set("d2_q1")}
+          />
+          <JournalingPrompt
+            question="Hal apa yang sering orang lain perhatikan atau komentari tentang cara kamu bekerja atau berinteraksi — bahkan orang yang baru saja mengenalmu?"
+            starter="Yang sering orang perhatikan tentang saya, bahkan yang baru mengenal saya, adalah..."
+            value={a.d2_q2 || ""}
+            onChange={set("d2_q2")}
+          />
+          <JournalingPrompt
+            question="Di sekolah, ekskul, atau komunitas, peran atau tugas apa yang paling cocok dengan cara kamu biasanya bekerja?"
+            starter="Peran atau tugas yang paling cocok dengan cara kerja saya adalah..."
+            value={a.d2_q3 || ""}
+            onChange={set("d2_q3")}
+          />
+        </div>
+      </section>
 
-          {psSubStep === 0 && (
-            <PsBlock
-              label="Diri yang kuharapkan"
-              placeholder="Diri yang kuharapkan di 2030: aku ingin menjadi..."
-              helper="Tulis sebebas mungkin — impian, peran, kontribusi, cara hidupmu."
-              value={ps.harapan || ""}
-              onChange={(v) => setPs({ ...ps, harapan: v })}
-              onNext={async () => { await savePs({ ...ps }); setPsSubStep(1); }}
-            />
-          )}
-          {psSubStep === 1 && (
-            <PsBlock
-              label="Diri yang kukhawatirkan"
-              placeholder="Diri yang kukhawatirkan di 2030: aku takut menjadi..."
-              helper="Mengenali ketakutan bukan kelemahan — ini cara kita waspada."
-              value={ps.kekhawatiran || ""}
-              onChange={(v) => setPs({ ...ps, kekhawatiran: v })}
-              onNext={async () => { await savePs({ ...ps }); setPsSubStep(2); }}
-            />
-          )}
-          {psSubStep === 2 && (
-            <PsBlock
-              label="Diri yang kuharap-bisa"
-              placeholder="Diri yang kuharap-bisa di 2030: seandainya aku bisa..."
-              helper="Tuliskan yang selama ini belum pernah kamu ucapkan ke siapapun."
-              value={ps.harap_bisa || ""}
-              onChange={(v) => setPs({ ...ps, harap_bisa: v })}
-              onNext={async () => { await savePs({ ...ps }); setStep(3); }}
-              nextLabel="Lanjut ke Latihan 3 →"
-            />
-          )}
-        </section>
-      )}
+      {/* ── DOMAIN 3 ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader
+          title="Modal Relasional"
+          subtitle="Orang tua, guru, dan sahabat sering melihat kekuatanmu lebih jelas dari yang kamu rasakan sendiri. Mereka adalah cermin yang sudah Allah hadirkan dalam hidupmu."
+        />
+        <div className="space-y-6">
+          <JournalingPrompt
+            question="Siapa yang pernah mengatakan sesuatu positif tentang cara kerjamu atau kemampuanmu? Ceritakan apa yang mereka katakan."
+            starter="Yang pernah memberi komentar tentang kemampuan atau cara kerja saya adalah... dan mereka mengatakan..."
+            value={a.d3_q1 || ""}
+            onChange={set("d3_q1")}
+          />
+          <JournalingPrompt
+            question="Pernahkah seseorang mengatakan sesuatu tentang kemampuanmu yang membuatmu menyadari sesuatu tentang dirimu yang belum pernah terpikir sebelumnya?"
+            starter="Yang membuat saya menyadari sesuatu baru tentang diri saya adalah..."
+            value={a.d3_q2 || ""}
+            onChange={set("d3_q2")}
+          />
+          <JournalingPrompt
+            question="Bagaimana kamu biasanya memberi manfaat kepada keluarga atau komunitas lewat hal-hal yang kamu kuasai?"
+            starter="Saya biasanya memberi manfaat kepada keluarga atau komunitas dengan..."
+            value={a.d3_q3 || ""}
+            onChange={set("d3_q3")}
+          />
+        </div>
+      </section>
 
-      {step === 3 && (
-        <section>
-          <h2 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">
-            Tiga Lintasan Hidupmu
-          </h2>
-          <p className="mt-2 text-base text-muted-foreground">
-            Bayangkan 3 lintasan hidup 5 tahun ke depan yang masuk akal bagimu.
-          </p>
+      {/* ── DOMAIN 4 ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader
+          title="Adaptabilitas Karier"
+          subtitle="Allah menjanjikan bahwa bersama setiap kesulitan ada kemudahan. Kamu akan menuliskan masa depan yang kamu impikan sekaligus yang ingin kamu hindari. Keduanya akan membantumu lebih terarah dan yakin."
+        />
+        <div className="space-y-6">
+          <JournalingPrompt
+            question="Bayangkan lima tahun mendatang. Kehidupan seperti apa yang ingin kamu bangun bersama keluarga dan komunitas?"
+            starter="Lima tahun mendatang, yang ingin saya bangun bersama keluarga dan komunitas adalah..."
+            value={a.d4_q1 || ""}
+            onChange={set("d4_q1")}
+          />
+          <JournalingPrompt
+            question="Hal apa yang ingin kamu hindari di masa depan agar tetap selaras dengan nilai dan tanggung jawabmu?"
+            starter="Yang ingin saya hindari di masa depan adalah..."
+            value={a.d4_q2 || ""}
+            onChange={set("d4_q2")}
+          />
+          <JournalingPrompt
+            question="Ketika kamu menghadapi ketidakpastian tentang masa depan, apa yang biasanya memberimu keyakinan untuk tetap bergerak?"
+            starter="Yang biasanya memberi saya keyakinan untuk tetap bergerak menghadapi ketidakpastian adalah..."
+            value={a.d4_q3 || ""}
+            onChange={set("d4_q3")}
+          />
+        </div>
+      </section>
 
-          {(["A", "B", "C"] as const).map((lane, idx) => {
-            if (planSubStep !== idx) return null;
-            const meta = LANE_META[lane];
-            return (
-              <div key={lane} className="mt-6">
-                <div className="flex items-center gap-2">
-                  <span className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-bold ${meta.tone}`}>
-                    Lintasan {lane}
-                  </span>
-                  <span className="text-sm text-muted-foreground">{meta.desc}</span>
-                </div>
-                <div className="mt-4 space-y-3">
-                  <div>
-                    <Label htmlFor={`judul-${lane}`}>Judul</Label>
-                    <Input
-                      id={`judul-${lane}`}
-                      placeholder="Satu kalimat yang menggambarkan lintasan ini"
-                      value={draftJudul}
-                      onChange={(e) => setDraftJudul(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor={`gambaran-${lane}`}>Gambaran</Label>
-                    <Textarea
-                      id={`gambaran-${lane}`}
-                      placeholder="Ceritakan dalam 3-5 kalimat: kamu ada di mana, ngapain, hidup seperti apa"
-                      value={draftGambaran}
-                      onChange={(e) => setDraftGambaran(e.target.value)}
-                      className="min-h-[120px]"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex justify-end">
-                  <Button
-                    disabled={!draftJudul.trim() || !draftGambaran.trim()}
-                    onClick={async () => {
-                      const next: OdysseyPlan[] = [
-                        ...plans.filter((p) => p.lintasan !== lane),
-                        { lintasan: lane, judul: draftJudul.trim(), gambaran: draftGambaran.trim() },
-                      ].sort((a, b) => a.lintasan.localeCompare(b.lintasan));
-                      await savePlans(next);
-                      setDraftJudul("");
-                      setDraftGambaran("");
-                      if (lane === "C") {
-                        setStep(4);
-                        generateReflection(next);
-                      } else {
-                        setPlanSubStep((idx + 1) as 0 | 1 | 2);
-                      }
-                    }}
-                  >
-                    {lane === "C" ? "Lihat Ringkasan Refleksiku →" : `Simpan Lintasan ${lane} →`}
-                  </Button>
-                </div>
-              </div>
-            );
-          })}
-        </section>
-      )}
+      {/* ── FREE FIELD: NIKMAT LAINNYA ── */}
+      <div className="mb-6">
+        <label className="text-sm font-medium text-foreground">Nikmat lain yang ingin kamu catat</label>
+        <p className="text-sm text-muted-foreground mb-2">
+          Ada nikmat lain yang kamu sadari yang belum tercakup di atas? Semuanya adalah nikmat
+          karunia-Nya.
+        </p>
+        <Textarea
+          value={a.free_nikmat || ""}
+          onChange={(e) => set("free_nikmat")(e.target.value)}
+          placeholder="Nikmat lain yang saya syukuri adalah..."
+          className="min-h-[80px]"
+        />
+      </div>
 
-      {step === 4 && (
-        <section>
-          {generating ? (
-            <div className="flex flex-col items-center gap-3 py-16 text-center">
-              <Loader2 className="h-7 w-7 animate-spin text-[hsl(var(--brand-navy))]" />
-              <p className="text-base text-foreground/80">Menyusun refleksimu...</p>
-            </div>
+      <Separator className="my-10" />
+
+      {/* ── ACHIEVEMENT LOG ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader
+          title="Catatan Perjalananmu"
+          subtitle="Setiap pengalaman yang pernah kamu jalani — dalam organisasi, kegiatan, tugas harian, atau momen membantu orang lain — adalah bagian dari perjalananmu. Catat semuanya di sini, besar atau kecil, peran yang keren maupun yang tidak. Tuliskan sebanyak yang kamu ingat — ini akan menjadi arsip pribadimu dan bahan nyata untuk kariermu ke depan."
+        />
+        <div className="space-y-6">
+          <JournalingPrompt
+            question="Pengalaman atau kegiatan apa saja yang pernah kamu jalani — di sekolah, komunitas, keluarga, atau di mana saja? Ceritakan peranmu dan apa yang kamu lakukan."
+            starter="Pengalaman atau kegiatan yang pernah saya jalani adalah..."
+            value={a.ach_q1 || ""}
+            onChange={set("ach_q1")}
+            minH="min-h-[140px]"
+          />
+          <JournalingPrompt
+            question="Pernahkah kamu melakukan sesuatu — sekecil apapun — dan merasakan bahwa itu memberi manfaat nyata bagi orang lain? Ceritakan."
+            starter="Momen ketika saya merasa memberi manfaat nyata adalah..."
+            value={a.ach_q2 || ""}
+            onChange={set("ach_q2")}
+          />
+          {!showAchOpt ? (
+            <button
+              type="button"
+              onClick={() => setShowAchOpt(true)}
+              className="text-sm text-[hsl(var(--torch-gold))] underline-offset-4 hover:underline"
+            >
+              Ada pengalaman sulit yang ternyata mengandung kebaikan? (opsional)
+            </button>
           ) : (
-            <>
-              <h2 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">
-                Refleksimu
-              </h2>
-              <p className="mt-2 text-base text-muted-foreground">
-                Ini bukan penilaian — ini rangkuman dari apa yang kamu tuliskan sendiri.
-              </p>
-              {genError && <p className="mt-3 text-sm text-destructive">{genError}</p>}
-              <div className="mt-6">
-                <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-primary/50 text-primary">
-                  Refleksi dari jawabanmu
-                </Badge>
-              </div>
-              <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90">
-                {narrative}
-              </article>
-
-              <p className="mt-3 text-sm italic text-muted-foreground">
-                Teks ini dirangkai dari jawaban yang kamu tulis sendiri, bukan dari tes psikologi.
-              </p>
-
-              <div className="mt-6 rounded-lg border border-border bg-secondary/40 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Nilai teratas yang kamu pilih:
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {valuesSorted.slice(0, 3).map((v) => (
-                    <Badge key={v} variant="secondary" className="rounded-full px-3 py-1">{v}</Badge>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3">
-                <Button asChild className="w-full sm:w-auto">
-                  <Link to="/ringkasan">Buat ringkasan untuk orang tua →</Link>
-                </Button>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <Button asChild variant="outline">
-                    <Link to="/compass">Kembali ke Sulu</Link>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    onClick={async () => {
-                      await upsert({ completed: true });
-                    }}
-                  >
-                    Simpan & lanjutkan nanti
-                  </Button>
-                </div>
-              </div>
-            </>
+            <JournalingPrompt
+              question="Pernahkah kamu melewati pengalaman yang terasa berat atau tidak kamu inginkan, tapi belakangan kamu sadari ada kebaikan atau pelajaran di baliknya?"
+              starter="Pengalaman yang awalnya terasa berat tapi belakangan saya syukuri adalah..."
+              value={a.ach_q3 || ""}
+              onChange={set("ach_q3")}
+            />
           )}
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* ── TANYAKAN ORANG TERDEKAT (ZAID) ── */}
+      <section className="rounded-2xl bg-secondary/60 p-6 mb-6">
+        <p className="text-base leading-relaxed text-foreground/90">
+          Zaid bin Tsabit pun awalnya tidak tahu kemana bakatnya, sampai keluarganya yang
+          mengarahkannya — hingga menjadi sekretaris wahyu Rasulullah ﷺ. Sekarang, coba tunjukkan
+          jawaban-jawabanmu kepada orang tua, guru, atau sahabat dekatmu. Tanyakan:{" "}
+          <em>"Apa yang kamu lihat sebagai keunggulanku yang mungkin belum aku sadari?"</em>
+        </p>
+        <Button variant="outline" className="mt-4" onClick={handleShareWA}>
+          <Share2 className="mr-2 h-4 w-4" />
+          Bagikan ke Orang Tua / Guru
+        </Button>
+      </section>
+
+      {/* ── ABU MAHDZURAH ── */}
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <SectionHeader title="Yang Paling Jelas Terlihat" />
+        <JournalingPrompt
+          question="Apa yang sering orang lain perhatikan atau komentari tentang dirimu — hal yang langsung terlihat, bahkan sebelum mereka mengenalmu lebih dalam?"
+          starter="Yang langsung terlihat dari diri saya bahkan sebelum orang mengenal saya lebih dalam adalah..."
+          value={a.abu_q1 || ""}
+          onChange={set("abu_q1")}
+        />
+      </section>
+
+      {/* ── FREE TEXT FINAL ── */}
+      <div className="mb-10">
+        <label className="text-sm font-medium text-foreground">Ada yang ingin kamu tambahkan?</label>
+        <p className="text-sm text-muted-foreground mb-2">
+          Ada hal lain tentang dirimu yang belum terjawab di atas? Ini bisa menjadi bahan diskusi
+          dengan orang tua, guru, atau konselor.
+        </p>
+        <Textarea
+          value={a.final_free || ""}
+          onChange={(e) => set("final_free")(e.target.value)}
+          placeholder="Tuliskan di sini..."
+          className="min-h-[100px]"
+        />
+      </div>
+
+      <Separator className="my-10" />
+
+      {/* ── PENUTUP SYUKUR ── */}
+      <section className="rounded-xl bg-secondary/40 p-6 mb-10 space-y-4 text-foreground/90 leading-relaxed text-justify">
+        <p>Semua yang baru saja kamu kenali adalah amanah, dan modal gerakmu.</p>
+        <p>
+          Nikmat Allah bukan untuk disimpan, tapi untuk dipergunakan di jalan-Nya. Ibnul Qayyim
+          menjelaskan, bahwa hakikat syukur adalah{" "}
+          <em>"Mengucap pujian atas nikmat yang diterima, mencintainya, dan memanfaatkannya di jalan ketaatan."</em>{" "}
+          (Thariqul Hijratain, 508)
+        </p>
+        <p>
+          Inilah yang dimaksud dengan syukur di ayat{" "}
+          <em>"Sesungguhnya jika kamu bersyukur, niscaya Aku akan menambah (nikmat) kepadamu..."</em>{" "}
+          (QS Ibrahim: 7)
+        </p>
+        <p>
+          Bukan sekadar mengucap alhamdulillah, tapi memanfaatkannya untuk beramal saleh, untuk
+          memberi manfaat pada agama dan sesama.
+        </p>
+        <p>Sebagian kita mungkin tak punya harta, tapi punya tenaga; manfaatkanlah!</p>
+        <p>Atau, tak punya kecerdasan, tapi kuat dalam kegigihan; gunakanlah di jalan Allah!</p>
+        <p>
+          Niscaya, Ia akan menjaga segala yang telah kau miliki, dan menambahkan apa yang belum kau
+          kuasai.
+        </p>
+      </section>
+
+      {/* ── SAVE + CTA ── */}
+      <div className="flex flex-col gap-4">
+        <Button variant="secondary" onClick={handleSave} disabled={saving} className="w-full sm:w-auto">
+          {saving ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Menyimpan...
+            </>
+          ) : (
+            "Simpan Catatanku"
+          )}
+        </Button>
+
+        <p className="text-base text-foreground/90 leading-relaxed mt-4">
+          Kamu sudah mengenali apa yang sudah ada. Langkah berikutnya: kenali kompetensi yang ingin
+          kamu bangun.
+        </p>
+        <Button
+          asChild
+          className="w-full sm:w-auto bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))] hover:bg-[hsl(var(--torch-gold))]/90"
+        >
+          <Link to="/kenali-dirimu/skill">Lanjut: Kenali Kompetensimu →</Link>
+        </Button>
+      </div>
     </main>
-  );
-}
-
-interface PsBlockProps {
-  label: string;
-  placeholder: string;
-  helper: string;
-  value: string;
-  onChange: (v: string) => void;
-  onNext: () => void | Promise<void>;
-  nextLabel?: string;
-}
-
-function PsBlock({ label, placeholder, helper, value, onChange, onNext, nextLabel = "Lanjut →" }: PsBlockProps) {
-  const minChars = 100;
-  const ok = value.trim().length >= minChars;
-  return (
-    <div className="mt-6">
-      <Label className="text-base font-semibold text-[hsl(var(--ink-deep))]">{label}</Label>
-      <Textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="mt-2 min-h-[120px]"
-      />
-      <p className="mt-2 text-xs text-muted-foreground">{helper}</p>
-      <div className="mt-1 text-right text-xs text-muted-foreground">
-        {value.trim().length}/{minChars}
-      </div>
-      <div className="mt-4 flex justify-end">
-        <Button onClick={() => onNext()} disabled={!ok}>{nextLabel}</Button>
-      </div>
-    </div>
   );
 }
