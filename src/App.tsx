@@ -69,6 +69,7 @@ const App = () => {
             </Route>
             <Route path="/programs" element={<Programs />} />
             <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
+            <Route path="/kenali-dirimu/skill" element={<KenaliDirimuSkill />} />
             <Route path="/ringkasan" element={<Ringkasan />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
