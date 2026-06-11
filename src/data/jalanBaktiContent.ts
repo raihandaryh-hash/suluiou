@@ -93,7 +93,7 @@ export const jalanBaktiContent = {
     },
     {
       id: "k3",
-      nama: "Keluarga, Anak & Inklusivitas",
+      nama: "Keluarga, Anak & Kelompok Rentan",
       bridge: "Ada anak tumbuh tanpa pendampingan, orang tua yang kesepian, tetangga yang butuh lebih dari bantuan materi. Apa yang pernah menggerakkanmu untuk seseorang yang rentan?",
       subTantangan: [
         { id: "k3a", label: "Anak yang belum terjangkau" },
@@ -138,6 +138,54 @@ export const jalanBaktiContent = {
     },
   ],
 
+  lensaKepedulian: {
+    pivot: "Tadi kamu melihat enam medan tantangan. Di balik semuanya, selalu ada satu hal yang sama: ada manusia yang paling rentan, yang paling butuh diulurkan tangan.",
+
+    hadith: {
+      teks: "Carikan aku orang-orang lemah di antara kalian. Sungguh kalian diberi rezeki dan ditolong sebab orang-orang lemah di antara kalian.",
+      rujukan: "HR Abu Dawud (sahih)",
+      framing: "Menolong yang lemah bukan kebaikan dari atas ke bawah. Justru rezeki dan pertolonganmu datang lewat mereka. Mereka bukan beban — mereka pintu keberkahan.",
+    },
+
+    elicitation: "Dari semua ini — siapa yang paling menggerakkan hatimu untuk ditolong?",
+
+    tier1Title: "Islam sudah lama punya peta tentang siapa yang paling berhak ditolong — delapan golongan penerima zakat (QS At-Tawbah: 60).",
+    tier1Items: [
+      { id: "fakir", label: "Fakir", desc: "nyaris tak punya apa-apa" },
+      { id: "miskin", label: "Miskin", desc: "punya, tapi tak cukup" },
+      { id: "amil", label: "Amil", desc: "pengurus zakat" },
+      { id: "muallaf", label: "Muallaf", desc: "yang sedang dikuatkan keislamannya" },
+      { id: "riqab", label: "Riqab", desc: "membebaskan dari perbudakan" },
+      { id: "gharimin", label: "Gharimin", desc: "yang terlilit utang" },
+      { id: "fisabilillah", label: "Fi sabilillah", desc: "di jalan Allah" },
+      { id: "ibnusabil", label: "Ibnu sabil", desc: "musafir yang kehabisan bekal" },
+    ],
+
+    tier2Intro: "Negara kita mengenali 26 bentuk kerentanan — dari anak terlantar, lansia tanpa keluarga, penyandang disabilitas, hingga korban kekerasan. Dulu disebut \"penyandang masalah\"; kini diganti jadi \"pemerlu pelayanan\" — karena tak seorang pun pantas dicap \"masalah\".",
+    tier2Wajah: [
+      { id: "ppks_anak", label: "Anak terlantar" },
+      { id: "ppks_lansia", label: "Lansia tanpa keluarga" },
+      { id: "ppks_disabilitas", label: "Penyandang disabilitas" },
+      { id: "ppks_korban", label: "Korban kekerasan" },
+    ],
+    tier2ExpandTitle: "Lihat 26 kategori (PPKS, Kemensos)",
+    tier2Kategori: [
+      "Anak Balita Terlantar", "Anak Terlantar", "Anak yang Berhadapan dengan Hukum",
+      "Anak Jalanan", "Anak dengan Kedisabilitasan",
+      "Anak yang Menjadi Korban Tindak Kekerasan atau Diperlakukan Salah",
+      "Anak yang Memerlukan Perlindungan Khusus", "Lanjut Usia Terlantar",
+      "Penyandang Disabilitas", "Tuna Susila", "Gelandangan", "Pengemis", "Pemulung",
+      "Kelompok Minoritas", "Bekas Warga Binaan Lembaga Pemasyarakatan",
+      "Orang dengan HIV/AIDS (ODHA)", "Korban Penyalahgunaan NAPZA", "Korban Trafficking",
+      "Korban Tindak Kekerasan", "Pekerja Migran Bermasalah Sosial", "Korban Bencana Alam",
+      "Korban Bencana Sosial", "Perempuan Rawan Sosial Ekonomi", "Fakir Miskin",
+      "Keluarga Bermasalah Sosial Psikologis", "Komunitas Adat Terpencil",
+    ],
+
+    routeback: "Kepedulianmu pada mereka bisa kamu wujudkan lewat jalan bakti yang tadi kamu tandai.",
+    penutup: "Inilah inti bakti: bukan merasa lebih tinggi, tapi sadar bahwa kemuliaanmu justru tumbuh saat kamu mengangkat yang lemah.",
+  },
+
   // ── Closing refleksi bebas ──
   closing: {
     prompt: "Ceritakan: kamu ingin berbakti seperti apa? Bermanfaat untuk siapa?",
@@ -148,6 +196,7 @@ export const jalanBaktiContent = {
     pageTitle: "Kenali Jalan Baktimu",
     sdgSectionTitle: "Kebutuhan Umat Manusia",
     klasterSectionTitle: "Enam Jalan Bakti",
+    lensaSectionTitle: "Siapa yang Ingin Kamu Tolong?",
     closingSectionTitle: "Refleksimu",
     saveLabel: "Simpan",
     savedToast: "Catatan tersimpan ✓",
