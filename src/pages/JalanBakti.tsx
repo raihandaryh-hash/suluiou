@@ -262,6 +262,68 @@ export default function JalanBakti() {
 
       <Separator className="my-10" />
 
+      {/* ── LENSA KEPEDULIAN ── */}
+      {(() => {
+        const L = C.lensaKepedulian;
+        return (
+          <section className="space-y-5">
+            <SectionHeader title={C.ui.lensaSectionTitle} />
+            <p className="text-base leading-relaxed text-foreground/90">{L.pivot}</p>
+
+            <Touchpoint ayat={L.hadith.teks} rujukan={L.hadith.rujukan} framing={L.hadith.framing} />
+
+            <p className="text-base font-medium text-foreground/90 pt-2">{L.elicitation}</p>
+
+            {/* Tier 1: Ashnaf */}
+            <p className="text-sm text-muted-foreground">{L.tier1Title}</p>
+            <div className="flex flex-wrap gap-2">
+              {L.tier1Items.map((s) => {
+                const active = d.peduliPicks.includes(s.id);
+                return (
+                  <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
+                    <span className="font-medium">{s.label}</span>
+                    <span className="ml-1.5 text-xs text-muted-foreground">— {s.desc}</span>
+                  </Chip>
+                );
+              })}
+            </div>
+
+            {/* Tier 2: PPKS */}
+            <p className="text-sm text-foreground/85 leading-relaxed pt-2">{L.tier2Intro}</p>
+            <div className="flex flex-wrap gap-2">
+              {L.tier2Wajah.map((s) => {
+                const active = d.peduliPicks.includes(s.id);
+                return (
+                  <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
+                    {s.label}
+                  </Chip>
+                );
+              })}
+            </div>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="ppks-26" className="border border-border rounded-lg px-4">
+                <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline">
+                  {L.tier2ExpandTitle}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
+                    {L.tier2Kategori.map((k, i) => (
+                      <li key={i}>{k}</li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <p className="text-sm text-muted-foreground pt-2">{L.routeback}</p>
+            <p className="text-base leading-relaxed text-foreground/90 pt-2">{L.penutup}</p>
+          </section>
+        );
+      })()}
+
+      <Separator className="my-10" />
+
       {/* ── CLOSING ── */}
       <section className="space-y-3">
         <SectionHeader title={C.ui.closingSectionTitle} />
