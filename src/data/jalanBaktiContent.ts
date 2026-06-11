@@ -24,8 +24,35 @@ export const jalanBaktiContent = {
     tpAyat: "\"Kami menjadikan kamu berbangsa-bangsa dan bersuku-suku agar kamu saling mengenal.\"",
     tpRujukan: "QS Al-Hujurat: 13",
     tpFraming: "Perbedaan bukan hambatan; itu desain Allah agar kita saling melengkapi.",
-    intro: "Inilah diskusi para pemimpin dunia tentang apa yang paling dibutuhkan umat manusia. Yang kita ambil adalah prinsip di baliknya — bukan sekadar labelnya.",
-    instruksi: "Pilih yang paling menggugahmu (boleh lebih dari satu).",
+
+    sejarah: [
+      "Selama lebih dari 50 tahun, para pemimpin, ilmuwan, dan diplomat dunia terus duduk bersama menanyakan satu hal yang sama: dari sekian banyak masalah, mana yang paling penting bagi umat manusia — dan mana yang harus didahulukan?",
+      "Percakapan itu dimulai di Stockholm tahun 1972, berlanjut lewat Laporan Brundtland, hingga lahir 17 Tujuan Pembangunan Berkelanjutan (SDGs) pada 2015 — kesepakatan pertama yang berlaku untuk semua negara, bukan hanya negara miskin.",
+      "Jadi ini bukan daftar tugas yang turun begitu saja. Ini hasil percakapan panjang manusia tentang apa yang paling dibutuhkan — dan percakapan itu belum selesai.",
+    ],
+
+    urgensi: [
+      "Lima tahun menjelang tenggat 2030, PBB menyebut keadaannya \"darurat pembangunan\": hanya sekitar sepertiga target yang berjalan baik, dan sebagian justru mundur dari titik awal.",
+      "Dan yang paling tertinggal di dunia — mengakhiri kelaparan, pendidikan yang layak, air bersih, dan pekerjaan yang adil — justru hal-hal yang paling dekat dengan keseharian kita di sini.",
+    ],
+
+    agensi: [
+      "Selama ini, santri dan anak madrasah lebih sering diminta mengikuti agenda dunia daripada ikut menyusunnya. Padahal SDGs akan berakhir di 2030 — dan dunia sedang mulai merumuskan apa yang datang setelahnya.",
+      "Maukah kamu hanya menonton, atau ikut menjadi salah satu yang merumuskannya?",
+    ],
+
+    pascaExpand: {
+      title: "Apa yang sedang dibicarakan untuk setelah 2030?",
+      items: [
+        "Tata kelola kecerdasan buatan (AI) dan data",
+        "Batas-batas planet (planetary boundaries) — ambang aman bumi",
+        "Ekonomi yang adil secara sosial sekaligus ekologis",
+      ],
+      closer: "Generasi inilah yang akan diminta menentukan, bukan sekadar mengikuti.",
+    },
+
+    chipPrompt: "Dari yang sedang diperjuangkan dunia, mana yang paling menggugah hatimu?",
+
     items: [
       { id: "sdg2", label: "SDG 2 — Tanpa Kelaparan" },
       { id: "sdg3", label: "SDG 3 — Kehidupan Sehat" },
@@ -33,6 +60,8 @@ export const jalanBaktiContent = {
       { id: "sdg6", label: "SDG 6 — Air Bersih & Sanitasi" },
       { id: "sdg8", label: "SDG 8 — Pekerjaan Layak" },
     ],
+
+    transisiIndonesia: "Tujuan-tujuan besar itu terasa jauh — sampai kita menurunkannya ke tanah sendiri. Inilah wajah kebutuhan itu di Indonesia. Bukan angka, tapi orang-orang nyata.",
   },
 
   // ── 6 Klaster Jalan Bakti ──
