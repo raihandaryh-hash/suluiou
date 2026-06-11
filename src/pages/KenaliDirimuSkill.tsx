@@ -122,6 +122,7 @@ function SkillRating({
 
 export default function KenaliDirimuSkill() {
   const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const [d, setD] = useState<SkillData>(EMPTY);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
