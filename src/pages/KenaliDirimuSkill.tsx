@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -121,6 +122,7 @@ function SkillRating({
 
 export default function KenaliDirimuSkill() {
   const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const [d, setD] = useState<SkillData>(EMPTY);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -341,9 +343,9 @@ export default function KenaliDirimuSkill() {
           {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
           Simpan
         </Button>
-        <p className="text-sm text-muted-foreground text-center">
-          Langkah berikutnya, Jalan Bakti, segera hadir.
-        </p>
+        <Button variant="outline" size="lg" onClick={() => navigate("/jalan-bakti")}>
+          Lanjut: Kenali Jalan Baktimu →
+        </Button>
       </div>
     </main>
   );
