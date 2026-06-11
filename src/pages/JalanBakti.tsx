@@ -15,10 +15,11 @@ const LS_KEY = "jalan_bakti_v1";
 type JBData = {
   sdgTags: string[];
   subPicks: string[];
+  peduliPicks: string[];
   refleksi: string;
 };
 
-const EMPTY: JBData = { sdgTags: [], subPicks: [], refleksi: "" };
+const EMPTY: JBData = { sdgTags: [], subPicks: [], peduliPicks: [], refleksi: "" };
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
