@@ -20,6 +20,7 @@ import Compass from "./pages/Compass";
 import Programs from "./pages/Programs";
 import KenaliDirimu from "./pages/KenaliDirimu";
 import KenaliDirimuSkill from "./pages/KenaliDirimuSkill";
+import JalanBakti from "./pages/JalanBakti";
 import Ringkasan from "./pages/Ringkasan";
 import AppLayout from "./components/AppLayout";
 import AdminLogin from "./pages/AdminLogin";
