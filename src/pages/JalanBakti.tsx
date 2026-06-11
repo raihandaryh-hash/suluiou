@@ -111,6 +111,15 @@ export default function JalanBakti() {
     }));
   }
 
+  function togglePeduli(id: string) {
+    setD((p) => ({
+      ...p,
+      peduliPicks: p.peduliPicks.includes(id)
+        ? p.peduliPicks.filter((x) => x !== id)
+        : [...p.peduliPicks, id],
+    }));
+  }
+
   async function handleSave() {
     setSaving(true);
     try {
