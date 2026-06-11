@@ -186,8 +186,16 @@ export const jalanBaktiContent = {
     penutup: "Inilah inti bakti: bukan merasa lebih tinggi, tapi sadar bahwa kemuliaanmu justru tumbuh saat kamu mengangkat yang lemah.",
   },
 
-  // ── Closing refleksi bebas ──
+  // ── Closing refleksi sintesis ──
   closing: {
+    intro: "Kamu sudah menjelajah jauh: mengenal dirimu, melihat kebutuhan dunia, dan menemukan siapa yang ingin kamu tolong. Sekarang, satukan semuanya.",
+    scaffoldTitle: "Sebelum menulis, renungkan empat hal ini:",
+    scaffold: [
+      { q: "Apa kekuatanku?", cue: "yang kamu temukan saat mengenali dirimu" },
+      { q: "Apa yang aku sukai?", cue: "hal yang membuatmu merasa hidup" },
+      { q: "Apa yang perlu kukembangkan?", cue: "agar kamu lebih siap memberi" },
+      { q: "Kontribusi apa yang ingin kuberikan?", cue: "untuk klaster & kelompok yang tadi kamu tandai" },
+    ],
     prompt: "Ceritakan: kamu ingin berbakti seperti apa? Bermanfaat untuk siapa?",
     placeholder: "Tulis sebebasnya...",
   },

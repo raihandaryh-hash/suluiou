@@ -325,9 +325,23 @@ export default function JalanBakti() {
       <Separator className="my-10" />
 
       {/* ── CLOSING ── */}
-      <section className="space-y-3">
+      <section className="space-y-4">
         <SectionHeader title={C.ui.closingSectionTitle} />
-        <p className="text-base leading-relaxed text-foreground/90">{C.closing.prompt}</p>
+        <p className="text-base leading-relaxed text-foreground/90">{C.closing.intro}</p>
+
+        <div className="rounded-xl border border-border bg-card p-5 space-y-3">
+          <p className="text-sm font-medium text-foreground/80">{C.closing.scaffoldTitle}</p>
+          <ul className="space-y-2.5">
+            {C.closing.scaffold.map((s, i) => (
+              <li key={i} className="leading-relaxed">
+                <span className="font-medium text-foreground">{s.q}</span>
+                <span className="text-sm text-muted-foreground"> — {s.cue}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="text-base text-foreground/90 pt-2">{C.closing.prompt}</p>
         <Textarea
           value={d.refleksi}
           onChange={(e) => setD((p) => ({ ...p, refleksi: e.target.value }))}
@@ -335,6 +349,7 @@ export default function JalanBakti() {
           className="min-h-[140px]"
         />
       </section>
+
 
       {/* ── SAVE ── */}
       <div className="flex flex-col items-center gap-3 pt-8 pb-12">
