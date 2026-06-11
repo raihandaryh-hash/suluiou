@@ -71,6 +71,7 @@ const App = () => {
             <Route path="/programs" element={<Programs />} />
             <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
             <Route path="/kenali-dirimu/skill" element={<KenaliDirimuSkill />} />
+            <Route path="/jalan-bakti" element={<JalanBakti />} />
             <Route path="/ringkasan" element={<Ringkasan />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
