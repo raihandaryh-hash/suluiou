@@ -170,8 +170,42 @@ export default function JalanBakti() {
           rujukan={C.sdg.tpRujukan}
           framing={C.sdg.tpFraming}
         />
-        <p className="text-base leading-relaxed text-foreground/90">{C.sdg.intro}</p>
-        <p className="text-sm text-muted-foreground">{C.sdg.instruksi}</p>
+
+        <div className="space-y-4">
+          {C.sdg.sejarah.map((p, i) => (
+            <p key={`sj-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+          ))}
+        </div>
+        <Separator className="my-2 opacity-60" />
+        <div className="space-y-4">
+          {C.sdg.urgensi.map((p, i) => (
+            <p key={`ur-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+          ))}
+        </div>
+        <Separator className="my-2 opacity-60" />
+        <div className="space-y-4">
+          {C.sdg.agensi.map((p, i) => (
+            <p key={`ag-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+          ))}
+        </div>
+
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="pasca-2030" className="border border-border rounded-lg px-4">
+            <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline">
+              {C.sdg.pascaExpand.title}
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="list-disc pl-5 space-y-1.5 text-sm text-foreground/85">
+                {C.sdg.pascaExpand.items.map((it, i) => (
+                  <li key={i}>{it}</li>
+                ))}
+              </ul>
+              <p className="mt-3 text-sm text-foreground/90">{C.sdg.pascaExpand.closer}</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <p className="text-sm text-muted-foreground pt-2">{C.sdg.chipPrompt}</p>
         <div className="flex flex-wrap gap-2">
           {C.sdg.items.map((s) => (
             <Chip key={s.id} active={d.sdgTags.includes(s.id)} onClick={() => toggleSdg(s.id)}>
@@ -179,6 +213,8 @@ export default function JalanBakti() {
             </Chip>
           ))}
         </div>
+
+        <p className="text-base font-medium text-foreground/90 pt-4">{C.sdg.transisiIndonesia}</p>
       </section>
 
       <Separator className="my-10" />
