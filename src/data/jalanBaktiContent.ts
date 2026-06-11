@@ -93,7 +93,7 @@ export const jalanBaktiContent = {
     },
     {
       id: "k3",
-      nama: "Keluarga, Anak & Inklusivitas",
+      nama: "Keluarga, Anak & Kelompok Rentan",
       bridge: "Ada anak tumbuh tanpa pendampingan, orang tua yang kesepian, tetangga yang butuh lebih dari bantuan materi. Apa yang pernah menggerakkanmu untuk seseorang yang rentan?",
       subTantangan: [
         { id: "k3a", label: "Anak yang belum terjangkau" },
