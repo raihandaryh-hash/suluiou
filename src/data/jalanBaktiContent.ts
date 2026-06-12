@@ -65,7 +65,7 @@ export const jalanBaktiContent = {
   },
 
   // ── 6 Klaster Jalan Bakti ──
-  klasterIntro: "Di balik setiap kebutuhan besar, ada wajah-wajah manusia. Mana yang paling menggerakkan hatimu? Tandai yang terasa dekat.",
+  klasterIntro: "Enam medan tantangan. Tandai yang paling terasa dekat denganmu.",
   klaster: [
     {
       id: "k1",
