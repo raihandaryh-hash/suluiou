@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
@@ -70,6 +71,7 @@ function Chip({
 
 export default function JalanBakti() {
   const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const [d, setD] = useState<JBData>(EMPTY);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -356,6 +358,9 @@ export default function JalanBakti() {
         <Button onClick={handleSave} disabled={saving} size="lg">
           {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
           {C.ui.saveLabel}
+        </Button>
+        <Button variant="outline" size="lg" onClick={() => navigate("/sintesis")}>
+          Lanjut: Satukan Semuanya →
         </Button>
       </div>
     </main>
