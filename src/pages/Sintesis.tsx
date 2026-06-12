@@ -32,7 +32,7 @@ const FONDASI_KEYS = ["d1_q1", "d1_q2", "d1_q3"] as const;
 
 // ── Resolvers for JalanBakti picks ──
 function resolveSdgLabels(ids: string[]): string[] {
-  const map = new Map(JB.sdg.items.map((s) => [s.id, s.label]));
+  const map = new Map<string, string>(JB.sdg.items.map((s) => [s.id as string, s.label as string]));
   return ids.map((id) => map.get(id) ?? id);
 }
 
