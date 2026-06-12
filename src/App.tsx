@@ -21,6 +21,7 @@ import Programs from "./pages/Programs";
 import KenaliDirimu from "./pages/KenaliDirimu";
 import KenaliDirimuSkill from "./pages/KenaliDirimuSkill";
 import JalanBakti from "./pages/JalanBakti";
+import Sintesis from "./pages/Sintesis";
 import Ringkasan from "./pages/Ringkasan";
 import AppLayout from "./components/AppLayout";
 import AdminLogin from "./pages/AdminLogin";
@@ -72,6 +73,7 @@ const App = () => {
             <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
             <Route path="/kenali-dirimu/skill" element={<KenaliDirimuSkill />} />
             <Route path="/jalan-bakti" element={<JalanBakti />} />
+            <Route path="/sintesis" element={<Sintesis />} />
             <Route path="/ringkasan" element={<Ringkasan />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
