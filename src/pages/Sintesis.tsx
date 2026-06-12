@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
 import { sintesisContent as S } from "@/data/sintesisContent";
 import { jalanBaktiContent as JB } from "@/data/jalanBaktiContent";
 
@@ -321,10 +322,16 @@ export default function Sintesis() {
       </section>
 
       {/* ── SAVE ── */}
-      <div className="flex flex-col items-center gap-3 pt-8 pb-12">
+      <div className="flex flex-col items-center gap-3 pt-8 pb-4">
         <Button onClick={handleSave} disabled={saving} size="lg">
           {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
           {S.ui.saveLabel}
+        </Button>
+      </div>
+
+      <div className="flex flex-col items-center gap-2 pb-12">
+        <Button asChild variant="outline" size="lg">
+          <Link to="/rencana-aksi">Lanjut: Susun Langkahmu →</Link>
         </Button>
       </div>
     </main>
