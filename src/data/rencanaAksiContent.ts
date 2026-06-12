@@ -82,4 +82,4 @@ export const rencanaAksiContent = {
     istianah: "Dan saat kamu mulai melangkah, ingatlah satu kalimat ringan yang menanggalkan beban: لا حول ولا قوة إلا بالله. Sebelum beramal, ia menurunkan rasa cemas. Saat beramal, ia mengingatkan bahwa kamu hanya alat — hasilnya milik Allah. Setelah beramal, ia menuntunmu bersyukur tanpa merasa cukup berjasa.",
     khidmahNudge: "Salah satu bentuk langkah 30 hari: habiskan 2–4 jam membantu di bidang yang kamu minati, tanpa bayaran, dengan niat khidmah.",
   },
-} as const;
+};
