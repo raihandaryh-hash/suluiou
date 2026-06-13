@@ -300,14 +300,18 @@ const Login = () => {
         </Link>
 
         <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
-          <h1 className="text-xl font-heading font-bold text-center text-foreground mb-1">
-            Masuk untuk Mulai Asesmen
-          </h1>
-          <p className="text-sm text-center text-muted-foreground mb-6">
-            Pilih cara masuk yang paling mudah untukmu.
-          </p>
+          {pendingProvince ? (
+            <ProvinceOnboarding onDone={handleProvinceDone} />
+          ) : (
+            <>
+              <h1 className="text-xl font-heading font-bold text-center text-foreground mb-1">
+                Masuk untuk Mulai Asesmen
+              </h1>
+              <p className="text-sm text-center text-muted-foreground mb-6">
+                Pilih cara masuk yang paling mudah untukmu.
+              </p>
 
-          {checking ? (
+              {checking ? (
             <div className="flex items-center justify-center py-8">
               <Loader2 className="w-5 h-5 text-primary animate-spin" />
             </div>
