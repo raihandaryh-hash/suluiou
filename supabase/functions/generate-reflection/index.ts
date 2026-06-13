@@ -63,9 +63,9 @@ Lintasan C (${planC.judul}): ${planC.gambaran}
 
 Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 200-300 kata. Awali dengan "Dari yang kamu tuliskan sendiri..."`;
 
-    const apiKey = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1/chat/completions";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
+    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
