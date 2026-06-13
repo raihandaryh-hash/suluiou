@@ -248,4 +248,43 @@ export const api = {
       body: JSON.stringify({ messages, studentContext: safeContext }),
     });
   },
+
+  async getProvinceContext(province: string): Promise<{
+    economic_sectors: string[];
+    opportunities_2030: string | null;
+    narrative_hooks: string[];
+  } | null> {
+    const name = province?.trim();
+    if (!name) return null;
+
+    if (USE_SUPABASE) {
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { data, error } = await supabase
+        .from('province_contexts')
+        .select('economic_sectors, opportunities_2030, narrative_hooks')
+        .ilike('province', name)
+        .maybeSingle();
+      if (error || !data) return null;
+      return {
+        economic_sectors: (data.economic_sectors as string[] | null) ?? [],
+        opportunities_2030: (data.opportunities_2030 as string | null) ?? null,
+        narrative_hooks: (data.narrative_hooks as string[] | null) ?? [],
+      };
+    }
+
+    try {
+      const res = await fetch(
+        `${API_BASE}/api/province-contexts/${encodeURIComponent(name)}`,
+      );
+      if (!res.ok) return null;
+      const data = await res.json();
+      return {
+        economic_sectors: data.economic_sectors ?? [],
+        opportunities_2030: data.opportunities_2030 ?? null,
+        narrative_hooks: data.narrative_hooks ?? [],
+      };
+    } catch {
+      return null;
+    }
+  },
 };
