@@ -9,7 +9,15 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useProvince } from "@/hooks/useProvince";
+import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
+
+type ProvinceContext = {
+  economic_sectors: string[];
+  opportunities_2030: string | null;
+  narrative_hooks: string[];
+};
 
 const LS_KEY = "jalan_bakti_v1";
 
@@ -71,10 +79,26 @@ function Chip({
 
 export default function JalanBakti() {
   const { user, loading: authLoading } = useAuth();
+  const province = useProvince();
   const navigate = useNavigate();
   const [d, setD] = useState<JBData>(EMPTY);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [provinceCtx, setProvinceCtx] = useState<ProvinceContext | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    if (!province) {
+      setProvinceCtx(null);
+      return;
+    }
+    api.getProvinceContext(province).then((ctx) => {
+      if (active) setProvinceCtx(ctx);
+    });
+    return () => {
+      active = false;
+    };
+  }, [province]);
 
   useEffect(() => {
     if (authLoading) return;
@@ -231,6 +255,57 @@ export default function JalanBakti() {
       </section>
 
       <Separator className="my-10" />
+
+      {/* ── GAMBARAN ARAH DAERAH ── */}
+      {province && provinceCtx &&
+        (provinceCtx.narrative_hooks.length > 0 ||
+          provinceCtx.economic_sectors.length > 0 ||
+          provinceCtx.opportunities_2030) && (
+        <>
+          <section className="space-y-5 rounded-xl border border-border bg-secondary/30 p-5">
+            <SectionHeader title={`Gambaran arah daerahmu — ${province}`} />
+
+            {provinceCtx.narrative_hooks.length > 0 && (
+              <ul className="space-y-2 list-disc pl-5 text-base leading-relaxed text-foreground/90">
+                {provinceCtx.narrative_hooks.map((h, i) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
+            )}
+
+            {provinceCtx.economic_sectors.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-1">
+                {provinceCtx.economic_sectors.map((s, i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground/85"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {provinceCtx.opportunities_2030 && (
+              <div className="rounded-lg border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-4">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
+                  Arah yang sedang tumbuh
+                </p>
+                <p className="text-sm leading-relaxed text-foreground/90">
+                  {provinceCtx.opportunities_2030}
+                </p>
+              </div>
+            )}
+
+            <p className="text-xs text-muted-foreground italic">
+              Ini gambaran umum sebagai titik awal, bukan data resmi atau vonis.
+            </p>
+          </section>
+
+          <Separator className="my-10" />
+        </>
+      )}
+
 
       {/* ── 6 KLASTER ── */}
       <section className="space-y-6">
