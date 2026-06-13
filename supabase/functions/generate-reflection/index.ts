@@ -63,9 +63,9 @@ Lintasan C (${planC.judul}): ${planC.gambaran}
 
 Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 200-300 kata. Awali dengan "Dari yang kamu tuliskan sendiri..."`;
 
-    const apiKey = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://ai.gateway.lovable.dev/v1/chat/completions";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
+    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
+    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -77,17 +77,16 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);
-        const aiResp = await fetch(AI_BASE_URL, {
+        const aiResp = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
           method: "POST",
-          headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            model: AI_MODEL,
-            max_tokens: 900,
-            temperature: 0.6,
-            messages: [
-              { role: "system", content: SYSTEM_PROMPT },
-              { role: "user", content: userPrompt },
-            ],
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+            generationConfig: {
+              maxOutputTokens: 1024,
+              temperature: 0.6,
+            },
           }),
           signal: controller.signal,
         });
@@ -108,7 +107,7 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
 
         if (aiResp.ok) {
           const data = await aiResp.json();
-          const text = data.choices?.[0]?.message?.content?.trim();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
           if (text) narrative = text;
         } else {
           console.error("AI gateway error:", aiResp.status, await aiResp.text().catch(() => ""));

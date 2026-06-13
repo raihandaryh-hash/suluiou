@@ -85,9 +85,9 @@ serve(async (req) => {
 
   try {
     const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
-      || "https://ai.gateway.lovable.dev/v1/chat/completions";
-    const apiKey = Deno.env.get("LOVABLE_API_KEY") || Deno.env.get("AI_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "google/gemini-2.5-flash";
+      || "https://generativelanguage.googleapis.com/v1beta";
+    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
+    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
 
     if (!apiKey) throw new Error("AI API key is not configured");
 
@@ -139,20 +139,18 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(AI_BASE_URL, {
+        response = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${apiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: AI_MODEL,
-            max_tokens: 1024,
-            temperature: 0.65,
-            messages: [
-              { role: "system", content: SYSTEM_PROMPT },
-              { role: "user", content: userPrompt },
-            ],
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+            generationConfig: {
+              maxOutputTokens: 1024,
+              temperature: 0.65,
+            },
           }),
           signal: controller.signal,
         });
@@ -188,7 +186,7 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
     }
 
     const data = await response.json();
-    const projection = data.choices?.[0]?.message?.content?.trim();
+    const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
       console.error("No content in AI response:", JSON.stringify(data));
