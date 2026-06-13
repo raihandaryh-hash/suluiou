@@ -102,20 +102,18 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(AI_BASE_URL, {
+        response = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${apiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: AI_MODEL,
-            max_tokens: 512,
-            temperature: 0.65,
-            messages: [
-              { role: "system", content: SYSTEM_PROMPT },
-              { role: "user", content: userPrompt },
-            ],
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+            generationConfig: {
+              maxOutputTokens: 1024,
+              temperature: 0.65,
+            },
           }),
           signal: controller.signal,
         });
