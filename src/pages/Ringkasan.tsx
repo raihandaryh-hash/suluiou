@@ -198,8 +198,7 @@ export default function Ringkasan() {
       {/* Footer disclaimer — always visible, including print */}
       <section className="mt-10 rounded-lg border border-border bg-muted/50 p-5 print:border-black/40 print:bg-transparent">
         <p className="text-sm leading-relaxed text-foreground/90">
-          Ini adalah awal percakapan, bukan keputusan final.
-          Keputusan terbaik lahir dari obrolan yang jujur dengan orang-orang yang kamu percaya.
+          {ringkasanContent.footer}
         </p>
       </section>
 
