@@ -186,7 +186,7 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
     }
 
     const data = await response.json();
-    const projection = data.choices?.[0]?.message?.content?.trim();
+    const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
       console.error("No content in AI response:", JSON.stringify(data));
