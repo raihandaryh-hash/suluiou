@@ -77,17 +77,16 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);
-        const aiResp = await fetch(AI_BASE_URL, {
+        const aiResp = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
           method: "POST",
-          headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            model: AI_MODEL,
-            max_tokens: 900,
-            temperature: 0.6,
-            messages: [
-              { role: "system", content: SYSTEM_PROMPT },
-              { role: "user", content: userPrompt },
-            ],
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+            generationConfig: {
+              maxOutputTokens: 1024,
+              temperature: 0.6,
+            },
           }),
           signal: controller.signal,
         });
