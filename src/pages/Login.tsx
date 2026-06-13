@@ -21,6 +21,17 @@ import { applyClaim, clearPendingClaim, getPendingClaim } from '@/lib/claimGuest
 import { routeAfterAuth } from '@/lib/authRouter';
 import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
+import ProvinceOnboarding from '@/components/onboarding/ProvinceOnboarding';
+
+type PendingProvince = {
+  session: StudentSession;
+  forcedNext: string | null;
+};
+
+const hasProvince = (meta: Record<string, unknown> | undefined): boolean => {
+  const p = meta?.province;
+  return typeof p === 'string' && p.length > 0;
+};
 
 const guestSchema = z.object({
   name: z
