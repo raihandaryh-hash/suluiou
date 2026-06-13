@@ -110,15 +110,15 @@ export default function Ringkasan() {
       {/* Header */}
       <header className="border-b border-border pb-6">
         <h1 className="font-[Outfit] text-3xl font-bold text-[hsl(var(--ink-deep))] md:text-4xl">
-          Ringkasan Refleksi Karier
+          {ringkasanContent.header.title}
         </h1>
         <p className="mt-2 text-base text-[hsl(var(--mid-blue))] md:text-lg">
-          Bahan obrolan dengan orang tua atau siapapun yang kamu percaya
+          {ringkasanContent.header.subtitle}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <span className="text-sm text-muted-foreground">{formatTanggal(row.created_at)}</span>
           <Badge variant="secondary" className="rounded-full">
-            Bukan hasil tes. Ini refleksimu sendiri.
+            {ringkasanContent.header.badge}
           </Badge>
         </div>
       </header>
