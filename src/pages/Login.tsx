@@ -474,6 +474,8 @@ const Login = () => {
               )}
             </>
           )}
+            </>
+          )}
         </div>
 
         <p className="text-xs text-center text-muted-foreground mt-6">
