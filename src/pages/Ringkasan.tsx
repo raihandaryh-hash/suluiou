@@ -161,68 +161,37 @@ export default function Ringkasan() {
       {/* SECTION 3 — Jalur */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Jalur yang bisa kamu pertimbangkan
+          {ringkasanContent.jalur.heading}
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Tidak ada satu jalur yang "paling benar". Ini informasi — bukan rekomendasi.
+          {ringkasanContent.jalur.intro}
         </p>
 
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 print:grid-cols-2">
-          {/* Card 1 — KIP Kuliah */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              KIP Kuliah → PTN / PTS
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Bantuan biaya kuliah dan hidup untuk keluarga yang membutuhkan.
-              Bisa digunakan ke PTN maupun PTS terakreditasi di seluruh Indonesia.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Daftar: kip-kuliah.kemdikbud.go.id</p>
-          </div>
-
-          {/* Card 2 — PBSB */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              PBSB Kemenag
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Program Beasiswa Santri Berprestasi — beasiswa penuh ke PTN pilihan.
-              Untuk lulusan pesantren.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Cek: pbsb.kemenag.go.id</p>
-          </div>
-
-          {/* Card 3 — IOU */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-                IOU Indonesia
-              </h3>
-              <Badge variant="outline" className="text-[10px]">Penyelenggara Sulu</Badge>
+          {ringkasanContent.jalur.cards.map((card) => (
+            <div
+              key={card.title}
+              className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent"
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
+                  {card.title}
+                </h3>
+                {card.badge && (
+                  <Badge variant="outline" className="text-[10px]">{card.badge}</Badge>
+                )}
+              </div>
+              <p className="mt-2 text-sm text-foreground/80">{card.desc}</p>
+              {card.bullets && (
+                <ul className="mt-3 space-y-1 text-sm text-foreground/80">
+                  {card.bullets.map((b) => (
+                    <li key={b}>• {b}</li>
+                  ))}
+                </ul>
+              )}
+              <p className="mt-3 text-xs text-muted-foreground">{card.meta}</p>
             </div>
-            <p className="mt-2 text-sm text-foreground/80">
-              Kuliah Islam berbasis online — bisa dari rumah, jadwal fleksibel.
-              Sejak semester pertama sudah praktik nyata lewat Layanan Mahasiswa.
-            </p>
-            <ul className="mt-3 space-y-1 text-sm text-foreground/80">
-              <li>• Biaya: Rp 1,5–2,4 juta per semester</li>
-              <li>• Ijazah setara Kemendikbud RI</li>
-              <li>• Program: BBA, Psikologi, BAIS, ALS, Pendidikan</li>
-            </ul>
-            <p className="mt-3 text-xs text-muted-foreground">bahasa.iou.edu.gm</p>
-          </div>
-
-          {/* Card 4 — Jalur Lain */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              Jalur Lain & Gap Year
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Kerja, magang, atau bangun keahlian dulu — ini strategi yang diambil
-              banyak orang yang akhirnya masuk jalur terbaik mereka.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Lihat juga: /programs</p>
-          </div>
+          ))}
         </div>
       </section>
 
