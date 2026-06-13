@@ -1,10 +1,21 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 import Logo from '@/components/Logo';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { mukadimahContent as M } from '@/data/mukadimahContent';
 
 const Hero = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex flex-col bg-background">
       {/* Top nav */}
@@ -30,7 +41,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Kamu sedang berada di titik yang sangat penting.
+            {M.hook}
           </motion.h1>
 
           <motion.p
@@ -39,46 +50,74 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bonus demografi hanya datang sekali.
+            {M.sub}
           </motion.p>
 
           <motion.div
-            className="space-y-5 text-left md:text-center text-foreground/85 text-base md:text-[17px] leading-relaxed mb-10"
+            className="space-y-5 text-left md:text-left text-foreground/85 text-base md:text-[17px] leading-relaxed mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <p>
-              Kamu lahir di masa yang tepat. Tahun 2030 nanti, 68 juta Gen Z akan
-              menjadi mayoritas penduduk produktif Indonesia. Namun banyak di antara
-              kita yang masih bingung arah.
-            </p>
-            <p>Kamu tidak sendiri dalam kebingungan ini.</p>
+            {M.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </motion.div>
 
           <motion.div
-            className="flex justify-center"
+            className="flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
           >
             <Button asChild size="lg" className="group">
-              <Link to="/insight">
-                Kenali Duniamu Dulu
+              <Link to={M.ctaTo}>
+                {M.ctaLabel}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-          </motion.div>
 
-          <motion.p
-            className="text-sm text-muted-foreground mt-8 max-w-md mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Platform ini dirancang untuk membantu kamu menjelajahi diri, memahami
-            dunia, dan menemukan arah kontribusimu.
-          </motion.p>
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1.5 text-sm text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  {M.depthLabel}
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="font-heading text-xl">
+                    {M.depthLabel}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-5 pt-2">
+                  {M.dalil.map((d, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl border border-border bg-secondary/40 px-5 py-4 space-y-2 text-left"
+                    >
+                      {d.arab && (
+                        <p
+                          dir="rtl"
+                          lang="ar"
+                          className="text-xl leading-loose text-foreground text-right"
+                        >
+                          {d.arab}
+                        </p>
+                      )}
+                      <p className="text-sm italic text-foreground/90 leading-relaxed">
+                        {d.terjemah}
+                      </p>
+                      <p className="text-xs text-muted-foreground">{d.ref}</p>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </motion.div>
         </div>
       </div>
     </section>
