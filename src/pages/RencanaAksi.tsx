@@ -195,14 +195,10 @@ export default function RencanaAksi() {
         <div className="rounded-xl border border-border bg-secondary/30 px-5 py-5 space-y-3 text-sm">
           <p className="text-foreground/90 leading-relaxed">{H.teks}</p>
           <p dir="rtl" lang="ar" className="text-xl leading-loose text-foreground text-right">
-            {H.dalil1Arab}
-          </p>
-          <p className="italic text-foreground/90 leading-relaxed">{H.dalil1Terjemah}</p>
-          <p className="text-foreground/90 leading-relaxed">{H.jembatan}</p>
-          <p dir="rtl" lang="ar" className="text-xl leading-loose text-foreground text-right">
             {H.dalil2Arab}
           </p>
           <p className="italic text-foreground/90 leading-relaxed">{H.dalil2Terjemah}</p>
+          <p className="text-foreground/90 leading-relaxed">{H.jembatan}</p>
         </div>
 
         {/* Refleksi */}
