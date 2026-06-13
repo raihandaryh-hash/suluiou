@@ -126,7 +126,7 @@ export default function Ringkasan() {
       {/* SECTION 1 — Values */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Yang paling bermakna bagimu
+          {ringkasanContent.values.heading}
         </h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {values3.map((v) => (
