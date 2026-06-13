@@ -143,18 +143,18 @@ export default function Ringkasan() {
       {/* SECTION 2 — Narrative */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Dari refleksimu sendiri
+          {ringkasanContent.narrative.heading}
         </h2>
         <div className="mt-4">
           <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-primary/50 text-primary">
-            Refleksi dari jawabanmu
+            {ringkasanContent.narrative.badge}
           </Badge>
         </div>
         <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90 print:border-black/30 print:bg-transparent">
           {row.ai_narrative}
         </article>
         <p className="mt-3 text-sm italic text-muted-foreground">
-          Teks ini dirangkai dari jawaban yang kamu tulis sendiri, bukan dari tes psikologi.
+          {ringkasanContent.narrative.note}
         </p>
       </section>
 
