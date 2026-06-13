@@ -68,6 +68,7 @@ const Login = () => {
 
   const [existing, setExisting] = useState<StudentSession | null>(null);
   const [checking, setChecking] = useState(true);
+  const [pendingProvince, setPendingProvince] = useState<PendingProvince | null>(null);
 
   // Detect existing session (Google or guest) without redirecting.
   useEffect(() => {
