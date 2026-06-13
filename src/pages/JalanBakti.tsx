@@ -9,7 +9,15 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useProvince } from "@/hooks/useProvince";
+import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
+
+type ProvinceContext = {
+  economic_sectors: string[];
+  opportunities_2030: string | null;
+  narrative_hooks: string[];
+};
 
 const LS_KEY = "jalan_bakti_v1";
 
