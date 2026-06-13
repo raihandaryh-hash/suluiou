@@ -139,7 +139,7 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
     }
 
     const data = await response.json();
-    const layer1 = data.choices?.[0]?.message?.content?.trim() || null;
+    const layer1 = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
 
     return new Response(JSON.stringify({ layer1 }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
