@@ -144,6 +144,10 @@ const Login = () => {
             className: null,
           };
           setStudentSession(session);
+          if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingProvince({ session, forcedNext: null });
+            return;
+          }
           setExisting(session);
         }
       } finally {
