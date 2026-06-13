@@ -79,10 +79,26 @@ function Chip({
 
 export default function JalanBakti() {
   const { user, loading: authLoading } = useAuth();
+  const province = useProvince();
   const navigate = useNavigate();
   const [d, setD] = useState<JBData>(EMPTY);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [provinceCtx, setProvinceCtx] = useState<ProvinceContext | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    if (!province) {
+      setProvinceCtx(null);
+      return;
+    }
+    api.getProvinceContext(province).then((ctx) => {
+      if (active) setProvinceCtx(ctx);
+    });
+    return () => {
+      active = false;
+    };
+  }, [province]);
 
   useEffect(() => {
     if (authLoading) return;
