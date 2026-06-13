@@ -21,6 +21,17 @@ import { applyClaim, clearPendingClaim, getPendingClaim } from '@/lib/claimGuest
 import { routeAfterAuth } from '@/lib/authRouter';
 import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
+import ProvinceOnboarding from '@/components/onboarding/ProvinceOnboarding';
+
+type PendingProvince = {
+  session: StudentSession;
+  forcedNext: string | null;
+};
+
+const hasProvince = (meta: Record<string, unknown> | undefined): boolean => {
+  const p = meta?.province;
+  return typeof p === 'string' && p.length > 0;
+};
 
 const guestSchema = z.object({
   name: z
@@ -57,6 +68,7 @@ const Login = () => {
 
   const [existing, setExisting] = useState<StudentSession | null>(null);
   const [checking, setChecking] = useState(true);
+  const [pendingProvince, setPendingProvince] = useState<PendingProvince | null>(null);
 
   // Detect existing session (Google or guest) without redirecting.
   useEffect(() => {
@@ -101,9 +113,12 @@ const Login = () => {
             className: claim.className,
           };
           setStudentSession(session);
-          if (active) {
-            navigate('/results', { replace: true });
+          if (!active) return;
+          if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingProvince({ session, forcedNext: '/results' });
+            return;
           }
+          navigate('/results', { replace: true });
           return;
         }
 
@@ -129,6 +144,10 @@ const Login = () => {
             className: null,
           };
           setStudentSession(session);
+          if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingProvince({ session, forcedNext: null });
+            return;
+          }
           setExisting(session);
         }
       } finally {
@@ -144,7 +163,23 @@ const Login = () => {
   const handleContinue = async () => {
     if (!existing) return;
     setContinueLoading(true);
+    if (existing.kind === 'google') {
+      const { data } = await supabase.auth.getUser();
+      const meta = data.user?.user_metadata as Record<string, unknown> | undefined;
+      if (!hasProvince(meta)) {
+        setPendingProvince({ session: existing, forcedNext: null });
+        setContinueLoading(false);
+        return;
+      }
+    }
     const next = await routeAfterAuth(existing);
+    navigate(next, { replace: true });
+  };
+
+  const handleProvinceDone = async () => {
+    if (!pendingProvince) return;
+    const { session, forcedNext } = pendingProvince;
+    const next = forcedNext ?? (await routeAfterAuth(session));
     navigate(next, { replace: true });
   };
 
@@ -265,14 +300,18 @@ const Login = () => {
         </Link>
 
         <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
-          <h1 className="text-xl font-heading font-bold text-center text-foreground mb-1">
-            Masuk untuk Mulai Asesmen
-          </h1>
-          <p className="text-sm text-center text-muted-foreground mb-6">
-            Pilih cara masuk yang paling mudah untukmu.
-          </p>
+          {pendingProvince ? (
+            <ProvinceOnboarding onDone={handleProvinceDone} />
+          ) : (
+            <>
+              <h1 className="text-xl font-heading font-bold text-center text-foreground mb-1">
+                Masuk untuk Mulai Asesmen
+              </h1>
+              <p className="text-sm text-center text-muted-foreground mb-6">
+                Pilih cara masuk yang paling mudah untukmu.
+              </p>
 
-          {checking ? (
+              {checking ? (
             <div className="flex items-center justify-center py-8">
               <Loader2 className="w-5 h-5 text-primary animate-spin" />
             </div>
@@ -433,6 +472,8 @@ const Login = () => {
                   </Button>
                 </form>
               )}
+            </>
+          )}
             </>
           )}
         </div>
