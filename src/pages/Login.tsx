@@ -113,9 +113,12 @@ const Login = () => {
             className: claim.className,
           };
           setStudentSession(session);
-          if (active) {
-            navigate('/results', { replace: true });
+          if (!active) return;
+          if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingProvince({ session, forcedNext: '/results' });
+            return;
           }
+          navigate('/results', { replace: true });
           return;
         }
 
