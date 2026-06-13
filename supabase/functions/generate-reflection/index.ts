@@ -107,7 +107,7 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
 
         if (aiResp.ok) {
           const data = await aiResp.json();
-          const text = data.choices?.[0]?.message?.content?.trim();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
           if (text) narrative = text;
         } else {
           console.error("AI gateway error:", aiResp.status, await aiResp.text().catch(() => ""));
