@@ -163,7 +163,23 @@ const Login = () => {
   const handleContinue = async () => {
     if (!existing) return;
     setContinueLoading(true);
+    if (existing.kind === 'google') {
+      const { data } = await supabase.auth.getUser();
+      const meta = data.user?.user_metadata as Record<string, unknown> | undefined;
+      if (!hasProvince(meta)) {
+        setPendingProvince({ session: existing, forcedNext: null });
+        setContinueLoading(false);
+        return;
+      }
+    }
     const next = await routeAfterAuth(existing);
+    navigate(next, { replace: true });
+  };
+
+  const handleProvinceDone = async () => {
+    if (!pendingProvince) return;
+    const { session, forcedNext } = pendingProvince;
+    const next = forcedNext ?? (await routeAfterAuth(session));
     navigate(next, { replace: true });
   };
 
