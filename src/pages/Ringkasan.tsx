@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2, Printer, MessageCircle, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/track";
+import { ringkasanContent } from "@/data/ringkasanContent";
 
 type KdRow = {
   id: string;
@@ -109,15 +110,15 @@ export default function Ringkasan() {
       {/* Header */}
       <header className="border-b border-border pb-6">
         <h1 className="font-[Outfit] text-3xl font-bold text-[hsl(var(--ink-deep))] md:text-4xl">
-          Ringkasan Refleksi Karier
+          {ringkasanContent.header.title}
         </h1>
         <p className="mt-2 text-base text-[hsl(var(--mid-blue))] md:text-lg">
-          Bahan obrolan dengan orang tua atau siapapun yang kamu percaya
+          {ringkasanContent.header.subtitle}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <span className="text-sm text-muted-foreground">{formatTanggal(row.created_at)}</span>
           <Badge variant="secondary" className="rounded-full">
-            Bukan hasil tes. Ini refleksimu sendiri.
+            {ringkasanContent.header.badge}
           </Badge>
         </div>
       </header>
@@ -125,7 +126,7 @@ export default function Ringkasan() {
       {/* SECTION 1 — Values */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Yang paling bermakna bagimu
+          {ringkasanContent.values.heading}
         </h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {values3.map((v) => (
@@ -142,94 +143,62 @@ export default function Ringkasan() {
       {/* SECTION 2 — Narrative */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Dari refleksimu sendiri
+          {ringkasanContent.narrative.heading}
         </h2>
         <div className="mt-4">
           <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-primary/50 text-primary">
-            Refleksi dari jawabanmu
+            {ringkasanContent.narrative.badge}
           </Badge>
         </div>
         <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90 print:border-black/30 print:bg-transparent">
           {row.ai_narrative}
         </article>
         <p className="mt-3 text-sm italic text-muted-foreground">
-          Teks ini dirangkai dari jawaban yang kamu tulis sendiri, bukan dari tes psikologi.
+          {ringkasanContent.narrative.note}
         </p>
       </section>
 
       {/* SECTION 3 — Jalur */}
       <section className="mt-10">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          Jalur yang bisa kamu pertimbangkan
+          {ringkasanContent.jalur.heading}
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Tidak ada satu jalur yang "paling benar". Ini informasi — bukan rekomendasi.
+          {ringkasanContent.jalur.intro}
         </p>
 
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 print:grid-cols-2">
-          {/* Card 1 — KIP Kuliah */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              KIP Kuliah → PTN / PTS
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Bantuan biaya kuliah dan hidup untuk keluarga yang membutuhkan.
-              Bisa digunakan ke PTN maupun PTS terakreditasi di seluruh Indonesia.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Daftar: kip-kuliah.kemdikbud.go.id</p>
-          </div>
-
-          {/* Card 2 — PBSB */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              PBSB Kemenag
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Program Beasiswa Santri Berprestasi — beasiswa penuh ke PTN pilihan.
-              Untuk lulusan pesantren.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Cek: pbsb.kemenag.go.id</p>
-          </div>
-
-          {/* Card 3 — IOU */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-                IOU Indonesia
-              </h3>
-              <Badge variant="outline" className="text-[10px]">Penyelenggara Sulu</Badge>
+          {ringkasanContent.jalur.cards.map((card) => (
+            <div
+              key={card.title}
+              className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent"
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
+                  {card.title}
+                </h3>
+                {card.badge && (
+                  <Badge variant="outline" className="text-[10px]">{card.badge}</Badge>
+                )}
+              </div>
+              <p className="mt-2 text-sm text-foreground/80">{card.desc}</p>
+              {card.bullets && (
+                <ul className="mt-3 space-y-1 text-sm text-foreground/80">
+                  {card.bullets.map((b) => (
+                    <li key={b}>• {b}</li>
+                  ))}
+                </ul>
+              )}
+              <p className="mt-3 text-xs text-muted-foreground">{card.meta}</p>
             </div>
-            <p className="mt-2 text-sm text-foreground/80">
-              Kuliah Islam berbasis online — bisa dari rumah, jadwal fleksibel.
-              Sejak semester pertama sudah praktik nyata lewat Layanan Mahasiswa.
-            </p>
-            <ul className="mt-3 space-y-1 text-sm text-foreground/80">
-              <li>• Biaya: Rp 1,5–2,4 juta per semester</li>
-              <li>• Ijazah setara Kemendikbud RI</li>
-              <li>• Program: BBA, Psikologi, BAIS, ALS, Pendidikan</li>
-            </ul>
-            <p className="mt-3 text-xs text-muted-foreground">bahasa.iou.edu.gm</p>
-          </div>
-
-          {/* Card 4 — Jalur Lain */}
-          <div className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent">
-            <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-              Jalur Lain & Gap Year
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80">
-              Kerja, magang, atau bangun keahlian dulu — ini strategi yang diambil
-              banyak orang yang akhirnya masuk jalur terbaik mereka.
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">Lihat juga: /programs</p>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Footer disclaimer — always visible, including print */}
       <section className="mt-10 rounded-lg border border-border bg-muted/50 p-5 print:border-black/40 print:bg-transparent">
         <p className="text-sm leading-relaxed text-foreground/90">
-          Ini adalah awal percakapan, bukan keputusan final.
-          Keputusan terbaik lahir dari obrolan yang jujur dengan orang-orang yang kamu percaya.
+          {ringkasanContent.footer}
         </p>
       </section>
 
