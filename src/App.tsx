@@ -35,6 +35,7 @@ import AdminInsight from "./pages/AdminInsight";
 import Login from "./pages/Login";
 // /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
+import RequireAuth from "@/components/RequireAuth";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 
@@ -71,12 +72,12 @@ const App = () => {
               <Route path="/compass" element={<Compass />} />
             </Route>
             <Route path="/programs" element={<Programs />} />
-            <Route path="/kenali-dirimu" element={<KenaliDirimu />} />
-            <Route path="/kenali-dirimu/skill" element={<KenaliDirimuSkill />} />
-            <Route path="/jalan-bakti" element={<JalanBakti />} />
-            <Route path="/sintesis" element={<Sintesis />} />
-            <Route path="/rencana-aksi" element={<RencanaAksi />} />
-            <Route path="/ringkasan" element={<Ringkasan />} />
+            <Route path="/kenali-dirimu" element={<RequireAuth><KenaliDirimu /></RequireAuth>} />
+            <Route path="/kenali-dirimu/skill" element={<RequireAuth><KenaliDirimuSkill /></RequireAuth>} />
+            <Route path="/jalan-bakti" element={<RequireAuth><JalanBakti /></RequireAuth>} />
+            <Route path="/sintesis" element={<RequireAuth><Sintesis /></RequireAuth>} />
+            <Route path="/rencana-aksi" element={<RequireAuth><RencanaAksi /></RequireAuth>} />
+            <Route path="/ringkasan" element={<RequireAuth><Ringkasan /></RequireAuth>} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
