@@ -42,7 +42,7 @@ function JournalingPrompt({
       <Textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={starter || "Tuliskan di sini..."}
+        placeholder="Tuliskan di sini ..."
         className={`mt-2 ${minH}`}
       />
     </div>
