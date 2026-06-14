@@ -12,6 +12,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useProvince } from "@/hooks/useProvince";
 import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
+import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 
 type ProvinceContext = {
   economic_sectors: string[];
@@ -438,6 +439,7 @@ export default function JalanBakti() {
           Lanjut: Satukan Semuanya →
         </Button>
       </div>
+      <SuluCompanion />
     </main>
   );
 }
