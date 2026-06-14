@@ -1205,6 +1205,29 @@ const Insight = () => {
             </div>
           </section>
 
+          {/* SECTION 9.5 — Primary continuation CTA into Spine B */}
+          <section className="container mx-auto px-6 pb-16 max-w-3xl text-center">
+            <div className="rounded-2xl border border-border bg-secondary/40 p-8 md:p-10">
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground leading-tight">
+                Sudah lihat dunianya. Sekarang, lihat ke dalam.
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-xl mx-auto">
+                Langkah berikutnya: kenali apa yang sudah Allah titipkan dalam dirimu — nilai, minat, dan kemampuan.
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button asChild size="lg" className="group">
+                  <Link to="/kenali-dirimu">
+                    Lanjut: Kenali Dirimu
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" size="sm">
+                  <Link to="/">← Kembali ke beranda</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
+
           {/* SECTION 10 — Footer sources */}
           <FooterSources />
     </main>

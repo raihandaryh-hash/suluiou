@@ -172,7 +172,7 @@ export default function Sintesis() {
           }
           const phase2bRaw = localStorage.getItem("sulu_phase2b");
           if (phase2bRaw) setSkillSelected(JSON.parse(phase2bRaw).selected ?? []);
-          const phase2aRaw = localStorage.getItem("sulu_phase2a_inventory");
+          const phase2aRaw = localStorage.getItem("sulu_phase2a");
           if (phase2aRaw) setFondasi(JSON.parse(phase2aRaw));
         }
       } catch (e) {
