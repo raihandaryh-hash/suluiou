@@ -19,8 +19,8 @@ const steps: Step[] = [
   { num: 1, label: 'Kenali Dunia', href: '/insight' },
   { num: 2, label: 'Kenali Dirimu', href: '/kenali-dirimu' },
   { num: 3, label: 'Kenali Jalan Baktimu', href: '/jalan-bakti' },
-  { num: 4, label: 'Sintesis', href: '/sintesis', disabled: true },
-  { num: 5, label: 'Rencana Baktimu', href: '/action-plan', disabled: true },
+  { num: 4, label: 'Sintesis', href: '/sintesis' },
+  { num: 5, label: 'Rencana Baktimu', href: '/rencana-aksi' },
 ];
 
 export default function JourneyBar() {
