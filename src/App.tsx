@@ -36,6 +36,7 @@ import Login from "./pages/Login";
 // /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import RequireAuth from "@/components/RequireAuth";
+import SpineBLayout from "@/components/SpineBLayout";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 
