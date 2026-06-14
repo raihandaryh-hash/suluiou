@@ -545,7 +545,7 @@ const Login = () => {
         </div>
 
         <p className="text-xs text-center text-muted-foreground mt-6">
-          Sulu by IOU Indonesia · Asesmen ini gratis dan rahasia.
+          Sulu by IOU Indonesia · Gratis dan rahasia.
         </p>
       </motion.div>
     </div>
