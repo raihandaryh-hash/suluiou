@@ -44,7 +44,7 @@ export type SuluContext = {
 };
 
 export function buildSuluContext(province: string | null): SuluContext {
-  const p2a = readJSON<Record<string, unknown>>("sulu_phase2a_inventory");
+  const p2a = readJSON<Record<string, unknown>>("sulu_phase2a");
   const p2b = readJSON<{ selected?: unknown }>("sulu_phase2b");
   const p3 = readJSON<{
     sdgTags?: unknown;
