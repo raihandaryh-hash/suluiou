@@ -7,7 +7,7 @@ export const mukadimahContent = {
     "Sebab yang bertahan bukan yang paling ramai, tapi yang paling bermanfaat. Kamu tidak harus menjadi yang paling hebat di ibu kota; cukup menjadi cahaya di tempatmu sendiri, lalu menyalakan orang-orang di sekitarmu. Mulailah dari yang kecil, tumbuh dengan tenang, penuh syukur. Mari kita mulai.",
   ],
   ctaLabel: "Mari kita mulai",
-  ctaTo: "/insight",
+  ctaTo: "/kenali-dirimu",
   depthLabel: "Lihat dasar Qur'annya",
   dalil: [
     {
