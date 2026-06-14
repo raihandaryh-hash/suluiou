@@ -24,6 +24,34 @@ import AdminQuickAccess from '@/components/AdminQuickAccess';
 import ProvinceOnboarding from '@/components/onboarding/ProvinceOnboarding';
 import { consumeReturnTo } from '@/components/RequireAuth';
 
+function peekReturnTo(): string | null {
+  try {
+    return sessionStorage.getItem('sulu.returnTo');
+  } catch {
+    return null;
+  }
+}
+
+const SPINE_B_PREFIXES = ['/kenali-dirimu', '/jalan-bakti', '/sintesis', '/rencana-aksi', '/ringkasan'];
+const ASSESSMENT_PREFIXES = ['/assessment', '/profile', '/consent', '/results'];
+
+function isAssessmentFunnel(returnTo: string | null): boolean {
+  if (!returnTo) return false;
+  return ASSESSMENT_PREFIXES.some((p) => returnTo.startsWith(p));
+}
+
+function isSpineB(returnTo: string | null): boolean {
+  if (!returnTo) return false;
+  return SPINE_B_PREFIXES.some((p) => returnTo.startsWith(p));
+}
+
+function showGuestOption(): boolean {
+  const rt = peekReturnTo();
+  if (getPendingClassCode()) return true;
+  if (rt && isAssessmentFunnel(rt)) return true;
+  return false;
+}
+
 async function nextAfter(session: StudentSession): Promise<string> {
   const rt = consumeReturnTo();
   if (rt && rt.startsWith('/') && !rt.startsWith('/login')) return rt;
