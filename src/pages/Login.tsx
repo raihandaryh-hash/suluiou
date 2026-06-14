@@ -125,7 +125,7 @@ const Login = () => {
             setPendingProvince({ session, forcedNext: '/results' });
             return;
           }
-          navigate('/results', { replace: true });
+          navigate(await nextAfter(session), { replace: true });
           return;
         }
 
@@ -179,14 +179,17 @@ const Login = () => {
         return;
       }
     }
-    const next = await routeAfterAuth(existing);
+    const next = await nextAfter(existing);
     navigate(next, { replace: true });
   };
 
   const handleProvinceDone = async () => {
     if (!pendingProvince) return;
     const { session, forcedNext } = pendingProvince;
-    const next = forcedNext ?? (await routeAfterAuth(session));
+    const rt = consumeReturnTo();
+    const next = (rt && rt.startsWith('/') && !rt.startsWith('/login'))
+      ? rt
+      : (forcedNext ?? (await routeAfterAuth(session)));
     navigate(next, { replace: true });
   };
 
@@ -283,7 +286,7 @@ const Login = () => {
     };
     setStudentSession(session);
 
-    const next = await routeAfterAuth(session);
+    const next = await nextAfter(session);
     navigate(next, { replace: true });
   };
 
