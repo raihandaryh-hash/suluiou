@@ -126,6 +126,7 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
           generationConfig: {
             maxOutputTokens: 1024,
             temperature: 0.8,
+            thinkingConfig: { thinkingBudget: 0 },
           },
         }),
         signal: controller.signal,
