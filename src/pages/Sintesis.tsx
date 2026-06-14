@@ -9,6 +9,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Link } from "react-router-dom";
 import { sintesisContent as S } from "@/data/sintesisContent";
 import { jalanBaktiContent as JB } from "@/data/jalanBaktiContent";
+import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 
 const LS_KEY = "sulu_phase4_sintesis";
 
@@ -334,6 +335,7 @@ export default function Sintesis() {
           <Link to="/rencana-aksi">Lanjut: Susun Langkahmu →</Link>
         </Button>
       </div>
+      <SuluCompanion />
     </main>
   );
 }
