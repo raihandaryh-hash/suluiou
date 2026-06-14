@@ -22,6 +22,13 @@ import { routeAfterAuth } from '@/lib/authRouter';
 import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 import ProvinceOnboarding from '@/components/onboarding/ProvinceOnboarding';
+import { consumeReturnTo } from '@/components/RequireAuth';
+
+async function nextAfter(session: StudentSession): Promise<string> {
+  const rt = consumeReturnTo();
+  if (rt && rt.startsWith('/') && !rt.startsWith('/login')) return rt;
+  return routeAfterAuth(session);
+}
 
 type PendingProvince = {
   session: StudentSession;
