@@ -42,6 +42,9 @@ import {
   type Tone,
   type PenamparCard,
 } from '@/data/insightContent';
+import InsightNav from '@/components/InsightNav';
+import { SkillMapView } from '@/pages/SkillMap';
+import { getNote, upsertNote, removeNote } from '@/lib/notes';
 
 // ───── Countdown hook ─────
 function useCountdownTo(targetIso: string) {
@@ -816,6 +819,75 @@ function FooterSources() {
   );
 }
 
+// ───── Babak header (arc 4-babak — urutan = makna) ─────
+function BabakHead({ no, kicker, lead }: { no: string; kicker: string; lead?: string }) {
+  return (
+    <div className="container mx-auto px-6 max-w-4xl pt-20 md:pt-24">
+      <div className="flex items-baseline gap-3 mb-3">
+        <span className="font-heading text-sm font-semibold tabular-nums text-[hsl(var(--torch-gold))]">{no}</span>
+        <span className="text-[10px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">{kicker}</span>
+      </div>
+      {lead && <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">{lead}</p>}
+    </div>
+  );
+}
+
+// ───── Catatanku per-babak (sulu_notes_v1, shared dgn Surat Perjalanan) ─────
+function Catatanku({ anchor, label }: { anchor: string; label: string }) {
+  const existing = getNote('insight', anchor);
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState(existing?.text ?? '');
+  const [savedTs, setSavedTs] = useState<number | null>(existing?.ts ?? null);
+  const save = () => {
+    const t = text.trim();
+    if (t) { upsertNote('insight', anchor, label, t); setSavedTs(Date.now()); }
+    else { removeNote('insight', anchor); setSavedTs(null); }
+    setOpen(false);
+  };
+  return (
+    <div className="container mx-auto px-6 max-w-4xl pb-4 pt-2">
+      {!open ? (
+        <button
+          onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span className="text-[hsl(var(--torch-gold))] font-semibold">+</span>
+          {savedTs ? 'Catatanku tersimpan — ubah' : 'Tambah Catatanku'}
+        </button>
+      ) : (
+        <div className="rounded-2xl border border-border bg-secondary/40 p-4">
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={3}
+            placeholder={'Catatan pribadimu tentang ' + label + '...'}
+            className="w-full bg-background border border-input rounded-xl p-3 text-sm text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+          <div className="flex gap-2 mt-2">
+            <Button size="sm" onClick={save}>Simpan</Button>
+            <Button size="sm" variant="ghost" onClick={() => setOpen(false)}>Batal</Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Hadith barang tambang (Ma'adin) — deck Slide 10, verbatim. Pembuka Babak 3.
+// 🔲 review Ust. Hilman di akhir (need-to-know + review, BUKAN blocker deploy).
+const MAADIN = {
+  arabic: 'النَّاسُ مَعَادِنُ كَمَعَادِنِ الذَّهَبِ وَالْفِضَّةِ',
+  translation: 'Manusia itu (ibarat) barang tambang, seperti tambang emas dan perak. Yang terbaik di masa Jahiliah adalah yang terbaik di masa Islam, apabila mereka memahami (agama).',
+  ref: 'HR. Bukhari-Muslim',
+};
+
+const BABAK_NAV = [
+  { id: 'babak-1', label: 'Taruhan' },
+  { id: 'babak-2', label: 'Realita' },
+  { id: 'babak-3', label: 'Bekal' },
+  { id: 'babak-4', label: 'Langkah' },
+];
+
 // ───── Page ─────
 const PERSONA_KEY = 'sulu_insight_persona';
 
@@ -840,118 +912,111 @@ const Insight = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <FloatingPersonaSwitch persona={persona} onSwitch={handleSwitch} />
+      <InsightNav sections={BABAK_NAV} />
 
-          {/* Top nav */}
-          <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
-            <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-              <Logo size="sm" linkTo="/" />
-              <Button asChild variant="ghost" size="sm" className="gap-2">
-                <Link to="/">
-                  <ArrowLeft className="w-4 h-4" /> Kembali
-                </Link>
-              </Button>
+      {/* Top nav */}
+      <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <Logo size="sm" linkTo="/" />
+          <Button asChild variant="ghost" size="sm" className="gap-2">
+            <Link to="/">
+              <ArrowLeft className="w-4 h-4" /> Kembali
+            </Link>
+          </Button>
+        </div>
+      </header>
+
+      <FirstTimerBanner />
+
+      {/* ════════ BABAK 1 — TARUHAN (hati → stakes) ════════ */}
+      <section id="babak-1">
+        {/* Hero */}
+        <section className="container mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-16 max-w-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.1] text-foreground whitespace-pre-line"
+          >
+            {hero.headline}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
+          >
+            {hero.subtext[persona]}
+          </motion.p>
+          <div className="mt-4">
+            <Badge variant="outline" className="text-[10px] text-muted-foreground font-normal">≈ 4 menit</Badge>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-10 flex flex-wrap gap-3"
+          >
+            <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+              <span className="font-semibold text-foreground">{years}</span>{' '}
+              <span className="text-muted-foreground">{hero.countdown.years.suffix}</span>
             </div>
-          </header>
-
-          <FirstTimerBanner />
-
-          {/* SECTION 1 — Hero */}
-          <section className="container mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 max-w-4xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="font-heading font-semibold tracking-tight text-3xl md:text-5xl leading-[1.1] text-foreground whitespace-pre-line"
-            >
-              {hero.headline}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
-            >
-              {hero.subtext[persona]}
-            </motion.p>
-            <div className="mt-4">
-              <Badge variant="outline" className="text-[10px] text-muted-foreground font-normal">≈ 4 menit</Badge>
+            <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+              <span className="font-semibold text-foreground">{months}</span>{' '}
+              <span className="text-muted-foreground">{hero.countdown.months.suffix}</span>
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-10 flex flex-wrap gap-3"
-            >
-              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-                <span className="font-semibold text-foreground">{years}</span>{' '}
-                <span className="text-muted-foreground">{hero.countdown.years.suffix}</span>
-              </div>
-              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-                <span className="font-semibold text-foreground">{months}</span>{' '}
-                <span className="text-muted-foreground">{hero.countdown.months.suffix}</span>
-              </div>
-              <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
-                <span className="font-semibold text-foreground">{hero.countdown.fixed.value}</span>{' '}
-                <span className="text-muted-foreground">{hero.countdown.fixed.suffix}</span>
-              </div>
+            <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
+              <span className="font-semibold text-foreground">{hero.countdown.fixed.value}</span>{' '}
+              <span className="text-muted-foreground">{hero.countdown.fixed.suffix}</span>
+            </div>
           </motion.div>
-          </section>
+        </section>
 
-          {/* Persona inline hint (one-liner) */}
-          <PersonaInlineHint onSwitch={handleSwitch} />
+        {/* Persona inline hint (one-liner, siswa-first + reveal ortu/BK) */}
+        <PersonaInlineHint onSwitch={handleSwitch} />
 
-          {/* 4 KARTU PENAMPAR */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
-            <div className="mb-8">
-              <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">KARTU PENAMPAR</p>
-              <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
-                {penamparSection.headline}
-              </h2>
-              <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">
-                Bukan untuk menakut-nakuti — tapi untuk menunjukkan ruang yang bisa kamu isi.
-              </p>
+        {/* Kartu penampar — wajah ruang yang bisa kamu isi */}
+        <section className="container mx-auto px-6 py-12 max-w-6xl">
+          <div className="mb-8">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">KARTU PENAMPAR</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
+              {penamparSection.headline}
+            </h2>
+            <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">
+              Bukan untuk menakut-nakuti, tapi untuk menunjukkan ruang yang bisa kamu isi.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {penamparSection.cards.map((card) => (
+              <PenamparCardItem key={card.id} card={card} />
+            ))}
+          </div>
+        </section>
+
+        {/* Data Lanjutan toggle — densitas turun (default tertutup) */}
+        <section className="container mx-auto px-6 pt-2 max-w-4xl">
+          <button
+            onClick={() => setDataOpen((v) => !v)}
+            className="w-full flex items-center justify-between gap-4 bg-secondary/40 border border-border border-dashed rounded-2xl px-6 py-4 hover:bg-secondary/60 transition-colors text-left group"
+          >
+            <div>
+              <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
+                DATA LANJUTAN
+              </span>
+              <span className="text-sm text-foreground">
+                {dataOpen
+                  ? 'Sembunyikan data statistik lengkap'
+                  : 'Eksplorasi data statistik selengkapnya: kondisi kerja, NEET, skill landscape, dan tren global'}
+              </span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {penamparSection.cards.map((card) => (
-                <PenamparCardItem key={card.id} card={card} />
-              ))}
-            </div>
-          </section>
+            <ChevronDown
+              className={cn('w-5 h-5 text-muted-foreground transition-transform shrink-0', dataOpen && 'rotate-180')}
+            />
+          </button>
+        </section>
 
-          {/* PAK EVAN INSIGHTS */}
-          <EvanInsights />
-
-          {/* DATA LANJUTAN TOGGLE */}
-          <section className="container mx-auto px-6 pt-4 max-w-4xl">
-            <button
-              onClick={() => setDataOpen((v) => !v)}
-              className="w-full flex items-center justify-between gap-4
-                         bg-secondary/40 border border-border border-dashed
-                         rounded-2xl px-6 py-4 hover:bg-secondary/60
-                         transition-colors text-left group"
-            >
-              <div>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
-                  DATA LANJUTAN
-                </span>
-                <span className="text-sm text-foreground">
-                  {dataOpen
-                    ? 'Sembunyikan data statistik lengkap'
-                    : 'Eksplorasi data statistik selengkapnya — kondisi kerja, NEET, skill landscape, dan tren global'}
-                </span>
-              </div>
-              <ChevronDown
-                className={cn(
-                  'w-5 h-5 text-muted-foreground transition-transform shrink-0',
-                  dataOpen && 'rotate-180'
-                )}
-              />
-            </button>
-          </section>
-
-          {dataOpen && (<>
-          {/* SECTION 2 — Indonesia hari ini */}
+        {dataOpen && (<>
+          {/* Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
             <DataReveal>
@@ -981,8 +1046,7 @@ const Insight = () => {
           </section>
           <UsefulFeedback section="link-match" persona={persona} />
 
-
-          {/* SECTION 3 — NEET ASEAN */}
+          {/* NEET Indonesia vs ASEAN (WDI 6 negara) */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
             <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
             <DataReveal>
@@ -1030,12 +1094,12 @@ const Insight = () => {
           </section>
           <UsefulFeedback section="realita" persona={persona} />
 
-          {/* SECTION 4 — Persona-specific middle */}
+          {/* Persona-specific middle */}
           {persona === 'siswa' && <SkillLandscape persona={persona} />}
           {persona === 'orangtua' && <RoiBlock persona={persona} />}
           {persona === 'gurubk' && <BkBlock persona={persona} />}
 
-          {/* SECTION 5 — Dunia 2025–2030 */}
+          {/* Dunia 2025–2030 */}
           <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
             <SectionHeader tag={worldSection.tag} intro={worldSection.intro[persona]} />
             <DataReveal>
@@ -1075,7 +1139,6 @@ const Insight = () => {
           </section>
           <UsefulFeedback section="jabar" persona={persona} />
 
-
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6 uppercase">{expertSection.tag}</p>
@@ -1097,139 +1160,138 @@ const Insight = () => {
               ))}
             </div>
           </section>
-          </>)}
+        </>)}
 
-          {/* SECTION 6 — Peluang SDM */}
-          <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
-            <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
-            <DataReveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {opportunitySection.items.map((o, i) => (
-                  <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
-                    <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
-                    <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
-                  </div>
-                ))}
-              </div>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="peluang" persona={persona} />
+        <Catatanku anchor="babak-1" label="Taruhan: kondisi duniaku" />
+      </section>
 
-          {/* SECTION 7 — Skill Map Teaser */}
-          <section className="container mx-auto px-6 py-16 max-w-4xl">
-            <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
-              <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3">{skillMapTeaser.tag}</p>
-              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
-                {skillMapTeaser.headline}
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-2xl">
-                {skillMapTeaser.body}
-              </p>
-              <Button asChild variant="outline" className="gap-2">
-                <Link to={skillMapTeaser.href}>
-                  {skillMapTeaser.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </section>
+      {/* ════════ BABAK 2 — REALITA (suara praktisi HR, Pak Evan) ════════ */}
+      <section id="babak-2">
+        <BabakHead
+          no="02"
+          kicker="Realita"
+          lead="Kata orang yang puluhan tahun merekrut. Data lapangan, disajikan apa adanya."
+        />
+        <div className="pt-6">
+          <EvanInsights />
+        </div>
+        <Catatanku anchor="babak-2" label="Realita: suara praktisi" />
+      </section>
 
-          {/* Alumni yang Sudah Membuktikan */}
-          <section className="container mx-auto px-6 py-16 max-w-6xl">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{alumniSection.tag}</p>
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-3xl">{alumniSection.headline}</h2>
-            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{alumniSection.subtext}</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {alumniSection.stories.map((s, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col">
-                  <p className="text-[10px] font-semibold tracking-[0.15em] text-primary uppercase mb-3">{s.sector}</p>
-                  <p className="text-sm text-foreground/85 leading-relaxed mb-4">{s.story}</p>
-                  <p className="text-sm text-foreground/80 italic leading-relaxed mb-4 border-l-2 border-primary/40 pl-3">{s.insight}</p>
-                  <p className="text-xs text-muted-foreground mt-auto italic">{sourcePrefix} {s.source}</p>
+      {/* ════════ BABAK 3 — BEKAL (harapan / agency) ════════ */}
+      <section id="babak-3">
+        <BabakHead no="03" kicker="Bekal" />
+
+        {/* Engsel: pertanyaan → jawaban (peta) */}
+        <section className="container mx-auto px-6 pt-2 pb-8 max-w-4xl">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">
+            Jadi, kemampuan apa yang membuatmu tetap dibutuhkan?
+          </h2>
+          <p className="text-base text-foreground/80 leading-relaxed max-w-2xl mb-6">
+            {skillMapTeaser.body}
+          </p>
+          {/* Pembuka dalil — paradigma "barang tambang": setiap orang punya potensi, yang membedakan adalah pemahaman.
+              🔲 review Ust. Hilman di akhir (need-to-know + review, bukan blocker). */}
+          <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-7 max-w-2xl">
+            <p className="text-lg md:text-xl text-foreground/90 leading-loose mb-3 text-right" dir="rtl" lang="ar">{MAADIN.arabic}</p>
+            <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">&ldquo;{MAADIN.translation}&rdquo;</p>
+            <p className="text-xs text-muted-foreground">{MAADIN.ref}</p>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mt-6">
+            Ini petanya. Yang dicari merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
+          </p>
+        </section>
+
+        {/* Peta skill — embed inline (komponen yang sama dengan /skill-map) */}
+        <section className="container mx-auto px-6 pb-12 max-w-5xl">
+          <SkillMapView embedded />
+        </section>
+
+        {/* Peluang SDM */}
+        <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
+          <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
+          <DataReveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {opportunitySection.items.map((o, i) => (
+                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                  <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
+                  <h3 className="font-heading font-semibold text-base md:text-lg text-foreground leading-snug mb-3">{o.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{o.body}</p>
                 </div>
               ))}
             </div>
-          </section>
+          </DataReveal>
+        </section>
+        <UsefulFeedback section="peluang" persona={persona} />
 
-          {/* SECTION 8 — Persona Callout */}
-          <section className="container mx-auto px-6 py-16 max-w-3xl">
-            <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
-              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4">
-                {personaCallout[persona].headline}
-              </h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {personaCallout[persona].body}
-              </p>
-            </div>
-          </section>
-
-          {/* SECTION 9 — CTA dual-path + Waitlist */}
-          <section className="container mx-auto px-6 py-20 md:py-24 max-w-3xl text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="font-heading font-semibold text-3xl md:text-4xl tracking-tight leading-[1.15] text-foreground"
-            >
-              {ctaSection.headline}
-            </motion.h2>
-            <p className="text-sm md:text-base text-muted-foreground mt-4">
-              {ctaSection.subtext[persona]}
-            </p>
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-              {ctaSection.paths.map((p) => (
-                <Link
-                  key={p.href}
-                  to={p.href}
-                  className={cn(
-                    'group rounded-2xl border p-6 transition-all',
-                    p.variant === 'default'
-                      ? 'bg-primary text-primary-foreground border-primary hover:opacity-90'
-                      : 'bg-secondary/60 border-border hover:border-primary/40'
-                  )}
-                >
-                  <div className="flex items-center justify-between gap-3 mb-2">
-                    <span className="font-heading font-semibold text-base md:text-lg">{p.label}</span>
-                    <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
-                  </div>
-                  <p className={cn('text-sm leading-relaxed', p.variant === 'default' ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
-                    {p.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-            <div className="mt-12">
-              <WaitlistForm persona={persona} />
-            </div>
-          </section>
-
-          {/* SECTION 9.5 — Primary continuation CTA into Spine B */}
-          <section className="container mx-auto px-6 pb-16 max-w-3xl text-center">
-            <div className="rounded-2xl border border-border bg-secondary/40 p-8 md:p-10">
-              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground leading-tight">
-                Sudah lihat dunianya. Sekarang, lihat ke dalam.
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-xl mx-auto">
-                Langkah berikutnya: kenali apa yang sudah Allah titipkan dalam dirimu — nilai, minat, dan kemampuan.
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button asChild size="lg" className="group">
-                  <Link to="/kenali-dirimu">
-                    Lanjut: Kenali Dirimu
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-                <Button asChild variant="ghost" size="sm">
-                  <Link to="/">← Kembali ke beranda</Link>
-                </Button>
+        {/* Alumni yang sudah membuktikan */}
+        <section className="container mx-auto px-6 py-16 max-w-6xl">
+          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{alumniSection.tag}</p>
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-3xl">{alumniSection.headline}</h2>
+          <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{alumniSection.subtext}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {alumniSection.stories.map((s, i) => (
+              <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col">
+                <p className="text-[10px] font-semibold tracking-[0.15em] text-primary uppercase mb-3">{s.sector}</p>
+                <p className="text-sm text-foreground/85 leading-relaxed mb-4">{s.story}</p>
+                <p className="text-sm text-foreground/80 italic leading-relaxed mb-4 border-l-2 border-primary/40 pl-3">{s.insight}</p>
+                <p className="text-xs text-muted-foreground mt-auto italic">{sourcePrefix} {s.source}</p>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
+        </section>
 
-          {/* SECTION 10 — Footer sources */}
-          <FooterSources />
+        <Catatanku anchor="babak-3" label="Bekal: yang akan kubawa" />
+      </section>
+
+      {/* ════════ BABAK 4 — LANGKAH (crescendo → satu pintu) ════════ */}
+      <section id="babak-4">
+        {/* Crescendo */}
+        <section className="container mx-auto px-6 pt-20 md:pt-24 pb-4 max-w-3xl">
+          <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
+            <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4">
+              {personaCallout[persona].headline}
+            </h3>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {personaCallout[persona].body}
+            </p>
+          </div>
+        </section>
+
+        {/* Satu pintu ke depan: Kenali Dirimu */}
+        <section className="container mx-auto px-6 py-16 md:py-20 max-w-3xl text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-heading font-semibold text-3xl md:text-4xl tracking-tight leading-[1.15] text-foreground"
+          >
+            Sudah lihat dunianya. Sekarang, lihat ke dalam.
+          </motion.h2>
+          <p className="text-sm md:text-base text-muted-foreground mt-4 max-w-xl mx-auto">
+            Langkah berikutnya: kenali apa yang sudah Allah titipkan dalam dirimu: nilai, minat, dan kemampuan.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button asChild size="lg" className="group">
+              <Link to="/kenali-dirimu">
+                Lanjut: Kenali Dirimu
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link to="/">← Kembali ke beranda</Link>
+            </Button>
+          </div>
+
+          <div className="mt-12">
+            <WaitlistForm persona={persona} />
+          </div>
+        </section>
+      </section>
+
+      {/* Footer sources */}
+      <FooterSources />
     </main>
   );
 };
