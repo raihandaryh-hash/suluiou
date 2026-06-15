@@ -192,23 +192,43 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
 // Strategi anti-spaghetti: garis kausal-terbukti SELALU tampil (khusus);
 // garis koneksi biasa hanya tampil untuk node aktif. Posisi DIHITUNG, bukan diukur DOM.
 // ─────────────────────────────────────────────────────────────
-const VBW = 1000;        // lebar viewBox (unit)
-const LANE_H = 132;      // tinggi tiap lane (px = unit y)
-const VBH = LANE_H * LAYERS.length;
+// Layout grid rapi (ala effective-html): tiap layer = BAND dengan header strip di atas,
+// node tersusun grid beberapa kolom yang wrap ke bawah. Posisi DIHITUNG dalam px
+// (deterministik) → garis SVG presisi tanpa mengukur DOM, dan tidak ada tumpang tindih.
+const CANVAS_W = 820;
+const SIDE_GUTTER = 24;
+const COLS = 4;
+const HEADER_H = 34;
+const ROW_H = 82;
+const LANE_PAD_B = 20;
+const CARD_W = 158;
+const CELL_W = (CANVAS_W - SIDE_GUTTER * 2) / COLS;
 
-function computePositions() {
-  const pos: Record<string, { xu: number; yu: number; xPct: number }> = {};
-  LAYERS.forEach((layer, li) => {
+interface NodePos { x: number; y: number; }
+interface LayerBand { id: number; name: string; top: number; height: number; colors: typeof LAYERS[number]["colors"]; }
+
+const LAYOUT = (() => {
+  const pos: Record<string, NodePos> = {};
+  const bands: LayerBand[] = [];
+  let y = 0;
+  LAYERS.forEach((layer) => {
     const inLayer = NODES.filter(n => n.layer === layer.id);
+    const rows = Math.max(1, Math.ceil(inLayer.length / COLS));
+    const top = y;
+    const height = HEADER_H + rows * ROW_H + LANE_PAD_B;
     inLayer.forEach((n, i) => {
-      const xu = ((i + 0.5) / inLayer.length) * VBW;
-      const yu = (li + 0.5) * LANE_H;
-      pos[n.id] = { xu, yu, xPct: (xu / VBW) * 100 };
+      const col = i % COLS;
+      const row = Math.floor(i / COLS);
+      pos[n.id] = { x: SIDE_GUTTER + (col + 0.5) * CELL_W, y: top + HEADER_H + (row + 0.5) * ROW_H };
     });
+    bands.push({ id: layer.id, name: layer.name, top, height, colors: layer.colors });
+    y += height;
   });
-  return pos;
-}
-const POS = computePositions();
+  return { pos, bands, canvasH: y };
+})();
+const POS = LAYOUT.pos;
+const BANDS = LAYOUT.bands;
+const CANVAS_H = LAYOUT.canvasH;
 
 // daftar pasangan kausal-terbukti (selalu digambar khusus), dedup arah
 const CAUSAL_EDGES = (() => {
@@ -232,44 +252,45 @@ function PetaView({ activeId, filteredIds, isFiltering, onSelect }: { activeId: 
     return false;
   }
 
+  // kurva 'cable' (cubic bezier) — keluar/masuk node secara vertikal, lebih elegan dari garis lurus
+  const edgePath = (a: NodePos, b: NodePos) => {
+    const my = (a.y + b.y) / 2;
+    return `M ${a.x} ${a.y} C ${a.x} ${my} ${b.x} ${my} ${b.x} ${b.y}`;
+  };
+
   return (
     <div className="overflow-x-auto pb-2">
-      <div className="relative mx-auto" style={{ minWidth: 640, height: VBH }}>
-        {/* lane backgrounds + labels */}
-        {LAYERS.map((layer, li) => (
-          <div
-            key={layer.id}
-            className="absolute left-0 right-0 flex items-center"
-            style={{ top: li * LANE_H, height: LANE_H, backgroundColor: li % 2 === 0 ? "transparent" : "rgba(0,0,0,0.015)" }}
-          >
-            <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded" style={{ color: layer.colors.text, backgroundColor: layer.colors.bg }}>
-              L{layer.id} · {layer.name}
+      <div className="relative mx-auto" style={{ width: CANVAS_W, height: CANVAS_H }}>
+        {/* band backgrounds (selang-seling halus) */}
+        {BANDS.map((band, i) => (
+          <div key={band.id} className="absolute left-0" style={{ top: band.top, width: CANVAS_W, height: band.height, backgroundColor: i % 2 === 1 ? "rgba(15,23,42,0.025)" : "transparent", borderRadius: 14 }} />
+        ))}
+
+        {/* header strip per band — di atas node, tidak menabrak */}
+        {BANDS.map((band) => (
+          <div key={`h-${band.id}`} className="absolute" style={{ top: band.top + 7, left: SIDE_GUTTER - 12, zIndex: 2 }}>
+            <span className="text-[11px] font-bold tracking-[0.15em] uppercase px-2 py-0.5 rounded" style={{ color: band.colors.text, backgroundColor: band.colors.bg }}>
+              L{band.id} · {band.name}
             </span>
           </div>
         ))}
 
-        {/* SVG edges (di belakang node) */}
-        <svg className="absolute inset-0 w-full pointer-events-none" height={VBH} viewBox={`0 0 ${VBW} ${VBH}`} preserveAspectRatio="none">
-          {/* koneksi node aktif (tampil hanya saat ada yang dipilih) */}
+        {/* SVG edges (px presisi, di antara band-bg dan node) */}
+        <svg className="absolute inset-0 pointer-events-none" width={CANVAS_W} height={CANVAS_H} viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`} style={{ zIndex: 3 }}>
           {activeId && activeConns.map(cid => {
             const a = POS[activeId], b = POS[cid];
             if (!a || !b) return null;
-            return <line key={`act-${cid}`} x1={a.xu} y1={a.yu} x2={b.xu} y2={b.yu} stroke="#F59E0B" strokeWidth={2} strokeOpacity={0.7} vectorEffect="non-scaling-stroke" />;
+            return <path key={`act-${cid}`} d={edgePath(a, b)} fill="none" stroke="#F59E0B" strokeWidth={1.8} strokeOpacity={0.6} strokeLinecap="round" />;
           })}
-          {/* relasi kausal terbukti — SELALU tampil, khusus (violet, tebal) */}
           {CAUSAL_EDGES.map((e, i) => {
             const a = POS[e.a], b = POS[e.b];
             if (!a || !b) return null;
             const faded = activeId && activeId !== e.a && activeId !== e.b;
-            return (
-              <line key={`cau-${i}`} x1={a.xu} y1={a.yu} x2={b.xu} y2={b.yu}
-                stroke="#7C3AED" strokeWidth={3} strokeOpacity={faded ? 0.25 : 0.85}
-                strokeDasharray="1 0" vectorEffect="non-scaling-stroke" />
-            );
+            return <path key={`cau-${i}`} d={edgePath(a, b)} fill="none" stroke="#7C3AED" strokeWidth={2.5} strokeOpacity={faded ? 0.18 : 0.8} strokeLinecap="round" />;
           })}
         </svg>
 
-        {/* node overlay */}
+        {/* nodes (kartu grid) */}
         {NODES.map(node => {
           const p = POS[node.id];
           if (!p) return null;
@@ -282,22 +303,21 @@ function PetaView({ activeId, filteredIds, isFiltering, onSelect }: { activeId: 
               key={node.id}
               onClick={() => onSelect(node)}
               title={node.name}
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 rounded-full border text-xs px-2.5 py-1 transition-all max-w-[150px]"
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-start gap-1 rounded-xl border transition-all text-left"
               style={{
-                left: `${p.xPct}%`,
-                top: p.yu,
-                borderWidth: 1.5,
+                left: p.x, top: p.y, width: CARD_W, minHeight: 44,
+                padding: "7px 10px", borderWidth: 1.5,
                 backgroundColor: isActive ? colors.bg : isConn ? "#FFFBEB" : "#FFFFFF",
                 borderColor: isActive ? colors.dot : isConn ? "#FCD34D" : colors.pillBorder,
                 color: isActive ? colors.text : isConn ? "#78350F" : colors.pillText,
-                boxShadow: isActive ? `0 0 0 2px ${colors.ring}` : "0 1px 2px rgba(0,0,0,0.05)",
-                opacity: dimmed(node.id) ? 0.28 : 1,
+                boxShadow: isActive ? `0 0 0 2px ${colors.ring}` : "0 1px 3px rgba(0,0,0,0.06)",
+                opacity: dimmed(node.id) ? 0.25 : 1,
                 zIndex: isActive ? 20 : 10,
               }}
             >
-              {sectorDot && <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: sectorDot }} />}
-              <span className="truncate">{node.name}</span>
-              {node.isProvenCausal && <span className="text-violet-500 font-bold shrink-0">★</span>}
+              {sectorDot && <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-1" style={{ backgroundColor: sectorDot }} />}
+              <span className="text-[11px] leading-snug line-clamp-2 flex-1">{node.name}</span>
+              {node.isProvenCausal && <span className="text-violet-500 text-[11px] font-bold shrink-0 mt-0.5">★</span>}
             </button>
           );
         })}
