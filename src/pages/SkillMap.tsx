@@ -1,87 +1,89 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search } from "lucide-react";
+import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search, Network, List, Maximize2 } from "lucide-react";
 import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
+import { LAYERS, AI_RISK, NODES, ISTILAH_BRIDGE, CONNECTION_MAP, type SkillNode } from "@/data/skillMapContent";
+import { getNote, upsertNote } from "@/lib/notes";
 
-const LAYERS = [
-  { id: 0, name: "Sikap dan Disposisi", subtitle: "Ini akar dari segalanya. Bukan yang diajarkan di kelas, tapi terbentuk dari cara kamu menghadapi hidup sehari-hari — pilihan kecil, kegagalan, dan bagaimana kamu bangkit lagi. Tanpa fondasi ini, skill lain mudah goyah.", note: "Contoh: Rasa ingin tahu yang terus menyala, ulet menghadapi kesulitan, jujur pada diri sendiri, dan bertanggung jawab atas pilihanmu.", colors: { bg: "#FEF3C7", border: "#FCD34D", text: "#92400E", pill: "#FFFBEB", pillBorder: "#FDE68A", pillText: "#78350F", dot: "#F59E0B", ring: "#FCD34D" } },
-  { id: 1, name: "Kapasitas Manusia", subtitle: "Ini yang membuat manusia sulit digantikan AI, setidaknya untuk waktu yang lama. Mesin bisa menghitung dan mengolah data, tapi belum bisa benar-benar memahami orang, memimpin dengan hati, atau menemukan solusi di situasi yang rumit.", note: "Contoh: Empati, berpikir kritis, kepemimpinan, dan kreativitas.", colors: { bg: "#F0FDFA", border: "#5EEAD4", text: "#134E4A", pill: "#F0FDFA", pillBorder: "#99F6E4", pillText: "#0F766E", dot: "#14B8A6", ring: "#5EEAD4" } },
-  { id: 2, name: "Skill Lintas Bidang", subtitle: "Keterampilan yang berguna di hampir semua pekerjaan. Bisa dilatih melalui kursus, pengalaman, dan latihan berulang. Tapi hasilnya akan jauh lebih kuat kalau ditopang oleh Layer 0 dan 1.", note: "Contoh: Komunikasi yang jelas di berbagai situasi, literasi data dan AI, mengajar atau membimbing orang lain, serta kepedulian terhadap lingkungan.", colors: { bg: "#EFF6FF", border: "#93C5FD", text: "#1E3A5F", pill: "#EFF6FF", pillBorder: "#BFDBFE", pillText: "#1D4ED8", dot: "#3B82F6", ring: "#93C5FD" } },
-  { id: 3, name: "Domain dan Sektor", subtitle: "Keahlian khusus yang dibutuhkan di bidang atau industri tertentu. Inilah yang biasanya membuatmu dibutuhkan oleh tempat kerja tertentu.", note: "Contoh: Keuangan syariah, energi terbarukan, pendidikan anak, atau pelayanan kesehatan masyarakat.", colors: { bg: "#F8FAFC", border: "#CBD5E1", text: "#334155", pill: "#F8FAFC", pillBorder: "#E2E8F0", pillText: "#475569", dot: "#64748B", ring: "#CBD5E1" } },
-];
+type NodeType = SkillNode;
 
-const AI_RISK = {
-  safe: { label: "Aman dari AI", sublabel: "Tidak atau sangat sulit disubstitusi", bg: "#DCFCE7", text: "#166534", dot: "#22C55E" },
-  augment: { label: "AI membantu", sublabel: "Manusia + AI lebih kuat dari keduanya sendiri", bg: "#FEF9C3", text: "#713F12", dot: "#EAB308" },
-  vulnerable: { label: "Tugas berisiko tinggi", sublabel: "Tugas spesifik dalam domain ini rentan diotomasi", bg: "#FEE2E2", text: "#991B1B", dot: "#EF4444" },
-};
+// ─────────────────────────────────────────────────────────────
+// Catatanku — tangkap catatan-baca per node. Mengalir ke Surat Perjalanan (D).
+// ─────────────────────────────────────────────────────────────
+function Catatanku({ anchor, label }: { anchor: string; label: string }) {
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState("");
+  const [saved, setSaved] = useState(false);
 
-const NODES = [
-  // LAYER 0
-  { id: "rasa-ingin-tahu", layer: 0, name: "Rasa Ingin Tahu yang Bertahan", techName: "Curiosity and Lifelong Learning", description: "Tidak mati setelah dapat nilai. Tidak berhenti setelah ujian selesai. Kecenderungan terus bertanya bahkan ketika tidak ada yang mewajibkan — dan mencari jawabannya sendiri.", aiRisk: "safe" as const, aiNote: "Motivasi internal dan rasa heran yang autentik tidak bisa direplikasi mesin.", source: "WEF Global Skills Taxonomy (Self-Efficacy cluster); WEF Future of Jobs Report 2025, Ch. 3", wefData: "Top 10 core skill 2025. Tumbuh paling cepat di sektor Insurance (+83%), Education, dan Telecommunications.", connections: ["berpikir-analitis", "literasi-ai", "mengajar"] },
-  { id: "resiliensi", layer: 0, name: "Resiliensi", techName: "Resilience, Flexibility and Agility", description: "Kemampuan berfungsi di tengah ketidakpastian, kegagalan, atau perubahan mendadak. Bukan tidak merasakan tekanan — tetap bergerak di bawahnya.", aiRisk: "safe" as const, aiNote: "Adaptasi terhadap situasi baru yang tidak terduga belum bisa direplikasi AI secara andal.", source: "WEF Future of Jobs Report 2025, Chapter 3, Figure 3.7", wefData: "Skill #2 terbanyak disebut employer sebagai esensial. Naik +17 poin sejak 2023. Pembeda paling kuat antara pekerjaan yang tumbuh vs yang menyusut.", connections: ["berpikir-kreatif", "kepemimpinan"] },
-  { id: "kesadaran-diri", layer: 0, name: "Kesadaran Diri", techName: "Motivation and Self-Awareness / Self-Concept Clarity", description: "Tahu apa yang kamu percaya, bagaimana kamu bereaksi, dan mengapa. Bukan soal percaya diri — soal keakuratan dalam melihat diri sendiri.", aiRisk: "safe" as const, aiNote: "Membutuhkan pengalaman hidup dan kapasitas refleksi yang mendalam.", source: "WEF Global Skills Taxonomy; Krol & Bartz (2021), Journal of Emotion, DOI: 10.1037/emo0000943", wefData: "WEF Skill #5 (Motivation and Self-Awareness).", connections: ["empati", "metakognisi"], causal: [{ to: "empati", direction: "to" as const, citation: "Krol & Bartz (2021): Tiga studi terintegrasi termasuk satu desain eksperimental (N=658). Ketika self-concept clarity dilemahkan secara eksperimental, kapasitas empati dan perilaku menolong menurun secara terukur." }], isProvenCausal: true },
-  { id: "etika", layer: 0, name: "Etika dan Tanggung Jawab", techName: "Ethics — Civic Responsibility, Environmental Stewardship, Global Citizenship", description: "Kesadaran bahwa pilihan karier dan tindakan sehari-hari punya konsekuensi yang melampaui diri sendiri — terhadap komunitas, lingkungan, dan generasi berikutnya.", aiRisk: "safe" as const, aiNote: "Penilaian moral dalam konteks nyata membutuhkan kapasitas nilai yang bersifat manusiawi.", source: "WEF Global Skills Taxonomy (Ethics cluster); WEF Future of Jobs Report 2025", wefData: "Environmental Stewardship khusus tumbuh di Mining, Oil & Gas, dan Government sectors.", connections: ["kepedulian-lingkungan", "mengajar"] },
-  // LAYER 1
-  { id: "metakognisi", layer: 1, name: "Metakognisi", techName: "Metacognition", description: "Kemampuan mendeteksi di tengah proses berpikir apakah strategi yang sedang dipakai sudah tepat, dan mengubahnya sebelum terlambat.", aiRisk: "safe" as const, aiNote: "Kesadaran real-time tentang proses kognitif diri sendiri berada di luar kemampuan sistem AI yang ada saat ini.", source: "Pikouli et al. (2023), Journal of Intelligence, DOI: 10.3390/jintelligence11090182; Journal of Intelligence, Vol. 13, No. 3 (2025)", connections: ["kesadaran-diri", "berpikir-analitis"], causal: [{ to: "berpikir-analitis", direction: "bidirectional" as const, citation: "Pikouli et al. (2023): Intervensi metakognitif secara kausal meningkatkan analytical thinking (eksperimental, terkontrol). J. Intelligence (2025): Latihan analytical thinking secara kausal memperkuat regulasi metakognitif. Hubungan ini dua arah." }], isProvenCausal: true },
-  { id: "berpikir-analitis", layer: 1, name: "Berpikir Analitis", techName: "Analytical Thinking", description: "Memecah masalah yang tampak besar dan tidak jelas menjadi bagian-bagian yang bisa diperiksa satu per satu, lalu menyimpulkan berdasarkan bukti.", aiRisk: "augment" as const, aiNote: "AI dapat mengumpulkan dan menyusun data, tapi penilaian akhir dan interpretasi konteks tetap butuh manusia.", source: "WEF Future of Jobs Report 2025, Ch. 3; O*NET Content Model (Process Skills)", wefData: "Skill #1 yang paling banyak disebut employer sebagai esensial — 7 dari 10 perusahaan pada 2025.", connections: ["metakognisi", "kesadaran-diri", "rasa-ingin-tahu", "literasi-ai", "manajemen-proyek"], causal: [{ to: "metakognisi", direction: "bidirectional" as const, citation: "Hubungan dua arah yang terbukti secara kausal — lihat node Memantau Cara Berpikirmu Sendiri." }], isProvenCausal: true },
-  { id: "berpikir-kreatif", layer: 1, name: "Berpikir Kreatif", techName: "Creative Thinking", description: "Menghasilkan solusi atau cara pandang yang tidak ada dalam petunjuk yang tersedia. Nilainya naik justru karena AI bisa menangani jawaban yang sudah ada.", aiRisk: "augment" as const, aiNote: "AI menghasilkan variasi dari pola yang ada. Kreativitas yang melampaui pola yang dikenal masih domain manusia.", source: "WEF Future of Jobs Report 2025, Ch. 3", wefData: "Skill #4. Kenaikan terbesar di sektor Insurance & Pensions Management.", connections: ["resiliensi", "literasi-ai"] },
-  { id: "berpikir-sistemik", layer: 1, name: "Berpikir Sistemik", techName: "Systems Thinking", description: "Melihat bagaimana bagian-bagian yang terpisah saling memengaruhi satu sama lain — bukan menganalisis satu komponen secara terisolasi.", aiRisk: "safe" as const, aiNote: "Pemahaman tentang interaksi kompleks antara manusia, institusi, dan lingkungan memerlukan kapasitas manusiawi.", source: "WEF Future of Jobs Report 2025; WEF Global Skills Taxonomy (Cognitive Skills cluster)", wefData: "Solidifying di top skills 2030.", connections: ["berpikir-analitis", "kepedulian-lingkungan"] },
-  { id: "empati", layer: 1, name: "Empati dan Mendengarkan Aktif", techName: "Empathy and Active Listening", description: "Memahami kondisi orang lain secara akurat — bukan hanya bersimpati — dan merespons berdasarkan pemahaman itu, bukan asumsi.", aiRisk: "safe" as const, aiNote: "0% substitution potential dari GenAI saat ini. Satu dari skill yang secara eksplisit dikategorikan tidak dapat digantikan AI (WEF/Indeed, 2025).", source: "WEF Future of Jobs Report 2025; Indeed x WEF (2025) GenAI substitution analysis; Krol & Bartz (2021)", wefData: "'Skills rooted in human interaction show no substitution potential.' WEF/Indeed, 2025.", connections: ["kesadaran-diri", "kepemimpinan", "mengajar"], causal: [{ to: "kesadaran-diri", direction: "from" as const, citation: "Krol & Bartz (2021): Self-concept clarity adalah prasyarat kausal untuk empathic concern dan helping behavior — terbukti secara eksperimental." }], isProvenCausal: true },
-  { id: "kepemimpinan", layer: 1, name: "Kepemimpinan dan Pengaruh Sosial", techName: "Leadership and Social Influence", description: "Kemampuan menggerakkan orang lain menuju tujuan bersama — bukan karena jabatan, tapi karena kepercayaan dan kejelasan arah.", aiRisk: "safe" as const, aiNote: "Kepercayaan dan otoritas yang tumbuh dari relasi manusiawi tidak dapat direplikasi mesin.", source: "WEF Future of Jobs Report 2025, Ch. 3", wefData: "Kenaikan terbesar dari semua skill: +22 poin sejak 2023.", connections: ["resiliensi", "empati", "manajemen-proyek"] },
-  // LAYER 2
-  { id: "literasi-ai", layer: 2, name: "Literasi AI dan Data", techName: "AI and Big Data", description: "Membaca apa yang data katakan. Mengevaluasi output AI secara kritis. Menggunakannya untuk mengambil keputusan yang lebih baik — bukan menggantikan penilaian manusia dengan mesin.", aiRisk: "augment" as const, aiNote: "Skill ini tentang mengawasi AI, bukan dikerjakan AI. Orang yang paham AI menggantikan orang yang tidak paham.", source: "WEF Future of Jobs Report 2025, Ch. 3; WEF Global Skills Taxonomy (Technology Skills)", wefData: "Skill tumbuh tercepat 2025-2030. Naik di lebih dari 90% industri.", connections: ["metakognisi", "berpikir-analitis", "rasa-ingin-tahu", "teknologi-digital"] },
-  { id: "keamanan-digital", layer: 2, name: "Keamanan Digital dan Jaringan", techName: "Networks and Cybersecurity", description: "Memahami bagaimana sistem digital bekerja dan bagaimana melindungi data serta infrastruktur dari ancaman yang semakin kompleks.", aiRisk: "augment" as const, aiNote: "AI mendeteksi ancaman otomatis, tapi respons strategis dan keputusan etis tetap butuh manusia.", source: "WEF Future of Jobs Report 2025, Ch. 3", wefData: "Skill #2 tumbuh tercepat. Didorong oleh fragmentasi geopolitik.", connections: ["literasi-ai", "teknologi-digital"] },
-  { id: "literasi-teknologi", layer: 2, name: "Literasi Teknologi", techName: "Technological Literacy", description: "Kemampuan menggunakan, mengevaluasi, dan beradaptasi dengan teknologi baru — tanpa harus membangunnya sendiri.", aiRisk: "augment" as const, aiNote: "Kemampuan beradaptasi lebih bernilai dari keahlian satu platform spesifik.", source: "WEF Future of Jobs Report 2025, Figure 3.7; O*NET Content Model (Technical Skills)", wefData: "Pembeda paling signifikan antara growing vs declining jobs dalam hal skill proficiency (WEF Figure 3.7).", connections: ["literasi-ai", "keamanan-digital", "teknologi-digital", "pertanian-modern"] },
-  { id: "manajemen-proyek", layer: 2, name: "Manajemen Proyek dan Sumber Daya", techName: "Project Management / Resource Management", description: "Mengubah tujuan besar menjadi langkah konkret yang bisa dikerjakan tim, dengan sumber daya yang tersedia — waktu, orang, anggaran.", aiRisk: "augment" as const, aiNote: "AI membantu penjadwalan dan alokasi, tapi prioritas dan keputusan tentang manusia tetap domain manajer.", source: "WEF Global Skills Taxonomy (Management Skills); O*NET Resource Management Skills", wefData: "Project Managers termasuk 15 pekerjaan dengan pertumbuhan absolut terbesar secara global.", connections: ["kepemimpinan", "berpikir-analitis", "energi-terbarukan"] },
-  { id: "komunikasi-kompleks", layer: 2, name: "Komunikasi Kompleks", techName: "Communication / Engagement Skills", description: "Menyampaikan ide yang rumit kepada orang yang berbeda latar belakang — secara akurat, tanpa menyederhanakan sampai kehilangan makna.", aiRisk: "augment" as const, aiNote: "AI dapat menghasilkan teks, tapi konteks, nada, dan kepekaan terhadap audiens spesifik masih membutuhkan penilaian manusia.", source: "O*NET Content Model (Social Skills); WEF Global Skills Taxonomy (Engagement Skills)", connections: ["empati", "mengajar", "kepemimpinan"] },
-  { id: "kepedulian-lingkungan", layer: 2, name: "Kepedulian Lingkungan", techName: "Environmental Stewardship", description: "Memahami dampak nyata pilihan bisnis dan karier terhadap keberlanjutan — dan mengintegrasikannya ke dalam cara kerja sehari-hari.", aiRisk: "safe" as const, aiNote: "Penilaian dampak lingkungan membutuhkan konteks lokal dan nilai yang tidak bisa diotomasi.", source: "WEF Future of Jobs Report 2025; IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025", wefData: "Tumbuh signifikan di Oil & Gas, Mining, dan Government sectors.", indonesiaData: "Gap kritis: 1,72 juta green jobs diproyeksikan tersedia pada 2030 (IESR), tapi Kemnaker menargetkan melatih hanya 15.000 orang sampai 2029.", connections: ["etika", "berpikir-sistemik", "energi-terbarukan"] },
-  { id: "mengajar", layer: 2, name: "Mengajar dan Mentoring", techName: "Teaching and Mentoring", description: "Mentransfer pemahaman ke orang lain secara efektif — bukan hanya menjelaskan, tapi memastikan orang lain bisa menggunakan pengetahuan itu.", aiRisk: "safe" as const, aiNote: "Pendidikan bermakna membutuhkan kepekaan terhadap kondisi spesifik setiap orang.", source: "WEF Global Skills Taxonomy (Working with Others); WEF Future of Jobs Report 2025", wefData: "University and Higher Education Teachers dan Secondary Education Teachers masuk 15 pekerjaan dengan pertumbuhan absolut terbesar secara global.", connections: ["empati", "komunikasi-kompleks", "etika", "pendidikan"] },
-  // LAYER 3 — GROWING
-  { id: "energi-terbarukan", layer: 3, name: "Energi Terbarukan dan Lingkungan", techName: "Renewable Energy / Green Economy", description: "Subsektor yang butuh SDM segera: PLTS (Teknisi Instalasi Panel Surya, Manajer Proyek PLTS, Auditor Energi), Bioenergi (Insinyur Proses, Agronomist Energi), Angin & Geotermal (Teknisi Turbin, Analis Pemetaan, Ahli Geologi Panas Bumi), dan lintas subsektor (Insinyur Integrasi Sistem, Spesialis Energy Storage, Konsultan Carbon Footprint).", aiRisk: "safe" as const, aiNote: "Pekerjaan lapangan dan engineering judgment dalam konteks fisik nyata.", sectorStatus: "growing" as const, source: "IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025; Kemnaker RTKN 2025-2029", indonesiaData: "1,72 juta jobs diproyeksikan tersedia pada 2030 (IESR). Kemnaker hanya menargetkan melatih 15.000 orang sampai 2029. Gap ini adalah peluang.", connections: ["kepedulian-lingkungan", "manajemen-proyek"] },
-  { id: "teknologi-digital", layer: 3, name: "Teknologi dan Digital", techName: "Information Technology / Digital Economy", description: "Software developer, data analyst, AI/ML engineer, cybersecurity analyst, UI/UX designer, FinTech engineer.", aiRisk: "augment" as const, aiNote: "Entry-level developer turun 20% sejak 2022 (Stanford AI Index 2026). Yang bertahan: yang bisa mengawasi dan mengarahkan sistem AI.", sectorStatus: "growing" as const, source: "WEF FoJ 2025; BPS Sakernas 2024 (KBLI J); Stanford AI Index 2026", wefData: "Big Data Specialist: +110%. FinTech Engineer: +95%. AI/ML Specialist: +85%. Software Developer: +60% (persentase global, WEF FoJ 2025).", indonesiaData: "KBLI J (Informasi & Komunikasi): 1,03 juta pekerja saat ini (0,71% dari total workforce) — kecil tapi tumbuh paling cepat.", connections: ["literasi-ai", "keamanan-digital", "literasi-teknologi"] },
-  { id: "pendidikan", layer: 3, name: "Pendidikan dan Pengembangan SDM", techName: "Education / Human Capital Development", description: "Pengajar semua jenjang, instructional designer, konselor karier, pelatih vokasi, pengembang kurikulum.", aiRisk: "safe" as const, aiNote: "AI membantu administrasi dan produksi konten, tapi tidak dapat menggantikan proses belajar yang sesungguhnya.", sectorStatus: "growing" as const, source: "WEF FoJ 2025; BPS Sakernas 2024 (KBLI P); OECD Career Preparation Report 2024", indonesiaData: "7,16 juta pekerja (4,95% workforce). Hanya 28% siswa usia 15 tahun Indonesia punya rencana karier realistis (OECD 2024).", connections: ["mengajar", "empati"] },
-  { id: "kesehatan", layer: 3, name: "Kesehatan dan Layanan Sosial", techName: "Healthcare / Care Economy", description: "Tenaga keperawatan, konselor, social worker, community health worker, psikolog klinis.", aiRisk: "safe" as const, aiNote: "AI membantu diagnostik dan administrasi, tapi perawatan manusia membutuhkan kehadiran fisik dan empati yang tidak dapat digantikan.", sectorStatus: "growing" as const, source: "WEF FoJ 2025; BPS Sakernas 2024 (KBLI Q); ILO World Employment and Social Outlook 2024", wefData: "Nursing Professionals dan Social Work Professionals masuk 15 pekerjaan dengan pertumbuhan absolut terbesar secara global.", indonesiaData: "2,37 juta pekerja saat ini (1,64% workforce). Tumbuh karena aging population.", connections: ["empati", "mengajar"] },
-  { id: "keuangan-syariah", layer: 3, name: "Keuangan Syariah dan Halal Economy", techName: "Islamic Finance / Halal Economy", description: "Analis sukuk, konsultan fiqh muamalah terapan, risk manager syariah, auditor halal.", aiRisk: "augment" as const, aiNote: "AI membantu analisis data keuangan, tapi penilaian kepatuhan syariah membutuhkan pengetahuan fiqh yang tidak bisa direplikasi mesin.", sectorStatus: "growing" as const, source: "KNEKS 2024; SGIE Report 2024/2025; OJK Roadmap Keuangan Syariah Indonesia 2023-2027", indonesiaData: "Aset perbankan syariah tumbuh 33,92% dalam satu tahun. Kontribusi sektor halal ke PDB: 47,27% (~Rp10.600 triliun, 2024). Indonesia #1 modest fashion, #2 halal tourism dunia.", connections: ["berpikir-sistemik", "manajemen-proyek", "etika"] },
-  { id: "pertanian-modern", layer: 3, name: "Pertanian Modern dan Agritech", techName: "Agricultural Technology / Food Security", description: "Precision farming specialist, agri-supply chain manager, IoT pertanian, teknisi sistem irigasi cerdas.", aiRisk: "augment" as const, aiNote: "AI mengoptimalkan irigasi dan prediksi panen, tapi manajemen lapangan dan adaptasi di konteks lokal masih butuh manusia.", sectorStatus: "growing" as const, source: "WEF FoJ 2025; BPS Sakernas 2024 (KBLI A); Bappenas RPJMN 2025-2029", wefData: "Farmworkers: pertumbuhan absolut terbesar secara global — proyeksi +35 juta jobs by 2030.", indonesiaData: "40,76 juta pekerja (28,18% workforce) — sektor terbesar. Indonesia masih mengimpor gandum, kedelai, dan bawang putih.", connections: ["kepedulian-lingkungan", "literasi-teknologi"] },
-  // LAYER 3 — VULNERABLE
-  { id: "klerikal", layer: 3, name: "Pekerjaan Klerikal dan Administratif", techName: "Clerical Support / Administrative Work", description: "Entri data, pemrosesan dokumen, administrasi rutin, kesekretariatan standar. Bukan orang yang digantikan — tugas spesifik yang sudah bisa dikerjakan AI lebih cepat.", aiRisk: "vulnerable" as const, aiNote: "Paparan GenAI tertinggi di Indonesia: 93,9% pekerjaan klerikal terpapar. 67,5% dalam kelompok risiko tertinggi (ILO, 2024). Pekerja muda 15-24 tahun paling rentan karena memulai karier di posisi ini.", sectorStatus: "vulnerable" as const, source: "ILO Generative AI impact analysis ASEAN 2024; WEF FoJ 2025; BPS Sakernas 2024", indonesiaData: "ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya akibat GenAI. Mayoritas mengalami augmentasi. Tapi entry-level administratif paling terdampak dalam jangka pendek.", connections: [] },
-  { id: "ritel-manual", layer: 3, name: "Ritel dan Layanan Manual Terstruktur", techName: "Retail / Structured Manual Service", description: "Kasir, petugas inventaris, operator standar, pemrosesan transaksi rutin — tugas berulang yang dapat dipetakan dengan baik oleh mesin.", aiRisk: "vulnerable" as const, aiNote: "91,1% tugas di sektor perdagangan besar dan eceran berisiko diotomasi. 77,9% di sektor akomodasi dan makan minum.", sectorStatus: "vulnerable" as const, source: "Digitalisasi Pasar Kerja Indonesia (ResearchGate 2024); WEF FoJ 2025; BPS KBLI G dan I", indonesiaData: "27,33 juta pekerja di KBLI G perdagangan (18,89% workforce) — sektor terbesar kedua. Ini bukan berarti semua kehilangan pekerjaan, tapi tugas-tugas spesifik dalam sektor ini akan berubah fundamental.", connections: [] },
-];
+  useEffect(() => {
+    const n = getNote("skillmap", anchor);
+    setText(n?.text ?? "");
+    setOpen(!!n?.text);
+  }, [anchor]);
 
-function buildConnectionMap() {
-  const map: Record<string, Set<string>> = {};
-  NODES.forEach(n => {
-    map[n.id] = new Set(n.connections || []);
-    (n.causal || []).forEach(c => map[n.id].add(c.to));
-  });
-  return map;
+  function save() {
+    upsertNote("skillmap", anchor, label, text);
+    setSaved(true);
+    window.setTimeout(() => setSaved(false), 1500);
+  }
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <span className="text-base leading-none">+</span> Catatanku tentang skill ini
+      </button>
+    );
+  }
+
+  return (
+    <div className="rounded-xl border border-border bg-muted/40 p-3">
+      <p className="text-xs font-bold tracking-widest uppercase mb-2 text-muted-foreground">Catatanku</p>
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Apa yang menarik buatmu di sini? Tulis sebelum lupa — ini akan terkumpul di Surat Perjalananmu nanti."
+        className="w-full min-h-[72px] rounded-lg border border-border bg-background p-2 text-sm leading-relaxed outline-none focus:border-primary/60"
+      />
+      <div className="flex items-center gap-3 mt-2">
+        <button
+          onClick={save}
+          className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+        >
+          Simpan
+        </button>
+        {saved && <span className="text-xs text-green-600">Tersimpan ✓</span>}
+      </div>
+    </div>
+  );
 }
-const CONNECTION_MAP = buildConnectionMap();
 
-interface NodeType { id: string; layer: number; name: string; techName: string; description: string; aiRisk: keyof typeof AI_RISK; aiNote: string; source: string; wefData?: string; indonesiaData?: string; connections: string[]; causal?: { to: string; direction: "to"|"from"|"bidirectional"; citation: string }[]; isProvenCausal?: boolean; sectorStatus?: "growing"|"vulnerable"; localContextExample?: string }
-
+// ─────────────────────────────────────────────────────────────
+// NodePill — chip di view Daftar
+// ─────────────────────────────────────────────────────────────
 function NodePill({ node, isActive, isConnected, isJembatanHighlighted, dimmed, onClick }: { node: NodeType; isActive: boolean; isConnected: boolean; isJembatanHighlighted: boolean; dimmed: boolean; onClick: () => void }) {
   const colors = LAYERS[node.layer].colors;
-  let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1 };
+  let style: React.CSSProperties = { opacity: dimmed ? 0.3 : 1, borderWidth: 1.5 };
   let className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all bg-background border-border text-muted-foreground";
   if (isActive) {
-    style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1 };
+    style = { backgroundColor: colors.bg, borderColor: colors.dot, color: colors.text, boxShadow: `0 0 0 2px ${colors.ring}`, opacity: 1, borderWidth: 1.5 };
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   } else if (isConnected) {
-    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1 };
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", opacity: 1, borderWidth: 1.5 };
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   } else if (isJembatanHighlighted) {
-    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", boxShadow: "0 0 0 2px #FCD34D", opacity: 1 };
+    style = { backgroundColor: "#FFFBEB", borderColor: "#FCD34D", color: "#78350F", boxShadow: "0 0 0 2px #FCD34D", opacity: 1, borderWidth: 1.5 };
     className = "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border shrink-0 transition-all";
   }
   const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
   return (
-    <button id={`node-${node.id}`} onClick={onClick} className={className} style={{ ...style, borderWidth: 1.5 }}>
+    <button id={`node-${node.id}`} onClick={onClick} className={className} style={style}>
       {sectorDot && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: sectorDot }} />}
       <span>{node.name}</span>
-      {node.isProvenCausal && <span className="text-violet-400 text-xs font-bold ml-0.5">★</span>}
+      {node.isProvenCausal && <span className="text-violet-500 text-xs font-bold ml-0.5">★</span>}
     </button>
   );
 }
@@ -101,6 +103,9 @@ function DataBox({ colorKey, label, children }: { colorKey: string; label: strin
   );
 }
 
+// ─────────────────────────────────────────────────────────────
+// NodeDetail — panel detail (dipakai di Peta & Daftar). Kini + Catatanku.
+// ─────────────────────────────────────────────────────────────
 function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: () => void; onNavigate: (n: NodeType) => void }) {
   const [showSrc, setShowSrc] = useState(false);
   const ai = AI_RISK[node.aiRisk];
@@ -116,7 +121,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
             </div>
             <p className="text-xs font-mono text-muted-foreground">{node.techName}</p>
           </div>
-          <button onClick={onClose}><X className="w-4 h-4 text-muted-foreground" /></button>
+          <button onClick={onClose} aria-label="Tutup"><X className="w-4 h-4 text-muted-foreground" /></button>
         </div>
         <div className="flex flex-wrap gap-2 mt-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full" style={{ backgroundColor: ai.bg, color: ai.text }}>
@@ -169,6 +174,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
             </div>
           </div>
         )}
+        <Catatanku anchor={node.id} label={node.name} />
         <div>
           <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSrc ? "rotate-180" : ""}`} />
@@ -181,39 +187,128 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
   );
 }
 
-const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: string; id: string | null; note?: string }[]; primary: string | false; note?: string }[] = [
-  { popular: "Soft skills", layer: "Layer 0 + Layer 1", nodes: [
-    { label: "Sikap & Disposisi", id: null, note: "(seluruh Layer 0)" },
-    { label: "Kapasitas Manusia", id: null, note: "(seluruh Layer 1)" },
-  ], primary: false },
-  { popular: "Berpikir Kritis / Critical Thinking", layer: "Layer 1", nodes: [
-    { label: "Berpikir Analitis", id: "berpikir-analitis" },
-    { label: "Berpikir Sistemik", id: "berpikir-sistemik" },
-  ], primary: "berpikir-analitis", note: "Dalam OECD Learning Compass dan framework Pak Dillo, Critical Thinking mencakup kemampuan mengevaluasi bukti dan mempertanyakan asumsi — ini terdistribusi di Berpikir Analitis dan Berpikir Sistemik di peta ini." },
-  { popular: "Teamwork", layer: "Layer 1–2", nodes: [
-    { label: "Empati", id: "empati" },
-    { label: "Kepemimpinan", id: "kepemimpinan" },
-    { label: "Komunikasi Kompleks", id: "komunikasi-kompleks" },
-  ], primary: "empati" },
-  { popular: "Emotional Intelligence / EQ", layer: "Layer 0–1", nodes: [
-    { label: "Empati", id: "empati" },
-    { label: "Kesadaran Diri", id: "kesadaran-diri" },
-  ], primary: "empati" },
-  { popular: "Problem solving", layer: "Layer 1", nodes: [
-    { label: "Berpikir Analitis", id: "berpikir-analitis" },
-    { label: "Berpikir Kreatif", id: "berpikir-kreatif" },
-  ], primary: "berpikir-analitis" },
-  { popular: "Komunikasi", layer: "Layer 1–2", nodes: [
-    { label: "Komunikasi Kompleks", id: "komunikasi-kompleks" },
-    { label: "Empati", id: "empati" },
-  ], primary: "komunikasi-kompleks" },
-  { popular: "Adaptability", layer: "Layer 0", nodes: [{ label: "Resiliensi", id: "resiliensi" }], primary: "resiliensi" },
-  { popular: "Growth mindset", layer: "Layer 0", nodes: [
-    { label: "Rasa Ingin Tahu", id: "rasa-ingin-tahu" },
-    { label: "Resiliensi", id: "resiliensi" },
-  ], primary: "rasa-ingin-tahu" },
-];
+// ─────────────────────────────────────────────────────────────
+// PETA VIEW — graph: 4 lane, node berposisi deterministik, garis SVG.
+// Strategi anti-spaghetti: garis kausal-terbukti SELALU tampil (khusus);
+// garis koneksi biasa hanya tampil untuk node aktif. Posisi DIHITUNG, bukan diukur DOM.
+// ─────────────────────────────────────────────────────────────
+const VBW = 1000;        // lebar viewBox (unit)
+const LANE_H = 132;      // tinggi tiap lane (px = unit y)
+const VBH = LANE_H * LAYERS.length;
 
+function computePositions() {
+  const pos: Record<string, { xu: number; yu: number; xPct: number }> = {};
+  LAYERS.forEach((layer, li) => {
+    const inLayer = NODES.filter(n => n.layer === layer.id);
+    inLayer.forEach((n, i) => {
+      const xu = ((i + 0.5) / inLayer.length) * VBW;
+      const yu = (li + 0.5) * LANE_H;
+      pos[n.id] = { xu, yu, xPct: (xu / VBW) * 100 };
+    });
+  });
+  return pos;
+}
+const POS = computePositions();
+
+// daftar pasangan kausal-terbukti (selalu digambar khusus), dedup arah
+const CAUSAL_EDGES = (() => {
+  const seen = new Set<string>();
+  const out: { a: string; b: string; bidir: boolean }[] = [];
+  NODES.forEach(n => (n.causal || []).forEach(c => {
+    const key = [n.id, c.to].sort().join("|");
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push({ a: n.id, b: c.to, bidir: c.direction === "bidirectional" });
+  }));
+  return out;
+})();
+
+function PetaView({ activeId, filteredIds, isFiltering, onSelect }: { activeId: string | null; filteredIds: Set<string>; isFiltering: boolean; onSelect: (n: NodeType) => void }) {
+  const activeConns = activeId ? Array.from(CONNECTION_MAP[activeId] || []) : [];
+
+  function dimmed(id: string) {
+    if (isFiltering && !filteredIds.has(id)) return true;
+    if (activeId && id !== activeId && !activeConns.includes(id)) return true;
+    return false;
+  }
+
+  return (
+    <div className="overflow-x-auto pb-2">
+      <div className="relative mx-auto" style={{ minWidth: 640, height: VBH }}>
+        {/* lane backgrounds + labels */}
+        {LAYERS.map((layer, li) => (
+          <div
+            key={layer.id}
+            className="absolute left-0 right-0 flex items-center"
+            style={{ top: li * LANE_H, height: LANE_H, backgroundColor: li % 2 === 0 ? "transparent" : "rgba(0,0,0,0.015)" }}
+          >
+            <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded" style={{ color: layer.colors.text, backgroundColor: layer.colors.bg }}>
+              L{layer.id} · {layer.name}
+            </span>
+          </div>
+        ))}
+
+        {/* SVG edges (di belakang node) */}
+        <svg className="absolute inset-0 w-full pointer-events-none" height={VBH} viewBox={`0 0 ${VBW} ${VBH}`} preserveAspectRatio="none">
+          {/* koneksi node aktif (tampil hanya saat ada yang dipilih) */}
+          {activeId && activeConns.map(cid => {
+            const a = POS[activeId], b = POS[cid];
+            if (!a || !b) return null;
+            return <line key={`act-${cid}`} x1={a.xu} y1={a.yu} x2={b.xu} y2={b.yu} stroke="#F59E0B" strokeWidth={2} strokeOpacity={0.7} vectorEffect="non-scaling-stroke" />;
+          })}
+          {/* relasi kausal terbukti — SELALU tampil, khusus (violet, tebal) */}
+          {CAUSAL_EDGES.map((e, i) => {
+            const a = POS[e.a], b = POS[e.b];
+            if (!a || !b) return null;
+            const faded = activeId && activeId !== e.a && activeId !== e.b;
+            return (
+              <line key={`cau-${i}`} x1={a.xu} y1={a.yu} x2={b.xu} y2={b.yu}
+                stroke="#7C3AED" strokeWidth={3} strokeOpacity={faded ? 0.25 : 0.85}
+                strokeDasharray="1 0" vectorEffect="non-scaling-stroke" />
+            );
+          })}
+        </svg>
+
+        {/* node overlay */}
+        {NODES.map(node => {
+          const p = POS[node.id];
+          if (!p) return null;
+          const colors = LAYERS[node.layer].colors;
+          const isActive = activeId === node.id;
+          const isConn = activeId ? activeConns.includes(node.id) : false;
+          const sectorDot = node.sectorStatus === "growing" ? "#22C55E" : node.sectorStatus === "vulnerable" ? "#EF4444" : null;
+          return (
+            <button
+              key={node.id}
+              onClick={() => onSelect(node)}
+              title={node.name}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 rounded-full border text-xs px-2.5 py-1 transition-all max-w-[150px]"
+              style={{
+                left: `${p.xPct}%`,
+                top: p.yu,
+                borderWidth: 1.5,
+                backgroundColor: isActive ? colors.bg : isConn ? "#FFFBEB" : "#FFFFFF",
+                borderColor: isActive ? colors.dot : isConn ? "#FCD34D" : colors.pillBorder,
+                color: isActive ? colors.text : isConn ? "#78350F" : colors.pillText,
+                boxShadow: isActive ? `0 0 0 2px ${colors.ring}` : "0 1px 2px rgba(0,0,0,0.05)",
+                opacity: dimmed(node.id) ? 0.28 : 1,
+                zIndex: isActive ? 20 : 10,
+              }}
+            >
+              {sectorDot && <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: sectorDot }} />}
+              <span className="truncate">{node.name}</span>
+              {node.isProvenCausal && <span className="text-violet-500 font-bold shrink-0">★</span>}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Jembatan Istilah (sama seperti sebelumnya, dari skillMapContent)
+// ─────────────────────────────────────────────────────────────
 function JembatanIstilah({ onNavigate }: { onNavigate: (nodeIds: string[]) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [activeChip, setActiveChip] = useState<string | null>(null);
@@ -258,62 +353,54 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeIds: string[]) => vo
           const navigableIds = item.nodes.map((n) => n.id).filter((id): id is string => !!id);
           return (
             <div className="rounded-xl border border-border bg-background/60 p-4 mt-2">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="font-semibold text-sm text-foreground">{item.popular}</span>
-                <span className="text-xs text-muted-foreground">→ {item.layer}</span>
-              </div>
-              {item.note && (
-                <p className="text-xs text-muted-foreground leading-relaxed mb-3">{item.note}</p>
-              )}
-              <div className="flex flex-wrap gap-2">
-                {item.nodes.map((node) => (
-                  <button
-                    key={node.label}
-                    onClick={() => node.id && onNavigate([node.id])}
-                    disabled={!node.id}
-                    className={cn(
-                      "text-xs px-3 py-1.5 rounded-full border transition-all",
-                      node.id
-                        ? "bg-secondary/60 border-border hover:border-primary/60 hover:bg-primary/5 text-foreground"
-                        : "bg-secondary/30 border-border/50 text-muted-foreground cursor-default"
-                    )}
-                  >
-                    {node.label}
-                    {node.note && <span className="ml-1 text-muted-foreground">{node.note}</span>}
-                    {node.id && " →"}
-                  </button>
+              <p className="text-xs text-muted-foreground mb-2">{item.popular} <span className="opacity-60">· {item.layer}</span></p>
+              <div className="flex flex-wrap gap-2 mb-2">
+                {item.nodes.map((n) => (
+                  <span key={n.label} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-foreground/80">
+                    {n.label}{n.note ? ` ${n.note}` : ""}
+                  </span>
                 ))}
               </div>
+              {item.note && <p className="text-xs text-muted-foreground leading-relaxed mb-2">{item.note}</p>}
               {navigableIds.length > 0 && (
-                <button
-                  onClick={() => onNavigate(navigableIds)}
-                  className="text-xs px-3 py-1.5 rounded-full bg-primary text-primary-foreground mt-3 hover:bg-primary/90 transition-colors"
-                >
-                  Lihat di Peta Skill →
+                <button onClick={() => onNavigate(navigableIds)} className="text-xs font-medium text-primary underline underline-offset-2">
+                  Sorot di peta →
                 </button>
               )}
             </div>
           );
         })()}
-        <p className="text-xs text-muted-foreground mt-3 italic">Klik chip → lihat deskripsi. Klik "Lihat di Peta Skill" → sorot semua node terkait di peta.</p>
       </div>
     </div>
   );
 }
 
-export default function SkillMap() {
+const FILTERS: { id: "all" | "growing" | "safe" | "layer0"; label: string }[] = [
+  { id: "all", label: "Semua" },
+  { id: "safe", label: "Aman dari AI" },
+  { id: "growing", label: "Sektor tumbuh" },
+  { id: "layer0", label: "Fondasi (Layer 0)" },
+];
+
+// ─────────────────────────────────────────────────────────────
+// SkillMapView — inti yang bisa dipakai standalone (/skill-map) & embed (Insight Babak 3)
+// ─────────────────────────────────────────────────────────────
+export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
+  const [view, setView] = useState<"peta" | "daftar">(() =>
+    typeof window !== "undefined" && window.innerWidth < 768 ? "daftar" : "peta"
+  );
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState(new Set([0]));
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
+  const [expandedLayers, setExpandedLayers] = useState<Set<number>>(new Set([0, 1, 2, 3]));
   const [jembatanHighlightIds, setJembatanHighlightIds] = useState<Set<string>>(new Set());
-  const activeNode = NODES.find(n => n.id === activeId) || null;
-  const connectedIds = useMemo(() => activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>(), [activeId]);
-  const hasActive = activeId !== null;
+
+  const activeNode = useMemo(() => NODES.find(n => n.id === activeId) || null, [activeId]);
+  const connectedIds = useMemo(() => (activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>()), [activeId]);
 
   const filteredNodes = useMemo(() => {
     return NODES.filter(node => {
-      const q = searchQuery.toLowerCase();
+      const q = searchQuery.trim().toLowerCase();
       const matchesSearch = !q || node.name.toLowerCase().includes(q) || node.techName.toLowerCase().includes(q);
       const matchesFilter =
         activeFilter === "all" ||
@@ -324,252 +411,173 @@ export default function SkillMap() {
     });
   }, [searchQuery, activeFilter]);
   const filteredIds = useMemo(() => new Set(filteredNodes.map(n => n.id)), [filteredNodes]);
-  const isFiltering = searchQuery.length > 0 || activeFilter !== "all";
+  const isFiltering = searchQuery.trim().length > 0 || activeFilter !== "all";
 
-  useEffect(() => {
-    if (isFiltering) {
-      setExpanded(new Set(filteredNodes.map(n => n.layer)));
-    } else {
-      setExpanded(new Set([0]));
-    }
-  }, [isFiltering, filteredNodes]);
-
-  function toggleLayer(id: number) { setExpanded(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; }); }
-  function handleClick(node: NodeType) {
+  function handleSelect(node: NodeType) {
+    setActiveId(prev => (prev === node.id ? null : node.id));
     setJembatanHighlightIds(new Set());
-    setActiveId(prev => prev === node.id ? null : node.id);
   }
-  function handleNavigate(node: NodeType) { setActiveId(node.id); setExpanded(prev => new Set([...prev, node.layer])); window.scrollTo({ top: 0, behavior: "smooth" }); }
-
-  function handleJembatanNavigate(nodeIds: string[]) {
-    if (nodeIds.length === 1) {
-      const target = NODES.find(n => n.id === nodeIds[0]);
-      if (!target) return;
-      setActiveId(nodeIds[0]);
-      setJembatanHighlightIds(new Set());
-      setExpanded(prev => new Set([...prev, target.layer]));
-      setTimeout(() => {
-        const el = document.getElementById(`node-${nodeIds[0]}`);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 200);
-    } else {
-      setJembatanHighlightIds(new Set(nodeIds));
-      setActiveId(null);
-      const relevantLayers = nodeIds
-        .map(id => NODES.find(n => n.id === id)?.layer)
-        .filter((l): l is number => l !== undefined);
-      setExpanded(prev => new Set([...prev, ...relevantLayers]));
-    }
+  function handleNavigate(node: NodeType) {
+    setActiveId(node.id);
+    const el = document.getElementById(`node-${node.id}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  function handleJembatanNavigate(ids: string[]) {
+    setJembatanHighlightIds(new Set(ids));
+    setActiveFilter("all");
+    setSearchQuery("");
+    if (ids.length === 1) setActiveId(ids[0]);
+    if (view === "daftar") setExpandedLayers(new Set([0, 1, 2, 3]));
+  }
+  function toggleLayer(id: number) {
+    setExpandedLayers(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; });
   }
 
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (!hash) return;
-    const target = NODES.find(n => n.id === hash);
-    if (!target) return;
-    setActiveId(hash);
-    setExpanded(prev => new Set([...prev, target.layer]));
-    setTimeout(() => {
-      const el = document.getElementById(`node-${hash}`);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 350);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const growingNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "growing");
-  const vulnNodes = NODES.filter(n => n.layer === 3 && n.sectorStatus === "vulnerable");
-  const FILTERS: { id: typeof activeFilter; label: string }[] = [
-    { id: "all", label: "Semua" },
-    { id: "growing", label: "↑ Tumbuh" },
-    { id: "safe", label: "Aman dari AI" },
-    { id: "layer0", label: "Karakter Dasar" },
-  ];
+  const hasActive = !!activeId;
 
   return (
-    <main className="min-h-screen bg-background">
-      <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Logo size="sm" linkTo="/" />
-          <Link to="/insight" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Kembali ke Insight
+    <div>
+      {!embedded && (
+        <div className="mb-4">
+          <JembatanIstilah onNavigate={handleJembatanNavigate} />
+        </div>
+      )}
+      {/* Toolbar */}
+      <div className="max-w-4xl mx-auto px-4 md:px-8">
+        <div className="flex flex-wrap items-center gap-2 justify-between">
+          <div className="inline-flex rounded-full border border-border p-0.5 bg-background">
+            <button
+              onClick={() => setView("peta")}
+              className={cn("flex items-center gap-1.5 text-sm px-3 py-1 rounded-full transition-all", view === "peta" ? "bg-primary text-primary-foreground" : "text-muted-foreground")}
+            >
+              <Network className="w-3.5 h-3.5" /> Peta
+            </button>
+            <button
+              onClick={() => setView("daftar")}
+              className={cn("flex items-center gap-1.5 text-sm px-3 py-1 rounded-full transition-all", view === "daftar" ? "bg-primary text-primary-foreground" : "text-muted-foreground")}
+            >
+              <List className="w-3.5 h-3.5" /> Daftar
+            </button>
+          </div>
+          <div className="relative flex-1 min-w-[160px] max-w-xs">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Cari skill..."
+              className="w-full pl-9 pr-3 py-1.5 rounded-full border border-border bg-background text-sm outline-none focus:border-primary/60"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {FILTERS.map(f => (
+            <button
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className={cn("text-xs px-3 py-1 rounded-full border transition-all", activeFilter === f.id ? "bg-foreground text-background border-foreground" : "bg-background border-border text-muted-foreground hover:border-primary/50")}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="max-w-4xl mx-auto px-4 md:px-8 mt-4">
+        {view === "peta" ? (
+          <>
+            <PetaView activeId={activeId} filteredIds={filteredIds} isFiltering={isFiltering} onSelect={handleSelect} />
+            <p className="text-xs text-muted-foreground mt-1">
+              Ketuk skill untuk melihat keterkaitannya. Garis <span className="text-violet-600 font-semibold">ungu tebal</span> = hubungan sebab-akibat yang terbukti lewat eksperimen, bukan sekadar mirip.
+            </p>
+          </>
+        ) : (
+          <div className="space-y-3">
+            {LAYERS.map(layer => {
+              const layerNodes = filteredNodes.filter(n => n.layer === layer.id);
+              if (isFiltering && layerNodes.length === 0) return null;
+              const open = expandedLayers.has(layer.id);
+              return (
+                <div key={layer.id} className="rounded-2xl border" style={{ borderColor: layer.colors.border }}>
+                  <button onClick={() => toggleLayer(layer.id)} className="w-full flex items-start justify-between gap-3 px-5 py-3 text-left" style={{ backgroundColor: layer.colors.bg }}>
+                    <div>
+                      <p className="font-bold text-sm" style={{ color: layer.colors.text }}>Layer {layer.id} · {layer.name}</p>
+                      <p className="text-xs mt-0.5 leading-relaxed" style={{ color: layer.colors.text, opacity: 0.85 }}>{layer.subtitle}</p>
+                    </div>
+                    <ChevronDown className={`w-4 h-4 shrink-0 mt-0.5 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: layer.colors.text }} />
+                  </button>
+                  {open && (
+                    <div className="px-5 py-4">
+                      <div className="flex flex-wrap gap-2">
+                        {layerNodes.map(node => (
+                          <NodePill
+                            key={node.id}
+                            node={node as NodeType}
+                            isActive={activeId === node.id}
+                            isConnected={connectedIds.has(node.id)}
+                            isJembatanHighlighted={jembatanHighlightIds.has(node.id)}
+                            dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)}
+                            onClick={() => handleSelect(node as NodeType)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Detail panel */}
+        {activeNode && <NodeDetail node={activeNode} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
+
+        {/* Legend */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-5">
+          {(Object.entries(AI_RISK) as [string, typeof AI_RISK[keyof typeof AI_RISK]][]).map(([key, val]) => (
+            <div key={key} className="flex items-start gap-2">
+              <span className="w-2.5 h-2.5 rounded-full mt-1 shrink-0" style={{ backgroundColor: val.dot }} />
+              <p className="text-xs text-muted-foreground leading-relaxed"><span className="font-semibold text-foreground/80">{val.label}</span> — {val.sublabel}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA ke peta penuh (hanya saat embedded) */}
+      {embedded && (
+        <div className="max-w-4xl mx-auto px-4 md:px-8 mt-5">
+          <Link to="/skill-map" className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-2">
+            <Maximize2 className="w-4 h-4" /> Telusuri peta ini lebih dalam
           </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Halaman penuh /skill-map
+// ─────────────────────────────────────────────────────────────
+export default function SkillMap() {
+  return (
+    <div className="min-h-screen bg-background pb-16">
+      <header className="border-b border-border">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+          <Link to="/insight" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+            <ArrowLeft className="w-4 h-4" /> Kembali
+          </Link>
+          <Logo />
         </div>
       </header>
 
-      <div className="border-b border-border bg-background px-6 py-6 md:px-8">
-        <p className="text-xs font-bold tracking-widest text-muted-foreground mb-1.5 uppercase">Peta Skill 2025–2030</p>
-        <h1 className="font-heading font-bold text-xl md:text-2xl text-foreground leading-tight">Pohon Keterampilan</h1>
-        <p className="text-base text-muted-foreground mt-1.5 max-w-xl">Setiap cabang memiliki perannya masing-masing. Mari kita pahami dari akar hingga daun.</p>
-        <p className="text-xs text-muted-foreground mt-2 leading-relaxed max-w-2xl">Berdasarkan WEF Future of Jobs 2025, BPS Sakernas 2024, ILO, IESR, Kemnaker RTKN 2025–2029, dan riset psikologi karier terverifikasi.</p>
+      <div className="max-w-4xl mx-auto px-4 md:px-8 pt-8 pb-2">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Peta Bekal</h1>
+        <p className="text-muted-foreground mt-2 leading-relaxed">
+          Skill apa yang membuatmu tetap dibutuhkan? Empat lapis, dari akar yang membentuk dirimu sampai sektor yang sedang tumbuh. Ketuk mana saja untuk melihat keterkaitannya.
+        </p>
       </div>
 
-      <JembatanIstilah onNavigate={handleJembatanNavigate} />
-
-      <div className="max-w-4xl mx-auto px-4 pt-4 pb-2 md:px-8">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <input
-              type="text"
-              placeholder="Cari skill atau sektor..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-xl bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-          </div>
-          <div className="flex gap-2 flex-wrap">
-            {FILTERS.map(f => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                  activeFilter === f.id
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-background border-border text-muted-foreground hover:border-primary/50"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </div>
-        {isFiltering && (
-          <p className="text-xs text-muted-foreground mt-2">{filteredNodes.length} hasil ditemukan</p>
-        )}
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 py-6 md:px-8 space-y-3">
-        {(() => {
-          const renderLayer = (lid: number, outerClass = "bg-card rounded-xl border overflow-hidden") => {
-            const L = LAYERS[lid];
-            const layerNodes = NODES.filter(n => n.layer === lid && (!isFiltering || filteredIds.has(n.id)));
-            const isOpen = expanded.has(lid);
-            if (isFiltering && layerNodes.length === 0) return null;
-            return (
-              <div key={lid} className={outerClass} style={{ borderColor: L.colors.border }}>
-                <button onClick={() => toggleLayer(lid)} className="w-full flex items-start gap-3 px-5 py-4 text-left" style={{ backgroundColor: L.colors.bg }}>
-                  <span className="w-3 h-3 rounded-full mt-1 shrink-0" style={{ backgroundColor: L.colors.dot }} />
-                  <div className="flex-1">
-                    <p className="font-bold text-sm md:text-base" style={{ color: L.colors.text }}>{L.name}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{L.subtitle}</p>
-                  </div>
-                  <ChevronDown className={`w-4 h-4 text-muted-foreground mt-1 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-4 pt-3">
-                    <p className="text-xs text-muted-foreground italic mb-3">{L.note}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {layerNodes.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
-                    </div>
-                    {activeNode && activeNode.layer === lid && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
-                  </div>
-                )}
-              </div>
-            );
-          };
-          return (
-            <>
-              {/* SOFT SKILLS UMBRELLA — Layer 0 + Layer 1 */}
-              <div className="rounded-2xl border-2 border-dashed border-amber-300/60 bg-amber-50/20 p-3 space-y-3">
-                <div className="flex flex-wrap items-center gap-2 px-2 pt-1">
-                  <span className="font-heading font-bold text-sm text-amber-800 uppercase tracking-wider">Soft Skills</span>
-                  <span className="text-xs bg-amber-100 text-amber-700 border border-amber-200 rounded-full px-2 py-0.5">Istilah populer</span>
-                  <p className="w-full text-xs text-amber-700/80 leading-relaxed mt-0.5">
-                    <em>Soft skills</em> adalah istilah sehari-hari. Dalam riset akademis, keterampilan ini biasanya disebut <em>"Non-Cognitive Skills"</em> (Heckman et al.), <em>"Essential Skills"</em> (ILO), atau dipisah menjadi <em>"Attitudes and Mindsets"</em> dan <em>"Cognitive Skills"</em> dalam WEF Global Skills Taxonomy.
-                  </p>
-                </div>
-                {renderLayer(0)}
-                {renderLayer(1)}
-              </div>
-              {renderLayer(2, "bg-card rounded-2xl border overflow-hidden")}
-            </>
-          );
-        })()}
-
-        {(() => {
-          const growingFiltered = growingNodes.filter(n => !isFiltering || filteredIds.has(n.id));
-          const vulnFiltered = vulnNodes.filter(n => !isFiltering || filteredIds.has(n.id));
-          if (isFiltering && growingFiltered.length === 0 && vulnFiltered.length === 0) return null;
-          return (
-        <div className="bg-card rounded-2xl border overflow-hidden border-border">
-          <button onClick={() => toggleLayer(3)} className="w-full flex items-start gap-3 px-5 py-4 text-left bg-secondary/30">
-            <span className="w-3 h-3 rounded-full mt-1 shrink-0 bg-muted-foreground/50" />
-            <div className="flex-1">
-              <p className="font-bold text-sm md:text-base text-foreground">{LAYERS[3].name}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{LAYERS[3].subtitle}</p>
-            </div>
-            <ChevronDown className={`w-4 h-4 text-muted-foreground mt-1 shrink-0 transition-transform ${expanded.has(3) ? "rotate-180" : ""}`} />
-          </button>
-          {expanded.has(3) && (
-            <div className="px-5 pb-5 pt-3">
-              <p className="text-xs text-muted-foreground italic mb-4">{LAYERS[3].note}</p>
-              {growingFiltered.length > 0 && (
-              <div className="mb-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Tumbuh — shortage SDM terdokumentasi</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {growingFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
-                </div>
-              </div>
-              )}
-              {vulnFiltered.length > 0 && (
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-destructive" />
-                  <p className="text-xs font-bold text-destructive uppercase tracking-wider">Rentan — tugas berisiko tinggi tergantikan</p>
-                </div>
-                <p className="text-xs text-muted-foreground mb-3">Yang berisiko adalah tugas-tugas spesifik, bukan semua orang dalam sektor ini. ILO: hanya 3-4% pekerjaan Indonesia berisiko hilang sepenuhnya.</p>
-                <div className="flex flex-wrap gap-2">
-                  {vulnFiltered.map(node => <NodePill key={node.id} node={node as NodeType} isActive={activeId === node.id} isConnected={connectedIds.has(node.id)} isJembatanHighlighted={jembatanHighlightIds.has(node.id)} dimmed={hasActive && activeId !== node.id && !connectedIds.has(node.id)} onClick={() => handleClick(node as NodeType)} />)}
-                </div>
-              </div>
-              )}
-              {activeNode && activeNode.layer === 3 && <NodeDetail node={activeNode as NodeType} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
-            </div>
-          )}
-        </div>
-          );
-        })()}
-
-        {isFiltering && filteredNodes.length === 0 && (
-          <div className="bg-card rounded-2xl border border-border p-6 text-center text-sm text-muted-foreground">
-            Tidak ada skill atau sektor yang cocok. Coba kata kunci lain atau reset filter.
-          </div>
-        )}
-
-        <div className="bg-card rounded-2xl border border-border px-5 py-4 space-y-3">
-          <p className="text-xs font-bold tracking-widest text-muted-foreground uppercase">Panduan Membaca</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
-            {(Object.entries(AI_RISK) as [string, typeof AI_RISK[keyof typeof AI_RISK]][]).map(([, val]) => (
-              <div key={val.label} className="flex items-start gap-2">
-                <span className="w-2.5 h-2.5 rounded-full mt-0.5 shrink-0" style={{ backgroundColor: val.dot }} />
-                <div><p className="text-xs font-semibold text-foreground">{val.label}</p><p className="text-xs text-muted-foreground">{val.sublabel}</p></div>
-              </div>
-            ))}
-            <div className="flex items-start gap-2">
-              <span className="text-violet-400 font-bold text-sm shrink-0 leading-none mt-0.5">★</span>
-              <div><p className="text-xs font-semibold text-foreground">Relasi kausal terbukti</p><p className="text-xs text-muted-foreground">Dibuktikan secara eksperimental — bukan hanya korelasi atau teori</p></div>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="w-2.5 h-2.5 rounded-full mt-0.5 shrink-0 bg-amber-400" />
-              <div><p className="text-xs font-semibold text-foreground">Sorotan kuning</p><p className="text-xs text-muted-foreground">Node ini terhubung ke node yang sedang dipilih</p></div>
-            </div>
-          </div>
-          <p className="text-xs text-muted-foreground pt-3 border-t border-border leading-relaxed">
-            Sumber: WEF Future of Jobs Report 2025 · BPS Sakernas Agustus 2024 · ILO ASEAN GenAI Impact 2024 · IESR 2024 · Kemnaker RTKN 2025-2029 · Bappenas Peta Jalan Tenaga Kerja Hijau 2025 · Krol & Bartz (2021) DOI: 10.1037/emo0000943 · Pikouli et al. (2023) DOI: 10.3390/jintelligence11090182 · Journal of Intelligence Vol. 13 No. 3 (2025) · O*NET Content Model v30.3 · KNEKS 2024 · SGIE Report 2024/2025
-          </p>
-        </div>
-
-        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center">
-          <p className="font-heading font-semibold text-foreground mb-2">Ingin tahu skill mana yang paling relevan untuk profilmu?</p>
-          <p className="text-sm text-muted-foreground mb-4">Asesmen Sulu akan mencocokkan peta skill ini dengan kepribadian dan minatmu. Sedang dalam pengembangan.</p>
-          <Link to="/insight#waitlist" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
-            Daftarkan diri untuk diberitahu <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
-    </main>
+      <SkillMapView />
+    </div>
   );
 }
