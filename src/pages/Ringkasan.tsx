@@ -6,6 +6,7 @@ import { Loader2, Printer, MessageCircle, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/track";
 import { ringkasanContent } from "@/data/ringkasanContent";
+import { compileSurat } from "@/lib/suratPerjalanan";
 
 type KdRow = {
   id: string;
@@ -57,6 +58,7 @@ export default function Ringkasan() {
   }, [searchParams]);
 
   const values3 = useMemo(() => (row?.values_sorted || []).slice(0, 3), [row]);
+  const surat = useMemo(() => compileSurat(), []);
 
   const waHref = useMemo(() => {
     if (!row || values3.length < 1) return "";
@@ -157,6 +159,115 @@ export default function Ringkasan() {
           {ringkasanContent.narrative.note}
         </p>
       </section>
+
+      {/* SECTION — Refleksi Dirimu (journaling 2A) */}
+      {surat.refleksiDiri.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
+            Refleksi Dirimu
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Hal-hal yang kamu tuliskan saat mengenali dirimu.
+          </p>
+          <div className="mt-4 space-y-4">
+            {surat.refleksiDiri.map((qa, i) => (
+              <div
+                key={i}
+                className="rounded-lg border border-border bg-card p-4 print:border-black/30 print:bg-transparent"
+              >
+                <p className="text-sm font-semibold text-[hsl(var(--ink-deep))]">{qa.question}</p>
+                <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed text-foreground/80">{qa.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION — Kompetensi yang Kamu Pilih (2B) */}
+      {surat.kompetensi.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
+            Kompetensi yang Kamu Pilih
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {surat.kompetensi.map((c) => (
+              <span
+                key={c}
+                className="rounded-full bg-secondary px-4 py-2 text-sm font-medium text-foreground/90 print:bg-transparent print:ring-1 print:ring-black/40"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION — Arah Jalan Baktimu (3) */}
+      {surat.jalanBakti.isu.length + surat.jalanBakti.subBidang.length + surat.jalanBakti.peduli.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
+            Arah Jalan Baktimu
+          </h2>
+          <div className="mt-4 space-y-4">
+            {([
+              ["Isu yang paling dekat", surat.jalanBakti.isu],
+              ["Sub-bidang yang kamu pilih", surat.jalanBakti.subBidang],
+              ["Yang kamu pedulikan", surat.jalanBakti.peduli],
+            ] as [string, string[]][]).map(([label, items]) =>
+              items.length > 0 ? (
+                <div key={label}>
+                  <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">{label}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((it) => (
+                      <span
+                        key={it}
+                        className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-foreground/80 print:bg-transparent"
+                      >
+                        {it}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION — Refleksi Sintesis (4) */}
+      {surat.refleksiSintesis && (
+        <section className="mt-10">
+          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
+            Refleksi Sintesis
+          </h2>
+          <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90 print:border-black/30 print:bg-transparent">
+            {surat.refleksiSintesis}
+          </article>
+        </section>
+      )}
+
+      {/* SECTION — Catatan dari Perjalananmu (Catatanku: Insight + Skill-map) */}
+      {surat.catatan.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
+            Catatan dari Perjalananmu
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Hal-hal yang sempat kamu tandai saat membaca.
+          </p>
+          <div className="mt-4 space-y-3">
+            {surat.catatan.map((n) => (
+              <div
+                key={n.id}
+                className="rounded-lg border border-border bg-card p-4 print:border-black/30 print:bg-transparent"
+              >
+                <p className="text-xs font-semibold text-muted-foreground">{n.label}</p>
+                <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed text-foreground/80">{n.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* SECTION 3 — Jalur */}
       <section className="mt-10">
