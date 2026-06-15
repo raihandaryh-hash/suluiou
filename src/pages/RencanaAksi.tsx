@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -306,18 +306,11 @@ export default function RencanaAksi() {
         </Button>
       </div>
 
-      {/* ── CTA MAJU (placeholder) ── */}
+      {/* ── CTA MAJU → Ringkasan Perjalanan ── */}
       <div className="flex flex-col items-center gap-2 pb-12">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span tabIndex={0}>
-              <Button variant="outline" size="lg" disabled>
-                {R.ui.nextCtaLabel}
-              </Button>
-            </span>
-          </TooltipTrigger>
-          <TooltipContent>{R.ui.nextCtaTooltip}</TooltipContent>
-        </Tooltip>
+        <Button asChild variant="outline" size="lg">
+          <Link to="/ringkasan">{R.ui.nextCtaLabel}</Link>
+        </Button>
       </div>
     </main>
   );
