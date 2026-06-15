@@ -16,6 +16,7 @@ import PublicResult from "./pages/PublicResult";
 import Suar from "./pages/Suar";
 import Insight from "./pages/Insight";
 import SkillMap from "./pages/SkillMap";
+import Glossary from "./pages/Glossary";
 import Compass from "./pages/Compass";
 import Programs from "./pages/Programs";
 import KenaliDirimu from "./pages/KenaliDirimu";
@@ -70,6 +71,7 @@ const App = () => {
             <Route element={<AppLayout />}>
               <Route path="/insight" element={<Insight />} />
               <Route path="/skill-map" element={<SkillMap />} />
+              <Route path="/glossary" element={<Glossary />} />
               <Route path="/compass" element={<Compass />} />
             </Route>
             <Route path="/programs" element={<Programs />} />
