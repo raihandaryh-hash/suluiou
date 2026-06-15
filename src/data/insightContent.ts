@@ -56,7 +56,7 @@ export const hero = {
     targetIso: '2030-01-01',
     years: { suffix: 'tahun tersisa menuju 2030' },
     months: { suffix: 'bulan untuk bergerak' },
-    fixed: { value: '208 juta', suffix: 'jiwa produktif pada puncak bonus demografi' },
+    fixed: { value: '201 juta', suffix: 'jiwa angkatan kerja potensial menuju 2030' },
   },
 };
 
@@ -193,16 +193,18 @@ export const laborRealitySection = {
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
 export const neetSection = {
   tag: 'NEET INDONESIA VS ASEAN',
-  intro: 'Indonesia bukan yang terburuk di kawasan. Tapi gap-nya cukup untuk dipikirkan.',
+  intro: 'Diukur dengan standar yang sama untuk semua negara, Indonesia berada di posisi tertinggi di kawasan. Gap-nya cukup untuk dipikirkan.',
   maxPercent: 25,
   data: [
-    { country: 'Indonesia', value: 19.44, colorClass: 'bg-destructive' },
-    { country: 'Malaysia', value: 13.63, colorClass: 'bg-amber-500' },
-    { country: 'Vietnam', value: 10.82, colorClass: 'bg-amber-500' },
-    { country: 'Singapura', value: 4.1, colorClass: 'bg-primary' },
+    { country: 'Indonesia', value: 21.36, year: '2023', colorClass: 'bg-destructive' },
+    { country: 'Thailand', value: 12.82, year: '2024', colorClass: 'bg-amber-500' },
+    { country: 'Filipina', value: 12.36, year: '2023', colorClass: 'bg-amber-500' },
+    { country: 'Vietnam', value: 10.25, year: '2024', colorClass: 'bg-amber-500' },
+    { country: 'Malaysia', value: 10.22, year: '2022', colorClass: 'bg-amber-500' },
+    { country: 'Singapura', value: 6.45, year: '2024', colorClass: 'bg-primary' },
   ],
-  source: 'BPS Sakernas 2025; ASEAN Statistical Yearbook 2024',
-  note: 'Definisi NEET tiap negara sedikit berbeda. Gunakan sebagai gambaran, bukan perbandingan absolut.',
+  source: 'World Bank WDI, indikator SL.UEM.NEET.ZS (ILO modeled estimate); observasi terbaru per negara 2022–2024.',
+  note: 'Satu sumber, satu definisi (apple-to-apple). Tahun terbaru tiap negara sedikit berbeda karena ketersediaan data. Angka kawasan ini (ILO modeled) berbeda dari 19,44% nasional Indonesia (BPS Sakernas 2025) karena metodologinya berbeda. Keduanya benar untuk tujuannya masing-masing.',
 };
 
 // ─── SECTION 3a: SKILL LANDSCAPE (siswa) ──────────────────────────
