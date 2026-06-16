@@ -30,7 +30,7 @@ export default function InsightNav({ sections }: { sections: NavSection[] }) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
-    <nav className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-30" aria-label="Navigasi babak">
+    <nav className="hidden 2xl:block fixed left-6 top-1/2 -translate-y-1/2 z-30" aria-label="Navigasi babak">
       <ul className="space-y-3">
         {sections.map((s) => {
           const on = active === s.id;
