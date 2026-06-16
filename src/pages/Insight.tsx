@@ -918,11 +918,16 @@ const Insight = () => {
       <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <Logo size="sm" linkTo="/" />
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link to="/">
-              <ArrowLeft className="w-4 h-4" /> Kembali
-            </Link>
-          </Button>
+          <div className="flex items-center gap-1">
+            <Button asChild variant="ghost" size="sm">
+              <Link to="/glossary">Glosarium</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link to="/">
+                <ArrowLeft className="w-4 h-4" /> Kembali
+              </Link>
+            </Button>
+          </div>
         </div>
       </header>
 
