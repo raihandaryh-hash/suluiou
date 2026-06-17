@@ -1,75 +1,104 @@
+## Tujuan
 
+Buat `/ringkasan` benar-benar terasa seperti **buku kecil / surat pribadi** yang hangat, tenang, dan layak dicetak — bukan kartu dashboard seperti sekarang. Sekaligus pastikan **semua catatan** yang user tulis di touchpoint sepanjang journey (Insight per-section + SkillMap per-node) muncul di sana dengan rapi.
 
-# Handover Package untuk Mas Shofiq (PHP 7.4 + MySQL 8.0)
+Tidak ada perubahan copy, route, data, atau logic save/print/share. Tidak ada perubahan skema notes. Hanya layer visual + pengelompokan catatan yang sudah ada.
 
-Berdasarkan stack Mas Shofiq, saya rekomendasikan **Opsi A (frontend static di IOU, backend tetap Lovable Cloud)** sebagai jalur utama, dengan **Opsi B (full PHP/MySQL)** sebagai dokumen siap-pakai kalau nanti mau full migrasi.
+## Soal saran T3 (notebook kanan di SpineBLayout)
 
-Alasan: PHP 7.4 sudah end-of-life (no security patches sejak Nov 2022). Bikin backend baru di PHP 7.4 untuk handle AI streaming (SSE) + auth modern itu beresiko & effort tinggi. Opsi A bikin Mas Shofiq cuma perlu host file static — zero PHP code.
+**Saran: TUNDA, jangan dikerjakan sekarang.** Alasan:
 
-## Yang Akan Dibuat
+- `sulu_notes_v1` sudah punya field `source` ("insight" | "skillmap") dan `label` — itu sudah cukup untuk mengelompokkan di Surat Perjalanan. Tidak perlu menambah `category` ke skema.
+- Menambah panel sticky kanan + bottom-sheet mobile + kategori baru = menyentuh `SpineBLayout`, semua halaman Spine B, dan tiap titik capture catatan. Risiko regresi tinggi vs nilai marginal — Catatanku per-anchor sudah ada di tempat yang tepat (saat membaca).
+- Right column di SpineBLayout sudah direservasi kosong. Bisa diisi nanti kalau benar-benar dibutuhkan, terpisah dari pekerjaan visual Ringkasan.
 
-### 1. `docs/DEPLOYMENT_OPSI_A.md` — Jalur Cepat (rekomendasi)
-Langkah deploy untuk Mas Shofiq:
-- Cara build: `npm install && npm run build` → folder `dist/`
-- Upload `dist/` ke `bahasa.iou.edu.gm/sulu/` via FTP/cPanel
-- Konfigurasi `.htaccess` untuk SPA routing (React Router) di Apache
-- Update Supabase Auth allowed redirect URLs (saya kasih screenshot path-nya)
-- Set custom domain di publish settings Lovable
-- Checklist verifikasi (assessment jalan, admin login, AI projection muncul)
+Yang dikerjakan sekarang: **kumpulkan dengan indah di Ringkasan**, jangan tambah surface baru.
 
-### 2. `docs/API_CONTRACT.md` — Spesifikasi untuk Opsi B
-Kalau nanti Mas Shofiq mau full migrasi ke PHP/MySQL, dokumen ini berisi:
-- 3 endpoint REST yang harus dibikin (`POST /api/results`, `POST /api/generate-projection`, `POST /api/career-chat`)
-- Request/response JSON schema lengkap untuk masing-masing
-- Format SSE streaming untuk chatbot (penting: PHP 7.4 perlu `ob_flush()` + `flush()` + disable output buffering)
-- Auth endpoint contract (admin login + session)
-- CORS requirements
-- Contoh skeleton PHP 7.4 untuk endpoint paling sederhana (`/api/results`) sebagai starting point
+## Scope perubahan
 
-### 3. `docs/MYSQL_SCHEMA.sql` — Database Schema untuk MySQL 8.0
-Konversi schema Postgres → MySQL 8.0:
-- `CREATE TABLE` untuk `assessment_results`, `province_contexts`, `admin_users` (+ `user_sessions`)
-- Tipe data dipetakan: `uuid` → `CHAR(36)`, `jsonb` → `JSON`, `timestamp with time zone` → `TIMESTAMP`, `text[]` → `JSON`
-- Index untuk kolom yang sering di-query admin (`submitted_at DESC`, `lead_score DESC`, `follow_up_status`)
-- Catatan: tanpa RLS — security harus di-handle di PHP layer (validasi session admin sebelum SELECT)
+Satu file inti:
 
-### 4. `docs/DATA_MIGRATION.md` + script export
-- Cara export data existing dari Lovable Cloud (pakai Supabase dashboard atau `pg_dump` via connection string)
-- Script Node.js sederhana (`scripts/export-to-mysql.js`) yang convert Postgres dump → MySQL `INSERT` statements
-- Cara import 38 row `province_contexts` + semua `assessment_results` ke MySQL Mas Shofiq
+- `src/pages/Ringkasan.tsx` — re-skin penuh ke "letter-book" + pengelompokan catatan per-source.
 
-### 5. `docs/AI_PROXY_PHP.md` — Panduan AI calls di PHP 7.4
-Khusus untuk Opsi B, karena AI integration paling tricky:
-- Cara proxy Gemini API dari PHP (pakai `cURL` dengan `CURLOPT_WRITEFUNCTION` untuk streaming)
-- Penanganan API key Gemini (taruh di env / config terpisah, jangan commit)
-- Code snippet PHP 7.4-compatible untuk endpoint `/api/career-chat` yang stream SSE ke browser
-- Catatan: shared hosting kadang block long-lived connections — perlu cek dengan IOU sysadmin
+Tidak menyentuh: `suratPerjalanan.ts`, `notes.ts`, `SpineBLayout.tsx`, semua halaman fase, route, skema DB.
 
-### 6. `.env.production.example`
-Template env vars dengan komentar mana yang dipakai untuk Opsi A vs B:
-```
-# Opsi A: kosongkan, frontend langsung pakai Lovable Cloud
-VITE_API_BASE_URL=
+## Arah visual (letter-book)
 
-# Opsi B: isi dengan root URL backend PHP Mas Shofiq
-# VITE_API_BASE_URL=https://bahasa.iou.edu.gm/sulu
-```
+Rasa: halaman jurnal/surat (Day One, Matter, buku saku pribadi). Bukan dashboard, bukan kartu-kartu.
 
-## Catatan Penting tentang PHP 7.4
+1. **Bingkai halaman**
+   - Background luar: `bg-scholarly` (cream) — memberi rasa "kertas di atas meja".
+   - "Halaman" tengah: kartu putih dengan shadow lembut + border tipis `border-border/60`, padding generous (px-8 md:px-14 py-12 md:py-16), max-width ~`72ch`, terpusat, sudut radius medium.
+   - Print: kartu kehilangan shadow/background, jadi hemat tinta (sudah ada `@media print`, tinggal disesuaikan).
 
-Akan saya tulis di docs sebagai disclaimer:
-- PHP 7.4 EOL → minta Mas Shofiq pertimbangkan upgrade ke PHP 8.1+ kalau memungkinkan, terutama untuk handle AI streaming
-- Beberapa library modern (e.g., GuzzleHttp v7+) butuh PHP 7.4 minimum tapi sebagian fitur baru perlu 8.0+
-- Session handling untuk admin lebih aman pakai JWT (`firebase/php-jwt` library) daripada PHP native sessions
+2. **Header surat**
+   - Kicker kecil tracking-widest: "SURAT PERJALANAN" + tanggal verbatim (sudah ada).
+   - Judul serif/Outfit besar `text-4xl md:text-5xl`, leading ketat, warna `--ink-deep`.
+   - Subtitle italic ringan di bawah, `--mid-blue`.
+   - Garis hairline gold di bawah header sebagai pembatas.
+   - Salam pembuka opsional kecil di kiri ("Untukmu, [nama bila ada], dan siapa pun yang kamu percaya —") menggunakan teks `header.subtitle` yang sudah ada — TIDAK menulis copy baru, hanya merangkai field yang ada.
 
-## Yang TIDAK Akan Saya Buat (kecuali diminta)
+3. **Pembagi bab** (ChapterDivider yang sudah ada, diperhalus)
+   - Numeral Romawi besar (I, II) center-aligned di atas kicker.
+   - Ornamen: tiga titik gold `• • •` di atas judul bab.
+   - Lebih banyak whitespace vertikal (mt-16 / mt-20), supaya transisi bab terasa seperti membalik halaman.
 
-- Full PHP backend implementation — itu kerjaan Mas Shofiq berdasarkan contract
-- MySQL data migration eksekusi — saya kasih script, eksekusi pas siap pindah
-- Auth replacement (Supabase Auth → PHP session) — design-nya ada di API contract, implementasi di Mas Shofiq
+4. **Tipografi**
+   - Heading: Outfit (sudah dipakai), tracking dipertegas.
+   - Body: leading-relaxed → leading-loose untuk paragraf naratif AI dan refleksi, ukuran `text-[17px]` di desktop supaya nyaman dibaca panjang.
+   - Blok naratif AI → diberi style **kutipan**: indent kiri, border-left 2px `--torch-gold`, italic pertama beberapa kata via `first-letter` opsional (skip kalau mengganggu print).
 
-## Pertanyaan Konfirmasi
+5. **Blok refleksi (Refleksi Dirimu — 2A)**
+   - Bukan grid kartu. Tampil sebagai **entry jurnal berurutan**: pertanyaan dalam Outfit semibold lebih kecil dan `--mid-blue`, jawaban di bawah dalam body serif-feel (Inter sudah oke), dipisah spasi luas, tanpa border per item — hanya divider hairline tipis di antaranya. Memberi rasa "halaman buku".
 
-Sebelum saya generate semua docs di atas, satu hal cepat:
-- **Setuju jalur utamanya Opsi A** (frontend di IOU, backend tetap Lovable Cloud) dan Opsi B disiapkan sebagai dokumen siap-pakai untuk nanti? Atau Mas Shofiq memang sudah committed full migrasi sekarang ke PHP/MySQL (Opsi B saja)?
+6. **Values (top 3) & Kompetensi (2B)**
+   - Values: dijadikan **pull-quote** kecil center, "Yang paling bermakna bagimu: **X · Y · Z**" dengan typografi besar tenang, bukan pill berwarna gelap. Pill versi sekarang terlalu UI-ish.
+   - Kompetensi: chip lembut bg `secondary/40`, border hairline, text tenang.
 
+7. **Arah Jalan Bakti (3)**
+   - Daftar inline bergaya katalog: tiga sub-section (Isu / Sub-bidang / Yang kamu pedulikan) dengan label kecil tracking-widest + item-item sebagai teks dipisah `·`, bukan pill berdesakan.
+
+8. **Refleksi Sintesis (4)**
+   - Blockquote besar dengan tanda kutip ornamental `"` gold di kiri-atas, italic, indented.
+
+9. **Catatan dari Perjalananmu** (poin sentral request user)
+   - **Sudah** dikumpulkan oleh `compileSurat()` via `getNotesBySource("insight")` + `getNotesBySource("skillmap")`. Yang berubah hanya presentasi:
+     - Pisah menjadi dua sub-section dengan sub-heading: **"Catatan saat mengenal dunia"** (source=insight) dan **"Catatan dari Peta Keahlian"** (source=skillmap). Label sub-heading dari konten Ringkasan yang sudah ada / inline netral — tidak menambah copy baru di luar dua label sub-heading deskriptif ini (konfirmasi: bila user ingin label persis tertentu, akan dipakai).
+     - Tiap catatan: label anchor (`n.label`) sebagai kicker kecil uppercase, teks catatan sebagai paragraf jurnal, hairline divider di antara entry. Tidak ada kartu kotak.
+     - Urutkan secara stabil per source mengikuti urutan `getNotesBySource` (sudah terbaru-dulu) — tidak ada perubahan logic.
+   - Bila user belum punya catatan apa pun di source tertentu, section itu tidak dirender (sudah behavior sekarang per source gabungan; pecah jadi dua kondisi).
+
+10. **Footer surat**
+    - "Surat ini bukan titik akhir…" (verbatim) ditampilkan sebagai paragraf penutup italic center, dengan tanda tangan ornamen `~ Sulu` kecil di bawah (atau hanya garis hairline + tanggal lagi — pilih yang paling tenang, tidak menambah copy). Jika user keberatan tanda tangan, pakai garis hairline saja.
+
+11. **CTA**
+    - Tombol-tombol (WA, Print, Kembali) dipindah ke bawah dalam grup terpisah di luar "halaman" buku — supaya halaman buku terasa utuh sebagai artefak. Mobile: stack vertikal. `print:hidden` tetap.
+
+12. **Mobile**
+    - Padding halaman buku dikurangi (px-5 py-8), font sedikit lebih kecil tapi leading tetap loose. Tidak ada perubahan struktur — hanya skala.
+
+13. **Print (@media print)**
+    - Hilangkan shadow, border tebal, dan background cream → halaman A4 putih bersih.
+    - Pastikan `break-inside: avoid` di blok refleksi & catatan supaya tidak terpotong jelek.
+    - Sembunyikan semua CTA & tombol.
+
+## Teknis singkat
+
+- Token warna yang dipakai (sudah ada di `index.css`): `--brand-navy`, `--ink-deep`, `--mid-blue`, `--torch-gold`, `--bg-scholarly`. Tidak ada hex baru, tidak ada warna hard-coded.
+- Pengelompokan catatan: di dalam komponen Ringkasan, partisi `surat.catatan` dengan `n.source === "insight"` vs `"skillmap"`. Tidak perlu ubah `suratPerjalanan.ts`.
+- Tidak menambah dependency. Bisa pakai `framer-motion` yang sudah ada untuk fade-in halus per section (opsional, tetap respect `prefers-reduced-motion`).
+- Tidak menyentuh `useEffect` data-fetch, hooks, atau Supabase calls.
+
+## Tidak dilakukan
+
+- Tidak menambah right-rail notebook / bottom-sheet (T3).
+- Tidak menambah field `category` di `sulu_notes_v1`.
+- Tidak mengubah `SpineBLayout`, halaman fase, atau capture catatan di SkillMap/Insight.
+- Tidak menulis copy baru selain dua sub-heading deskriptif untuk pengelompokan catatan (akan dikonfirmasi bila user mau wording lain).
+
+## Verifikasi sesudah build
+
+1. Buka `/ringkasan` (logged-in dengan data lengkap) di desktop & mobile → halaman terasa seperti buku, bukan dashboard.
+2. Catatan di Insight dan SkillMap (tambah 1 catatan masing-masing) muncul terkelompok di section "Catatan dari Perjalananmu".
+3. `window.print()` → preview PDF bersih, tanpa background cream, tanpa shadow, tanpa tombol, tidak ada blok terpotong di tengah.
+4. State kosong (belum ada data) tetap menampilkan empty state yang sudah ada.
