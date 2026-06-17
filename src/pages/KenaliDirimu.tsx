@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { kenaliDirimuContent as C } from "@/data/kenaliDirimuContent";
+import { kenaliDirimuContent as C, type Prompt } from "@/data/kenaliDirimuContent";
 
 const LS_KEY = "sulu_phase2a";
 
