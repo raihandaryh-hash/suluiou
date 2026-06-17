@@ -62,9 +62,9 @@ export const hero = {
 
 // ─── SECTION 1: INDONESIA ─────────────────────────────────────────
 export const indonesiaSection = {
-  tag: 'INDONESIA HARI INI',
+  tag: 'INI YANG SEDANG TERJADI SEKARANG',
   intro: {
-    siswa: 'Ini lapangan yang akan kamu masuki. Bukan prediksi, ini yang sedang terjadi.',
+    siswa: 'Ini lapangan yang sebentar lagi kamu masuki. Bukan ramalan, bukan untuk menakutimu. Cuma supaya kamu kenal medannya sebelum melangkah.',
     orangtua: 'Generasi anak Anda menghadapi kondisi yang berbeda dari yang Anda hadapi dulu. Datanya spesifik.',
     gurubk: 'Data ini bisa jadi titik masuk percakapan karier yang lebih jujur bersama siswa Anda.',
   } as Record<Persona, string>,
@@ -130,8 +130,8 @@ export const indonesiaSection = {
 
 // ─── LINK AND MATCH ───────────────────────────────────────────────
 export const linkMatchSection = {
-  tag: 'LINK AND MATCH',
-  headline: 'Upaya Menjembatani Pendidikan dan Dunia Kerja',
+  tag: 'JEMBATAN YANG BELUM NYAMBUNG',
+  headline: 'Pendidikan dan dunia kerja masih sering tidak nyambung.',
   body: 'Pemerintah Indonesia melalui program Link and Match 8+i mendorong kerjasama SMK dengan industri. Namun realisasinya menghadapi tantangan nyata: tingkat pengangguran lulusan SMK masih 8,63%, banyak kerjasama bersifat formalitas, dan kurikulum sulit mengikuti perubahan teknologi. Yang paling sering terabaikan: pemahaman diri siswa terhadap kekuatan dan minat mereka sendiri.',
   source: 'BPS Sakernas 2024; Kemendikbudristek Evaluasi Program Link and Match 2023',
   artinya: {
@@ -143,7 +143,7 @@ export const linkMatchSection = {
 
 // ─── REALITA DUNIA KERJA ──────────────────────────────────────────
 export const laborRealitySection = {
-  tag: 'REALITA DUNIA KERJA',
+  tag: 'YANG PALING TERASA, BUKAN CUMA AI',
   headline: 'Bukan hanya AI. Ini yang paling langsung terasa sekarang.',
   intro: {
     siswa: 'Sebelum memilih jalur, kenali dulu medan yang akan kamu masuki.',
@@ -192,8 +192,8 @@ export const laborRealitySection = {
 
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
 export const neetSection = {
-  tag: 'NEET INDONESIA VS ASEAN',
-  intro: 'Diukur dengan standar yang sama untuk semua negara, Indonesia berada di posisi tertinggi di kawasan. Gap-nya cukup untuk dipikirkan.',
+  tag: 'POSISI INDONESIA DI KAWASAN',
+  intro: 'Diukur dengan ukuran yang sama, Indonesia ada di posisi paling tinggi di kawasan. Bukan untuk berkecil hati. Justru di sinilah ruang paling lebar yang menunggu kamu isi.',
   maxPercent: 25,
   data: [
     { country: 'Indonesia', value: 21.36, year: '2023', colorClass: 'bg-destructive' },
@@ -209,7 +209,7 @@ export const neetSection = {
 
 // ─── SECTION 3a: SKILL LANDSCAPE (siswa) ──────────────────────────
 export const skillSection = {
-  tag: 'PETA SKILL 2025–2030',
+  tag: 'YANG TUMBUH DAN YANG MENYUSUT',
   intro: 'Skill bukan tentang apa yang tren sekarang. Skill adalah tentang apa yang masih dibutuhkan ketika kamu lulus.',
   growing: {
     label: 'Yang Tumbuh', subtitle: 'Dibutuhkan, belum cukup tersedia',
@@ -235,7 +235,7 @@ export const skillSection = {
 
 // ─── SECTION 3b: ROI PENDIDIKAN (orangtua) ────────────────────────
 export const roiSection = {
-  tag: 'INVESTASI PENDIDIKAN',
+  tag: 'SEPADAN ATAU TIDAK',
   intro: 'Pertanyaan yang wajar: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
   cards: [
     {
@@ -258,7 +258,7 @@ export const roiSection = {
 
 // ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
 export const bkSection = {
-  tag: 'KONDISI BIMBINGAN KARIER DI SEKOLAH',
+  tag: 'YANG TERJADI DI RUANG BK',
   intro: 'Data tentang kondisi BK di Indonesia, untuk referensi dan advokasi.',
   cards: [
     {
@@ -286,7 +286,7 @@ export const bkSection = {
 
 // ─── SECTION 4: DUNIA 2025–2030 ───────────────────────────────────
 export const worldSection = {
-  tag: 'DUNIA 2025–2030',
+  tag: 'KE MANA DUNIA INI BERGERAK',
   intro: {
     siswa: 'Ini bukan krisis global yang abstrak. Ini yang akan membentuk pilihan karier kamu.',
     orangtua: 'Investasi pendidikan yang paling aman adalah yang mempersiapkan anak untuk jenis pekerjaan yang akan ada, bukan yang sudah ada.',
@@ -338,9 +338,9 @@ export const worldSection = {
 
 // ─── SECTION 5: PELUANG SDM ───────────────────────────────────────
 export const opportunitySection = {
-  tag: 'PELUANG YANG BELUM DIISI',
+  tag: 'KURSI YANG MASIH KOSONG',
   intro: {
-    siswa: 'Ada sektor-sektor yang butuh orang tapi belum ada cukup yang datang. Ini shortage yang terdokumentasi, bukan hype.',
+    siswa: 'Ada banyak pintu yang butuh orang, tapi belum cukup yang datang. Ini bukan hype. Ini kursi yang benar-benar masih kosong, dan salah satunya bisa jadi milikmu.',
     orangtua: 'Jalur karier yang paling aman bukan yang paling populer sekarang.',
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
   } as Record<Persona, string>,
@@ -357,9 +357,9 @@ export const opportunitySection = {
 
 // ─── KONTEKS JAWA BARAT ───────────────────────────────────────────
 export const jabarSection = {
-  tag: 'KONTEKS JAWA BARAT',
+  tag: 'DI JAWA BARAT, LEBIH DEKAT LAGI',
   headline: 'Paradoks provinsi dengan ekonomi terkuat sekaligus pengangguran pemuda tertinggi.',
-  subtext: 'Ekonomi Jawa Barat tumbuh 5,79% di kuartal pertama 2026, tercepat di Indonesia. Tapi tingkat pengangguran pemudanya 16,89%, tertinggi ketiga secara nasional. Pertumbuhan dan pengangguran bisa hidup berdampingan. Yang menentukan kamu ada di sisi mana adalah persiapan.',
+  subtext: 'Ekonomi Jawa Barat tumbuh 5,79% di kuartal pertama 2026, tercepat di Indonesia. Namun tingkat pengangguran pemudanya 16,89%, tertinggi ketiga secara nasional. Pertumbuhan dan pengangguran bisa hidup berdampingan. Yang menentukan kamu ada di sisi mana adalah persiapan.',
   source: 'BPS Jawa Barat 2025; Bank Indonesia Jawa Barat Q1 2026',
   stats: [
     { label: 'TPT Pemuda Jabar', value: '16,89%', context: 'Tertinggi ke-3 nasional', tone: 'negative' as Tone },
@@ -397,7 +397,7 @@ export const dataDisclaimer = {
 
 // ─── EXPERT QUOTES ────────────────────────────────────────────────
 export const expertSection = {
-  tag: 'KATA PARA AHLI',
+  tag: 'KATA YANG MEMBACA DATANYA',
   intro: {
     siswa: 'Ini bukan opini acak. Ini pakar Indonesia dengan rekam jejak yang bisa dicek.',
     orangtua: 'Pandangan akademisi dan pejabat Indonesia tentang arah pendidikan.',
@@ -421,11 +421,22 @@ export const expertSection = {
   ],
 };
 
+// ─── BABAK 3 OPENER: HADITH MA'ADIN (verbatim deck Slide 10) ───
+// 🔲 review Ust. Hilman di akhir build (bukan blocker).
+export const maadinSection = {
+  arabic: 'النَّاسُ مَعَادِنُ كَمَعَادِنِ الذَّهَبِ وَالْفِضَّةِ',
+  translation:
+    'Manusia itu (ibarat) barang tambang, seperti tambang emas dan perak. Yang terbaik di masa Jahiliah adalah yang terbaik di masa Islam, apabila mereka memahami (agama).',
+  ref: "HR. Bukhari–Muslim (Muttafaq 'alaih)",
+  framing:
+    'Tiap orang menyimpan kandungan berharga di dalam dirinya, seperti emas dan perak di dalam tanah. Bedanya cuma satu: ada yang digali, ada yang dibiarkan. Yang membuat kandungan itu benar-benar bernilai, kata Nabi, justru ketika pemiliknya memahami agamanya.',
+};
+
 // ─── SECTION 6: SKILL MAP TEASER ─────────────────────────────────
 export const skillMapTeaser = {
-  tag: 'PETA SKILL LENGKAP',
-  headline: 'Bukan daftar jargon. Peta yang bisa kamu baca.',
-  body: 'Dari karakter dasar yang tidak bisa digantikan AI, sampai domain teknis per sektor. Lengkap dengan relasi kausal yang terbukti secara eksperimental dan data pasar kerja Indonesia.',
+  tag: 'JADI, APA YANG MEMBUATMU TETAP DIBUTUHKAN',
+  headline: 'Kamu tidak masuk ke dunia ini dengan tangan kosong.',
+  body: 'Sampai sini kamu sudah lihat medannya. Sekarang giliran bekalnya. Bukan daftar jargon, tapi peta yang bisa kamu baca: dari karakter dasar yang tidak tergantikan mesin, sampai keahlian teknis tiap sektor. Lengkap dengan kaitan sebab-akibat yang sudah teruji dan data pasar kerja Indonesia.',
   cta: 'Buka Peta Skill',
   href: '/skill-map',
 };
@@ -442,7 +453,7 @@ export const personaCallout: Record<Persona, { headline: string; body: string }>
   },
   gurubk: {
     headline: 'Kamu menghadapi 200+ siswa dengan pertanyaan yang semakin kompleks.',
-    body: 'Bukan salahmu bahwa datanya tidak cukup. Tapi ada cara untuk memulai percakapan yang lebih bermakna, bahkan dalam waktu yang terbatas.',
+    body: 'Bukan salahmu bahwa datanya tidak cukup. Namun ada cara untuk memulai percakapan yang lebih bermakna, bahkan dalam waktu yang terbatas.',
   },
 };
 
@@ -490,47 +501,52 @@ export type PenamparCard = {
   hook: string;
   statNumber: string;   // angka besar — ditampilkan prominent
   statLabel: string;    // label singkat — ditampilkan kecil di bawahnya
+  source: string;       // jejak sumber tiap angka (No-Overclaim)
   peluang: string;
   klaster: string;
 };
 
 export const penamparSection = {
-  headline: 'Dari Ilmu ke Dampak — Mulai dari Sini',
+  headline: 'Dari Ilmu ke Dampak: Mulai dari Sini',
   cards: [
     {
       id: 'pendidikan',
-      title: 'Di Balik Papan Tulis',
-      hook: 'Di banyak madrasah, siswa datang penuh semangat setiap pagi. Tapi gurunya masih berjuang untuk mengajar dengan lebih baik.',
-      statNumber: '6 dari 10',
-      statLabel: 'guru madrasah belum bersertifikat',
-      peluang: 'Ada ruang yang terbuka bagi yang ingin membawa kualitas pendidikan lebih baik ke generasi berikutnya.',
+      title: 'Mayoritas Guru Madrasah Belum Tersertifikasi',
+      hook: 'Setiap pagi anak-anak madrasah datang dengan semangat utuh. Yang mengajar mereka, enam dari sepuluh belum pernah lulus sertifikasi guru, dan antrean pelatihannya bisa memakan puluhan tahun. Bukan karena gurunya tidak mau, melainkan karena pintunya terlalu sempit.',
+      statNumber: '484.737',
+      statLabel: 'guru madrasah belum tersertifikasi (60,8%)',
+      source: 'JPPI; Kemenag, November 2024',
+      peluang: 'Satu guru yang naik kelas mengangkat ratusan murid sekaligus. Di sinilah generasi yang paham ilmu sekaligus paham cara mengajarkannya paling dibutuhkan.',
       klaster: 'Pendidikan & Ilmu',
     },
     {
       id: 'kepemimpinan',
-      title: 'Yang Pergi, Yang Tidak Kembali',
-      hook: 'Banyak kepala desa bekerja dengan tulus melayani warganya. Namun latar belakang pendidikannya sering terbatas.',
-      statNumber: '57%',
-      statLabel: 'kepala desa tidak melanjutkan pendidikan tinggi',
-      peluang: 'Ada tempat bagi generasi muda yang ingin membawa ilmu dan perspektif baru ke kepemimpinan desa.',
+      title: 'Anak Muda Terbaik Desa Pergi ke Kota',
+      hook: 'Anak-anak muda paling cakap di desa pindah ke kota dan jarang pulang. Yang tinggal untuk memimpin, mayoritas kepala desa berhenti di bangku SMA. Desa justru kehilangan orang-orang yang paling bisa memajukannya.',
+      statNumber: '57,54%',
+      statLabel: 'kepala desa berpendidikan terakhir SMA, hampir 3 dari 4 berhenti di SMA ke bawah',
+      source: 'BPS, Statistik Keuangan Pemerintah Desa 2021',
+      peluang: 'Arus ini bisa dibalik. Satu pemuda terdidik yang memilih pulang dan membangun bisa mengubah arah satu desa seutuhnya.',
       klaster: 'Kepemimpinan & Tata Kelola',
     },
     {
       id: 'kesehatan',
-      title: 'Ditanggung Sendiri',
-      hook: 'Di balik senyuman banyak remaja, ada yang sedang menahan beban sendirian karena tidak tahu harus bicara dengan siapa.',
-      statNumber: 'hanya 1 dari 10',
-      statLabel: 'remaja yang depresi mencari bantuan',
-      peluang: 'Ada ruang yang luas bagi yang ingin hadir — sebagai pendamping, konselor, atau tenaga kesehatan — untuk orang-orang yang selama ini menanggung sendiri.',
+      title: 'Banyak Remaja Menanggung Tekanan Mental Sendirian',
+      hook: 'Generasi yang tumbuh lewat tahun-tahun pandemi membawa luka yang jarang terlihat. Satu dari tiga remaja Indonesia mengalami masalah kesehatan mental, dan dari mereka hanya 2,6% yang sampai mendapat bantuan. Sisanya memendam sendiri, sering tanpa ada yang tahu.',
+      statNumber: '1 dari 3',
+      statLabel: 'remaja mengalami masalah kesehatan mental, hanya 2,6% yang mencari bantuan',
+      source: 'I-NAMHS 2022 (UGM, Kemenkes, Johns Hopkins, University of Queensland)',
+      peluang: 'Ada ruang luas bagi yang mau hadir: sebagai pendamping, konselor, psikolog, atau tenaga kesehatan jiwa, bagi teman-teman sebaya yang selama ini memendam sendiri.',
       klaster: 'Kesehatan & Kesejahteraan',
     },
     {
       id: 'ekonomi',
-      title: '65 Juta UMKM, 7% Syariah',
-      hook: 'Ada jutaan pemilik usaha kecil yang ingin menjalankan bisnis sesuai nilai agamanya, tapi kesulitan mencari jalan dan dukungan yang tepat.',
-      statNumber: '7,4%',
-      statLabel: 'keuangan Indonesia yang berprinsip syariah',
-      peluang: 'Ada ruang yang terbuka bagi yang ingin membantu membangun keuangan dan bisnis yang lebih selaras dengan nilai Islam.',
+      title: 'Negara Muslim Terbesar, Bank Syariahnya Masih Kecil',
+      hook: 'Indonesia rumah bagi populasi Muslim terbesar di dunia. Namun setelah lebih dari tiga dekade, bank syariah baru memegang sekitar 7,72% dari seluruh aset perbankan nasional. Permintaannya jelas ada, yang bisa menjalankannya yang masih sedikit.',
+      statNumber: '7,72%',
+      statLabel: 'pangsa perbankan syariah dari total aset perbankan nasional',
+      source: 'OJK, Desember 2024',
+      peluang: 'Ada ruang besar bagi yang paham fikih muamalah sekaligus instrumen keuangan modern, untuk membangun ekonomi yang adil sekaligus bertumbuh.',
       klaster: 'Ekonomi Adil & Keuangan',
     },
   ] satisfies PenamparCard[],

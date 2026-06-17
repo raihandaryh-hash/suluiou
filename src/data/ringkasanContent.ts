@@ -2,11 +2,11 @@ export const ringkasanContent = {
 
   header: {
 
-    title: "Ringkasan Refleksi Karier",
+    title: "Surat Perjalananmu",
 
-    subtitle: "Bahan obrolan dengan orang tua atau siapa pun yang kamu percaya",
+    subtitle: "Buat dibaca bareng orang tua, atau siapa pun yang kamu percaya",
 
-    badge: "Bukan hasil tes. Ini refleksimu sendiri.",
+    badge: "Bukan hasil tes. Ini kata-katamu sendiri.",
 
   },
 
@@ -14,7 +14,7 @@ export const ringkasanContent = {
 
   narrative: {
 
-    heading: "Dari refleksimu sendiri",
+    heading: "Dirangkai dari kata-katamu sendiri",
 
     badge: "Refleksi dari jawabanmu",
 
@@ -24,9 +24,9 @@ export const ringkasanContent = {
 
   jalur: {
 
-    heading: "Jalur yang bisa kamu pertimbangkan",
+    heading: "Pintu-pintu yang nyata untukmu",
 
-    intro: "Tidak ada satu jalur yang \"paling benar\". Ini informasi, bukan rekomendasi.",
+    intro: "Tidak ada satu pintu yang \"paling benar\". Ini peta pilihan, bukan vonis. Yang memilih tetap kamu.",
 
     cards: [
 
@@ -86,6 +86,6 @@ export const ringkasanContent = {
 
   },
 
-  footer: "Ini adalah awal percakapan, bukan keputusan final. Keputusan terbaik lahir dari obrolan yang jujur dengan orang-orang yang kamu percaya.",
+  footer: "Surat ini bukan titik akhir, justru awal sebuah percakapan. Keputusan terbaik lahir dari obrolan yang jujur dengan orang-orang yang kamu percaya. Simpan, dan baca lagi kapan pun kamu butuh mengingat arahmu.",
 
 };
