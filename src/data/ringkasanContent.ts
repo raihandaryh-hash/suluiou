@@ -12,6 +12,30 @@ export const ringkasanContent = {
 
   values: { heading: "Yang paling bermakna bagimu" },
 
+  chapters: {
+
+    siapaKamu: {
+
+      kicker: "Bagian Satu",
+
+      title: "Siapa Kamu",
+
+      line: "Apa yang kamu kenali tentang dirimu sepanjang perjalanan ini.",
+
+    },
+
+    jalanDepan: {
+
+      kicker: "Bagian Dua",
+
+      title: "Jalan ke Depan",
+
+      line: "Pintu-pintu yang nyata, terbuka untukmu.",
+
+    },
+
+  },
+
   narrative: {
 
     heading: "Dirangkai dari kata-katamu sendiri",
