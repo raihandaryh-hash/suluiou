@@ -63,6 +63,7 @@ export const hero = {
 // ─── SECTION 1: INDONESIA ─────────────────────────────────────────
 export const indonesiaSection = {
   tag: 'INI YANG SEDANG TERJADI SEKARANG',
+  headline: 'Satu dari lima anak muda Indonesia sekarang tidak sedang sekolah, bekerja, atau berlatih.',
   intro: {
     siswa: 'Ini lapangan yang sebentar lagi kamu masuki. Bukan ramalan, bukan untuk menakutimu. Cuma supaya kamu kenal medannya sebelum melangkah.',
     orangtua: 'Generasi anak Anda menghadapi kondisi yang berbeda dari yang Anda hadapi dulu. Datanya spesifik.',
@@ -193,6 +194,7 @@ export const laborRealitySection = {
 // ─── SECTION 2: NEET ASEAN ────────────────────────────────────────
 export const neetSection = {
   tag: 'POSISI INDONESIA DI KAWASAN',
+  headline: 'Diukur dengan ukuran yang sama, posisi Indonesia ada di urutan paling tinggi di kawasan.',
   intro: 'Diukur dengan ukuran yang sama, Indonesia ada di posisi paling tinggi di kawasan. Bukan untuk berkecil hati. Justru di sinilah ruang paling lebar yang menunggu kamu isi.',
   maxPercent: 25,
   data: [
@@ -210,6 +212,7 @@ export const neetSection = {
 // ─── SECTION 3a: SKILL LANDSCAPE (siswa) ──────────────────────────
 export const skillSection = {
   tag: 'YANG TUMBUH DAN YANG MENYUSUT',
+  headline: 'Yang menentukan bukan skill yang tren sekarang, tapi yang masih dibutuhkan saat kamu lulus.',
   intro: 'Skill bukan tentang apa yang tren sekarang. Skill adalah tentang apa yang masih dibutuhkan ketika kamu lulus.',
   growing: {
     label: 'Yang Tumbuh', subtitle: 'Dibutuhkan, belum cukup tersedia',
@@ -236,6 +239,7 @@ export const skillSection = {
 // ─── SECTION 3b: ROI PENDIDIKAN (orangtua) ────────────────────────
 export const roiSection = {
   tag: 'SEPADAN ATAU TIDAK',
+  headline: 'Sepadan atau tidak, itu pertanyaan yang pantas kamu tanyakan.',
   intro: 'Pertanyaan yang wajar: apakah biaya yang dikeluarkan sepadan dengan jalur yang dipilih?',
   cards: [
     {
@@ -259,6 +263,7 @@ export const roiSection = {
 // ─── SECTION 3c: KONDISI BK (gurubk) ──────────────────────────────
 export const bkSection = {
   tag: 'YANG TERJADI DI RUANG BK',
+  headline: 'Beginilah kondisi ruang bimbingan konseling di Indonesia, apa adanya.',
   intro: 'Data tentang kondisi BK di Indonesia, untuk referensi dan advokasi.',
   cards: [
     {
@@ -287,6 +292,7 @@ export const bkSection = {
 // ─── SECTION 4: DUNIA 2025–2030 ───────────────────────────────────
 export const worldSection = {
   tag: 'KE MANA DUNIA INI BERGERAK',
+  headline: 'Ada puluhan juta pekerjaan baru menjelang 2030, tapi menuntut skill yang berbeda.',
   intro: {
     siswa: 'Ini bukan krisis global yang abstrak. Ini yang akan membentuk pilihan karier kamu.',
     orangtua: 'Investasi pendidikan yang paling aman adalah yang mempersiapkan anak untuk jenis pekerjaan yang akan ada, bukan yang sudah ada.',
@@ -339,6 +345,7 @@ export const worldSection = {
 // ─── SECTION 5: PELUANG SDM ───────────────────────────────────────
 export const opportunitySection = {
   tag: 'KURSI YANG MASIH KOSONG',
+  headline: 'Banyak kursi yang masih kosong, dan salah satunya bisa jadi milikmu.',
   intro: {
     siswa: 'Ada banyak pintu yang butuh orang, tapi belum cukup yang datang. Ini bukan hype. Ini kursi yang benar-benar masih kosong, dan salah satunya bisa jadi milikmu.',
     orangtua: 'Jalur karier yang paling aman bukan yang paling populer sekarang.',
@@ -398,6 +405,7 @@ export const dataDisclaimer = {
 // ─── EXPERT QUOTES ────────────────────────────────────────────────
 export const expertSection = {
   tag: 'KATA YANG MEMBACA DATANYA',
+  headline: 'Ini bukan opini acak, tapi pembacaan dari orang yang rekam jejaknya bisa dicek.',
   intro: {
     siswa: 'Ini bukan opini acak. Ini pakar Indonesia dengan rekam jejak yang bisa dicek.',
     orangtua: 'Pandangan akademisi dan pejabat Indonesia tentang arah pendidikan.',
