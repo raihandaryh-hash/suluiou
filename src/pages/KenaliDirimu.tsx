@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { kenaliDirimuContent as C } from "@/data/kenaliDirimuContent";
 
 const LS_KEY = "sulu_phase2a";
 
@@ -18,6 +19,17 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }
     <div className="mb-5">
       <h2 className="font-heading text-xl font-semibold text-foreground">{title}</h2>
       {subtitle && <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{subtitle}</p>}
+    </div>
+  );
+}
+
+// Pembagi kelompok (kicker + heading + garis pengantar)
+function GroupHeading({ kicker, heading, line }: { kicker: string; heading: string; line: string }) {
+  return (
+    <div className="mt-12 mb-6">
+      <p className="text-xs font-medium tracking-[0.2em] uppercase text-[hsl(var(--torch-gold))]">{kicker}</p>
+      <h2 className="mt-1 font-heading text-2xl font-bold text-foreground">{heading}</h2>
+      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{line}</p>
     </div>
   );
 }
@@ -68,6 +80,8 @@ const PROMPT_LABELS: Record<string, string> = {
   ach_q2: "Memberi manfaat nyata",
   ach_q3: "Pengalaman sulit yang berbuah baik",
   abu_q1: "Yang paling jelas terlihat",
+  ge_gap: "Yang masih ingin dikuatkan",
+  ge_mitigasi: "Cara menumbuhkannya",
   final_free: "Catatan tambahan",
 };
 
@@ -168,249 +182,161 @@ export default function KenaliDirimu() {
       {/* Sticky progress */}
       <div className="sticky top-12 z-20 -mx-6 mb-6 border-b border-border bg-background/85 px-6 py-2 backdrop-blur">
         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          {domainsDone} dari 4 domain selesai
+          {domainsDone} {C.progressSuffix}
         </p>
       </div>
 
       {/* ── NARASI PEMBUKA SYUKUR ── */}
       <section className="prose-sm space-y-4">
-        <p className="text-base leading-relaxed text-foreground/90">
-          Allah berjanji:
-        </p>
+        <p className="text-base leading-relaxed text-foreground/90">{C.pembuka.ayatLead}</p>
         <blockquote className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 italic text-foreground/90">
-          "Sesungguhnya jika kamu bersyukur, niscaya Aku akan menambah (nikmat) kepadamu..."
-          <span className="not-italic block mt-1 text-sm text-muted-foreground">— QS Ibrahim: 7</span>
+          {C.pembuka.ayat}
+          <span className="not-italic block mt-1 text-sm text-muted-foreground">{C.pembuka.ayatRef}</span>
         </blockquote>
-        <p className="text-base leading-relaxed text-foreground/90">
-          Mensyukuri dimulai dari mengenali. Barangkali ada nikmat yang belum kamu sadari sepenuhnya.
-          Di sini, mari kita ingat dan petakan bersama.
-        </p>
-        <h1 className="font-heading text-2xl font-bold text-foreground mt-8">Kenali Yang Sudah Ada</h1>
-        <p className="text-sm text-muted-foreground mt-2">
-          Bukan untuk menilai dirimu. Tapi, untuk mensyukuri modal yang sudah Allah titipkan untuk
-          jalan gerakmu ke depan.
-        </p>
+        <p className="text-base leading-relaxed text-foreground/90">{C.pembuka.intro}</p>
+        <h1 className="font-heading text-2xl font-bold text-foreground mt-8">{C.pembuka.h1}</h1>
+        <p className="text-sm text-muted-foreground mt-2">{C.pembuka.h1sub}</p>
       </section>
-
-      <Separator className="my-10" />
 
       {/* ── UST. HILMAN TOUCHPOINT ── */}
-      <div className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 mb-6 italic text-foreground/90">
-        "Rasulullah ﷺ mengingatkan: di dalam tubuh ada segumpal daging. Bila ia baik, baiklah
-        seluruh tubuh. Dari sana kita mulai."
+      <div className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 mt-6 italic text-foreground/90">
+        {C.hilman}
       </div>
 
-      {/* ── DOMAIN 1 ── */}
-      <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader
-          title="Fondasi Keimanan"
-          subtitle="Fondasi imanmu adalah nikmat yang paling mendasar. Di sini kamu mengingat apa yang sudah ada: ayat yang menguatkan, pemahaman yang membimbing, dan kebiasaan yang menopang."
-        />
-        <div className="space-y-6">
-          <JournalingPrompt
-            question="Ayat, doa, atau momen ibadah mana yang paling sering membawa ketenangan saat hatimu terasa berat?"
-            starter="Yang paling sering membawa ketenangan bagi saya adalah..."
-            value={a.d1_q1 || ""}
-            onChange={set("d1_q1")}
-          />
-          <JournalingPrompt
-            question="Pemahaman atau nilai dalam Islam mana yang paling melekat dalam dirimu — yang memberi arah ketika kamu bimbang, atau kekuatan ketika kamu hampir menyerah?"
-            starter="Pemahaman atau nilai dalam Islam yang paling melekat dan membimbing saya adalah..."
-            value={a.d1_q2 || ""}
-            onChange={set("d1_q2")}
-          />
-          <JournalingPrompt
-            question="Rutinitas amal apa yang biasanya memberi kamu ketenangan dan kekuatan di hari-hari biasa?"
-            starter="Rutinitas amal yang biasanya memberi saya ketenangan dan kekuatan adalah..."
-            value={a.d1_q3 || ""}
-            onChange={set("d1_q3")}
-          />
-        </div>
-      </section>
+      {/* ── INTI: 4 DOMAIN ── */}
+      <GroupHeading {...C.domainsGroup} />
+      {C.domains.map((d) => (
+        <section key={d.id} className="rounded-xl border border-border bg-card p-6 mb-6">
+          <SectionHeader title={d.title} subtitle={d.subtitle} />
+          <div className="space-y-6">
+            {d.prompts.map((p) => (
+              <JournalingPrompt
+                key={p.id}
+                question={p.question}
+                starter={p.starter}
+                minH={p.minH}
+                value={a[p.id] || ""}
+                onChange={set(p.id)}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
 
-      {/* ── DOMAIN 2 ── */}
-      <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader
-          title="Karakter dan Keterampilan Latent"
-          subtitle="Setiap orang diciptakan dengan kekuatan dan cara kerja yang unik. Di sini kamu akan mengenali pola yang sudah ada dalam dirimu."
-        />
-        <div className="space-y-6">
-          <JournalingPrompt
-            question="Pernahkah kamu mengerjakan sesuatu yang terasa mudah, mengalir, dan merasa 'ini saya banget' — sangat cocok dan terasa benar? Apa yang sedang kamu lakukan saat itu, dan kenapa rasanya begitu?"
-            starter="Momen ketika saya merasa 'ini saya banget' dan semuanya terasa mengalir adalah..."
-            value={a.d2_q1 || ""}
-            onChange={set("d2_q1")}
-          />
-          <JournalingPrompt
-            question="Hal apa yang sering orang lain perhatikan atau komentari tentang cara kamu bekerja atau berinteraksi — bahkan orang yang baru saja mengenalmu?"
-            starter="Yang sering orang perhatikan tentang saya, bahkan yang baru mengenal saya, adalah..."
-            value={a.d2_q2 || ""}
-            onChange={set("d2_q2")}
-          />
-          <JournalingPrompt
-            question="Di sekolah, ekskul, atau komunitas, peran atau tugas apa yang paling cocok dengan cara kamu biasanya bekerja?"
-            starter="Peran atau tugas yang paling cocok dengan cara kerja saya adalah..."
-            value={a.d2_q3 || ""}
-            onChange={set("d2_q3")}
-          />
-        </div>
-      </section>
+      {/* ── PELENGKAP DIRI ── */}
+      <GroupHeading {...C.pelengkapGroup} />
 
-      {/* ── DOMAIN 3 ── */}
-      <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader
-          title="Modal Relasional"
-          subtitle="Orang tua, guru, dan sahabat sering melihat kekuatanmu lebih jelas dari yang kamu rasakan sendiri. Mereka adalah cermin yang sudah Allah hadirkan dalam hidupmu."
-        />
-        <div className="space-y-6">
-          <JournalingPrompt
-            question="Siapa yang pernah mengatakan sesuatu positif tentang cara kerjamu atau kemampuanmu? Ceritakan apa yang mereka katakan."
-            starter="Yang pernah memberi komentar tentang kemampuan atau cara kerja saya adalah... dan mereka mengatakan..."
-            value={a.d3_q1 || ""}
-            onChange={set("d3_q1")}
-          />
-          <JournalingPrompt
-            question="Pernahkah seseorang mengatakan sesuatu tentang kemampuanmu yang membuatmu menyadari sesuatu tentang dirimu yang belum pernah terpikir sebelumnya?"
-            starter="Yang membuat saya menyadari sesuatu baru tentang diri saya adalah..."
-            value={a.d3_q2 || ""}
-            onChange={set("d3_q2")}
-          />
-          <JournalingPrompt
-            question="Bagaimana kamu biasanya memberi manfaat kepada keluarga atau komunitas lewat hal-hal yang kamu kuasai?"
-            starter="Saya biasanya memberi manfaat kepada keluarga atau komunitas dengan..."
-            value={a.d3_q3 || ""}
-            onChange={set("d3_q3")}
-          />
-        </div>
-      </section>
-
-      {/* ── DOMAIN 4 ── */}
-      <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader
-          title="Adaptabilitas Karier"
-          subtitle="Allah menjanjikan bahwa bersama setiap kesulitan ada kemudahan. Kamu akan menuliskan masa depan yang kamu impikan sekaligus yang ingin kamu hindari. Keduanya akan membantumu lebih terarah dan yakin."
-        />
-        <div className="space-y-6">
-          <JournalingPrompt
-            question="Bayangkan lima tahun mendatang. Kehidupan seperti apa yang ingin kamu bangun bersama keluarga dan komunitas?"
-            starter="Lima tahun mendatang, yang ingin saya bangun bersama keluarga dan komunitas adalah..."
-            value={a.d4_q1 || ""}
-            onChange={set("d4_q1")}
-          />
-          <JournalingPrompt
-            question="Hal apa yang ingin kamu hindari di masa depan agar tetap selaras dengan nilai dan tanggung jawabmu?"
-            starter="Yang ingin saya hindari di masa depan adalah..."
-            value={a.d4_q2 || ""}
-            onChange={set("d4_q2")}
-          />
-          <JournalingPrompt
-            question="Ketika kamu menghadapi ketidakpastian tentang masa depan, apa yang biasanya memberimu keyakinan untuk tetap bergerak?"
-            starter="Yang biasanya memberi saya keyakinan untuk tetap bergerak menghadapi ketidakpastian adalah..."
-            value={a.d4_q3 || ""}
-            onChange={set("d4_q3")}
-          />
-        </div>
-      </section>
-
-      {/* ── FREE FIELD: NIKMAT LAINNYA ── */}
+      {/* Nikmat lainnya */}
       <div className="mb-6">
-        <label className="text-sm font-medium text-foreground">Nikmat lain yang ingin kamu catat</label>
-        <p className="text-sm text-muted-foreground mb-2">
-          Ada nikmat lain yang kamu sadari yang belum tercakup di atas? Semuanya adalah nikmat
-          karunia-Nya.
-        </p>
+        <label className="text-sm font-medium text-foreground">{C.nikmatLain.label}</label>
+        <p className="text-sm text-muted-foreground mb-2">{C.nikmatLain.helper}</p>
         <Textarea
-          value={a.free_nikmat || ""}
-          onChange={(e) => set("free_nikmat")(e.target.value)}
-          placeholder="Nikmat lain yang saya syukuri adalah..."
+          value={a[C.nikmatLain.id] || ""}
+          onChange={(e) => set(C.nikmatLain.id)(e.target.value)}
+          placeholder={C.nikmatLain.placeholder}
           className="min-h-[80px]"
         />
       </div>
 
-      <Separator className="my-10" />
-
-      {/* ── ACHIEVEMENT LOG ── */}
+      {/* Achievement Log */}
       <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader
-          title="Catatan Perjalananmu"
-          subtitle="Setiap pengalaman yang pernah kamu jalani — dalam organisasi, kegiatan, tugas harian, atau momen membantu orang lain — adalah bagian dari perjalananmu. Catat semuanya di sini, besar atau kecil, peran yang keren maupun yang tidak. Tuliskan sebanyak yang kamu ingat — ini akan menjadi arsip pribadimu dan bahan nyata untuk kariermu ke depan."
-        />
+        <SectionHeader title={C.achievement.title} subtitle={C.achievement.subtitle} />
         <div className="space-y-6">
-          <JournalingPrompt
-            question="Pengalaman atau kegiatan apa saja yang pernah kamu jalani — di sekolah, komunitas, keluarga, atau di mana saja? Ceritakan peranmu dan apa yang kamu lakukan."
-            starter="Pengalaman atau kegiatan yang pernah saya jalani adalah..."
-            value={a.ach_q1 || ""}
-            onChange={set("ach_q1")}
-            minH="min-h-[140px]"
-          />
-          <JournalingPrompt
-            question="Pernahkah kamu melakukan sesuatu — sekecil apapun — dan merasakan bahwa itu memberi manfaat nyata bagi orang lain? Ceritakan."
-            starter="Momen ketika saya merasa memberi manfaat nyata adalah..."
-            value={a.ach_q2 || ""}
-            onChange={set("ach_q2")}
-          />
+          {C.achievement.prompts.map((p) => (
+            <JournalingPrompt
+              key={p.id}
+              question={p.question}
+              starter={p.starter}
+              minH={p.minH}
+              value={a[p.id] || ""}
+              onChange={set(p.id)}
+            />
+          ))}
           {!showAchOpt ? (
             <button
               type="button"
               onClick={() => setShowAchOpt(true)}
               className="text-sm text-[hsl(var(--torch-gold))] underline-offset-4 hover:underline"
             >
-              Ada pengalaman sulit yang ternyata mengandung kebaikan? (opsional)
+              {C.achievement.optional.toggleLabel}
             </button>
           ) : (
             <JournalingPrompt
-              question="Pernahkah kamu melewati pengalaman yang terasa berat atau tidak kamu inginkan, tapi belakangan kamu sadari ada kebaikan atau pelajaran di baliknya?"
-              starter="Pengalaman yang awalnya terasa berat tapi belakangan saya syukuri adalah..."
-              value={a.ach_q3 || ""}
-              onChange={set("ach_q3")}
+              question={C.achievement.optional.prompt.question}
+              starter={C.achievement.optional.prompt.starter}
+              value={a[C.achievement.optional.prompt.id] || ""}
+              onChange={set(C.achievement.optional.prompt.id)}
             />
           )}
         </div>
       </section>
 
-      {/* ── TANYAKAN ORANG TERDEKAT (ZAID) ── */}
+      {/* ── CERMIN DARI LUAR ── */}
+      <GroupHeading {...C.cerminGroup} />
+
+      {/* Zaid bin Tsabit */}
       <section className="rounded-2xl bg-secondary/60 p-6 mb-6">
         <p className="text-base leading-relaxed text-foreground/90">
-          Zaid bin Tsabit pun awalnya tidak tahu kemana bakatnya, sampai keluarganya yang
-          mengarahkannya — hingga menjadi sekretaris wahyu Rasulullah ﷺ. Sekarang, coba tunjukkan
-          jawaban-jawabanmu kepada orang tua, guru, atau sahabat dekatmu. Tanyakan:{" "}
-          <em>"Apa yang kamu lihat sebagai keunggulanku yang mungkin belum aku sadari?"</em>
+          {C.zaid.body} <em>{C.zaid.ask}</em>
         </p>
         <Button variant="outline" className="mt-4" onClick={handleShareWA}>
           <Share2 className="mr-2 h-4 w-4" />
-          Bagikan ke Orang Tua / Guru
+          {C.zaid.shareLabel}
         </Button>
       </section>
 
-      {/* ── ABU MAHDZURAH ── */}
+      {/* Abu Mahdzurah */}
       <section className="rounded-xl border border-border bg-card p-6 mb-6">
-        <SectionHeader title="Yang Paling Jelas Terlihat" />
+        <SectionHeader title={C.abu.title} />
         <JournalingPrompt
-          question="Apa yang sering orang lain perhatikan atau komentari tentang dirimu — hal yang langsung terlihat, bahkan sebelum mereka mengenalmu lebih dalam?"
-          starter="Yang langsung terlihat dari diri saya bahkan sebelum orang mengenal saya lebih dalam adalah..."
-          value={a.abu_q1 || ""}
-          onChange={set("abu_q1")}
+          question={C.abu.prompt.question}
+          starter={C.abu.prompt.starter}
+          value={a[C.abu.prompt.id] || ""}
+          onChange={set(C.abu.prompt.id)}
         />
       </section>
 
-      {/* ── FREE TEXT FINAL ── */}
-      <div className="mb-10">
-        <label className="text-sm font-medium text-foreground">Ada yang ingin kamu tambahkan?</label>
-        <p className="text-sm text-muted-foreground mb-2">
-          Ada hal lain tentang dirimu yang belum terjawab di atas? Ini bisa menjadi bahan diskusi
-          dengan orang tua, guru, atau konselor.
-        </p>
+      {/* Free text final */}
+      <div className="mb-6">
+        <label className="text-sm font-medium text-foreground">{C.finalFree.label}</label>
+        <p className="text-sm text-muted-foreground mb-2">{C.finalFree.helper}</p>
         <Textarea
-          value={a.final_free || ""}
-          onChange={(e) => set("final_free")(e.target.value)}
-          placeholder="Tuliskan di sini..."
+          value={a[C.finalFree.id] || ""}
+          onChange={(e) => set(C.finalFree.id)(e.target.value)}
+          placeholder={C.finalFree.placeholder}
           className="min-h-[100px]"
         />
       </div>
 
+      {/* ── GROWTH EDGE (beat baru) ── */}
+      <Separator className="my-10" />
+      <section className="rounded-xl border border-border bg-card p-6 mb-6">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-[hsl(var(--torch-gold))]">{C.growthEdge.kicker}</p>
+        <h2 className="mt-1 mb-3 font-heading text-xl font-semibold text-foreground">{C.growthEdge.heading}</h2>
+        <p className="text-base leading-relaxed text-foreground/90 mb-6">{C.growthEdge.intro}</p>
+        <div className="space-y-6">
+          <div>
+            <JournalingPrompt
+              question={C.growthEdge.gap.label}
+              starter={C.growthEdge.gap.starter}
+              value={a[C.growthEdge.gap.id] || ""}
+              onChange={set(C.growthEdge.gap.id)}
+            />
+            <p className="mt-1 text-xs text-muted-foreground italic">{C.growthEdge.gap.helper}</p>
+          </div>
+          <JournalingPrompt
+            question={C.growthEdge.mitigasi.label}
+            starter={C.growthEdge.mitigasi.starter}
+            value={a[C.growthEdge.mitigasi.id] || ""}
+            onChange={set(C.growthEdge.mitigasi.id)}
+          />
+        </div>
+        <p className="mt-6 text-sm leading-relaxed text-foreground/80">{C.growthEdge.closing}</p>
+      </section>
+
       <Separator className="my-10" />
 
-      {/* ── PENUTUP SYUKUR ── */}
+      {/* ── PENUTUP SYUKUR (dalil verbatim, inline) ── */}
       <section className="rounded-xl bg-secondary/40 p-6 mb-10 space-y-4 text-foreground/90 leading-relaxed text-justify">
         <p>Semua yang baru saja kamu kenali adalah amanah, dan modal gerakmu.</p>
         <p>
@@ -442,22 +368,19 @@ export default function KenaliDirimu() {
           {saving ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Menyimpan...
+              {C.save.saving}
             </>
           ) : (
-            "Simpan Catatanku"
+            C.save.button
           )}
         </Button>
 
-        <p className="text-base text-foreground/90 leading-relaxed mt-4">
-          Kamu sudah mengenali apa yang sudah ada. Langkah berikutnya: kenali kompetensi yang ingin
-          kamu bangun.
-        </p>
+        <p className="text-base text-foreground/90 leading-relaxed mt-4">{C.save.ctaBody}</p>
         <Button
           asChild
           className="w-full sm:w-auto bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))] hover:bg-[hsl(var(--torch-gold))]/90"
         >
-          <Link to="/kenali-dirimu/skill">Lanjut: Kenali Kompetensimu →</Link>
+          <Link to="/kenali-dirimu/skill">{C.save.ctaLabel}</Link>
         </Button>
       </div>
     </main>
