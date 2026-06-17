@@ -29,7 +29,6 @@ import {
   expertSection,
   opportunitySection,
   jabarSection,
-  alumniSection,
   skillMapTeaser,
   personaCallout,
   ctaSection,
@@ -37,6 +36,7 @@ import {
   dataSourcesLabel,
   sourcePrefix,
   penamparSection,
+  maadinSection,
   evanInsights,
   type Persona,
   type Tone,
@@ -172,6 +172,9 @@ function PenamparCardItem({ card }: { card: PenamparCard }) {
       <p className="text-sm text-foreground/80 leading-relaxed mt-auto">
         {card.peluang}
       </p>
+
+      {/* Sumber (No-Overclaim) */}
+      <p className="text-[10px] text-muted-foreground/70 leading-snug mt-1">Sumber: {card.source}</p>
     </div>
   );
 }
@@ -593,10 +596,11 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
 }
 
 // ───── Eyebrow + intro helper ─────
-function SectionHeader({ tag, intro }: { tag: string; intro?: string }) {
+function SectionHeader({ tag, headline, intro }: { tag?: string; headline?: string; intro?: string }) {
   return (
     <div className="mb-8">
-      <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3">{tag}</p>
+      {tag && <p className="text-xs font-medium tracking-wide text-muted-foreground/80 mb-2">{tag}</p>}
+      {headline && <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-2xl">{headline}</h2>}
       {intro && <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">{intro}</p>}
     </div>
   );
@@ -662,7 +666,7 @@ function SkillLandscape({ persona }: { persona: Persona }) {
   return (
     <>
       <section id="skill" className="container mx-auto px-6 py-16 max-w-5xl">
-        <SectionHeader tag={skillSection.tag} intro={skillSection.intro} />
+        <SectionHeader headline={skillSection.headline} intro={skillSection.intro} />
         <DataReveal>
           <div className="flex gap-2 mb-6">
             {(['growing', 'declining'] as const).map((t) => (
@@ -706,7 +710,7 @@ function RoiBlock({ persona }: { persona: Persona }) {
   return (
     <>
       <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
-        <SectionHeader tag={roiSection.tag} intro={roiSection.intro} />
+        <SectionHeader headline={roiSection.headline} intro={roiSection.intro} />
         <DataReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {roiSection.cards.map((c, i) => (
@@ -725,7 +729,7 @@ function BkBlock({ persona }: { persona: Persona }) {
   return (
     <>
       <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
-        <SectionHeader tag={bkSection.tag} intro={bkSection.intro} />
+        <SectionHeader headline={bkSection.headline} intro={bkSection.intro} />
         <DataReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {bkSection.cards.map((c, i) => (
@@ -873,13 +877,7 @@ function Catatanku({ anchor, label }: { anchor: string; label: string }) {
   );
 }
 
-// Hadith barang tambang (Ma'adin) — deck Slide 10, verbatim. Pembuka Babak 3.
-// 🔲 review Ust. Hilman di akhir (need-to-know + review, BUKAN blocker deploy).
-const MAADIN = {
-  arabic: 'النَّاسُ مَعَادِنُ كَمَعَادِنِ الذَّهَبِ وَالْفِضَّةِ',
-  translation: 'Manusia itu (ibarat) barang tambang, seperti tambang emas dan perak. Yang terbaik di masa Jahiliah adalah yang terbaik di masa Islam, apabila mereka memahami (agama).',
-  ref: 'HR. Bukhari-Muslim',
-};
+// Hadith barang tambang (Ma'adin) kini di src/data/insightContent.ts (maadinSection) — editable-ready.
 
 const BABAK_NAV = [
   { id: 'babak-1', label: 'Taruhan' },
@@ -1023,7 +1021,7 @@ const Insight = () => {
         {dataOpen && (<>
           {/* Indonesia hari ini */}
           <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
-            <SectionHeader tag={indonesiaSection.tag} intro={indonesiaSection.intro[persona]} />
+            <SectionHeader headline={indonesiaSection.headline} intro={indonesiaSection.intro[persona]} />
             <DataReveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {indonesiaSection.cards.map((c, i) => (
@@ -1036,7 +1034,6 @@ const Insight = () => {
 
           {/* Link and Match */}
           <section id="link-match" className="container mx-auto px-6 py-12 max-w-4xl">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">{linkMatchSection.tag}</p>
             <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
               <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
               <div className="border-t border-border pt-4">
@@ -1053,7 +1050,7 @@ const Insight = () => {
 
           {/* NEET Indonesia vs ASEAN (WDI 6 negara) */}
           <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
-            <SectionHeader tag={neetSection.tag} intro={neetSection.intro} />
+            <SectionHeader headline={neetSection.headline} intro={neetSection.intro} />
             <DataReveal>
               <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
                 {neetSection.data.map((row, i) => (
@@ -1086,8 +1083,7 @@ const Insight = () => {
 
           {/* Realita Dunia Kerja */}
           <section id="realita" className="container mx-auto px-6 py-16 max-w-6xl">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{laborRealitySection.tag}</p>
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{laborRealitySection.headline}</h2>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{laborRealitySection.headline}</h2>
             <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
             <DataReveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1106,7 +1102,7 @@ const Insight = () => {
 
           {/* Dunia 2025–2030 */}
           <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
-            <SectionHeader tag={worldSection.tag} intro={worldSection.intro[persona]} />
+            <SectionHeader headline={worldSection.headline} intro={worldSection.intro[persona]} />
             <DataReveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {worldSection.cards.map((c, i) => (
@@ -1119,10 +1115,9 @@ const Insight = () => {
 
           {/* Konteks Jawa Barat */}
           <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{jabarSection.tag}</p>
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-3xl">{jabarSection.headline}</h2>
-            <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{jabarSection.subtext}</p>
-            <p className="text-sm text-foreground/80 italic mb-6 leading-relaxed max-w-3xl">{jabarSection.closingNote[persona]}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{jabarSection.headline}</h2>
+            <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{jabarSection.subtext}</p>
+            <p className="text-sm text-foreground/80 italic mb-6 leading-relaxed max-w-2xl">{jabarSection.closingNote[persona]}</p>
             <DataReveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {jabarSection.stats.map((s, i) => {
@@ -1146,7 +1141,7 @@ const Insight = () => {
 
           {/* Expert Quotes */}
           <section className="container mx-auto px-6 py-12 max-w-6xl">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-6 uppercase">{expertSection.tag}</p>
+            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{expertSection.headline}</h2>
             <p className="text-sm text-muted-foreground mb-6">{expertSection.intro[persona]}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {expertSection.quotes.map((q, i) => (
@@ -1198,9 +1193,10 @@ const Insight = () => {
           {/* Pembuka dalil — paradigma "barang tambang": setiap orang punya potensi, yang membedakan adalah pemahaman.
               🔲 review Ust. Hilman di akhir (need-to-know + review, bukan blocker). */}
           <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-7 max-w-2xl">
-            <p className="text-lg md:text-xl text-foreground/90 leading-loose mb-3 text-right" dir="rtl" lang="ar">{MAADIN.arabic}</p>
-            <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">&ldquo;{MAADIN.translation}&rdquo;</p>
-            <p className="text-xs text-muted-foreground">{MAADIN.ref}</p>
+            <p className="text-lg md:text-xl text-foreground/90 leading-loose mb-3 text-right" dir="rtl" lang="ar">{maadinSection.arabic}</p>
+            <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">&ldquo;{maadinSection.translation}&rdquo;</p>
+            <p className="text-xs text-muted-foreground mb-4">{maadinSection.ref}</p>
+            <p className="text-sm text-foreground/80 leading-relaxed">{maadinSection.framing}</p>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mt-6">
             Ini petanya. Yang dicari merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
@@ -1214,7 +1210,7 @@ const Insight = () => {
 
         {/* Peluang SDM */}
         <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
-          <SectionHeader tag={opportunitySection.tag} intro={opportunitySection.intro[persona]} />
+          <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[persona]} />
           <DataReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {opportunitySection.items.map((o, i) => (
@@ -1228,23 +1224,6 @@ const Insight = () => {
           </DataReveal>
         </section>
         <UsefulFeedback section="peluang" persona={persona} />
-
-        {/* Alumni yang sudah membuktikan */}
-        <section className="container mx-auto px-6 py-16 max-w-6xl">
-          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">{alumniSection.tag}</p>
-          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3 max-w-3xl">{alumniSection.headline}</h2>
-          <p className="text-base text-foreground/80 max-w-3xl leading-relaxed mb-8">{alumniSection.subtext}</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {alumniSection.stories.map((s, i) => (
-              <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 flex flex-col">
-                <p className="text-[10px] font-semibold tracking-[0.15em] text-primary uppercase mb-3">{s.sector}</p>
-                <p className="text-sm text-foreground/85 leading-relaxed mb-4">{s.story}</p>
-                <p className="text-sm text-foreground/80 italic leading-relaxed mb-4 border-l-2 border-primary/40 pl-3">{s.insight}</p>
-                <p className="text-xs text-muted-foreground mt-auto italic">{sourcePrefix} {s.source}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <Catatanku anchor="babak-3" label="Bekal: yang akan kubawa" />
       </section>
