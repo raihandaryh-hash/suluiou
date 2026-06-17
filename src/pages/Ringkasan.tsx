@@ -30,6 +30,16 @@ function formatTanggal(iso: string): string {
   }
 }
 
+function ChapterDivider({ kicker, title, line }: { kicker: string; title: string; line: string }) {
+  return (
+    <div className="mt-14 border-t border-border pt-8 print:mt-8">
+      <p className="font-[Outfit] text-xs font-semibold tracking-[0.2em] uppercase text-[hsl(var(--mid-blue))]">{kicker}</p>
+      <h2 className="mt-1 font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">{title}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">{line}</p>
+    </div>
+  );
+}
+
 export default function Ringkasan() {
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
@@ -125,8 +135,10 @@ export default function Ringkasan() {
         </div>
       </header>
 
+      <ChapterDivider {...ringkasanContent.chapters.siapaKamu} />
+
       {/* SECTION 1 — Values */}
-      <section className="mt-10">
+      <section className="mt-8">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
           {ringkasanContent.values.heading}
         </h2>
@@ -269,8 +281,10 @@ export default function Ringkasan() {
         </section>
       )}
 
+      <ChapterDivider {...ringkasanContent.chapters.jalanDepan} />
+
       {/* SECTION 3 — Jalur */}
-      <section className="mt-10">
+      <section className="mt-8">
         <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
           {ringkasanContent.jalur.heading}
         </h2>
