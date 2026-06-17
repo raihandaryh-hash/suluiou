@@ -1,20 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Loader2, Printer, MessageCircle, ArrowLeft } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { Printer, MessageCircle, ArrowLeft, Filter } from "lucide-react";
 import { track } from "@/lib/track";
 import { ringkasanContent } from "@/data/ringkasanContent";
 import { compileSurat } from "@/lib/suratPerjalanan";
-
-type KdRow = {
-  id: string;
-  session_id: string;
-  values_sorted: string[] | null;
-  ai_narrative: string | null;
-  completed: boolean;
-  created_at: string;
-};
+import type { SuluNote } from "@/lib/notes";
+import { cn } from "@/lib/utils";
 
 function formatTanggal(iso: string): string {
   try {
@@ -50,9 +42,7 @@ function ChapterDivider({
       >
         {ROMAN[num] ?? num}
       </p>
-      <p
-        className="mt-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[hsl(var(--mid-blue))]"
-      >
+      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[hsl(var(--mid-blue))]">
         {kicker}
       </p>
       <h2 className="mt-2 font-[Outfit] text-2xl font-semibold text-[hsl(var(--ink-deep))] md:text-3xl">
@@ -84,89 +74,61 @@ function Kicker({ children }: { children: React.ReactNode }) {
   );
 }
 
+type CatFilter = "all" | "insight" | "skillmap";
+
+const FILTERS: { id: CatFilter; label: string }[] = [
+  { id: "all", label: "Semua" },
+  { id: "insight", label: "Kenali Dunia" },
+  { id: "skillmap", label: "Peta Keahlian" },
+];
+
+const SOURCE_LABEL: Record<SuluNote["source"], string> = {
+  insight: "Kenali Dunia",
+  skillmap: "Peta Keahlian",
+};
+
 export default function Ringkasan() {
-  const [searchParams] = useSearchParams();
-  const [loading, setLoading] = useState(true);
-  const [row, setRow] = useState<KdRow | null>(null);
-  const [sessionId, setSessionId] = useState<string>("");
-
-  useEffect(() => {
-    let sid = searchParams.get("s") || "";
-    if (!sid) {
-      try { sid = localStorage.getItem("kd_session_id") || ""; } catch {}
-    }
-    setSessionId(sid);
-    if (!sid) { setLoading(false); return; }
-
-    (async () => {
-      const { data } = await supabase
-        .from("kenali_dirimu_sessions")
-        .select("*")
-        .eq("session_id", sid)
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
-      if (data) setRow(data as unknown as KdRow);
-      setLoading(false);
-    })();
-  }, [searchParams]);
-
-  const values3 = useMemo(() => (row?.values_sorted || []).slice(0, 3), [row]);
   const surat = useMemo(() => compileSurat(), []);
+  const [filter, setFilter] = useState<CatFilter>("all");
 
-  const catatanInsight = useMemo(
-    () => surat.catatan.filter((n) => n.source === "insight"),
+  const allNotes = useMemo(
+    () => [...surat.catatan].sort((a, b) => b.ts - a.ts),
     [surat.catatan],
   );
-  const catatanSkill = useMemo(
-    () => surat.catatan.filter((n) => n.source === "skillmap"),
-    [surat.catatan],
+  const filteredNotes = useMemo(
+    () => (filter === "all" ? allNotes : allNotes.filter((n) => n.source === filter)),
+    [allNotes, filter],
+  );
+  const counts = useMemo(
+    () => ({
+      all: allNotes.length,
+      insight: allNotes.filter((n) => n.source === "insight").length,
+      skillmap: allNotes.filter((n) => n.source === "skillmap").length,
+    }),
+    [allNotes],
   );
 
-  const tanggalDisplay = formatTanggal(row?.created_at ?? new Date().toISOString());
+  const tanggalDisplay = formatTanggal(new Date().toISOString());
 
   const waHref = useMemo(() => {
-    if (!row || values3.length < 1) return "";
-    const url = `${window.location.origin}/ringkasan?s=${sessionId}`;
-    const text = `Halo, aku baru selesai refleksi karier di platform Sulu. Nilai yang paling penting bagiku: ${values3[0] || ""}, ${values3[1] || ""}, ${values3[2] || ""}. Mau ngobrol soal langkah selanjutnya? Link ringkasannya: ${url}`;
+    const url = `${window.location.origin}/ringkasan`;
+    const text = `Halo, aku baru selesai refleksi di platform Sulu. Mau ngobrol soal arah ke depannya? Link ringkasannya: ${url}`;
     return `https://wa.me/?text=${encodeURIComponent(text)}`;
-  }, [row, values3, sessionId]);
+  }, []);
 
-  if (loading) {
-    return (
-      <main className="mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-4">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-      </main>
-    );
-  }
-
-  if (!row && !surat.hasAny) {
+  if (!surat.hasAny) {
     return (
       <main className="mx-auto max-w-2xl px-4 py-16 text-center">
         <h1 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))]">
           Refleksimu belum tersimpan
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Mulai dulu latihan refleksi di Kenali Dirimu untuk bisa membuat ringkasan ini.
+          Mulai dulu refleksimu di Kenali Dirimu untuk bisa membuat surat ini.
         </p>
         <div className="mt-6">
-          <Button asChild><Link to="/kenali-dirimu">Mulai Refleksi →</Link></Button>
-        </div>
-      </main>
-    );
-  }
-
-  if (row && (!row.completed || !row.ai_narrative) && !surat.hasAny) {
-    return (
-      <main className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))]">
-          Refleksimu belum selesai
-        </h1>
-        <p className="mt-3 text-muted-foreground">
-          Lanjutkan refleksimu — kami sudah menyimpan progresmu.
-        </p>
-        <div className="mt-6">
-          <Button asChild><Link to="/kenali-dirimu">Lanjutkan di Kenali Dirimu →</Link></Button>
+          <Button asChild>
+            <Link to="/kenali-dirimu">Mulai Refleksi →</Link>
+          </Button>
         </div>
       </main>
     );
@@ -180,14 +142,12 @@ export default function Ringkasan() {
 
   return (
     <div className="bg-[hsl(var(--bg-scholarly))] py-8 md:py-14 print:bg-white print:py-0">
-      {/* Outer reading frame */}
       <main className="mx-auto max-w-[760px] px-4 print:max-w-none print:px-0">
-        {/* The "page" — a single book leaf */}
         <article
           className="rounded-md border border-border/60 bg-white px-6 py-12 shadow-[0_10px_40px_-20px_hsl(var(--brand-navy)/0.18)] md:px-14 md:py-16 print:border-0 print:bg-transparent print:p-0 print:shadow-none"
           style={{ maxWidth: "72ch", margin: "0 auto" }}
         >
-          {/* ── Header ── */}
+          {/* Header */}
           <header className="text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[hsl(var(--mid-blue))]">
               {ringkasanContent.header.title}
@@ -213,39 +173,7 @@ export default function Ringkasan() {
 
           <ChapterDivider num={1} {...ringkasanContent.chapters.siapaKamu} />
 
-          {/* ── Values pull-quote ── */}
-          {values3.length > 0 && (
-            <section className="mb-14 text-center">
-              <Kicker>{ringkasanContent.values.heading}</Kicker>
-              <p className="mt-3 font-[Outfit] text-2xl font-light leading-snug tracking-tight text-[hsl(var(--ink-deep))] md:text-[28px]">
-                {values3.map((v, i) => (
-                  <span key={v}>
-                    <span className="font-semibold">{v}</span>
-                    {i < values3.length - 1 && (
-                      <span className="mx-3 text-[hsl(var(--torch-gold))]">·</span>
-                    )}
-                  </span>
-                ))}
-              </p>
-            </section>
-          )}
-
-          {/* ── AI Narrative — pull-quote ── */}
-          {row?.ai_narrative && (
-            <section className="mb-14">
-              <Kicker>{ringkasanContent.narrative.heading}</Kicker>
-              <blockquote className="mt-4 border-l-2 border-[hsl(var(--torch-gold))] pl-6 print:break-inside-avoid">
-                <p className="whitespace-pre-wrap text-[17px] leading-loose text-[hsl(var(--ink-deep))]/90">
-                  {row.ai_narrative}
-                </p>
-              </blockquote>
-              <p className="mt-4 pl-6 text-xs italic text-muted-foreground">
-                {ringkasanContent.narrative.note}
-              </p>
-            </section>
-          )}
-
-          {/* ── Refleksi Dirimu — journal entries ── */}
+          {/* Refleksi Dirimu (2A) */}
           {surat.refleksiDiri.length > 0 && (
             <section className="mb-14">
               <SectionHeading>Refleksi Dirimu</SectionHeading>
@@ -272,7 +200,7 @@ export default function Ringkasan() {
             </section>
           )}
 
-          {/* ── Kompetensi ── */}
+          {/* Kompetensi (2B) */}
           {surat.kompetensi.length > 0 && (
             <section className="mb-14">
               <SectionHeading>Kompetensi yang Kamu Pilih</SectionHeading>
@@ -289,7 +217,7 @@ export default function Ringkasan() {
             </section>
           )}
 
-          {/* ── Jalan Bakti — inline catalog ── */}
+          {/* Jalan Bakti */}
           {hasJalanBakti && (
             <section className="mb-14">
               <SectionHeading>Arah Jalan Baktimu</SectionHeading>
@@ -321,7 +249,7 @@ export default function Ringkasan() {
             </section>
           )}
 
-          {/* ── Refleksi Sintesis ── */}
+          {/* Refleksi Sintesis */}
           {surat.refleksiSintesis && (
             <section className="mb-14">
               <SectionHeading>Refleksi Sintesis</SectionHeading>
@@ -339,47 +267,67 @@ export default function Ringkasan() {
             </section>
           )}
 
-          {/* ── Catatan dari Perjalananmu (grouped) ── */}
-          {(catatanInsight.length > 0 || catatanSkill.length > 0) && (
+          {/* Catatanku — full, filterable, categorized */}
+          {allNotes.length > 0 && (
             <section className="mb-14">
-              <SectionHeading>Catatan dari Perjalananmu</SectionHeading>
-              <p className="mt-1 text-sm italic text-muted-foreground">
-                Hal-hal yang sempat kamu tandai saat membaca.
-              </p>
-
-              {catatanInsight.length > 0 && (
-                <div className="mt-6">
-                  <Kicker>Catatan saat mengenal dunia</Kicker>
-                  <div className="mt-3 divide-y divide-border/60">
-                    {catatanInsight.map((n) => (
-                      <div key={n.id} className="py-4 first:pt-2 print:break-inside-avoid">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
-                          {n.label}
-                        </p>
-                        <p className="mt-1.5 whitespace-pre-wrap text-[15px] leading-relaxed text-[hsl(var(--ink-deep))]/90">
-                          {n.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <SectionHeading>Catatan dari Perjalananmu</SectionHeading>
+                  <p className="mt-1 text-sm italic text-muted-foreground">
+                    Semua yang kamu tandai sepanjang perjalanan — utuh, tidak dipotong.
+                  </p>
                 </div>
-              )}
+                <span className="text-xs text-muted-foreground">
+                  {filteredNotes.length} dari {allNotes.length} catatan
+                </span>
+              </div>
 
-              {catatanSkill.length > 0 && (
-                <div className="mt-8">
-                  <Kicker>Catatan dari Peta Keahlian</Kicker>
-                  <div className="mt-3 divide-y divide-border/60">
-                    {catatanSkill.map((n) => (
-                      <div key={n.id} className="py-4 first:pt-2 print:break-inside-avoid">
+              {/* Filter chips — hidden on print */}
+              <div className="mt-4 flex flex-wrap items-center gap-2 print:hidden">
+                <Filter className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
+                {FILTERS.map((f) => {
+                  const active = filter === f.id;
+                  const n = counts[f.id];
+                  return (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setFilter(f.id)}
+                      className={cn(
+                        "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                        active
+                          ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]/15 text-[hsl(var(--ink-deep))]"
+                          : "border-border bg-background text-muted-foreground hover:border-[hsl(var(--torch-gold))]/50 hover:text-[hsl(var(--ink-deep))]",
+                      )}
+                    >
+                      {f.label}
+                      <span className="ml-1.5 tabular-nums opacity-70">{n}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {filteredNotes.length === 0 ? (
+                <p className="mt-6 text-sm italic text-muted-foreground">
+                  Belum ada catatan di kategori ini.
+                </p>
+              ) : (
+                <div className="mt-6 divide-y divide-border/60">
+                  {filteredNotes.map((n) => (
+                    <article key={n.id} className="py-5 first:pt-2 print:break-inside-avoid">
+                      <div className="flex flex-wrap items-baseline gap-2">
+                        <span className="rounded-full border border-[hsl(var(--torch-gold))]/40 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--torch-gold))]">
+                          {SOURCE_LABEL[n.source]}
+                        </span>
                         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
                           {n.label}
                         </p>
-                        <p className="mt-1.5 whitespace-pre-wrap text-[15px] leading-relaxed text-[hsl(var(--ink-deep))]/90">
-                          {n.text}
-                        </p>
                       </div>
-                    ))}
-                  </div>
+                      <p className="mt-2 whitespace-pre-wrap text-[15px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                        {n.text}
+                      </p>
+                    </article>
+                  ))}
                 </div>
               )}
             </section>
@@ -387,7 +335,7 @@ export default function Ringkasan() {
 
           <ChapterDivider num={2} {...ringkasanContent.chapters.jalanDepan} />
 
-          {/* ── Jalur — paths as journal entries (not card grid) ── */}
+          {/* Jalur */}
           <section className="mb-12">
             <SectionHeading>{ringkasanContent.jalur.heading}</SectionHeading>
             <p className="mt-2 text-sm italic text-muted-foreground">
@@ -423,7 +371,7 @@ export default function Ringkasan() {
             </div>
           </section>
 
-          {/* ── Closing ── */}
+          {/* Closing */}
           <footer className="mt-14 border-t border-border/60 pt-8 text-center print:break-inside-avoid">
             <p className="mx-auto max-w-xl text-[15px] italic leading-loose text-[hsl(var(--ink-deep))]/80">
               {ringkasanContent.footer}
@@ -439,7 +387,7 @@ export default function Ringkasan() {
           </footer>
         </article>
 
-        {/* ── CTAs (outside the page artifact) ── */}
+        {/* CTAs */}
         <section className="mx-auto mt-8 flex max-w-[72ch] flex-col gap-3 print:hidden">
           <Button asChild size="lg" className="w-full sm:w-auto sm:self-center">
             <a
