@@ -137,7 +137,12 @@ export default function KenaliDirimuSkill() {
             .select("data")
             .eq("user_id", user.id)
             .maybeSingle();
-          if (data?.data) setD({ ...EMPTY, ...(data.data as SkillData) });
+          if (data?.data) {
+            const merged = { ...EMPTY, ...(data.data as SkillData) };
+            setD(merged);
+            // Mirror to localStorage so compileSurat() (Surat Perjalanan) can read it.
+            localStorage.setItem(LS_KEY, JSON.stringify(merged));
+          }
         } else {
           const raw = localStorage.getItem(LS_KEY);
           if (raw) setD({ ...EMPTY, ...JSON.parse(raw) });
