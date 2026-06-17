@@ -75,6 +75,9 @@
 }
 
 @layer components {
+  /* Measure: kolom baca nyaman ~68ch (referensi interlatent; W3 task 4a). Dipakai untuk teks naratif, BUKAN grid data. */
+  .measure { max-width: 68ch; }
+
   .text-gradient {
     background: linear-gradient(
       135deg,
