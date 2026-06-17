@@ -159,6 +159,11 @@ export default function Sintesis() {
           setSubPicks(j.subPicks ?? []);
           setPeduliPicks(j.peduliPicks ?? []);
           setD({ ...EMPTY, ...f });
+          // Mirror Supabase → localStorage so compileSurat() (Surat Perjalanan) works for logged-in users.
+          if (p2a.data?.data) localStorage.setItem("sulu_phase2a", JSON.stringify(a));
+          if (p2b.data?.data) localStorage.setItem("sulu_phase2b", JSON.stringify(b));
+          if (p3.data?.data) localStorage.setItem("jalan_bakti_v1", JSON.stringify(j));
+          if (p4.data?.data) localStorage.setItem(LS_KEY, JSON.stringify({ ...EMPTY, ...f }));
         } else {
           const raw = localStorage.getItem(LS_KEY);
           if (raw) setD({ ...EMPTY, ...JSON.parse(raw) });
