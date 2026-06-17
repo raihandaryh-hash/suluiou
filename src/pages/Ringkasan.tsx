@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Loader2, Printer, MessageCircle, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/track";
@@ -30,13 +29,58 @@ function formatTanggal(iso: string): string {
   }
 }
 
-function ChapterDivider({ kicker, title, line }: { kicker: string; title: string; line: string }) {
+const ROMAN = ["", "I", "II", "III", "IV", "V"];
+
+function ChapterDivider({
+  num,
+  kicker,
+  title,
+  line,
+}: {
+  num: number;
+  kicker: string;
+  title: string;
+  line: string;
+}) {
   return (
-    <div className="mt-14 border-t border-border pt-8 print:mt-8">
-      <p className="font-[Outfit] text-xs font-semibold tracking-[0.2em] uppercase text-[hsl(var(--mid-blue))]">{kicker}</p>
-      <h2 className="mt-1 font-[Outfit] text-2xl font-bold text-[hsl(var(--ink-deep))] md:text-3xl">{title}</h2>
-      <p className="mt-1 text-sm text-muted-foreground">{line}</p>
+    <div className="mt-20 mb-10 text-center print:mt-12 print:mb-6 print:break-before-page">
+      <p
+        className="font-[Outfit] text-3xl font-light tracking-[0.3em] text-[hsl(var(--torch-gold))]"
+        aria-hidden
+      >
+        {ROMAN[num] ?? num}
+      </p>
+      <p
+        className="mt-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[hsl(var(--mid-blue))]"
+      >
+        {kicker}
+      </p>
+      <h2 className="mt-2 font-[Outfit] text-2xl font-semibold text-[hsl(var(--ink-deep))] md:text-3xl">
+        {title}
+      </h2>
+      <div className="mx-auto mt-4 flex items-center justify-center gap-2 text-[hsl(var(--torch-gold))]/70">
+        <span className="h-px w-8 bg-[hsl(var(--torch-gold))]/50" />
+        <span className="text-xs">• • •</span>
+        <span className="h-px w-8 bg-[hsl(var(--torch-gold))]/50" />
+      </div>
+      <p className="mx-auto mt-4 max-w-md text-sm italic text-muted-foreground">{line}</p>
     </div>
+  );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="font-[Outfit] text-lg font-semibold tracking-tight text-[hsl(var(--ink-deep))] md:text-xl">
+      {children}
+    </h3>
+  );
+}
+
+function Kicker({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[hsl(var(--mid-blue))]/80">
+      {children}
+    </p>
   );
 }
 
@@ -69,6 +113,17 @@ export default function Ringkasan() {
 
   const values3 = useMemo(() => (row?.values_sorted || []).slice(0, 3), [row]);
   const surat = useMemo(() => compileSurat(), []);
+
+  const catatanInsight = useMemo(
+    () => surat.catatan.filter((n) => n.source === "insight"),
+    [surat.catatan],
+  );
+  const catatanSkill = useMemo(
+    () => surat.catatan.filter((n) => n.source === "skillmap"),
+    [surat.catatan],
+  );
+
+  const tanggalDisplay = formatTanggal(row?.created_at ?? new Date().toISOString());
 
   const waHref = useMemo(() => {
     if (!row || values3.length < 1) return "";
@@ -117,247 +172,303 @@ export default function Ringkasan() {
     );
   }
 
+  const hasJalanBakti =
+    surat.jalanBakti.isu.length +
+      surat.jalanBakti.subBidang.length +
+      surat.jalanBakti.peduli.length >
+    0;
+
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 md:py-12 print:max-w-none print:py-0 print:px-0">
-      {/* Header */}
-      <header className="border-b border-border pb-6">
-        <h1 className="font-[Outfit] text-3xl font-bold text-[hsl(var(--ink-deep))] md:text-4xl">
-          {ringkasanContent.header.title}
-        </h1>
-        <p className="mt-2 text-base text-[hsl(var(--mid-blue))] md:text-lg">
-          {ringkasanContent.header.subtitle}
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <span className="text-sm text-muted-foreground">{formatTanggal(row?.created_at ?? new Date().toISOString())}</span>
-          <Badge variant="secondary" className="rounded-full">
-            {ringkasanContent.header.badge}
-          </Badge>
-        </div>
-      </header>
-
-      <ChapterDivider {...ringkasanContent.chapters.siapaKamu} />
-
-      {/* SECTION 1 — Values */}
-      {values3.length > 0 && (
-      <section className="mt-8">
-        <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          {ringkasanContent.values.heading}
-        </h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {values3.map((v) => (
-            <span
-              key={v}
-              className="rounded-full bg-[hsl(var(--brand-navy))] px-4 py-2 text-base font-semibold text-white print:bg-transparent print:text-black print:ring-1 print:ring-black"
-            >
-              {v}
-            </span>
-          ))}
-        </div>
-      </section>
-      )}
-
-      {/* SECTION 2 — Narrative */}
-      {row?.ai_narrative && (
-      <section className="mt-10">
-        <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          {ringkasanContent.narrative.heading}
-        </h2>
-        <div className="mt-4">
-          <Badge variant="outline" className="rounded-full px-3 py-1 text-xs border-primary/50 text-primary">
-            {ringkasanContent.narrative.badge}
-          </Badge>
-        </div>
-        <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90 print:border-black/30 print:bg-transparent">
-          {row.ai_narrative}
-        </article>
-        <p className="mt-3 text-sm italic text-muted-foreground">
-          {ringkasanContent.narrative.note}
-        </p>
-      </section>
-      )}
-
-      {/* SECTION — Refleksi Dirimu (journaling 2A) */}
-      {surat.refleksiDiri.length > 0 && (
-        <section className="mt-10">
-          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-            Refleksi Dirimu
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Hal-hal yang kamu tuliskan saat mengenali dirimu.
-          </p>
-          <div className="mt-4 space-y-4">
-            {surat.refleksiDiri.map((qa, i) => (
-              <div
-                key={i}
-                className="rounded-lg border border-border bg-card p-4 print:border-black/30 print:bg-transparent"
-              >
-                <p className="text-sm font-semibold text-[hsl(var(--ink-deep))]">{qa.question}</p>
-                <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed text-foreground/80">{qa.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* SECTION — Kompetensi yang Kamu Pilih (2B) */}
-      {surat.kompetensi.length > 0 && (
-        <section className="mt-10">
-          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-            Kompetensi yang Kamu Pilih
-          </h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {surat.kompetensi.map((c) => (
-              <span
-                key={c}
-                className="rounded-full bg-secondary px-4 py-2 text-sm font-medium text-foreground/90 print:bg-transparent print:ring-1 print:ring-black/40"
-              >
-                {c}
+    <div className="bg-[hsl(var(--bg-scholarly))] py-8 md:py-14 print:bg-white print:py-0">
+      {/* Outer reading frame */}
+      <main className="mx-auto max-w-[760px] px-4 print:max-w-none print:px-0">
+        {/* The "page" — a single book leaf */}
+        <article
+          className="rounded-md border border-border/60 bg-white px-6 py-12 shadow-[0_10px_40px_-20px_hsl(var(--brand-navy)/0.18)] md:px-14 md:py-16 print:border-0 print:bg-transparent print:p-0 print:shadow-none"
+          style={{ maxWidth: "72ch", margin: "0 auto" }}
+        >
+          {/* ── Header ── */}
+          <header className="text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[hsl(var(--mid-blue))]">
+              {ringkasanContent.header.title}
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">{tanggalDisplay}</p>
+            <h1 className="mt-6 font-[Outfit] text-3xl font-semibold leading-tight tracking-tight text-[hsl(var(--ink-deep))] md:text-[44px] md:leading-[1.1]">
+              Surat untukmu,<br />
+              <span className="italic font-normal text-[hsl(var(--mid-blue))]">
+                dan siapa pun yang kamu percaya
               </span>
-            ))}
-          </div>
-        </section>
-      )}
+            </h1>
+            <p className="mx-auto mt-5 max-w-md text-sm italic text-muted-foreground">
+              {ringkasanContent.header.subtitle}
+            </p>
+            <div className="mx-auto mt-6 flex items-center justify-center gap-3">
+              <span className="h-px w-12 bg-[hsl(var(--torch-gold))]/60" />
+              <span className="text-[10px] uppercase tracking-[0.28em] text-[hsl(var(--torch-gold))]">
+                {ringkasanContent.header.badge}
+              </span>
+              <span className="h-px w-12 bg-[hsl(var(--torch-gold))]/60" />
+            </div>
+          </header>
 
-      {/* SECTION — Arah Jalan Baktimu (3) */}
-      {surat.jalanBakti.isu.length + surat.jalanBakti.subBidang.length + surat.jalanBakti.peduli.length > 0 && (
-        <section className="mt-10">
-          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-            Arah Jalan Baktimu
-          </h2>
-          <div className="mt-4 space-y-4">
-            {([
-              ["Isu yang paling dekat", surat.jalanBakti.isu],
-              ["Sub-bidang yang kamu pilih", surat.jalanBakti.subBidang],
-              ["Yang kamu pedulikan", surat.jalanBakti.peduli],
-            ] as [string, string[]][]).map(([label, items]) =>
-              items.length > 0 ? (
-                <div key={label}>
-                  <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">{label}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((it) => (
-                      <span
-                        key={it}
-                        className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-foreground/80 print:bg-transparent"
-                      >
-                        {it}
-                      </span>
+          <ChapterDivider num={1} {...ringkasanContent.chapters.siapaKamu} />
+
+          {/* ── Values pull-quote ── */}
+          {values3.length > 0 && (
+            <section className="mb-14 text-center">
+              <Kicker>{ringkasanContent.values.heading}</Kicker>
+              <p className="mt-3 font-[Outfit] text-2xl font-light leading-snug tracking-tight text-[hsl(var(--ink-deep))] md:text-[28px]">
+                {values3.map((v, i) => (
+                  <span key={v}>
+                    <span className="font-semibold">{v}</span>
+                    {i < values3.length - 1 && (
+                      <span className="mx-3 text-[hsl(var(--torch-gold))]">·</span>
+                    )}
+                  </span>
+                ))}
+              </p>
+            </section>
+          )}
+
+          {/* ── AI Narrative — pull-quote ── */}
+          {row?.ai_narrative && (
+            <section className="mb-14">
+              <Kicker>{ringkasanContent.narrative.heading}</Kicker>
+              <blockquote className="mt-4 border-l-2 border-[hsl(var(--torch-gold))] pl-6 print:break-inside-avoid">
+                <p className="whitespace-pre-wrap text-[17px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                  {row.ai_narrative}
+                </p>
+              </blockquote>
+              <p className="mt-4 pl-6 text-xs italic text-muted-foreground">
+                {ringkasanContent.narrative.note}
+              </p>
+            </section>
+          )}
+
+          {/* ── Refleksi Dirimu — journal entries ── */}
+          {surat.refleksiDiri.length > 0 && (
+            <section className="mb-14">
+              <SectionHeading>Refleksi Dirimu</SectionHeading>
+              <p className="mt-1 text-sm italic text-muted-foreground">
+                Hal-hal yang kamu tuliskan saat mengenali dirimu.
+              </p>
+              <div className="mt-6 space-y-8">
+                {surat.refleksiDiri.map((qa, i) => (
+                  <div key={i} className="print:break-inside-avoid">
+                    <p className="font-[Outfit] text-sm font-semibold leading-snug text-[hsl(var(--mid-blue))]">
+                      {qa.question}
+                    </p>
+                    <p className="mt-2 whitespace-pre-wrap text-[16px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                      {qa.answer}
+                    </p>
+                    {i < surat.refleksiDiri.length - 1 && (
+                      <div className="mt-8 flex justify-center text-[hsl(var(--torch-gold))]/40">
+                        <span className="text-xs tracking-[0.4em]">• • •</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ── Kompetensi ── */}
+          {surat.kompetensi.length > 0 && (
+            <section className="mb-14">
+              <SectionHeading>Kompetensi yang Kamu Pilih</SectionHeading>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {surat.kompetensi.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--bg-scholarly))] px-3.5 py-1.5 text-sm text-[hsl(var(--ink-deep))] print:bg-transparent"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ── Jalan Bakti — inline catalog ── */}
+          {hasJalanBakti && (
+            <section className="mb-14">
+              <SectionHeading>Arah Jalan Baktimu</SectionHeading>
+              <div className="mt-5 space-y-5">
+                {(
+                  [
+                    ["Isu yang paling dekat", surat.jalanBakti.isu],
+                    ["Sub-bidang yang kamu pilih", surat.jalanBakti.subBidang],
+                    ["Yang kamu pedulikan", surat.jalanBakti.peduli],
+                  ] as [string, string[]][]
+                ).map(([label, items]) =>
+                  items.length > 0 ? (
+                    <div key={label}>
+                      <Kicker>{label}</Kicker>
+                      <p className="mt-2 text-[16px] leading-relaxed text-[hsl(var(--ink-deep))]/90">
+                        {items.map((it, i) => (
+                          <span key={it}>
+                            {it}
+                            {i < items.length - 1 && (
+                              <span className="mx-2 text-[hsl(var(--torch-gold))]/70">·</span>
+                            )}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  ) : null,
+                )}
+              </div>
+            </section>
+          )}
+
+          {/* ── Refleksi Sintesis ── */}
+          {surat.refleksiSintesis && (
+            <section className="mb-14">
+              <SectionHeading>Refleksi Sintesis</SectionHeading>
+              <div className="relative mt-5 pl-8 print:break-inside-avoid">
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 font-[Outfit] text-5xl leading-none text-[hsl(var(--torch-gold))]/60"
+                >
+                  &ldquo;
+                </span>
+                <p className="whitespace-pre-wrap text-[17px] italic leading-loose text-[hsl(var(--ink-deep))]/90">
+                  {surat.refleksiSintesis}
+                </p>
+              </div>
+            </section>
+          )}
+
+          {/* ── Catatan dari Perjalananmu (grouped) ── */}
+          {(catatanInsight.length > 0 || catatanSkill.length > 0) && (
+            <section className="mb-14">
+              <SectionHeading>Catatan dari Perjalananmu</SectionHeading>
+              <p className="mt-1 text-sm italic text-muted-foreground">
+                Hal-hal yang sempat kamu tandai saat membaca.
+              </p>
+
+              {catatanInsight.length > 0 && (
+                <div className="mt-6">
+                  <Kicker>Catatan saat mengenal dunia</Kicker>
+                  <div className="mt-3 divide-y divide-border/60">
+                    {catatanInsight.map((n) => (
+                      <div key={n.id} className="py-4 first:pt-2 print:break-inside-avoid">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
+                          {n.label}
+                        </p>
+                        <p className="mt-1.5 whitespace-pre-wrap text-[15px] leading-relaxed text-[hsl(var(--ink-deep))]/90">
+                          {n.text}
+                        </p>
+                      </div>
                     ))}
                   </div>
                 </div>
-              ) : null
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* SECTION — Refleksi Sintesis (4) */}
-      {surat.refleksiSintesis && (
-        <section className="mt-10">
-          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-            Refleksi Sintesis
-          </h2>
-          <article className="mt-3 whitespace-pre-wrap rounded-lg border border-border bg-card p-5 text-base leading-relaxed text-foreground/90 print:border-black/30 print:bg-transparent">
-            {surat.refleksiSintesis}
-          </article>
-        </section>
-      )}
-
-      {/* SECTION — Catatan dari Perjalananmu (Catatanku: Insight + Skill-map) */}
-      {surat.catatan.length > 0 && (
-        <section className="mt-10">
-          <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-            Catatan dari Perjalananmu
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Hal-hal yang sempat kamu tandai saat membaca.
-          </p>
-          <div className="mt-4 space-y-3">
-            {surat.catatan.map((n) => (
-              <div
-                key={n.id}
-                className="rounded-lg border border-border bg-card p-4 print:border-black/30 print:bg-transparent"
-              >
-                <p className="text-xs font-semibold text-muted-foreground">{n.label}</p>
-                <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed text-foreground/80">{n.text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <ChapterDivider {...ringkasanContent.chapters.jalanDepan} />
-
-      {/* SECTION 3 — Jalur */}
-      <section className="mt-8">
-        <h2 className="font-[Outfit] text-xl font-bold text-[hsl(var(--ink-deep))] md:text-2xl">
-          {ringkasanContent.jalur.heading}
-        </h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {ringkasanContent.jalur.intro}
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 print:grid-cols-2">
-          {ringkasanContent.jalur.cards.map((card) => (
-            <div
-              key={card.title}
-              className="rounded-lg border border-border bg-card p-5 print:border-black/30 print:bg-transparent"
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="font-[Outfit] text-base font-bold text-[hsl(var(--ink-deep))]">
-                  {card.title}
-                </h3>
-                {card.badge && (
-                  <Badge variant="outline" className="text-[10px]">{card.badge}</Badge>
-                )}
-              </div>
-              <p className="mt-2 text-sm text-foreground/80">{card.desc}</p>
-              {card.bullets && (
-                <ul className="mt-3 space-y-1 text-sm text-foreground/80">
-                  {card.bullets.map((b) => (
-                    <li key={b}>• {b}</li>
-                  ))}
-                </ul>
               )}
-              <p className="mt-3 text-xs text-muted-foreground">{card.meta}</p>
+
+              {catatanSkill.length > 0 && (
+                <div className="mt-8">
+                  <Kicker>Catatan dari Peta Keahlian</Kicker>
+                  <div className="mt-3 divide-y divide-border/60">
+                    {catatanSkill.map((n) => (
+                      <div key={n.id} className="py-4 first:pt-2 print:break-inside-avoid">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
+                          {n.label}
+                        </p>
+                        <p className="mt-1.5 whitespace-pre-wrap text-[15px] leading-relaxed text-[hsl(var(--ink-deep))]/90">
+                          {n.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
+          <ChapterDivider num={2} {...ringkasanContent.chapters.jalanDepan} />
+
+          {/* ── Jalur — paths as journal entries (not card grid) ── */}
+          <section className="mb-12">
+            <SectionHeading>{ringkasanContent.jalur.heading}</SectionHeading>
+            <p className="mt-2 text-sm italic text-muted-foreground">
+              {ringkasanContent.jalur.intro}
+            </p>
+
+            <div className="mt-6 divide-y divide-border/60">
+              {ringkasanContent.jalur.cards.map((card) => (
+                <div key={card.title} className="py-6 first:pt-2 print:break-inside-avoid">
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <h4 className="font-[Outfit] text-base font-semibold text-[hsl(var(--ink-deep))]">
+                      {card.title}
+                    </h4>
+                    {card.badge && (
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-[hsl(var(--torch-gold))]">
+                        {card.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-[15px] leading-relaxed text-[hsl(var(--ink-deep))]/85">
+                    {card.desc}
+                  </p>
+                  {card.bullets && (
+                    <ul className="mt-2 space-y-1 text-[14px] text-[hsl(var(--ink-deep))]/80">
+                      {card.bullets.map((b) => (
+                        <li key={b}>— {b}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <p className="mt-2 text-xs italic text-muted-foreground">{card.meta}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* Footer disclaimer — always visible, including print */}
-      <section className="mt-10 rounded-lg border border-border bg-muted/50 p-5 print:border-black/40 print:bg-transparent">
-        <p className="text-sm leading-relaxed text-foreground/90">
-          {ringkasanContent.footer}
-        </p>
-      </section>
+          {/* ── Closing ── */}
+          <footer className="mt-14 border-t border-border/60 pt-8 text-center print:break-inside-avoid">
+            <p className="mx-auto max-w-xl text-[15px] italic leading-loose text-[hsl(var(--ink-deep))]/80">
+              {ringkasanContent.footer}
+            </p>
+            <div className="mx-auto mt-6 flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-[hsl(var(--torch-gold))]/50" />
+              <span className="font-[Outfit] text-xs uppercase tracking-[0.32em] text-[hsl(var(--torch-gold))]">
+                Sulu
+              </span>
+              <span className="h-px w-10 bg-[hsl(var(--torch-gold))]/50" />
+            </div>
+            <p className="mt-3 text-xs text-muted-foreground">{tanggalDisplay}</p>
+          </footer>
+        </article>
 
-      {/* CTA — hidden in print */}
-      <section className="mt-8 flex flex-col gap-3 print:hidden">
-        <Button asChild size="lg" className="w-full sm:w-auto">
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track('export_ringkasan', { method: 'wa' })}
-          >
-            <MessageCircle className="mr-2 h-4 w-4" /> Bagikan ke Orang Tua (WA)
-          </a>
-        </Button>
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Button
-            variant="outline"
-            onClick={() => {
-              track('export_ringkasan', { method: 'print' });
-              window.print();
-            }}
-          >
-            <Printer className="mr-2 h-4 w-4" /> Cetak / Simpan PDF
+        {/* ── CTAs (outside the page artifact) ── */}
+        <section className="mx-auto mt-8 flex max-w-[72ch] flex-col gap-3 print:hidden">
+          <Button asChild size="lg" className="w-full sm:w-auto sm:self-center">
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("export_ringkasan", { method: "wa" })}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" /> Bagikan ke Orang Tua (WA)
+            </a>
           </Button>
-          <Button asChild variant="ghost">
-            <Link to="/compass"><ArrowLeft className="mr-2 h-4 w-4" /> Kembali ke Sulu</Link>
-          </Button>
-        </div>
-      </section>
-    </main>
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-center">
+            <Button
+              variant="outline"
+              onClick={() => {
+                track("export_ringkasan", { method: "print" });
+                window.print();
+              }}
+            >
+              <Printer className="mr-2 h-4 w-4" /> Cetak / Simpan PDF
+            </Button>
+            <Button asChild variant="ghost">
+              <Link to="/compass">
+                <ArrowLeft className="mr-2 h-4 w-4" /> Kembali ke Sulu
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
