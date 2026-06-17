@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { kenaliDirimuContent as C, type Prompt } from "@/data/kenaliDirimuContent";
+import { kenaliDirimuContent as C } from "@/data/kenaliDirimuContent";
 
 const LS_KEY = "sulu_phase2a";
 
@@ -112,7 +112,10 @@ export default function KenaliDirimu() {
             .select("data")
             .eq("user_id", user.id)
             .maybeSingle();
-          if (data?.data) setA(data.data as Answers);
+          if (data?.data) {
+            setA(data.data as Answers);
+            try { localStorage.setItem(LS_KEY, JSON.stringify(data.data)); } catch {}
+          }
         } else {
           const raw = localStorage.getItem(LS_KEY);
           if (raw) setA(JSON.parse(raw));
@@ -139,6 +142,8 @@ export default function KenaliDirimu() {
   async function handleSave() {
     setSaving(true);
     try {
+      // Mirror ke localStorage untuk SEMUA user: Surat Perjalanan (compileSurat) berbasis localStorage.
+      localStorage.setItem(LS_KEY, JSON.stringify(a));
       if (user) {
         const { error } = await supabase
           .from("phase_2a_inventory")
@@ -147,8 +152,6 @@ export default function KenaliDirimu() {
             { onConflict: "user_id" },
           );
         if (error) throw error;
-      } else {
-        localStorage.setItem(LS_KEY, JSON.stringify(a));
       }
       toast.success("Catatan tersimpan ✓");
     } catch (e) {
@@ -214,7 +217,7 @@ export default function KenaliDirimu() {
                 key={p.id}
                 question={p.question}
                 starter={p.starter}
-                minH={(p as Prompt).minH}
+                minH={p.minH}
                 value={a[p.id] || ""}
                 onChange={set(p.id)}
               />
@@ -247,7 +250,7 @@ export default function KenaliDirimu() {
               key={p.id}
               question={p.question}
               starter={p.starter}
-              minH={(p as Prompt).minH}
+              minH={p.minH}
               value={a[p.id] || ""}
               onChange={set(p.id)}
             />
