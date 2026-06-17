@@ -1,5 +1,5 @@
 // All textual content for the /jalan-bakti page. No strings hardcoded in JSX.
-// Phase 3 — Kenali Jalan Baktimu. Scope A (E+F). G/H/I menyusul.
+// Phase 3, Kenali Jalan Baktimu. Scope A (E+F). G/H/I menyusul.
 
 export const jalanBaktiContent = {
   // ── Opener (Narasi Pembuka Bakti) ──
@@ -7,7 +7,7 @@ export const jalanBaktiContent = {
     paragraphs: [
       "Allah tidak membutuhkan bakti kita. Justru kita yang membutuhkan jalan untuk menyalurkan bakat dan potensi yang telah diberikan kepada kita.",
       "Setelah kamu mengenal dirimu lebih dalam, sekarang adalah saat yang tepat untuk melihat ke luar. Melihat kebutuhan di sekitarmu. Bukan untuk membebani, melainkan untuk menemukan di mana tempatmu bisa memberi makna.",
-      "Apa yang bermanfaat bagi banyak orang biasanya akan lebih bertahan. Dan setiap peran yang dijalani dengan sungguh-sungguh, sudah memiliki arti yang mendalam.",
+      "Apa yang bermanfaat bagi banyak orang biasanya akan lebih bertahan. Setiap peran yang dijalani dengan sungguh-sungguh pun memiliki arti yang mendalam.",
       "Mau melihat lebih jauh?",
     ],
   },
@@ -26,18 +26,18 @@ export const jalanBaktiContent = {
     tpFraming: "Perbedaan bukan hambatan; itu desain Allah agar kita saling melengkapi.",
 
     sejarah: [
-      "Selama lebih dari 50 tahun, para pemimpin, ilmuwan, dan diplomat dunia terus duduk bersama menanyakan satu hal yang sama: dari sekian banyak masalah, mana yang paling penting bagi umat manusia — dan mana yang harus didahulukan?",
-      "Percakapan itu dimulai di Stockholm tahun 1972, berlanjut lewat Laporan Brundtland, hingga lahir 17 Tujuan Pembangunan Berkelanjutan (SDGs) pada 2015 — kesepakatan pertama yang berlaku untuk semua negara, bukan hanya negara miskin.",
-      "Jadi ini bukan daftar tugas yang turun begitu saja. Ini hasil percakapan panjang manusia tentang apa yang paling dibutuhkan — dan percakapan itu belum selesai.",
+      "Selama lebih dari 50 tahun, para pemimpin, ilmuwan, dan diplomat dunia terus duduk bersama menanyakan satu hal yang sama: dari sekian banyak masalah, mana yang paling penting bagi umat manusia, dan mana yang harus didahulukan?",
+      "Percakapan itu dimulai di Stockholm tahun 1972, berlanjut lewat Laporan Brundtland, hingga lahir 17 Tujuan Pembangunan Berkelanjutan (SDGs) pada 2015, kesepakatan pertama yang berlaku untuk semua negara, bukan hanya negara miskin.",
+      "Jadi ini bukan daftar tugas yang turun begitu saja. Ini hasil percakapan panjang manusia tentang apa yang paling dibutuhkan, dan percakapan itu belum selesai.",
     ],
 
     urgensi: [
       "Lima tahun menjelang tenggat 2030, PBB menyebut keadaannya \"darurat pembangunan\": hanya sekitar sepertiga target yang berjalan baik, dan sebagian justru mundur dari titik awal.",
-      "Dan yang paling tertinggal di dunia — mengakhiri kelaparan, pendidikan yang layak, air bersih, dan pekerjaan yang adil — justru hal-hal yang paling dekat dengan keseharian kita di sini.",
+      "Yang paling tertinggal di dunia, mengakhiri kelaparan, pendidikan yang layak, air bersih, dan pekerjaan yang adil, justru hal-hal yang paling dekat dengan keseharian kita di sini.",
     ],
 
     agensi: [
-      "Selama ini, santri dan anak madrasah lebih sering diminta mengikuti agenda dunia daripada ikut menyusunnya. Padahal SDGs akan berakhir di 2030 — dan dunia sedang mulai merumuskan apa yang datang setelahnya.",
+      "Selama ini, santri dan anak madrasah lebih sering diminta mengikuti agenda dunia daripada ikut menyusunnya. Padahal SDGs akan berakhir di 2030, dan dunia sedang mulai merumuskan apa yang datang setelahnya.",
       "Maukah kamu hanya menonton, atau ikut menjadi salah satu yang merumuskannya?",
     ],
 
@@ -45,7 +45,7 @@ export const jalanBaktiContent = {
       title: "Apa yang sedang dibicarakan untuk setelah 2030?",
       items: [
         "Tata kelola kecerdasan buatan (AI) dan data",
-        "Batas-batas planet (planetary boundaries) — ambang aman bumi",
+        "Batas-batas planet (planetary boundaries), ambang aman bumi",
         "Ekonomi yang adil secara sosial sekaligus ekologis",
       ],
       closer: "Generasi inilah yang akan diminta menentukan, bukan sekadar mengikuti.",
@@ -54,14 +54,14 @@ export const jalanBaktiContent = {
     chipPrompt: "Dari yang sedang diperjuangkan dunia, mana yang paling menggugah hatimu?",
 
     items: [
-      { id: "sdg2", label: "SDG 2 — Tanpa Kelaparan" },
-      { id: "sdg3", label: "SDG 3 — Kehidupan Sehat" },
-      { id: "sdg4", label: "SDG 4 — Pendidikan Berkualitas" },
-      { id: "sdg6", label: "SDG 6 — Air Bersih & Sanitasi" },
-      { id: "sdg8", label: "SDG 8 — Pekerjaan Layak" },
+      { id: "sdg2", label: "SDG 2, Tanpa Kelaparan" },
+      { id: "sdg3", label: "SDG 3, Kehidupan Sehat" },
+      { id: "sdg4", label: "SDG 4, Pendidikan Berkualitas" },
+      { id: "sdg6", label: "SDG 6, Air Bersih & Sanitasi" },
+      { id: "sdg8", label: "SDG 8, Pekerjaan Layak" },
     ],
 
-    transisiIndonesia: "Tujuan-tujuan besar itu terasa jauh — sampai kita menurunkannya ke tanah sendiri. Inilah wajah kebutuhan itu di Indonesia. Bukan angka, tapi orang-orang nyata.",
+    transisiIndonesia: "Tujuan-tujuan besar itu terasa jauh, sampai kita menurunkannya ke tanah sendiri. Inilah wajah kebutuhan itu di Indonesia. Bukan angka, tapi orang-orang nyata.",
   },
 
   // ── 6 Klaster Jalan Bakti ──
@@ -70,7 +70,7 @@ export const jalanBaktiContent = {
     {
       id: "k1",
       nama: "Kesehatan & Kesejahteraan",
-      bridge: "Pernahkah kamu/orang yang kamu sayangi kesulitan mendapat pertolongan saat sakit? Bayangkan ada orang yang hadir di momen itu — kompeten, dan benar-benar peduli.",
+      bridge: "Pernahkah kamu/orang yang kamu sayangi kesulitan mendapat pertolongan saat sakit? Bayangkan ada orang yang hadir di momen itu, kompeten, dan benar-benar peduli.",
       subTantangan: [
         { id: "k1a", label: "Nakes yang bekerja sendirian" },
         { id: "k1b", label: "Remaja yang menanggung sendiri" },
@@ -104,7 +104,7 @@ export const jalanBaktiContent = {
     {
       id: "k4",
       nama: "Bumi & Lingkungan",
-      bridge: "Kamu hidup di tanah yang kaya — hutan, laut, lahan, energi yang belum dimanfaatkan. Apa yang kamu lihat di sekitarmu yang seharusnya bisa lebih baik?",
+      bridge: "Kamu hidup di tanah yang kaya, hutan, laut, lahan, energi yang belum dimanfaatkan. Apa yang kamu lihat di sekitarmu yang seharusnya bisa lebih baik?",
       subTantangan: [
         { id: "k4a", label: "Petani yang kalah di pasar" },
         { id: "k4b", label: "Energi yang belum sampai" },
@@ -114,7 +114,7 @@ export const jalanBaktiContent = {
     {
       id: "k5",
       nama: "Ekonomi Adil & Keuangan",
-      bridge: "Jutaan orang bekerja keras tapi tetap kesulitan — bukan karena malas, tapi sistemnya belum berpihak. Apa yang kamu lihat di keluarga/komunitasmu soal ini?",
+      bridge: "Jutaan orang bekerja keras tapi tetap kesulitan, bukan karena malas, tapi sistemnya belum berpihak. Apa yang kamu lihat di keluarga/komunitasmu soal ini?",
       subTantangan: [
         { id: "k5a", label: "UMKM yang butuh panduan" },
         { id: "k5b", label: "Keuangan yang belum selaras nilai" },
@@ -132,7 +132,7 @@ export const jalanBaktiContent = {
         {
           id: "k6d",
           label: "Air yang belum sampai",
-          detail: "Masih ada desa di tanah yang kaya air ini yang warganya kesulitan mendapat air bersih. Sumbernya sering ada — yang belum ada adalah orang yang tahu cara mengelola dan menjaganya. Ini bukan soal teknik semata, tapi kehidupan sehari-hari yang bergantung padanya.",
+          detail: "Masih ada desa di tanah yang kaya air ini yang warganya kesulitan mendapat air bersih. Sumbernya sering ada, yang belum ada adalah orang yang tahu cara mengelola dan menjaganya. Ini bukan soal teknik semata, tapi kehidupan sehari-hari yang bergantung padanya.",
         },
       ],
     },
@@ -144,12 +144,12 @@ export const jalanBaktiContent = {
     hadith: {
       teks: "Carikan aku orang-orang lemah di antara kalian. Sungguh kalian diberi rezeki dan ditolong sebab orang-orang lemah di antara kalian.",
       rujukan: "HR Abu Dawud (sahih)",
-      framing: "Menolong yang lemah bukan kebaikan dari atas ke bawah. Justru rezeki dan pertolonganmu datang lewat mereka. Mereka bukan beban — mereka pintu keberkahan.",
+      framing: "Menolong yang lemah bukan kebaikan dari atas ke bawah. Justru rezeki dan pertolonganmu datang lewat mereka. Mereka bukan beban, mereka pintu keberkahan.",
     },
 
-    elicitation: "Dari semua ini — siapa yang paling menggerakkan hatimu untuk ditolong?",
+    elicitation: "Dari semua ini, siapa yang paling menggerakkan hatimu untuk ditolong?",
 
-    tier1Title: "Islam sudah lama punya peta tentang siapa yang paling berhak ditolong — delapan golongan penerima zakat (QS At-Tawbah: 60).",
+    tier1Title: "Islam sudah lama punya peta tentang siapa yang paling berhak ditolong, delapan golongan penerima zakat (QS At-Tawbah: 60).",
     tier1Items: [
       { id: "fakir", label: "Fakir", desc: "nyaris tak punya apa-apa" },
       { id: "miskin", label: "Miskin", desc: "punya, tapi tak cukup" },
@@ -161,7 +161,7 @@ export const jalanBaktiContent = {
       { id: "ibnusabil", label: "Ibnu sabil", desc: "musafir yang kehabisan bekal" },
     ],
 
-    tier2Intro: "Negara kita mengenali 26 bentuk kerentanan — dari anak terlantar, lansia tanpa keluarga, penyandang disabilitas, hingga korban kekerasan. Dulu disebut \"penyandang masalah\"; kini diganti jadi \"pemerlu pelayanan\" — karena tak seorang pun pantas dicap \"masalah\".",
+    tier2Intro: "Negara kita mengenali 26 bentuk kerentanan, dari anak terlantar, lansia tanpa keluarga, penyandang disabilitas, hingga korban kekerasan. Dulu disebut \"penyandang masalah\"; kini diganti jadi \"pemerlu pelayanan\", karena tak seorang pun pantas dicap \"masalah\".",
     tier2Wajah: [
       { id: "ppks_anak", label: "Anak terlantar" },
       { id: "ppks_lansia", label: "Lansia tanpa keluarga" },
