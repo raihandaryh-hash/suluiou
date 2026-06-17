@@ -214,7 +214,7 @@ export default function KenaliDirimu() {
                 key={p.id}
                 question={p.question}
                 starter={p.starter}
-                minH={p.minH}
+                minH={(p as Prompt).minH}
                 value={a[p.id] || ""}
                 onChange={set(p.id)}
               />
