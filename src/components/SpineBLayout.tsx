@@ -1,7 +1,7 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import JourneyBar from '@/components/JourneyBar';
 import RequireAuth from '@/components/RequireAuth';
-import { CatatankuPanel, CatatankuFab } from '@/components/CatatankuPanel';
+import { ScratchpadPanel, ScratchpadFab } from '@/components/Scratchpad';
 import { cn } from '@/lib/utils';
 
 type Phase = { num: number; label: string; href: string };
@@ -67,11 +67,11 @@ function JourneyMap() {
 export default function SpineBLayout() {
   return (
     <RequireAuth>
-      {/* Mobile/tablet: keep existing JourneyBar at top + floating Catatanku */}
+      {/* Mobile/tablet: JourneyBar atas + Scratchpad (FAB kiri-bawah) */}
       <div className="lg:hidden">
         <JourneyBar />
         <Outlet />
-        <CatatankuFab />
+        <ScratchpadFab />
       </div>
 
       {/* Desktop: 3-zone reading shell */}
@@ -88,9 +88,9 @@ export default function SpineBLayout() {
 
         <aside
           className="sticky top-10 self-start max-h-[calc(100vh-5rem)]"
-          aria-label="Catatanku"
+          aria-label="Coretan"
         >
-          <CatatankuPanel />
+          <ScratchpadPanel />
         </aside>
       </div>
     </RequireAuth>
