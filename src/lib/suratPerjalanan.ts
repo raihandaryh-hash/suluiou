@@ -5,6 +5,7 @@
 
 import { jalanBaktiContent } from "@/data/jalanBaktiContent";
 import { getNotesBySource, type SuluNote } from "@/lib/notes";
+import { rencanaAksiContent } from "@/data/rencanaAksiContent";
 
 function readJSON<T = unknown>(key: string): T | null {
   try {
@@ -33,6 +34,10 @@ const LABELS_2A: Record<string, string> = {
   ach_q2: "Pernahkah kamu melakukan sesuatu — sekecil apapun — dan merasakan bahwa itu memberi manfaat nyata bagi orang lain? Ceritakan.",
   ach_q3: "Pernahkah kamu melewati pengalaman yang terasa berat atau tidak kamu inginkan, tapi belakangan kamu sadari ada kebaikan atau pelajaran di baliknya?",
   abu_q1: "Apa yang sering orang lain perhatikan atau komentari tentang dirimu — hal yang langsung terlihat, bahkan sebelum mereka mengenalmu lebih dalam?",
+  free_nikmat: "Nikmat lain yang kamu syukuri",
+  ge_gap: "Satu hal yang masih ingin kamu kuatkan",
+  ge_mitigasi: "Cara kamu menumbuhkannya",
+  final_free: "Catatan tambahan tentang dirimu",
 };
 
 // ── 2B: id → label (verbatim COMPETENCY_LABELS, Sintesis.tsx) ──
@@ -66,12 +71,23 @@ const labelJB = (ids: unknown): string[] =>
     ? ids.filter((x): x is string => typeof x === "string").map((id) => JB_LABELS[id] ?? id)
     : [];
 
+// ── Phase 5: key → label dibangun dari rencanaAksiContent.form.gerak[].fields[] ──
+const RA_LABELS: Record<string, string> = (() => {
+  const acc: Record<string, string> = {};
+  try {
+    const gerak = (rencanaAksiContent as { form?: { gerak?: Array<{ fields?: Array<{ key?: string; label?: string }> }> } }).form?.gerak;
+    gerak?.forEach((g) => g?.fields?.forEach((f) => { if (f?.key && f?.label) acc[f.key] = f.label; }));
+  } catch { /* noop */ }
+  return acc;
+})();
+
 export interface SuratQA { question: string; answer: string; }
 export interface SuratData {
   refleksiDiri: SuratQA[];                                   // 2A
   kompetensi: string[];                                      // 2B
   jalanBakti: { isu: string[]; subBidang: string[]; peduli: string[] };
   refleksiSintesis: string;                                  // fase 4
+  rencanaAksi: SuratQA[];                                    // fase 5 (rencana-aksi)
   catatan: SuluNote[];                                       // sulu_notes_v1
   hasAny: boolean;
 }
@@ -97,6 +113,11 @@ export function compileSurat(): SuratData {
   const p4 = readJSON<{ refleksi?: unknown }>("sulu_phase4_sintesis");
   const refleksiSintesis = typeof p4?.refleksi === "string" ? p4.refleksi.trim() : "";
 
+  const p5 = readJSON<Record<string, unknown>>("sulu_phase5_action_plan") || {};
+  const rencanaAksi: SuratQA[] = Object.keys(RA_LABELS)
+    .map((k) => ({ question: RA_LABELS[k], answer: typeof p5[k] === "string" ? (p5[k] as string).trim() : "" }))
+    .filter((qa) => qa.answer.length > 0);
+
   const catatan = [...getNotesBySource("insight"), ...getNotesBySource("skillmap")];
 
   const hasAny =
@@ -104,7 +125,8 @@ export function compileSurat(): SuratData {
     kompetensi.length > 0 ||
     jalanBakti.isu.length + jalanBakti.subBidang.length + jalanBakti.peduli.length > 0 ||
     refleksiSintesis.length > 0 ||
+    rencanaAksi.length > 0 ||
     catatan.length > 0;
 
-  return { refleksiDiri, kompetensi, jalanBakti, refleksiSintesis, catatan, hasAny };
+  return { refleksiDiri, kompetensi, jalanBakti, refleksiSintesis, rencanaAksi, catatan, hasAny };
 }
