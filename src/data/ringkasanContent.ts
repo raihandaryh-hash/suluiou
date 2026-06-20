@@ -4,9 +4,9 @@ export const ringkasanContent = {
 
     title: "Surat Perjalananmu",
 
-    subtitle: "Buat dibaca bareng orang tua, atau siapa pun yang kamu percaya",
+    subtitle: "",
 
-    badge: "Bukan hasil tes. Ini kata-katamu sendiri.",
+    badge: "",
 
   },
 
@@ -20,7 +20,7 @@ export const ringkasanContent = {
 
       title: "Siapa Kamu",
 
-      line: "Apa yang kamu kenali tentang dirimu sepanjang perjalanan ini.",
+      line: "",
 
     },
 
@@ -30,7 +30,7 @@ export const ringkasanContent = {
 
       title: "Jalan ke Depan",
 
-      line: "Pintu-pintu yang nyata, terbuka untukmu.",
+      line: "",
 
     },
 
@@ -50,7 +50,7 @@ export const ringkasanContent = {
 
     heading: "Pintu-pintu yang nyata untukmu",
 
-    intro: "Tidak ada satu pintu yang \"paling benar\". Ini peta pilihan, bukan vonis. Yang memilih tetap kamu.",
+    intro: "Tidak ada satu pintu yang paling benar. Yang memilih tetap kamu.",
 
     cards: [
 
@@ -110,6 +110,6 @@ export const ringkasanContent = {
 
   },
 
-  footer: "Surat ini bukan titik akhir, justru awal sebuah percakapan. Keputusan terbaik lahir dari obrolan yang jujur dengan orang-orang yang kamu percaya. Simpan, dan baca lagi kapan pun kamu butuh mengingat arahmu.",
+  footer: "",
 
 };
