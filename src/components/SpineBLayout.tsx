@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import JourneyBar from '@/components/JourneyBar';
 import RequireAuth from '@/components/RequireAuth';
+import { CatatankuPanel, CatatankuFab } from '@/components/CatatankuPanel';
 import { cn } from '@/lib/utils';
 
 type Phase = { num: number; label: string; href: string };
@@ -66,10 +67,11 @@ function JourneyMap() {
 export default function SpineBLayout() {
   return (
     <RequireAuth>
-      {/* Mobile/tablet: keep existing JourneyBar at top */}
+      {/* Mobile/tablet: keep existing JourneyBar at top + floating Catatanku */}
       <div className="lg:hidden">
         <JourneyBar />
         <Outlet />
+        <CatatankuFab />
       </div>
 
       {/* Desktop: 3-zone reading shell */}
@@ -84,8 +86,12 @@ export default function SpineBLayout() {
           </div>
         </main>
 
-        {/* Right column reserved for future notebook — intentionally empty */}
-        <aside aria-hidden className="sticky top-10 self-start" />
+        <aside
+          className="sticky top-10 self-start max-h-[calc(100vh-5rem)]"
+          aria-label="Catatanku"
+        >
+          <CatatankuPanel />
+        </aside>
       </div>
     </RequireAuth>
   );
