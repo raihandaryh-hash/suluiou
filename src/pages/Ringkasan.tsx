@@ -57,7 +57,7 @@ function ChapterDivider({
         <span className="text-xs">• • •</span>
         <span className="h-px w-8 bg-[hsl(var(--torch-gold))]/50" />
       </div>
-      <p className="mx-auto mt-4 max-w-md text-sm italic text-muted-foreground">{line}</p>
+      {line && <p className="mx-auto mt-4 max-w-md text-sm italic text-muted-foreground">{line}</p>}
     </div>
   );
 }
@@ -214,16 +214,6 @@ export default function Ringkasan() {
                 dan siapa pun yang kamu percaya
               </span>
             </h1>
-            <p className="mx-auto mt-5 max-w-md text-sm italic text-muted-foreground">
-              {ringkasanContent.header.subtitle}
-            </p>
-            <div className="mx-auto mt-6 flex items-center justify-center gap-3">
-              <span className="h-px w-12 bg-[hsl(var(--torch-gold))]/60" />
-              <span className="text-[10px] uppercase tracking-[0.28em] text-[hsl(var(--torch-gold))]">
-                {ringkasanContent.header.badge}
-              </span>
-              <span className="h-px w-12 bg-[hsl(var(--torch-gold))]/60" />
-            </div>
           </header>
 
           <ChapterDivider num={1} {...ringkasanContent.chapters.siapaKamu} />
@@ -232,9 +222,6 @@ export default function Ringkasan() {
           {surat.refleksiDiri.length > 0 && (
             <section className="mb-14">
               <SectionHeading>Refleksi Dirimu</SectionHeading>
-              <p className="mt-1 text-sm italic text-muted-foreground">
-                Hal-hal yang kamu tuliskan saat mengenali dirimu.
-              </p>
               <div className="mt-6 space-y-8">
                 {surat.refleksiDiri.map((qa, i) => (
                   <div key={i} className="print:break-inside-avoid">
@@ -398,9 +385,6 @@ export default function Ringkasan() {
           {surat.rencanaAksi.length > 0 && (
             <section className="mb-14">
               <SectionHeading>Komitmen</SectionHeading>
-              <p className="mt-1 text-sm italic text-muted-foreground">
-                Langkah-langkah yang kamu pilih untuk dijalani.
-              </p>
 
               {/* Keystone */}
               {keystoneItem && (
@@ -490,9 +474,6 @@ export default function Ringkasan() {
 
           {/* Closing */}
           <footer className="mt-14 border-t border-border/60 pt-8 text-center print:break-inside-avoid">
-            <p className="mx-auto max-w-xl text-[15px] italic leading-loose text-[hsl(var(--ink-deep))]/80">
-              {ringkasanContent.footer}
-            </p>
             <div className="mx-auto mt-6 flex items-center justify-center gap-3">
               <span className="h-px w-10 bg-[hsl(var(--torch-gold))]/50" />
               <span className="font-[Outfit] text-xs uppercase tracking-[0.32em] text-[hsl(var(--torch-gold))]">
