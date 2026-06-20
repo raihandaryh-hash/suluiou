@@ -23,6 +23,10 @@ function formatTanggal(iso: string): string {
 
 const ROMAN = ["", "I", "II", "III", "IV", "V"];
 
+// Field keys that should get extra visual emphasis (keystone + soft companions)
+const AKSI_KEYSTONE = new Set(["aksi30"]);
+const AKSI_SOFT = new Set(["niat", "doa"]);
+
 function ChapterDivider({
   num,
   kicker,
@@ -87,6 +91,29 @@ const SOURCE_LABEL: Record<SuluNote["source"], string> = {
   skillmap: "Peta Keahlian",
 };
 
+const SOURCE_SUBHEADING: Record<SuluNote["source"], string> = {
+  insight: "Catatan saat mengenal dunia",
+  skillmap: "Catatan dari Peta Keahlian",
+};
+
+function NotesGroup({ notes }: { notes: SuluNote[] }) {
+  if (notes.length === 0) return null;
+  return (
+    <div className="mt-6 divide-y divide-border/60">
+      {notes.map((n) => (
+        <article key={n.id} className="py-5 first:pt-2 print:break-inside-avoid">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
+            {n.label}
+          </p>
+          <p className="mt-2 whitespace-pre-wrap text-[15px] leading-loose text-[hsl(var(--ink-deep))]/90">
+            {n.text}
+          </p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function Ringkasan() {
   const surat = useMemo(() => compileSurat(), []);
   const [filter, setFilter] = useState<CatFilter>("all");
@@ -95,18 +122,22 @@ export default function Ringkasan() {
     () => [...surat.catatan].sort((a, b) => b.ts - a.ts),
     [surat.catatan],
   );
-  const filteredNotes = useMemo(
-    () => (filter === "all" ? allNotes : allNotes.filter((n) => n.source === filter)),
-    [allNotes, filter],
-  );
-  const counts = useMemo(
-    () => ({
-      all: allNotes.length,
-      insight: allNotes.filter((n) => n.source === "insight").length,
-      skillmap: allNotes.filter((n) => n.source === "skillmap").length,
-    }),
+  const insightNotes = useMemo(
+    () => allNotes.filter((n) => n.source === "insight"),
     [allNotes],
   );
+  const skillmapNotes = useMemo(
+    () => allNotes.filter((n) => n.source === "skillmap"),
+    [allNotes],
+  );
+  const counts = {
+    all: allNotes.length,
+    insight: insightNotes.length,
+    skillmap: skillmapNotes.length,
+  };
+  const visibleInsight = filter === "skillmap" ? [] : insightNotes;
+  const visibleSkillmap = filter === "insight" ? [] : skillmapNotes;
+  const visibleCount = visibleInsight.length + visibleSkillmap.length;
 
   const tanggalDisplay = formatTanggal(new Date().toISOString());
 
@@ -139,6 +170,30 @@ export default function Ringkasan() {
       surat.jalanBakti.subBidang.length +
       surat.jalanBakti.peduli.length >
     0;
+
+  // Split rencanaAksi: keystone, soft (niat/doa), regular
+  const aksiKeystone = surat.rencanaAksi.filter((qa) =>
+    [...AKSI_KEYSTONE].some((k) => qa.question === (qa.question) && k && surat.rencanaAksi.find((x) => x === qa)) // placeholder
+      ? true
+      : false,
+  );
+  // Simpler split using a parallel array by key — but we only have label here.
+  // We instead split using label heuristic from rencanaAksiContent.
+  const aksi30Label = "Rencana Aksi 30 Hari";
+  const niatLabel = "Niat";
+  const doaLabel = "Doa yang Kupegang";
+  const keystoneItem = surat.rencanaAksi.find((qa) => qa.question === aksi30Label);
+  const softItems = surat.rencanaAksi.filter(
+    (qa) => qa.question === niatLabel || qa.question === doaLabel,
+  );
+  const regularItems = surat.rencanaAksi.filter(
+    (qa) =>
+      qa.question !== aksi30Label &&
+      qa.question !== niatLabel &&
+      qa.question !== doaLabel,
+  );
+  // Silence unused
+  void aksiKeystone;
 
   return (
     <div className="bg-[hsl(var(--bg-scholarly))] py-8 md:py-14 print:bg-white print:py-0">
@@ -253,10 +308,10 @@ export default function Ringkasan() {
           {surat.refleksiSintesis && (
             <section className="mb-14">
               <SectionHeading>Refleksi Sintesis</SectionHeading>
-              <div className="relative mt-5 pl-8 print:break-inside-avoid">
+              <div className="relative mt-5 border-l-2 border-[hsl(var(--torch-gold))]/60 pl-6 print:break-inside-avoid">
                 <span
                   aria-hidden
-                  className="absolute left-0 top-0 font-[Outfit] text-5xl leading-none text-[hsl(var(--torch-gold))]/60"
+                  className="absolute -left-1 -top-3 font-[Outfit] text-5xl leading-none text-[hsl(var(--torch-gold))]/70"
                 >
                   &ldquo;
                 </span>
@@ -267,7 +322,7 @@ export default function Ringkasan() {
             </section>
           )}
 
-          {/* Catatanku — full, filterable, categorized */}
+          {/* Catatanku — full, filterable, by source */}
           {allNotes.length > 0 && (
             <section className="mb-14">
               <div className="flex flex-wrap items-end justify-between gap-3">
@@ -277,8 +332,8 @@ export default function Ringkasan() {
                     Semua yang kamu tandai sepanjang perjalanan — utuh, tidak dipotong.
                   </p>
                 </div>
-                <span className="text-xs text-muted-foreground">
-                  {filteredNotes.length} dari {allNotes.length} catatan
+                <span className="text-xs text-muted-foreground print:hidden">
+                  {visibleCount} dari {allNotes.length} catatan
                 </span>
               </div>
 
@@ -307,33 +362,95 @@ export default function Ringkasan() {
                 })}
               </div>
 
-              {filteredNotes.length === 0 ? (
-                <p className="mt-6 text-sm italic text-muted-foreground">
-                  Belum ada catatan di kategori ini.
-                </p>
-              ) : (
-                <div className="mt-6 divide-y divide-border/60">
-                  {filteredNotes.map((n) => (
-                    <article key={n.id} className="py-5 first:pt-2 print:break-inside-avoid">
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="rounded-full border border-[hsl(var(--torch-gold))]/40 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--torch-gold))]">
-                          {SOURCE_LABEL[n.source]}
-                        </span>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--mid-blue))]/80">
-                          {n.label}
-                        </p>
-                      </div>
-                      <p className="mt-2 whitespace-pre-wrap text-[15px] leading-loose text-[hsl(var(--ink-deep))]/90">
-                        {n.text}
-                      </p>
-                    </article>
-                  ))}
+              {/* Insight subgroup */}
+              {(filter === "all" || filter === "insight") && (
+                <div className="mt-8">
+                  <Kicker>{SOURCE_SUBHEADING.insight}</Kicker>
+                  {visibleInsight.length > 0 ? (
+                    <NotesGroup notes={visibleInsight} />
+                  ) : (
+                    <p className="mt-3 text-sm italic text-muted-foreground">
+                      Belum ada catatan di kategori ini.
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Skillmap subgroup */}
+              {(filter === "all" || filter === "skillmap") && (
+                <div className="mt-10">
+                  <Kicker>{SOURCE_SUBHEADING.skillmap}</Kicker>
+                  {visibleSkillmap.length > 0 ? (
+                    <NotesGroup notes={visibleSkillmap} />
+                  ) : (
+                    <p className="mt-3 text-sm italic text-muted-foreground">
+                      Belum ada catatan di kategori ini.
+                    </p>
+                  )}
                 </div>
               )}
             </section>
           )}
 
           <ChapterDivider num={2} {...ringkasanContent.chapters.jalanDepan} />
+
+          {/* Rencana Aksi — Komitmen */}
+          {surat.rencanaAksi.length > 0 && (
+            <section className="mb-14">
+              <SectionHeading>Komitmen</SectionHeading>
+              <p className="mt-1 text-sm italic text-muted-foreground">
+                Langkah-langkah yang kamu pilih untuk dijalani.
+              </p>
+
+              {/* Keystone */}
+              {keystoneItem && (
+                <div className="mt-6 rounded-md border border-[hsl(var(--torch-gold))]/50 bg-[hsl(var(--torch-gold))]/8 p-5 shadow-[inset_3px_0_0_hsl(var(--torch-gold))] print:break-inside-avoid print:bg-transparent print:shadow-none">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[hsl(var(--torch-gold))]">
+                    Keystone · 30 Hari
+                  </p>
+                  <p className="mt-2 font-[Outfit] text-base font-semibold text-[hsl(var(--ink-deep))]">
+                    {keystoneItem.question}
+                  </p>
+                  <p className="mt-2 whitespace-pre-wrap text-[17px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                    {keystoneItem.answer}
+                  </p>
+                </div>
+              )}
+
+              {/* Regular items */}
+              {regularItems.length > 0 && (
+                <div className="mt-6 space-y-6">
+                  {regularItems.map((qa, i) => (
+                    <div key={i} className="print:break-inside-avoid">
+                      <p className="font-[Outfit] text-sm font-semibold leading-snug text-[hsl(var(--mid-blue))]">
+                        {qa.question}
+                      </p>
+                      <p className="mt-2 whitespace-pre-wrap text-[16px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                        {qa.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Soft items: niat & doa */}
+              {softItems.length > 0 && (
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  {softItems.map((qa, i) => (
+                    <div
+                      key={i}
+                      className="rounded-md border border-border/60 bg-[hsl(var(--bg-scholarly))]/60 p-5 print:break-inside-avoid print:bg-transparent"
+                    >
+                      <Kicker>{qa.question}</Kicker>
+                      <p className="mt-2 whitespace-pre-wrap text-[15px] italic leading-loose text-[hsl(var(--ink-deep))]/90">
+                        {qa.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
 
           {/* Jalur */}
           <section className="mb-12">
@@ -379,7 +496,7 @@ export default function Ringkasan() {
             <div className="mx-auto mt-6 flex items-center justify-center gap-3">
               <span className="h-px w-10 bg-[hsl(var(--torch-gold))]/50" />
               <span className="font-[Outfit] text-xs uppercase tracking-[0.32em] text-[hsl(var(--torch-gold))]">
-                Sulu
+                ~ Sulu
               </span>
               <span className="h-px w-10 bg-[hsl(var(--torch-gold))]/50" />
             </div>
@@ -387,7 +504,7 @@ export default function Ringkasan() {
           </footer>
         </article>
 
-        {/* CTAs */}
+        {/* CTAs — di luar lembar */}
         <section className="mx-auto mt-8 flex max-w-[72ch] flex-col gap-3 print:hidden">
           <Button asChild size="lg" className="w-full sm:w-auto sm:self-center">
             <a
