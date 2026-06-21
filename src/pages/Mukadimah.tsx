@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/Logo';
+import Cite from '@/components/Cite';
 import { mukadimahBabak as M, type Block } from '@/data/mukadimahBabakContent';
 
 /** Split **bold** and _italic_ run-level markers into React nodes. */
@@ -82,7 +83,9 @@ function NeetTable() {
       </div>
       <div className="mt-6 space-y-1 border-t border-border pt-4">
         <p className="text-xs text-muted-foreground">{M.neet.note}</p>
-        <p className="text-xs text-muted-foreground/70 italic">{M.neet.source}</p>
+        <p className="text-xs text-muted-foreground/70">
+          Sumber<Cite id="mukadimah-neet-jumlah" />
+        </p>
       </div>
     </div>
   );

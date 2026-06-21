@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
+import Cite from '@/components/Cite';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import { track } from '@/lib/track';
@@ -381,7 +382,7 @@ function EvanInsights() {
               </div>
               <div className="px-5 py-3 bg-background border-t border-border">
                 <p className="text-xs text-muted-foreground">{d.arah.mckinsey.note}</p>
-                <p className="text-[10px] text-muted-foreground/50 mt-0.5">{d.arah.mckinsey.source}</p>
+                <p className="text-[10px] text-muted-foreground/50 mt-0.5">Sumber<Cite id="mckinsey-automation-id" /></p>
               </div>
             </div>
             <div className="bg-foreground text-background rounded-2xl p-5">
@@ -697,7 +698,7 @@ function SkillLandscape({ persona }: { persona: Persona }) {
             ))}
           </div>
           <p className="text-sm text-muted-foreground mt-6 italic">{skillSection.note}</p>
-          <p className="text-xs text-muted-foreground mt-2">{sourcePrefix} {skillSection.source}</p>
+          <p className="text-xs text-muted-foreground mt-2">Sumber<Cite id="wef-mckinsey-skill-landscape" /></p>
         </DataReveal>
       </section>
       <UsefulFeedback section="skill" persona={persona} />
@@ -817,6 +818,9 @@ function FooterSources() {
           <ul className="space-y-1.5 text-xs text-muted-foreground leading-relaxed pl-6 list-disc">
             {dataSources.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
+          <Link to="/data" className="inline-block mt-3 text-xs text-primary underline underline-offset-4 hover:opacity-80">
+            Lihat semua rujukan bernomor di Ruang Data →
+          </Link>
         </div>
       </div>
     </section>
@@ -971,6 +975,7 @@ const Insight = () => {
             <div className="bg-secondary/60 border border-border rounded-full px-4 py-2 text-sm">
               <span className="font-semibold text-foreground">{hero.countdown.fixed.value}</span>{' '}
               <span className="text-muted-foreground">{hero.countdown.fixed.suffix}</span>
+              <Cite id="bappenas-bonus-demografi" />
             </div>
           </motion.div>
         </section>
@@ -1042,7 +1047,7 @@ const Insight = () => {
               </div>
               <DataReveal>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">{linkMatchSection.body}</p>
-                <p className="text-xs text-muted-foreground italic">{sourcePrefix} {linkMatchSection.source}</p>
+                <p className="text-xs text-muted-foreground italic">Sumber<Cite id="linkmatch-bps-kemendikbud" /></p>
               </DataReveal>
             </div>
           </section>
@@ -1073,7 +1078,7 @@ const Insight = () => {
                   </div>
                 ))}
                 <div className="pt-2 space-y-1">
-                  <p className="text-xs text-muted-foreground italic">{sourcePrefix} {neetSection.source}</p>
+                  <p className="text-xs text-muted-foreground italic">Sumber<Cite id="neet-asean-wdi" /></p>
                   <p className="text-xs text-muted-foreground">{neetSection.note}</p>
                 </div>
               </div>
@@ -1134,7 +1139,7 @@ const Insight = () => {
                   );
                 })}
               </div>
-              <p className="text-xs text-muted-foreground mt-3 italic">{sourcePrefix} {jabarSection.source}</p>
+              <p className="text-xs text-muted-foreground mt-3 italic">Sumber<Cite id="jabar-bps-bi" /></p>
             </DataReveal>
           </section>
           <UsefulFeedback section="jabar" persona={persona} />
