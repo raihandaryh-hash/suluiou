@@ -818,8 +818,8 @@ function FooterSources() {
           <ul className="space-y-1.5 text-xs text-muted-foreground leading-relaxed pl-6 list-disc">
             {dataSources.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
-          <Link to="/data" className="inline-block mt-3 text-xs text-primary underline underline-offset-4 hover:opacity-80">
-            Lihat semua rujukan bernomor di Ruang Data →
+          <Link to="/glossary?tab=data" className="inline-block mt-3 text-xs text-primary underline underline-offset-4 hover:opacity-80">
+            Lihat semua rujukan bernomor di Pusat Rujukan →
           </Link>
         </div>
       </div>
