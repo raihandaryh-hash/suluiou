@@ -19,17 +19,10 @@ import {
   hero,
   personaTeaserSection,
   personaShortLabel,
-  indonesiaSection,
-  linkMatchSection,
-  neetSection,
-  laborRealitySection,
   skillSection,
   roiSection,
   bkSection,
-  worldSection,
-  expertSection,
   opportunitySection,
-  jabarSection,
   skillMapTeaser,
   personaCallout,
   ctaSection,
@@ -483,7 +476,7 @@ function EvanInsights() {
 }
 
 // ───── StatCard with always-visible "Artinya:" ─────
-type StatCardData = {
+export type StatCardData = {
   value: string;
   label: string;
   detail: string;
@@ -494,7 +487,7 @@ type StatCardData = {
   dampak?: string[];
 };
 
-function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
+export function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
   const [open, setOpen] = useState(false);
   const { shareCard, isSharing } = useShareCard();
   const [thisSharing, setThisSharing] = useState(false);
@@ -597,7 +590,7 @@ function StatCard({ card, persona }: { card: StatCardData; persona: Persona }) {
 }
 
 // ───── Eyebrow + intro helper ─────
-function SectionHeader({ tag, headline, intro }: { tag?: string; headline?: string; intro?: string }) {
+export function SectionHeader({ tag, headline, intro }: { tag?: string; headline?: string; intro?: string }) {
   return (
     <div className="mb-8">
       {tag && <p className="text-xs font-medium tracking-wide text-muted-foreground/80 mb-2">{tag}</p>}
@@ -608,7 +601,7 @@ function SectionHeader({ tag, headline, intro }: { tag?: string; headline?: stri
 }
 
 // ───── DataReveal — progressive disclosure wrapper ─────
-function DataReveal({ children, label = 'Lihat datanya' }: { children: ReactNode; label?: string }) {
+export function DataReveal({ children, label = 'Lihat datanya' }: { children: ReactNode; label?: string }) {
   const [open, setOpen] = useState(false);
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="mt-4">
@@ -624,7 +617,7 @@ function DataReveal({ children, label = 'Lihat datanya' }: { children: ReactNode
 }
 
 // ───── Useful? feedback (1-tap) — subtle, per-section ─────
-function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
+export function UsefulFeedback({ section, persona }: { section: string; persona: Persona | 'unknown' }) {
   const [vote, setVote] = useState<'yes' | 'no' | null>(null);
   function handle(value: 'yes' | 'no') {
     if (vote) return;
@@ -659,7 +652,7 @@ function UsefulFeedback({ section, persona }: { section: string; persona: Person
 }
 
 // ───── Skill Landscape (siswa) ─────
-function SkillLandscape({ persona }: { persona: Persona }) {
+export function SkillLandscape({ persona }: { persona: Persona }) {
   const [tab, setTab] = useState<'growing' | 'declining'>('growing');
   const data = tab === 'growing' ? skillSection.growing : skillSection.declining;
   const accent = tab === 'growing' ? 'border-l-primary' : 'border-l-destructive';
@@ -707,7 +700,7 @@ function SkillLandscape({ persona }: { persona: Persona }) {
 }
 
 // ───── ROI Section (orangtua) ─────
-function RoiBlock({ persona }: { persona: Persona }) {
+export function RoiBlock({ persona }: { persona: Persona }) {
   return (
     <>
       <section id="roi" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -726,7 +719,7 @@ function RoiBlock({ persona }: { persona: Persona }) {
 }
 
 // ───── BK Section (gurubk) ─────
-function BkBlock({ persona }: { persona: Persona }) {
+export function BkBlock({ persona }: { persona: Persona }) {
   return (
     <>
       <section id="bk" className="container mx-auto px-6 py-16 max-w-6xl">
@@ -902,7 +895,6 @@ const Insight = () => {
       : personaTeaserSection.defaultPersona;
   });
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
-  const [dataOpen, setDataOpen] = useState(false);
 
   const handleSwitch = (p: Persona) => {
     setPersona(p);
@@ -1001,10 +993,10 @@ const Insight = () => {
           </div>
         </section>
 
-        {/* Data Lanjutan toggle — densitas turun (default tertutup) */}
+        {/* Data Lanjutan -> pindah ke Pusat Rujukan (Glossary tab Data), bukan toggle lokal lagi */}
         <section className="container mx-auto px-6 pt-2 max-w-4xl">
-          <button
-            onClick={() => setDataOpen((v) => !v)}
+          <Link
+            to="/glossary?tab=data"
             className="w-full flex items-center justify-between gap-4 bg-secondary/40 border border-border border-dashed rounded-2xl px-6 py-4 hover:bg-secondary/60 transition-colors text-left group"
           >
             <div>
@@ -1012,160 +1004,12 @@ const Insight = () => {
                 DATA LANJUTAN
               </span>
               <span className="text-sm text-foreground">
-                {dataOpen
-                  ? 'Sembunyikan data statistik lengkap'
-                  : 'Eksplorasi data statistik selengkapnya: kondisi kerja, NEET, skill landscape, dan tren global'}
+                Eksplorasi data statistik selengkapnya: kondisi kerja, NEET, skill landscape, dan tren global -- di Pusat Rujukan
               </span>
             </div>
-            <ChevronDown
-              className={cn('w-5 h-5 text-muted-foreground transition-transform shrink-0', dataOpen && 'rotate-180')}
-            />
-          </button>
+            <ArrowRight className="w-5 h-5 text-muted-foreground transition-transform shrink-0 group-hover:translate-x-1" />
+          </Link>
         </section>
-
-        {dataOpen && (<>
-          {/* Indonesia hari ini */}
-          <section id="indonesia" className="container mx-auto px-6 py-16 max-w-6xl">
-            <SectionHeader headline={indonesiaSection.headline} intro={indonesiaSection.intro[persona]} />
-            <DataReveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {indonesiaSection.cards.map((c, i) => (
-                  <StatCard key={i} card={c as StatCardData} persona={persona} />
-                ))}
-              </div>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="indonesia" persona={persona} />
-
-          {/* Link and Match */}
-          <section id="link-match" className="container mx-auto px-6 py-12 max-w-4xl">
-            <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8">
-              <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-3">{linkMatchSection.headline}</h2>
-              <div className="border-t border-border pt-4">
-                <p className="text-xs text-muted-foreground mb-1">Artinya untuk kamu:</p>
-                <p className="text-sm text-foreground/80 leading-relaxed italic">{linkMatchSection.artinya[persona]}</p>
-              </div>
-              <DataReveal>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{linkMatchSection.body}</p>
-                <p className="text-xs text-muted-foreground italic">Sumber<Cite id="linkmatch-bps-kemendikbud" /></p>
-              </DataReveal>
-            </div>
-          </section>
-          <UsefulFeedback section="link-match" persona={persona} />
-
-          {/* NEET Indonesia vs ASEAN (WDI 6 negara) */}
-          <section id="neet" className="container mx-auto px-6 py-16 max-w-4xl">
-            <SectionHeader headline={neetSection.headline} intro={neetSection.intro} />
-            <DataReveal>
-              <div className="bg-secondary/60 border border-border rounded-2xl p-6 md:p-8 space-y-5">
-                {neetSection.data.map((row, i) => (
-                  <div key={i}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-foreground">{row.country}</span>
-                      <span className="text-sm tabular-nums text-muted-foreground">
-                        {row.value.toString().replace('.', ',')}%
-                      </span>
-                    </div>
-                    <div className="h-2 rounded-full bg-background overflow-hidden">
-                      <motion.div
-                        className={cn('h-full rounded-full', row.colorClass)}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${(row.value / neetSection.maxPercent) * 100}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: 'easeOut' }}
-                      />
-                    </div>
-                  </div>
-                ))}
-                <div className="pt-2 space-y-1">
-                  <p className="text-xs text-muted-foreground italic">Sumber<Cite id="neet-asean-wdi" /></p>
-                  <p className="text-xs text-muted-foreground">{neetSection.note}</p>
-                </div>
-              </div>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="neet" persona={persona} />
-
-          {/* Realita Dunia Kerja */}
-          <section id="realita" className="container mx-auto px-6 py-16 max-w-6xl">
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{laborRealitySection.headline}</h2>
-            <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{laborRealitySection.intro[persona]}</p>
-            <DataReveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {laborRealitySection.cards.map((c, i) => (
-                  <StatCard key={i} card={c as StatCardData} persona={persona} />
-                ))}
-              </div>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="realita" persona={persona} />
-
-          {/* Persona-specific middle */}
-          {persona === 'siswa' && <SkillLandscape persona={persona} />}
-          {persona === 'orangtua' && <RoiBlock persona={persona} />}
-          {persona === 'gurubk' && <BkBlock persona={persona} />}
-
-          {/* Dunia 2025–2030 */}
-          <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
-            <SectionHeader headline={worldSection.headline} intro={worldSection.intro[persona]} />
-            <DataReveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {worldSection.cards.map((c, i) => (
-                  <StatCard key={i} card={c as StatCardData} persona={persona} />
-                ))}
-              </div>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="dunia" persona={persona} />
-
-          {/* Konteks Jawa Barat */}
-          <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{jabarSection.headline}</h2>
-            <p className="text-base text-foreground/80 max-w-2xl leading-relaxed mb-8">{jabarSection.subtext}</p>
-            <p className="text-sm text-foreground/80 italic mb-6 leading-relaxed max-w-2xl">{jabarSection.closingNote[persona]}</p>
-            <DataReveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {jabarSection.stats.map((s, i) => {
-                  const valueColor =
-                    s.tone === 'negative' ? 'text-destructive' :
-                    s.tone === 'positive' ? 'text-primary' :
-                    'text-foreground';
-                  return (
-                    <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
-                      <p className="text-xs text-muted-foreground mb-2 leading-snug">{s.label}</p>
-                      <div className={cn('font-heading font-medium tracking-tight text-3xl mb-2', valueColor)}>{s.value}</div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{s.context}</p>
-                    </div>
-                  );
-                })}
-              </div>
-              <p className="text-xs text-muted-foreground mt-3 italic">Sumber<Cite id="jabar-bps-bi" /></p>
-            </DataReveal>
-          </section>
-          <UsefulFeedback section="jabar" persona={persona} />
-
-          {/* Expert Quotes */}
-          <section className="container mx-auto px-6 py-12 max-w-6xl">
-            <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">{expertSection.headline}</h2>
-            <p className="text-sm text-muted-foreground mb-6">{expertSection.intro[persona]}</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {expertSection.quotes.map((q, i) => (
-                <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6">
-                  <blockquote className="text-sm text-foreground/90 leading-relaxed italic mb-4">&ldquo;{q.quote}&rdquo;</blockquote>
-                  <div>
-                    <p className="font-heading font-semibold text-sm text-foreground">{q.speaker}</p>
-                    <p className="text-xs text-muted-foreground">{q.title}</p>
-                    {q.url ? (
-                      <a href={q.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline mt-1 inline-block">{q.source} ↗</a>
-                    ) : (
-                      <p className="text-xs text-muted-foreground mt-1 italic">{q.source}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </>)}
 
         <Catatanku anchor="babak-1" label="Taruhan: kondisi duniaku" />
       </section>
