@@ -45,7 +45,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-base md:text-lg text-muted-foreground mb-8"
+            className="measure mx-auto text-base md:text-lg text-muted-foreground leading-relaxed mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -54,7 +54,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="space-y-5 text-left md:text-left text-foreground/85 text-base md:text-[17px] leading-relaxed mb-8"
+            className="measure mx-auto space-y-5 text-left text-foreground/85 text-base md:text-[17px] leading-[1.75] mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
