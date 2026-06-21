@@ -46,10 +46,10 @@ export const personaShortLabel: Record<Persona, string> = {
 
 // ─── HERO ──────────────────────────────────────────────────────────
 export const hero = {
-  headline: 'Dunia yang akan kamu masuki\nsudah berubah sebelum kamu siap.',
+  headline: 'Sekarang, kita kenali\nmedannya dulu.',
   subtext: {
-    siswa: 'Bukan untuk menakut-nakuti. Karena kamu berhak tahu sebelum memilih.',
-    orangtua: 'Bukan untuk menakut-nakuti. Karena keputusan hari ini punya konsekuensi panjang.',
+    siswa: 'Di Mukadimah tadi kita sepakat: langkah pertama adalah mengenali realita. Inilah lapangan yang sebentar lagi kamu masuki, supaya kamu melangkah dengan mata terbuka.',
+    orangtua: 'Langkah pertama mengenali realita. Inilah kondisi dunia kerja yang akan dimasuki anak Anda, disajikan apa adanya supaya keputusan bisa diambil dengan jernih.',
     gurubk: 'Data yang selama ini sulit kamu temukan dalam satu tempat, dikurasi untuk keperluan konseling.',
   } as Record<Persona, string>,
   countdown: {
@@ -447,6 +447,38 @@ export const skillMapTeaser = {
   body: 'Sampai sini kamu sudah lihat medannya. Sekarang giliran bekalnya. Bukan daftar jargon, tapi peta yang bisa kamu baca: dari karakter dasar yang tidak tergantikan mesin, sampai keahlian teknis tiap sektor. Lengkap dengan kaitan sebab-akibat yang sudah teruji dan data pasar kerja Indonesia.',
   cta: 'Buka Peta Skill',
   href: '/skill-map',
+};
+
+// ─── FAKTOR PENGHAMBAT (beat "ini bukan salahmu" → locus of control) ───
+// Voice verbatim Raihan dari Rancangan Narasi. Sebab struktural disebut RINGKAS
+// (bukan dimekarkan jadi doom kedua), lalu pivot ke yang bisa dikendalikan.
+export const faktorPenghambatSection = {
+  kicker: 'Sebelum melangkah',
+  opening: '"Tapi, ini bukan salah kita kan, Kak? Dunia memang sedang sulit..."',
+  ack: 'Ya, kegelisahan kamu ada benarnya. Kita memang hidup di zaman yang sangat menantang. Tingginya angka NEET tadi mungkin bukan karena kita malas, tapi karena faktor-faktor yang sebagian besar di luar kendali kita.',
+  faktor: [
+    {
+      judul: 'Biaya kuliah terus menekan',
+      body: 'Tahun 2024 banyak PTN menaikkan UKT sampai memicu protes nasional, hingga akhirnya dibatalkan pemerintah. Tapi tekanannya belum hilang: biaya pendidikan di Indonesia naik rata-rata 10 sampai 15 persen setiap tahun.',
+      cite: 'ukt-2024-kemendikbud',
+    },
+    {
+      judul: 'Lapangan kerja makin sempit',
+      body: 'Banyak perusahaan sedang sibuk efisiensi dan mengurangi rekrutmen. Lulusan kampus favorit pun ikut kesulitan mencari kerja.',
+      cite: null,
+    },
+    {
+      judul: 'Yang dipelajari belum tentu yang dibutuhkan',
+      body: 'Skill yang diajarkan di bangku kuliah sering tidak cocok dengan kebutuhan industri. Mau ikut pelatihan tambahan, biayanya jadi hambatan tersendiri. Kalaupun ada yang gratis, sering bingung harus belajar apa.',
+      cite: null,
+    },
+    {
+      judul: 'Investasi yang terasa tak sepadan',
+      body: 'Sudah keluar biaya banyak, kos bertahun-tahun di kota asing, tapi sulit dapat kerja. Kalaupun dapat, gaji awal fresh graduate sering hanya Rp2 sampai 2,5 juta, kecil dibanding inflasi kebutuhan hidup. Sulitnya kerja juga mungkin bukan karena kita malas kirim CV; di antara kita ada yang sudah melamar ke ratusan perusahaan tapi dibalas pun tidak.',
+      cite: 'gaji-fresh-grad-bps',
+    },
+  ],
+  closing: 'Barangkali inilah faktor-faktor yang mendorong tingginya angka NEET kita. Sebagian besar di luar kendali kita. Tapi kabar baiknya, selalu ada bagian yang justru ada dalam genggaman kita: mengenali kekuatan yang sudah Allah titipkan, lalu mengarahkannya ke tempat yang tepat. Itu yang akan kita lakukan berikutnya.',
 };
 
 // ─── PERSONA CALLOUT ──────────────────────────────────────────────
