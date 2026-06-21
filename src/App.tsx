@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { AssessmentProvider } from "@/context/AssessmentContext";
 import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
+import Mukadimah from "./pages/Mukadimah";
 import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
@@ -59,6 +60,7 @@ const App = () => {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/mukadimah" element={<Mukadimah />} />
             <Route path="/login" element={<Login />} />
             {/* Legacy /join route — kept as a redirect into the new Step 0 flow. */}
             <Route path="/join" element={<Navigate to="/profile" replace />} />
