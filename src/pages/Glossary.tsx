@@ -5,6 +5,7 @@ import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
 import { glossaryIntro, glossaryCategories, type GlossaryEntry } from "@/data/glossaryContent";
 import { references } from "@/data/references";
+import DataMendalam from "@/components/DataMendalam";
 
 const FIELD_LABELS: { key: keyof GlossaryEntry; label: string }[] = [
   { key: "arti", label: "Apa artinya" },
@@ -68,7 +69,7 @@ function groupByCategory(items: Numbered[]): [string, Numbered[]][] {
   return Array.from(map.entries());
 }
 
-function DataTab({ query }: { query: string }) {
+function DataTab({ query, setQuery }: { query: string; setQuery: (v: string) => void }) {
   const q = query.trim().toLowerCase();
 
   // ScrollToTop (global) resets scroll to top on every route change, which
@@ -91,32 +92,56 @@ function DataTab({ query }: { query: string }) {
   const grouped = useMemo(() => groupByCategory(filtered), [filtered]);
 
   return (
-    <div className="mt-8 space-y-10">
-      <p className="text-sm text-muted-foreground -mt-2">
-        Data mendalam dunia kerja (NEET, mismatch, kondisi pasar, dll.) akan pindah ke sini secara bertahap.
-        Untuk sekarang, ini daftar rujukan bernomor yang dipakai di seluruh Sulu — tanda kecil{' '}
-        <span className="text-accent font-semibold">[1]</span> di halaman mana pun mengarah ke sini.
-      </p>
-      {grouped.length === 0 && (
-        <p className="text-sm text-muted-foreground">Tidak ada sumber yang cocok dengan "{query}".</p>
-      )}
-      {grouped.map(([cat, items]) => (
-        <section key={cat}>
-          <h2 className="text-lg font-bold text-foreground">{cat}</h2>
-          <ol className="mt-4 space-y-3">
-            {items.map(({ ref, n }) => (
-              <li
-                key={ref.id}
-                id={`ref-${ref.id}`}
-                className="flex gap-3 rounded-xl border border-border bg-card px-4 py-3 scroll-mt-24"
-              >
-                <span className="font-heading text-sm font-semibold text-accent tabular-nums shrink-0">[{n}]</span>
-                <span className="text-sm text-foreground/85 leading-relaxed">{ref.label}</span>
-              </li>
-            ))}
-          </ol>
+    <div>
+      <div className="max-w-3xl mx-auto px-4 md:px-8">
+        <p className="text-sm text-muted-foreground mb-6">
+          Data dan narasi dunia kerja yang lebih berat -- kondisi NEET, mismatch, K-shaped, konteks Jawa Barat, dan
+          pandangan ahli -- ada di bawah, untuk kamu yang mau menelusuri lebih dalam.
+        </p>
+      </div>
+
+      <DataMendalam />
+
+      <div className="max-w-3xl mx-auto px-4 md:px-8 mt-12 space-y-10">
+        <section>
+          <h2 className="text-lg font-bold text-foreground">Daftar Rujukan</h2>
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+            Tanda kecil seperti <span className="text-accent font-semibold">[1]</span> di halaman mana pun mengarah ke sini.
+          </p>
+          <div className="relative mt-4 max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Cari sumber..."
+              className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-background text-sm outline-none focus:border-primary/60"
+            />
+          </div>
         </section>
-      ))}
+        {grouped.length === 0 && (
+          <p className="text-sm text-muted-foreground">Tidak ada sumber yang cocok dengan "{query}".</p>
+        )}
+        {grouped.map(([cat, items]) => (
+          <section key={cat}>
+            <h2 className="text-lg font-bold text-foreground">{cat}</h2>
+            <ol className="mt-4 space-y-3">
+              {items.map(({ ref, n }) => (
+                <li
+                  key={ref.id}
+                  id={`ref-${ref.id}`}
+                  className="flex gap-3 rounded-xl border border-border bg-card px-4 py-3 scroll-mt-24"
+                >
+                  <span className="font-heading text-sm font-semibold text-accent tabular-nums shrink-0">[{n}]</span>
+                  <span className="text-sm text-foreground/85 leading-relaxed">{ref.label}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+        <p className="text-xs text-muted-foreground/80 italic pb-6">
+          Daftar ini akan terus bertambah seiring konten Sulu berkembang.
+        </p>
+      </div>
     </div>
   );
 }
@@ -184,17 +209,19 @@ export default function Glossary() {
           </button>
         </div>
 
-        <div className="relative mt-5 max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={tab === 'istilah' ? 'Cari istilah...' : 'Cari sumber...'}
-            className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-background text-sm outline-none focus:border-primary/60"
-          />
-        </div>
+        {tab === 'istilah' && (
+          <div className="relative mt-5 max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Cari istilah..."
+              className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-background text-sm outline-none focus:border-primary/60"
+            />
+          </div>
+        )}
 
-        {tab === 'istilah' ? (
+        {tab === 'istilah' && (
           <>
             <div className="mt-8 space-y-10">
               {filtered.length === 0 && (
@@ -214,10 +241,12 @@ export default function Glossary() {
             </div>
             <p className="text-xs text-muted-foreground/80 mt-10 italic">{glossaryIntro.note}</p>
           </>
-        ) : (
-          <DataTab query={query} />
         )}
       </div>
+
+      {/* Data tab escapes the max-w-3xl column on purpose — DataMendalam's
+          sections (max-w-6xl/max-w-4xl) would get squeezed otherwise. */}
+      {tab === 'data' && <DataTab query={query} setQuery={setQuery} />}
     </div>
   );
 }
