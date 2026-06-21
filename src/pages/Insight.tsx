@@ -30,6 +30,7 @@ import {
   dataSourcesLabel,
   sourcePrefix,
   penamparSection,
+  faktorPenghambatSection,
   maadinSection,
   evanInsights,
   type Persona,
@@ -1079,8 +1080,37 @@ const Insight = () => {
 
       {/* ════════ BABAK 4 — LANGKAH (crescendo → satu pintu) ════════ */}
       <section id="babak-4">
-        {/* Crescendo */}
+        {/* Faktor Penghambat — "ini bukan salahmu" → pivot ke locus of control */}
         <section className="container mx-auto px-6 pt-20 md:pt-24 pb-4 max-w-3xl">
+          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">
+            {faktorPenghambatSection.kicker}
+          </p>
+          <p className="font-heading text-xl md:text-2xl text-foreground/90 italic leading-relaxed mb-4">
+            {faktorPenghambatSection.opening}
+          </p>
+          <p className="text-base text-foreground/80 leading-[1.75] mb-8 max-w-2xl">
+            {faktorPenghambatSection.ack}
+          </p>
+          <div className="space-y-5">
+            {faktorPenghambatSection.faktor.map((f, i) => (
+              <div key={i} className="border-l-2 border-border pl-5">
+                <h4 className="font-heading font-medium text-base text-foreground mb-1.5">
+                  {f.judul}
+                </h4>
+                <p className="text-sm text-foreground/75 leading-relaxed">
+                  {f.body}
+                  {f.cite && <Cite id={f.cite} />}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-base text-foreground/85 leading-[1.75] mt-8 max-w-2xl">
+            {faktorPenghambatSection.closing}
+          </p>
+        </section>
+
+        {/* Crescendo */}
+        <section className="container mx-auto px-6 pt-12 md:pt-16 pb-4 max-w-3xl">
           <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
             <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4">
               {personaCallout[persona].headline}
