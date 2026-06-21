@@ -65,7 +65,7 @@ export const indonesiaSection = {
   tag: 'INI YANG SEDANG TERJADI SEKARANG',
   headline: 'Satu dari lima anak muda Indonesia sekarang tidak sedang sekolah, bekerja, atau berlatih.',
   intro: {
-    siswa: 'Ini lapangan yang sebentar lagi kamu masuki. Bukan ramalan, bukan untuk menakutimu. Cuma supaya kamu kenal medannya sebelum melangkah.',
+    siswa: 'Ini lapangan yang sebentar lagi kamu masuki. Cuma supaya kamu kenal medannya sebelum melangkah.',
     orangtua: 'Generasi anak Anda menghadapi kondisi yang berbeda dari yang Anda hadapi dulu. Datanya spesifik.',
     gurubk: 'Data ini bisa jadi titik masuk percakapan karier yang lebih jujur bersama siswa Anda.',
   } as Record<Persona, string>,
@@ -80,10 +80,10 @@ export const indonesiaSection = {
         gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
       } as Record<Persona, string>,
       dampak: [
-        'Hilangnya bonus demografi — Potensi tenaga kerja besar terbuang, sehingga pertumbuhan ekonomi melambat.',
-        'Beban negara & keluarga — Meningkatkan pengeluaran sosial dan mengurangi pendapatan nasional.',
-        'Penurunan daya saing — Indonesia kalah bersaing dengan negara ASEAN lain karena kekurangan tenaga kerja terampil.',
-        'Efek jangka panjang — Pemuda NEET sulit bangkit, gaji lebih rendah, dan risiko kemiskinan meningkat.',
+        'Hilangnya bonus demografi: Potensi tenaga kerja besar terbuang, sehingga pertumbuhan ekonomi melambat.',
+        'Beban negara & keluarga: Meningkatkan pengeluaran sosial dan mengurangi pendapatan nasional.',
+        'Penurunan daya saing: Indonesia kalah bersaing dengan negara ASEAN lain karena kekurangan tenaga kerja terampil.',
+        'Efek jangka panjang: Pemuda NEET sulit bangkit, gaji lebih rendah, dan risiko kemiskinan meningkat.',
       ],
     },
     {
@@ -93,12 +93,12 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Ijazah tanpa kecocokan arah tidak melindungi dari pengangguran.',
         orangtua: 'Nama kampus lebih sedikit pengaruhnya dari kecocokan antara jurusan dan kemampuan nyata anak.',
-        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus — dimulai dari pilihan di kelas 12.',
+        gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus, dimulai dari pilihan di kelas 12.',
       } as Record<Persona, string>,
     },
     {
       value: '35,36% & 70%', label: 'mismatch pendidikan dan pekerjaan',
-      detail: '35,36% pemuda mengalami vertical mismatch — bekerja di bawah kualifikasi pendidikan yang sudah ditempuh. Sementara itu, 70% lulusan perguruan tinggi bekerja di bidang yang berbeda dari jurusannya.',
+      detail: '35,36% pemuda mengalami vertical mismatch, bekerja di bawah kualifikasi pendidikan yang sudah ditempuh. Sementara itu, 70% lulusan perguruan tinggi bekerja di bidang yang berbeda dari jurusannya.',
       source: 'BPS Sakernas 2025 (vertical mismatch); Mandiri Institute (mismatch jurusan, catatan: bukan survei nasional representatif)', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
@@ -118,7 +118,7 @@ export const indonesiaSection = {
     },
     {
       value: '1,72 juta', label: 'kebutuhan tenaga kerja di sektor ekonomi hijau Indonesia hingga 2030',
-      detail: 'Indonesia membutuhkan 1,72 juta tenaga terampil di energi terbarukan. Target pelatihan pemerintah: 15.000 orang sampai 2029. Gap ini bukan hanya tantangan — ini peluang yang nyata dan terdokumentasi.',
+      detail: 'Indonesia membutuhkan 1,72 juta tenaga terampil di energi terbarukan. Target pelatihan pemerintah: 15.000 orang sampai 2029. Gap ini bukan hanya tantangan, ini peluang yang nyata dan terdokumentasi.',
       source: 'IESR (Institute for Essential Services Reform) 2024; Kemnaker RTKN 2025-2029', tone: 'positive' as Tone,
       artinya: {
         siswa: 'Ada sektor besar yang tumbuh cepat dan belum ada cukup orang yang datang.',
@@ -154,7 +154,7 @@ export const laborRealitySection = {
   cards: [
     {
       value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
-      detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran — ini mayoritas. Tren ini naik, bukan turun.',
+      detail: 'Tidak punya kontrak formal, tidak dapat BPJS dari majikan, tidak ada kepastian bulan depan masih ada pekerjaan. Ini bukan kelompok pinggiran, ini mayoritas. Tren ini naik, bukan turun.',
       source: 'BPS Sakernas 2024-2025',
       glossaryTerm: 'Gig-Proletariat: kondisi di mana semakin banyak pekerja, termasuk yang berpendidikan, bekerja tanpa ikatan formal dengan satu pemberi kerja. Bukan hanya ojek online, tapi juga desainer, konsultan, dan pendidik.',
       tone: 'negative' as Tone,
@@ -195,7 +195,7 @@ export const laborRealitySection = {
 export const neetSection = {
   tag: 'POSISI INDONESIA DI KAWASAN',
   headline: 'Diukur dengan ukuran yang sama, posisi Indonesia ada di urutan paling tinggi di kawasan.',
-  intro: 'Diukur dengan ukuran yang sama, Indonesia ada di posisi paling tinggi di kawasan. Bukan untuk berkecil hati. Justru di sinilah ruang paling lebar yang menunggu kamu isi.',
+  intro: 'Bukan untuk berkecil hati. Justru di sinilah ruang paling lebar yang menunggu kamu isi.',
   maxPercent: 25,
   data: [
     { country: 'Indonesia', value: 21.36, year: '2023', colorClass: 'bg-destructive' },
@@ -244,7 +244,7 @@ export const roiSection = {
   cards: [
     {
       value: 'Rp 12–19 jt', label: 'total biaya kuliah S1 di IOU Indonesia (4 tahun)',
-      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Ijazah sudah mendapat penyetaraan Kemendikbud. Kuliah dari rumah — tidak ada biaya hidup terpisah.',
+      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Ijazah sudah mendapat penyetaraan Kemendikbud. Kuliah dari rumah, tidak ada biaya hidup terpisah.',
       source: 'IOU Indonesia, data biaya semester 2025; Kemendikbud penyetaraan 2024', tone: 'positive' as Tone,
     },
     {
@@ -315,7 +315,7 @@ export const worldSection = {
       source: 'WEF Future of Jobs Report 2025; BAPPENAS-WEF Jobs and Skills Accelerator 2025', tone: 'negative' as Tone,
       artinya: {
         siswa: 'Lebih dari sepertiga skill yang diajarkan sekarang mungkin tidak relevan saat kamu lulus.',
-        orangtua: 'Bukan berarti kuliah sia-sia — tapi jenis kuliah dan fokus belajarnya yang perlu dipilih dengan tepat.',
+        orangtua: 'Bukan berarti kuliah sia-sia, tapi jenis kuliah dan fokus belajarnya yang perlu dipilih dengan tepat.',
         gurubk: 'Data untuk mendampingi siswa yang mempertanyakan relevansi pilihan studinya.',
       } as Record<Persona, string>,
     },
@@ -355,9 +355,9 @@ export const opportunitySection = {
     { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM. 882.000 UMKM di Jawa Barat sudah bersertifikat (terbanyak nasional). Kebutuhan Penyelia Halal dan Auditor Halal sangat besar, supply sangat sedikit. Jalur yang sangat relevan untuk lulusan pendidikan Islam yang memahami sains.', badge: 'BPJPH Februari 2026; KDEKS Jabar' },
     { number: '02', title: 'Keuangan Syariah', body: 'Aset perbankan syariah tumbuh 33,92% dalam satu tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena mismatch skills.', badge: 'OJK; KNEKS 2024' },
     { number: '03', title: 'Energi Terbarukan', body: '1,72 juta tenaga kerja diproyeksikan dibutuhkan di sektor EBT pada 2030 (IESR, skenario optimal). Target pelatihan pemerintah: 15.000 orang. Gap ini adalah peluang bagi yang menyiapkan diri lebih awal.', badge: 'IESR 2024; Kemnaker RTKN 2025-2029' },
-    { number: '04', title: 'Kerja Lepas Digital', body: 'BPS Sakernas mencatat 7,2 juta pekerja lepas di Indonesia dengan rata-rata penghasilan Rp 3,73 juta/bulan secara nasional. Penghasilan aktual sangat bervariasi — ditentukan oleh spesialisasi, akses ke klien, dan reputasi yang dibangun. Untuk berlatar pendidikan Islam, bidang yang paling accessible: penerjemahan teks Arab-Indonesia, pengajaran bahasa Arab dan Al-Quran, dan penulisan konten berbasis kajian Islam.', badge: 'BPS Sakernas 2024' },
-    { number: '05', title: 'Wirausaha Sosial', body: '67% pemimpin wirausaha sosial di Indonesia berusia 18-34 tahun. 70% entitas ini didirikan dalam 5 tahun terakhir. Model yang memadukan profitabilitas dengan pemecahan masalah sosial — selaras dengan konsep khairu ummah.', badge: 'British Council/AVPN DICE Study; UNESCAP' },
-    { number: '06', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker — pertumbuhan absolut tertinggi secara global (WEF). Rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental di Indonesia: 1:30.000+.', badge: 'WEF FoJ 2025; Kemenkes RI 2024' },
+    { number: '04', title: 'Kerja Lepas Digital', body: 'BPS Sakernas mencatat 7,2 juta pekerja lepas di Indonesia dengan rata-rata penghasilan Rp 3,73 juta/bulan secara nasional. Penghasilan aktual sangat bervariasi, ditentukan oleh spesialisasi, akses ke klien, dan reputasi yang dibangun. Untuk berlatar pendidikan Islam, bidang yang paling accessible: penerjemahan teks Arab-Indonesia, pengajaran bahasa Arab dan Al-Quran, dan penulisan konten berbasis kajian Islam.', badge: 'BPS Sakernas 2024' },
+    { number: '05', title: 'Wirausaha Sosial', body: '67% pemimpin wirausaha sosial di Indonesia berusia 18-34 tahun. 70% entitas ini didirikan dalam 5 tahun terakhir. Model yang memadukan profitabilitas dengan pemecahan masalah sosial, selaras dengan konsep khairu ummah.', badge: 'British Council/AVPN DICE Study; UNESCAP' },
+    { number: '06', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker: pertumbuhan absolut tertinggi secara global (WEF). Rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental di Indonesia: 1:30.000+.', badge: 'WEF FoJ 2025; Kemenkes RI 2024' },
     { number: '07', title: 'Agritech dan Ketahanan Pangan', body: 'Sektor terbesar Indonesia (28% workforce, 40,76 juta orang) yang butuh generasi baru dengan literasi teknologi. Indonesia masih impor gandum, kedelai, bawang putih. SDM agritech modern sangat langka.', badge: 'BPS Sakernas 2024; Kementan RI' },
   ],
 };
@@ -488,7 +488,7 @@ export const ctaSection = {
     },
   ],
   waitlist: {
-    headline: 'Asesmen Sulu — Segera Hadir',
+    headline: 'Asesmen Sulu: Segera Hadir',
     subtext: 'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
     fields: {
       name: { label: 'Nama', placeholder: 'Nama lengkap' },
@@ -565,7 +565,7 @@ export const evanInsights = {
   buttonLabel: 'Insights Ketenagakerjaan dari Pak Evan Indrawijaya',
   profile: {
     name: 'Evan Indrawijaya, SE, MBA.',
-    bio: '25+ tahun memimpin SDM di perusahaan multinasional — Danone, Pfizer, Weatherford, Kimberly-Clark. SE Universitas Airlangga · MBA Universitas Antwerp, Belgia.',
+    bio: '25+ tahun memimpin SDM di perusahaan multinasional: Danone, Pfizer, Weatherford, Kimberly-Clark. SE Universitas Airlangga · MBA Universitas Antwerp, Belgia.',
     role: 'Operations Director, International Open University',
   },
   kondisi: {
@@ -584,11 +584,11 @@ export const evanInsights = {
     ageChartNote: 'Jumlah penganggur per kelompok usia (juta jiwa) · BPS Sakernas Agustus 2025',
     kisah: [
       { label: 'Batam, April 2025', story: 'Ratusan pelamar berdesakan di depan pabrik di Tanjung Uncang sampai ada yang jatuh ke selokan. Videonya viral di seluruh Indonesia.', source: 'Okezone / RCTI+, April 2025' },
-      { label: 'Putri, 22 tahun', story: '80 lamaran, nol panggilan. Di satu job fair: 6.654 lowongan — tapi diserbu puluhan ribu pelamar.', source: 'Kompas / Tribun Jateng, Agustus 2025' },
+      { label: 'Putri, 22 tahun', story: '80 lamaran, nol panggilan. Di satu job fair: 6.654 lowongan, tapi diserbu puluhan ribu pelamar.', source: 'Kompas / Tribun Jateng, Agustus 2025' },
       { label: 'Fardi', story: 'Menyesal tidak pernah magang. Puluhan lamaran, hanya 3–4 interview, 2 tahun menganggur.', source: 'Mojok, September 2025' },
       { label: '300 lamaran, 299 penolakan', story: 'Hampir kehilangan kepercayaan diri sebelum akhirnya diterima setelah ikut program pendampingan.', source: 'Viva, Agustus 2025' },
     ],
-    neetNote: 'Hampir 9 juta anak muda Indonesia saat ini berstatus NEET — tidak bekerja, tidak sekolah, tidak dalam pelatihan apapun.',
+    neetNote: 'Hampir 9 juta anak muda Indonesia saat ini berstatus NEET: tidak bekerja, tidak sekolah, tidak dalam pelatihan apapun.',
     neetSource: 'BPS Sakernas Agustus 2025',
   },
   ironi: {
@@ -625,21 +625,21 @@ export const evanInsights = {
     title: 'Ke Mana Arah Ini Bergerak',
     tamparan: [
       { label: 'Skills-Based Hiring',    desc: 'Perusahaan tidak lagi merekrut berdasarkan nama kampus. Yang dicari: bisa langsung bekerja, ada bukti nyata, tidak butuh training panjang.' },
-      { label: 'Hit the Ground Running', desc: 'Tidak ada lagi budget orientasi panjang. Hari pertama sudah harus berkontribusi — siap, atau digantikan.' },
+      { label: 'Hit the Ground Running', desc: 'Tidak ada lagi budget orientasi panjang. Hari pertama sudah harus berkontribusi: siap, atau digantikan.' },
       { label: 'Saringan Makin Sempit',  desc: '100 pelamar → 1–2 yang lolos. Program management trainee dan posisi junior jauh lebih sedikit dari satu dekade lalu.' },
       { label: 'Gig Economy',            desc: '57% pekerja Indonesia di sektor informal. Bagi yang punya skill dan kemandirian: kebebasan. Bagi yang tidak: jurang.' },
     ],
     paradoksPQ: 'Laba naik, kepala berkurang.',
-    paradoksDesc: 'Banyak korporasi global mencatat rekor laba sambil memangkas ribuan posisi — investasi dialihkan ke AI dan infrastruktur data. Indonesia tidak kebal: gelombang PHK startup dan sektor tech 2025 sudah terasa.',
+    paradoksDesc: 'Banyak korporasi global mencatat rekor laba sambil memangkas ribuan posisi, investasi dialihkan ke AI dan infrastruktur data. Indonesia tidak kebal: gelombang PHK startup dan sektor tech 2025 sudah terasa.',
     paradoksStats: [
       { angka: '±72.000', sub: 'karyawan tech global terkena PHK semester I-2025', source: 'Layoffs.fyi' },
-      { angka: '12.000+', sub: 'posisi dipangkas Microsoft 2025 — meski cetak laba rekor', source: 'Microsoft 2025' },
+      { angka: '12.000+', sub: 'posisi dipangkas Microsoft 2025, meski cetak laba rekor', source: 'Microsoft 2025' },
     ],
     mckinsey: {
       displaced: '23 juta',
       displacedLabel: 'pekerjaan tergeser otomasi pada 2030',
       created: '27–46 juta',
-      createdLabel: 'pekerjaan baru bisa tercipta — bagi yang siap',
+      createdLabel: 'pekerjaan baru bisa tercipta, bagi yang siap',
       note: '~10 juta dari pekerjaan baru itu berjenis yang belum ada hari ini.',
       source: 'McKinsey Indonesia, "Automation & the Future of Work in Indonesia" (2030)',
     },
@@ -647,7 +647,7 @@ export const evanInsights = {
   },
   survive: {
     title: 'Yang Membuat Kamu Survive',
-    quote: '"Gen Alpha jagoan memakai AI — tapi membeku ketika harus berbicara langsung dengan atasannya. Teknologi melimpah; kematangan manusia justru menjadi langka."',
+    quote: '"Gen Alpha jagoan memakai AI, tapi membeku ketika harus berbicara langsung dengan atasannya. Teknologi melimpah; kematangan manusia justru menjadi langka."',
     aiCantTitle: 'Yang Belum Bisa Dilakukan AI',
     aiCant: [
       'Menetapkan arah dan tujuan yang bermakna',
@@ -655,32 +655,32 @@ export const evanInsights = {
       'Mengambil keputusan berbasis nilai',
       'Membangun kepercayaan antar-manusia',
     ],
-    aiCantNote: 'Justru di sinilah nilai manusia — dan nilai keislaman — menemukan tempatnya.',
+    aiCantNote: 'Justru di sinilah nilai manusia, dan nilai keislaman, menemukan tempatnya.',
     ayatAliImran: {
       arabic: 'وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ',
       translation: '"Kamulah yang paling tinggi derajatnya, jika kamu orang beriman."',
       ref: 'QS Ali Imran: 139',
     },
     pilars: [
-      { label: 'Kemandirian & Resilience', points: ['Belajar hal baru tanpa harus diawasi', 'Menyelesaikan masalah — tidak menyerah saat terhambat', 'Produktif tanpa bergantung motivasi eksternal'] },
-      { label: 'Human Relations', points: ['Membangun kepercayaan dan kredibilitas', 'Menepati komitmen — bukan sekadar berjanji', 'Mengelola emosi dan konflik secara matang'] },
+      { label: 'Kemandirian & Resilience', points: ['Belajar hal baru tanpa harus diawasi', 'Menyelesaikan masalah, tidak menyerah saat terhambat', 'Produktif tanpa bergantung motivasi eksternal'] },
+      { label: 'Human Relations', points: ['Membangun kepercayaan dan kredibilitas', 'Menepati komitmen, bukan sekadar berjanji', 'Mengelola emosi dan konflik secara matang'] },
     ],
   },
   ekosistem: {
     title: 'Empat Pilar Ekosistem Sukses',
     items: [
-      { num: '1', label: 'Fondasi Spiritual',    desc: 'Tauhid dan niat yang benar. Self-leadership dimulai dari kedekatan dengan Allah — dunia sebagai ladang, bukan tujuan.' },
-      { num: '2', label: 'Kapasitas Diri',        desc: 'Ilmu, skill, dan kemandirian. Padukan fardhu ain dengan keahlian masa depan — resilien, adaptif, mandiri.' },
-      { num: '3', label: 'Relasi & Komunitas',    desc: 'Barisan dan kolaborasi. Allah membedakan potensi tiap orang agar saling melengkapi — bangun jaringan yang kokoh.' },
+      { num: '1', label: 'Fondasi Spiritual',    desc: 'Tauhid dan niat yang benar. Self-leadership dimulai dari kedekatan dengan Allah. Dunia sebagai ladang, bukan tujuan.' },
+      { num: '2', label: 'Kapasitas Diri',        desc: 'Ilmu, skill, dan kemandirian. Padukan fardhu ain dengan keahlian masa depan: resilien, adaptif, mandiri.' },
+      { num: '3', label: 'Relasi & Komunitas',    desc: 'Barisan dan kolaborasi. Allah membedakan potensi tiap orang agar saling melengkapi, bangun jaringan yang kokoh.' },
       { num: '4', label: 'Lingkungan Bertumbuh',  desc: 'Pendidikan adaptif dan aksi nyata. Pilih wadah yang melatih kemandirian dan menuntut karya nyata.' },
     ],
     roadmap: [
-      { step: '1', label: 'Kenali',     desc: 'Diri dan ekosistem. Bukan hanya nilai akademik — skill-based assessment sejak awal.' },
+      { step: '1', label: 'Kenali',     desc: 'Diri dan ekosistem. Bukan hanya nilai akademik, skill-based assessment sejak awal.' },
       { step: '2', label: 'Sesuaikan',  desc: 'Arah dan pilihan. Selaraskan jurusan dan jalur dengan potensi asli, bukan gengsi.' },
-      { step: '3', label: 'Bertindak',  desc: 'Eksplorasi nyata. Ekskul, proyek, magang, microcredential — ciptakan nilai, bukan hanya belajar tentang nilai.' },
+      { step: '3', label: 'Bertindak',  desc: 'Eksplorasi nyata. Ekskul, proyek, magang, microcredential: ciptakan nilai, bukan hanya belajar tentang nilai.' },
       { step: '4', label: 'Mandiri',    desc: 'Survive dan berdampak. Berdiri di atas kaki sendiri, memberi manfaat, dengan niat yang benar.' },
     ],
-    projection: 'Proyeksi The Millennium Project (lembaga foresight independen, konsensus pakar global via metode Delphi): tingkat pengangguran global 24% pada 2050 — jika sistem dan manusia tidak beradaptasi.',
+    projection: 'Proyeksi The Millennium Project (lembaga foresight independen, konsensus pakar global via metode Delphi): tingkat pengangguran global 24% pada 2050, jika sistem dan manusia tidak beradaptasi.',
   },
   footer: {
     ayat: {
