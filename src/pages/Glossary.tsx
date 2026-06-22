@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { glossaryIntro, glossaryCategories, type GlossaryEntry } from "@/data/glossaryContent";
 import { references } from "@/data/references";
 import DataMendalam from "@/components/DataMendalam";
+import EraAITab from "@/components/EraAITab";
 
 const FIELD_LABELS: { key: keyof GlossaryEntry; label: string }[] = [
   { key: "arti", label: "Apa artinya" },
@@ -148,16 +149,18 @@ function DataTab({ query, setQuery }: { query: string; setQuery: (v: string) => 
 
 export default function Glossary() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialTab = searchParams.get('tab') === 'data' ? 'data' : 'istilah';
-  const [tab, setTab] = useState<'istilah' | 'data'>(initialTab);
+  const tabParam = searchParams.get('tab');
+  const initialTab: 'istilah' | 'data' | 'eraai' =
+    tabParam === 'data' ? 'data' : tabParam === 'eraai' ? 'eraai' : 'istilah';
+  const [tab, setTab] = useState<'istilah' | 'data' | 'eraai'>(initialTab);
   const [query, setQuery] = useState("");
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const q = query.trim().toLowerCase();
 
-  const switchTab = (t: 'istilah' | 'data') => {
+  const switchTab = (t: 'istilah' | 'data' | 'eraai') => {
     setTab(t);
     setQuery('');
-    setSearchParams(t === 'data' ? { tab: 'data' } : {}, { replace: true });
+    setSearchParams(t === 'istilah' ? {} : { tab: t }, { replace: true });
   };
 
   const filtered = useMemo(
@@ -191,10 +194,14 @@ export default function Glossary() {
       <div className="max-w-3xl mx-auto px-4 md:px-8 pt-8">
         <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Pusat Rujukan</h1>
         <p className="text-muted-foreground mt-2 leading-relaxed">
-          {tab === 'istilah' ? glossaryIntro.subtitle : 'Data dan sumber di balik setiap angka yang kamu temui di Sulu.'}
+          {tab === 'istilah'
+            ? glossaryIntro.subtitle
+            : tab === 'eraai'
+            ? 'Data mendalam soal AI dan masa depan dunia kerja.'
+            : 'Data dan sumber di balik setiap angka yang kamu temui di Sulu.'}
         </p>
 
-        <div className="flex gap-2 mt-5">
+        <div className="flex flex-wrap gap-2 mt-5">
           <button
             onClick={() => switchTab('istilah')}
             className={cn('px-4 py-2 rounded-full text-sm border transition-colors', tab === 'istilah' ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary')}
@@ -205,7 +212,13 @@ export default function Glossary() {
             onClick={() => switchTab('data')}
             className={cn('px-4 py-2 rounded-full text-sm border transition-colors', tab === 'data' ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary')}
           >
-            Data & Sumber
+            Data &amp; Sumber
+          </button>
+          <button
+            onClick={() => switchTab('eraai')}
+            className={cn('px-4 py-2 rounded-full text-sm border transition-colors', tab === 'eraai' ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary')}
+          >
+            Era AI
           </button>
         </div>
 
@@ -247,6 +260,7 @@ export default function Glossary() {
       {/* Data tab escapes the max-w-3xl column on purpose — DataMendalam's
           sections (max-w-6xl/max-w-4xl) would get squeezed otherwise. */}
       {tab === 'data' && <DataTab query={query} setQuery={setQuery} />}
+      {tab === 'eraai' && <EraAITab />}
     </div>
   );
 }
