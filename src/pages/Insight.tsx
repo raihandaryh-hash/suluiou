@@ -13,6 +13,7 @@ import Logo from '@/components/Logo';
 import Cite from '@/components/Cite';
 import DilloNarasi from '@/components/DilloNarasi';
 import SetelahPeta from '@/components/SetelahPeta';
+import MismatchMukadimah from '@/components/MismatchMukadimah';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import { track } from '@/lib/track';
@@ -889,13 +890,9 @@ const BABAK_NAV = [
 const PERSONA_KEY = 'sulu_insight_persona';
 
 const Insight = () => {
-  const [persona, setPersona] = useState<Persona>(() => {
-    if (typeof window === 'undefined') return personaTeaserSection.defaultPersona;
-    const stored = localStorage.getItem(PERSONA_KEY);
-    return (stored === 'siswa' || stored === 'orangtua' || stored === 'gurubk')
-      ? stored as Persona
-      : personaTeaserSection.defaultPersona;
-  });
+  // Selalu mulai dari siswa setiap halaman dibuka (voice utama siswa-facing).
+  // Switcher tetap berfungsi dalam sesi, tapi tidak dipersist sebagai default.
+  const [persona, setPersona] = useState<Persona>(personaTeaserSection.defaultPersona);
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
 
   const handleSwitch = (p: Persona) => {
@@ -977,41 +974,26 @@ const Insight = () => {
         {/* Persona inline hint (one-liner, siswa-first + reveal ortu/BK) */}
         <PersonaInlineHint onSwitch={handleSwitch} />
 
-        {/* Kartu penampar — wajah ruang yang bisa kamu isi */}
-        <section className="container mx-auto px-6 py-12 max-w-6xl">
-          <div className="mb-8">
-            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">KARTU PENAMPAR</p>
+        {/* Kartu penampar — potret Indonesia saat ini */}
+        <section className="container mx-auto px-6 py-12 max-w-3xl">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-3 uppercase">POTRET INDONESIA</p>
             <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-3">
               {penamparSection.headline}
             </h2>
-            <p className="text-base md:text-lg text-foreground/80 max-w-2xl leading-relaxed">
-              Bukan untuk menakut-nakuti, tapi untuk menunjukkan ruang yang bisa kamu isi.
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+              Empat kondisi nyata di sekitarmu. Bukan untuk menakut-nakuti, tapi untuk membuka mata pada ruang yang sebenarnya menunggu untuk diisi.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="max-w-2xl grid grid-cols-1 gap-5">
             {penamparSection.cards.map((card) => (
               <PenamparCardItem key={card.id} card={card} />
             ))}
           </div>
         </section>
 
-        {/* Data Lanjutan -> pindah ke Pusat Rujukan (Glossary tab Data), bukan toggle lokal lagi */}
-        <section className="container mx-auto px-6 pt-2 max-w-4xl">
-          <Link
-            to="/glossary?tab=data"
-            className="w-full flex items-center justify-between gap-4 bg-secondary/40 border border-border border-dashed rounded-2xl px-6 py-4 hover:bg-secondary/60 transition-colors text-left group"
-          >
-            <div>
-              <span className="text-[10px] font-semibold tracking-[0.15em] text-muted-foreground uppercase block mb-1">
-                DATA LANJUTAN
-              </span>
-              <span className="text-sm text-foreground">
-                Eksplorasi data statistik selengkapnya: kondisi kerja, NEET, skill landscape, dan tren global -- di Pusat Rujukan
-              </span>
-            </div>
-            <ArrowRight className="w-5 h-5 text-muted-foreground transition-transform shrink-0 group-hover:translate-x-1" />
-          </Link>
-        </section>
+        {/* Mukadimah: kenapa & so-what → membangunkan → jembatan ke Pak Evan */}
+        <MismatchMukadimah />
 
         <Catatanku anchor="babak-1" label="Taruhan: kondisi duniaku" />
       </section>
@@ -1040,19 +1022,39 @@ const Insight = () => {
           <DilloNarasi />
         </section>
 
-        {/* Engsel spiritual tepat sebelum peta: dalil "barang tambang" — setiap
-            orang punya potensi, yang membedakan adalah pemahaman.
-            🔲 review Ust. Hilman di akhir (need-to-know + review, bukan blocker). */}
-        <section className="container mx-auto px-6 pb-8 max-w-4xl">
-          <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-7 max-w-2xl">
-            <p className="text-lg md:text-xl text-foreground/90 leading-loose mb-3 text-right" dir="rtl" lang="ar">{maadinSection.arabic}</p>
-            <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">&ldquo;{maadinSection.translation}&rdquo;</p>
-            <p className="text-xs text-muted-foreground mb-4">{maadinSection.ref}</p>
-            <p className="text-sm text-foreground/80 leading-relaxed">{maadinSection.framing}</p>
+        {/* Cara membaca peta + urgensi: apa yang wajib dimiliki di era AI */}
+        <section className="container mx-auto px-6 pb-8 max-w-3xl">
+          <div className="max-w-2xl">
+            <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground tracking-tight leading-tight mb-4">
+              Cara membaca peta ini, dan apa yang wajib kamu miliki
+            </h3>
+            <p className="text-base text-foreground/80 leading-[1.75] mb-5">
+              Peta ini punya empat lapis. Bukan semuanya setara, ada yang jadi fondasi yang menentukan kamu bertahan atau tidak, ada yang jadi pintu masuk ke sektor tertentu.
+            </p>
+            <div className="space-y-3">
+              <div className="flex gap-3 items-start rounded-xl border border-teal-200 bg-teal-50/60 px-4 py-3">
+                <span className="font-heading text-sm font-bold text-teal-800 shrink-0 mt-0.5">L0&nbsp;+&nbsp;L1</span>
+                <p className="text-sm text-foreground/80 leading-relaxed">
+                  <strong className="text-foreground">Wajib dimiliki semua orang.</strong> Sikap dasar dan kapasitas manusiawi, inilah human skills yang membuatmu tetap dibutuhkan justru ketika AI ada di mana-mana. Tujuh keterampilan inti yang disebut Pak Dillo hidup di sini: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan termasuk di antaranya.
+                </p>
+              </div>
+              <div className="flex gap-3 items-start rounded-xl border border-blue-200 bg-blue-50/60 px-4 py-3">
+                <span className="font-heading text-sm font-bold text-blue-800 shrink-0 mt-0.5">L2</span>
+                <p className="text-sm text-foreground/80 leading-relaxed">
+                  <strong className="text-foreground">Dua yang paling menentukan hari ini:</strong> Literasi AI &amp; Data, dan Komunikasi Kompleks. Yang paham mengarahkan AI menggantikan yang tidak, dan yang bisa menjelaskan hal rumit ke beragam orang selalu dicari.
+                </p>
+              </div>
+              <div className="flex gap-3 items-start rounded-xl border border-border bg-secondary/40 px-4 py-3">
+                <span className="font-heading text-sm font-bold text-foreground shrink-0 mt-0.5">L3</span>
+                <p className="text-sm text-foreground/80 leading-relaxed">
+                  <strong className="text-foreground">Sektor-sektor yang sedang "panas" untuk dimasuki.</strong> Di sinilah keahlianmu bertemu kebutuhan riil. Yang ditandai hijau sedang tumbuh dan butuh orang, yang merah tugasnya mulai rentan diotomasi.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-5">
+              Ketuk simpul mana saja untuk melihat keterkaitannya. Yang ditandai merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
+            </p>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mt-6">
-            Ini petanya. Yang ditandai merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
-          </p>
         </section>
 
         {/* Peta skill — embed inline (komponen yang sama dengan /skill-map) */}
@@ -1065,11 +1067,13 @@ const Insight = () => {
           <SetelahPeta />
         </section>
 
-        {/* Peluang SDM */}
-        <section id="peluang" className="container mx-auto px-6 py-16 max-w-6xl">
-          <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[persona]} />
+        {/* Peluang SDM — kursi yang masih kosong */}
+        <section id="peluang" className="container mx-auto px-6 py-16 max-w-4xl">
+          <div className="max-w-2xl mb-2">
+            <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[persona]} />
+          </div>
           <DataReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {opportunitySection.items.map((o, i) => (
                 <div key={i} className="bg-secondary/60 border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors">
                   <div className="text-xs font-semibold text-primary tabular-nums mb-3">{o.number}</div>
