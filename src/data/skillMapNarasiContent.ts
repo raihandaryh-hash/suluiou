@@ -48,16 +48,17 @@ export const jembatanKePeta = {
   body: 'Pak Dillo menyebut lima keterampilan inti: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan. Peta di bawah ini menampung kelimanya, lalu menempatkannya dalam struktur yang lebih utuh: dari karakter dasar yang membentuk dirimu, sampai keahlian teknis tiap sektor. Setiap simpul ditandai apakah ia aman, terbantu, atau berisiko di hadapan AI, lengkap dengan kaitan sebab-akibat yang sudah teruji.',
 };
 
-// Penutup SETELAH peta — "what to do with this info" → jembatan ke Kenali Dirimu.
-// Sumber struktur: deck Soft Skills p12 (membaca != memiliki) + p16 (deliberate practice, Ericsson).
+// Penutup SETELAH diagram skill-map: menjawab "apa yang harus dilakukan dengan
+// peta ini?" Resolusi = service learning / menjadi problem solver aktif, bukan
+// belajar dari buku. Lalu jembatan ke Kenali Dirimu. Semua siswa-facing.
 export const setelahPeta = {
-  kicker: 'Lalu, apa yang harus dilakukan dengan peta ini?',
-  headline: 'Skill ini tidak ada di perpustakaan, dan AI pun tidak bisa membangunnya untukmu.',
+  kicker: 'Lalu, bagaimana cara menumbuhkannya?',
+  headline: 'Skill ini tidak tumbuh dari buku. Ia tumbuh saat kamu "nyemplung".',
   poin: [
-    { label: 'Membaca bukan berarti memiliki', desc: 'Membaca sepuluh buku tentang berpikir kritis tidak otomatis membuatmu berpikir kritis. Tahu tentang sesuatu berbeda dari mampu melakukannya.' },
-    { label: 'Memakai AI bukan berarti bertumbuh', desc: 'AI bisa membantumu bekerja lebih cepat, tapi ia tidak bisa membentuk karakter, melatih cara berpikir, atau membangun ketangguhanmu.' },
-    { label: 'Tumbuh lewat latihan yang disengaja', desc: 'Skill ini tumbuh melalui pengalaman nyata dan refleksi yang jujur: tujuan yang jelas, bimbingan yang terarah, umpan balik yang spesifik, lalu diulang dengan penyempurnaan.' },
+    { label: 'Membaca saja tidak cukup', desc: 'Membaca sepuluh buku tentang kepemimpinan tidak membuatmu jadi pemimpin. Skill ini bukan informasi yang bisa dihafal, tapi kemampuan yang terbentuk lewat pengalaman nyata.' },
+    { label: 'Caranya: jadi pemecah masalah yang aktif', desc: 'Tempatkan dirimu di tengah persoalan nyata di masyarakat, sekecil apa pun. Begitu kamu benar-benar mencoba menolong, kamu otomatis akan butuh dan melatih berpikir analitis, komunikasi, kerja sama, dan kepemimpinan. Skill datang sebagai konsekuensi, bukan sebagai pelajaran terpisah.' },
+    { label: 'Arahkan sejak awal untuk berkhidmat', desc: 'Pilih jurusan, ambil microcredential, dan cari pengalaman dengan satu pertanyaan di kepala: masalah atau komunitas mana yang ingin kubantu? Inilah inti service learning, yang juga menjadi ruh Kurikulum Merdeka, dan sejalan dengan tiga transformative competencies yang dirumuskan OECD untuk pelajar masa depan.' },
   ],
-  poinCite: 'wef-mckinsey-skill-landscape',
-  bridge: 'Dan semua itu berangkat dari satu titik: mengenali dengan jujur kekuatan apa yang sudah ada dalam dirimu, dan mana yang perlu ditumbuhkan. Itulah langkah berikutnya.',
+  poinCite: 'oecd-teenage-career-2025',
+  bridge: 'Perjalanannya panjang, dan itu wajar. Tapi jangan sampai membuatmu takut atau membeku di tempat. Setiap perjalanan jauh dimulai dari satu langkah yang dekat: mengenali dengan jujur apa yang sudah kamu punya, lalu menyusun rencana ke depan. Sebelum itu, mari lihat dulu, pintu-pintu mana yang sebenarnya sedang terbuka lebar.',
 };
