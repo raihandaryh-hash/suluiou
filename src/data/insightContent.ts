@@ -453,7 +453,7 @@ export const skillMapTeaser = {
 // Voice verbatim Raihan dari Rancangan Narasi. Sebab struktural disebut RINGKAS
 // (bukan dimekarkan jadi doom kedua), lalu pivot ke yang bisa dikendalikan.
 export const faktorPenghambatSection = {
-  kicker: 'Sebelum melangkah',
+  kicker: 'Mungkin ada yang mengganjal di hatimu',
   opening: '"Tapi, ini bukan salah kita kan, Kak? Dunia memang sedang sulit..."',
   ack: 'Ya, kegelisahan kamu ada benarnya. Kita memang hidup di zaman yang sangat menantang. Tingginya angka NEET tadi mungkin bukan karena kita malas, tapi karena faktor-faktor yang sebagian besar di luar kendali kita.',
   faktor: [
@@ -547,7 +547,7 @@ export type PenamparCard = {
 };
 
 export const penamparSection = {
-  headline: 'Dari Ilmu ke Dampak: Mulai dari Sini',
+  headline: 'Indonesia hari ini, lewat empat potret',
   cards: [
     {
       id: 'pendidikan',
