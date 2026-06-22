@@ -11,6 +11,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
 import Cite from '@/components/Cite';
+import DilloNarasi from '@/components/DilloNarasi';
+import SetelahPeta from '@/components/SetelahPeta';
 import FirstTimerBanner from '@/components/FirstTimerBanner';
 import { supabase } from '@/integrations/supabase/client';
 import { track } from '@/lib/track';
@@ -23,7 +25,6 @@ import {
   roiSection,
   bkSection,
   opportunitySection,
-  skillMapTeaser,
   personaCallout,
   ctaSection,
   dataSources,
@@ -1032,16 +1033,17 @@ const Insight = () => {
       <section id="babak-3">
         <BabakHead no="03" kicker="Bekal" />
 
-        {/* Engsel: pertanyaan → jawaban (peta) */}
+        {/* Narasi jembatan Pak Evan → Pak Dillo → peta (sequencing IOU Fair).
+            Memberi diagram skill-map konteks: kenapa human skills, apa data AI-nya,
+            apa yang tersisa bagi manusia. Data terverifikasi (AEI + Stanford). */}
         <section className="container mx-auto px-6 pt-2 pb-8 max-w-4xl">
-          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4 max-w-2xl">
-            Jadi, kemampuan apa yang membuatmu tetap dibutuhkan?
-          </h2>
-          <p className="text-base text-foreground/80 leading-relaxed max-w-2xl mb-6">
-            {skillMapTeaser.body}
-          </p>
-          {/* Pembuka dalil — paradigma "barang tambang": setiap orang punya potensi, yang membedakan adalah pemahaman.
-              🔲 review Ust. Hilman di akhir (need-to-know + review, bukan blocker). */}
+          <DilloNarasi />
+        </section>
+
+        {/* Engsel spiritual tepat sebelum peta: dalil "barang tambang" — setiap
+            orang punya potensi, yang membedakan adalah pemahaman.
+            🔲 review Ust. Hilman di akhir (need-to-know + review, bukan blocker). */}
+        <section className="container mx-auto px-6 pb-8 max-w-4xl">
           <div className="bg-secondary/40 border border-border rounded-2xl p-6 md:p-7 max-w-2xl">
             <p className="text-lg md:text-xl text-foreground/90 leading-loose mb-3 text-right" dir="rtl" lang="ar">{maadinSection.arabic}</p>
             <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">&ldquo;{maadinSection.translation}&rdquo;</p>
@@ -1049,13 +1051,18 @@ const Insight = () => {
             <p className="text-sm text-foreground/80 leading-relaxed">{maadinSection.framing}</p>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mt-6">
-            Ini petanya. Yang dicari merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
+            Ini petanya. Yang ditandai merah bukan untuk ditakuti, tapi untuk dikenali, dan yang hijau untuk kamu tumbuhkan.
           </p>
         </section>
 
         {/* Peta skill — embed inline (komponen yang sama dengan /skill-map) */}
         <section className="container mx-auto px-6 pb-12 max-w-5xl">
           <SkillMapView embedded />
+        </section>
+
+        {/* Penutup: what to do with it → jembatan ke Kenali Dirimu */}
+        <section className="container mx-auto px-6 pb-12 max-w-4xl">
+          <SetelahPeta />
         </section>
 
         {/* Peluang SDM */}
