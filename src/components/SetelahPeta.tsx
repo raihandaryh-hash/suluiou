@@ -22,7 +22,7 @@ export default function SetelahPeta() {
         ))}
       </div>
       <p className="text-xs text-muted-foreground mt-3">
-        Prinsip latihan yang disengaja, dari riset Anders Ericsson dan kerangka skill global
+        Selaras dengan kerangka transformative competencies OECD dan semangat Kurikulum Merdeka
         <Cite id={setelahPeta.poinCite} />
       </p>
       <p className="text-base text-foreground/85 leading-[1.75] mt-8">{setelahPeta.bridge}</p>
