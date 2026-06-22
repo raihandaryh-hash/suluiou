@@ -118,10 +118,10 @@ export default function DataMendalam() {
       </section>
       <UsefulFeedback section="realita" persona={persona} />
 
-      {/* Persona-specific deep dives — all three shown (reference page, no active persona switch) */}
+      {/* Persona-specific deep dives — semua pakai siswa (halaman rujukan, siswa-facing) */}
       <SkillLandscape persona="siswa" />
-      <RoiBlock persona="orangtua" />
-      <BkBlock persona="gurubk" />
+      <RoiBlock persona="siswa" />
+      <BkBlock persona="siswa" />
 
       {/* Dunia 2025–2030 */}
       <section id="dunia" className="container mx-auto px-6 py-16 max-w-6xl">
