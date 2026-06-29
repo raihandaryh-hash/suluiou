@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/Logo';
 import Cite from '@/components/Cite';
+import { richGlossary } from '@/components/Istilah';
 import { mukadimahBabak as M, type Block } from '@/data/mukadimahBabakContent';
 
 /** Split **bold** and _italic_ run-level markers into React nodes. */
@@ -125,7 +126,7 @@ const Mukadimah = () => {
             {rich(M.faktanya)}
           </p>
           <p className="mt-3 text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {M.neetLead}
+            {richGlossary(M.neetLead)}
           </p>
 
           <NeetTable />
