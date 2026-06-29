@@ -45,10 +45,10 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }
 
 function Touchpoint({ ayat, rujukan, framing }: { ayat: string; rujukan: string; framing: string }) {
   return (
-    <div className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 italic text-foreground/90">
+    <div className="border-l-4 border-[hsl(var(--torch-gold))] bg-secondary/40 px-4 py-3 text-foreground/90">
       <p>{ayat}</p>
-      <p className="not-italic text-xs text-muted-foreground mt-1">{rujukan}</p>
-      <p className="not-italic text-sm text-muted-foreground mt-2">{framing}</p>
+      <p className="text-xs text-muted-foreground mt-1">{rujukan}</p>
+      <p className="text-sm text-muted-foreground mt-2">{framing}</p>
     </div>
   );
 }
