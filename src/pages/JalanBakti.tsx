@@ -12,6 +12,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useProvince } from "@/hooks/useProvince";
 import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
+import JalanBaktiOpening from "@/components/JalanBaktiOpening";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 
 type ProvinceContext = {
@@ -184,9 +185,16 @@ export default function JalanBakti() {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-2xl">
-      {/* ── OPENER ── */}
-      <section className="space-y-4">
+      {/* ── OPENER BARU: bomb riset + doa Sulaiman + framework 3 gerakan ── */}
+      <section className="space-y-4 mb-4">
         <h1 className="font-heading text-2xl font-bold text-foreground">{C.ui.pageTitle}</h1>
+      </section>
+      <JalanBaktiOpening />
+
+      <Separator className="my-10" />
+
+      {/* ── Opener lama (narasi bakti) — kini jadi pembuka Gerakan 1: Dengar ── */}
+      <section className="space-y-4">
         {C.opener.paragraphs.map((p, i) => (
           <p key={i} className="text-base leading-relaxed text-foreground/90">
             {p}
