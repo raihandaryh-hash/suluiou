@@ -166,6 +166,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         id: "great-gloom-neet",
         term: "The Great Gloom / NEET",
         padanan: "Kegelapan Besar / Tidak Bekerja Tidak Sekolah Tidak Pelatihan",
+        arti: "NEET singkatan dari Not in Employment, Education, or Training: anak muda usia produktif yang sedang tidak bekerja, tidak bersekolah, dan tidak mengikuti pelatihan apa pun.",
         data: "19,44% pemuda NEET (BPS 2025). Setara 9 juta orang. Perempuan 35,77%, laki-laki 16,38%.",
         navigasi: "Bedakan antara pesimisme produktif (memahami kondisi nyata untuk keputusan lebih baik) dan pesimisme paralitik (tidak melakukan apapun). Yang pertama adalah aset, yang kedua adalah jebakan.",
       },
