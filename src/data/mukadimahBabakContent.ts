@@ -15,7 +15,7 @@ export const mukadimahBabak = {
 
   faktanya: "**Faktanya:** Tahukah kamu bahwa saat ini, kurang lebih 1 dari 5 orang pemuda Indonesia tergolong NEET? Yakni tidak sedang belajar/kuliah, tidak bekerja, dan tidak sedang membina diri dengan pelatihan?",
 
-  neetLead: "Secara persentase, angka NEET pemuda kita terbesar kedua se-ASEAN, dan nomor satu dalam jumlah.",
+  neetLead: "Secara persentase, angka [[great-gloom-neet|NEET]] pemuda kita terbesar kedua se-ASEAN, dan nomor satu dalam jumlah.",
 
   neet: {
     title: "Jumlah Pemuda NEET (15–24 th) · ASEAN",
