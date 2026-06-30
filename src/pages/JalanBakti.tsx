@@ -202,18 +202,10 @@ export default function JalanBakti() {
 
       <Separator className="my-10" />
 
-      {/* ── MURAJAAH (full-circle): callback Dunia + Diri, namai dilema, krescendo ── */}
+      {/* ── MURAJAAH (full-circle): recall perjalanan + namai dilema + hook posisi ── */}
       <section className="space-y-4">
         {C.murajaah.paragraphs.map((p, i) => (
-          <p
-            key={`mj-${i}`}
-            className={cn(
-              "leading-relaxed text-foreground/90",
-              i === C.murajaah.paragraphs.length - 1
-                ? "text-lg font-medium border-l-4 border-[hsl(var(--torch-gold))] pl-4"
-                : "text-base",
-            )}
-          >
+          <p key={`mj-${i}`} className="text-base leading-relaxed text-foreground/90">
             {p}
           </p>
         ))}
@@ -232,7 +224,8 @@ export default function JalanBakti() {
 
       <Separator className="my-10" />
 
-      {/* ── TP HUD 61 ── */}
+      {/* ── TP HUD 61 (jawaban atas "mau melihat lebih jauh?", kesimpulan murajaah) ── */}
+      <p className="text-base leading-relaxed text-foreground/90 mb-5">{C.tpHud61.lead}</p>
       <Touchpoint
         ayat={C.tpHud61.ayat}
         rujukan={C.tpHud61.rujukan}
