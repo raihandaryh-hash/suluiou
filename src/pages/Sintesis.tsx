@@ -188,7 +188,9 @@ export default function Sintesis() {
     })();
   }, [user, authLoading]);
 
-  const minatItems = useMemo(() => resolveSdgLabels(sdgTags), [sdgTags]);
+  // Minat (sisi-diri) tidak lagi diambil dari sdgTags (itu sisi-lingkungan = category error).
+  // Interim jujur sampai modul minat (M2) / Asesmen Minat (Spine A) tersedia.
+  const minatItems = useMemo<string[]>(() => [], []);
   const kemampuanItems = useMemo(
     () => skillSelected.map((id) => COMPETENCY_LABELS[id] ?? id),
     [skillSelected],
