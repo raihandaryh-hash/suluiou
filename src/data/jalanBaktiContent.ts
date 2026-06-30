@@ -2,14 +2,14 @@
 // Phase 3, Kenali Jalan Baktimu. Scope A (E+F). G/H/I menyusul.
 
 export const jalanBaktiContent = {
-  // ── Murajaah (full-circle): callback Dunia + Diri, namai dilema, krescendo wahyu∩riset ──
-  // Jejak: /insight ctaSection + closing; Mukadimah Al-Kahf 18:68 + analogi tim; Ar-Ra'd 13:17 (live) + khairunnas (live, HR Thabrani hasan). NO OVERCLAIM: riset searah, bukan membuktikan.
+  // ── Murajaah (full-circle): recall perjalanan + namai dilema + hook "temukan posisimu". ──
+  // Crescendo "bermanfaat→bertahan" SENGAJA dibuang (duplikat opener lama). Bomb/kesimpulan = Hud 61.
+  // Jejak: Mukadimah Al-Kahf 18:68 + analogi tim; /insight (lihat dunia); Kenali Diri (lihat diri).
   murajaah: {
     paragraphs: [
-      "Sampai di sini, kamu sudah melihat dua hal: wajah dunia yang berubah cepat dengan kebutuhan yang nyata di depan mata, dan dirimu sendiri, bekal yang sudah Allah titipkan dan sedang kamu kenali.",
-      "Di awal perjalanan ini kita pernah bilang, sulit menghadapi sesuatu yang belum kita kenal. Mungkin sampai sekarang kepalamu masih penuh pertanyaan: mau ambil jurusan apa, kerja dulu atau kuliah, di tengah biaya yang tidak murah. Itu wajar. Tapi kamu tidak sedang menebak dalam gelap.",
-      "Ingat perumpamaan tim tadi: tiap orang punya posisi sesuai kelebihannya. Sekarang giliranmu menemukan posisimu, celah tempat bekalmu paling dibutuhkan.",
-      "Ada satu hal yang ditegaskan jauh sebelum riset modern lahir: yang paling bermanfaat bagi manusia, itulah yang bertahan. Hari ini, sains karier menunjuk arah yang sama. Di titik tempat apa yang kamu punya bertemu apa yang dunia butuhkan, dengan niat yang tulus, di situ kamu tumbuh sekaligus berarti.",
+      "Kamu sudah menempuh perjalanan yang tidak sebentar. Di awal, kita sempat bilang bahwa sulit menghadapi sesuatu yang belum dikenal. Sejak itu, kamu sudah melihat wajah dunia yang berubah cepat, dan sudah menengok ke dalam, mengenali bekal yang Allah titipkan padamu.",
+      "Mungkin kepalamu masih penuh pertanyaan: mau ambil jurusan apa, kerja dulu atau kuliah, di tengah biaya yang tidak murah. Itu wajar. Tapi sekarang kamu tidak lagi menebak dalam gelap.",
+      "Di awal kita juga menyebut perumpamaan tim, bahwa tiap orang punya posisi sesuai kelebihannya. Sekarang, giliranmu menemukan posisimu.",
     ],
   },
 
@@ -25,6 +25,7 @@ export const jalanBaktiContent = {
 
   // ── Touchpoint sebelum Jalan Bakti: QS Hud 61 ──
   tpHud61: {
+    lead: "Pertanyaan itu sebetulnya sudah terjawab sejak awal kamu diciptakan.",
     ayat: "\"Dia telah menciptakan kamu dari bumi (tanah) dan menjadikan kamu pemakmurnya.\"",
     rujukan: "QS Hud: 61",
     framing: "Sejak awal kamu sudah diberi tugas: memakmurkan bumi, bukan sekadar menempatinya.",
