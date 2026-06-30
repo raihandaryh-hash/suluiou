@@ -24,13 +24,14 @@ type ProvinceContext = {
 const LS_KEY = "jalan_bakti_v1";
 
 type JBData = {
+  medan: string | null;
   sdgTags: string[];
   subPicks: string[];
   peduliPicks: string[];
   refleksi: string;
 };
 
-const EMPTY: JBData = { sdgTags: [], subPicks: [], peduliPicks: [], refleksi: "" };
+const EMPTY: JBData = { medan: null, sdgTags: [], subPicks: [], peduliPicks: [], refleksi: "" };
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
@@ -137,6 +138,14 @@ export default function JalanBakti() {
     }));
   }
 
+  function selectMedan(id: string) {
+    setD((p) =>
+      p.medan === id
+        ? { ...p, medan: null, subPicks: [] }
+        : { ...p, medan: id, subPicks: [] },
+    );
+  }
+
   function toggleSub(id: string) {
     setD((p) => ({
       ...p,
@@ -190,6 +199,25 @@ export default function JalanBakti() {
         <h1 className="font-heading text-2xl font-bold text-foreground">{C.ui.pageTitle}</h1>
       </section>
       <JalanBaktiOpening />
+
+      <Separator className="my-10" />
+
+      {/* ── MURAJAAH (full-circle): callback Dunia + Diri, namai dilema, krescendo ── */}
+      <section className="space-y-4">
+        {C.murajaah.paragraphs.map((p, i) => (
+          <p
+            key={`mj-${i}`}
+            className={cn(
+              "leading-relaxed text-foreground/90",
+              i === C.murajaah.paragraphs.length - 1
+                ? "text-lg font-medium border-l-4 border-[hsl(var(--torch-gold))] pl-4"
+                : "text-base",
+            )}
+          >
+            {p}
+          </p>
+        ))}
+      </section>
 
       <Separator className="my-10" />
 
@@ -321,33 +349,64 @@ export default function JalanBakti() {
       )}
 
 
-      {/* ── 6 KLASTER ── */}
+      {/* ── 6 KLASTER — pilih SATU medan (reversible); sub-tantangan multi di dalamnya ── */}
       <section className="space-y-6">
         <SectionHeader title={C.ui.klasterSectionTitle} subtitle={C.klasterIntro} />
-        <div className="space-y-8">
-          {C.klaster.map((k) => (
-            <div key={k.id} className="rounded-xl border border-border bg-card p-5 space-y-3">
-              <h3 className="font-heading text-lg font-semibold text-foreground">{k.nama}</h3>
-              <p className="text-sm leading-relaxed text-foreground/85">{k.bridge}</p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {k.subTantangan.map((s) => {
-                  const active = d.subPicks.includes(s.id);
-                  return (
-                    <div key={s.id} className="w-full">
-                      <Chip active={active} onClick={() => toggleSub(s.id)}>
-                        {s.label}
-                      </Chip>
-                      {active && "detail" in s && s.detail && (
-                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground border-l-2 border-border pl-3">
-                          {s.detail}
-                        </p>
-                      )}
-                    </div>
-                  );
-                })}
+        <div className="space-y-4">
+          {C.klaster.map((k) => {
+            const selected = d.medan === k.id;
+            return (
+              <div
+                key={k.id}
+                className={cn(
+                  "rounded-xl border bg-card p-5 space-y-3 transition-colors",
+                  selected
+                    ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]/5"
+                    : "border-border",
+                )}
+              >
+                <button
+                  type="button"
+                  onClick={() => selectMedan(k.id)}
+                  aria-pressed={selected}
+                  className="w-full text-left flex items-start gap-3"
+                >
+                  <span
+                    className={cn(
+                      "mt-1 h-4 w-4 shrink-0 rounded-full border-2 transition-colors",
+                      selected
+                        ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]"
+                        : "border-muted-foreground/40",
+                    )}
+                  />
+                  <span className="space-y-1">
+                    <span className="block font-heading text-lg font-semibold text-foreground">{k.nama}</span>
+                    <span className="block text-sm leading-relaxed text-foreground/85">{k.bridge}</span>
+                  </span>
+                </button>
+
+                {selected && (
+                  <div className="flex flex-wrap gap-2 pt-2 pl-7">
+                    {k.subTantangan.map((s) => {
+                      const active = d.subPicks.includes(s.id);
+                      return (
+                        <div key={s.id} className="w-full">
+                          <Chip active={active} onClick={() => toggleSub(s.id)}>
+                            {s.label}
+                          </Chip>
+                          {active && "detail" in s && s.detail && (
+                            <p className="mt-2 text-xs leading-relaxed text-muted-foreground border-l-2 border-border pl-3">
+                              {s.detail}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
