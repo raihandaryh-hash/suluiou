@@ -16,13 +16,13 @@ export const sintesisContent = {
     framing:
       "Jalan yang ideal biasanya lahir dari pertemuan beberapa hal: apa yang kamu minati, kemampuan yang kamu miliki, nilai yang kamu pegang, dan kebutuhan nyata yang ingin kamu jawab.\n\nTidak satu pun berdiri sendiri. Minat tanpa kemampuan hanya angan, kemampuan tanpa nilai mudah kehilangan arah, dan semuanya terasa hampa bila belum menemukan tempat untuk memberi manfaat.\n\nDi titik temu keempatnya, jalanmu mulai terbentuk.",
     dimensi: {
-      minat: { label: "Minat", cue: "Kebutuhan yang menarik perhatianmu" },
+      minat: { label: "Minat yang sedang kamu eksplor", cue: "Titik awal, bukan vonis" },
       kemampuan: { label: "Kemampuan", cue: "Yang ingin kamu kuatkan" },
       nilai: { label: "Nilai", cue: "Yang menjadi fondasimu" },
       bakti: { label: "Jalan Bakti", cue: "Tempatmu memberi manfaat" },
     },
     emptyState: {
-      minat: "Kamu belum menandai kebutuhan yang menarik perhatianmu.",
+      minat: "Minatmu akan terpetakan lebih jelas saat Asesmen Minat dibuka. Untuk sekarang, anggap ini ruang yang sedang kamu jelajahi, bukan kotak yang harus segera kamu isi.",
       kemampuan: "Kamu belum menandai kemampuan yang ingin kamu kuatkan.",
       nilai: "Kamu belum menuliskan fondasimu di tahap mengenali diri.",
       bakti: "Kamu belum menandai jalan baktimu.",
