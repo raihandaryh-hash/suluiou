@@ -35,7 +35,7 @@ export const sintesisContent = {
 
   penutup: {
     teks:
-      "Apa pun jalan yang kamu pilih nanti, baik teknologi, kesehatan, pendidikan, maupun bisnis, ada fondasi yang mendahuluinya. Mengenal Allah dan menegakkan ibadah adalah kewajiban pertama, fardhu ain yang tidak tergantikan. Setelah itu, keahlian duniawi yang kamu tekuni menjadi jalan menunaikan fardhu kifayah, selama diniatkan untuk kebaikan.\n\nPada akhirnya, yang bertahan bukan yang paling ramai atau paling tinggi, melainkan yang memberi manfaat bagi banyak orang.",
+      "Apa pun jalan yang kamu pilih nanti, baik teknologi, kesehatan, pendidikan, maupun bisnis, ada fondasi yang mendahuluinya. Mengenal Allah dan menegakkan ibadah adalah kewajiban pertama, fardhu ain yang tidak tergantikan. Setelah itu, keahlian duniawi yang kamu tekuni menjadi jalan menunaikan fardhu kifayah, selama diniatkan untuk kebaikan.\n\nPada akhirnya, yang bertahan bukan yang paling ramai atau paling tinggi, melainkan yang memberi manfaat bagi banyak orang. Studi karier modern, yang kamu temui di awal perjalanan ini, menunjuk ke arah yang sama.",
     ayatArab:
       "فَأَمَّا ٱلزَّبَدُ فَيَذۡهَبُ جُفَآءٗۖ وَأَمَّا مَا يَنفَعُ ٱلنَّاسَ فَيَمۡكُثُ فِى ٱلۡأَرۡضِ",
     ayatTerjemah:
