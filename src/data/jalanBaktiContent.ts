@@ -2,6 +2,17 @@
 // Phase 3, Kenali Jalan Baktimu. Scope A (E+F). G/H/I menyusul.
 
 export const jalanBaktiContent = {
+  // ── Murajaah (full-circle): callback Dunia + Diri, namai dilema, krescendo wahyu∩riset ──
+  // Jejak: /insight ctaSection + closing; Mukadimah Al-Kahf 18:68 + analogi tim; Ar-Ra'd 13:17 (live) + khairunnas (live, HR Thabrani hasan). NO OVERCLAIM: riset searah, bukan membuktikan.
+  murajaah: {
+    paragraphs: [
+      "Sampai di sini, kamu sudah melihat dua hal: wajah dunia yang berubah cepat dengan kebutuhan yang nyata di depan mata, dan dirimu sendiri, bekal yang sudah Allah titipkan dan sedang kamu kenali.",
+      "Di awal perjalanan ini kita pernah bilang, sulit menghadapi sesuatu yang belum kita kenal. Mungkin sampai sekarang kepalamu masih penuh pertanyaan: mau ambil jurusan apa, kerja dulu atau kuliah, di tengah biaya yang tidak murah. Itu wajar. Tapi kamu tidak sedang menebak dalam gelap.",
+      "Ingat perumpamaan tim tadi: tiap orang punya posisi sesuai kelebihannya. Sekarang giliranmu menemukan posisimu, celah tempat bekalmu paling dibutuhkan.",
+      "Ada satu hal yang ditegaskan jauh sebelum riset modern lahir: yang paling bermanfaat bagi manusia, itulah yang bertahan. Hari ini, sains karier menunjuk arah yang sama. Di titik tempat apa yang kamu punya bertemu apa yang dunia butuhkan, dengan niat yang tulus, di situ kamu tumbuh sekaligus berarti.",
+    ],
+  },
+
   // ── Opener (Narasi Pembuka Bakti) ──
   opener: {
     paragraphs: [
@@ -65,7 +76,7 @@ export const jalanBaktiContent = {
   },
 
   // ── 6 Klaster Jalan Bakti ──
-  klasterIntro: "Enam medan tantangan. Tandai yang paling terasa dekat denganmu.",
+  klasterIntro: "Enam medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
   klaster: [
     {
       id: "k1",
