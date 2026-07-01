@@ -79,6 +79,8 @@ export default function BroadenRoles({
         throw new Error(data?.error || error?.message || "empty");
       }
       setRoles(data.roles as Role[]);
+      setPicked([]);
+      onPickedChange?.([]);
       setNote(typeof data.note === "string" ? data.note : "");
       setPhase("done");
       reveal(data.roles.length);
