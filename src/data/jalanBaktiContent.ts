@@ -210,6 +210,65 @@ export const jalanBaktiContent = {
     penutup: "Inilah inti bakti: bukan merasa lebih tinggi, tapi sadar bahwa kemuliaanmu justru tumbuh saat kamu mengangkat yang lemah.",
   },
 
+  // ── GERAKAN 3 · DESAIN — generator langkah eksplorasi (bukan completion). ──
+  // Jejak: T-shaped → skill-map "fungsi manusia berubah/human skills langka" + WEF FoJ 2025.
+  // 4 payung → OECD Exploring+Experiencing + Stanford prototyping + skill-map "nyemplung".
+  gerakan3: {
+    sectionTitle: "Rancang Langkah Pertamamu",
+    intro: [
+      "Satu hal sebelum melangkah. Peran yang menarik hatimu bukan kotak yang mengurungmu. Jurusan atau keahlian yang nanti kamu ambil hanyalah satu fondasi. Di atasnya, kamu terus merakit dirimu: menambah keterampilan lain, membangun karya, terjun ke komunitas.",
+      "Zaman ini justru paling membutuhkan orang yang punya kedalaman sekaligus keluasan. Jadi langkah pertama ini bukan untuk mengunci pilihan, melainkan untuk mulai bergerak.",
+      "Cara tercepat mengenal sebuah peran bukan dengan memikirkannya lama-lama, tapi dengan mendekat. Berikut empat cara nyata untuk mulai. Pilih yang paling terjangkau untukmu.",
+    ],
+    payung: [
+      {
+        id: "temui",
+        judul: "Temui orangnya",
+        ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial.",
+        ekstrovert: "Kalau kamu berani, sapa langsung dan tanya bagaimana ia memulai.",
+        introvert: "Kalau menyapa terasa berat, cukup baca atau tonton satu kisah mereka dulu.",
+        langkahDefault: "Menghubungi atau mencari kisah satu orang yang bekerja sebagai {peran}.",
+      },
+      {
+        id: "selami",
+        judul: "Selami bidangnya",
+        ajakan: "Habiskan tiga puluh menit menyelami peran ini sampai kamu paham sehari-harinya.",
+        ekstrovert: "Ikut diskusi atau forum tempat orang-orang bidang ini berkumpul.",
+        introvert: "Tonton atau baca mendalam, atau tanyakan ke AI dengan pertanyaan yang sudah kami siapkan.",
+        langkahDefault: "Menyelami peran {peran} selama tiga puluh menit lewat bacaan, video, atau AI.",
+      },
+      {
+        id: "bangun",
+        judul: "Bangun bekalnya",
+        ajakan: "Peran ini menuntut kekuatan tertentu yang tadi kamu lihat di kartunya. Mulai bangun dari sekarang.",
+        ekstrovert: "Ikut ekskul atau komunitas yang melatih kekuatan itu.",
+        introvert: "Ambil satu kursus daring gratis dan kerjakan pelan-pelan.",
+        langkahDefault: "Mencari satu ekskul, komunitas, atau kursus untuk membangun bekal peran {peran}.",
+      },
+      {
+        id: "cebur",
+        judul: "Cebur sebentar",
+        ajakan: "Coba rasakan langsung, walau hanya sebentar.",
+        ekstrovert: "Jadi relawan sehari atau ikut acara yang berkaitan dengan medan ini.",
+        introvert: "Amati dari dekat dulu, temani seseorang yang sedang mengerjakannya.",
+        langkahDefault: "Mengikuti satu kegiatan nyata di medan {medan}, walau sebentar.",
+      },
+    ],
+    pitchJudul: "Pesan pembuka yang bisa kamu kirim",
+    pitch: "Assalamualaikum, saya [nama kamu], seorang siswa yang sedang menjajaki bidang {medan}. Saya melihat Kakak menjalani peran sebagai {peran}. Bolehkah saya bertanya sedikit tentang bagaimana Kakak memulainya? Terima kasih banyak.",
+    queriesJudul: "Kata kunci untuk kamu telusuri",
+    queries: [
+      "cara menjadi {peran} di Indonesia",
+      "sehari-hari kerja {peran}",
+      "{peran} belajar apa dulu",
+    ],
+    aiPromptJudul: "Atau tanyakan ini ke AI",
+    aiPrompt: "Jelaskan peran {peran} untuk siswa SMA: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan langkah pertama untuk mulai mendekatinya.",
+    bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini?",
+    langkahPlaceholder: "Tulis satu langkah kecilmu, atau ketuk salah satu cara di atas untuk mengisinya...",
+    bridgeAksi: "Simpan langkahmu. Nanti di Rencana Aksi, kita ubah jadi komitmen yang benar-benar bisa kamu jalankan.",
+  },
+
   // ── Closing refleksi sintesis ──
   closing: {
     intro: "Kamu sudah menjelajah jauh: mengenal dirimu, melihat kebutuhan dunia, dan menemukan siapa yang ingin kamu tolong. Sekarang, satukan semuanya.",
