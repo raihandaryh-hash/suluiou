@@ -78,6 +78,18 @@ export const jalanBaktiContent = {
 
   // ── 6 Klaster Jalan Bakti ──
   klasterIntro: "Enam medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
+
+  // ── GERAKAN 2 · PAHAMI — tampar 10-jobs (horizon broadening). Statik, muncul setelah medan dipilih. ──
+  // Jejak: OECD dream-jobs (PISA 2022, ~690rb remaja/81 negara, aspirasi menumpuk di ~10 pekerjaan). NO OVERCLAIM.
+  gerakan2: {
+    sectionTitle: "Lihat Lebih Dekat",
+    tampar: [
+      "Ada satu temuan yang mengejutkan. Sebuah riset ke ratusan ribu remaja di puluhan negara menemukan pola yang sama berulang: hampir separuh dari mereka membayangkan masa depan hanya di sekitar sepuluh pekerjaan yang itu-itu saja. Dokter, guru, polisi, pegawai negeri. Bukan karena pilihan lain tidak ada, tapi karena yang lain jarang terlihat.",
+      "Padahal satu bidang bukan satu pintu. Ambil kesehatan: bukan hanya dokter yang duduk di poli. Ada yang meneliti wabah sebelum ia menyebar, ada yang merancang alat agar operasi lebih aman, ada yang memastikan gizi anak-anak di desa tercukupi. Satu medan, banyak peran, dan tiap peran menuntut kekuatan yang berbeda.",
+      "Di sinilah yang kamu kenali tentang dirimu jadi penting. Peran yang menuntut ketelitian analitis berbeda dari peran yang menuntut ketangguhan menghadapi orang di saat genting. Bukan soal medan mana yang paling benar, melainkan peran mana yang paling pas dengan bekalmu.",
+    ],
+    bridge: "Peran mana itu belum harus kamu putuskan sekarang. Cukup sadari dulu bahwa ruangnya jauh lebih luas dari yang terlihat.",
+  },
   klaster: [
     {
       id: "k1",
