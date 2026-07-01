@@ -85,6 +85,20 @@ export default function RencanaAksi() {
           const raw = localStorage.getItem(LS_KEY);
           if (raw) setForm({ ...buildEmptyForm(), ...JSON.parse(raw) });
         }
+        // Seed aksi30 dari langkah Jalan Bakti (Gerakan 3) bila masih kosong
+        try {
+          const jbRaw = localStorage.getItem("jalan_bakti_v1");
+          if (jbRaw) {
+            const langkah = (JSON.parse(jbRaw) as { langkah?: string })?.langkah;
+            if (typeof langkah === "string" && langkah.trim()) {
+              setForm((prev) =>
+                (prev.aksi30 ?? "").trim() ? prev : { ...prev, aksi30: langkah.trim() },
+              );
+            }
+          }
+        } catch {
+          /* abaikan */
+        }
       } catch (e) {
         console.error(e);
       } finally {
