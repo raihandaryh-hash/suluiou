@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import BroadenRoles from "@/components/BroadenRoles";
+import DesainLangkah from "@/components/DesainLangkah";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "sonner";
@@ -30,6 +31,7 @@ type JBData = {
   subPicks: string[];
   peduliPicks: string[];
   roles: string[];
+  langkah: string;
   refleksi: string;
 };
 
@@ -39,6 +41,7 @@ const EMPTY: JBData = {
   subPicks: [],
   peduliPicks: [],
   roles: [],
+  langkah: "",
   refleksi: "",
 };
 
@@ -483,6 +486,12 @@ export default function JalanBakti() {
                 .filter((s) => d.subPicks.includes(s.id))
                 .map((s) => s.label)
             : [];
+          const siapaLabels = [
+            ...C.lensaKepedulian.tier1Items,
+            ...C.lensaKepedulian.tier2Wajah,
+          ]
+            .filter((x) => d.peduliPicks.includes(x.id))
+            .map((x) => x.label);
           return (
             <>
               <Separator className="my-10" />
@@ -497,7 +506,7 @@ export default function JalanBakti() {
                 <BroadenRoles
                   medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
                   subPicks={subLabels}
-                  siapa={[]}
+                  siapa={siapaLabels}
                   province={province}
                   initialPicked={d.roles}
                   onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
@@ -513,30 +522,27 @@ export default function JalanBakti() {
 
       <Separator className="my-10" />
 
-      {/* ── CLOSING ── */}
-      <section className="space-y-4">
-        <SectionHeader title={C.ui.closingSectionTitle} />
-        <p className="text-base leading-relaxed text-foreground/90">{C.closing.intro}</p>
-
-        <div className="rounded-xl border border-border bg-card p-5 space-y-3">
-          <p className="text-sm font-medium text-foreground/80">{C.closing.scaffoldTitle}</p>
-          <ul className="space-y-2.5">
-            {C.closing.scaffold.map((s, i) => (
-              <li key={i} className="leading-relaxed">
-                <span className="font-medium text-foreground">{s.q}</span>
-                <span className="text-sm text-muted-foreground"> — {s.cue}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <p className="text-base text-foreground/90 pt-2">{C.closing.prompt}</p>
-        <Textarea
-          value={d.refleksi}
-          onChange={(e) => setD((p) => ({ ...p, refleksi: e.target.value }))}
-          placeholder={C.closing.placeholder}
-          className="min-h-[140px]"
-        />
+      {/* ── GERAKAN 3 · DESAIN — rancang langkah pertama (mengganti free-write lama; refleksi tak dipakai Surat) ── */}
+      <section className="space-y-5">
+        <SectionHeader title={C.gerakan3.sectionTitle} />
+        {C.gerakan3.intro.map((p, i) => (
+          <p key={`g3i-${i}`} className="text-base leading-relaxed text-foreground/90">
+            {p}
+          </p>
+        ))}
+        {d.medan ? (
+          <DesainLangkah
+            content={C.gerakan3}
+            medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
+            role={d.roles[0] || null}
+            initialLangkah={d.langkah}
+            onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
+          />
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            Pilih dulu satu medan di atas untuk merancang langkah pertamamu.
+          </p>
+        )}
       </section>
 
 
