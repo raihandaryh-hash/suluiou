@@ -227,7 +227,7 @@ export const jalanBaktiContent = {
         ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial.",
         ekstrovert: "Kalau kamu berani, sapa langsung dan tanya bagaimana ia memulai.",
         introvert: "Kalau menyapa terasa berat, cukup baca atau tonton satu kisah mereka dulu.",
-        langkahDefault: "Menghubungi atau mencari kisah satu orang yang bekerja sebagai {peran}.",
+        langkahDefault: "Menghubungi atau mencari kisah satu orang yang bekerja sebagai {peran}. Kapan: [isi hari & jamnya]. Lewat: [guru, alumni, atau media sosial].",
       },
       {
         id: "selami",
@@ -235,7 +235,7 @@ export const jalanBaktiContent = {
         ajakan: "Habiskan tiga puluh menit menyelami peran ini sampai kamu paham sehari-harinya.",
         ekstrovert: "Ikut diskusi atau forum tempat orang-orang bidang ini berkumpul.",
         introvert: "Tonton atau baca mendalam, atau tanyakan ke AI dengan pertanyaan yang sudah kami siapkan.",
-        langkahDefault: "Menyelami peran {peran} selama tiga puluh menit lewat bacaan, video, atau AI.",
+        langkahDefault: "Menyelami peran {peran} selama tiga puluh menit lewat bacaan, video, atau AI. Kapan: [isi hari & jamnya].",
       },
       {
         id: "bangun",
@@ -243,7 +243,7 @@ export const jalanBaktiContent = {
         ajakan: "Peran ini menuntut kekuatan tertentu yang tadi kamu lihat di kartunya. Mulai bangun dari sekarang.",
         ekstrovert: "Ikut ekskul atau komunitas yang melatih kekuatan itu.",
         introvert: "Ambil satu kursus daring gratis dan kerjakan pelan-pelan.",
-        langkahDefault: "Mencari satu ekskul, komunitas, atau kursus untuk membangun bekal peran {peran}.",
+        langkahDefault: "Mencari satu ekskul, komunitas, atau kursus untuk bekal peran {peran}. Kapan: [isi hari & jamnya]. Di mana: [isi tempat/platform].",
       },
       {
         id: "cebur",
@@ -251,7 +251,7 @@ export const jalanBaktiContent = {
         ajakan: "Coba rasakan langsung, walau hanya sebentar.",
         ekstrovert: "Jadi relawan sehari atau ikut acara yang berkaitan dengan medan ini.",
         introvert: "Amati dari dekat dulu, temani seseorang yang sedang mengerjakannya.",
-        langkahDefault: "Mengikuti satu kegiatan nyata di medan {medan}, walau sebentar.",
+        langkahDefault: "Mengikuti satu kegiatan nyata di medan {medan}, walau sebentar. Kapan: [isi hari]. Di mana: [isi tempatnya].",
       },
     ],
     pitchJudul: "Pesan pembuka yang bisa kamu kirim",
@@ -264,8 +264,8 @@ export const jalanBaktiContent = {
     ],
     aiPromptJudul: "Atau tanyakan ini ke AI",
     aiPrompt: "Jelaskan peran {peran} untuk siswa SMA: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan langkah pertama untuk mulai mendekatinya.",
-    bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini?",
-    langkahPlaceholder: "Tulis satu langkah kecilmu, atau ketuk salah satu cara di atas untuk mengisinya...",
+    bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini? Langkah yang punya waktu dan tempat yang jelas jauh lebih mungkin benar-benar terjadi, jadi tuliskan kapan dan di mananya.",
+    langkahPlaceholder: "Tulis satu langkah kecilmu, lengkap dengan kapan dan di mana kamu akan melakukannya. Atau ketuk salah satu cara di atas untuk memulai...",
     bridgeAksi: "Simpan langkahmu. Nanti di Rencana Aksi, kita ubah jadi komitmen yang benar-benar bisa kamu jalankan.",
   },
 
