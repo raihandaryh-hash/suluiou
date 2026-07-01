@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
@@ -63,6 +63,8 @@ export default function DesainLangkah({
   onLangkahChange,
 }: Props) {
   const [langkah, setLangkah] = useState(initialLangkah || "");
+  const [activePayung, setActivePayung] = useState<string | null>(null);
+  const boxRef = useRef<HTMLTextAreaElement>(null);
 
   const sub = (t: string) =>
     t.replace(/\{peran\}/g, role || "peran ini").replace(/\{medan\}/g, medanNama || "medan ini");
@@ -78,7 +80,15 @@ export default function DesainLangkah({
         const isTemui = p.id === "temui";
         const isSelami = p.id === "selami";
         return (
-          <div key={p.id} className="rounded-xl border border-border bg-card p-5 space-y-3">
+          <div
+            key={p.id}
+            className={cn(
+              "rounded-xl border bg-card p-5 space-y-3 transition-colors",
+              activePayung === p.id
+                ? "border-[hsl(var(--torch-gold))] ring-1 ring-[hsl(var(--torch-gold))]/40"
+                : "border-border",
+            )}
+          >
             <h4 className="font-heading text-lg font-semibold text-foreground">{p.judul}</h4>
             <p className="text-sm leading-relaxed text-foreground/85">{sub(p.ajakan)}</p>
             <div className="space-y-1.5 text-sm">
@@ -129,12 +139,16 @@ export default function DesainLangkah({
 
             <Button
               type="button"
-              variant="ghost"
+              variant={activePayung === p.id ? "default" : "ghost"}
               size="sm"
-              className="text-primary"
-              onClick={() => setStep(sub(p.langkahDefault))}
+              className={activePayung === p.id ? "" : "text-primary"}
+              onClick={() => {
+                setStep(sub(p.langkahDefault));
+                setActivePayung(p.id);
+                setTimeout(() => boxRef.current?.focus(), 50);
+              }}
             >
-              Jadikan langkahku →
+              {activePayung === p.id ? "Terpilih ✓" : "Jadikan langkahku →"}
             </Button>
           </div>
         );
@@ -143,6 +157,7 @@ export default function DesainLangkah({
       <div className="rounded-xl border border-[hsl(var(--torch-gold))]/40 bg-card p-5 space-y-3">
         <p className="text-base leading-relaxed text-foreground/90">{content.bridge}</p>
         <Textarea
+          ref={boxRef}
           value={langkah}
           onChange={(e) => setStep(e.target.value)}
           placeholder={content.langkahPlaceholder}
