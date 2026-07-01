@@ -511,10 +511,6 @@ export default function JalanBakti() {
                   initialPicked={d.roles}
                   onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
                 />
-
-                <p className="text-base leading-relaxed text-foreground/90">
-                  {C.gerakan2.bridge}
-                </p>
               </section>
             </>
           );
