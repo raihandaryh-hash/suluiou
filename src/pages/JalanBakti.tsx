@@ -3,6 +3,7 @@ import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import BroadenRoles from "@/components/BroadenRoles";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "sonner";
@@ -28,10 +29,18 @@ type JBData = {
   sdgTags: string[];
   subPicks: string[];
   peduliPicks: string[];
+  roles: string[];
   refleksi: string;
 };
 
-const EMPTY: JBData = { medan: null, sdgTags: [], subPicks: [], peduliPicks: [], refleksi: "" };
+const EMPTY: JBData = {
+  medan: null,
+  sdgTags: [],
+  subPicks: [],
+  peduliPicks: [],
+  roles: [],
+  refleksi: "",
+};
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
@@ -465,23 +474,42 @@ export default function JalanBakti() {
         );
       })()}
 
-      {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs (muncul setelah medan dipilih) ── */}
-      {d.medan && (
-        <>
-          <Separator className="my-10" />
-          <section className="space-y-4">
-            <SectionHeader title={C.gerakan2.sectionTitle} />
-            {C.gerakan2.tampar.map((p, i) => (
-              <p key={`g2-${i}`} className="text-base leading-relaxed text-foreground/90">
-                {p}
-              </p>
-            ))}
-            <p className="text-base leading-relaxed text-foreground/90 border-l-4 border-[hsl(var(--torch-gold))] pl-4">
-              {C.gerakan2.bridge}
-            </p>
-          </section>
-        </>
-      )}
+      {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs + reveal peran (muncul setelah medan dipilih) ── */}
+      {d.medan &&
+        (() => {
+          const medanObj = C.klaster.find((k) => k.id === d.medan);
+          const subLabels = medanObj
+            ? medanObj.subTantangan
+                .filter((s) => d.subPicks.includes(s.id))
+                .map((s) => s.label)
+            : [];
+          return (
+            <>
+              <Separator className="my-10" />
+              <section className="space-y-5">
+                <SectionHeader title={C.gerakan2.sectionTitle} />
+                {C.gerakan2.tampar.map((p, i) => (
+                  <p key={`g2-${i}`} className="text-base leading-relaxed text-foreground/90">
+                    {p}
+                  </p>
+                ))}
+
+                <BroadenRoles
+                  medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
+                  subPicks={subLabels}
+                  siapa={[]}
+                  province={province}
+                  initialPicked={d.roles}
+                  onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
+                />
+
+                <p className="text-base leading-relaxed text-foreground/90">
+                  {C.gerakan2.bridge}
+                </p>
+              </section>
+            </>
+          );
+        })()}
 
       <Separator className="my-10" />
 
