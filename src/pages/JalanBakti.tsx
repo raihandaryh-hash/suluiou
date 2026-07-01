@@ -465,6 +465,24 @@ export default function JalanBakti() {
         );
       })()}
 
+      {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs (muncul setelah medan dipilih) ── */}
+      {d.medan && (
+        <>
+          <Separator className="my-10" />
+          <section className="space-y-4">
+            <SectionHeader title={C.gerakan2.sectionTitle} />
+            {C.gerakan2.tampar.map((p, i) => (
+              <p key={`g2-${i}`} className="text-base leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
+            <p className="text-base leading-relaxed text-foreground/90 border-l-4 border-[hsl(var(--torch-gold))] pl-4">
+              {C.gerakan2.bridge}
+            </p>
+          </section>
+        </>
+      )}
+
       <Separator className="my-10" />
 
       {/* ── CLOSING ── */}
