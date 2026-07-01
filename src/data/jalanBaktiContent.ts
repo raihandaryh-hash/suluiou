@@ -265,6 +265,7 @@ export const jalanBaktiContent = {
     aiPromptJudul: "Atau tanyakan ini ke AI",
     aiPrompt: "Jelaskan peran {peran} untuk siswa SMA: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan langkah pertama untuk mulai mendekatinya.",
     bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini? Langkah yang punya waktu dan tempat yang jelas jauh lebih mungkin benar-benar terjadi, jadi tuliskan kapan dan di mananya.",
+    langkahNudge: "Pilih satu, atau maksimal dua kalau kamu memang siap. Satu langkah yang benar-benar kamu jalankan lebih berharga daripada banyak yang cuma jadi niat.",
     langkahPlaceholder: "Tulis satu langkah kecilmu, lengkap dengan kapan dan di mana kamu akan melakukannya. Atau ketuk salah satu cara di atas untuk memulai...",
     bridgeAksi: "Simpan langkahmu. Nanti di Rencana Aksi, kita ubah jadi komitmen yang benar-benar bisa kamu jalankan.",
   },
