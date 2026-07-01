@@ -21,6 +21,7 @@ type Gerakan3 = {
   aiPromptJudul: string;
   aiPrompt: string;
   bridge: string;
+  langkahNudge: string;
   langkahPlaceholder: string;
   bridgeAksi: string;
 };
@@ -63,15 +64,36 @@ export default function DesainLangkah({
   onLangkahChange,
 }: Props) {
   const [langkah, setLangkah] = useState(initialLangkah || "");
-  const [activePayung, setActivePayung] = useState<string | null>(null);
   const boxRef = useRef<HTMLTextAreaElement>(null);
+  const MAX_STEPS = 2;
 
   const sub = (t: string) =>
     t.replace(/\{peran\}/g, role || "peran ini").replace(/\{medan\}/g, medanNama || "medan ini");
 
+  const lineOf = (p: Payung) => sub(p.langkahDefault).trim();
+  const currentLines = () =>
+    langkah
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean);
+  const isActive = (p: Payung) => currentLines().includes(lineOf(p));
+  const activeCount = content.payung.filter(isActive).length;
+
   function setStep(next: string) {
     setLangkah(next);
     onLangkahChange(next);
+  }
+
+  function togglePayung(p: Payung) {
+    const line = lineOf(p);
+    const lines = currentLines();
+    if (lines.includes(line)) {
+      setStep(lines.filter((l) => l !== line).join("\n"));
+    } else {
+      if (activeCount >= MAX_STEPS) return;
+      setStep([...lines, line].join("\n"));
+      setTimeout(() => boxRef.current?.focus(), 50);
+    }
   }
 
   return (
@@ -84,7 +106,7 @@ export default function DesainLangkah({
             key={p.id}
             className={cn(
               "rounded-xl border bg-card p-5 space-y-3 transition-colors",
-              activePayung === p.id
+              isActive(p)
                 ? "border-[hsl(var(--torch-gold))] ring-1 ring-[hsl(var(--torch-gold))]/40"
                 : "border-border",
             )}
@@ -139,16 +161,13 @@ export default function DesainLangkah({
 
             <Button
               type="button"
-              variant={activePayung === p.id ? "default" : "ghost"}
+              variant={isActive(p) ? "default" : "ghost"}
               size="sm"
-              className={activePayung === p.id ? "" : "text-primary"}
-              onClick={() => {
-                setStep(sub(p.langkahDefault));
-                setActivePayung(p.id);
-                setTimeout(() => boxRef.current?.focus(), 50);
-              }}
+              className={isActive(p) ? "" : "text-primary"}
+              disabled={!isActive(p) && activeCount >= MAX_STEPS}
+              onClick={() => togglePayung(p)}
             >
-              {activePayung === p.id ? "Terpilih ✓" : "Jadikan langkahku →"}
+              {isActive(p) ? "Terpilih ✓" : "Jadikan langkahku →"}
             </Button>
           </div>
         );
@@ -156,6 +175,7 @@ export default function DesainLangkah({
 
       <div className="rounded-xl border border-[hsl(var(--torch-gold))]/40 bg-card p-5 space-y-3">
         <p className="text-base leading-relaxed text-foreground/90">{content.bridge}</p>
+        <p className="text-sm text-muted-foreground">{content.langkahNudge}</p>
         <Textarea
           ref={boxRef}
           value={langkah}
