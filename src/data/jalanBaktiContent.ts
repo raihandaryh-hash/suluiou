@@ -64,6 +64,7 @@ export const jalanBaktiContent = {
     },
 
     chipPrompt: "Dari yang sedang diperjuangkan dunia, mana yang paling menggugah hatimu?",
+    lensNote: "SDG hanyalah satu lensa untuk membaca kebutuhan dunia, bukan daftar lengkapnya. Anggap ini pintu masuk, bukan batas.",
 
     items: [
       { id: "sdg2", label: "SDG 2, Tanpa Kelaparan" },
