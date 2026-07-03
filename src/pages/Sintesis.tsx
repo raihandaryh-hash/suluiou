@@ -131,6 +131,8 @@ export default function Sintesis() {
   const [sdgTags, setSdgTags] = useState<string[]>([]);
   const [subPicks, setSubPicks] = useState<string[]>([]);
   const [peduliPicks, setPeduliPicks] = useState<string[]>([]);
+  const [roles, setRoles] = useState<string[]>([]);
+  const [langkah, setLangkah] = useState<string>("");
   const [skillSelected, setSkillSelected] = useState<string[]>([]);
   const [fondasi, setFondasi] = useState<Record<string, string>>({});
 
@@ -158,6 +160,8 @@ export default function Sintesis() {
           setSdgTags(j.sdgTags ?? []);
           setSubPicks(j.subPicks ?? []);
           setPeduliPicks(j.peduliPicks ?? []);
+          setRoles(j.roles ?? []);
+          setLangkah(j.langkah ?? "");
           setD({ ...EMPTY, ...f });
           // Mirror Supabase → localStorage so compileSurat() (Surat Perjalanan) works for logged-in users.
           if (p2a.data?.data) localStorage.setItem("sulu_phase2a", JSON.stringify(a));
@@ -174,6 +178,8 @@ export default function Sintesis() {
             setSdgTags(j.sdgTags ?? []);
             setSubPicks(j.subPicks ?? []);
             setPeduliPicks(j.peduliPicks ?? []);
+            setRoles(j.roles ?? []);
+            setLangkah(j.langkah ?? "");
           }
           const phase2bRaw = localStorage.getItem("sulu_phase2b");
           if (phase2bRaw) setSkillSelected(JSON.parse(phase2bRaw).selected ?? []);
@@ -292,6 +298,32 @@ export default function Sintesis() {
             emptyText={T.emptyState.bakti}
           />
         </div>
+      </section>
+
+      <Separator className="my-10" />
+
+      {/* ── YANG MULAI TERBENTUK (sintesis konvergensi + tarik output Gerakan 2/3) ── */}
+      <section className="space-y-4">
+        <SectionHeader title={S.terbentuk.title} />
+        <p className="text-base leading-relaxed text-foreground/90">{S.terbentuk.reflection}</p>
+        {(roles.length > 0 || langkah.trim()) && (
+          <div className="rounded-xl border border-[hsl(var(--torch-gold))]/40 bg-card p-5 space-y-3">
+            {roles.length > 0 && (
+              <p className="text-sm leading-relaxed text-foreground/90">
+                <span className="text-muted-foreground">{S.terbentuk.peranLabel}: </span>
+                <span className="font-medium">{roles.join(", ")}</span>
+                <span className="text-muted-foreground"> — {S.terbentuk.peranCue}</span>
+              </p>
+            )}
+            {langkah.trim() && (
+              <p className="text-sm leading-relaxed text-foreground/90">
+                <span className="text-muted-foreground">{S.terbentuk.langkahLabel}: </span>
+                <span className="font-medium whitespace-pre-line">{langkah}</span>
+              </p>
+            )}
+            <p className="text-sm text-muted-foreground">{S.terbentuk.bridgeAksi}</p>
+          </div>
+        )}
       </section>
 
       <Separator className="my-10" />
