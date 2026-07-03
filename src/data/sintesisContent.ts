@@ -29,6 +29,16 @@ export const sintesisContent = {
     },
   },
 
+  terbentuk: {
+    title: "Yang Mulai Terbentuk",
+    reflection:
+      "Empat hal di atas bukan daftar yang terpisah. Mereka saling mengunci: kemampuan memberi minat sebuah wujud, nilai memberi arah, dan kebutuhan nyata memberi tempat untuk semuanya berlabuh. Kamu tidak harus melihat gambar utuhnya sekarang. Cukup kenali benang merah yang mulai tampak.",
+    peranLabel: "Peran yang kamu telusuri",
+    peranCue: "titik awal, bukan tujuan akhir",
+    langkahLabel: "Langkah pertama yang kamu rancang",
+    bridgeAksi: "Bawa keduanya ke Rencana Aksi, tempat semua ini berubah jadi komitmen yang nyata.",
+  },
+
   refleksiLima:
     "Jika lima tahun dari sekarang kamu mencapai karier yang kamu impikan, skill apa yang paling berperan membawa kamu ke sana?",
   refleksiPlaceholder: "Tulis sebebasnya...",
