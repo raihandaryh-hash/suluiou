@@ -289,6 +289,7 @@ export default function JalanBakti() {
           </AccordionItem>
         </Accordion>
 
+        <p className="text-sm text-muted-foreground pt-4">{C.sdg.lensNote}</p>
         <p className="text-sm text-muted-foreground pt-2">{C.sdg.chipPrompt}</p>
         <div className="flex flex-wrap gap-2">
           {C.sdg.items.map((s) => (
