@@ -97,9 +97,9 @@ export const jalanBaktiContent = {
       nama: "Kesehatan & Kesejahteraan",
       bridge: "Pernahkah kamu/orang yang kamu sayangi kesulitan mendapat pertolongan saat sakit? Bayangkan ada orang yang hadir di momen itu, kompeten, dan benar-benar peduli.",
       subTantangan: [
-        { id: "k1a", label: "Nakes yang bekerja sendirian" },
-        { id: "k1b", label: "Remaja yang menanggung sendiri" },
-        { id: "k1c", label: "Tumbuh kembang yang tertunda" },
+        { id: "k1a", label: "Tenaga kesehatan yang bertugas sendirian di pelosok" },
+        { id: "k1b", label: "Remaja yang memendam masalahnya sendirian" },
+        { id: "k1c", label: "Balita yang kekurangan gizi di usia emasnya" },
       ],
     },
     {
@@ -113,7 +113,7 @@ export const jalanBaktiContent = {
           label: "Al-Qur'an yang belum terbaca",
           detail: "Menurut riset IIQ Jakarta (2024), lebih dari 7 dari 10 Muslim Indonesia belum membaca Al-Qur'an dengan baik. Yang paling siap mengisi kekosongan ini adalah orang-orang seperti kamu yang punya bekal ilmu agama.",
         },
-        { id: "k2c", label: "Belajar tanpa pembimbing" },
+        { id: "k2c", label: "Murid yang belajar tanpa ada yang membimbing" },
       ],
     },
     {
@@ -121,7 +121,7 @@ export const jalanBaktiContent = {
       nama: "Keluarga, Anak & Kelompok Rentan",
       bridge: "Ada anak tumbuh tanpa pendampingan, orang tua yang kesepian, tetangga yang butuh lebih dari bantuan materi. Apa yang pernah menggerakkanmu untuk seseorang yang rentan?",
       subTantangan: [
-        { id: "k3a", label: "Anak yang belum terjangkau" },
+        { id: "k3a", label: "Anak terlantar yang luput dari perhatian" },
         { id: "k3b", label: "Lansia yang terlupakan" },
         { id: "k3c", label: "Penyandang disabilitas yang terisolasi" },
       ],
@@ -131,9 +131,9 @@ export const jalanBaktiContent = {
       nama: "Bumi & Lingkungan",
       bridge: "Kamu hidup di tanah yang kaya, hutan, laut, lahan, energi yang belum dimanfaatkan. Apa yang kamu lihat di sekitarmu yang seharusnya bisa lebih baik?",
       subTantangan: [
-        { id: "k4a", label: "Petani yang kalah di pasar" },
-        { id: "k4b", label: "Energi yang belum sampai" },
-        { id: "k4c", label: "Ruang untuk perempuan" },
+        { id: "k4a", label: "Sungai yang penuh sampah" },
+        { id: "k4b", label: "Energi bersih melimpah yang belum tergarap" },
+        { id: "k4c", label: "Desa yang belum siap saat bencana datang" },
       ],
     },
     {
@@ -141,22 +141,22 @@ export const jalanBaktiContent = {
       nama: "Ekonomi Adil & Keuangan",
       bridge: "Jutaan orang bekerja keras tapi tetap kesulitan, bukan karena malas, tapi sistemnya belum berpihak. Apa yang kamu lihat di keluarga/komunitasmu soal ini?",
       subTantangan: [
-        { id: "k5a", label: "UMKM yang butuh panduan" },
-        { id: "k5b", label: "Keuangan yang belum selaras nilai" },
-        { id: "k5c", label: "Zakat dan wakaf yang belum optimal" },
+        { id: "k5a", label: "Usaha kecil tetangga yang jalan di tempat" },
+        { id: "k5b", label: "Keluarga yang ingin lepas dari riba" },
+        { id: "k5c", label: "Zakat dan wakaf yang baru tergarap sebagian kecilnya" },
       ],
     },
     {
       id: "k6",
       nama: "Pangan, Air & Keberlanjutan",
-      bridge: "Indonesia mengimpor pangan di tanah subur. Petani kalah di pasar. Apa yang bisa berbeda jika ada orang muda yang paham, peduli, dan mau terlibat langsung?",
+      bridge: "Indonesia mengimpor pangan di tanah subur. Apa yang bisa berbeda jika ada orang muda yang paham, peduli, dan mau terlibat langsung?",
       subTantangan: [
-        { id: "k6a", label: "Petani muda yang tidak ada" },
-        { id: "k6b", label: "Nilai tambah yang hilang di tengah jalan" },
-        { id: "k6c", label: "Ketahanan pangan yang rapuh" },
+        { id: "k6a", label: "Sawah yang ditinggal anak mudanya" },
+        { id: "k6b", label: "Hasil bumi dijual mentah, untungnya mengalir ke tempat lain" },
+        { id: "k6c", label: "Meja makan yang bergantung pada impor" },
         {
           id: "k6d",
-          label: "Air yang belum sampai",
+          label: "Air bersih yang belum mengalir ke semua rumah",
           detail: "Masih ada desa di tanah yang kaya air ini yang warganya kesulitan mendapat air bersih. Sumbernya sering ada, yang belum ada adalah orang yang tahu cara mengelola dan menjaganya. Ini bukan soal teknik semata, tapi kehidupan sehari-hari yang bergantung padanya.",
         },
       ],
