@@ -14,7 +14,7 @@ export const mukadimahContent = {
       ref: "QS Al-An'am: 122",
       arab: "اَوَمَنْ كَانَ مَيْتًا فَاَحْيَيْنٰهُ وَجَعَلْنَا لَهٗ نُوْرًا يَّمْشِيْ بِهٖ فِى النَّاسِ",
       terjemah:
-        "Apakah orang yang sudah mati lalu Kami hidupkan dan Kami beri dia cahaya yang membuatnya dapat berjalan di tengah-tengah orang banyak… (perlu verifikasi Kemenag)",
+        "Apakah orang yang sudah mati lalu Kami hidupkan dan Kami beri dia cahaya yang membuatnya dapat berjalan di tengah-tengah orang banyak…",
     },
     {
       ref: "QS Ar-Ra'd: 17",
@@ -26,13 +26,13 @@ export const mukadimahContent = {
       ref: "QS Ibrahim: 7",
       arab: "لَىِٕنْ شَكَرْتُمْ لَاَزِيْدَنَّكُمْ",
       terjemah:
-        "Sesungguhnya jika kamu bersyukur, niscaya Aku akan menambah (nikmat) kepadamu… (perlu verifikasi Kemenag)",
+        "Sesungguhnya jika kamu bersyukur, niscaya Aku akan menambah (nikmat) kepadamu…",
     },
     {
       ref: "QS An-Nahl: 97",
       arab: "مَنْ عَمِلَ صَالِحًا مِّنْ ذَكَرٍ اَوْ اُنْثٰى وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهٗ حَيٰوةً طَيِّبَةً",
       terjemah:
-        "Siapa yang mengerjakan kebajikan, baik laki-laki maupun perempuan, dalam keadaan beriman, pasti akan Kami berikan kepadanya kehidupan yang baik… (perlu verifikasi Kemenag)",
+        "Siapa yang mengerjakan kebajikan, baik laki-laki maupun perempuan, dalam keadaan beriman, pasti akan Kami berikan kepadanya kehidupan yang baik…",
     },
   ],
 };
