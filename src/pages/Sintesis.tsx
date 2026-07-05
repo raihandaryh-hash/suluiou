@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { sintesisContent as S } from "@/data/sintesisContent";
 import { jalanBaktiContent as JB } from "@/data/jalanBaktiContent";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
+import TenunSintesis from "@/components/TenunSintesis";
 
 const LS_KEY = "sulu_phase4_sintesis";
 
@@ -53,7 +54,7 @@ function resolvePeduliLabels(ids: string[]): string[] {
   return ids.map((id) => map.get(id) ?? id);
 }
 
-type SintesisData = { refleksi: string };
+type SintesisData = { refleksi: string; tenun?: string[]; tenunCatatan?: string };
 const EMPTY: SintesisData = { refleksi: "" };
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
@@ -324,6 +325,30 @@ export default function Sintesis() {
             <p className="text-sm text-muted-foreground">{S.terbentuk.bridgeAksi}</p>
           </div>
         )}
+      </section>
+
+      <Separator className="my-10" />
+
+      {/* ── TENUNAN (Sintesis B) — AI menenun kata-kata user sendiri; guardrail anti-foreclosure di edge function ── */}
+      <section className="space-y-5">
+        <SectionHeader title={S.tenunan.sectionTitle} />
+        <TenunSintesis
+          payload={{
+            fondasi: nilaiBlocks,
+            skills: kemampuanItems,
+            bakti: resolveSubLabels(subPicks),
+            siapa: resolvePeduliLabels(peduliPicks),
+            roles,
+            langkah,
+          }}
+          enough={
+            (kemampuanItems.length > 0 || nilaiBlocks.length > 0) &&
+            (subPicks.length > 0 || peduliPicks.length > 0 || roles.length > 0)
+          }
+          initialTenun={d.tenun ?? []}
+          initialCatatan={d.tenunCatatan ?? ""}
+          onResult={(tenun, tenunCatatan) => setD((p) => ({ ...p, tenun, tenunCatatan }))}
+        />
       </section>
 
       <Separator className="my-10" />
