@@ -204,8 +204,16 @@ export const jalanBaktiContent = {
     tier2Wajah: [
       { id: "ppks_anak", label: "Anak terlantar" },
       { id: "ppks_lansia", label: "Lansia tanpa keluarga" },
-      { id: "ppks_disabilitas", label: "Penyandang disabilitas" },
-      { id: "ppks_korban", label: "Korban kekerasan" },
+      {
+        id: "ppks_disabilitas",
+        label: "Penyandang disabilitas",
+        detail: "Sekitar 9 persen penduduk Indonesia, lebih dari dua puluh juta orang, hidup dengan disabilitas (Susenas 2019). Banyak hambatan yang mereka hadapi bukan datang dari tubuhnya, melainkan dari lingkungan yang belum dirancang untuk mereka. Artinya, banyak yang bisa diubah oleh orang yang peduli dan mampu.",
+      },
+      {
+        id: "ppks_korban",
+        label: "Korban kekerasan",
+        detail: "Sepanjang 2025, lebih dari 35 ribu kasus kekerasan tercatat di sistem pelaporan nasional (SIMFONI PPA). Yang tercatat hampir selalu lebih sedikit dari yang terjadi. Korban membutuhkan pendamping yang paham cara memulihkan, bukan sekadar mengasihani.",
+      },
     ],
     tier2ExpandTitle: "Lihat 26 kategori (PPKS, Kemensos)",
     tier2Kategori: [
@@ -317,13 +325,13 @@ export const jalanBaktiContent = {
     errorToast: "Gagal menyimpan, coba lagi",
 
     // ── STEPPER (baru, mekanis Sonnet — 🔲 SEMUA field di bawah menunggu review/isi Fable, BUKAN diisi dari memori) ──
-    stepLanjutLabel: "🔲", // label tombol "Lanjut" antar step
-    stepKembaliLabel: "🔲", // label tombol "Kembali" antar step
+    stepLanjutLabel: "Lanjut",
+    stepKembaliLabel: "Kembali",
     stepLabels: {
-      1: "🔲", // label progress step 1 — G1 Dengar
-      2: "🔲", // label progress step 2 — G2 Pahami
-      3: "🔲", // label progress step 3 — G3 Desain
-      4: "🔲", // label progress step 4 — Penutup
+      1: "Dengar",
+      2: "Pahami",
+      3: "Desain",
+      4: "Tuntaskan",
     },
   },
 } as const;
