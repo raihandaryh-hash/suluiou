@@ -26,6 +26,7 @@ import {
   roiSection,
   bkSection,
   opportunitySection,
+  worldLayerSection,
   personaCallout,
   ctaSection,
   dataSources,
@@ -1085,6 +1086,35 @@ const Insight = () => {
           </DataReveal>
         </section>
         <UsefulFeedback section="peluang" persona={persona} />
+
+        {/* World-Layer W1 — penutup Babak 3: dunia → umat → Palestina → peran (prosa surat, bukan kartu) */}
+        <section id="dunia-umat" className="container mx-auto px-6 pt-16 md:pt-20 pb-8 max-w-3xl">
+          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-8 uppercase">
+            {worldLayerSection.tag}
+          </p>
+          <div className="space-y-12">
+            {worldLayerSection.beats.map((beat, i) => (
+              <div key={`w1-${i}`}>
+                <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground leading-snug mb-4">
+                  {beat.headline}
+                </h3>
+                <div className="space-y-4">
+                  {beat.body.map((p, j) => (
+                    <p key={`w1-${i}-${j}`} className="text-base text-foreground/85 leading-[1.75]">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="font-heading text-lg md:text-xl text-foreground/90 italic leading-relaxed mt-12">
+            {worldLayerSection.bridge}
+          </p>
+          <p className="text-xs text-muted-foreground mt-6">
+            {sourcePrefix} {worldLayerSection.source}
+          </p>
+        </section>
 
         <Catatanku anchor="babak-3" label="Bekal: yang akan kubawa" />
       </section>
