@@ -729,6 +729,46 @@ export const evanInsights = {
 };
 
 // ─── FOOTER SOURCES ───────────────────────────────────────────────
+// ─── WORLD-LAYER W1 — penutup Babak 3 (lock 20 Jun, dieksekusi 4 Jul) ───
+// Jejak: backbone "Millennium 15 + RPJPN 2045" (lock 20 Jun); isi & guardrail Palestina
+// (berakhir di peran-yang-bisa-disiapkan) = lock 4 Jul, daftar peran verbatim transkrip.
+// Sumber angka: SESRIC OIC Economic Outlook 2024 (8,5% PDB dunia nominal 2023; ~15% PPP
+// hanya di source note). Populasi OIC ~2 miliar: SESRIC OICStat. Share ilmu/publikasi
+// OIC SENGAJA tidak diklaim (belum ada sumber primer bersih) — menunggu Evidence Pass.
+// Rumpun = pengelompokan 15 Global Challenges (The Millennium Project), kualitatif tanpa angka.
+// Tekstur: prosa surat (prinsip W1 16 Jun), BUKAN pola InsightCard. Header = kalimat-klaim.
+export const worldLayerSection = {
+  tag: 'SEBELUM MELANGKAH, LIHAT SEKALI LAGI LEBIH LUAS',
+  beats: [
+    {
+      headline: 'Dunia mewariskan pekerjaan yang belum selesai.',
+      body: [
+        'Para peneliti masa depan dari berbagai negara memelihara satu daftar: tantangan terbesar yang sedang dihadapi umat manusia. Isinya bukan hal asing bagimu. Air bersih yang belum sampai ke semua orang, energi, dan bumi yang berubah iklimnya. Kesehatan, gizi, dan jurang antara yang kaya dan yang miskin. Perdamaian, kejahatan yang melintasi batas negara, dan martabat manusia yang harus dijaga. Ilmu pengetahuan dan teknologi, termasuk AI, yang harus tetap dikawal agar memihak kebaikan.',
+        'Daftar ini terdengar berat. Coba baca sekali lagi dengan pelan: setiap barisnya sebenarnya adalah pekerjaan. Pekerjaan yang menunggu orang-orang yang mau menyiapkan diri.',
+      ],
+    },
+    {
+      headline: 'Umat ini besar. Kursinya masih banyak yang kosong.',
+      body: [
+        'Kaum muslimin hari ini sekitar dua miliar jiwa, hampir seperempat penduduk bumi. Namun dari seluruh nilai ekonomi dunia, negeri-negeri muslim baru menyumbang sekitar 8,5 persen.',
+        'Angka itu bukan aib. Angka itu peta. Seperempat penduduk bumi belum menyumbang seperempat solusinya, artinya kursi-kursi penting di bidang ilmu, kesehatan, teknologi, dan ekonomi umat masih menunggu diisi. Salah satunya sedang menunggu kamu.',
+      ],
+    },
+    {
+      headline: 'Palestina sudah kamu lihat. Pertanyaannya: siapa yang menyiapkan diri?',
+      body: [
+        'Kamu sudah melihatnya di layarmu bertahun-tahun, mungkin sambil merasa tidak bisa berbuat apa-apa. Perasaan itu jujur. Doa dan kepedulianmu tidak pernah sia-sia.',
+        'Ada satu lapisan lagi yang jarang dibicarakan: setiap krisis kemanusiaan membutuhkan orang yang siap. Dokter yang berani berangkat. Insinyur air yang menghidupkan kembali sumber yang rusak. Ahli hukum internasional yang memperjuangkan keadilan di meja dunia. Jurnalis yang menjaga kebenaran tetap terdengar. Ekonom kemanusiaan yang memastikan bantuan benar-benar sampai. Mereka tidak lahir siap. Mereka memutuskan menyiapkan diri bertahun-tahun sebelumnya.',
+        'Keputusan yang sama bisa kamu ambil hari ini.',
+      ],
+    },
+  ],
+  bridge:
+    'Dunia luas dan umat membutuhkan. Langkahnya selalu dimulai dari tempat yang sama: mengenal apa yang Allah titipkan padamu.',
+  source:
+    'The Millennium Project, 15 Global Challenges; SESRIC, OIC Economic Outlook 2024 (pangsa PDB nominal 2023; dalam paritas daya beli sekitar 15%)',
+};
+
 export const dataSources = [
   'BPS Sakernas 2024 dan 2025',
   'WEF Future of Jobs Report 2025',
@@ -751,6 +791,8 @@ export const dataSources = [
   'British Council/AVPN DICE Study — Social Enterprise Indonesia',
   'Tracer Study UIN Jakarta; Data PBSB Kemenag RI',
   'IDN Media Indonesian Millennials & Gen Z Report 2024',
+  'The Millennium Project — 15 Global Challenges',
+  'SESRIC — OIC Economic Outlook 2024',
 ];
 
 export const sourcePrefix = 'Sumber:';
