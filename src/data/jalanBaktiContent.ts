@@ -315,5 +315,15 @@ export const jalanBaktiContent = {
     saveLabel: "Simpan",
     savedToast: "Catatan tersimpan ✓",
     errorToast: "Gagal menyimpan, coba lagi",
+
+    // ── STEPPER (baru, mekanis Sonnet — 🔲 SEMUA field di bawah menunggu review/isi Fable, BUKAN diisi dari memori) ──
+    stepLanjutLabel: "🔲", // label tombol "Lanjut" antar step
+    stepKembaliLabel: "🔲", // label tombol "Kembali" antar step
+    stepLabels: {
+      1: "🔲", // label progress step 1 — G1 Dengar
+      2: "🔲", // label progress step 2 — G2 Pahami
+      3: "🔲", // label progress step 3 — G3 Desain
+      4: "🔲", // label progress step 4 — Penutup
+    },
   },
 } as const;
