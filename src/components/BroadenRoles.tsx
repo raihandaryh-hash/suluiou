@@ -148,6 +148,13 @@ export default function BroadenRoles({
 
   return (
     <div className="space-y-4">
+      {siapa.length > 0 && (
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Peran-peran ini dinyalakan dengan mempertimbangkan siapa yang tadi kamu tandai:{" "}
+          <span className="text-foreground/85">{siapa.join(", ")}</span>. Pilihanmu tidak hilang,
+          ia ikut membentuk apa yang kamu lihat sekarang.
+        </p>
+      )}
       <div className="space-y-4">
         {roles.map((r, i) => {
           const shown = i < revealed;
