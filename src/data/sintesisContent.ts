@@ -43,6 +43,23 @@ export const sintesisContent = {
     "Jika lima tahun dari sekarang kamu mencapai karier yang kamu impikan, skill apa yang paling berperan membawa kamu ke sana?",
   refleksiPlaceholder: "Tulis sebebasnya...",
 
+  // ── Tenunan (Sintesis B) — AI menenun nilai+kemampuan+bakti+peran+langkah dari kata-kata user sendiri.
+  // Jejak: manifest ACC 5 Jul. Guardrail anti-foreclosure ada di prompt edge function generate-sintesis.
+  tenunan: {
+    sectionTitle: "Tenunan",
+    intro:
+      "Semua yang kamu tulis sepanjang perjalanan ini adalah benang-benang lepas. Sulu bisa membantu menenunnya jadi satu cerita pendek, memakai kata-katamu sendiri, supaya kamu bisa membacanya sebagai satu kesatuan.",
+    buttonLabel: "Tenun jadi satu cerita",
+    regenerateLabel: "Tenun ulang",
+    loadingText: "Sedang menenun benang-benangmu...",
+    errorText: "Belum berhasil menenun. Coba lagi sebentar.",
+    retryLabel: "Coba lagi",
+    emptyGate:
+      "Tenunan butuh bahan. Isi dulu beberapa bagian perjalananmu: catatan mengenali diri, kemampuan yang ingin kamu kuatkan, atau jalan bakti yang kamu tandai. Setelah itu, kembali ke sini.",
+    mirrorNote:
+      "Ini cermin dari yang kamu tulis sendiri, bukan penilaian. Kalau ada yang terasa tidak pas, justru itu temuan berharga: tandai, lalu tulis versimu di refleksi bawah.",
+  },
+
   penutup: {
     teks:
       "Apa pun jalan yang kamu pilih nanti, baik teknologi, kesehatan, pendidikan, maupun bisnis, ada fondasi yang mendahuluinya. Mengenal Allah dan menegakkan ibadah adalah kewajiban pertama, fardhu ain yang tidak tergantikan. Setelah itu, keahlian duniawi yang kamu tekuni menjadi jalan menunaikan fardhu kifayah, selama diniatkan untuk kebaikan.\n\nPada akhirnya, yang bertahan bukan yang paling ramai atau paling tinggi, melainkan yang memberi manfaat bagi banyak orang. Studi karier modern, yang kamu temui di awal perjalanan ini, menunjuk ke arah yang sama.",
