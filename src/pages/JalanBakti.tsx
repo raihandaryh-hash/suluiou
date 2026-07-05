@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -44,6 +44,11 @@ const EMPTY: JBData = {
   langkah: "",
   refleksi: "",
 };
+
+// ── STEPPER: 4 langkah. currentStep TIDAK dipersist — reload = mulai dari
+// step 1, jawaban (objek `d`) tetap persist di localStorage/Supabase seperti semula.
+const TOTAL_STEPS = 4;
+type StepId = 1 | 2 | 3 | 4;
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
@@ -92,6 +97,71 @@ function Chip({
   );
 }
 
+// ── STEPPER CHROME (mekanis, bukan copy Fable — label 🔲 diisi dari C.ui) ──
+function StepProgress({ step }: { step: StepId }) {
+  // 🔲 C.ui.stepLabels — label per-step untuk progress bar; menunggu isi Fable.
+  const labels = C.ui.stepLabels;
+  return (
+    <div className="sticky top-12 z-20 -mx-6 mb-8 border-b border-border bg-background/85 px-6 py-3 backdrop-blur">
+      <div className="flex items-center justify-between text-xs font-medium text-muted-foreground">
+        {([1, 2, 3, 4] as StepId[]).map((s, i) => (
+          <div key={s} className="flex items-center gap-2 flex-1">
+            <span
+              className={cn(
+                "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[11px]",
+                s === step
+                  ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))] font-semibold"
+                  : s < step
+                    ? "border-[hsl(var(--torch-gold))]/50 bg-[hsl(var(--torch-gold))]/10 text-foreground/70"
+                    : "border-border text-muted-foreground/60",
+              )}
+            >
+              {s}
+            </span>
+            <span className={cn("hidden sm:inline truncate", s === step && "text-foreground font-semibold")}>
+              {labels[s]}
+            </span>
+            {i < 3 && <span className="flex-1 h-px bg-border mx-1" aria-hidden />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StepNav({
+  step,
+  onBack,
+  onNext,
+  nextDisabled,
+}: {
+  step: StepId;
+  onBack: () => void;
+  onNext: () => void;
+  nextDisabled?: boolean;
+}) {
+  return (
+    <div className="flex items-center justify-between pt-10 pb-4">
+      {step > 1 ? (
+        <Button variant="outline" onClick={onBack}>
+          <ChevronLeft className="mr-1 h-4 w-4" />
+          {/* 🔲 C.ui.stepKembaliLabel */}
+          {C.ui.stepKembaliLabel}
+        </Button>
+      ) : (
+        <span />
+      )}
+      {step < TOTAL_STEPS && (
+        <Button onClick={onNext} disabled={nextDisabled}>
+          {/* 🔲 C.ui.stepLanjutLabel */}
+          {C.ui.stepLanjutLabel}
+          <ChevronRight className="ml-1 h-4 w-4" />
+        </Button>
+      )}
+    </div>
+  );
+}
+
 export default function JalanBakti() {
   const { user, loading: authLoading } = useAuth();
   const province = useProvince();
@@ -100,6 +170,7 @@ export default function JalanBakti() {
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
   const [provinceCtx, setProvinceCtx] = useState<ProvinceContext | null>(null);
+  const [step, setStep] = useState<StepId>(1);
 
   useEffect(() => {
     let active = true;
@@ -196,6 +267,16 @@ export default function JalanBakti() {
     }
   }
 
+  function goNext() {
+    setStep((s) => (s < TOTAL_STEPS ? ((s + 1) as StepId) : s));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goBack() {
+    setStep((s) => (s > 1 ? ((s - 1) as StepId) : s));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   if (!hydrated) {
     return (
       <main className="container mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-6">
@@ -206,353 +287,378 @@ export default function JalanBakti() {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-2xl">
-      {/* ── OPENER BARU: bomb riset + doa Sulaiman + framework 3 gerakan ── */}
-      <section className="space-y-4 mb-4">
-        <h1 className="font-heading text-2xl font-bold text-foreground">{C.ui.pageTitle}</h1>
-      </section>
-      <JalanBaktiOpening />
+      <StepProgress step={step} />
 
-      <Separator className="my-10" />
-
-      {/* ── MURAJAAH (full-circle): recall perjalanan + namai dilema + hook posisi ── */}
-      <section className="space-y-4">
-        {C.murajaah.paragraphs.map((p, i) => (
-          <p key={`mj-${i}`} className="text-base leading-relaxed text-foreground/90">
-            {p}
-          </p>
-        ))}
-      </section>
-
-      <Separator className="my-10" />
-
-      {/* ── Opener lama (narasi bakti) — kini jadi pembuka Gerakan 1: Dengar ── */}
-      <section className="space-y-4">
-        {C.opener.paragraphs.map((p, i) => (
-          <p key={i} className="text-base leading-relaxed text-foreground/90">
-            {p}
-          </p>
-        ))}
-      </section>
-
-      <Separator className="my-10" />
-
-      {/* ── TP HUD 61 (jawaban atas "mau melihat lebih jauh?", kesimpulan murajaah) ── */}
-      <p className="text-base leading-relaxed text-foreground/90 mb-5">{C.tpHud61.lead}</p>
-      <Touchpoint
-        ayat={C.tpHud61.ayat}
-        rujukan={C.tpHud61.rujukan}
-        framing={C.tpHud61.framing}
-      />
-
-      <Separator className="my-10" />
-
-      {/* ── SDGs ── */}
-      <section className="space-y-5">
-        <SectionHeader title={C.ui.sdgSectionTitle} />
-        <Touchpoint
-          ayat={C.sdg.tpAyat}
-          rujukan={C.sdg.tpRujukan}
-          framing={C.sdg.tpFraming}
-        />
-
-        <div className="space-y-4">
-          {C.sdg.sejarah.map((p, i) => (
-            <p key={`sj-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
-          ))}
-        </div>
-        <Separator className="my-2 opacity-60" />
-        <div className="space-y-4">
-          {C.sdg.urgensi.map((p, i) => (
-            <p key={`ur-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
-          ))}
-        </div>
-        <Separator className="my-2 opacity-60" />
-        <div className="space-y-4">
-          {C.sdg.agensi.map((p, i) => (
-            <p key={`ag-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
-          ))}
-        </div>
-
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="pasca-2030" className="border border-border rounded-lg px-4">
-            <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline">
-              {C.sdg.pascaExpand.title}
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul className="list-disc pl-5 space-y-1.5 text-sm text-foreground/85">
-                {C.sdg.pascaExpand.items.map((it, i) => (
-                  <li key={i}>{it}</li>
-                ))}
-              </ul>
-              <p className="mt-3 text-sm text-foreground/90">{C.sdg.pascaExpand.closer}</p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-
-        <p className="text-sm text-muted-foreground pt-4">{C.sdg.lensNote}</p>
-        <p className="text-sm text-muted-foreground pt-2">{C.sdg.chipPrompt}</p>
-        <div className="flex flex-wrap gap-2">
-          {C.sdg.items.map((s) => (
-            <Chip key={s.id} active={d.sdgTags.includes(s.id)} onClick={() => toggleSdg(s.id)}>
-              {s.label}
-            </Chip>
-          ))}
-        </div>
-
-        <p className="text-base font-medium text-foreground/90 pt-4">{C.sdg.transisiIndonesia}</p>
-      </section>
-
-      <Separator className="my-10" />
-
-      {/* ── GAMBARAN ARAH DAERAH ── */}
-      {province && provinceCtx &&
-        (provinceCtx.narrative_hooks.length > 0 ||
-          provinceCtx.economic_sectors.length > 0 ||
-          provinceCtx.opportunities_2030) && (
+      {/* ══════════════ STEP 1 — G1 DENGAR ══════════════ */}
+      {step === 1 && (
         <>
-          <section className="space-y-5 rounded-xl border border-border bg-secondary/30 p-5">
-            <SectionHeader title={`Gambaran arah daerahmu — ${province}`} />
+          {/* ── OPENER BARU: bomb riset + doa Sulaiman + framework 3 gerakan ── */}
+          <section className="space-y-4 mb-4">
+            <h1 className="font-heading text-2xl font-bold text-foreground">{C.ui.pageTitle}</h1>
+          </section>
+          <JalanBaktiOpening />
 
-            {provinceCtx.narrative_hooks.length > 0 && (
-              <ul className="space-y-2 list-disc pl-5 text-base leading-relaxed text-foreground/90">
-                {provinceCtx.narrative_hooks.map((h, i) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            )}
+          <Separator className="my-10" />
 
-            {provinceCtx.economic_sectors.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-1">
-                {provinceCtx.economic_sectors.map((s, i) => (
-                  <span
-                    key={i}
-                    className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground/85"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {provinceCtx.opportunities_2030 && (
-              <div className="rounded-lg border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-4">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                  Arah yang sedang tumbuh
-                </p>
-                <p className="text-sm leading-relaxed text-foreground/90">
-                  {provinceCtx.opportunities_2030}
-                </p>
-              </div>
-            )}
-
-            <p className="text-xs text-muted-foreground italic">
-              Ini gambaran umum sebagai titik awal, bukan data resmi atau vonis.
-            </p>
+          {/* ── MURAJAAH (full-circle): recall perjalanan + namai dilema + hook posisi ── */}
+          <section className="space-y-4">
+            {C.murajaah.paragraphs.map((p, i) => (
+              <p key={`mj-${i}`} className="text-base leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
           </section>
 
           <Separator className="my-10" />
-        </>
-      )}
 
+          {/* ── Opener lama (narasi bakti) — kini jadi pembuka Gerakan 1: Dengar ── */}
+          <section className="space-y-4">
+            {C.opener.paragraphs.map((p, i) => (
+              <p key={i} className="text-base leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
+          </section>
 
-      {/* ── 6 KLASTER — pilih SATU medan (reversible); sub-tantangan multi di dalamnya ── */}
-      <section className="space-y-6">
-        <SectionHeader title={C.ui.klasterSectionTitle} subtitle={C.klasterIntro} />
-        <div className="space-y-4">
-          {C.klaster.map((k) => {
-            const selected = d.medan === k.id;
-            return (
-              <div
-                key={k.id}
-                className={cn(
-                  "rounded-xl border bg-card p-5 space-y-3 transition-colors",
-                  selected
-                    ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]/5"
-                    : "border-border",
-                )}
-              >
-                <button
-                  type="button"
-                  onClick={() => selectMedan(k.id)}
-                  aria-pressed={selected}
-                  className="w-full text-left flex items-start gap-3"
-                >
-                  <span
-                    className={cn(
-                      "mt-1 h-4 w-4 shrink-0 rounded-full border-2 transition-colors",
-                      selected
-                        ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]"
-                        : "border-muted-foreground/40",
-                    )}
-                  />
-                  <span className="space-y-1">
-                    <span className="block font-heading text-lg font-semibold text-foreground">{k.nama}</span>
-                    <span className="block text-sm leading-relaxed text-foreground/85">{k.bridge}</span>
-                  </span>
-                </button>
+          <Separator className="my-10" />
 
-                {selected && (
-                  <div className="flex flex-wrap gap-2 pt-2 pl-7">
-                    {k.subTantangan.map((s) => {
-                      const active = d.subPicks.includes(s.id);
-                      return (
-                        <div key={s.id} className="w-full">
-                          <Chip active={active} onClick={() => toggleSub(s.id)}>
-                            {s.label}
-                          </Chip>
-                          {active && "detail" in s && s.detail && (
-                            <p className="mt-2 text-xs leading-relaxed text-muted-foreground border-l-2 border-border pl-3">
-                              {s.detail}
-                            </p>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+          {/* ── TP HUD 61 (jawaban atas "mau melihat lebih jauh?", kesimpulan murajaah) ── */}
+          <p className="text-base leading-relaxed text-foreground/90 mb-5">{C.tpHud61.lead}</p>
+          <Touchpoint
+            ayat={C.tpHud61.ayat}
+            rujukan={C.tpHud61.rujukan}
+            framing={C.tpHud61.framing}
+          />
 
-      <Separator className="my-10" />
+          <Separator className="my-10" />
 
-      {/* ── LENSA KEPEDULIAN ── */}
-      {(() => {
-        const L = C.lensaKepedulian;
-        return (
+          {/* ── SDGs ── */}
           <section className="space-y-5">
-            <SectionHeader title={C.ui.lensaSectionTitle} />
-            <p className="text-base leading-relaxed text-foreground/90">{L.pivot}</p>
+            <SectionHeader title={C.ui.sdgSectionTitle} />
+            <Touchpoint
+              ayat={C.sdg.tpAyat}
+              rujukan={C.sdg.tpRujukan}
+              framing={C.sdg.tpFraming}
+            />
 
-            <Touchpoint ayat={L.hadith.teks} rujukan={L.hadith.rujukan} framing={L.hadith.framing} />
-
-            <p className="text-base font-medium text-foreground/90 pt-2">{L.elicitation}</p>
-
-            {/* Tier 1: Ashnaf */}
-            <p className="text-sm text-muted-foreground">{L.tier1Title}</p>
-            <div className="flex flex-wrap gap-2">
-              {L.tier1Items.map((s) => {
-                const active = d.peduliPicks.includes(s.id);
-                return (
-                  <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
-                    <span className="font-medium">{s.label}</span>
-                    <span className="ml-1.5 text-xs text-muted-foreground">— {s.desc}</span>
-                  </Chip>
-                );
-              })}
+            <div className="space-y-4">
+              {C.sdg.sejarah.map((p, i) => (
+                <p key={`sj-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+              ))}
             </div>
-
-            {/* Tier 2: PPKS */}
-            <p className="text-sm text-foreground/85 leading-relaxed pt-2">{L.tier2Intro}</p>
-            <div className="flex flex-wrap gap-2">
-              {L.tier2Wajah.map((s) => {
-                const active = d.peduliPicks.includes(s.id);
-                return (
-                  <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
-                    {s.label}
-                  </Chip>
-                );
-              })}
+            <Separator className="my-2 opacity-60" />
+            <div className="space-y-4">
+              {C.sdg.urgensi.map((p, i) => (
+                <p key={`ur-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+              ))}
+            </div>
+            <Separator className="my-2 opacity-60" />
+            <div className="space-y-4">
+              {C.sdg.agensi.map((p, i) => (
+                <p key={`ag-${i}`} className="text-base leading-relaxed text-foreground/90">{p}</p>
+              ))}
             </div>
 
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="ppks-26" className="border border-border rounded-lg px-4">
+              <AccordionItem value="pasca-2030" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline">
-                  {L.tier2ExpandTitle}
+                  {C.sdg.pascaExpand.title}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
-                    {L.tier2Kategori.map((k, i) => (
-                      <li key={i}>{k}</li>
+                  <ul className="list-disc pl-5 space-y-1.5 text-sm text-foreground/85">
+                    {C.sdg.pascaExpand.items.map((it, i) => (
+                      <li key={i}>{it}</li>
                     ))}
                   </ul>
+                  <p className="mt-3 text-sm text-foreground/90">{C.sdg.pascaExpand.closer}</p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
 
-            <p className="text-sm text-muted-foreground pt-2">{L.routeback}</p>
-            <p className="text-base leading-relaxed text-foreground/90 pt-2">{L.penutup}</p>
+            <p className="text-sm text-muted-foreground pt-4">{C.sdg.lensNote}</p>
+            <p className="text-sm text-muted-foreground pt-2">{C.sdg.chipPrompt}</p>
+            <div className="flex flex-wrap gap-2">
+              {C.sdg.items.map((s) => (
+                <Chip key={s.id} active={d.sdgTags.includes(s.id)} onClick={() => toggleSdg(s.id)}>
+                  {s.label}
+                </Chip>
+              ))}
+            </div>
+
+            <p className="text-base font-medium text-foreground/90 pt-4">{C.sdg.transisiIndonesia}</p>
           </section>
-        );
-      })()}
 
-      {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs + reveal peran (muncul setelah medan dipilih) ── */}
-      {d.medan &&
-        (() => {
-          const medanObj = C.klaster.find((k) => k.id === d.medan);
-          const subLabels = medanObj
-            ? medanObj.subTantangan
-                .filter((s) => d.subPicks.includes(s.id))
-                .map((s) => s.label)
-            : [];
-          const siapaLabels = [
-            ...C.lensaKepedulian.tier1Items,
-            ...C.lensaKepedulian.tier2Wajah,
-          ]
-            .filter((x) => d.peduliPicks.includes(x.id))
-            .map((x) => x.label);
-          return (
+          <StepNav step={step} onBack={goBack} onNext={goNext} />
+        </>
+      )}
+
+      {/* ══════════════ STEP 2 — G2 PAHAMI (provinsi dipindah ke sini) ══════════════ */}
+      {step === 2 && (
+        <>
+          {/* ── GAMBARAN ARAH DAERAH ── */}
+          {province && provinceCtx &&
+            (provinceCtx.narrative_hooks.length > 0 ||
+              provinceCtx.economic_sectors.length > 0 ||
+              provinceCtx.opportunities_2030) && (
             <>
-              <Separator className="my-10" />
-              <section className="space-y-5">
-                <SectionHeader title={C.gerakan2.sectionTitle} />
-                {C.gerakan2.tampar.map((p, i) => (
-                  <p key={`g2-${i}`} className="text-base leading-relaxed text-foreground/90">
-                    {p}
-                  </p>
-                ))}
+              <section className="space-y-5 rounded-xl border border-border bg-secondary/30 p-5">
+                <SectionHeader title={`Gambaran arah daerahmu — ${province}`} />
 
-                <BroadenRoles
-                  medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
-                  subPicks={subLabels}
-                  siapa={siapaLabels}
-                  province={province}
-                  initialPicked={d.roles}
-                  onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
-                />
+                {provinceCtx.narrative_hooks.length > 0 && (
+                  <ul className="space-y-2 list-disc pl-5 text-base leading-relaxed text-foreground/90">
+                    {provinceCtx.narrative_hooks.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {provinceCtx.economic_sectors.length > 0 && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {provinceCtx.economic_sectors.map((s, i) => (
+                      <span
+                        key={i}
+                        className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground/85"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {provinceCtx.opportunities_2030 && (
+                  <div className="rounded-lg border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-4">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
+                      Arah yang sedang tumbuh
+                    </p>
+                    <p className="text-sm leading-relaxed text-foreground/90">
+                      {provinceCtx.opportunities_2030}
+                    </p>
+                  </div>
+                )}
+
+                <p className="text-xs text-muted-foreground italic">
+                  Ini gambaran umum sebagai titik awal, bukan data resmi atau vonis.
+                </p>
               </section>
+
+              <Separator className="my-10" />
             </>
-          );
-        })()}
+          )}
 
-      <Separator className="my-10" />
+          {/* ── 6 KLASTER — pilih SATU medan (reversible); sub-tantangan multi di dalamnya ── */}
+          <section className="space-y-6">
+            <SectionHeader title={C.ui.klasterSectionTitle} subtitle={C.klasterIntro} />
+            <div className="space-y-4">
+              {C.klaster.map((k) => {
+                const selected = d.medan === k.id;
+                return (
+                  <div
+                    key={k.id}
+                    className={cn(
+                      "rounded-xl border bg-card p-5 space-y-3 transition-colors",
+                      selected
+                        ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]/5"
+                        : "border-border",
+                    )}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => selectMedan(k.id)}
+                      aria-pressed={selected}
+                      className="w-full text-left flex items-start gap-3"
+                    >
+                      <span
+                        className={cn(
+                          "mt-1 h-4 w-4 shrink-0 rounded-full border-2 transition-colors",
+                          selected
+                            ? "border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))]"
+                            : "border-muted-foreground/40",
+                        )}
+                      />
+                      <span className="space-y-1">
+                        <span className="block font-heading text-lg font-semibold text-foreground">{k.nama}</span>
+                        <span className="block text-sm leading-relaxed text-foreground/85">{k.bridge}</span>
+                      </span>
+                    </button>
 
-      {/* ── GERAKAN 3 · DESAIN — rancang langkah pertama (mengganti free-write lama; refleksi tak dipakai Surat) ── */}
-      <section className="space-y-5">
-        <SectionHeader title={C.gerakan3.sectionTitle} />
-        {C.gerakan3.intro.map((p, i) => (
-          <p key={`g3i-${i}`} className="text-base leading-relaxed text-foreground/90">
-            {p}
-          </p>
-        ))}
-        {d.medan ? (
-          <DesainLangkah
-            content={C.gerakan3}
-            medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
-            role={d.roles[0] || null}
-            initialLangkah={d.langkah}
-            onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
-          />
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            Pilih dulu satu medan di atas untuk merancang langkah pertamamu.
-          </p>
-        )}
-      </section>
+                    {selected && (
+                      <div className="flex flex-wrap gap-2 pt-2 pl-7">
+                        {k.subTantangan.map((s) => {
+                          const active = d.subPicks.includes(s.id);
+                          return (
+                            <div key={s.id} className="w-full">
+                              <Chip active={active} onClick={() => toggleSub(s.id)}>
+                                {s.label}
+                              </Chip>
+                              {active && "detail" in s && s.detail && (
+                                <p className="mt-2 text-xs leading-relaxed text-muted-foreground border-l-2 border-border pl-3">
+                                  {s.detail}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
 
+          <Separator className="my-10" />
 
-      {/* ── SAVE ── */}
-      <div className="flex flex-col items-center gap-3 pt-8 pb-12">
-        <Button onClick={handleSave} disabled={saving} size="lg">
-          {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-          {C.ui.saveLabel}
-        </Button>
-        <Button variant="outline" size="lg" onClick={() => navigate("/sintesis")}>
-          Lanjut: Satukan Semuanya →
-        </Button>
-      </div>
+          {/* ── LENSA KEPEDULIAN ── */}
+          {(() => {
+            const L = C.lensaKepedulian;
+            return (
+              <section className="space-y-5">
+                <SectionHeader title={C.ui.lensaSectionTitle} />
+                <p className="text-base leading-relaxed text-foreground/90">{L.pivot}</p>
+
+                <Touchpoint ayat={L.hadith.teks} rujukan={L.hadith.rujukan} framing={L.hadith.framing} />
+
+                <p className="text-base font-medium text-foreground/90 pt-2">{L.elicitation}</p>
+
+                {/* Tier 1: Ashnaf */}
+                <p className="text-sm text-muted-foreground">{L.tier1Title}</p>
+                <div className="flex flex-wrap gap-2">
+                  {L.tier1Items.map((s) => {
+                    const active = d.peduliPicks.includes(s.id);
+                    return (
+                      <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
+                        <span className="font-medium">{s.label}</span>
+                        <span className="ml-1.5 text-xs text-muted-foreground">— {s.desc}</span>
+                      </Chip>
+                    );
+                  })}
+                </div>
+
+                {/* Tier 2: PPKS */}
+                <p className="text-sm text-foreground/85 leading-relaxed pt-2">{L.tier2Intro}</p>
+                <div className="flex flex-wrap gap-2">
+                  {L.tier2Wajah.map((s) => {
+                    const active = d.peduliPicks.includes(s.id);
+                    return (
+                      <Chip key={s.id} active={active} onClick={() => togglePeduli(s.id)}>
+                        {s.label}
+                      </Chip>
+                    );
+                  })}
+                </div>
+
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="ppks-26" className="border border-border rounded-lg px-4">
+                    <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline">
+                      {L.tier2ExpandTitle}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
+                        {L.tier2Kategori.map((k, i) => (
+                          <li key={i}>{k}</li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                <p className="text-sm text-muted-foreground pt-2">{L.routeback}</p>
+                <p className="text-base leading-relaxed text-foreground/90 pt-2">{L.penutup}</p>
+              </section>
+            );
+          })()}
+
+          {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs + reveal peran (muncul setelah medan dipilih) ── */}
+          {d.medan &&
+            (() => {
+              const medanObj = C.klaster.find((k) => k.id === d.medan);
+              const subLabels = medanObj
+                ? medanObj.subTantangan
+                    .filter((s) => d.subPicks.includes(s.id))
+                    .map((s) => s.label)
+                : [];
+              const siapaLabels = [
+                ...C.lensaKepedulian.tier1Items,
+                ...C.lensaKepedulian.tier2Wajah,
+              ]
+                .filter((x) => d.peduliPicks.includes(x.id))
+                .map((x) => x.label);
+              return (
+                <>
+                  <Separator className="my-10" />
+                  <section className="space-y-5">
+                    <SectionHeader title={C.gerakan2.sectionTitle} />
+                    {C.gerakan2.tampar.map((p, i) => (
+                      <p key={`g2-${i}`} className="text-base leading-relaxed text-foreground/90">
+                        {p}
+                      </p>
+                    ))}
+
+                    <BroadenRoles
+                      medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
+                      subPicks={subLabels}
+                      siapa={siapaLabels}
+                      province={province}
+                      initialPicked={d.roles}
+                      onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
+                    />
+                  </section>
+                </>
+              );
+            })()}
+
+          <StepNav step={step} onBack={goBack} onNext={goNext} nextDisabled={!d.medan} />
+        </>
+      )}
+
+      {/* ══════════════ STEP 3 — G3 DESAIN ══════════════ */}
+      {step === 3 && (
+        <>
+          {/* ── GERAKAN 3 · DESAIN — rancang langkah pertama (mengganti free-write lama; refleksi tak dipakai Surat) ── */}
+          <section className="space-y-5">
+            <SectionHeader title={C.gerakan3.sectionTitle} />
+            {C.gerakan3.intro.map((p, i) => (
+              <p key={`g3i-${i}`} className="text-base leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
+            {d.medan ? (
+              <DesainLangkah
+                content={C.gerakan3}
+                medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
+                role={d.roles[0] || null}
+                initialLangkah={d.langkah}
+                onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
+              />
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Pilih dulu satu medan di atas untuk merancang langkah pertamamu.
+              </p>
+            )}
+          </section>
+
+          <StepNav step={step} onBack={goBack} onNext={goNext} />
+        </>
+      )}
+
+      {/* ══════════════ STEP 4 — PENUTUP ══════════════ */}
+      {step === 4 && (
+        <>
+          <StepNav step={step} onBack={goBack} onNext={goNext} />
+
+          {/* ── SAVE ── */}
+          <div className="flex flex-col items-center gap-3 pt-8 pb-12">
+            <Button onClick={handleSave} disabled={saving} size="lg">
+              {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {C.ui.saveLabel}
+            </Button>
+            <Button variant="outline" size="lg" onClick={() => navigate("/sintesis")}>
+              Lanjut: Satukan Semuanya →
+            </Button>
+          </div>
+        </>
+      )}
+
       <SuluCompanion />
     </main>
   );
