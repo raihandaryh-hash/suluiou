@@ -78,7 +78,7 @@ export const jalanBaktiContent = {
   },
 
   // ── 6 Klaster Jalan Bakti ──
-  klasterIntro: "Enam medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
+  klasterIntro: "Tujuh medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
 
   // ── GERAKAN 2 · PAHAMI — tampar 10-jobs (horizon broadening). Statik, muncul setelah medan dipilih. ──
   // Jejak: OECD dream-jobs (PISA 2022, ~690rb remaja/81 negara, aspirasi menumpuk di ~10 pekerjaan). NO OVERCLAIM.
@@ -144,6 +144,7 @@ export const jalanBaktiContent = {
         { id: "k5a", label: "Usaha kecil tetangga yang jalan di tempat" },
         { id: "k5b", label: "Keluarga yang ingin lepas dari riba" },
         { id: "k5c", label: "Zakat dan wakaf yang baru tergarap sebagian kecilnya" },
+        { id: "k5d", label: "Pemuda seusiamu yang tidak sekolah dan tidak bekerja" },
       ],
     },
     {
@@ -161,10 +162,23 @@ export const jalanBaktiContent = {
         },
       ],
     },
+    {
+      // K7 — ACC 4 Jul. Jejak: Research Drop 8 Jun (brain-drain desa → medan Kepemimpinan),
+      // stream Umara IGS, muara jalur diplomasi/hukum/kebijakan world-layer.
+      // Data kepala desa/BUMDes SENGAJA belum dipakai (🔲 Evidence Pass) — copy tanpa angka.
+      id: "k7",
+      nama: "Kepemimpinan & Tata Kelola",
+      bridge: "Banyak tempat tidak kekurangan orang pintar, tapi kekurangan orang yang mau mengurus dengan amanah. Pernahkah kamu melihat desa, sekolah, atau lembaga yang jalan di tempat hanya karena tidak ada yang memimpinnya sungguh-sungguh?",
+      subTantangan: [
+        { id: "k7a", label: "Desa yang ditinggal calon pemimpin mudanya" },
+        { id: "k7b", label: "Lembaga umat yang dikelola seadanya" },
+        { id: "k7c", label: "Suara warga yang tidak sampai ke pengambil keputusan" },
+      ],
+    },
   ],
 
   lensaKepedulian: {
-    pivot: "Tadi kamu melihat enam medan tantangan. Di balik semuanya, selalu ada satu hal yang sama: ada manusia yang paling rentan, yang paling butuh diulurkan tangan.",
+    pivot: "Tadi kamu melihat tujuh medan tantangan. Di balik semuanya, selalu ada satu hal yang sama: ada manusia yang paling rentan, yang paling butuh diulurkan tangan.",
 
     hadith: {
       teks: "Carikan aku orang-orang lemah di antara kalian. Sungguh kalian diberi rezeki dan ditolong sebab orang-orang lemah di antara kalian.",
@@ -216,7 +230,14 @@ export const jalanBaktiContent = {
   // 4 payung → OECD Exploring+Experiencing + Stanford prototyping + skill-map "nyemplung".
   gerakan3: {
     sectionTitle: "Rancang Langkah Pertamamu",
+    // Leverage beat — jejak: GoTo Annual Report 2024 (~3 juta mitra pengemudi, tervalidasi 4 Jul);
+    // Celio, Durlak & Dymnicki 2011 (meta-analisis 62 studi service-learning: kepemimpinan &
+    // problem-solving naik terukur). Kalimat kunci ketegangan G3 dari lock 3 Jul:
+    // "Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil."
     intro: [
+      "Sebelum merancang langkah, satu hal soal ukuran mimpi. Dulu, membantu jutaan orang butuh membangun perusahaan raksasa lebih dahulu. Hari ini, satu aplikasi yang lahir dari keresahan tentang tukang ojek yang menunggu penumpang telah tumbuh menjadi penghidupan bagi sekitar tiga juta mitra pengemudi dan keluarga mereka.",
+      "Teknologi, termasuk AI yang sedang kamu saksikan, terus menurunkan biaya membangun solusi. Karya yang menjangkau banyak orang tidak lagi hanya milik segelintir orang bermodal besar. Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil.",
+      "Langkah kecil itu sendiri bukan basa-basi. Penelitian terhadap ribuan pelajar yang terjun langsung melayani masyarakat menemukan hal yang sama berulang: kepemimpinan dan kemampuan memecahkan masalah mereka tumbuh terukur. Bergerak itu sendiri yang menumbuhkan.",
       "Satu hal sebelum melangkah. Peran yang menarik hatimu bukan kotak yang mengurungmu. Jurusan atau keahlian yang nanti kamu ambil hanyalah satu fondasi. Di atasnya, kamu terus merakit dirimu: menambah keterampilan lain, membangun karya, terjun ke komunitas.",
       "Zaman ini justru paling membutuhkan orang yang punya kedalaman sekaligus keluasan. Jadi langkah pertama ini bukan untuk mengunci pilihan, melainkan untuk mulai bergerak.",
       "Cara tercepat mengenal sebuah peran bukan dengan memikirkannya lama-lama, tapi dengan mendekat. Berikut empat cara nyata untuk mulai. Pilih yang paling terjangkau untukmu.",
@@ -288,7 +309,7 @@ export const jalanBaktiContent = {
   ui: {
     pageTitle: "Kenali Jalan Baktimu",
     sdgSectionTitle: "Kebutuhan Umat Manusia",
-    klasterSectionTitle: "Enam Jalan Bakti",
+    klasterSectionTitle: "Tujuh Jalan Bakti",
     lensaSectionTitle: "Siapa yang Ingin Kamu Tolong?",
     closingSectionTitle: "Refleksimu",
     saveLabel: "Simpan",
