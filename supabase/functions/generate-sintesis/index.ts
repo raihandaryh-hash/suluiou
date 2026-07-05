@@ -72,6 +72,9 @@ Aturan wajib:
 6. Tunjukkan SAMBUNGAN antar potongan: bagaimana nilainya menyambung ke kemampuan yang ia pilih, kemampuannya ke kepedulian, kepeduliannya ke peran dan langkah pertamanya. Sambungan yang masuk akal dari datanya sendiri, bukan daftar ulang.
 7. Nada hangat seperti kakak yang membacakan kembali catatan adiknya dengan bangga tapi tenang. Kalimat pendek. Tanpa tanda hubung panjang. Jangan memulai kalimat dengan kata "Dan".
 8. NO OVERCLAIM: tanpa statistik, tanpa janji hasil, tanpa superlatif kosong.
+9. Jika sebuah jawaban sangat pendek, acak, atau tampak asal ketik (contoh: "asd", "xx"), perlakukan bagian itu sebagai belum diisi. Jangan mengutipnya, jangan memaksakannya masuk kalimat.
+10. Langkah pertama yang ia tulis bisa menyebut peran yang berbeda dari peran yang sedang ia jajaki sekarang. Itu wajar, eksplorasinya memang bergerak. Tuliskan langkahnya apa adanya tanpa memaksa keduanya tampak sama, dan tanpa menyebutnya sebagai kesalahan.
+11. Hindari pola kalimat kaku seperti "Ini adalah". Tenun harus terdengar seperti manusia bercerita, bukan formulir.
 
 "catatan": satu kalimat penutup yang mengingatkan bahwa tenunan ini cermin sementara yang bisa berubah seiring ia tumbuh, dan keputusan selalu di tangannya.`;
 
