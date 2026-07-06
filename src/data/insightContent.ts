@@ -748,10 +748,10 @@ export const worldLayerSection = {
       ],
     },
     {
-      headline: 'Umat ini besar. Kursinya masih banyak yang kosong.',
+      headline: 'Umat ini pernah memimpin ilmu dunia. Warisan itu menunggu diteruskan.',
       body: [
-        'Kaum muslimin hari ini sekitar dua miliar jiwa, hampir seperempat penduduk bumi. Namun dari seluruh nilai ekonomi dunia, negeri-negeri muslim baru menyumbang sekitar 8,5 persen.',
-        'Angka itu bukan aib. Angka itu peta. Seperempat penduduk bumi belum menyumbang seperempat solusinya, artinya kursi-kursi penting di bidang ilmu, kesehatan, teknologi, dan ekonomi umat masih menunggu diisi. Salah satunya sedang menunggu kamu.',
+        'Kaum muslimin hari ini sekitar dua miliar jiwa, hampir seperempat penduduk bumi. Dan umat ini punya jejak yang nyata: aljabar, ilmu kedokteran, optik, dan banyak cabang pengetahuan modern tumbuh dari peradaban ini, ketika para ulamanya sekaligus menjadi ilmuwan dunia.',
+        'Hari ini, dari seluruh nilai ekonomi dunia, negeri-negeri muslim baru menyumbang sekitar 8,5 persen. Angka itu bukan aib. Angka itu peta. Jarak antara warisan itu dan kenyataan hari ini bukan alasan untuk meratap, melainkan pekerjaan yang menunggu generasimu. Ia pernah dikerjakan, artinya ia bukan mustahil.',
       ],
     },
     {
