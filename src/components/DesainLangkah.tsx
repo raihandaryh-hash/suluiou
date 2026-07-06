@@ -1,7 +1,10 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 type Payung = {
   id: string;
@@ -32,6 +35,8 @@ type Props = {
   role: string | null;
   initialLangkah: string;
   onLangkahChange: (l: string) => void;
+  userId: string | null;
+  province: string | null;
 };
 
 function CopyButton({ text }: { text: string }) {
@@ -56,12 +61,96 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
+// "Minta dijembatani" — Jembatan Manusia MVP (spec 1, §3). Admin-mediated:
+// request masuk antrean bridge_requests, admin match manual ke narasumber.
+// Guest (tanpa akun Google) tidak bisa submit — pola sama dengan handleSave
+// JalanBakti.tsx (data guest tidak dipersist ke Supabase sama sekali).
+function BridgeRequestForm({
+  userId,
+  medanNama,
+  province,
+}: {
+  userId: string | null;
+  medanNama: string;
+  province: string | null;
+}) {
+  const [roleText, setRoleText] = useState(medanNama || "");
+  const [questionText, setQuestionText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  if (!userId) {
+    return (
+      <p className="text-xs text-muted-foreground italic">
+        Masuk dengan Google untuk minta dijembatani ke narasumber.
+      </p>
+    );
+  }
+
+  if (sent) {
+    return (
+      <p className="text-sm text-foreground/90">
+        Permintaanmu sudah masuk antrean. Tim akan menghubungkan kamu lewat WhatsApp kalau ada narasumber yang cocok.
+      </p>
+    );
+  }
+
+  const handleSubmit = async () => {
+    if (!roleText.trim() || !questionText.trim()) return;
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("bridge_requests").insert({
+        user_id: userId,
+        role_text: roleText.trim(),
+        question_text: questionText.trim(),
+        province,
+      });
+      if (error) throw error;
+      setSent(true);
+      toast.success("Permintaan terkirim");
+    } catch (e) {
+      console.error(e);
+      toast.error("Gagal mengirim, coba lagi sebentar lagi.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="space-y-2 pt-1">
+      <Input
+        value={roleText}
+        onChange={(e) => setRoleText(e.target.value)}
+        placeholder="Peran/bidang yang kamu jajaki"
+        maxLength={80}
+      />
+      <Textarea
+        value={questionText}
+        onChange={(e) => setQuestionText(e.target.value)}
+        placeholder="Pertanyaan yang ingin kamu tanyakan ke narasumber"
+        className="min-h-[70px]"
+        maxLength={500}
+      />
+      <Button
+        type="button"
+        size="sm"
+        disabled={submitting || !roleText.trim() || !questionText.trim()}
+        onClick={handleSubmit}
+      >
+        {submitting ? "Mengirim..." : "Minta dijembatani"}
+      </Button>
+    </div>
+  );
+}
+
 export default function DesainLangkah({
   content,
   medanNama,
   role,
   initialLangkah,
   onLangkahChange,
+  userId,
+  province,
 }: Props) {
   const [langkah, setLangkah] = useState(initialLangkah || "");
   const boxRef = useRef<HTMLTextAreaElement>(null);
@@ -131,6 +220,12 @@ export default function DesainLangkah({
                 </p>
                 <p className="text-sm leading-relaxed text-foreground/90">{sub(content.pitch)}</p>
                 <CopyButton text={sub(content.pitch)} />
+                <div className="border-t border-border pt-3 mt-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
+                    Atau, minta dijembatani langsung
+                  </p>
+                  <BridgeRequestForm userId={userId} medanNama={medanNama} province={province} />
+                </div>
               </div>
             )}
 
