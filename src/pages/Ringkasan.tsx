@@ -256,6 +256,21 @@ export default function Ringkasan() {
                   </span>
                 ))}
               </div>
+              {/* Refleksi kompetensi (why/step) — fix Hukum 1, Audit Pertanyaan 6 Jul */}
+              {surat.refleksiSkill.length > 0 && (
+                <div className="mt-6 space-y-6">
+                  {surat.refleksiSkill.map((qa, i) => (
+                    <div key={i} className="print:break-inside-avoid">
+                      <p className="font-[Outfit] text-sm font-semibold leading-snug text-[hsl(var(--mid-blue))]">
+                        {qa.question}
+                      </p>
+                      <p className="mt-2 whitespace-pre-wrap text-[16px] leading-loose text-[hsl(var(--ink-deep))]/90">
+                        {qa.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           )}
 
