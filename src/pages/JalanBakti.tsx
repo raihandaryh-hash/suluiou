@@ -629,6 +629,8 @@ export default function JalanBakti() {
                 role={d.roles[0] || null}
                 initialLangkah={d.langkah}
                 onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
+                userId={user?.id ?? null}
+                province={province ?? null}
               />
             ) : (
               <p className="text-sm text-muted-foreground">
