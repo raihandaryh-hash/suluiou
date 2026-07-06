@@ -19,6 +19,8 @@ import {
   worldSection,
   jabarSection,
   expertSection,
+  sdgSection,
+  gigEconomySection,
   type Persona,
 } from '@/data/insightContent';
 
@@ -135,6 +137,32 @@ export default function DataMendalam() {
         </DataReveal>
       </section>
       <UsefulFeedback section="dunia" persona={persona} />
+
+      {/* SDG wajah Indonesia (Pusat Rujukan #7, Evidence Pass 5 Jul) */}
+      <section id="sdg" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader headline={sdgSection.headline} intro={sdgSection.intro[persona]} />
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {sdgSection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona={persona} />
+            ))}
+          </div>
+        </DataReveal>
+      </section>
+      <UsefulFeedback section="sdg" persona={persona} />
+
+      {/* Gig economy Indonesia (Pusat Rujukan #7, riset 6 Jul) */}
+      <section id="gig-economy" className="container mx-auto px-6 py-16 max-w-6xl">
+        <SectionHeader headline={gigEconomySection.headline} intro={gigEconomySection.intro[persona]} />
+        <DataReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {gigEconomySection.cards.map((c, i) => (
+              <StatCard key={i} card={c as StatCardData} persona={persona} />
+            ))}
+          </div>
+        </DataReveal>
+      </section>
+      <UsefulFeedback section="gig-economy" persona={persona} />
 
       {/* Konteks Jawa Barat */}
       <section id="jabar" className="container mx-auto px-6 py-16 max-w-6xl">
