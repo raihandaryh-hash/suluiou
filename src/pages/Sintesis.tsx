@@ -154,6 +154,8 @@ export default function Sintesis() {
             sdgTags?: string[];
             subPicks?: string[];
             peduliPicks?: string[];
+            roles?: string[];
+            langkah?: string;
           };
           const f = (p4.data?.data ?? {}) as SintesisData;
           setFondasi(a);
