@@ -7,26 +7,26 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 type Payung = {
-  id: string;
-  judul: string;
-  ajakan: string;
-  ekstrovert: string;
-  introvert: string;
-  langkahDefault: string;
+  readonly id: string;
+  readonly judul: string;
+  readonly ajakan: string;
+  readonly ekstrovert: string;
+  readonly introvert: string;
+  readonly langkahDefault: string;
 };
 
 type Gerakan3 = {
-  payung: Payung[];
-  pitchJudul: string;
-  pitch: string;
-  queriesJudul: string;
-  queries: string[];
-  aiPromptJudul: string;
-  aiPrompt: string;
-  bridge: string;
-  langkahNudge: string;
-  langkahPlaceholder: string;
-  bridgeAksi: string;
+  readonly payung: readonly Payung[];
+  readonly pitchJudul: string;
+  readonly pitch: string;
+  readonly queriesJudul: string;
+  readonly queries: readonly string[];
+  readonly aiPromptJudul: string;
+  readonly aiPrompt: string;
+  readonly bridge: string;
+  readonly langkahNudge: string;
+  readonly langkahPlaceholder: string;
+  readonly bridgeAksi: string;
 };
 
 type Props = {
