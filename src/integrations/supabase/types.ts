@@ -228,6 +228,39 @@ export type Database = {
           },
         ]
       }
+      bridge_requests: {
+        Row: {
+          created_at: string
+          id: string
+          matched_lm_id: string | null
+          province: string | null
+          question_text: string
+          role_text: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          matched_lm_id?: string | null
+          province?: string | null
+          question_text: string
+          role_text: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          matched_lm_id?: string | null
+          province?: string | null
+          question_text?: string
+          role_text?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       class_enrollments: {
         Row: {
           class_id: string
@@ -361,6 +394,36 @@ export type Database = {
           updated_at?: string
           values_sorted?: string[] | null
           wa_number?: string | null
+        }
+        Relationships: []
+      }
+      lm_narasumber: {
+        Row: {
+          aktif: boolean
+          created_at: string
+          id: string
+          nama: string
+          profesi: string
+          provinsi: string | null
+          wa_contact: string
+        }
+        Insert: {
+          aktif?: boolean
+          created_at?: string
+          id?: string
+          nama: string
+          profesi: string
+          provinsi?: string | null
+          wa_contact: string
+        }
+        Update: {
+          aktif?: boolean
+          created_at?: string
+          id?: string
+          nama?: string
+          profesi?: string
+          provinsi?: string | null
+          wa_contact?: string
         }
         Relationships: []
       }
