@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
 import Cite from '@/components/Cite';
 import { richGlossary } from '@/components/Istilah';
@@ -92,7 +94,73 @@ function NeetTable() {
   );
 }
 
+// ── STEPPER 3 langkah (Undangan / Realita / Jalan — ACC 5 Jul).
+// currentStep TIDAK dipersist: reload = mulai dari step 1. Pola = JalanBakti.
+const TOTAL_STEPS = 3;
+type StepId = 1 | 2 | 3;
+
+function StepProgress({ step }: { step: StepId }) {
+  const labels = M.stepper.labels;
+  return (
+    <div className="sticky top-0 z-20 -mx-6 mb-8 border-b border-border bg-background/85 px-6 py-3 backdrop-blur">
+      <div className="flex items-center justify-between text-xs font-medium text-muted-foreground">
+        {([1, 2, 3] as StepId[]).map((s, i) => (
+          <div key={s} className="flex items-center gap-2 flex-1">
+            <span
+              className={cn(
+                'flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[11px]',
+                s === step
+                  ? 'border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))] font-semibold'
+                  : s < step
+                    ? 'border-[hsl(var(--torch-gold))]/50 bg-[hsl(var(--torch-gold))]/10 text-foreground/70'
+                    : 'border-border text-muted-foreground/60',
+              )}
+            >
+              {s}
+            </span>
+            <span className={cn('hidden sm:inline truncate', s === step && 'text-foreground font-semibold')}>
+              {labels[s]}
+            </span>
+            {i < 2 && <span className="flex-1 h-px bg-border mx-1" aria-hidden />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StepNav({ step, onBack, onNext }: { step: StepId; onBack: () => void; onNext: () => void }) {
+  return (
+    <div className="flex items-center justify-between pt-10 pb-4">
+      {step > 1 ? (
+        <Button variant="outline" onClick={onBack}>
+          <ChevronLeft className="mr-1 h-4 w-4" />
+          {M.stepper.kembaliLabel}
+        </Button>
+      ) : (
+        <span />
+      )}
+      {step < TOTAL_STEPS && (
+        <Button onClick={onNext}>
+          {M.stepper.lanjutLabel}
+          <ChevronRight className="ml-1 h-4 w-4" />
+        </Button>
+      )}
+    </div>
+  );
+}
+
 const Mukadimah = () => {
+  const [step, setStep] = useState<StepId>(1);
+  const goNext = () => {
+    setStep((s) => (s < TOTAL_STEPS ? ((s + 1) as StepId) : s));
+    window.scrollTo({ top: 0 });
+  };
+  const goBack = () => {
+    setStep((s) => (s > 1 ? ((s - 1) as StepId) : s));
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <main className="min-h-screen bg-background">
       <header className="py-5">
@@ -103,76 +171,100 @@ const Mukadimah = () => {
 
       <div className="container mx-auto px-6 py-10 md:py-16">
         <div className="measure mx-auto">
-          <h1 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
-            <em>{M.salam.italic}</em>
-            {M.salam.rest}
-          </h1>
+          <StepProgress step={step} />
 
-          <div className="space-y-5 text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {M.intro.map((p, i) => (
-              <p key={i}>{rich(p)}</p>
-            ))}
-          </div>
+          {/* ══════════════ STEP 1 — UNDANGAN ══════════════ */}
+          {step === 1 && (
+            <>
+              <h1 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
+                <em>{M.salam.italic}</em>
+                {M.salam.rest}
+              </h1>
 
-          <Jeda />
+              <div className="space-y-5 text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {M.intro.map((p, i) => (
+                  <p key={i}>{rich(p)}</p>
+                ))}
+              </div>
 
-          <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {rich(M.musibah)}
-          </p>
+              <StepNav step={step} onBack={goBack} onNext={goNext} />
+            </>
+          )}
 
-          <Jeda />
+          {/* ══════════════ STEP 2 — REALITA ══════════════ */}
+          {step === 2 && (
+            <>
+              <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {rich(M.musibah)}
+              </p>
 
-          <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {rich(M.faktanya)}
-          </p>
-          <p className="mt-3 text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {richGlossary(M.neetLead)}
-          </p>
+              <Jeda />
 
-          <NeetTable />
+              <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {rich(M.faktanya)}
+              </p>
+              <p className="mt-3 text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {richGlossary(M.neetLead)}
+              </p>
 
-          <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
-            {M.rentangUmur}
-          </p>
+              <NeetTable />
 
-          <Jeda />
+              <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {M.rentangUmur}
+              </p>
 
-          <p className="font-heading font-medium text-lg md:text-xl text-foreground mt-2 mb-10 leading-[1.5]">
-            {M.pertanyaan}
-          </p>
+              <p className="mt-5 text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                {M.scarring}
+                <Cite id="mukadimah-neet-scarring" />
+              </p>
 
-          <div className="space-y-16">
-            {M.steps.map((step) => (
-              <section key={step.ord}>
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1.5">
-                  {step.ord}
+              <StepNav step={step} onBack={goBack} onNext={goNext} />
+            </>
+          )}
+
+          {/* ══════════════ STEP 3 — JALAN ══════════════ */}
+          {step === 3 && (
+            <>
+              <p className="font-heading font-medium text-lg md:text-xl text-foreground mt-2 mb-10 leading-[1.5]">
+                {M.pertanyaan}
+              </p>
+
+              <div className="space-y-16">
+                {M.steps.map((s) => (
+                  <section key={s.ord}>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1.5">
+                      {s.ord}
+                    </p>
+                    <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-5">
+                      {s.heading}
+                    </h2>
+                    <div className="space-y-5">
+                      {s.blocks.map((block, i) => (
+                        <BlockRenderer key={i} block={block} />
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+
+              <div className="mt-16 pt-8 border-t border-border">
+                <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
+                  {rich(M.closing)}
                 </p>
-                <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-5">
-                  {step.heading}
-                </h2>
-                <div className="space-y-5">
-                  {step.blocks.map((block, i) => (
-                    <BlockRenderer key={i} block={block} />
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
+              </div>
 
-          <div className="mt-16 pt-8 border-t border-border">
-            <p className="text-base md:text-[17px] leading-[1.75] text-foreground/90">
-              {rich(M.closing)}
-            </p>
-          </div>
+              <div className="mt-10 flex justify-center">
+                <Button asChild size="lg" className="group">
+                  <Link to={M.cta.to}>
+                    {M.cta.label}
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
 
-          <div className="mt-10 flex justify-center">
-            <Button asChild size="lg" className="group">
-              <Link to={M.cta.to}>
-                {M.cta.label}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </div>
+              <StepNav step={step} onBack={goBack} onNext={goNext} />
+            </>
+          )}
         </div>
       </div>
     </main>
