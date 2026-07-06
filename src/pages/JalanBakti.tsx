@@ -641,9 +641,41 @@ export default function JalanBakti() {
         </>
       )}
 
-      {/* ══════════════ STEP 4 — PENUTUP ══════════════ */}
+      {/* ══════════════ STEP 4 — TUNTASKAN (panen-mini) ══════════════ */}
       {step === 4 && (
         <>
+          <section className="space-y-5">
+            <SectionHeader title={C.ui.tuntaskanSectionTitle} />
+            <p className="text-base leading-relaxed text-foreground/90">{C.tuntaskan.intro}</p>
+            {(() => {
+              const medanNama = C.klaster.find((k) => k.id === d.medan)?.nama || "";
+              const siapaNames = [...C.lensaKepedulian.tier1Items, ...C.lensaKepedulian.tier2Wajah]
+                .filter((x) => d.peduliPicks.includes(x.id))
+                .map((x) => x.label);
+              const rows: { label: string; value: string }[] = [
+                { label: C.tuntaskan.labelMedan, value: medanNama },
+                { label: C.tuntaskan.labelSiapa, value: siapaNames.join(", ") },
+                { label: C.tuntaskan.labelPeran, value: d.roles.join(", ") },
+                { label: C.tuntaskan.labelLangkah, value: d.langkah.trim() },
+              ];
+              return (
+                <div className="rounded-2xl border border-border bg-secondary/40 p-6 space-y-4">
+                  {rows.map((r) => (
+                    <div key={r.label}>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">
+                        {r.label}
+                      </p>
+                      <p className={`text-base leading-relaxed ${r.value ? "text-foreground" : "text-muted-foreground italic"}`}>
+                        {r.value || C.tuntaskan.kosong}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
+            <p className="text-base leading-relaxed text-foreground/90">{C.tuntaskan.bridge}</p>
+          </section>
+
           <StepNav step={step} onBack={goBack} onNext={goNext} />
 
           {/* ── SAVE ── */}
