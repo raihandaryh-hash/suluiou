@@ -776,6 +776,104 @@ export const worldLayerSection = {
     'The Millennium Project, 15 Global Challenges; SESRIC, OIC Economic Outlook 2024 (pangsa PDB nominal 2023; dalam paritas daya beli sekitar 15%)',
 };
 
+// Pusat Rujukan — SDG wajah Indonesia. Semua angka dari Evidence Pass 5 Jul 2026
+// (verifikasi primer satu-per-satu, lihat Evidence Base Notion). SDG 3 vs SDG 10
+// masih drift belum diputuskan Raihan — sengaja TIDAK dimasukkan di sini.
+export const sdgSection = {
+  tag: 'WAJAH SDG DI INDONESIA',
+  headline: 'Di balik 17 tujuan global, ada angka nyata yang menyentuh hidup sehari-hari.',
+  intro: {
+    siswa: 'Ini bukan daftar cita-cita PBB. Ini kondisi nyata di sekitarmu, per angka.',
+    orangtua: 'Data ini membantu memahami tantangan struktural yang dihadapi generasi anak Anda.',
+    gurubk: 'Angka yang bisa jadi pembuka diskusi kelas soal isu global yang membumi di Indonesia.',
+  } as Record<ContentPersona, string>,
+  cards: [
+    {
+      value: '19,8%', label: 'balita Indonesia mengalami stunting (SDG 2)',
+      detail: 'Setara sekitar 4,48 juta balita. Turun dari tahun-tahun sebelumnya, tapi masih jauh dari target nasional 14%.',
+      source: 'Kemenkes/BKPK, SSGI 2024', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Ini bukan angka jauh — bisa jadi tetangga atau keponakanmu sendiri.',
+        orangtua: 'Gizi 1000 hari pertama menentukan potensi belajar anak bertahun-tahun ke depan.',
+        gurubk: 'Latar gizi siswa bisa jadi salah satu faktor tak terlihat di balik performa akademis.',
+      } as Record<ContentPersona, string>,
+    },
+    {
+      value: '73,42%', label: 'angka partisipasi sekolah usia 16-18 tahun (SDG 4)',
+      detail: 'Artinya sekitar 1 dari 4 remaja usia SMA di Indonesia sedang tidak bersekolah sama sekali.',
+      source: 'BPS, Susenas 2023', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Kalau kamu masih sekolah sekarang, kamu ada di kelompok yang lebih beruntung dari 1 dari 4 temanmu.',
+        orangtua: 'Mempertahankan anak tetap sekolah sampai SMA sendiri sudah pencapaian, bukan hal yang taken for granted.',
+        gurubk: 'Data ini relevan untuk memahami mengapa sebagian siswa putus di tengah jalan sebelum sempat konseling.',
+      } as Record<ContentPersona, string>,
+    },
+    {
+      value: '92,64%', label: 'rumah tangga dengan akses air minum layak (SDG 6)',
+      detail: 'Angka nasional cukup tinggi, tapi kesenjangan wilayah tetap besar — daerah tertentu jauh di bawah rata-rata ini.',
+      source: 'BPS, Indikator Perumahan dan Lingkungan 2024', tone: 'positive' as Tone,
+      artinya: {
+        siswa: 'Kalau air bersih di rumahmu terasa biasa saja, itu sesuatu yang belum tentu dirasakan semua orang di Indonesia.',
+        orangtua: 'Akses dasar ini sering jadi pembeda nyata antar-wilayah yang tidak terlihat dari angka nasional saja.',
+        gurubk: 'Kesenjangan wilayah di balik angka nasional ini bisa jadi materi diskusi kepedulian sosial.',
+      } as Record<ContentPersona, string>,
+    },
+    {
+      value: '4,74%', label: 'Tingkat Pengangguran Terbuka nasional (SDG 8)',
+      detail: 'Rata-rata upah buruh Rp3,33 juta/bulan. Angka TPT membaik dari tahun ke tahun, tapi kualitas pekerjaan (upah, kepastian) adalah cerita lain.',
+      source: 'BPS, rilis resmi Sakernas November 2025', tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Turunnya angka pengangguran tidak otomatis berarti pekerjaan yang tersedia semuanya layak.',
+        orangtua: 'Angka makro membaik, tapi kualitas pekerjaan anak setelah lulus tetap perlu dicermati sendiri.',
+        gurubk: 'Bahan diskusi: angka pengangguran turun, tapi apakah itu representasi kualitas pekerjaan yang tersedia?',
+      } as Record<ContentPersona, string>,
+    },
+  ],
+};
+
+// Pusat Rujukan — Gig Economy Indonesia. Riset 6 Jul 2026, semua ber-sumber primer.
+export const gigEconomySection = {
+  tag: 'DUNIA KERJA YANG BERUBAH BENTUK',
+  headline: 'Bukan cuma soal ojek online — ekonomi gig sudah jadi bagian besar dunia kerja Indonesia.',
+  intro: {
+    siswa: 'Kalau nanti kamu kerja lepas atau jadi mitra platform, ini konteks yang perlu kamu tahu duluan.',
+    orangtua: 'Pola kerja anak Anda mungkin akan berbeda jauh dari yang Anda kenal — ini datanya.',
+    gurubk: 'Konteks dunia kerja yang berubah, relevan untuk konseling siswa yang tertarik jalur non-konvensional.',
+  } as Record<ContentPersona, string>,
+  cards: [
+    {
+      value: '59,40%', label: 'pekerja Indonesia berada di sektor informal',
+      detail: 'Setara sekitar 86,58 juta orang (Februari 2025). Proporsinya relatif stabil di angka 57-60% selama 3 tahun terakhir.',
+      source: 'BPS, rilis resmi Sakernas Februari 2025', tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Lebih dari separuh pekerja Indonesia tidak punya status kerja formal seperti karyawan tetap.',
+        orangtua: 'Jalur karier "kerja di kantor sampai pensiun" makin jadi minoritas, bukan lagi standar.',
+        gurubk: 'Konteks penting saat siswa bertanya soal jalur karier di luar kerja kantoran konvensional.',
+      } as Record<ContentPersona, string>,
+    },
+    {
+      value: '430rb–2,3 juta', label: 'orang menjadikan kerja gig sebagai mata pencaharian utama',
+      detail: 'Setara sekitar 0,3-1,7% angkatan kerja nasional. Mayoritas di sektor transportasi (ride-hailing, kurir, pengantaran).',
+      source: 'Permana dkk. (2022), dikutip DPR RI — Pusaka Info Singkat, Maret 2025', tone: 'neutral' as Tone,
+      artinya: {
+        siswa: 'Ini jalur nyata yang sudah dijalani ratusan ribu hingga jutaan orang, bukan sekadar kerja sampingan.',
+        orangtua: 'Sebagian anak muda menjadikan ini pekerjaan utama, bukan cuma pengisi waktu.',
+        gurubk: 'Data untuk menjawab siswa yang bertanya soal kerja gig sebagai pilihan jangka panjang.',
+      } as Record<ContentPersona, string>,
+    },
+    {
+      value: '8,99 dari 39,7 juta', label: 'peserta BPJS Ketenagakerjaan yang berasal dari kategori pekerja mandiri (mencakup gig)',
+      detail: 'Kepesertaan kategori Bukan Penerima Upah ini sukarela, bukan wajib dari platform — banyak pekerja gig belum terlindungi jaminan sosial.',
+      source: 'Data BPJS Ketenagakerjaan 2025, dikutip Kemnaker', tone: 'negative' as Tone,
+      artinya: {
+        siswa: 'Kalau kamu kerja lepas nanti, jaminan sosial itu tanggung jawabmu sendiri untuk diurus, bukan otomatis.',
+        orangtua: 'Ini salah satu risiko nyata pekerjaan non-formal yang perlu dipersiapkan, bukan diabaikan.',
+        gurubk: 'Poin penting untuk didiskusikan kalau siswa tertarik jalur freelance/gig jangka panjang.',
+      } as Record<ContentPersona, string>,
+    },
+  ],
+};
+
 export const dataSources = [
   'BPS Sakernas 2024 dan 2025',
   'WEF Future of Jobs Report 2025',
