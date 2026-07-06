@@ -300,18 +300,16 @@ export const jalanBaktiContent = {
     bridgeAksi: "Simpan langkahmu. Nanti di Rencana Aksi, kita ubah jadi komitmen yang benar-benar bisa kamu jalankan.",
   },
 
-  // ── Closing refleksi sintesis ──
-  closing: {
-    intro: "Kamu sudah menjelajah jauh: mengenal dirimu, melihat kebutuhan dunia, dan menemukan siapa yang ingin kamu tolong. Sekarang, satukan semuanya.",
-    scaffoldTitle: "Sebelum menulis, renungkan empat hal ini:",
-    scaffold: [
-      { q: "Apa kekuatanku?", cue: "yang kamu temukan saat mengenali dirimu" },
-      { q: "Apa yang aku sukai?", cue: "hal yang membuatmu merasa hidup" },
-      { q: "Apa yang perlu kukembangkan?", cue: "agar kamu lebih siap memberi" },
-      { q: "Kontribusi apa yang ingin kuberikan?", cue: "untuk klaster & kelompok yang tadi kamu tandai" },
-    ],
-    prompt: "Ceritakan: kamu ingin berbakti seperti apa? Bermanfaat untuk siapa?",
-    placeholder: "Tulis sebebasnya...",
+  // ── Tuntaskan: panen-mini (menggantikan closing 4Q lama — superseded Tenunan,
+  // ACC hapus 5-6 Jul). Recap pilihan user, bukan pertanyaan baru. ──
+  tuntaskan: {
+    intro: "Lihat kembali yang sudah kamu kumpulkan di halaman ini.",
+    labelMedan: "Medanmu",
+    labelSiapa: "Yang ingin kamu tolong",
+    labelPeran: "Peran yang menyala",
+    labelLangkah: "Langkah pertamamu",
+    kosong: "Belum kamu isi. Tidak apa-apa, kamu bisa kembali kapan saja.",
+    bridge: "Semua ini belum final, dan memang tidak harus final. Di halaman berikutnya, kita satukan dengan apa yang kamu temukan tentang dirimu.",
   },
 
   ui: {
@@ -319,7 +317,7 @@ export const jalanBaktiContent = {
     sdgSectionTitle: "Kebutuhan Umat Manusia",
     klasterSectionTitle: "Tujuh Jalan Bakti",
     lensaSectionTitle: "Siapa yang Ingin Kamu Tolong?",
-    closingSectionTitle: "Refleksimu",
+    tuntaskanSectionTitle: "Panen Kecilmu",
     saveLabel: "Simpan",
     savedToast: "Catatan tersimpan ✓",
     errorToast: "Gagal menyimpan, coba lagi",
