@@ -253,6 +253,9 @@ export const api = {
     economic_sectors: string[];
     opportunities_2030: string | null;
     narrative_hooks: string[];
+    fardhu_kifayah_gaps: string[];
+    iou_program_relevance: string | null;
+    key_questions: string[];
   } | null> {
     const name = province?.trim();
     if (!name) return null;
@@ -261,7 +264,7 @@ export const api = {
       const { supabase } = await import('@/integrations/supabase/client');
       const { data, error } = await supabase
         .from('province_contexts')
-        .select('economic_sectors, opportunities_2030, narrative_hooks')
+        .select('economic_sectors, opportunities_2030, narrative_hooks, fardhu_kifayah_gaps, iou_program_relevance, key_questions')
         .ilike('province', name)
         .maybeSingle();
       if (error || !data) return null;
@@ -269,6 +272,9 @@ export const api = {
         economic_sectors: (data.economic_sectors as string[] | null) ?? [],
         opportunities_2030: (data.opportunities_2030 as string | null) ?? null,
         narrative_hooks: (data.narrative_hooks as string[] | null) ?? [],
+        fardhu_kifayah_gaps: (data.fardhu_kifayah_gaps as string[] | null) ?? [],
+        iou_program_relevance: (data.iou_program_relevance as string | null) ?? null,
+        key_questions: (data.key_questions as string[] | null) ?? [],
       };
     }
 
@@ -282,6 +288,9 @@ export const api = {
         economic_sectors: data.economic_sectors ?? [],
         opportunities_2030: data.opportunities_2030 ?? null,
         narrative_hooks: data.narrative_hooks ?? [],
+        fardhu_kifayah_gaps: data.fardhu_kifayah_gaps ?? [],
+        iou_program_relevance: data.iou_program_relevance ?? null,
+        key_questions: data.key_questions ?? [],
       };
     } catch {
       return null;
