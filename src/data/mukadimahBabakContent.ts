@@ -33,6 +33,10 @@ export const mukadimahBabak = {
 
   rentangUmur: "Padahal, ini rentang umur yang sangat menentukan dalam hidup seseorang.",
 
+  // Restorasi riset 20 Jun (sitasi re-verified 6 Jul: OECD WP 164 + Ralston dkk. 2022).
+  // Kualitatif, tanpa angka — NO OVERCLAIM. Cite id: mukadimah-neet-scarring.
+  scarring: "Yang membuat para peneliti khawatir bukan cuma angkanya hari ini. Studi jangka panjang di berbagai negara menemukan bahwa masa NEET di usia muda meninggalkan bekas: peluang kerja dan penghasilan yang lebih rendah, bahkan hingga puluhan tahun kemudian. Itulah kenapa langkah yang kamu ambil di usia ini bukan langkah kecil.",
+
   pertanyaan: "Lantas, apa yang harus kita lakukan? Bagaimana caranya kita bisa bangkit memimpin, ketika bahkan untuk hidup sehari-hari pun begitu berat rasanya di zaman penuh cobaan ini?",
 
   steps: [
@@ -74,4 +78,15 @@ export const mukadimahBabak = {
   closing: "Nah, setelah mengenal dunia, diri, dan jalan baktimu, nanti kita akan tutup dengan membuat _rencana aksi_ untuk ke depannya, termasuk mendata keterampilan apa saja yang ingin dan perlu kamu pelajari supaya kamu bisa tumbuh jadi versi terbaikmu.",
 
   cta: { label: "Siap? Yuk kita mulai dari step pertama", to: "/insight" },
+
+  // ── STEPPER 3 langkah (ACC 5 Jul: Undangan / Realita / Jalan — jangan per-poin) ──
+  stepper: {
+    lanjutLabel: "Lanjut",
+    kembaliLabel: "Kembali",
+    labels: {
+      1: "Undangan",
+      2: "Realita",
+      3: "Jalan",
+    } as Record<number, string>,
+  },
 };
