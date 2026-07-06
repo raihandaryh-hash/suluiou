@@ -15,13 +15,15 @@ import { useProvince } from "@/hooks/useProvince";
 import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
 import JalanBaktiOpening from "@/components/JalanBaktiOpening";
-import PetaMedan from "@/components/PetaMedan";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 
 type ProvinceContext = {
   economic_sectors: string[];
   opportunities_2030: string | null;
   narrative_hooks: string[];
+  fardhu_kifayah_gaps: string[];
+  iou_program_relevance: string | null;
+  key_questions: string[];
 };
 
 const LS_KEY = "jalan_bakti_v1";
@@ -440,27 +442,34 @@ export default function JalanBakti() {
                 <p className="text-xs text-muted-foreground italic">
                   Ini gambaran umum sebagai titik awal, bukan data resmi atau vonis.
                 </p>
+
+                {/* Fardhu kifayah — pilot Jawa Barat, blueprint Raihan 6 Jul */}
+                {provinceCtx.fardhu_kifayah_gaps.length > 0 && (
+                  <div className="space-y-3 pt-2 border-t border-border">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                      Yang masih kosong di daerahmu
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5 text-sm leading-relaxed text-foreground/85">
+                      {provinceCtx.fardhu_kifayah_gaps.map((g, i) => (
+                        <li key={i}>{g}</li>
+                      ))}
+                    </ul>
+                    {provinceCtx.key_questions.length > 0 && (
+                      <div className="rounded-lg border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-4 space-y-2">
+                        {provinceCtx.key_questions.map((q, i) => (
+                          <p key={i} className="text-sm leading-relaxed text-foreground/90 italic">
+                            {q}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </section>
 
               <Separator className="my-10" />
             </>
           )}
-
-          {/* ── PETA MEDAN — funnel Dunia→Indonesia, lapis eksplorasi (ACC 6 Jul) ── */}
-          <section className="space-y-6">
-            <SectionHeader title={C.petaMedanSection.judul} subtitle={C.petaMedanSection.subjudul} />
-            <PetaMedan
-              rumpun={C.petaMedanSection.rumpun}
-              klaster={C.klaster}
-              instruksi={C.petaMedanSection.instruksi}
-              provinsiLabel={C.petaMedanSection.provinsiLabel}
-              ctaLabel={C.petaMedanSection.ctaJadikanMedan}
-              selectedMedan={d.medan}
-              onSelectMedan={selectMedan}
-            />
-          </section>
-
-          <Separator className="my-10" />
 
           {/* ── 6 KLASTER — pilih SATU medan (reversible); sub-tantangan multi di dalamnya ── */}
           <section className="space-y-6">
