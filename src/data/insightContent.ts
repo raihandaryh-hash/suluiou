@@ -1,7 +1,14 @@
 // All textual content for the /insight page. No strings hardcoded in JSX.
-// Persona-aware: 'siswa' | 'orangtua' | 'gurubk'.
+// Persona-aware: 'siswa' | 'orangtua' | 'gurubk' | 'mahasiswa'.
 
-export type Persona = 'siswa' | 'orangtua' | 'gurubk';
+// Persona keempat 'mahasiswa' (Fork Dua-Pintu, ACC Raihan 6 Jul) — BELUM punya
+// varian konten sendiri (copy dewasa = antrean #5, gate Fable/Raihan, belum ditulis).
+// ContentPersona = kunci yang benar-benar punya entri di Record konten (artinya,
+// subtext, dll). 'mahasiswa' fallback ke 'siswa' di titik pemakaian
+// (lihat resolveContentPersona di Insight.tsx) — TIDAK di-duplikasi di sini,
+// supaya begitu copy dewasa lands, tinggal ganti fallback jadi entri asli.
+export type Persona = 'siswa' | 'orangtua' | 'gurubk' | 'mahasiswa';
+export type ContentPersona = Exclude<Persona, 'mahasiswa'>;
 export type Tone = 'negative' | 'positive' | 'neutral';
 
 // Shared optional-concrete-steps shape used by stat cards / data items.
@@ -18,7 +25,7 @@ export type InsightCard = {
   detail: string;
   source: string;
   tone: Tone;
-  artinya?: Record<Persona, string>;
+  artinya?: Record<ContentPersona, string>;
   glossaryTerm?: string;
   dampak?: string[];
   langkahKongkret?: LangkahKongkret;
@@ -38,7 +45,7 @@ export const personaTeaserSection = {
   neutralOption: { id: 'neutral' as const, label: 'Lihat semua perspektif' },
 };
 
-export const personaShortLabel: Record<Persona, string> = {
+export const personaShortLabel: Record<ContentPersona, string> = {
   siswa: 'Siswa',
   orangtua: 'Orang tua',
   gurubk: 'Guru BK',
@@ -51,7 +58,7 @@ export const hero = {
     siswa: 'Di Mukadimah tadi kita sepakat: langkah pertama adalah mengenali realita. Inilah lapangan yang sebentar lagi kamu masuki, supaya kamu melangkah dengan mata terbuka.',
     orangtua: 'Langkah pertama mengenali realita. Inilah kondisi dunia kerja yang akan dimasuki anak Anda, disajikan apa adanya supaya keputusan bisa diambil dengan jernih.',
     gurubk: 'Data yang selama ini sulit kamu temukan dalam satu tempat, dikurasi untuk keperluan konseling.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   countdown: {
     targetIso: '2030-01-01',
     years: { suffix: 'tahun tersisa menuju 2030' },
@@ -68,7 +75,7 @@ export const indonesiaSection = {
     siswa: 'Ini lapangan yang sebentar lagi kamu masuki. Cuma supaya kamu kenal medannya sebelum melangkah.',
     orangtua: 'Generasi anak Anda menghadapi kondisi yang berbeda dari yang Anda hadapi dulu. Datanya spesifik.',
     gurubk: 'Data ini bisa jadi titik masuk percakapan karier yang lebih jujur bersama siswa Anda.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   cards: [
     {
       value: '19,44%', label: 'pemuda Indonesia berstatus NEET',
@@ -78,7 +85,7 @@ export const indonesiaSection = {
         siswa: 'Satu dari lima pemuda seusiamu saat ini belum terlibat dalam pendidikan, pekerjaan, atau pelatihan apa pun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
         gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
       dampak: [
         'Hilangnya bonus demografi: Potensi tenaga kerja besar terbuang, sehingga pertumbuhan ekonomi melambat.',
         'Beban negara & keluarga: Meningkatkan pengeluaran sosial dan mengurangi pendapatan nasional.',
@@ -94,7 +101,7 @@ export const indonesiaSection = {
         siswa: 'Ijazah tanpa kecocokan arah tidak melindungi dari pengangguran.',
         orangtua: 'Nama kampus lebih sedikit pengaruhnya dari kecocokan antara jurusan dan kemampuan nyata anak.',
         gurubk: 'Mismatch ini terjadi jauh sebelum siswa lulus, dimulai dari pilihan di kelas 12.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '35,36% & 70%', label: 'mismatch pendidikan dan pekerjaan',
@@ -104,7 +111,7 @@ export const indonesiaSection = {
         siswa: 'Kamu masih punya waktu untuk mengenal diri lebih baik sebelum memilih.',
         orangtua: 'Pilihan yang terburu-buru jauh lebih mahal dari waktu yang diambil untuk mengenal anak.',
         gurubk: 'Bukan masalah motivasi. Masalah minimnya refleksi diri saat keputusan diambil.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '20%', label: 'penurunan pekerjaan entry-level di sektor digital dan tech',
@@ -114,7 +121,7 @@ export const indonesiaSection = {
         siswa: 'AI tidak hanya mengambil pekerjaan orang dewasa; ia mengambil titik masuk pertama ke karier.',
         orangtua: 'Skill yang membuat seseorang naik level berbeda dari skill yang cukup untuk masuk kerja dulu.',
         gurubk: 'Siswa perlu dipersiapkan untuk tidak bergantung pada entry-level job sebagai satu-satunya opsi.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '1,72 juta', label: 'kebutuhan tenaga kerja di sektor ekonomi hijau Indonesia hingga 2030',
@@ -124,7 +131,7 @@ export const indonesiaSection = {
         siswa: 'Ada sektor besar yang tumbuh cepat dan belum ada cukup orang yang datang.',
         orangtua: 'Jalur karier dengan prospek jangka panjang yang kuat dan shortage nyata.',
         gurubk: 'Alternatif konkret bagi siswa yang menyukai sains, lingkungan, atau teknologi.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
   ],
 };
@@ -139,7 +146,7 @@ export const linkMatchSection = {
     siswa: 'Link and Match akan lebih berhasil jika kamu memilih bidang yang sesuai dengan kekuatanmu, bukan hanya yang "sedang dibutuhkan industri" secara umum.',
     orangtua: 'Kerjasama sekolah-industri penting, tapi pemahaman mendalam tentang anak lebih menentukan pilihan yang tepat.',
     gurubk: 'Data pasar kerja terkini dapat memperkuat peran Anda membimbing siswa memilih kompetensi untuk industri masa depan.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
 };
 
 // ─── REALITA DUNIA KERJA ──────────────────────────────────────────
@@ -150,7 +157,7 @@ export const laborRealitySection = {
     siswa: 'Sebelum memilih jalur, kenali dulu medan yang akan kamu masuki.',
     orangtua: 'Dunia kerja yang akan dimasuki anak Anda berbeda secara struktural dari yang Anda masuki dulu.',
     gurubk: 'Data ini berguna untuk membangun percakapan karier yang jujur, bukan yang hanya menenangkan.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   cards: [
     {
       value: '57,95%', label: 'tenaga kerja Indonesia bekerja di sektor informal',
@@ -162,7 +169,7 @@ export const laborRealitySection = {
         siswa: 'Sistem tidak sedang mempersiapkan tempat untukmu secara otomatis. Kamu yang harus mempersiapkan diri.',
         orangtua: 'Stabilitas kerja yang Anda rasakan dulu bukan standar yang bisa dijanjikan untuk anak Anda.',
         gurubk: 'Mayoritas siswa Anda akan masuk ke ekosistem kerja tanpa jaring pengaman formal.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: 'K-Shaped', label: 'pemulihan ekonomi yang tidak merata',
@@ -174,7 +181,7 @@ export const laborRealitySection = {
         siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
         orangtua: 'Pertumbuhan ekonomi yang terlihat di berita tidak selalu dirasakan oleh semua lapisan masyarakat.',
         gurubk: 'Data ini membantu menjelaskan mengapa banyak siswa merasa frustrasi meski ekonomi "tumbuh".',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '15,45%', label: 'tenaga kerja Indonesia yang punya pekerjaan tambahan',
@@ -186,7 +193,7 @@ export const laborRealitySection = {
         siswa: 'Membangun lebih dari satu keahlian yang bisa menghasilkan adalah strategi, bukan kemewahan.',
         orangtua: 'Generasi anak Anda kemungkinan besar tidak akan hanya bekerja di satu tempat seumur hidup.',
         gurubk: 'Siswa perlu disiapkan untuk mengelola karier yang lebih dinamis dari generasi sebelumnya.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
   ],
 };
@@ -297,7 +304,7 @@ export const worldSection = {
     siswa: 'Ini bukan krisis global yang abstrak. Ini yang akan membentuk pilihan karier kamu.',
     orangtua: 'Investasi pendidikan yang paling aman adalah yang mempersiapkan anak untuk jenis pekerjaan yang akan ada, bukan yang sudah ada.',
     gurubk: 'Data dari WEF, McKinsey, dan Stanford. Sumber yang bisa dikutip dalam konseling.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   cards: [
     {
       value: '+78 juta', label: 'pertumbuhan neto lapangan kerja global pada 2030',
@@ -307,7 +314,7 @@ export const worldSection = {
         siswa: 'Ada pekerjaan baru, tapi butuh skill berbeda dari yang diajarkan sekarang.',
         orangtua: 'Skill anak Anda pada 2030 lebih penting dari nama kampusnya.',
         gurubk: 'Basis data untuk menjawab pertanyaan siswa soal "masih ada pekerjaan tidak nanti?"',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '39%', label: 'skill inti hari ini yang tidak akan relevan pada 2030',
@@ -317,7 +324,7 @@ export const worldSection = {
         siswa: 'Lebih dari sepertiga skill yang diajarkan sekarang mungkin tidak relevan saat kamu lulus.',
         orangtua: 'Bukan berarti kuliah sia-sia, tapi jenis kuliah dan fokus belajarnya yang perlu dipilih dengan tepat.',
         gurubk: 'Data untuk mendampingi siswa yang mempertanyakan relevansi pilihan studinya.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '23–25%', label: 'kontribusi Halal Value Chain ke PDB Indonesia',
@@ -327,7 +334,7 @@ export const worldSection = {
         siswa: 'Ada sektor besar yang kekurangan orang yang tahu cara kerjanya dari dalam.',
         orangtua: 'Jalur pendidikan berbasis nilai Islam tidak harus menutup peluang karier.',
         gurubk: 'Sektor ini bisa jadi alternatif konkret untuk siswa yang selama ini tidak melihat jalurnya.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
     {
       value: '2030–2035', label: 'puncak bonus demografi Indonesia',
@@ -337,7 +344,7 @@ export const worldSection = {
         siswa: 'Kamu masuk pasar kerja tepat di puncak bonus demografi. Ini bisa jadi keuntungan atau tekanan, tergantung persiapanmu.',
         orangtua: 'Keputusan yang dibuat hari ini untuk anak Anda adalah bagian dari keputusan nasional yang lebih besar.',
         gurubk: 'Framing ini berguna untuk menjelaskan urgency kepada siswa tanpa terasa menakut-nakuti.',
-      } as Record<Persona, string>,
+      } as Record<ContentPersona, string>,
     },
   ],
 };
@@ -350,7 +357,7 @@ export const opportunitySection = {
     siswa: 'Ada banyak pintu yang butuh orang, tapi belum cukup yang datang. Ini bukan hype. Ini kursi yang benar-benar masih kosong, dan salah satunya bisa jadi milikmu.',
     orangtua: 'Jalur karier yang paling aman bukan yang paling populer sekarang.',
     gurubk: 'Referensi untuk membuka percakapan tentang jalur yang jarang masuk radar siswa.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   items: [
     { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM. 882.000 UMKM di Jawa Barat sudah bersertifikat (terbanyak nasional). Kebutuhan Penyelia Halal dan Auditor Halal sangat besar, supply sangat sedikit. Jalur yang sangat relevan untuk lulusan pendidikan Islam yang memahami sains.', badge: 'BPJPH Februari 2026; KDEKS Jabar' },
     { number: '02', title: 'Keuangan Syariah', body: 'Aset perbankan syariah tumbuh 33,92% dalam satu tahun. Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena mismatch skills.', badge: 'OJK; KNEKS 2024' },
@@ -378,7 +385,7 @@ export const jabarSection = {
     siswa: 'Kamu tinggal di provinsi dengan salah satu paradoks terbesar Indonesia. Keputusan hari ini menentukan kamu ada di sisi pertumbuhan atau sisi pengangguran.',
     orangtua: 'Data Jabar berbeda dari rata-rata nasional. Informasi lokal ini lebih relevan untuk keputusan pendidikan anak Anda.',
     gurubk: 'Data per-kabupaten sangat bervariasi. Kabupaten asal siswa menentukan konteks peluang yang berbeda.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
 };
 
 // ─── ALUMNI YANG SUDAH MEMBUKTIKAN ────────────────────────────────
@@ -410,7 +417,7 @@ export const expertSection = {
     siswa: 'Ini bukan opini acak. Ini pakar Indonesia dengan rekam jejak yang bisa dicek.',
     orangtua: 'Pandangan akademisi dan pejabat Indonesia tentang arah pendidikan.',
     gurubk: 'Referensi yang bisa dikutip dalam presentasi atau advokasi kepada pihak sekolah.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   quotes: [
     {
       quote: 'Dunia berubah, namun masih banyak perguruan tinggi masih bergerak dengan tempo lama. Belum lagi hadirnya AI yang meruntuhkan monopoli pengetahuan. Perguruan tinggi yang mampu membaca momentum akan bertahan, yang tidak akan ditinggalkan.',
@@ -482,7 +489,7 @@ export const faktorPenghambatSection = {
 };
 
 // ─── PERSONA CALLOUT ──────────────────────────────────────────────
-export const personaCallout: Record<Persona, { headline: string; body: string }> = {
+export const personaCallout: Record<ContentPersona, { headline: string; body: string }> = {
   siswa: {
     headline: 'Kamu sudah tahu kondisinya.',
     body: 'Data yang kamu baca bukan takdir. Itu peta. Yang menentukan kamu ada di mana dalam peta itu adalah pilihan yang kamu buat sekarang, dan seberapa dalam kamu mengenal diri sendiri sebelum memilih.',
@@ -504,7 +511,7 @@ export const ctaSection = {
     siswa: 'Ada dua langkah yang bisa diambil sekarang.',
     orangtua: 'Ada dua langkah yang bisa diambil sekarang.',
     gurubk: 'Ada dua langkah yang bisa diambil sekarang.',
-  } as Record<Persona, string>,
+  } as Record<ContentPersona, string>,
   paths: [
     {
       label: 'Lihat peta skill lengkap',
