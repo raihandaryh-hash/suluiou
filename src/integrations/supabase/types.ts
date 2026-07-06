@@ -562,6 +562,8 @@ export type Database = {
       province_contexts: {
         Row: {
           created_at: string | null
+          data_verified: boolean
+          data_year: number | null
           economic_sectors: string[] | null
           fardhu_kifayah_gaps: string[] | null
           id: string
@@ -569,12 +571,15 @@ export type Database = {
           key_questions: string[] | null
           narrative_hooks: string[] | null
           opportunities_2030: string | null
+          primary_sources: string[] | null
           province: string
           social_context: string | null
           updated_at: string | null
         }
         Insert: {
           created_at?: string | null
+          data_verified?: boolean
+          data_year?: number | null
           economic_sectors?: string[] | null
           fardhu_kifayah_gaps?: string[] | null
           id?: string
@@ -582,12 +587,15 @@ export type Database = {
           key_questions?: string[] | null
           narrative_hooks?: string[] | null
           opportunities_2030?: string | null
+          primary_sources?: string[] | null
           province: string
           social_context?: string | null
           updated_at?: string | null
         }
         Update: {
           created_at?: string | null
+          data_verified?: boolean
+          data_year?: number | null
           economic_sectors?: string[] | null
           fardhu_kifayah_gaps?: string[] | null
           id?: string
@@ -595,6 +603,7 @@ export type Database = {
           key_questions?: string[] | null
           narrative_hooks?: string[] | null
           opportunities_2030?: string | null
+          primary_sources?: string[] | null
           province?: string
           social_context?: string | null
           updated_at?: string | null
