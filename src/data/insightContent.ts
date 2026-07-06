@@ -797,3 +797,11 @@ export const dataSources = [
 
 export const sourcePrefix = 'Sumber:';
 export const dataSourcesLabel = 'Daftar sumber data';
+
+// Stepper 4 langkah /insight (Manifest Fable 6 Jul). Label = BABAK_NAV existing
+// (Insight.tsx, Taruhan/Realita/Bekal/Langkah) — bukan karangan baru.
+export const stepperSection = {
+  lanjutLabel: 'Lanjut',
+  kembaliLabel: 'Kembali',
+  labels: { 1: 'Taruhan', 2: 'Realita', 3: 'Bekal', 4: 'Langkah' } as Record<number, string>,
+};
