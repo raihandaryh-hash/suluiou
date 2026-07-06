@@ -563,7 +563,10 @@ export type Database = {
         Row: {
           created_at: string | null
           economic_sectors: string[] | null
+          fardhu_kifayah_gaps: string[] | null
           id: string
+          iou_program_relevance: string | null
+          key_questions: string[] | null
           narrative_hooks: string[] | null
           opportunities_2030: string | null
           province: string
@@ -573,7 +576,10 @@ export type Database = {
         Insert: {
           created_at?: string | null
           economic_sectors?: string[] | null
+          fardhu_kifayah_gaps?: string[] | null
           id?: string
+          iou_program_relevance?: string | null
+          key_questions?: string[] | null
           narrative_hooks?: string[] | null
           opportunities_2030?: string | null
           province: string
@@ -583,7 +589,10 @@ export type Database = {
         Update: {
           created_at?: string | null
           economic_sectors?: string[] | null
+          fardhu_kifayah_gaps?: string[] | null
           id?: string
+          iou_program_relevance?: string | null
+          key_questions?: string[] | null
           narrative_hooks?: string[] | null
           opportunities_2030?: string | null
           province?: string
