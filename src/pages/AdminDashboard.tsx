@@ -193,6 +193,12 @@ const AdminDashboard = () => {
                 Edit Insight
               </Button>
             </Link>
+            <Link to="/admin/bridge">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Users className="w-4 h-4" />
+                Jembatan Manusia
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
