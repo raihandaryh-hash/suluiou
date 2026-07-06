@@ -177,6 +177,24 @@ export const jalanBaktiContent = {
     },
   ],
 
+  // Peta Medan (spec file 3, ACC Raihan 6 Jul) — funnel Dunia→Indonesia. Layer
+  // provinsi SENGAJA belum ada (province_contexts schema belum defensible).
+  // Label rumpun = ekstraksi dari worldLayerSection Beat 1 (insightContent.ts),
+  // sudah di-ACC Raihan lewat tabel mapping — bukan tulisan baru dari nol.
+  petaMedanSection: {
+    judul: "Peta Medan",
+    subjudul: "Dari tantangan dunia ke medan Indonesia yang terhubung.",
+    instruksi: "Ketuk satu rumpun tantangan dunia untuk melihat klaster Indonesia yang terhubung.",
+    rumpun: [
+      { id: "r1", label: "Air, energi, bumi & iklim", klasterIds: ["k4", "k6"] },
+      { id: "r2", label: "Kesehatan, gizi, kesenjangan", klasterIds: ["k1", "k3", "k5"] },
+      { id: "r3", label: "Perdamaian, kejahatan lintas batas, martabat manusia", klasterIds: ["k3", "k7"] },
+      { id: "r4", label: "Iptek & AI yang dikawal", klasterIds: ["k2", "k7"] },
+    ],
+    provinsiLabel: "Peta provinsimu — segera",
+    ctaJadikanMedan: "Jadikan medanku",
+  },
+
   lensaKepedulian: {
     pivot: "Tadi kamu melihat tujuh medan tantangan. Di balik semuanya, selalu ada satu hal yang sama: ada manusia yang paling rentan, yang paling butuh diulurkan tangan.",
 
