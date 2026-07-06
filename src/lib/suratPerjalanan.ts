@@ -82,9 +82,19 @@ const RA_LABELS: Record<string, string> = (() => {
 })();
 
 export interface SuratQA { question: string; answer: string; }
+
+// Label pertanyaan 2B (Skill Reflection) — fix Hukum 1 (Audit Pertanyaan 6 Jul):
+// `why`/`step` sudah lama tersimpan di sulu_phase2b tapi tidak pernah dibaca di
+// sini. Verbatim dari KenaliDirimuSkill.tsx.
+const LABELS_2B_REFLEKSI: Record<string, string> = {
+  why: "Mengapa kamu memilih kompetensi ini?",
+  step: "Satu langkah konkret 30 hari ke depan",
+};
+
 export interface SuratData {
   refleksiDiri: SuratQA[];                                   // 2A
   kompetensi: string[];                                      // 2B
+  refleksiSkill: SuratQA[];                                   // 2B why/step (fix 6 Jul)
   jalanBakti: { isu: string[]; subBidang: string[]; peduli: string[] };
   refleksiSintesis: string;                                  // fase 4
   rencanaAksi: SuratQA[];                                    // fase 5 (rencana-aksi)
@@ -98,10 +108,16 @@ export function compileSurat(): SuratData {
     .map((k) => ({ question: LABELS_2A[k], answer: typeof p2a[k] === "string" ? (p2a[k] as string).trim() : "" }))
     .filter((qa) => qa.answer.length > 0);
 
-  const p2b = readJSON<{ selected?: unknown }>("sulu_phase2b");
+  const p2b = readJSON<{ selected?: unknown; why?: unknown; step?: unknown }>("sulu_phase2b");
   const kompetensi = Array.isArray(p2b?.selected)
     ? (p2b!.selected as unknown[]).filter((x): x is string => typeof x === "string").map((id) => LABELS_2B[id] ?? id)
     : [];
+  const refleksiSkill: SuratQA[] = Object.keys(LABELS_2B_REFLEKSI)
+    .map((k) => ({
+      question: LABELS_2B_REFLEKSI[k],
+      answer: typeof p2b?.[k as "why" | "step"] === "string" ? (p2b![k as "why" | "step"] as string).trim() : "",
+    }))
+    .filter((qa) => qa.answer.length > 0);
 
   const p3 = readJSON<{ sdgTags?: unknown; subPicks?: unknown; peduliPicks?: unknown }>("jalan_bakti_v1");
   const jalanBakti = {
@@ -123,10 +139,11 @@ export function compileSurat(): SuratData {
   const hasAny =
     refleksiDiri.length > 0 ||
     kompetensi.length > 0 ||
+    refleksiSkill.length > 0 ||
     jalanBakti.isu.length + jalanBakti.subBidang.length + jalanBakti.peduli.length > 0 ||
     refleksiSintesis.length > 0 ||
     rencanaAksi.length > 0 ||
     catatan.length > 0;
 
-  return { refleksiDiri, kompetensi, jalanBakti, refleksiSintesis, rencanaAksi, catatan, hasAny };
+  return { refleksiDiri, kompetensi, refleksiSkill, jalanBakti, refleksiSintesis, rencanaAksi, catatan, hasAny };
 }
