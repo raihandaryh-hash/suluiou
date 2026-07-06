@@ -18,6 +18,11 @@ export const references: Reference[] = [
     category: 'Demografi & Kependudukan',
   }, // src/data/mukadimahBabakContent.ts → neet.source
   {
+    id: 'mukadimah-neet-scarring',
+    label: 'Carcillo dkk. (2015), NEET Youth in the Aftermath of the Crisis, OECD Working Paper No. 164; Ralston dkk. (2022), Work, Employment and Society — Scottish Longitudinal Study.',
+    category: 'Demografi & Kependudukan',
+  }, // src/data/mukadimahBabakContent.ts → scarring (riset 20 Jun, sitasi re-verified 6 Jul)
+  {
     id: 'bappenas-bonus-demografi',
     label: 'Proyeksi Penduduk Indonesia 2020–2050, Bappenas/BPS; RPJPN 2025–2045',
     category: 'Demografi & Kependudukan',
