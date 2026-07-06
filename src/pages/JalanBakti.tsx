@@ -15,6 +15,7 @@ import { useProvince } from "@/hooks/useProvince";
 import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
 import JalanBaktiOpening from "@/components/JalanBaktiOpening";
+import PetaMedan from "@/components/PetaMedan";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 
 type ProvinceContext = {
@@ -444,6 +445,22 @@ export default function JalanBakti() {
               <Separator className="my-10" />
             </>
           )}
+
+          {/* ── PETA MEDAN — funnel Dunia→Indonesia, lapis eksplorasi (ACC 6 Jul) ── */}
+          <section className="space-y-6">
+            <SectionHeader title={C.petaMedanSection.judul} subtitle={C.petaMedanSection.subjudul} />
+            <PetaMedan
+              rumpun={C.petaMedanSection.rumpun}
+              klaster={C.klaster}
+              instruksi={C.petaMedanSection.instruksi}
+              provinsiLabel={C.petaMedanSection.provinsiLabel}
+              ctaLabel={C.petaMedanSection.ctaJadikanMedan}
+              selectedMedan={d.medan}
+              onSelectMedan={selectMedan}
+            />
+          </section>
+
+          <Separator className="my-10" />
 
           {/* ── 6 KLASTER — pilih SATU medan (reversible); sub-tantangan multi di dalamnya ── */}
           <section className="space-y-6">
