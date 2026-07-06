@@ -38,6 +38,7 @@ import {
   evanInsights,
   stepperSection,
   type Persona,
+  type ContentPersona,
   type Tone,
   type PenamparCard,
 } from '@/data/insightContent';
@@ -66,6 +67,8 @@ function useCountdownTo(targetIso: string) {
 function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwitch: (p: Persona) => void }) {
   const [open, setOpen] = useState(false);
   const others = personaTeaserSection.options.filter((o) => o.id !== persona);
+  // Fallback plumbing sama seperti Insight() — lihat komentar di sana.
+  const contentPersona: ContentPersona = persona === 'mahasiswa' ? 'siswa' : persona;
 
   return (
     <div className="fixed bottom-5 right-5 z-40">
@@ -94,7 +97,7 @@ function FloatingPersonaSwitch({ persona, onSwitch }: { persona: Persona; onSwit
         className="flex items-center gap-2 bg-secondary border border-border rounded-full px-4 py-2 text-sm shadow-sm hover:bg-secondary/80 transition-colors"
       >
         <span className="w-2 h-2 rounded-full bg-primary" />
-        <span className="text-foreground">{personaShortLabel[persona]}</span>
+        <span className="text-foreground">{personaShortLabel[contentPersona]}</span>
         <ChevronUp className={cn('w-3.5 h-3.5 text-muted-foreground transition-transform', open && 'rotate-180')} />
       </button>
     </div>
@@ -495,6 +498,8 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
   const [open, setOpen] = useState(false);
   const { shareCard, isSharing } = useShareCard();
   const [thisSharing, setThisSharing] = useState(false);
+  // Fallback plumbing sama seperti Insight() — lihat komentar di sana.
+  const contentPersona: ContentPersona = persona === 'mahasiswa' ? 'siswa' : persona;
   const valueColor =
     card.tone === 'negative' ? 'text-destructive' :
     card.tone === 'positive' ? 'text-primary' :
@@ -510,8 +515,8 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
       const res = await shareCard({
         value: card.value,
         label: card.label,
-        artinya: card.artinya[persona],
-        persona,
+        artinya: card.artinya[contentPersona],
+        persona: contentPersona,
         source: card.source,
       });
       track('share_card', { value: card.value, persona, method: res.ok ? (res as { method: string }).method : 'failed' });
@@ -537,7 +542,7 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
           <div className="text-sm text-muted-foreground leading-snug">{card.label}</div>
           {card.artinya && (
             <p className="text-xs text-muted-foreground italic leading-relaxed pt-2">
-              Artinya: {card.artinya[persona]}
+              Artinya: {card.artinya[contentPersona]}
             </p>
           )}
         </div>
@@ -943,6 +948,11 @@ const Insight = () => {
   // Selalu mulai dari siswa setiap halaman dibuka (voice utama siswa-facing).
   // Switcher tetap berfungsi dalam sesi, tapi tidak dipersist sebagai default.
   const [persona, setPersona] = useState<Persona>(personaTeaserSection.defaultPersona);
+  // Fallback plumbing (Dua-Pintu Batch 3, 6 Jul): 'mahasiswa' belum punya varian
+  // konten (copy dewasa = antrean #5, gate Fable/Raihan). Semua lookup ke Record
+  // konten (artinya/subtext/dll) pakai contentPersona, bukan persona mentah, supaya
+  // tidak pernah blank/crash. Begitu copy dewasa lands, tinggal isi entri asli.
+  const contentPersona: ContentPersona = persona === 'mahasiswa' ? 'siswa' : persona;
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
   const [step, setStep] = useState<StepId>(1);
 
@@ -1006,7 +1016,7 @@ const Insight = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-sm md:text-base text-muted-foreground mt-6 max-w-xl"
           >
-            {hero.subtext[persona]}
+            {hero.subtext[contentPersona]}
           </motion.p>
           <div className="mt-4">
             <Badge variant="outline" className="text-[10px] text-muted-foreground font-normal">≈ 4 menit</Badge>
@@ -1148,7 +1158,7 @@ const Insight = () => {
         {/* Peluang SDM — kursi yang masih kosong (dipindah dari Babak 3, ACC Raihan 6 Jul: pivot ke luar, bukan bekal) */}
         <section id="peluang" className="container mx-auto px-6 pt-20 md:pt-24 pb-16 max-w-4xl">
           <div className="max-w-2xl mb-2">
-            <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[persona]} />
+            <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[contentPersona]} />
           </div>
           <DataReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1226,10 +1236,10 @@ const Insight = () => {
         <section className="container mx-auto px-6 pt-12 md:pt-16 pb-4 max-w-3xl">
           <div className="bg-secondary/60 border border-border rounded-2xl p-8 md:p-10">
             <h3 className="font-heading font-semibold text-2xl md:text-3xl text-foreground tracking-tight leading-tight mb-4">
-              {personaCallout[persona].headline}
+              {personaCallout[contentPersona].headline}
             </h3>
             <p className="text-base text-muted-foreground leading-relaxed">
-              {personaCallout[persona].body}
+              {personaCallout[contentPersona].body}
             </p>
           </div>
         </section>
