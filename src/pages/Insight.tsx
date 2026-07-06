@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, ChevronRight, Share2, Loader2 } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, ChevronRight, ChevronLeft, Share2, Loader2 } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,11 +36,11 @@ import {
   faktorPenghambatSection,
   maadinSection,
   evanInsights,
+  stepperSection,
   type Persona,
   type Tone,
   type PenamparCard,
 } from '@/data/insightContent';
-import InsightNav from '@/components/InsightNav';
 import { SkillMapView } from '@/pages/SkillMap';
 import { getNote, upsertNote, removeNote } from '@/lib/notes';
 
@@ -880,12 +880,61 @@ function Catatanku({ anchor, label }: { anchor: string; label: string }) {
 
 // Hadith barang tambang (Ma'adin) kini di src/data/insightContent.ts (maadinSection) — editable-ready.
 
-const BABAK_NAV = [
-  { id: 'babak-1', label: 'Taruhan' },
-  { id: 'babak-2', label: 'Realita' },
-  { id: 'babak-3', label: 'Bekal' },
-  { id: 'babak-4', label: 'Langkah' },
-];
+// ── STEPPER 4 langkah (Taruhan/Realita/Bekal/Langkah — Manifest Fable 6 Jul, label = BABAK_NAV lama).
+// currentStep TIDAK dipersist: reload = mulai dari step 1. Pola = Mukadimah.tsx/JalanBakti.tsx.
+const TOTAL_STEPS = 4;
+type StepId = 1 | 2 | 3 | 4;
+
+function StepProgress({ step }: { step: StepId }) {
+  const labels = stepperSection.labels;
+  return (
+    <div className="sticky top-[57px] z-20 -mx-6 border-b border-border bg-background/85 px-6 py-3 backdrop-blur">
+      <div className="container mx-auto flex items-center justify-between text-xs font-medium text-muted-foreground max-w-4xl">
+        {([1, 2, 3, 4] as StepId[]).map((s, i) => (
+          <div key={s} className="flex items-center gap-2 flex-1">
+            <span
+              className={cn(
+                'flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[11px]',
+                s === step
+                  ? 'border-[hsl(var(--torch-gold))] bg-[hsl(var(--torch-gold))] text-[hsl(var(--ink-deep))] font-semibold'
+                  : s < step
+                    ? 'border-[hsl(var(--torch-gold))]/50 bg-[hsl(var(--torch-gold))]/10 text-foreground/70'
+                    : 'border-border text-muted-foreground/60',
+              )}
+            >
+              {s}
+            </span>
+            <span className={cn('hidden sm:inline truncate', s === step && 'text-foreground font-semibold')}>
+              {labels[s]}
+            </span>
+            {i < 3 && <span className="flex-1 h-px bg-border mx-1" aria-hidden />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StepNav({ step, onBack, onNext }: { step: StepId; onBack: () => void; onNext: () => void }) {
+  return (
+    <div className="container mx-auto px-6 max-w-4xl flex items-center justify-between pt-10 pb-4">
+      {step > 1 ? (
+        <Button variant="outline" onClick={onBack}>
+          <ChevronLeft className="mr-1 h-4 w-4" />
+          {stepperSection.kembaliLabel}
+        </Button>
+      ) : (
+        <span />
+      )}
+      {step < TOTAL_STEPS && (
+        <Button onClick={onNext}>
+          {stepperSection.lanjutLabel}
+          <ChevronRight className="ml-1 h-4 w-4" />
+        </Button>
+      )}
+    </div>
+  );
+}
 
 // ───── Page ─────
 const PERSONA_KEY = 'sulu_insight_persona';
@@ -895,6 +944,7 @@ const Insight = () => {
   // Switcher tetap berfungsi dalam sesi, tapi tidak dipersist sebagai default.
   const [persona, setPersona] = useState<Persona>(personaTeaserSection.defaultPersona);
   const { years, months } = useCountdownTo(hero.countdown.targetIso);
+  const [step, setStep] = useState<StepId>(1);
 
   const handleSwitch = (p: Persona) => {
     setPersona(p);
@@ -904,10 +954,17 @@ const Insight = () => {
     }
   };
 
+  const goNext = () => {
+    setStep((s) => (s < TOTAL_STEPS ? ((s + 1) as StepId) : s));
+    window.scrollTo({ top: 0 });
+  };
+  const goBack = () => {
+    setStep((s) => (s > 1 ? ((s - 1) as StepId) : s));
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <main className="min-h-screen bg-background">
-      <InsightNav sections={BABAK_NAV} />
-
       {/* Top nav */}
       <header className="border-b border-border sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -925,6 +982,10 @@ const Insight = () => {
         </div>
       </header>
 
+      <StepProgress step={step} />
+
+      {step === 1 && (
+      <>
       <FirstTimerBanner />
 
       {/* ════════ BABAK 1 — TARUHAN (hati → stakes) ════════ */}
@@ -997,10 +1058,14 @@ const Insight = () => {
         <MismatchMukadimah />
 
         <Catatanku anchor="babak-1" label="Taruhan: kondisi duniaku" />
+        <StepNav step={step} onBack={goBack} onNext={goNext} />
       </section>
+      </>
+      )}
 
-      {/* ════════ BABAK 2 — REALITA (suara praktisi HR, Pak Evan) ════════ */}
+      {step === 2 && (
       <section id="babak-2">
+        {/* ════════ BABAK 2 — REALITA (suara praktisi HR, Pak Evan) ════════ */}
         <BabakHead
           no="02"
           kicker="Realita"
@@ -1010,10 +1075,13 @@ const Insight = () => {
           <EvanInsights />
         </div>
         <Catatanku anchor="babak-2" label="Realita: suara praktisi" />
+        <StepNav step={step} onBack={goBack} onNext={goNext} />
       </section>
+      )}
 
-      {/* ════════ BABAK 3 — BEKAL (harapan / agency) ════════ */}
+      {step === 3 && (
       <section id="babak-3">
+        {/* ════════ BABAK 3 — BEKAL (harapan / agency) ════════ */}
         <BabakHead no="03" kicker="Bekal" />
 
         {/* Narasi jembatan Pak Evan → Pak Dillo → peta (sequencing IOU Fair).
@@ -1068,8 +1136,17 @@ const Insight = () => {
           <SetelahPeta />
         </section>
 
-        {/* Peluang SDM — kursi yang masih kosong */}
-        <section id="peluang" className="container mx-auto px-6 py-16 max-w-4xl">
+        <Catatanku anchor="babak-3" label="Bekal: yang akan kubawa" />
+        <StepNav step={step} onBack={goBack} onNext={goNext} />
+      </section>
+      )}
+
+      {step === 4 && (
+      <section id="babak-4">
+        {/* ════════ BABAK 4 — LANGKAH (crescendo → satu pintu) ════════ */}
+
+        {/* Peluang SDM — kursi yang masih kosong (dipindah dari Babak 3, ACC Raihan 6 Jul: pivot ke luar, bukan bekal) */}
+        <section id="peluang" className="container mx-auto px-6 pt-20 md:pt-24 pb-16 max-w-4xl">
           <div className="max-w-2xl mb-2">
             <SectionHeader headline={opportunitySection.headline} intro={opportunitySection.intro[persona]} />
           </div>
@@ -1087,7 +1164,7 @@ const Insight = () => {
         </section>
         <UsefulFeedback section="peluang" persona={persona} />
 
-        {/* World-Layer W1 — penutup Babak 3: dunia → umat → Palestina → peran (prosa surat, bukan kartu) */}
+        {/* World-Layer W1 — dipindah dari Babak 3 (ACC Raihan 6 Jul): dunia → umat → Palestina → peran (prosa surat, bukan kartu). Copy TIDAK disentuh. */}
         <section id="dunia-umat" className="container mx-auto px-6 pt-16 md:pt-20 pb-8 max-w-3xl">
           <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-8 uppercase">
             {worldLayerSection.tag}
@@ -1116,13 +1193,8 @@ const Insight = () => {
           </p>
         </section>
 
-        <Catatanku anchor="babak-3" label="Bekal: yang akan kubawa" />
-      </section>
-
-      {/* ════════ BABAK 4 — LANGKAH (crescendo → satu pintu) ════════ */}
-      <section id="babak-4">
         {/* Faktor Penghambat — "ini bukan salahmu" → pivot ke locus of control */}
-        <section className="container mx-auto px-6 pt-20 md:pt-24 pb-4 max-w-3xl">
+        <section className="container mx-auto px-6 pt-12 md:pt-16 pb-4 max-w-3xl">
           <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase">
             {faktorPenghambatSection.kicker}
           </p>
@@ -1192,7 +1264,10 @@ const Insight = () => {
             <WaitlistForm persona={persona} />
           </div>
         </section>
+
+        <StepNav step={step} onBack={goBack} onNext={goNext} />
       </section>
+      )}
 
       {/* Footer sources */}
       <FooterSources />
