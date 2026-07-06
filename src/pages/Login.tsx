@@ -22,6 +22,7 @@ import { routeAfterAuth } from '@/lib/authRouter';
 import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
 import ProvinceOnboarding from '@/components/onboarding/ProvinceOnboarding';
+import RoleOnboarding, { type UserTrack } from '@/components/onboarding/RoleOnboarding';
 import { consumeReturnTo } from '@/components/RequireAuth';
 
 function peekReturnTo(): string | null {
@@ -63,9 +64,23 @@ type PendingProvince = {
   forcedNext: string | null;
 };
 
+type PendingRole = {
+  session: StudentSession;
+  forcedNext: string | null;
+};
+
 const hasProvince = (meta: Record<string, unknown> | undefined): boolean => {
   const p = meta?.province;
   return typeof p === 'string' && p.length > 0;
+};
+
+// Fork Dua-Pintu (ACC 6 Jul 2026). Gate peran HANYA untuk jalur Google —
+// guest selalu default 'siswa' tanpa gate ini (lihat handleGuest), karena
+// showGuestOption() hanya aktif untuk konteks kelas SMA/masyarakat umum;
+// mahasiswa IOU tidak pernah masuk lewat jalur guest.
+const hasRole = (meta: Record<string, unknown> | undefined): boolean => {
+  const t = meta?.user_track;
+  return t === 'siswa' || t === 'mahasiswa_iou';
 };
 
 const guestSchema = z.object({
@@ -104,6 +119,7 @@ const Login = () => {
   const [existing, setExisting] = useState<StudentSession | null>(null);
   const [checking, setChecking] = useState(true);
   const [pendingProvince, setPendingProvince] = useState<PendingProvince | null>(null);
+  const [pendingRole, setPendingRole] = useState<PendingRole | null>(null);
 
   // Detect existing session (Google or guest) without redirecting.
   useEffect(() => {
@@ -153,6 +169,10 @@ const Login = () => {
             setPendingProvince({ session, forcedNext: '/results' });
             return;
           }
+          if (!hasRole(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingRole({ session, forcedNext: '/results' });
+            return;
+          }
           navigate(await nextAfter(session), { replace: true });
           return;
         }
@@ -183,6 +203,10 @@ const Login = () => {
             setPendingProvince({ session, forcedNext: null });
             return;
           }
+          if (!hasRole(u.user_metadata as Record<string, unknown> | undefined)) {
+            setPendingRole({ session, forcedNext: null });
+            return;
+          }
           setExisting(session);
         }
       } finally {
@@ -206,6 +230,11 @@ const Login = () => {
         setContinueLoading(false);
         return;
       }
+      if (!hasRole(meta)) {
+        setPendingRole({ session: existing, forcedNext: null });
+        setContinueLoading(false);
+        return;
+      }
     }
     const next = await nextAfter(existing);
     navigate(next, { replace: true });
@@ -214,6 +243,26 @@ const Login = () => {
   const handleProvinceDone = async () => {
     if (!pendingProvince) return;
     const { session, forcedNext } = pendingProvince;
+    setPendingProvince(null);
+    // Province done — chain to role gate before navigating (Google-only,
+    // Fork Dua-Pintu ACC 6 Jul). Re-fetch metadata since province write
+    // just landed.
+    const { data } = await supabase.auth.getUser();
+    const meta = data.user?.user_metadata as Record<string, unknown> | undefined;
+    if (!hasRole(meta)) {
+      setPendingRole({ session, forcedNext });
+      return;
+    }
+    const rt = consumeReturnTo();
+    const next = (rt && rt.startsWith('/') && !rt.startsWith('/login'))
+      ? rt
+      : (forcedNext ?? (await routeAfterAuth(session)));
+    navigate(next, { replace: true });
+  };
+
+  const handleRoleDone = async () => {
+    if (!pendingRole) return;
+    const { session, forcedNext } = pendingRole;
     const rt = consumeReturnTo();
     const next = (rt && rt.startsWith('/') && !rt.startsWith('/login'))
       ? rt
@@ -244,6 +293,12 @@ const Login = () => {
     // if redirected, browser navigates away
   };
 
+  // Guest session diasumsikan SELALU siswa — tidak ada gate peran di jalur
+  // ini (Fork Dua-Pintu, ACC 6 Jul 2026). Alasan: mahasiswa IOU terdaftar
+  // resmi via akun Google/institusional, bukan guest anonim; showGuestOption()
+  // sendiri hanya aktif untuk konteks kelas SMA/masyarakat umum tanpa kode
+  // kelas. Jika asumsi ini salah di lapangan (ada mahasiswa masuk lewat
+  // guest), gate peran perlu ditambahkan ke jalur ini juga.
   const handleGuest = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -340,6 +395,8 @@ const Login = () => {
         <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
           {pendingProvince ? (
             <ProvinceOnboarding onDone={handleProvinceDone} />
+          ) : pendingRole ? (
+            <RoleOnboarding onDone={handleRoleDone} />
           ) : (
             <>
               <h1 className="text-xl font-heading font-bold text-center text-foreground mb-1">
