@@ -24,6 +24,8 @@ type ProvinceContext = {
   fardhu_kifayah_gaps: string[];
   iou_program_relevance: string | null;
   key_questions: string[];
+  data_verified: boolean;
+  data_year: number | null;
 };
 
 const LS_KEY = "jalan_bakti_v1";
@@ -446,9 +448,16 @@ export default function JalanBakti() {
                 {/* Fardhu kifayah — pilot Jawa Barat, blueprint Raihan 6 Jul */}
                 {provinceCtx.fardhu_kifayah_gaps.length > 0 && (
                   <div className="space-y-3 pt-2 border-t border-border">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                      Yang masih kosong di daerahmu
-                    </p>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                        Yang masih kosong di daerahmu
+                      </p>
+                      {provinceCtx.data_verified && (
+                        <span className="text-[10px] rounded-full border border-border bg-secondary/50 px-2 py-0.5 text-muted-foreground">
+                          Terverifikasi{provinceCtx.data_year ? ` · ${provinceCtx.data_year}` : ''}
+                        </span>
+                      )}
+                    </div>
                     <ul className="space-y-2 list-disc pl-5 text-sm leading-relaxed text-foreground/85">
                       {provinceCtx.fardhu_kifayah_gaps.map((g, i) => (
                         <li key={i}>{g}</li>
