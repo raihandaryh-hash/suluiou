@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useUserTrack } from "@/hooks/useUserTrack";
 import { rencanaAksiContent as R } from "@/data/rencanaAksiContent";
 
 const LS_KEY = "sulu_phase5_action_plan";
@@ -57,6 +58,7 @@ function AyatBlock({
 
 export default function RencanaAksi() {
   const { user, loading: authLoading } = useAuth();
+  const track = useUserTrack();
   const [form, setForm] = useState<FormState>(buildEmptyForm);
   const [hydrated, setHydrated] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -309,7 +311,9 @@ export default function RencanaAksi() {
         <div className="rounded-xl border border-border bg-secondary/40 px-5 py-4">
           <p className="text-base text-foreground/90 leading-relaxed">{R.doa.istianah}</p>
         </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">💡 {R.doa.khidmahNudge}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          💡 {track === 'mahasiswa_iou' ? R.doa.khidmahNudgeDewasa : R.doa.khidmahNudge}
+        </p>
       </section>
 
       {/* ── SAVE ── */}
