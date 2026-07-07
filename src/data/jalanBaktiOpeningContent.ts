@@ -21,6 +21,10 @@ export const jbOpening = {
   bombCite: 'vocational-fit-research',
   bombAfter:
     'Tiga yang pertama, minat, kemampuan, dan nilai, kamu gali di tahap Kenali Dirimu. Yang terakhir, kebutuhan dunia, itulah yang akan kita telusuri bersama sekarang.',
+  // Varian track dewasa (mahasiswa IOU) — copy FINAL Fable 6 Jul, jangan diubah
+  // tanpa gate. 216 = jam LM wajib IOU; update jika kebijakan program berubah.
+  bombAfterDewasa:
+    "Kamu datang dengan modal yang sudah terbentuk: pengalaman kerja, keahlian, dan pemahaman hidup. Pertanyaannya bukan lagi 'aku bisa apa', melainkan 'di mana semua itu paling bermakna'. Halaman ini membantumu memetakannya, supaya 216 jam baktimu jatuh di tempat yang benar-benar membutuhkanmu.",
 
   // ── Lapisan Islami: doa Nabi Sulaiman (menyertai, mengangkat) ──
   doaIntro:
