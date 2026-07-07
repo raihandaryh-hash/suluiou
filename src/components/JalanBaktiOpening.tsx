@@ -1,5 +1,6 @@
 import Cite from '@/components/Cite';
 import { jbOpening as O } from '@/data/jalanBaktiOpeningContent';
+import { useUserTrack } from '@/hooks/useUserTrack';
 
 /**
  * Opening baru Kenali Jalan Bakti. Tiga lapis:
@@ -12,6 +13,7 @@ import { jbOpening as O } from '@/data/jalanBaktiOpeningContent';
  *    tulang punggung dan menyiapkan AI sebagai alat riset di gerakan 2.
  */
 export default function JalanBaktiOpening() {
+  const track = useUserTrack();
   return (
     <div className="space-y-14 max-w-2xl">
       {/* 1. The bomb */}
@@ -24,7 +26,9 @@ export default function JalanBaktiOpening() {
           {O.bombEmphasis}
           <Cite id={O.bombCite} />
         </p>
-        <p className="text-base text-foreground/80 leading-[1.8] mt-4">{O.bombAfter}</p>
+        <p className="text-base text-foreground/80 leading-[1.8] mt-4">
+          {track === 'mahasiswa_iou' ? O.bombAfterDewasa : O.bombAfter}
+        </p>
       </section>
 
       {/* 2. Doa Nabi Sulaiman */}
