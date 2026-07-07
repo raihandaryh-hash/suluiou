@@ -36,7 +36,7 @@ export const rencanaAksiContent = {
       dalil2Terjemah: "\"Dan persiapkanlah untuk (menghadapi) mereka kekuatan apa saja yang kamu mampu…\" (QS Al-Anfal: 60) (perlu verifikasi Kemenag)",
       jembatan: "Kekuatan yang Allah perintahkan untuk disiapkan termasuk menguasai keterampilan dan teknologi yang membuatmu relevan dan bermanfaat di tengah persaingan zaman.",
     },
-    refleksiPrompt: "Tuliskan satu momen ketika kamu membantu seseorang tanpa mengharapkan imbalan apa pun.",
+    refleksiPrompt: "Coba ingat satu momen ketika kamu membantu seseorang tanpa mengharapkan imbalan apa pun.",
     refleksiHint: "(Sekecil apa pun. Yang tulus selalu meninggalkan jejak.)",
   },
 
@@ -79,5 +79,7 @@ export const rencanaAksiContent = {
     setelah: "Lalu Allah jawab doa itu dengan jalan yang tak ia duga. Urutannya sederhana: berbuat baik dengan tulus, panjatkan kebutuhanmu, lalu tenang — biarkan Allah yang mengatur sisanya.",
     istianah: "Dan saat kamu mulai melangkah, ingatlah satu kalimat ringan yang menanggalkan beban: لا حول ولا قوة إلا بالله. Sebelum beramal, ia menurunkan rasa cemas. Saat beramal, ia mengingatkan bahwa kamu hanya alat — hasilnya milik Allah. Setelah beramal, ia menuntunmu bersyukur tanpa merasa cukup berjasa.",
     khidmahNudge: "Salah satu bentuk langkah 30 hari: habiskan 2–4 jam membantu di bidang yang kamu minati, tanpa bayaran, dengan niat khidmah.",
+    // Varian track dewasa (mahasiswa IOU) — copy FINAL Fable 6 Jul, jangan diubah tanpa gate.
+    khidmahNudgeDewasa: "Baktimu tercatat di bumi dan di sisi Allah. Mulailah dari jam pertama.",
   },
 };
