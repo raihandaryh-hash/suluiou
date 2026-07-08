@@ -25,7 +25,7 @@ export const yangKenaBukanYangKamuKira = {
   headline: 'Yang paling terdampak bukan yang kamu kira.',
   body: 'Dugaan umum: yang pertama tergantikan AI adalah pekerjaan manual dan berulang. Realitanya justru sebaliknya. Yang paling banyak bersinggungan dengan AI adalah pekerjaan kognitif kelas menengah-atas: programmer, penulis, analis data.',
   bodyCite: 'anthropic-aug-vs-auto-2025',
-  stanford: 'Dampaknya sudah terukur. Sebuah studi Stanford menemukan pekerja muda usia 22-25 di bidang yang paling terpapar AI mengalami penurunan lapangan kerja sekitar 13% sejak akhir 2022, sementara pekerja senior di bidang yang sama relatif stabil. Yang menarik, penurunan ini terkonsentrasi di bidang yang tugasnya diotomasi, bukan yang diaugmentasi.',
+  stanford: 'Dampaknya sudah terukur, dan makin dalam. Studi Stanford Digital Economy Lab (analisis data payroll ADP) menemukan pekerja muda usia 22-25 di bidang yang paling terpapar AI mengalami penurunan lapangan kerja sekitar 13% sejak akhir 2022, sementara pekerja senior di bidang yang sama relatif stabil. Studi terpisah, Stanford AI Index 2026, mencatat angka itu naik jadi sekitar 20% sejak 2024 untuk entry-level developer secara spesifik. Pola di kedua studi konsisten: penurunan terkonsentrasi di bidang yang tugasnya diotomasi, bukan yang diaugmentasi.',
   stanfordCite: 'stanford-entry-level-ai-2025',
   link: { label: 'Lihat data dan grafik selengkapnya di Pusat Rujukan', href: '/glossary?tab=eraai' },
 };
@@ -45,7 +45,16 @@ export const pergeseranFungsi = {
 
 export const jembatanKePeta = {
   headline: 'Lalu, apa saja bekal itu, dan bagaimana semuanya saling terkait?',
-  body: 'Pak Dillo menyebut lima keterampilan inti: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan. Peta di bawah ini menampung kelimanya, lalu menempatkannya dalam struktur yang lebih utuh: dari karakter dasar yang membentuk dirimu, sampai keahlian teknis tiap sektor. Setiap simpul ditandai apakah ia aman, terbantu, atau berisiko di hadapan AI, lengkap dengan kaitan sebab-akibat yang sudah teruji.',
+  body: 'Pak Dillo menyebut lima keterampilan inti: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan. Peta di bawah ini menampung kelimanya, lalu menempatkannya dalam struktur yang lebih utuh: dari karakter dasar yang membentuk dirimu, sampai keahlian teknis tiap sektor. Setiap simpul ditandai apakah ia aman, terbantu, atau berisiko di hadapan AI, lengkap dengan garis yang menunjukkan skill mana yang biasa tumbuh berdampingan.',
+};
+
+// Deklarasi user-facing skill-map (V5, provisional) — per Komponen #5 audit 8 Jul 2026.
+// V3/V4 ditarik Fable: keduanya menyelundupkan klaim transfer kausal ("mengasah A menguatkan B")
+// yang tidak didukung literatur transfer untuk far-transfer, kontradiksi dengan pembongkaran badge
+// causal metakognisi<->berpikir-analitis. V5 boleh disesuaikan sedikit pasca-RT-13 (kalibrasi ESCO),
+// bukan blocker untuk commit. Dirender di /skill-map dekat legend.
+export const skillMapDeklarasi = {
+  text: 'Tidak ada peta yang sempurna, termasuk yang ini. Kami menggambarnya dari riset terbaik yang bisa kami temukan. Garis-garisnya bukan hukum sebab-akibat. Ia menunjukkan skill yang biasa tumbuh berdampingan, supaya setelah satu kemampuan mulai terasa kuat, kamu tahu pintu mana yang paling dekat untuk dibuka berikutnya.',
 };
 
 // Penutup SETELAH diagram skill-map: menjawab "apa yang harus dilakukan dengan

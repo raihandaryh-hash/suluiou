@@ -643,7 +643,7 @@ export const evanInsights = {
       { edu: 'Sarjana S1',  tpt: 5.4, highlight: false },
     ],
     eduChartTitle: 'Tingkat Pengangguran menurut Pendidikan (%)',
-    eduChartNote: 'Pola BPS Sakernas Agustus 2024 · Justru lulusan SMK & SMA yang paling sulit terserap.',
+    eduChartNote: 'Data Jawa Barat, pola BPS Sakernas Agustus 2024 · Justru lulusan SMK & SMA yang paling sulit terserap (angka nasional: SMK 8,63%).',
     apindoInsight: 'Mayoritas penganggur muda punya keterampilan umum, sementara industri membutuhkan keahlian teknis & vokasional yang spesifik.',
     supply: [
       'Lulusan banyak & terus bertambah',
@@ -666,7 +666,7 @@ export const evanInsights = {
       { label: 'Skills-Based Hiring',    desc: 'Perusahaan tidak lagi merekrut berdasarkan nama kampus. Yang dicari: bisa langsung bekerja, ada bukti nyata, tidak butuh training panjang.' },
       { label: 'Hit the Ground Running', desc: 'Tidak ada lagi budget orientasi panjang. Hari pertama sudah harus berkontribusi: siap, atau digantikan.' },
       { label: 'Saringan Makin Sempit',  desc: '100 pelamar → 1–2 yang lolos. Program management trainee dan posisi junior jauh lebih sedikit dari satu dekade lalu.' },
-      { label: 'Gig Economy',            desc: '57% pekerja Indonesia di sektor informal. Bagi yang punya skill dan kemandirian: kebebasan. Bagi yang tidak: jurang.' },
+      { label: 'Gig Economy',            desc: '57-60% pekerja Indonesia di sektor informal (BPS Sakernas). Bagi yang punya skill dan kemandirian: kebebasan. Bagi yang tidak: jurang.' },
     ],
     paradoksPQ: 'Laba naik, kepala berkurang.',
     paradoksDesc: 'Banyak korporasi global mencatat rekor laba sambil memangkas ribuan posisi, investasi dialihkan ke AI dan infrastruktur data. Indonesia tidak kebal: gelombang PHK startup dan sektor tech 2025 sudah terasa.',
