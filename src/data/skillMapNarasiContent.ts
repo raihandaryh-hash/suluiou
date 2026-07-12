@@ -55,6 +55,7 @@ export const jembatanKePeta = {
 // bukan blocker untuk commit. Dirender di /skill-map dekat legend.
 export const skillMapDeklarasi = {
   text: 'Tidak ada peta yang sempurna, termasuk yang ini. Kami menggambarnya dari riset terbaik yang bisa kami temukan. Garis-garisnya bukan hukum sebab-akibat. Ia menunjukkan skill yang biasa tumbuh berdampingan, supaya setelah satu kemampuan mulai terasa kuat, kamu tahu pintu mana yang paling dekat untuk dibuka berikutnya.',
+  addendum: 'Kecuali dua bidang: pekerjaan klerikal dan ritel manual. Tugas rutin di keduanya sedang diambil alih mesin. Garis dari kedua bidang itu tidak berarti tumbuh berdampingan. Ia menunjuk skill yang perlu dikuasai orang di bidang tersebut supaya tetap dibutuhkan dunia kerja.',
 };
 
 // Penutup SETELAH diagram skill-map: menjawab "apa yang harus dilakukan dengan
