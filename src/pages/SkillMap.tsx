@@ -94,6 +94,9 @@ function DataBox({ colorKey, label, children }: { colorKey: string; label: strin
     amber: { bg: "#FFFBEB", lc: "#D97706", tc: "#92400E" },
     blue: { bg: "#EFF6FF", lc: "#2563EB", tc: "#1E3A5F" },
     violet: { bg: "#F5F3FF", lc: "#7C3AED", tc: "#3B0764" },
+    green: { bg: "#F0FDF4", lc: "#16A34A", tc: "#14532D" },
+    teal: { bg: "#F0FDFA", lc: "#0D9488", tc: "#134E4A" },
+    rose: { bg: "#FFF1F2", lc: "#E11D48", tc: "#881337" },
   };
   const c = map[colorKey] || map.amber;
   return (
@@ -138,6 +141,8 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
       <div className="px-5 py-4 space-y-3">
         <p className="text-sm leading-relaxed text-foreground/80">{node.description}</p>
         {node.aiNote && <DataBox colorKey="amber" label="Posisi terhadap AI">{node.aiNote}</DataBox>}
+        {node.caraMelatih && <DataBox colorKey="green" label={node.layer === 3 ? "Jalan masuknya" : "Cara melatihnya"}>{node.caraMelatih}</DataBox>}
+        {node.cobaMingguIni && <DataBox colorKey="teal" label="Coba minggu ini">{node.cobaMingguIni}</DataBox>}
         {node.wefData && <DataBox colorKey="blue" label="Data WEF Future of Jobs 2025">{node.wefData}</DataBox>}
         {node.indonesiaData && <DataBox colorKey="violet" label="Data Indonesia">{node.indonesiaData}</DataBox>}
         {node.causal && node.causal.length > 0 && (
@@ -169,6 +174,7 @@ function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: ()
             </div>
           </div>
         )}
+        {node.jalurAdaptasi && <DataBox colorKey="rose" label="Jalur adaptasinya">{node.jalurAdaptasi}</DataBox>}
         <Catatanku anchor={node.id} label={node.name} />
         <div>
           <button onClick={() => setShowSrc(v => !v)} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
@@ -559,6 +565,7 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
 
         {/* Deklarasi V5 (provisional) — kejujuran soal batas peta ini */}
         <p className="text-xs text-muted-foreground/80 leading-relaxed mt-4 italic">{skillMapDeklarasi.text}</p>
+        {skillMapDeklarasi.addendum && <p className="text-xs text-muted-foreground/80 leading-relaxed mt-2 italic">{skillMapDeklarasi.addendum}</p>}
       </div>
 
       {/* CTA ke peta penuh (hanya saat embedded) */}
