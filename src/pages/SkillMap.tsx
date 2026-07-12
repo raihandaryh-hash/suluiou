@@ -10,6 +10,22 @@ import { getNote, upsertNote } from "@/lib/notes";
 type NodeType = SkillNode;
 
 // ─────────────────────────────────────────────────────────────
+// useIsXl — deteksi viewport ≥1280px (panel samping vs bottom sheet)
+// ─────────────────────────────────────────────────────────────
+function useIsXl() {
+  const [isXl, setIsXl] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(min-width: 1280px)").matches : false
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1280px)");
+    const onChange = (e: MediaQueryListEvent) => setIsXl(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isXl;
+}
+
+// ─────────────────────────────────────────────────────────────
 // Catatanku — tangkap catatan-baca per node. Mengalir ke Surat Perjalanan (D).
 // ─────────────────────────────────────────────────────────────
 function Catatanku({ anchor, label }: { anchor: string; label: string }) {
@@ -110,12 +126,12 @@ function DataBox({ colorKey, label, children }: { colorKey: string; label: strin
 // ─────────────────────────────────────────────────────────────
 // NodeDetail — panel detail (dipakai di Peta & Daftar). Kini + Catatanku.
 // ─────────────────────────────────────────────────────────────
-function NodeDetail({ node, onClose, onNavigate }: { node: NodeType; onClose: () => void; onNavigate: (n: NodeType) => void }) {
+function NodeDetail({ node, onClose, onNavigate, chrome = true }: { node: NodeType; onClose: () => void; onNavigate: (n: NodeType) => void; chrome?: boolean }) {
   const [showSrc, setShowSrc] = useState(false);
   const ai = AI_RISK[node.aiRisk];
   const lc = LAYERS[node.layer].colors;
   return (
-    <div className="bg-card rounded-2xl border shadow-sm overflow-hidden mt-3" style={{ borderColor: lc.border }}>
+    <div className={chrome ? "bg-card rounded-2xl border shadow-sm overflow-hidden" : "bg-card overflow-hidden"} style={chrome ? { borderColor: lc.border } : undefined}>
       <div className="px-5 pt-4 pb-3" style={{ backgroundColor: lc.bg }}>
         <div className="flex justify-between gap-3">
           <div>
@@ -419,6 +435,18 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
   const activeNode = useMemo(() => NODES.find(n => n.id === activeId) || null, [activeId]);
   const connectedIds = useMemo(() => (activeId ? (CONNECTION_MAP[activeId] || new Set<string>()) : new Set<string>()), [activeId]);
 
+  // Panel samping hanya di halaman penuh + layar lebar; selain itu bottom sheet.
+  const isXl = useIsXl();
+  const sidePanel = isXl && !embedded;
+
+  // Escape menutup detail (panel maupun sheet)
+  useEffect(() => {
+    if (!activeId) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setActiveId(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeId]);
+
   const filteredNodes = useMemo(() => {
     return NODES.filter(node => {
       const q = searchQuery.trim().toLowerCase();
@@ -463,8 +491,11 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
           <JembatanIstilah onNavigate={handleJembatanNavigate} />
         </div>
       )}
-      {/* Toolbar */}
-      <div className="max-w-4xl mx-auto px-4 md:px-8">
+      <div className={cn("mx-auto px-4 md:px-8", sidePanel ? "max-w-[1312px]" : "max-w-4xl")}>
+        <div className={sidePanel ? "grid grid-cols-[minmax(0,1fr)_360px] gap-6 items-start" : undefined}>
+          <div className="min-w-0">
+            {/* Toolbar */}
+            <div>
         <div className="flex flex-wrap items-center gap-2 justify-between">
           <div className="inline-flex rounded-full border border-border p-0.5 bg-background">
             <button
@@ -501,10 +532,10 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
             </button>
           ))}
         </div>
-      </div>
+            </div>
 
-      {/* Body */}
-      <div className="max-w-4xl mx-auto px-4 md:px-8 mt-4">
+            {/* Body */}
+            <div className="mt-4">
         {view === "peta" ? (
           <>
             <PetaView activeId={activeId} filteredIds={filteredIds} isFiltering={isFiltering} onSelect={handleSelect} />
@@ -550,9 +581,6 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
           </div>
         )}
 
-        {/* Detail panel */}
-        {activeNode && <NodeDetail node={activeNode} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />}
-
         {/* Legend */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-5">
           {(Object.entries(AI_RISK) as [string, typeof AI_RISK[keyof typeof AI_RISK]][]).map(([key, val]) => (
@@ -566,7 +594,42 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
         {/* Deklarasi V5 (provisional) — kejujuran soal batas peta ini */}
         <p className="text-xs text-muted-foreground/80 leading-relaxed mt-4 italic">{skillMapDeklarasi.text}</p>
         {skillMapDeklarasi.addendum && <p className="text-xs text-muted-foreground/80 leading-relaxed mt-2 italic">{skillMapDeklarasi.addendum}</p>}
+            </div>
+          </div>
+
+          {/* Panel pendamping (layar lebar): detail berdampingan dengan peta */}
+          {sidePanel && (
+            <aside className="sticky top-6">
+              {activeNode ? (
+                <div key={activeNode.id} className="max-h-[calc(100vh-3rem)] overflow-y-auto overscroll-contain rounded-2xl motion-safe:animate-in motion-safe:fade-in motion-safe:duration-200">
+                  <NodeDetail node={activeNode} onClose={() => setActiveId(null)} onNavigate={handleNavigate} />
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-dashed border-border bg-secondary/30 px-5 py-10 text-center">
+                  <p className="text-sm text-muted-foreground leading-relaxed">Ketuk salah satu skill di peta untuk membaca penjelasannya di sini.</p>
+                </div>
+              )}
+            </aside>
+          )}
+        </div>
       </div>
+
+      {/* Bottom sheet (mobile/tablet/embed): detail muncul dari bawah, peta tetap terlihat */}
+      {!sidePanel && activeNode && (
+        <div className="fixed inset-x-0 bottom-0 z-50" role="dialog" aria-label={activeNode.name}>
+          <div
+            className="mx-auto max-w-2xl rounded-t-2xl border border-b-0 bg-card overflow-hidden shadow-[0_-8px_30px_rgba(0,0,0,0.18)] motion-safe:animate-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-300"
+            style={{ borderColor: LAYERS[activeNode.layer].colors.border, paddingBottom: "env(safe-area-inset-bottom)" }}
+          >
+            <div key={activeNode.id} className="max-h-[62vh] overflow-y-auto overscroll-contain">
+              <div className="sticky top-0 z-10 flex justify-center pt-2 pb-1" style={{ backgroundColor: LAYERS[activeNode.layer].colors.bg }}>
+                <span className="h-1 w-10 rounded-full bg-foreground/15" />
+              </div>
+              <NodeDetail node={activeNode} onClose={() => setActiveId(null)} onNavigate={handleNavigate} chrome={false} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA ke peta penuh (hanya saat embedded) */}
       {embedded && (
