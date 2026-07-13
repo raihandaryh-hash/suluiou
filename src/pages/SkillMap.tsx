@@ -520,6 +520,12 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
               className="w-full pl-9 pr-3 py-1.5 rounded-full border border-border bg-background text-sm outline-none focus:border-primary/60"
             />
           </div>
+          <Link
+            to="/glossary?tab=dapurpeta"
+            className="text-xs px-3 py-1.5 rounded-full border border-dashed border-border text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all whitespace-nowrap"
+          >
+            Lihat sumber peta ini →
+          </Link>
         </div>
         <div className="flex flex-wrap gap-2 mt-3">
           {FILTERS.map(f => (

@@ -7,6 +7,7 @@ import { glossaryIntro, glossaryCategories, type GlossaryEntry } from "@/data/gl
 import { references } from "@/data/references";
 import DataMendalam from "@/components/DataMendalam";
 import EraAITab from "@/components/EraAITab";
+import DapurPetaTab from "@/components/DapurPetaTab";
 
 const FIELD_LABELS: { key: keyof GlossaryEntry; label: string }[] = [
   { key: "arti", label: "Apa artinya" },
@@ -150,14 +151,14 @@ function DataTab({ query, setQuery }: { query: string; setQuery: (v: string) => 
 export default function Glossary() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tabParam = searchParams.get('tab');
-  const initialTab: 'istilah' | 'data' | 'eraai' =
-    tabParam === 'data' ? 'data' : tabParam === 'eraai' ? 'eraai' : 'istilah';
-  const [tab, setTab] = useState<'istilah' | 'data' | 'eraai'>(initialTab);
+  const initialTab: 'istilah' | 'data' | 'eraai' | 'dapurpeta' =
+    tabParam === 'data' ? 'data' : tabParam === 'eraai' ? 'eraai' : tabParam === 'dapurpeta' ? 'dapurpeta' : 'istilah';
+  const [tab, setTab] = useState<'istilah' | 'data' | 'eraai' | 'dapurpeta'>(initialTab);
   const [query, setQuery] = useState("");
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const q = query.trim().toLowerCase();
 
-  const switchTab = (t: 'istilah' | 'data' | 'eraai') => {
+  const switchTab = (t: 'istilah' | 'data' | 'eraai' | 'dapurpeta') => {
     setTab(t);
     setQuery('');
     setSearchParams(t === 'istilah' ? {} : { tab: t }, { replace: true });
@@ -198,6 +199,8 @@ export default function Glossary() {
             ? glossaryIntro.subtitle
             : tab === 'eraai'
             ? 'Data mendalam soal AI dan masa depan dunia kerja.'
+            : tab === 'dapurpeta'
+            ? 'Sumber, cara penyusunan, dan koreksi peta skill Sulu.'
             : 'Data dan sumber di balik setiap angka yang kamu temui di Sulu.'}
         </p>
 
@@ -219,6 +222,12 @@ export default function Glossary() {
             className={cn('px-4 py-2 rounded-full text-sm border transition-colors', tab === 'eraai' ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary')}
           >
             Era AI
+          </button>
+          <button
+            onClick={() => switchTab('dapurpeta')}
+            className={cn('px-4 py-2 rounded-full text-sm border transition-colors', tab === 'dapurpeta' ? 'bg-foreground text-background border-foreground' : 'bg-secondary/40 text-muted-foreground border-border hover:bg-secondary')}
+          >
+            Dapur Peta
           </button>
         </div>
 
@@ -261,6 +270,7 @@ export default function Glossary() {
           sections (max-w-6xl/max-w-4xl) would get squeezed otherwise. */}
       {tab === 'data' && <DataTab query={query} setQuery={setQuery} />}
       {tab === 'eraai' && <EraAITab />}
+      {tab === 'dapurpeta' && <DapurPetaTab />}
     </div>
   );
 }
