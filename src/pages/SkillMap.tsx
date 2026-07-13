@@ -318,9 +318,10 @@ function PetaView({ activeId, filteredIds, isFiltering, onSelect }: { activeId: 
           return (
             <button
               key={node.id}
+              id={`node-${node.id}`}
               onClick={() => onSelect(node)}
               title={node.name}
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-start gap-1 rounded-xl border transition-all text-left"
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-start gap-1 rounded-xl border transition-all text-left scroll-mt-24"
               style={{
                 left: p.x, top: p.y, width: CARD_W, minHeight: 44,
                 padding: "7px 10px", borderWidth: 1.5,
@@ -427,6 +428,14 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
     typeof window !== "undefined" && window.innerWidth < 768 ? "daftar" : "peta"
   );
   const [activeId, setActiveId] = useState<string | null>(null);
+  // Seleksi (activeId: garis + sorotan node) DIPISAH dari panel bacaan.
+  // Di mode sheet (HP/tablet/embed), sheetOpen mengatur apakah kartu bacaan
+  // terbuka. Menutup sheet TIDAK menghapus seleksi — garis tetap di peta yang
+  // kini tak terhalang. Ini menyelesaikan dua masalah sekaligus: sheet tak lagi
+  // memenjara peta (bisa ditutup untuk melihat garis), dan garis tidak lenyap
+  // saat bacaan ditutup. Pola dari graph explorer (Obsidian) & peta mobile (Google Maps).
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [sheetExpanded, setSheetExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<"all" | "growing" | "safe" | "layer0">("all");
   const [expandedLayers, setExpandedLayers] = useState<Set<number>>(new Set([0, 1, 2, 3]));
@@ -439,13 +448,36 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
   const isXl = useIsXl();
   const sidePanel = isXl && !embedded;
 
-  // Escape menutup detail (panel maupun sheet)
+  // Escape dua-tahap di mode sheet: (1) tutup sheet dulu — seleksi & garis
+  // tetap; (2) tekan lagi menghapus seleksi. Di mode panel (desktop), Escape
+  // langsung menghapus seleksi seperti semula (panel tak pernah menutupi peta).
   useEffect(() => {
     if (!activeId) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setActiveId(null); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (!sidePanel && sheetOpen) setSheetOpen(false);
+      else setActiveId(null);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [activeId]);
+  }, [activeId, sheetOpen, sidePanel]);
+
+  // Saat sheet terbuka di mode HP/tablet, geser node aktif naik ke bagian atas
+  // yang tak terhalang sheet, supaya node + konteks langsungnya tetap terlihat.
+  useEffect(() => {
+    if (sidePanel || !sheetOpen || !activeId) return;
+    const raf = requestAnimationFrame(() => {
+      document
+        .getElementById(`node-${activeId}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [activeId, sheetOpen, sidePanel]);
+
+  // Ganti antara mode panel/sheet (mis. putar layar): rapikan state sheet.
+  useEffect(() => {
+    if (sidePanel) { setSheetOpen(false); setSheetExpanded(false); }
+  }, [sidePanel]);
 
   const filteredNodes = useMemo(() => {
     return NODES.filter(node => {
@@ -463,13 +495,25 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
   const isFiltering = searchQuery.trim().length > 0 || activeFilter !== "all";
 
   function handleSelect(node: NodeType) {
-    setActiveId(prev => (prev === node.id ? null : node.id));
     setJembatanHighlightIds(new Set());
+    if (activeId === node.id) {
+      // Tap node yang sama = hapus seleksi total (garis mati, sheet tutup).
+      setActiveId(null);
+      setSheetOpen(false);
+      setSheetExpanded(false);
+    } else {
+      // Node baru = pilih (garis nyala) + buka bacaan (peek) di mode sheet.
+      setActiveId(node.id);
+      setSheetOpen(true);
+      setSheetExpanded(false);
+    }
   }
   function handleNavigate(node: NodeType) {
     setActiveId(node.id);
+    setSheetOpen(true);
+    setSheetExpanded(false);
     const el = document.getElementById(`node-${node.id}`);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
   }
   function handleJembatanNavigate(ids: string[]) {
     setJembatanHighlightIds(new Set(ids));
@@ -620,19 +664,64 @@ export function SkillMapView({ embedded = false }: { embedded?: boolean }) {
         </div>
       </div>
 
-      {/* Bottom sheet (mobile/tablet/embed): detail muncul dari bawah, peta tetap terlihat */}
-      {!sidePanel && activeNode && (
+      {/* Bottom sheet (mobile/tablet/embed): kartu bacaan muncul dari bawah,
+          peta tetap terlihat. Peek pendek secara default supaya tidak menutupi
+          garis; ketuk pegangan untuk memperbesar saat mau membaca panjang.
+          Menutup sheet mempertahankan seleksi — garis tetap di peta. */}
+      {!sidePanel && activeNode && sheetOpen && (
         <div className="fixed inset-x-0 bottom-0 z-50" role="dialog" aria-label={activeNode.name}>
           <div
             className="mx-auto max-w-2xl rounded-t-2xl border border-b-0 bg-card overflow-hidden shadow-[0_-8px_30px_rgba(0,0,0,0.18)] motion-safe:animate-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-300"
             style={{ borderColor: LAYERS[activeNode.layer].colors.border, paddingBottom: "env(safe-area-inset-bottom)" }}
           >
-            <div key={activeNode.id} className="max-h-[62vh] overflow-y-auto overscroll-contain">
-              <div className="sticky top-0 z-10 flex justify-center pt-2 pb-1" style={{ backgroundColor: LAYERS[activeNode.layer].colors.bg }}>
-                <span className="h-1 w-10 rounded-full bg-foreground/15" />
+            <div key={activeNode.id} className="overflow-y-auto overscroll-contain transition-[max-height] duration-200" style={{ maxHeight: sheetExpanded ? "85vh" : "44vh" }}>
+              {/* Pegangan: ketuk untuk perbesar/perkecil. Tombol X menutup sheet
+                  tanpa menghapus seleksi (garis tetap terlihat di peta). */}
+              <div className="sticky top-0 z-10 flex items-center justify-between px-3 pt-2 pb-1" style={{ backgroundColor: LAYERS[activeNode.layer].colors.bg }}>
+                <span className="w-6" aria-hidden />
+                <button
+                  onClick={() => setSheetExpanded(v => !v)}
+                  aria-label={sheetExpanded ? "Perkecil" : "Perbesar untuk membaca"}
+                  className="flex-1 flex justify-center py-1"
+                >
+                  <span className="h-1 w-10 rounded-full bg-foreground/20" />
+                </button>
+                <button
+                  onClick={() => setSheetOpen(false)}
+                  aria-label="Tutup penjelasan"
+                  title="Tutup — garis tetap terlihat di peta"
+                  className="w-6 h-6 flex items-center justify-center rounded-full text-foreground/50 hover:text-foreground hover:bg-foreground/10"
+                >
+                  <X className="w-4 h-4" />
+                </button>
               </div>
-              <NodeDetail node={activeNode} onClose={() => setActiveId(null)} onNavigate={handleNavigate} chrome={false} />
+              <NodeDetail node={activeNode} onClose={() => setSheetOpen(false)} onNavigate={handleNavigate} chrome={false} />
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Chip: sheet ditutup tapi node masih terpilih — garis tetap di peta.
+          Beri jalan jelas untuk membuka bacaan lagi atau menghapus seleksi.
+          Sekaligus memberi tahu bahwa peta sedang menyorot node ini. */}
+      {!sidePanel && activeNode && !sheetOpen && (
+        <div className="fixed inset-x-0 bottom-4 z-40 flex justify-center px-4 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-200">
+          <div
+            className="flex items-center gap-1 rounded-full border bg-card/95 backdrop-blur pl-4 pr-1.5 py-1.5 shadow-lg"
+            style={{ borderColor: LAYERS[activeNode.layer].colors.border }}
+          >
+            <button onClick={() => { setSheetOpen(true); setSheetExpanded(false); }} className="flex items-center gap-2 text-sm">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: LAYERS[activeNode.layer].colors.dot }} />
+              <span className="font-medium text-foreground/90">Penjelasan {activeNode.name}</span>
+            </button>
+            <button
+              onClick={() => setActiveId(null)}
+              aria-label="Hapus sorotan"
+              title="Hapus sorotan dari peta"
+              className="w-6 h-6 flex items-center justify-center rounded-full text-foreground/50 hover:text-foreground hover:bg-foreground/10"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       )}
