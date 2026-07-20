@@ -22,8 +22,8 @@ KRISIS YANG BELUM TERPECAHKAN (= peluang nyata bagi yang siap):
 - Ketahanan pangan: Indonesia masih impor gandum, kedelai, bawang putih — kemandirian pangan agenda strategis nasional
 
 SEKTOR YANG AKAN SHORTAGE SDM BERKUALITAS 2030:
-- Ekonomi halal: 47,27% PDB sudah, tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka  // Sumber: KNEKS 2024 — ini AUS (Aktivitas Usaha Syariah keseluruhan), BUKAN HVC (~25%)
-- Keuangan syariah: aset tumbuh 33,92% — mismatch SDM akut  // Sumber: Bank Indonesia KEKSI 2023
+- Ekonomi halal (HVC): kontribusi ke PDB ~26%, tapi SDM yang paham fiqh muamalah + bisnis modern sangat langka  // Sumber: KNEKS 2024 (dikoreksi 21 Jul 2026 — selaras fix skill-map 8 Jul: 47,27% lama itu AUS/Aktivitas Usaha Syariah keseluruhan, bukan HVC)
+- Keuangan syariah: pangsa pasar perbankan syariah 7,72% dari total nasional, aset tumbuh 9,88% dalam setahun — mismatch SDM akut  // Sumber: OJK, Des 2024 (dikoreksi 21 Jul 2026 — 33,92% lama itu KEKSI 2023 pangsa aset-syariah/PDB yang mislabel sebagai "pertumbuhan")
 - Agritech & ketahanan pangan: prioritas BAPPENAS, infrastruktur dibangun, SDM belum ada
 - Konten digital Islam: pasar besar, sangat kekurangan kreator dengan otoritas keagamaan
 - Bimbingan karir berbasis nilai: OECD — bimbingan usia 15 berkorelasi kuat dengan outcome kerja usia 25
