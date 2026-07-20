@@ -274,9 +274,9 @@ export const bkSection = {
   intro: 'Data tentang kondisi BK di Indonesia, untuk referensi dan advokasi.',
   cards: [
     {
-      value: '1:250–350', label: 'rasio guru BK terhadap siswa di SMA Indonesia',
-      detail: 'Standar Permendikbud No. 111/2014: 1:150. Kenyataan: rata-rata 1:250 sampai 1:350. Di daerah terpencil bisa 1:500. Hanya 35–40% sekolah memenuhi standar. Di madrasah aliyah: 1:350 sampai 1:400.',
-      source: 'Data Dapodik Kemendikbud; EMIS Kemenag; Permendikbud No. 111/2014', tone: 'negative' as Tone,
+      value: '1:570', label: 'rasio guru BK terhadap siswa di Indonesia',
+      detail: 'Standar Permendikbud No. 111/2014: 1:150. Realita: 33 ribu guru BK untuk 18,8 juta siswa berdasar rasio nasional, setara 1:570. Kekurangan mencapai 242 ribu guru BK secara nasional.',
+      source: 'PB ABKIN, Muh Farozin — RDPU Komisi X DPR RI, 8 November 2023; Permendikbud No. 111/2014', tone: 'negative' as Tone,
     },
     {
       value: '80–85%', label: 'siswa yang hanya mendapat layanan BK administratif',
@@ -289,8 +289,8 @@ export const bkSection = {
       source: 'Riset ABKIN; Universitas Pendidikan Indonesia (UPI); Universitas Negeri Yogyakarta (UNY)', tone: 'neutral' as Tone,
     },
     {
-      value: '28%', label: 'siswa usia 15 tahun di Indonesia dengan rencana karier yang realistis',
-      detail: 'OECD menemukan: bimbingan karier di usia 15 berkorelasi kuat dengan outcome kerja di usia 25. Indonesia berada di kuadran bawah dalam efektivitas career guidance. Mayoritas siswa mendambakan pekerjaan kerah putih tradisional yang kuota pasarnya sedang menyusut.',
+      value: '39%', label: 'remaja usia 15 tahun (rata-rata OECD) belum jelas arah kariernya',
+      detail: 'Bukan angka Indonesia-spesifik — ini rata-rata di seluruh negara OECD, dua kali lipat dibanding kurang dari sedekade lalu. OECD menemukan: bimbingan karier di usia 15 berkorelasi kuat dengan outcome kerja di usia 25.',
       source: 'OECD State of Global Teenage Career Preparation 2025 (data PISA 2022)', tone: 'negative' as Tone,
     },
   ],
