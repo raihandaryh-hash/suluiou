@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793621721725,
+      "tag": "0000_tutup_akses_anon_kenali_dirimu",
+      "breakpoints": true
+    }
+  ]
+}
