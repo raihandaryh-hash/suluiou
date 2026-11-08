@@ -71,7 +71,7 @@ const pathways: PathwayCard[] = [
     badge: 'Kuliah Online',
     badgeVariant: 'muted',
     description:
-      'International Open University Indonesia — kuliah Islam berbasis online, dari rumah, dengan jadwal yang fleksibel.',
+      'International Open University Indonesia: kuliah Islam berbasis online, dari rumah, dengan jadwal yang fleksibel.',
     deadline: '',
     ctaText: 'Pelajari IOU →',
     ctaLink: 'https://bahasa.iou.edu.gm',

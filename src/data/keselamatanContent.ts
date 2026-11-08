@@ -11,6 +11,12 @@ export const keselamatanContent = {
   aiGalatJudul: 'DRAF: Bagian ini belum bisa dimuat',
   aiGalatIsi: 'DRAF: Fitur AI sedang tidak tersedia. Bagian lain dari halaman ini tetap bisa kamu pakai.',
   aiGalatCobaLagi: 'DRAF: Coba lagi',
+  /** Server menjawab 503 asesmen_tertutup: tanpa tombol "Coba lagi". */
+  asesmenDitutupJudul: 'DRAF: Bagian ini ditutup sementara',
+  asesmenDitutupIsi: 'DRAF: Bagian ini ditutup sementara, jadi belum bisa dimuat. Mencoba lagi tidak akan membantu untuk saat ini. Bagian lain dari halaman ini tetap bisa kamu pakai.',
+
+  /** Slide terakhir /suar saat ASESMEN_TERBUKA mati: tautan ke awal Spine B. */
+  suarLanjutSpineB: 'DRAF: Lanjut ke Kenali Dirimu',
 
   /** C1: keterangan non-diagnostik di halaman hasil. */
   nonDiagnostik: 'DRAF: Hasil ini adalah gambaran awal dari jawabanmu, bukan diagnosis dan bukan penilaian psikologis resmi.',

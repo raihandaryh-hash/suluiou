@@ -14,7 +14,7 @@
 // lewat DAFTAR_PENGECUALIAN, konteks aman (film/dokumenter/pencegahan) lewat
 // DAFTAR_KONTEKS_AMAN. Berkas ini tidak berisi teks yang tampil ke pengguna.
 //
-// Revisi (b), 8 Nov 2026: generalisasi atas meleset di scripts/uji-distress-independen.mjs
+// Revisi (b), 8 Nov 2026: generalisasi atas meleset di scripts/uji-distress-dev.mjs
 // (set DEV, bukan set uji tertahan): singkatan, Sunda/Jawa, eufemisme, tindakan melukai
 // diri, beban/tidak berharga, bahaya dari orang lain (pola berpasangan), Inggris, emoji.
 // Daftar kata kunci tetap lapis 1 saja; lapis 1b (pengklasifikasi) ada di

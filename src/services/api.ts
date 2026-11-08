@@ -13,6 +13,19 @@ const bacaDistress = (data: unknown): HasilDistressAI | null => {
   return { distress: d.tingkat === 'bahaya_langsung' ? 'bahaya_langsung' : 'tanda_berat' };
 };
 
+/** Server menjawab 503 { error: "asesmen_tertutup" }: asesmen ditutup sementara, bukan galat sementara. */
+export type HasilDitutup = { ditutup: true };
+const bacaDitutup = async (error: unknown): Promise<HasilDitutup | null> => {
+  const ctx = (error as { context?: Response } | null)?.context;
+  if (!ctx || ctx.status !== 503) return null;
+  try {
+    const body = await ctx.clone().json();
+    return body?.error === 'asesmen_tertutup' ? { ditutup: true } : null;
+  } catch {
+    return null;
+  }
+};
+
 const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
 const USE_SUPABASE = !import.meta.env.VITE_API_BASE_URL;
 
@@ -152,7 +165,7 @@ export const api = {
       familyBackground: string;
       aspiration: string;
     };
-  }): Promise<string | HasilDistressAI | null> {
+  }): Promise<string | HasilDistressAI | HasilDitutup | null> {
     const safePayload = {
       ...payload,
       studentProfile: pseudonymizeForAI(payload.studentProfile),
@@ -166,6 +179,10 @@ export const api = {
       );
       const dP = bacaDistress(data);
       if (dP) return dP;
+      if (error) {
+        const tutup = await bacaDitutup(error);
+        if (tutup) return tutup;
+      }
       if (error || !data?.projection) return null;
       return data.projection as string;
     }
@@ -176,7 +193,10 @@ export const api = {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(safePayload),
       });
-      if (!res.ok) return null;
+      if (!res.ok) {
+        if (res.status === 503 && (await res.json().catch(() => null))?.error === 'asesmen_tertutup') return { ditutup: true };
+        return null;
+      }
       const data = await res.json();
       return bacaDistress(data) ?? (data.projection || null);
     } catch {
@@ -199,7 +219,7 @@ export const api = {
       contributionGoal?: string;
       aspiration?: string;
     };
-  }): Promise<string | HasilDistressAI | null> {
+  }): Promise<string | HasilDistressAI | HasilDitutup | null> {
     if (USE_SUPABASE) {
       const { supabase } = await import('@/integrations/supabase/client');
       const { data, error } = await supabase.functions.invoke(
@@ -208,6 +228,10 @@ export const api = {
       );
       const dL = bacaDistress(data);
       if (dL) return dL;
+      if (error) {
+        const tutup = await bacaDitutup(error);
+        if (tutup) return tutup;
+      }
       if (error || !data?.layer1) return null;
       return data.layer1 as string;
     }
@@ -217,7 +241,10 @@ export const api = {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) return null;
+      if (!res.ok) {
+        if (res.status === 503 && (await res.json().catch(() => null))?.error === 'asesmen_tertutup') return { ditutup: true };
+        return null;
+      }
       const data = await res.json();
       return bacaDistress(data) ?? (data.layer1 || null);
     } catch {

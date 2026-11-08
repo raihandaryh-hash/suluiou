@@ -90,7 +90,7 @@ Hampir nol skill yang bisa digantikan sepenuhnya oleh AI saat ini adalah skill y
       'Asesmen bukan tentang menemukan siapa kamu dalam satu label. Ini tentang mendapat data yang lebih akurat untuk membuat keputusan yang lebih baik tentang dirimu sendiri.',
     color: 'teal',
     assessmentNote:
-      'Sedang dalam pengembangan — daftarkan diri untuk diberitahu.',
+      'Sedang dalam pengembangan, daftarkan diri untuk diberitahu.',
   },
   {
     id: 'panduan',

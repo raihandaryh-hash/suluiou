@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
@@ -24,8 +24,8 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // B1: kill-switch. SULU_AI_MATI=1 -> 503 sebelum memanggil model.
-  if (Deno.env.get("SULU_AI_MATI") === "1") {
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
     return new Response(JSON.stringify({ error: "ai_mati" }), {
       status: 503,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -135,12 +135,14 @@ Aturan wajib:
       if (response.status === 429)
         return json({ error: "Terlalu banyak permintaan, coba lagi sebentar." }, 429);
       if (response.status === 402) return json({ error: "Kuota AI habis." }, 402);
-      const text = await response.text();
-      console.error("AI error:", response.status, text);
+      console.error("AI error:", response.status);
       return json({ error: "Gagal menghubungi AI" }, 500);
     }
 
     const data = await response.json();
+    // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan galat umum.
+    const blokir = cabangBlokirKeamanan("generate-sintesis", corsHeaders, data);
+    if (blokir) return blokir;
     const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
     // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
     const keluaranDistress = cabangDistressKeluaran("generate-sintesis", corsHeaders, raw);

@@ -28,7 +28,7 @@ export function DaftarRujukan({ urut }: { urut: BarisRujukan[] }) {
           <p className="font-semibold text-sm">{r.judul}</p>
           <p className="text-sm text-muted-foreground mt-1">{r.isi}</p>
           {r.telepon && (
-            <a href="tel:119" className="mt-2 flex items-center gap-2 text-sm font-medium underline">
+            <a href="tel:119,8" className="mt-2 flex items-center gap-2 text-sm font-medium underline">
               <Phone className="h-4 w-4" aria-hidden /> {D.labelTelepon}: {r.telepon}
             </a>
           )}

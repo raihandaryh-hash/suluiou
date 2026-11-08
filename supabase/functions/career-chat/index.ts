@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
@@ -13,8 +13,8 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // B1: kill-switch. SULU_AI_MATI=1 -> 503 sebelum memanggil model.
-  if (Deno.env.get("SULU_AI_MATI") === "1") {
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
     return new Response(JSON.stringify({ error: "ai_mati" }), {
       status: 503,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -35,14 +35,22 @@ serve(async (req) => {
     const teksUser = Array.isArray(messages)
       ? messages.filter((m: { role?: string }) => m?.role === "user").map((m: { content?: unknown }) => m?.content)
       : [];
-    const cabang = cabangDistress("career-chat", corsHeaders, teksUser, studentContext?.studentProfile?.aspiration);
+    // Semua teks bebas siswa: aspirasi, latar keluarga, refleksi fase 2a, 2b, 3.
+    const teksKonteks = [
+      studentContext?.studentProfile?.aspiration,
+      studentContext?.studentProfile?.familyBackground,
+      studentContext?.reflection?.phase2a,
+      studentContext?.reflection?.phase2b,
+      studentContext?.reflection?.phase3,
+    ];
+    const cabang = cabangDistress("career-chat", corsHeaders, teksUser, teksKonteks);
     if (cabang) return cabang;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "career-chat",
       corsHeaders,
       { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey: AI_API_KEY },
-      teksUser, studentContext?.studentProfile?.aspiration,
+      teksUser, teksKonteks,
     );
     if (cabang1b) return cabang1b;
 
@@ -173,15 +181,42 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      const text = await response.text();
-      console.error("AI gateway error:", response.status, text);
+      console.error("AI gateway error:", response.status);
       return new Response(
         JSON.stringify({ error: "Gagal menghubungi AI" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    return new Response(response.body, {
+    // Aliran SSE: periksa peristiwa pertama untuk blokir keamanan penyedia sebelum meneruskan.
+    // (Blokir yang muncul di tengah aliran tidak bisa diubah karena header sudah terkirim.)
+    const reader = response.body!.getReader();
+    const dekoder = new TextDecoder();
+    const awal: Uint8Array[] = [];
+    let buf = "";
+    while (!buf.includes("\n\n")) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      awal.push(value);
+      buf += dekoder.decode(value, { stream: true });
+    }
+    const acuan = buf.split("\n\n")[0].split("\n").filter((l) => l.startsWith("data:")).map((l) => l.slice(5).trim()).join("");
+    let peristiwa: unknown = null;
+    try { peristiwa = acuan ? JSON.parse(acuan) : null; } catch { /* bukan JSON utuh, lanjut */ }
+    const blokir = cabangBlokirKeamanan("career-chat", corsHeaders, peristiwa);
+    if (blokir) {
+      reader.cancel().catch(() => {});
+      return blokir;
+    }
+    const aliran = new ReadableStream<Uint8Array>({
+      start(c) { awal.forEach((x) => c.enqueue(x)); },
+      async pull(c) {
+        const { done, value } = await reader.read();
+        if (done) c.close(); else c.enqueue(value);
+      },
+      cancel() { return reader.cancel(); },
+    });
+    return new Response(aliran, {
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {

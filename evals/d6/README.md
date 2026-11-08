@@ -6,7 +6,7 @@ Kit uji prompt baru (D1 sampai D5, B9) sebelum rilis. Kit ini BELUM dijalankan: 
 
 | Berkas | Isi |
 |---|---|
-| `kasus.jsonl` | 60 kasus. (a) 30 profil dan aspirasi untuk `generate-projection` dan `generate-layer1` (15 dan 15), peran S 17, M 6, U 7, dari SMA, SMK, MA, pesantren, mahasiswa, dan orang dewasa bekerja, 20 lebih provinsi, semua latar keluarga. (b) 18 kalimat distress tersamar ke `career-chat`: 9 lewat jalur CareerChatbot (dengan profil), 9 lewat jalur SuluCompanion (`studentProfile: null`, refleksi, provinsi). Ke-18 kalimat lolos lapis 1 (diperiksa terhadap daftar pemicu versi 8 Nov 2026); 13 diambil dari yang meleset di `scripts/uji-distress-independen.mjs`, 5 baru. (c) 6 pasangan profil identik yang hanya beda ikhwan dan akhwat (12 kasus). |
+| `kasus.jsonl` | 60 kasus. (a) 30 profil dan aspirasi untuk `generate-projection` dan `generate-layer1` (15 dan 15), peran S 17, M 6, U 7, dari SMA, SMK, MA, pesantren, mahasiswa, dan orang dewasa bekerja, 20 lebih provinsi, semua latar keluarga. (b) 18 kalimat distress tersamar ke `career-chat`: 9 lewat jalur CareerChatbot (dengan profil), 9 lewat jalur SuluCompanion (`studentProfile: null`, refleksi, provinsi). Ke-18 kalimat lolos lapis 1 (diperiksa terhadap daftar pemicu versi 8 Nov 2026); 13 diambil dari yang meleset di `scripts/uji-distress-dev.mjs`, 5 baru. (c) 6 pasangan profil identik yang hanya beda ikhwan dan akhwat (12 kasus). |
 | `juri.md` | J1, J2, J3: definisi LULUS dan GAGAL, tiga contoh berlabel masing-masing, syarat juri. |
 | `jalankan.mjs` | Runner. Kirim tiap kasus ke `SULU_UJI_URL/<fungsi>`, simpan ke `hasil/<stempel>.jsonl`. |
 
@@ -35,7 +35,7 @@ Lapis 1b (`supabase/functions/_shared/distressKlasifikasi.ts`) dipanggil keenam 
 
 | Berkas | Isi |
 |---|---|
-| `kasus-klasifikasi.jsonl` | 75 kasus: 40 positif (`label: risiko`, 30 tersamar) dan 35 negatif keras (`label: aman`), disalin apa adanya dari `scripts/uji-distress-independen.mjs`. |
+| `kasus-klasifikasi.jsonl` | 75 kasus: 40 positif (`label: risiko`, 30 tersamar) dan 35 negatif keras (`label: aman`), disalin apa adanya dari `scripts/uji-distress-dev.mjs`. |
 | `klasifikasi.mjs` | Runner. Memakai `klasifikasiRisiko` dan `PROMPT_KLASIFIKASI` yang sama dengan produksi, batas 3 detik. Simpan ke `hasil/klasifikasi-<stempel>.jsonl`. |
 
 Catatan: set ini juga set DEV lapis 1 (pola lapis 1 digeneralisasi dari meleset di sana). Untuk lapis 1b set ini belum pernah dipakai menyetel prompt; setelah prompt disetel atas hasil run pertama, set ini menjadi set dev juga, dan angka rilis wajib datang dari set tertahan baru yang ditulis orang lain.

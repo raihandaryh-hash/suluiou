@@ -4,10 +4,10 @@
 // (AI_BASE_URL, AI_MODEL, AI_API_KEY || GEMINI_API_KEY; Gemini generateContent).
 // - Risiko -> JSON rujukan statis yang sama dengan lapis 1 (jawabanDistress).
 // - Galat atau lewat 3 detik -> lanjut (lapis 2 tetap berlaku), log penghitung gagal.
-// - SULU_KLASIFIKASI_MATI=1 -> dilewati.
+// - SULU_KLASIFIKASI_MATI = "1", "true", atau "ya" (tanpa membedakan huruf besar kecil) -> dilewati.
 // Log hanya penghitung: tanpa teks, tanpa identitas (B5a).
 import type { TingkatDistress } from "./distress.ts";
-import { jawabanDistress } from "./distressServer.ts";
+import { jawabanDistress, saklarHidup } from "./distressServer.ts";
 
 export type Risiko = TingkatDistress | "aman";
 
@@ -45,6 +45,17 @@ export function kumpulkanTeks(...nilai: unknown[]): string {
   return teks.join("\n").slice(0, BATAS_KARAKTER);
 }
 
+/** Buang token pembatas <teks> dan </teks> (tanpa membedakan huruf besar kecil) agar pengguna tak bisa keluar dari pembungkus. */
+export function bersihkanPembatas(teks: string): string {
+  let hasil = teks;
+  let sebelum: string;
+  do {
+    sebelum = hasil;
+    hasil = hasil.replace(/<\s*\/?\s*teks\s*>/gi, "");
+  } while (hasil !== sebelum);
+  return hasil;
+}
+
 /**
  * Satu panggilan pengklasifikasi. Melempar galat bila gagal, lewat batas waktu,
  * atau jawaban tidak dapat dibaca. Jawaban yang diblokir filter keamanan penyedia
@@ -65,7 +76,7 @@ export async function klasifikasiRisiko(
       signal: controller.signal,
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: PROMPT_KLASIFIKASI }] },
-        contents: [{ role: "user", parts: [{ text: `<teks>\n${teks}\n</teks>` }] }],
+        contents: [{ role: "user", parts: [{ text: `<teks>\n${bersihkanPembatas(teks)}\n</teks>` }] }],
         generationConfig: {
           temperature: 0,
           maxOutputTokens: 32,
@@ -110,7 +121,7 @@ export async function cabangKlasifikasi(
   cfg: KonfigKlasifikasi,
   ...teksPengguna: unknown[]
 ): Promise<Response | null> {
-  if (Deno.env.get("SULU_KLASIFIKASI_MATI") === "1") return null;
+  if (saklarHidup("SULU_KLASIFIKASI_MATI")) return null;
   const teks = kumpulkanTeks(...teksPengguna);
   if (!teks) return null;
   let risiko: Risiko;

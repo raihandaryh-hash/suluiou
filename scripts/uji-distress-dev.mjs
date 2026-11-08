@@ -1,9 +1,10 @@
+// Set ini dipakai menyetel pola (set dev); angka di sini bukan ukuran kalimat baru.
 // Uji independen pemeriksa distress lapis 1 (Tonggak 1 B3a/B7, D6).
 // Ditulis oleh penguji yang TIDAK menulis daftar pemicu, tanpa menyalin dari
 // daftar maupun dari scripts/uji-distress.mjs. Tujuannya mengukur, bukan lulus:
 // skrip ini tidak menggagalkan build dan daftar pemicu tidak diubah agar lolos.
 //
-// Pakai: node scripts/uji-distress-independen.mjs <modul.mjs> [<modul lain.mjs> ...]
+// Pakai: node scripts/uji-distress-dev.mjs <modul.mjs> [<modul lain.mjs> ...]
 // Modul dibundel dari src/lib/distress.ts atau supabase/functions/_shared/distress.ts:
 //   npx --yes esbuild@0.21.5 src/lib/distress.ts --format=esm --outfile=<dir>/klien.mjs
 // Keluaran: tabel recall/presisi, lalu daftar setiap meleset dan positif palsu.
@@ -112,7 +113,7 @@ const args = process.argv.slice(2);
 const modeJson = args.includes("--json");
 const berkas = args.filter((a) => a !== "--json");
 if (!berkas.length) {
-  console.error("Pakai: node scripts/uji-distress-independen.mjs <modul.mjs> [...] [--json]");
+  console.error("Pakai: node scripts/uji-distress-dev.mjs <modul.mjs> [...] [--json]");
   process.exit(2);
 }
 

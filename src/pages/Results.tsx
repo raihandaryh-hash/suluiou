@@ -47,6 +47,7 @@ const Results = () => {
     resetAssessment,
     generatingProjection,
     projectionFailed,
+    asesmenDitutup,
     studentProfile,
     triggerProjection,
     layer1,
@@ -549,11 +550,17 @@ const Results = () => {
               </div>
             ) : projectionFailed && !generatingProjection && !projection ? (
               <div className="space-y-3" role="alert">
-                <p className="text-sm font-semibold">{keselamatanContent.aiGalatJudul}</p>
-                <p className="text-sm text-muted-foreground">{keselamatanContent.aiGalatIsi}</p>
-                <Button variant="outline" size="sm" onClick={() => void triggerProjection()}>
-                  {keselamatanContent.aiGalatCobaLagi}
-                </Button>
+                <p className="text-sm font-semibold">
+                  {asesmenDitutup ? keselamatanContent.asesmenDitutupJudul : keselamatanContent.aiGalatJudul}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {asesmenDitutup ? keselamatanContent.asesmenDitutupIsi : keselamatanContent.aiGalatIsi}
+                </p>
+                {!asesmenDitutup && (
+                  <Button variant="outline" size="sm" onClick={() => void triggerProjection()}>
+                    {keselamatanContent.aiGalatCobaLagi}
+                  </Button>
+                )}
               </div>
             ) : generatingProjection || !projection ? (
               <div className="space-y-3">

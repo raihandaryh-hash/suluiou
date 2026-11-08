@@ -1,7 +1,7 @@
 // Eval D6 lapis 1b: ukur pengklasifikasi keselamatan (supabase/functions/_shared/distressKlasifikasi.ts)
 // secara langsung ke penyedia model, TANPA lapis 1, agar recall lapis 1b terukur sendiri.
 // Kasus: evals/d6/kasus-klasifikasi.jsonl (40 positif + 35 negatif keras dari
-// scripts/uji-distress-independen.mjs). Ambang: recall >= 95%, positif palsu <= 10%.
+// scripts/uji-distress-dev.mjs). Ambang: recall >= 95%, positif palsu <= 10%.
 //
 // Pakai (kunci UJI, bukan kunci produksi; runner tidak membaca .env repo dan tidak mencetak kunci):
 //   SULU_UJI_AI_KEY=<kunci uji> SULU_UJI_AI_MODEL=<sama dengan AI_MODEL produksi> \

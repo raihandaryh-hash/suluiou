@@ -61,6 +61,8 @@ interface AssessmentState {
   generatingProjection: boolean;
   /** B2a: true bila proyeksi AI gagal atau dimatikan; menggantikan spinner tanpa akhir. */
   projectionFailed: boolean;
+  /** Server menjawab 503 asesmen_tertutup: sembunyikan "Coba lagi", tampilkan keterangan ditutup sementara. */
+  asesmenDitutup: boolean;
   layer1: string | null;
   generatingLayer1: boolean;
   /** B3a/B9: server mengganti hasil AI (layer1 atau proyeksi) dengan rujukan distress. */
@@ -107,6 +109,7 @@ const initialState: AssessmentState = {
   projection: null,
   generatingProjection: false,
   projectionFailed: false,
+  asesmenDitutup: false,
   layer1: null,
   generatingLayer1: false,
   distressHasil: null,
@@ -279,6 +282,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       projection: null,
       generatingProjection: false,
       projectionFailed: false,
+      asesmenDitutup: false,
     }));
 
     const session = getStudentSession();
@@ -336,7 +340,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         },
       });
 
-      if (projection && typeof projection === 'object') {
+      if (projection && typeof projection === 'object' && 'ditutup' in projection) {
+        setState((prev) => ({ ...prev, generatingProjection: false, projectionFailed: true, asesmenDitutup: true }));
+      } else if (projection && typeof projection === 'object' && 'distress' in projection) {
         const tingkat = projection.distress;
         setState((prev) => ({ ...prev, distressHasil: tingkat, generatingProjection: false, projectionFailed: true }));
       } else if (typeof projection === 'string' && projection) {
@@ -388,7 +394,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
           aspiration: cur.studentProfile?.aspiration,
         },
       });
-      if (layer1 && typeof layer1 === 'object') {
+      if (layer1 && typeof layer1 === 'object' && 'ditutup' in layer1) {
+        setState((prev) => ({ ...prev, generatingLayer1: false, asesmenDitutup: true }));
+      } else if (layer1 && typeof layer1 === 'object' && 'distress' in layer1) {
         const tingkat = layer1.distress;
         setState((prev) => ({ ...prev, distressHasil: tingkat, generatingLayer1: false }));
       } else {

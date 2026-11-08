@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
-import { ASESMEN_TERBUKA } from '@/data/flags';
+import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import { keselamatanContent } from '@/data/keselamatanContent';
 
 const BUCKET = 'suar-slides';
 
@@ -253,6 +254,15 @@ const Suar = () => {
                 />
               ))}
             </div>
+          </div>
+        )}
+
+        {!ASESMEN_TERBUKA && current === slideUrls.length - 1 && (
+          <div className="text-center pb-6">
+            <Button size="lg" onClick={() => navigate(SPINE_B_AWAL)} className="gap-2">
+              {keselamatanContent.suarLanjutSpineB}
+              <ArrowRight className="w-5 h-5" />
+            </Button>
           </div>
         )}
 

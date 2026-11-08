@@ -111,8 +111,11 @@ export const dapurPetaPenutup = {
 
 // E20: atribusi OECD (lisensi CC BY). Tanpa logo OECD.
 // Pengantar berbahasa Indonesia masih DRAF dan menunggu paket teks Raihan.
-// URL belum diverifikasi ke halaman resmi OECD; jangan diisi dari ingatan.
-export type OecdSitasi = { tahun: string; judul: string; url: string; dipakaiDi: string };
+// Daftar ini mencakup setiap sumber OECD bertahun yang dirujuk di src/ (judul dan tahun
+// persis seperti tertulis di kode). `url` hanya diisi bila kode sudah memuat URL-nya;
+// saat ini tidak ada, jadi sitasi dirender sebagai judul tanpa tautan.
+// URL diverifikasi sebelum rilis (jangan diisi dari ingatan).
+export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi: string };
 
 export const dapurPetaAtribusiOecd = {
   judul: "DRAF: Atribusi OECD",
@@ -121,8 +124,14 @@ export const dapurPetaAtribusiOecd = {
     {
       tahun: "2025",
       judul: "The State of Global Teenage Career Preparation",
-      url: "DRAF: URL menunggu verifikasi ke halaman resmi OECD",
-      dipakaiDi: "/insight, macroContext.ts, jalanBaktiContent.ts",
+      // URL diverifikasi sebelum rilis
+      dipakaiDi: "insightContent.ts, skillMapContent.ts, references.ts (oecd-teenage-career-2025)",
+    },
+    {
+      tahun: "2015",
+      judul: "NEET Youth in the Aftermath of the Crisis (OECD Working Paper No. 164, Carcillo dkk.)",
+      // URL diverifikasi sebelum rilis
+      dipakaiDi: "mukadimahBabakContent.ts, references.ts (mukadimah-neet-scarring)",
     },
   ] as OecdSitasi[],
   disclaimer:

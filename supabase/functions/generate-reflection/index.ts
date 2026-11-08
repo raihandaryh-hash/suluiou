@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
@@ -36,8 +36,8 @@ const FALLBACK = "Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
-  // B1: kill-switch. SULU_AI_MATI=1 -> 503 sebelum memanggil model.
-  if (Deno.env.get("SULU_AI_MATI") === "1") {
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
     return new Response(JSON.stringify({ error: "ai_mati" }), {
       status: 503,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -134,12 +134,15 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
 
         if (aiResp.ok) {
           const data = await aiResp.json();
+          // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan narasi fallback.
+          const blokir = cabangBlokirKeamanan("generate-reflection", corsHeaders, data);
+          if (blokir) return blokir;
           const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
           // B9 periksa keluaran: teks rujukan tidak disimpan sebagai narasi.
           keluaranDistress = cabangDistressKeluaran("generate-reflection", corsHeaders, text);
           if (text && !keluaranDistress) narrative = text;
         } else {
-          console.error("AI gateway error:", aiResp.status, await aiResp.text().catch(() => ""));
+          console.error("AI gateway error:", aiResp.status);
         }
       } catch (e) {
         console.error("AI call failed:", e);
@@ -148,13 +151,15 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
       console.error("No AI API key configured");
     }
 
+    // Keluaran distress dikembalikan SEBELUM tulis DB apa pun (teks rujukan tidak disimpan).
+    if (keluaranDistress) return keluaranDistress;
+
     const { error: upErr } = await supabase
       .from("kenali_dirimu_sessions")
       .update({ ai_narrative: narrative, completed: true })
       .eq("session_id", session_id);
 
     if (upErr) console.error("Update error:", upErr);
-    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ narrative }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

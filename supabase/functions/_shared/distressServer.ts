@@ -5,6 +5,33 @@ import { RUJUKAN_POLOS } from "./distressRujukan.ts";
 export { periksaDistressNilai };
 
 /**
+ * Kill-switch longgar: "1", "true", "ya" (tanpa membedakan huruf besar kecil) berarti hidup.
+ * Dipakai SULU_AI_MATI dan SULU_KLASIFIKASI_MATI. SULU_ASESMEN_TERBUKA TIDAK memakai ini
+ * (tetap ketat "1", gagal tertutup).
+ */
+export function saklarHidup(nama: string): boolean {
+  const v = (Deno.env.get(nama) ?? "").trim().toLowerCase();
+  return v === "1" || v === "true" || v === "ya";
+}
+
+/**
+ * Jawaban penyedia diblokir filter keamanan (promptFeedback.blockReason atau finishReason SAFETY).
+ * Teks yang memicu blokir kemungkinan besar bahaya; kembalikan rujukan statis tanda_berat,
+ * bukan galat umum. Log hanya penghitung (B5a).
+ */
+export function cabangBlokirKeamanan(
+  fn: string,
+  corsHeaders: Record<string, string>,
+  data: unknown,
+): Response | null {
+  const d = data as { promptFeedback?: { blockReason?: unknown }; candidates?: Array<{ finishReason?: unknown }> } | null;
+  const diblokir = Boolean(d?.promptFeedback?.blockReason) || d?.candidates?.[0]?.finishReason === "SAFETY";
+  if (!diblokir) return null;
+  console.log(JSON.stringify({ evt: "distress_blokir_penyedia", fn, tingkat: "tanda_berat", t: new Date().toISOString() }));
+  return jawabanDistress("tanda_berat", corsHeaders);
+}
+
+/**
  * B3a + B5a: bila teks pengguna cocok dengan daftar pemicu, kembalikan Response 200
  * { distress: true, tingkat, rujukan } dari teks statis, TANPA memanggil model.
  * Log hanya satu baris penghitung: tanpa teks, tanpa identitas. Tidak ada tabel baru.

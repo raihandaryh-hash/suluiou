@@ -145,7 +145,7 @@ export default function DapurPetaTab() {
         <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/85">
           {dapurPetaAtribusiOecd.sitasi.map((s) => (
             <li key={s.judul}>
-              OECD ({s.tahun}), {s.judul}, {s.url}
+              OECD ({s.tahun}), {s.url ? <a href={s.url} className="underline underline-offset-2" rel="noopener noreferrer">{s.judul}</a> : s.judul}
             </li>
           ))}
         </ul>

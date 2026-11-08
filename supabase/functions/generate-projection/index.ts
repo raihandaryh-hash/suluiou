@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
@@ -84,8 +84,8 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // B1: kill-switch. SULU_AI_MATI=1 -> 503 sebelum memanggil model.
-  if (Deno.env.get("SULU_AI_MATI") === "1") {
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
     return new Response(JSON.stringify({ error: "ai_mati" }), {
       status: 503,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -170,7 +170,6 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
 
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
     let response: Response | null = null;
-    let lastErrText = '';
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const controller = new AbortController();
@@ -198,8 +197,8 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
       if (response.ok) break;
 
       const isRetryable = response.status === 429 || response.status >= 500;
-      lastErrText = await response.text().catch(() => '');
-      console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status} ${lastErrText}`);
+      await response.body?.cancel().catch(() => {});
+      console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status}`);
       if (!isRetryable || attempt === 2) break;
       await sleep((2 ** attempt) * 1000);
     }
@@ -218,15 +217,18 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      console.error("AI gateway error after retries:", status, lastErrText);
+      console.error("AI gateway error after retries:", status);
       throw new Error(`AI gateway error: ${status}`);
     }
 
     const data = await response.json();
+    // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan galat umum.
+    const blokir = cabangBlokirKeamanan("generate-projection", corsHeaders, data);
+    if (blokir) return blokir;
     const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
-      console.error("No content in AI response:", JSON.stringify(data));
+      console.error("No content in AI response, finishReason:", data?.candidates?.[0]?.finishReason ?? "none", "blockReason:", data?.promptFeedback?.blockReason ?? "none");
       throw new Error("No content in AI response");
     }
 
