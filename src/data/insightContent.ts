@@ -275,8 +275,8 @@ export const bkSection = {
   cards: [
     {
       value: '1:570', label: 'rasio guru BK terhadap siswa di Indonesia',
-      detail: 'Standar Permendikbud No. 111/2014: 1:150. Realita: 33 ribu guru BK untuk 18,8 juta siswa berdasar rasio nasional, setara 1:570. Kekurangan mencapai 242 ribu guru BK secara nasional.',
-      source: 'PB ABKIN, Muh Farozin — RDPU Komisi X DPR RI, 8 November 2023; Permendikbud No. 111/2014', tone: 'negative' as Tone,
+      detail: 'Realita: 33 ribu guru BK untuk 18,8 juta siswa berdasar rasio nasional, setara 1:570. Kekurangan mencapai 242 ribu guru BK secara nasional.',
+      source: 'PB ABKIN, Muh Farozin — RDPU Komisi X DPR RI, 8 November 2023', tone: 'negative' as Tone,
     },
     {
       value: '39%', label: 'remaja usia 15 tahun (rata-rata OECD) belum jelas arah kariernya',
