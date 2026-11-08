@@ -505,11 +505,11 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
     card.tone === 'positive' ? 'text-primary' :
     'text-foreground';
 
-  const canShare = !!card.artinya;
+  const canShare = !!card.artinya?.[contentPersona];
 
   async function handleShare(e: React.MouseEvent) {
     e.stopPropagation();
-    if (!card.artinya || thisSharing) return;
+    if (!card.artinya?.[contentPersona] || thisSharing) return;
     setThisSharing(true);
     try {
       const res = await shareCard({
@@ -540,7 +540,7 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
             {card.value}
           </div>
           <div className="text-sm text-muted-foreground leading-snug">{card.label}</div>
-          {card.artinya && (
+          {card.artinya?.[contentPersona] && (
             <p className="text-xs text-muted-foreground italic leading-relaxed pt-2">
               Artinya: {card.artinya[contentPersona]}
             </p>

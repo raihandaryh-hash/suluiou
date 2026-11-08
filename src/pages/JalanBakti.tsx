@@ -16,6 +16,7 @@ import { api } from "@/services/api";
 import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
 import JalanBaktiOpening from "@/components/JalanBaktiOpening";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
+import { keselamatanContent } from "@/data/keselamatanContent";
 
 type ProvinceContext = {
   economic_sectors: string[];
@@ -452,11 +453,9 @@ export default function JalanBakti() {
                       <p className="text-xs uppercase tracking-wider text-muted-foreground">
                         Yang masih kosong di daerahmu
                       </p>
-                      {provinceCtx.data_verified && (
-                        <span className="text-[10px] rounded-full border border-border bg-secondary/50 px-2 py-0.5 text-muted-foreground">
-                          Terverifikasi{provinceCtx.data_year ? ` · ${provinceCtx.data_year}` : ''}
-                        </span>
-                      )}
+                      <span className="text-[10px] rounded-full border border-border bg-secondary/50 px-2 py-0.5 text-muted-foreground">
+                        {keselamatanContent.gambaranAwal}
+                      </span>
                     </div>
                     <ul className="space-y-2 list-disc pl-5 text-sm leading-relaxed text-foreground/85">
                       {provinceCtx.fardhu_kifayah_gaps.map((g, i) => (

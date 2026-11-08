@@ -14,3 +14,9 @@ export const HASIL_PUBLIK_TERBUKA = false;
 
 /** Awal Spine B: tujuan pengalihan saat asesmen tertutup. */
 export const SPINE_B_AWAL = '/kenali-dirimu';
+
+/** E15: aside dalil Al-Anfal 60 di /rencana-aksi. Tersembunyi sampai Raihan menyetujui terjemahnya. */
+export const DALIL_ANFAL_60_TERBUKA = false;
+
+/** E17: tombol "Bagikan ke Orang Tua (WA)" di /ringkasan. Tersembunyi (PAD 11.3); diganti tautan Proposal Diri di Tonggak 2. */
+export const BAGIKAN_ORANG_TUA_TERBUKA = false;

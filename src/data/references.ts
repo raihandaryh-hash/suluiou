@@ -70,7 +70,7 @@ export const references: Reference[] = [
   { id: 'britishcouncil-avpn-dice', label: 'British Council/AVPN DICE Study — Social Enterprise Indonesia', category: 'Ekonomi' },
   { id: 'tracer-uin-pbsb-kemenag', label: 'Tracer Study UIN Jakarta; Data PBSB Kemenag RI', category: 'Pendidikan' },
   { id: 'idn-media-genz-2024', label: 'IDN Media Indonesian Millennials & Gen Z Report 2024', category: 'Demografi & Kependudukan' },
-  { id: 'ukt-2024-kemendikbud', label: 'Permendikbudristek No. 2/2024 (kenaikan UKT, dibatalkan Mei 2024 setelah protes nasional); biaya pendidikan naik rata-rata 10-15% per tahun (OJK).', category: 'Pendidikan' },
+  { id: 'ukt-2024-kemendikbud', label: 'Permendikbudristek No. 2/2024 (kenaikan UKT, dibatalkan Mei 2024 setelah protes nasional).', category: 'Pendidikan' },
   { id: 'gaji-fresh-grad-bps', label: 'Rata-rata gaji bulanan lulusan PT Indonesia Rp4,63 juta; fresh graduate usia 20-25 sering Rp2-2,5 juta di awal karier (BPS; Data UKT Kemendikbud 2025).', category: 'Ketenagakerjaan & Skill' },
   { id: 'anthropic-economic-index', label: 'Anthropic Economic Index, laporan pertama (Februari 2025): sekitar 36% pekerjaan memakai AI untuk minimal seperempat tugasnya, sekitar 4% untuk tiga-perempat tugasnya; penggunaan condong ke augmentasi (57%) dibanding otomasi (43%).', category: 'Era AI & Masa Depan Kerja' },
   { id: 'anthropic-aug-vs-auto-2025', label: 'Anthropic Economic Index, laporan ke-4 (November 2025): augmentasi kembali memimpin 52% berbanding otomasi 45%, setelah otomasi sempat unggul tipis pada sampel Agustus 2025. Pekerjaan yang paling banyak memakai AI adalah bidang kognitif menengah-atas (programmer, penulis, analis data), bukan pekerjaan manual.', category: 'Era AI & Masa Depan Kerja' },

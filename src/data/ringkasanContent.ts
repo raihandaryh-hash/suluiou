@@ -86,8 +86,6 @@ export const ringkasanContent = {
 
           "Biaya: Rp 1,5\u20132,4 juta per semester",
 
-          "Ijazah setara Kemendikbud RI",
-
           "Program: BBA, Psikologi, BAIS, ALS, Pendidikan",
 
         ],
@@ -101,8 +99,6 @@ export const ringkasanContent = {
         title: "Jalur Lain & Gap Year",
 
         desc: "Kerja, magang, atau bangun keahlian dulu. Ini strategi yang diambil banyak orang yang akhirnya masuk jalur terbaik mereka.",
-
-        meta: "Lihat juga: /programs",
 
       },
 

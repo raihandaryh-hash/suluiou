@@ -178,7 +178,7 @@ export const laborRealitySection = {
       glossaryTerm: 'K-Shaped Recovery: pemulihan ekonomi berbentuk huruf K: bagian atas tumbuh cepat, bagian bawah pekerja informal tertinggal.',
       tone: 'negative' as Tone,
       artinya: {
-        siswa: 'Jalur yang kamu pilih sekarang menentukan kamu ada di bagian mana dari huruf K itu.',
+        siswa: '',
         orangtua: 'Pertumbuhan ekonomi yang terlihat di berita tidak selalu dirasakan oleh semua lapisan masyarakat.',
         gurubk: 'Data ini membantu menjelaskan mengapa banyak siswa merasa frustrasi meski ekonomi "tumbuh".',
       } as Record<ContentPersona, string>,
@@ -251,8 +251,8 @@ export const roiSection = {
   cards: [
     {
       value: 'Rp 12–19 jt', label: 'total biaya kuliah S1 di IOU Indonesia (4 tahun)',
-      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Ijazah sudah mendapat penyetaraan Kemendikbud. Kuliah dari rumah, tidak ada biaya hidup terpisah.',
-      source: 'IOU Indonesia, data biaya semester 2025; Kemendikbud penyetaraan 2024', tone: 'positive' as Tone,
+      detail: 'Rp 1,5 juta/semester (paruh waktu) × 8 semester = Rp 12 juta. Atau Rp 2,4 juta/semester (normal) × 8 semester = Rp 19,2 juta. Kuliah dari rumah, tidak ada biaya hidup terpisah.',
+      source: 'IOU Indonesia, data biaya semester 2025', tone: 'positive' as Tone,
     },
     {
       value: 'Rp 150–250 jt', label: 'estimasi total biaya kuliah S1 di PTN (termasuk biaya hidup di kota)',
@@ -277,16 +277,6 @@ export const bkSection = {
       value: '1:570', label: 'rasio guru BK terhadap siswa di Indonesia',
       detail: 'Standar Permendikbud No. 111/2014: 1:150. Realita: 33 ribu guru BK untuk 18,8 juta siswa berdasar rasio nasional, setara 1:570. Kekurangan mencapai 242 ribu guru BK secara nasional.',
       source: 'PB ABKIN, Muh Farozin — RDPU Komisi X DPR RI, 8 November 2023; Permendikbud No. 111/2014', tone: 'negative' as Tone,
-    },
-    {
-      value: '80–85%', label: 'siswa yang hanya mendapat layanan BK administratif',
-      detail: 'Layanan yang bermakna, konseling berbasis data minat bakat, tindak lanjut individual, hanya diterima 15–20% siswa. Sisanya: mengisi angket, mendengar sosialisasi universitas, mengisi formulir tanpa analisis.',
-      source: 'Jurnal Kajian Bimbingan dan Konseling; Survei Mutu Pendidikan', tone: 'negative' as Tone,
-    },
-    {
-      value: '88%', label: 'guru BK yang membutuhkan platform asesmen karier terstandarisasi dan gratis',
-      detail: 'Lisensi alat tes psikologi mahal jika harus diadakan mandiri untuk seluruh siswa. 74% membutuhkan dashboard data pasar kerja yang diperbarui berkala. 62% kesulitan mengintegrasikan asesmen non-kognitif sesuai Kurikulum Merdeka.',
-      source: 'Riset ABKIN; Universitas Pendidikan Indonesia (UPI); Universitas Negeri Yogyakarta (UNY)', tone: 'neutral' as Tone,
     },
     {
       value: '39%', label: 'remaja usia 15 tahun (rata-rata OECD) belum jelas arah kariernya',
@@ -382,7 +372,7 @@ export const jabarSection = {
     { label: 'UMKM bersertifikat halal di Jabar', value: '882.000', context: 'Terbanyak di Indonesia (BPJPH, Feb 2026)', tone: 'positive' as Tone },
   ],
   closingNote: {
-    siswa: 'Kamu tinggal di provinsi dengan salah satu paradoks terbesar Indonesia. Keputusan hari ini menentukan kamu ada di sisi pertumbuhan atau sisi pengangguran.',
+    siswa: 'Kamu tinggal di provinsi dengan salah satu paradoks terbesar Indonesia.',
     orangtua: 'Data Jabar berbeda dari rata-rata nasional. Informasi lokal ini lebih relevan untuk keputusan pendidikan anak Anda.',
     gurubk: 'Data per-kabupaten sangat bervariasi. Kabupaten asal siswa menentukan konteks peluang yang berbeda.',
   } as Record<ContentPersona, string>,
@@ -466,7 +456,7 @@ export const faktorPenghambatSection = {
   faktor: [
     {
       judul: 'Biaya kuliah terus menekan',
-      body: 'Tahun 2024 banyak PTN menaikkan UKT sampai memicu protes nasional, hingga akhirnya dibatalkan pemerintah. Tapi tekanannya belum hilang: biaya pendidikan di Indonesia naik rata-rata 10 sampai 15 persen setiap tahun.',
+      body: 'Tahun 2024 banyak PTN menaikkan UKT sampai memicu protes nasional, hingga akhirnya dibatalkan pemerintah.',
       cite: 'ukt-2024-kemendikbud',
     },
     {
@@ -528,7 +518,7 @@ export const ctaSection = {
   ],
   waitlist: {
     headline: 'Asesmen Sulu: Segera Hadir',
-    subtext: 'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
+    subtext: 'Masukkan kontakmu dan kami kabari begitu siap.',
     fields: {
       name: { label: 'Nama', placeholder: 'Nama lengkap' },
       email: { label: 'Email', placeholder: 'email@kamu.com' },

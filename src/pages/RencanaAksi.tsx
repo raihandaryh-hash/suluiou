@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useUserTrack } from "@/hooks/useUserTrack";
 import { rencanaAksiContent as R } from "@/data/rencanaAksiContent";
+import { DALIL_ANFAL_60_TERBUKA } from "@/data/flags";
 
 const LS_KEY = "sulu_phase5_action_plan";
 
@@ -207,7 +208,8 @@ export default function RencanaAksi() {
           </p>
         ))}
 
-        {/* Aside: Ust. Hilman */}
+        {/* Aside: kekuatan (tersembunyi, E15) */}
+        {DALIL_ANFAL_60_TERBUKA && (
         <div className="rounded-xl border border-border bg-secondary/30 px-5 py-5 space-y-3 text-sm">
           <p className="text-foreground/90 leading-relaxed">{H.teks}</p>
           <p dir="rtl" lang="ar" className="text-xl leading-loose text-foreground text-right">
@@ -216,6 +218,7 @@ export default function RencanaAksi() {
           <p className="italic text-foreground/90 leading-relaxed">{H.dalil2Terjemah}</p>
           <p className="text-foreground/90 leading-relaxed">{H.jembatan}</p>
         </div>
+        )}
 
         {/* Refleksi */}
         <div className="space-y-2 pt-2">

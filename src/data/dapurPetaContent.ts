@@ -103,10 +103,30 @@ export const dapurPetaSeksiE = {
 };
 
 export const dapurPetaPenutup = {
-  body: "Aturan yang kami pegang: setiap klaim ber-angka di platform ini punya sumber yang dicantumkan. Kalau Anda menemukan klaim tanpa sumber, perlakukan ia sebagai belum berdasar dan kabari kami.",
+  body: "Kalau Anda menemukan klaim tanpa sumber, perlakukan ia sebagai belum berdasar dan kabari kami.",
   email: "raihan@bahasa.iou.edu.gm",
   // PERHATIAN: verifikasi Raihan wajib sebelum ship — brief eksekusi minta
   // konfirmasi alamat ini benar-benar aktif, jangan asumsikan typo/benar.
+};
+
+// E20: atribusi OECD (lisensi CC BY). Tanpa logo OECD.
+// Pengantar berbahasa Indonesia masih DRAF dan menunggu paket teks Raihan.
+// URL belum diverifikasi ke halaman resmi OECD; jangan diisi dari ingatan.
+export type OecdSitasi = { tahun: string; judul: string; url: string; dipakaiDi: string };
+
+export const dapurPetaAtribusiOecd = {
+  judul: "DRAF: Atribusi OECD",
+  pengantar: "DRAF: Pengantar atribusi OECD menunggu teks dari Raihan.",
+  sitasi: [
+    {
+      tahun: "2025",
+      judul: "The State of Global Teenage Career Preparation",
+      url: "DRAF: URL menunggu verifikasi ke halaman resmi OECD",
+      dipakaiDi: "/insight, macroContext.ts, jalanBaktiContent.ts",
+    },
+  ] as OecdSitasi[],
+  disclaimer:
+    "This is an adaptation of an original work by the OECD. The opinions expressed and arguments employed in this adaptation should not be reported as representing the official views of the OECD or of its Member countries.",
 };
 
 // ─────────────────────────────────────────────────────────────
