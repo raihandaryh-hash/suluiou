@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress } from "../_shared/distressServer.ts";
+import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -82,7 +82,7 @@ Aturan wajib:
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          contents: [{ role: "user", parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ prompt + ARAHAN_LAPIS_KEDUA }] }],
           generationConfig: {
             temperature: 0.4,
             maxOutputTokens: 2048,

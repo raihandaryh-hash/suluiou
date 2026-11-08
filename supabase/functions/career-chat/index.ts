@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress } from "../_shared/distressServer.ts";
+import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -137,7 +137,7 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
         },
         body: JSON.stringify({
           contents: [
-            { role: "user", parts: [{ text: systemPrompt + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
+            { role: "user", parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ systemPrompt + ARAHAN_LAPIS_KEDUA + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
           ],
           generationConfig: {
             maxOutputTokens: 1024,

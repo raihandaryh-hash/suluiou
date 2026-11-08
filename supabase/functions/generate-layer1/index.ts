@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress } from "../_shared/distressServer.ts";
+import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -135,7 +135,7 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
