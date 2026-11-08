@@ -345,6 +345,9 @@ const Results = () => {
             <p className="text-muted-foreground text-lg">
               Berdasarkan analisis Kepribadian & Minat, inilah profil unikmu.
             </p>
+            <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto" role="note">
+              {keselamatanContent.nonDiagnostik}
+            </p>
           </motion.div>
 
           {/* Section 1: Profil Psikologismu */}

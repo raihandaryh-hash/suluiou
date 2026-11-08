@@ -138,6 +138,9 @@ const PublicResult = () => {
           <p className="text-muted-foreground">
             Hasil tes minat & kepribadian di Sulu by IOU Indonesia.
           </p>
+          <p className="text-sm text-muted-foreground mt-3" role="note">
+            {keselamatanContent.nonDiagnostik}
+          </p>
         </motion.div>
 
         {data.top_pathway_name && (
