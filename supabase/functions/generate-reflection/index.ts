@@ -34,6 +34,14 @@ const FALLBACK = "Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
+  // B1: kill-switch. SULU_AI_MATI=1 -> 503 sebelum memanggil model.
+  if (Deno.env.get("SULU_AI_MATI") === "1") {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const { session_id, values_top3, possible_selves, odyssey_plans } = await req.json();
 

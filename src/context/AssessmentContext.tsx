@@ -58,6 +58,8 @@ interface AssessmentState {
   selectedPathways: string[];
   projection: string | null;
   generatingProjection: boolean;
+  /** B2a: true bila proyeksi AI gagal atau dimatikan; menggantikan spinner tanpa akhir. */
+  projectionFailed: boolean;
   layer1: string | null;
   generatingLayer1: boolean;
   studentProfile: StudentProfile | null;
@@ -100,6 +102,7 @@ const initialState: AssessmentState = {
   selectedPathways: [],
   projection: null,
   generatingProjection: false,
+  projectionFailed: false,
   layer1: null,
   generatingLayer1: false,
   studentProfile: null,
@@ -270,6 +273,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       topTraits,
       projection: null,
       generatingProjection: false,
+      projectionFailed: false,
     }));
 
     const session = getStudentSession();
@@ -293,7 +297,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     if (cur.generatingProjection) return;
     if (!cur.scores) return;
 
-    setState((prev) => ({ ...prev, generatingProjection: true }));
+    setState((prev) => ({ ...prev, generatingProjection: true, projectionFailed: false }));
 
     try {
       const hexaco = {
@@ -328,13 +332,13 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
       });
 
       if (projection) {
-        setState((prev) => ({ ...prev, projection, generatingProjection: false }));
+        setState((prev) => ({ ...prev, projection, generatingProjection: false, projectionFailed: false }));
       } else {
-        setState((prev) => ({ ...prev, generatingProjection: false }));
+        setState((prev) => ({ ...prev, generatingProjection: false, projectionFailed: true }));
       }
     } catch (err) {
       console.warn('AI projection error:', err);
-      setState((prev) => ({ ...prev, generatingProjection: false }));
+      setState((prev) => ({ ...prev, generatingProjection: false, projectionFailed: true }));
     }
   };
 

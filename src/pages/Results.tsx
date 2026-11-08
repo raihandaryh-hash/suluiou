@@ -31,6 +31,7 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
+import { keselamatanContent } from '@/data/keselamatanContent';
 import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 
@@ -44,6 +45,7 @@ const Results = () => {
     isComplete,
     resetAssessment,
     generatingProjection,
+    projectionFailed,
     studentProfile,
     triggerProjection,
     layer1,
@@ -526,6 +528,14 @@ const Results = () => {
                   <Sparkles className="w-4 h-4" />
                   {generatingLayer1 ? 'Sedang disiapkan...' : 'Lihat Proyeksi 2030-mu'}
                   <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            ) : projectionFailed && !generatingProjection && !projection ? (
+              <div className="space-y-3" role="alert">
+                <p className="text-sm font-semibold">{keselamatanContent.aiGalatJudul}</p>
+                <p className="text-sm text-muted-foreground">{keselamatanContent.aiGalatIsi}</p>
+                <Button variant="outline" size="sm" onClick={() => void triggerProjection()}>
+                  {keselamatanContent.aiGalatCobaLagi}
                 </Button>
               </div>
             ) : generatingProjection || !projection ? (

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { keselamatanContent } from '@/data/keselamatanContent';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Loader2, Bot, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -74,7 +75,7 @@ export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
 
       if (!resp.ok) {
         const err = await resp.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(err.error || `Error ${resp.status}`);
+        throw new Error(resp.status === 503 ? keselamatanContent.aiGalatIsi : (err.error || `Error ${resp.status}`));
       }
 
       if (!resp.body) throw new Error('No response body');
