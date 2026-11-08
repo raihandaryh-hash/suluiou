@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -49,6 +50,18 @@ serve(async (req) => {
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("generate-reflection", corsHeaders, possible_selves, odyssey_plans);
     if (cabang) return cabang;
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "generate-reflection",
+      corsHeaders,
+      {
+        baseUrl: Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta",
+        model: Deno.env.get("AI_MODEL") || "gemini-2.5-flash",
+        apiKey: Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY"),
+      },
+      possible_selves, odyssey_plans,
+    );
+    if (cabang1b) return cabang1b;
 
     if (!session_id) {
       return new Response(JSON.stringify({ error: "session_id required" }), {

@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,6 +47,14 @@ serve(async (req) => {
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("broaden-roles", corsHeaders, skills, values);
     if (cabang) return cabang;
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "broaden-roles",
+      corsHeaders,
+      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey: AI_API_KEY },
+      skills, values,
+    );
+    if (cabang1b) return cabang1b;
 
     const ctx = [
       `Medan yang dipilih siswa: ${medan.nama || "(tidak disebutkan)"}`,

@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -127,6 +128,16 @@ serve(async (req) => {
       studentProfile?.familyBackground,
     );
     if (cabang) return cabang;
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "generate-projection",
+      corsHeaders,
+      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey },
+      studentProfile?.aspiration,
+      studentProfile?.contributionGoal,
+      studentProfile?.familyBackground,
+    );
+    if (cabang1b) return cabang1b;
     const selectedNames: string[] = Array.isArray(selectedPathwayNames) ? selectedPathwayNames : [];
     const topTwo: Array<{ dim: string; interpretation: string }> = Array.isArray(topTwoHEXACO) ? topTwoHEXACO : [];
     const tension = tensionPair && typeof tensionPair === 'object' ? tensionPair : null;

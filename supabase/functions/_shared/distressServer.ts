@@ -21,7 +21,7 @@ export function cabangDistress(
   return jawabanDistress(tingkat, corsHeaders);
 }
 
-function jawabanDistress(tingkat: TingkatDistress, corsHeaders: Record<string, string>): Response {
+export function jawabanDistress(tingkat: TingkatDistress, corsHeaders: Record<string, string>): Response {
   return new Response(
     JSON.stringify({ distress: true, tingkat, rujukan: RUJUKAN_POLOS[tingkat], versi: DAFTAR_VERSI }),
     { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },

@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -36,6 +37,14 @@ serve(async (req) => {
       : [];
     const cabang = cabangDistress("career-chat", corsHeaders, teksUser, studentContext?.studentProfile?.aspiration);
     if (cabang) return cabang;
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "career-chat",
+      corsHeaders,
+      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey: AI_API_KEY },
+      teksUser, studentContext?.studentProfile?.aspiration,
+    );
+    if (cabang1b) return cabang1b;
 
     const profile = studentContext.studentProfile;
     const province = studentContext.province || profile?.province || null;
