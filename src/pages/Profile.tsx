@@ -13,6 +13,7 @@ import {
 } from '@/lib/classSession';
 import { clearPendingClassCode } from '@/lib/pendingClassCode';
 import { toast } from '@/hooks/use-toast';
+import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const ProfilePage = () => {
       }
 
       setStudentProfile(profile);
-      navigate('/consent', { replace: true });
+      navigate(ASESMEN_TERBUKA ? '/consent' : SPINE_B_AWAL, { replace: true });
     } finally {
       setSubmitting(false);
     }

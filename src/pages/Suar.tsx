@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
+import { ASESMEN_TERBUKA } from '@/data/flags';
 
 const BUCKET = 'suar-slides';
 
@@ -104,7 +105,7 @@ const Suar = () => {
       }
       if (e.key === 'Enter') {
         if (current === slideUrls.length - 1) {
-          navigate('/assessment');
+          if (ASESMEN_TERBUKA) navigate('/assessment');
         } else {
           next();
         }
@@ -255,6 +256,7 @@ const Suar = () => {
           </div>
         )}
 
+        {ASESMEN_TERBUKA && (
         <div className="text-center pb-6">
           <Button
             size="lg"
@@ -265,6 +267,7 @@ const Suar = () => {
             <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
+        )}
       </main>
     </div>
   );

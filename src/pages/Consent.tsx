@@ -9,6 +9,7 @@ import LogoutButton from '@/components/LogoutButton';
 import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import { useEffect } from 'react';
+import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 
 const Consent = () => {
   const navigate = useNavigate();
@@ -17,6 +18,10 @@ const Consent = () => {
 
   // If user lands here without finishing Step 0, send them back.
   useEffect(() => {
+    if (!ASESMEN_TERBUKA) {
+      navigate(SPINE_B_AWAL, { replace: true });
+      return;
+    }
     if (hydrating) return;
     if (!isProfileComplete(studentProfile)) {
       navigate('/profile', { replace: true });
@@ -24,6 +29,7 @@ const Consent = () => {
   }, [hydrating, studentProfile, navigate]);
 
   const handleStart = () => {
+    if (!ASESMEN_TERBUKA) return;
     if (!checked) return;
     setConsent(true);
     startHexaco();
@@ -121,6 +127,7 @@ const Consent = () => {
               </span>
             </label>
 
+            {ASESMEN_TERBUKA && (
             <Button
               type="button"
               size="lg"
@@ -131,6 +138,7 @@ const Consent = () => {
               Mulai Asesmen
               <ArrowRight className="w-4 h-4" />
             </Button>
+            )}
           </article>
         </motion.div>
       </div>

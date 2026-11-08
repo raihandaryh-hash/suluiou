@@ -83,6 +83,14 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // A7: kunci asesmen di sisi server. Selain "1" berarti tertutup (503).
+  if (Deno.env.get("SULU_ASESMEN_TERBUKA") !== "1") {
+    return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
       || "https://generativelanguage.googleapis.com/v1beta";

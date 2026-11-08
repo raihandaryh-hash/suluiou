@@ -31,6 +31,7 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
+import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 
 const Results = () => {
@@ -62,7 +63,7 @@ const Results = () => {
   const [showProjection, setShowProjection] = useState(false);
 
   useEffect(() => {
-    if (!isComplete) navigate('/assessment');
+    if (!isComplete) navigate(ASESMEN_TERBUKA ? '/assessment' : SPINE_B_AWAL);
   }, [isComplete, navigate]);
 
   // Scroll to top when results page mounts (fix UX: user lands mid-page after assessment)
@@ -395,7 +396,7 @@ const Results = () => {
             </motion.div>
           </div>
 
-          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={savedRowId} />
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={HASIL_PUBLIK_TERBUKA ? savedRowId : null} showLinkShare={HASIL_PUBLIK_TERBUKA} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
@@ -555,7 +556,7 @@ const Results = () => {
           <SaveToGoogleSection resultId={savedRowId} />
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.95 }} className="mb-12">
-            <ShareButtons scores={scores} topSelection={topSelection} resultId={savedRowId} />
+            <ShareButtons scores={scores} topSelection={topSelection} resultId={HASIL_PUBLIK_TERBUKA ? savedRowId : null} />
           </motion.div>
 
           <motion.div
@@ -630,6 +631,7 @@ const Results = () => {
               </div>
             </div>
 
+            {ASESMEN_TERBUKA && (
             <div className="mt-10 pt-8 border-t border-border/40">
               <p className="text-xs text-muted-foreground mb-3">
                 Device ini akan dipakai siswa lain?
@@ -649,6 +651,7 @@ const Results = () => {
                 Mulai asesmen baru (siswa lain)
               </Button>
             </div>
+            )}
           </motion.div>
         </div>
       </div>

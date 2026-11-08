@@ -3,6 +3,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { patchStudentSession, type StudentSession } from '@/lib/classSession';
 import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
+import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 
 /** Look up a student's most recent class enrollment and return class info. */
 async function findEnrolledClass(
@@ -29,7 +30,7 @@ async function findEnrolledClass(
   }
 }
 
-export type AuthRoute = '/results' | '/assessment' | '/consent' | '/profile';
+export type AuthRoute = '/results' | '/assessment' | '/consent' | '/profile' | typeof SPINE_B_AWAL;
 
 /** Try to auto-enroll a Google user using a pending `?kode=` code captured earlier. */
 async function tryEnrollFromPendingCode(
@@ -134,6 +135,9 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
   } catch (e) {
     console.warn('[routeAfterAuth] progress check failed', e);
   }
+
+  // A2: asesmen tertutup, semua yang bukan hasil lama diarahkan ke awal Spine B.
+  if (!ASESMEN_TERBUKA) return SPINE_B_AWAL;
 
   // 3) If a progress row exists, route by what's missing.
   if (progress) {
