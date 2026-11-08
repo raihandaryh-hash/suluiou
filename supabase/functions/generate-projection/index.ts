@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -115,6 +116,16 @@ serve(async (req) => {
       studentProfile,
       selectedPathwayNames,
     } = await req.json();
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress(
+      "generate-projection",
+      corsHeaders,
+      studentProfile?.aspiration,
+      studentProfile?.contributionGoal,
+      studentProfile?.familyBackground,
+    );
+    if (cabang) return cabang;
     const selectedNames: string[] = Array.isArray(selectedPathwayNames) ? selectedPathwayNames : [];
     const topTwo: Array<{ dim: string; interpretation: string }> = Array.isArray(topTwoHEXACO) ? topTwoHEXACO : [];
     const tension = tensionPair && typeof tensionPair === 'object' ? tensionPair : null;

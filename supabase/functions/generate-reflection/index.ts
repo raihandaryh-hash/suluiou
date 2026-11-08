@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress } from "../_shared/distressServer.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -44,6 +45,10 @@ serve(async (req) => {
 
   try {
     const { session_id, values_top3, possible_selves, odyssey_plans } = await req.json();
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress("generate-reflection", corsHeaders, possible_selves, odyssey_plans);
+    if (cabang) return cabang;
 
     if (!session_id) {
       return new Response(JSON.stringify({ error: "session_id required" }), {

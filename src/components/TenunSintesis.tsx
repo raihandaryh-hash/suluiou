@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { sintesisContent as S } from "@/data/sintesisContent";
+import RujukanDistress from "@/components/RujukanDistress";
+import { periksaDistressNilai, type TingkatDistress } from "@/lib/distress";
 
 type Payload = {
   fondasi: { q: string; a: string }[];
@@ -34,8 +36,15 @@ export default function TenunSintesis({
   const [tenun, setTenun] = useState<string[]>(initialTenun);
   const [catatan, setCatatan] = useState(initialCatatan);
   const [errorMsg, setErrorMsg] = useState("");
+  const [distress, setDistress] = useState<TingkatDistress | null>(null);
 
   async function run() {
+    // B3a/B7: pemeriksa distress di klien atas teks bebas siswa, sebelum panggilan AI.
+    const cek = periksaDistressNilai(payload.fondasi.map((f) => f.a), payload.langkah);
+    if (cek.cocok) {
+      setDistress(cek.tingkat);
+      return;
+    }
     setPhase("loading");
     setErrorMsg("");
     try {
@@ -43,6 +52,11 @@ export default function TenunSintesis({
       const { data, error } = await supabase.functions.invoke("generate-sintesis", {
         body: payload,
       });
+      if (data?.distress) {
+        setDistress(data.tingkat === "bahaya_langsung" ? "bahaya_langsung" : "tanda_berat");
+        setPhase("idle");
+        return;
+      }
       if (error || !data || data.error || !Array.isArray(data.tenun) || !data.tenun.length) {
         throw new Error(data?.error || error?.message || "empty");
       }
@@ -56,6 +70,10 @@ export default function TenunSintesis({
       setErrorMsg(C.errorText);
       setPhase("error");
     }
+  }
+
+  if (distress) {
+    return <RujukanDistress tingkat={distress} onTutup={() => setDistress(null)} />;
   }
 
   if (!enough) {

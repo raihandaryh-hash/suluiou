@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,6 +47,15 @@ serve(async (req) => {
     const siapa: string[] = Array.isArray(body.siapa) ? body.siapa.map((s: unknown) => clip(s, 80)) : [];
     const roles: string[] = Array.isArray(body.roles) ? body.roles.map((s: unknown) => clip(s, 80)) : [];
     const langkah = clip(body.langkah);
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress(
+      "generate-sintesis",
+      corsHeaders,
+      Array.isArray(body.fondasi) ? body.fondasi.map((x: { a?: unknown }) => x?.a) : [],
+      body.langkah,
+    );
+    if (cabang) return cabang;
 
     const ctx = [
       fondasi.length

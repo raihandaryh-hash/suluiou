@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/services/api';
+import RujukanDistress from '@/components/RujukanDistress';
+import { periksaDistress, type TingkatDistress } from '@/lib/distress';
 import { useProvince } from '@/hooks/useProvince';
 import { buildSuluContext } from '@/lib/buildSuluContext';
 
@@ -23,6 +25,7 @@ export function SuluCompanion() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [distress, setDistress] = useState<TingkatDistress | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -40,6 +43,15 @@ export function SuluCompanion() {
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
+
+    // B3a/B7: pemeriksa distress di klien, sebelum panggilan AI. Teks tidak dikirim dan tidak disimpan.
+    const cek = periksaDistress(text);
+    if (cek.cocok) {
+      setInput('');
+      setDistress(cek.tingkat);
+      return;
+    }
+    setDistress(null);
 
     const userMsg: Msg = { role: 'user', content: text.trim() };
     const allMessages = [...messages, userMsg];
@@ -60,6 +72,15 @@ export function SuluCompanion() {
       if (!resp.ok) {
         const err = await resp.json().catch(() => ({ error: 'Unknown error' }));
         throw new Error(resp.status === 503 ? keselamatanContent.aiGalatIsi : (err.error || `Error ${resp.status}`));
+      }
+      // B3a: server mengembalikan JSON { distress: true } tanpa memanggil model.
+      if (resp.headers.get('content-type')?.includes('application/json')) {
+        const j = await resp.json().catch(() => null);
+        if (j?.distress) {
+          setMessages(messages);
+          setDistress(j.tingkat === 'bahaya_langsung' ? 'bahaya_langsung' : 'tanda_berat');
+          return;
+        }
       }
       if (!resp.body) throw new Error('No response body');
 
@@ -210,6 +231,7 @@ export function SuluCompanion() {
                 </div>
               ))}
 
+              {distress && <RujukanDistress tingkat={distress} onTutup={() => setDistress(null)} />}
               {isLoading && messages[messages.length - 1]?.role !== 'assistant' && (
                 <div className="flex gap-2">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">

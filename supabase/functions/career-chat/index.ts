@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,6 +29,13 @@ serve(async (req) => {
     }
 
     const { messages, studentContext = {} } = await req.json();
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const teksUser = Array.isArray(messages)
+      ? messages.filter((m: { role?: string }) => m?.role === "user").map((m: { content?: unknown }) => m?.content)
+      : [];
+    const cabang = cabangDistress("career-chat", corsHeaders, teksUser, studentContext?.studentProfile?.aspiration);
+    if (cabang) return cabang;
 
     const profile = studentContext.studentProfile;
     const province = studentContext.province || profile?.province || null;

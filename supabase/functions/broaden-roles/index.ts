@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -41,6 +42,10 @@ serve(async (req) => {
     const personSide = body.personSide || {};
     const skills: string = typeof personSide.skills === "string" ? personSide.skills : "";
     const values: string = typeof personSide.values === "string" ? personSide.values : "";
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress("broaden-roles", corsHeaders, skills, values);
+    if (cabang) return cabang;
 
     const ctx = [
       `Medan yang dipilih siswa: ${medan.nama || "(tidak disebutkan)"}`,
