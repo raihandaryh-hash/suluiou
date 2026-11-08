@@ -9,6 +9,7 @@ import { AssessmentProvider } from "@/context/AssessmentContext";
 import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
 import Mukadimah from "./pages/Mukadimah";
+import BilaTidakBaikBaikSaja from "./pages/BilaTidakBaikBaikSaja";
 import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
@@ -76,6 +77,8 @@ const App = () => {
             <Route path="/results" element={<Results />} />
             <Route path="/hasil/:resultId" element={<PublicResult />} />
             <Route path="/suar" element={<Suar />} />
+            {/* B10: halaman publik penjelasan cabang distress (teks DRAF) */}
+            <Route path="/bila-tidak-baik-baik-saja" element={<BilaTidakBaikBaikSaja />} />
             <Route element={<AppLayout />}>
               <Route path="/insight" element={<Insight />} />
               <Route path="/skill-map" element={<SkillMap />} />
