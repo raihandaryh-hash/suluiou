@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -218,6 +218,10 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
       console.error("No content in AI response:", JSON.stringify(data));
       throw new Error("No content in AI response");
     }
+
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-projection", corsHeaders, projection);
+    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ projection }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

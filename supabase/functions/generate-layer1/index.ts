@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -168,6 +168,9 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
 
     const data = await response.json();
     const layer1 = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-layer1", corsHeaders, layer1);
+    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ layer1 }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

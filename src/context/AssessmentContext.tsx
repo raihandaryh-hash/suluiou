@@ -5,6 +5,7 @@ import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
 import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
+import type { TingkatDistress } from '@/lib/distress';
 
 import { getStudentSession } from '@/lib/classSession';
 import {
@@ -62,6 +63,8 @@ interface AssessmentState {
   projectionFailed: boolean;
   layer1: string | null;
   generatingLayer1: boolean;
+  /** B3a/B9: server mengganti hasil AI (layer1 atau proyeksi) dengan rujukan distress. */
+  distressHasil: TingkatDistress | null;
   studentProfile: StudentProfile | null;
   consentGiven: boolean;
   hydrating: boolean;
@@ -83,6 +86,7 @@ interface AssessmentContextType extends AssessmentState {
   togglePathway: (id: string) => void;
   triggerLayer1: () => Promise<void>;
   triggerProjection: () => Promise<void>;
+  tutupDistressHasil: () => void;
   resetAssessment: () => void;
 }
 
@@ -105,6 +109,7 @@ const initialState: AssessmentState = {
   projectionFailed: false,
   layer1: null,
   generatingLayer1: false,
+  distressHasil: null,
   studentProfile: null,
   consentGiven: false,
   hydrating: true,
@@ -331,8 +336,12 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         },
       });
 
-      if (projection) {
-        setState((prev) => ({ ...prev, projection, generatingProjection: false, projectionFailed: false }));
+      if (projection && typeof projection === 'object') {
+        const tingkat = projection.distress;
+        setState((prev) => ({ ...prev, distressHasil: tingkat, generatingProjection: false, projectionFailed: true }));
+      } else if (typeof projection === 'string' && projection) {
+        const teks: string = projection;
+        setState((prev) => ({ ...prev, projection: teks, generatingProjection: false, projectionFailed: false }));
       } else {
         setState((prev) => ({ ...prev, generatingProjection: false, projectionFailed: true }));
       }
@@ -379,12 +388,20 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
           aspiration: cur.studentProfile?.aspiration,
         },
       });
-      setState((prev) => ({ ...prev, layer1: layer1 ?? null, generatingLayer1: false }));
+      if (layer1 && typeof layer1 === 'object') {
+        const tingkat = layer1.distress;
+        setState((prev) => ({ ...prev, distressHasil: tingkat, generatingLayer1: false }));
+      } else {
+        const teks: string | null = typeof layer1 === 'string' ? layer1 : null;
+        setState((prev) => ({ ...prev, layer1: teks, generatingLayer1: false }));
+      }
     } catch (err) {
       console.warn('AI layer1 error:', err);
       setState((prev) => ({ ...prev, generatingLayer1: false }));
     }
   };
+
+  const tutupDistressHasil = () => setState((prev) => ({ ...prev, distressHasil: null }));
 
   const resetAssessment = () => {
     hydratedRef.current = true;
@@ -410,6 +427,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         togglePathway,
         triggerLayer1,
         triggerProjection,
+        tutupDistressHasil,
         resetAssessment,
       }}
     >

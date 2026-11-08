@@ -19,6 +19,7 @@ import { api } from '@/services/api';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
+import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
@@ -51,6 +52,8 @@ const Results = () => {
     layer1,
     generatingLayer1,
     triggerLayer1,
+    distressHasil,
+    tutupDistressHasil,
     hollandCode,
     sdsCounts,
   } = useAssessment();
@@ -313,6 +316,17 @@ const Results = () => {
     value: scores[key],
     fullMark: 5,
   }));
+
+  // B3a/B9: server mengganti layer1 atau proyeksi dengan rujukan distress.
+  if (distressHasil) {
+    return (
+      <div className="min-h-screen bg-background px-4 py-8">
+        <div className="container mx-auto max-w-xl">
+          <RujukanDistress tingkat={distressHasil} onTutup={tutupDistressHasil} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

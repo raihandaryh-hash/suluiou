@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -85,6 +85,7 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
     const supabase = createClient(supabaseUrl, serviceKey);
 
     let narrative = FALLBACK;
+    let keluaranDistress: Response | null = null;
 
     if (apiKey) {
       try {
@@ -121,7 +122,9 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
         if (aiResp.ok) {
           const data = await aiResp.json();
           const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-          if (text) narrative = text;
+          // B9 periksa keluaran: teks rujukan tidak disimpan sebagai narasi.
+          keluaranDistress = cabangDistressKeluaran("generate-reflection", corsHeaders, text);
+          if (text && !keluaranDistress) narrative = text;
         } else {
           console.error("AI gateway error:", aiResp.status, await aiResp.text().catch(() => ""));
         }
@@ -138,6 +141,7 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
       .eq("session_id", session_id);
 
     if (upErr) console.error("Update error:", upErr);
+    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ narrative }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

@@ -18,10 +18,41 @@ export function cabangDistress(
   if (!h.cocok || !h.tingkat) return null;
   const tingkat: TingkatDistress = h.tingkat;
   console.log(JSON.stringify({ evt: "distress_cabang", fn, tingkat, t: new Date().toISOString() }));
+  return jawabanDistress(tingkat, corsHeaders);
+}
+
+function jawabanDistress(tingkat: TingkatDistress, corsHeaders: Record<string, string>): Response {
   return new Response(
     JSON.stringify({ distress: true, tingkat, rujukan: RUJUKAN_POLOS[tingkat], versi: DAFTAR_VERSI }),
     { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
   );
+}
+
+// B9 periksa keluaran: penanda yang hanya ada di teks rujukan statis (RUJUKAN_POLOS).
+const PENANDA_RUJUKAN = ["healing119", "119 ekstensi 8"];
+
+/**
+ * B9 periksa keluaran: dipanggil SESUDAH model menjawab.
+ * Kembalikan JSON distress yang sama dengan cabangDistress bila
+ *   (a) teks model memuat penanda rujukan statis (model menuruti arahan lapis kedua), atau
+ *   (b) gagalParse = true (fungsi JSON gagal mem-parse) DAN teks model lolos pemeriksa pemicu.
+ * Log hanya penghitung tanpa isi (B5a).
+ */
+export function cabangDistressKeluaran(
+  fn: string,
+  corsHeaders: Record<string, string>,
+  teksModel: unknown,
+  gagalParse = false,
+): Response | null {
+  const teks = typeof teksModel === "string" ? teksModel : "";
+  if (!teks) return null;
+  const kecil = teks.toLowerCase();
+  const adaPenanda = PENANDA_RUJUKAN.some((p) => kecil.includes(p));
+  const h = periksaDistressNilai(teks);
+  if (!adaPenanda && !(gagalParse && h.cocok)) return null;
+  const tingkat: TingkatDistress = h.tingkat ?? "bahaya_langsung";
+  console.log(JSON.stringify({ evt: "distress_keluaran", fn, tingkat, t: new Date().toISOString() }));
+  return jawabanDistress(tingkat, corsHeaders);
 }
 
 // DRAF rumusan, menunggu paket Raihan (B9).

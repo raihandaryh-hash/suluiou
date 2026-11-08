@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { cabangDistress, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA } from "../_shared/distressServer.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -132,11 +132,16 @@ Aturan wajib:
 
     const data = await response.json();
     const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-sintesis", corsHeaders, raw);
+    if (keluaranDistress) return keluaranDistress;
     let parsed;
     try {
       parsed = JSON.parse(raw);
     } catch {
-      console.error("Parse fail:", raw);
+      const gagalDistress = cabangDistressKeluaran("generate-sintesis", corsHeaders, raw, true);
+      if (gagalDistress) return gagalDistress;
+      console.error("Parse fail, panjang:", raw.length);
       return json({ error: "Format jawaban AI tidak terbaca, coba lagi." }, 502);
     }
     return json(parsed, 200);
