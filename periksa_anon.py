@@ -102,6 +102,11 @@ def main() -> int:
                         hak.setdefault(kunci, set()).difference_update(hs)
     temuan = []
     for (tabel, nama), (f, cmd, peran, isi) in sorted(kebijakan.items()):
+        # Pengguna login yang boleh mengubah atau membaca baris tamu (user_id kosong) bisa mengklaim baris orang lain.
+        using = re.search(r"\busing\s*\((.*)", isi, I)
+        if "authenticated" in peran and cmd in {"update", "select", "all"} and using and re.search(r"user_id\s+is\s+null", using.group(1), I) \
+                and not re.search(r"auth\.uid\(\)\s+is\s+null\s+and\s+user_id\s+is\s+null", using.group(1), I) and (tabel, nama) not in DIKECUALIKAN:
+            temuan.append(f"kebijakan '{nama}' ({cmd}) membolehkan pengguna login menyentuh baris tamu di {tabel} · {f}")
         if not peran & {"anon", "public"}:
             continue
         if tabel in BOLEH_PUBLIK and cmd == "select":
