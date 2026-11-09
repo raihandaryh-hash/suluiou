@@ -80,7 +80,7 @@ export const ringkasanContent = {
 
         badge: "Penyelenggara Sulu",
 
-        desc: "Kuliah Islam berbasis online, bisa dari rumah, jadwal fleksibel. Sejak semester pertama sudah praktik nyata lewat Layanan Mahasiswa.",
+        desc: "Kuliah Islam berbasis online, bisa dari rumah, jadwal fleksibel. Sejak semester pertama sudah praktik nyata lewat Layanan Masyarakat.",
 
         bullets: [
 

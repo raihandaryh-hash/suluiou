@@ -149,7 +149,7 @@ export const compassSources = [
 export const iouBridgeSection = {
   tag: 'DARI ILMU KE DAMPAK',
   headline: 'Di mana kamu bisa menempa semua ini?',
-  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Mahasiswa — bukan menunggu lulus untuk mulai berkontribusi.',
+  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Masyarakat — bukan menunggu lulus untuk mulai berkontribusi.',
   programs: [
     {
       code: 'BBA',
