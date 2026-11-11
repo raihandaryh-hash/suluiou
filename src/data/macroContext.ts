@@ -16,8 +16,6 @@ MOMENTUM SEJARAH (anchor narasi ke sini):
 
 KRISIS YANG BELUM TERPECAHKAN (= peluang nyata bagi yang siap):
 - 19,44% pemuda Indonesia NEET (BPS Sakernas 2025) — tidak bekerja, tidak sekolah, tidak pelatihan
-- 87% mahasiswa mengaku salah jurusan — mismatch identitas-karir massif sejak SMA  // Sumber: ICCN 2017 — survei mandiri, metodologi tidak dipublikasikan
-- Rasio guru BK di madrasah: 1:150 — bimbingan karir hampir tidak ada  // Catatan: ini STANDAR Permendikbud, bukan realita. Realita MA: 1:350-1:400
 - Junior Squeeze: posisi entry-level turun 20% di sektor AI-exposed (Stanford AI Index 2026)
 - Ketahanan pangan: Indonesia masih impor gandum, kedelai, bawang putih — kemandirian pangan agenda strategis nasional
 

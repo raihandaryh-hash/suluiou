@@ -1,4 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -6,7 +9,8 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const SYSTEM_PROMPT = `Kamu adalah psikolog naratif yang menulis cermin diri untuk siswa SMA/SMK/MA Indonesia.
+// DRAF rumusan, menunggu paket Raihan (D5: peran lama diganti peran cermin yang tidak menilai).
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu siswa SMA/SMK/MA Indonesia melihat kembali dirinya dari jawabannya sendiri. Kamu memantulkan, tidak menilai, tidak mendiagnosis, dan tidak memberi label.
 Tugasmu: tulis narasi yang TERASA PERSONAL — bukan laporan, bukan zodiak, bukan kalimat yang bisa berlaku untuk siapa saja.
 
 PRINSIP EDITORIAL — BACA INI DULU:
@@ -42,14 +46,24 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // A7: kunci asesmen di sisi server. Selain "1" berarti tertutup (503).
+  if (Deno.env.get("SULU_ASESMEN_TERBUKA") !== "1") {
+    return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
-      || "https://generativelanguage.googleapis.com/v1beta";
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-
-    if (!apiKey) throw new Error("AI API key is not configured");
-
+    const badan = await req.json();
     const {
       hexaco,
       riasec,
@@ -58,9 +72,34 @@ serve(async (req) => {
       hexacoInterpretations,
       tensionPair,
       profile,
-    } = await req.json();
+    } = badan;
 
-    const safeProfile = profile || {};
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress(
+      "generate-layer1",
+      corsHeaders,
+      profile?.aspiration,
+      profile?.contributionGoal,
+      profile?.familyBackground,
+    );
+    if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, badan);
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "generate-layer1",
+      corsHeaders,
+      { ai: siap.ai, samaran: siap.samaran },
+      profile?.aspiration,
+      profile?.contributionGoal,
+      profile?.familyBackground,
+    );
+    if (cabang1b) return cabang1b;
+
+    // Mode (c): teks bebas profil (latar keluarga, tujuan kontribusi, aspirasi) tidak dikirim ke AI untuk di bawah 18.
+    const safeProfile = siap.bawah18
+      ? { ...(profile || {}), familyBackground: undefined, contributionGoal: undefined, aspiration: undefined }
+      : (profile || {});
     const interp = hexacoInterpretations || {};
     const tension = tensionPair || { label: '(belum terdeteksi)', detail: '' };
 
@@ -96,19 +135,18 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
 
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
     let response: Response | null = null;
-    let lastErrText = '';
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
+        response = await siap.aiFetch("ai:generateContent", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
@@ -124,14 +162,14 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
       if (response.ok) break;
 
       const isRetryable = response.status === 429 || response.status >= 500;
-      lastErrText = await response.text().catch(() => '');
-      console.warn(`generate-layer1 attempt ${attempt + 1} failed: ${response.status} ${lastErrText}`);
+      await response.body?.cancel().catch(() => {});
+      console.warn(`generate-layer1 attempt ${attempt + 1} failed: ${response.status}`);
       if (!isRetryable || attempt === 2) break;
       await sleep((2 ** attempt) * 1000);
     }
 
     if (!response || !response.ok) {
-      console.error("generate-layer1 gateway error:", response?.status, lastErrText);
+      console.error("generate-layer1 gateway error:", response?.status);
       return new Response(JSON.stringify({ layer1: null }), {
         status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -139,7 +177,13 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
     }
 
     const data = await response.json();
+    // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan galat umum.
+    const blokir = cabangBlokirKeamanan("generate-layer1", corsHeaders, data);
+    if (blokir) return blokir;
     const layer1 = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-layer1", corsHeaders, layer1);
+    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ layer1 }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

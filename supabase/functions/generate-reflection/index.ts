@@ -1,4 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
+import { GalatKonfigAI } from "../_shared/penyedia.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -30,12 +34,37 @@ JANGAN menyebut IOU, nama kampus, atau program studi apapun
 Nama siswa sudah diganti menjadi "kamu" sebelum sampai ke sini — pertahankan "kamu" saja`;
 
 const FALLBACK = "Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat ulang halaman ini.";
+// Mode (c): seluruh masukan fungsi ini teks bebas, jadi untuk di bawah 18 AI tidak dipanggil. DRAF rumusan.
+const TERKUNCI_BAWAH18 = "Refleksimu sudah tersimpan. Ringkasan dari Sulu akan terbuka setelah orang tua atau wali kamu memberi izin.";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
     const { session_id, values_top3, possible_selves, odyssey_plans } = await req.json();
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress("generate-reflection", corsHeaders, possible_selves, odyssey_plans);
+    if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    // Kunci AI hilang: jalur tanpa AI lama tetap jalan (narasi cadangan + tandai selesai).
+    const siap = await siapkanAI(req, { values_top3, possible_selves, odyssey_plans }).catch((e) => { if (e instanceof GalatKonfigAI) return null; throw e; });
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = siap ? await cabangKlasifikasi(
+      "generate-reflection",
+      corsHeaders,
+      { ai: siap.ai, samaran: siap.samaran },
+      possible_selves, odyssey_plans,
+    ) : null;
+    if (cabang1b) return cabang1b;
 
     if (!session_id) {
       return new Response(JSON.stringify({ error: "session_id required" }), {
@@ -63,25 +92,22 @@ Lintasan C (${planC.judul}): ${planC.gambaran}
 
 Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 200-300 kata. Awali dengan "Dari yang kamu tuliskan sendiri..."`;
 
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, serviceKey);
 
-    let narrative = FALLBACK;
+    let narrative = siap?.bawah18 ? TERKUNCI_BAWAH18 : FALLBACK;
+    let keluaranDistress: Response | null = null;
 
-    if (apiKey) {
+    if (siap && !siap.bawah18) {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);
-        const aiResp = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
+        const aiResp = await siap.aiFetch("ai:generateContent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
@@ -107,17 +133,23 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
 
         if (aiResp.ok) {
           const data = await aiResp.json();
+          // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan narasi fallback.
+          const blokir = cabangBlokirKeamanan("generate-reflection", corsHeaders, data);
+          if (blokir) return blokir;
           const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-          if (text) narrative = text;
+          // B9 periksa keluaran: teks rujukan tidak disimpan sebagai narasi.
+          keluaranDistress = cabangDistressKeluaran("generate-reflection", corsHeaders, text);
+          if (text && !keluaranDistress) narrative = text;
         } else {
-          console.error("AI gateway error:", aiResp.status, await aiResp.text().catch(() => ""));
+          console.error("AI gateway error:", aiResp.status);
         }
       } catch (e) {
         console.error("AI call failed:", e);
       }
-    } else {
-      console.error("No AI API key configured");
     }
+
+    // Keluaran distress dikembalikan SEBELUM tulis DB apa pun (teks rujukan tidak disimpan).
+    if (keluaranDistress) return keluaranDistress;
 
     const { error: upErr } = await supabase
       .from("kenali_dirimu_sessions")

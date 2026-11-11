@@ -174,7 +174,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         id: "indonesia-gelap",
         term: "Indonesia Gelap",
         padanan: "Dark Indonesia Movement",
-        arti: "Gerakan protes Februari dan Agustus 2025 — terbesar sejak Reformasi 1998. Bukan gerakan partai, tapi ekspresi frustrasi terhadap kesenjangan antara pejabat sejahtera dan pemuda yang tidak bisa menemukan pekerjaan layak.",
+        arti: "Gerakan protes Februari dan Agustus 2025. Bukan gerakan partai, tapi ekspresi frustrasi terhadap kesenjangan antara pejabat sejahtera dan pemuda yang tidak bisa menemukan pekerjaan layak.",
         sumber: "ECPS September 2025; East Asia Forum September 2025.",
       },
       {

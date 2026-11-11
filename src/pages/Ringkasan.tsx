@@ -7,6 +7,7 @@ import { ringkasanContent } from "@/data/ringkasanContent";
 import { compileSurat } from "@/lib/suratPerjalanan";
 import type { SuluNote } from "@/lib/notes";
 import { cn } from "@/lib/utils";
+import { BAGIKAN_ORANG_TUA_TERBUKA } from "@/data/flags";
 
 function formatTanggal(iso: string): string {
   try {
@@ -481,7 +482,9 @@ export default function Ringkasan() {
                       ))}
                     </ul>
                   )}
-                  <p className="mt-2 text-xs italic text-muted-foreground">{card.meta}</p>
+                  {"meta" in card && card.meta ? (
+                    <p className="mt-2 text-xs italic text-muted-foreground">{card.meta}</p>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -502,6 +505,7 @@ export default function Ringkasan() {
 
         {/* CTAs — di luar lembar */}
         <section className="mx-auto mt-8 flex max-w-[72ch] flex-col gap-3 print:hidden">
+          {BAGIKAN_ORANG_TUA_TERBUKA && (
           <Button asChild size="lg" className="w-full sm:w-auto sm:self-center">
             <a
               href={waHref}
@@ -512,6 +516,7 @@ export default function Ringkasan() {
               <MessageCircle className="mr-2 h-4 w-4" /> Bagikan ke Orang Tua (WA)
             </a>
           </Button>
+          )}
           <div className="flex flex-col gap-2 sm:flex-row sm:justify-center">
             <Button
               variant="outline"

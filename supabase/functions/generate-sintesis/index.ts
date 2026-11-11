@@ -1,4 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -22,22 +25,47 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  try {
-    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL =
-      Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-    if (!AI_API_KEY) throw new Error("AI_API_KEY is not configured");
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
+  try {
     const body = await req.json();
-    const fondasi: { q: string; a: string }[] = Array.isArray(body.fondasi)
+    let fondasi: { q: string; a: string }[] = Array.isArray(body.fondasi)
       ? body.fondasi.map((x: { q: unknown; a: unknown }) => ({ q: clip(x?.q, 120), a: clip(x?.a) }))
       : [];
     const skills: string[] = Array.isArray(body.skills) ? body.skills.map((s: unknown) => clip(s, 80)) : [];
     const bakti: string[] = Array.isArray(body.bakti) ? body.bakti.map((s: unknown) => clip(s, 120)) : [];
     const siapa: string[] = Array.isArray(body.siapa) ? body.siapa.map((s: unknown) => clip(s, 80)) : [];
     const roles: string[] = Array.isArray(body.roles) ? body.roles.map((s: unknown) => clip(s, 80)) : [];
-    const langkah = clip(body.langkah);
+    let langkah = clip(body.langkah);
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress(
+      "generate-sintesis",
+      corsHeaders,
+      Array.isArray(body.fondasi) ? body.fondasi.map((x: { a?: unknown }) => x?.a) : [],
+      body.langkah,
+    );
+    if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, body);
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "generate-sintesis",
+      corsHeaders,
+      { ai: siap.ai, samaran: siap.samaran },
+      Array.isArray(body.fondasi) ? body.fondasi.map((x: { a?: unknown }) => x?.a) : [],
+      body.langkah,
+    );
+    if (cabang1b) return cabang1b;
+    // Mode (c): jawaban tertulis (fondasi) dan langkah yang ditulis sendiri tidak dikirim ke AI untuk di bawah 18;
+    // pilihan kemampuan, tantangan, kelompok, dan peran tetap.
+    if (siap.bawah18) { fondasi = []; langkah = ""; }
 
     const ctx = [
       fondasi.length
@@ -78,13 +106,13 @@ Aturan wajib:
 
 "catatan": satu kalimat penutup yang mengingatkan bahwa tenunan ini cermin sementara yang bisa berubah seiring ia tumbuh, dan keputusan selalu di tangannya.`;
 
-    const response = await fetch(
-      `${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${AI_API_KEY}`,
+    const response = await siap.aiFetch(
+      "ai:generateContent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          contents: [{ role: "user", parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ prompt + ARAHAN_LAPIS_KEDUA }] }],
           generationConfig: {
             temperature: 0.65,
             maxOutputTokens: 1024,
@@ -107,18 +135,25 @@ Aturan wajib:
       if (response.status === 429)
         return json({ error: "Terlalu banyak permintaan, coba lagi sebentar." }, 429);
       if (response.status === 402) return json({ error: "Kuota AI habis." }, 402);
-      const text = await response.text();
-      console.error("AI error:", response.status, text);
+      console.error("AI error:", response.status);
       return json({ error: "Gagal menghubungi AI" }, 500);
     }
 
     const data = await response.json();
+    // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan galat umum.
+    const blokir = cabangBlokirKeamanan("generate-sintesis", corsHeaders, data);
+    if (blokir) return blokir;
     const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-sintesis", corsHeaders, raw);
+    if (keluaranDistress) return keluaranDistress;
     let parsed;
     try {
       parsed = JSON.parse(raw);
     } catch {
-      console.error("Parse fail:", raw);
+      const gagalDistress = cabangDistressKeluaran("generate-sintesis", corsHeaders, raw, true);
+      if (gagalDistress) return gagalDistress;
+      console.error("Parse fail, panjang:", raw.length);
       return json({ error: "Format jawaban AI tidak terbaca, coba lagi." }, 502);
     }
     return json(parsed, 200);

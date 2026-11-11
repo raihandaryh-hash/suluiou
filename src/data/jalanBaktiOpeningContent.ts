@@ -66,7 +66,7 @@ export const jbOpening = {
     {
       no: '02',
       judul: 'Pahami',
-      desc: 'Pilih satu yang memanggilmu, lalu gali lebih dalam. Apa akar masalahnya? Siapa yang sudah bergerak? Apa yang belum tergarap? Di sinilah alat seperti AI bisa membantumu meneliti, bukan menggantikan rasa pedulimu.',
+      desc: 'Pilih satu yang memanggilmu, lalu gali lebih dalam. Siapa yang sudah bergerak? Apa yang belum tergarap? Di sinilah alat seperti AI bisa membantumu meneliti, bukan menggantikan rasa pedulimu.',
     },
     {
       no: '03',

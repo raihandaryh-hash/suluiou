@@ -103,10 +103,39 @@ export const dapurPetaSeksiE = {
 };
 
 export const dapurPetaPenutup = {
-  body: "Aturan yang kami pegang: setiap klaim ber-angka di platform ini punya sumber yang dicantumkan. Kalau Anda menemukan klaim tanpa sumber, perlakukan ia sebagai belum berdasar dan kabari kami.",
+  body: "Kalau Anda menemukan klaim tanpa sumber, perlakukan ia sebagai belum berdasar dan kabari kami.",
   email: "raihan@bahasa.iou.edu.gm",
   // PERHATIAN: verifikasi Raihan wajib sebelum ship — brief eksekusi minta
   // konfirmasi alamat ini benar-benar aktif, jangan asumsikan typo/benar.
+};
+
+// E20: atribusi OECD (lisensi CC BY). Tanpa logo OECD.
+// Pengantar berbahasa Indonesia masih DRAF dan menunggu paket teks Raihan.
+// Daftar ini mencakup setiap sumber OECD bertahun yang dirujuk di src/ (judul dan tahun
+// persis seperti tertulis di kode). `url` hanya diisi bila kode sudah memuat URL-nya;
+// saat ini tidak ada, jadi sitasi dirender sebagai judul tanpa tautan.
+// URL diverifikasi sebelum rilis (jangan diisi dari ingatan).
+export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi: string };
+
+export const dapurPetaAtribusiOecd = {
+  judul: "DRAF: Atribusi OECD",
+  pengantar: "DRAF: Pengantar atribusi OECD menunggu teks dari Raihan.",
+  sitasi: [
+    {
+      tahun: "2025",
+      judul: "The State of Global Teenage Career Preparation",
+      // URL diverifikasi sebelum rilis
+      dipakaiDi: "insightContent.ts, skillMapContent.ts, references.ts (oecd-teenage-career-2025)",
+    },
+    {
+      tahun: "2015",
+      judul: "NEET Youth in the Aftermath of the Crisis (OECD Working Paper No. 164, Carcillo dkk.)",
+      // URL diverifikasi sebelum rilis
+      dipakaiDi: "mukadimahBabakContent.ts, references.ts (mukadimah-neet-scarring)",
+    },
+  ] as OecdSitasi[],
+  disclaimer:
+    "This is an adaptation of an original work by the OECD. The opinions expressed and arguments employed in this adaptation should not be reported as representing the official views of the OECD or of its Member countries.",
 };
 
 // ─────────────────────────────────────────────────────────────

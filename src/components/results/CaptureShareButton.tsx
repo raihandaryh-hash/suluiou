@@ -10,9 +10,11 @@ interface CaptureShareButtonProps {
   fileSlug?: string;
   /** When provided, the WA share link will point to the public result URL. */
   resultId?: string | null;
+  /** A6-data: tombol pembuat tautan berbagi (/hasil/:id) hanya tampil bila true. */
+  showLinkShare?: boolean;
 }
 
-export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil', resultId }: CaptureShareButtonProps) {
+export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil', resultId, showLinkShare = true }: CaptureShareButtonProps) {
   const [busy, setBusy] = useState<null | 'download' | 'wa'>(null);
   const { toast } = useToast();
 
@@ -62,13 +64,15 @@ export function CaptureShareButton({ targetId, fileSlug = 'sulu-hasil', resultId
           {busy === 'download' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
           {busy === 'download' ? 'Memproses...' : 'Unduh Gambar'}
         </Button>
-        <Button
-          onClick={handleWhatsApp}
-          className="gap-2 w-full sm:w-auto bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white"
-        >
-          <MessageCircle className="w-4 h-4" />
-          Bagikan ke WhatsApp
-        </Button>
+        {showLinkShare && (
+          <Button
+            onClick={handleWhatsApp}
+            className="gap-2 w-full sm:w-auto bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Bagikan ke WhatsApp
+          </Button>
+        )}
       </div>
     </div>
   );

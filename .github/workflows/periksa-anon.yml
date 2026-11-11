@@ -1,0 +1,12 @@
+name: periksa-anon
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  periksa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tolak kebijakan dan GRANT yang membuka data ke anon
+        run: python3 periksa_anon.py

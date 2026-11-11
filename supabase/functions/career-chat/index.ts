@@ -1,4 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
+import { sseGemini } from "../_shared/penyedia.ts";
+import { TEKS_OBROLAN_TERKUNCI } from "../_shared/usia.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,15 +16,48 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  try {
-    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-    if (!AI_API_KEY) {
-      throw new Error("AI_API_KEY is not configured");
-    }
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
+  try {
     const { messages, studentContext = {} } = await req.json();
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const teksUser = Array.isArray(messages)
+      ? messages.filter((m: { role?: string }) => m?.role === "user").map((m: { content?: unknown }) => m?.content)
+      : [];
+    // Semua teks bebas siswa: aspirasi, latar keluarga, refleksi fase 2a, 2b, 3.
+    const teksKonteks = [
+      studentContext?.studentProfile?.aspiration,
+      studentContext?.studentProfile?.familyBackground,
+      studentContext?.reflection?.phase2a,
+      studentContext?.reflection?.phase2b,
+      studentContext?.reflection?.phase3,
+    ];
+    const cabang = cabangDistress("career-chat", corsHeaders, teksUser, teksKonteks);
+    if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, { messages, studentContext }, [["nama", studentContext?.studentProfile?.name]]);
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "career-chat",
+      corsHeaders,
+      { ai: siap.ai, samaran: siap.samaran },
+      teksUser, teksKonteks,
+    );
+    if (cabang1b) return cabang1b;
+
+    // Mode (c): obrolan bebas untuk di bawah 18 terkunci sampai persetujuan orang tua; pemeriksa tanda bahaya di atas tetap jalan.
+    if (siap.bawah18) {
+      return new Response(sseGemini(TEKS_OBROLAN_TERKUNCI), {
+        headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+      });
+    }
 
     const profile = studentContext.studentProfile;
     const province = studentContext.province || profile?.province || null;
@@ -67,6 +105,7 @@ Klaster/jalur yang sedang dipertimbangkan: ${studentContext.selectedPathways.joi
 Klaster/jalur yang sedang dipertimbangkan: ${studentContext.selectedPathway}`
         : "";
 
+    // DRAF rumusan, menunggu paket Raihan (D3: bagian ROUTING, IOU dan Khazilmu sebagai salah satu pilihan).
     const systemPrompt = `Kamu adalah "Sulu" — teman refleksi untuk anak muda Indonesia, khususnya dari keluarga sederhana dan UMKM. Kamu bicara dalam Bahasa Indonesia yang hangat, jujur, dan tidak menggurui. Kamu bekerja dari apa yang siswa TULIS dan REFLEKSIKAN sendiri, bukan dari hasil tes.
 
 ATURAN JIWA (wajib di setiap jawaban):
@@ -85,9 +124,9 @@ ATURAN JIWA (wajib di setiap jawaban):
 
 ROUTING (hanya bila relevan, tidak di tiap jawaban):
 
-- Bila ia butuh jalur gelar/akademik terstruktur, kamu boleh menyebut IOU sebagai salah satu pintu.
+- Bila ia butuh jalur gelar/akademik terstruktur, sebut beberapa pilihan yang setara (kampus negeri atau swasta, kuliah jarak jauh, beasiswa). IOU boleh disebut sebagai salah satunya, bukan satu-satunya dan bukan yang utama.
 
-- Bila ia butuh skill/vokasi/microcredential jangka pendek, kamu boleh menyebut Khazilmu sebagai salah satu pintu.
+- Bila ia butuh skill/vokasi/microcredential jangka pendek, sebut beberapa pilihan yang setara (BLK, kursus daring, magang, belajar dari praktisi). Khazilmu boleh disebut sebagai salah satunya, bukan satu-satunya dan bukan yang utama.
 
 - Sebut natural, tanpa hard-sell, akui ada banyak pintu lain.
 
@@ -112,8 +151,8 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 15000);
-    const response = await fetch(
-      `${AI_BASE_URL}/models/${AI_MODEL}:streamGenerateContent?key=${AI_API_KEY}&alt=sse`,
+    const response = await siap.aiFetch(
+      "ai:streamGenerateContent",
       {
         method: "POST",
         headers: {
@@ -121,7 +160,7 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
         },
         body: JSON.stringify({
           contents: [
-            { role: "user", parts: [{ text: systemPrompt + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
+            { role: "user", parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ systemPrompt + ARAHAN_LAPIS_KEDUA + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
           ],
           generationConfig: {
             maxOutputTokens: 1024,
@@ -147,15 +186,42 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      const text = await response.text();
-      console.error("AI gateway error:", response.status, text);
+      console.error("AI gateway error:", response.status);
       return new Response(
         JSON.stringify({ error: "Gagal menghubungi AI" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    return new Response(response.body, {
+    // Aliran SSE: periksa peristiwa pertama untuk blokir keamanan penyedia sebelum meneruskan.
+    // (Blokir yang muncul di tengah aliran tidak bisa diubah karena header sudah terkirim.)
+    const reader = response.body!.getReader();
+    const dekoder = new TextDecoder();
+    const awal: Uint8Array[] = [];
+    let buf = "";
+    while (!buf.includes("\n\n")) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      awal.push(value);
+      buf += dekoder.decode(value, { stream: true });
+    }
+    const acuan = buf.split("\n\n")[0].split("\n").filter((l) => l.startsWith("data:")).map((l) => l.slice(5).trim()).join("");
+    let peristiwa: unknown = null;
+    try { peristiwa = acuan ? JSON.parse(acuan) : null; } catch { /* bukan JSON utuh, lanjut */ }
+    const blokir = cabangBlokirKeamanan("career-chat", corsHeaders, peristiwa);
+    if (blokir) {
+      reader.cancel().catch(() => {});
+      return blokir;
+    }
+    const aliran = new ReadableStream<Uint8Array>({
+      start(c) { awal.forEach((x) => c.enqueue(x)); },
+      async pull(c) {
+        const { done, value } = await reader.read();
+        if (done) c.close(); else c.enqueue(value);
+      },
+      cancel() { return reader.cancel(); },
+    });
+    return new Response(aliran, {
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {

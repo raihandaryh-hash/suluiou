@@ -90,7 +90,7 @@ Hampir nol skill yang bisa digantikan sepenuhnya oleh AI saat ini adalah skill y
       'Asesmen bukan tentang menemukan siapa kamu dalam satu label. Ini tentang mendapat data yang lebih akurat untuk membuat keputusan yang lebih baik tentang dirimu sendiri.',
     color: 'teal',
     assessmentNote:
-      'Asesmen Sulu menggunakan instrumen psikometri tervalidasi untuk memberikan data tentang kepribadian dan minatmu. Sedang dalam pengembangan — daftarkan diri untuk diberitahu.',
+      'Sedang dalam pengembangan, daftarkan diri untuk diberitahu.',
   },
   {
     id: 'panduan',
@@ -100,9 +100,7 @@ Hampir nol skill yang bisa digantikan sepenuhnya oleh AI saat ini adalah skill y
     role: 'Wakaprodi Psikologi IOU Indonesia. Peneliti FoMO, social media addiction, dan perkembangan Gen Z.',
     tag: 'PANDUAN UNTUK ORANG TUA',
     headline: 'Berhentilah menjelajahi masa depan anak\ndengan peta masa lalu.',
-    body: `76 persen keputusan pilihan karier anak dipengaruhi orang tua — lebih besar dari guru, teman, bahkan media sosial. Pengaruh itu bisa menjadi aset terbesar atau hambatan terbesar.
-
-Jebakan yang paling umum: memaksakan profesi bergengsi, membandingkan dengan teman sebaya, dan mengukur keberhasilan dari nilai akademik. Semua ini mungkin bekerja di generasi Anda. Tapi di era AI dan gig economy, metrik ini tidak lagi cukup.
+    body: `Jebakan yang paling umum: memaksakan profesi bergengsi, membandingkan dengan teman sebaya, dan mengukur keberhasilan dari nilai akademik. Semua ini mungkin bekerja di generasi Anda. Tapi di era AI dan gig economy, metrik ini tidak lagi cukup.
 
 Yang anak Anda butuhkan dari Anda bukan jawaban tentang jurusan. Yang mereka butuhkan adalah percakapan yang jujur, ruang untuk mengeksplorasi, dan orang tua yang memahami konteks dunia yang akan mereka masuki.
 
@@ -124,7 +122,7 @@ export const compassCTA = {
   waitlist: {
     headline: 'Asesmen Sulu — Segera Hadir',
     subtext:
-      'Tim psikologi kami sedang memvalidasi instrumen agar hasilnya bisa dipertanggungjawabkan. Masukkan kontakmu dan kami kabari begitu siap.',
+      'Masukkan kontakmu dan kami kabari begitu siap.',
     fields: {
       name: { label: 'Nama', placeholder: 'Nama lengkap' },
       email: { label: 'Email', placeholder: 'email@kamu.com' },
@@ -151,7 +149,7 @@ export const compassSources = [
 export const iouBridgeSection = {
   tag: 'DARI ILMU KE DAMPAK',
   headline: 'Di mana kamu bisa menempa semua ini?',
-  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Mahasiswa — bukan menunggu lulus untuk mulai berkontribusi.',
+  body: 'IOU Indonesia adalah kampus yang kuliah dilakukan dari rumah, tapi dampaknya bisa dirasakan di mana saja. Sejak semester pertama, mahasiswa sudah menulis esai, melakukan riset, dan menjalankan Layanan Masyarakat — bukan menunggu lulus untuk mulai berkontribusi.',
   programs: [
     {
       code: 'BBA',

@@ -1,4 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
+import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -18,8 +21,6 @@ MOMENTUM SEJARAH (anchor narasi ke sini):
 
 KRISIS YANG BELUM TERPECAHKAN (= peluang nyata bagi yang siap):
 - 19,44% pemuda Indonesia NEET (BPS Sakernas 2025) — tidak bekerja, tidak sekolah, tidak pelatihan
-- 87% mahasiswa mengaku salah jurusan [CATATAN: Sumber: ICCN 2017 — survei mandiri, metodologi tidak dipublikasikan. Gunakan sebagai indikasi.] — mismatch identitas-karir massif sejak SMA
-- Rasio guru BK di madrasah: 1:150 [CATATAN: ini STANDAR Permendikbud, bukan realita. Realita MA: 1:350–1:400] — bimbingan karir hampir tidak ada
 - Junior Squeeze: posisi entry-level turun 20% di sektor AI-exposed (Stanford AI Index 2026)
 - Ketahanan pangan: Indonesia masih impor gandum, kedelai, bawang putih — kemandirian pangan agenda strategis nasional
 
@@ -40,6 +41,7 @@ GEOPOLITIK:
 - OKI sebagai pasar alternatif → kemampuan bahasa Arab + fiqh = keunggulan nyata yang langka
 `;
 
+// DRAF rumusan, menunggu paket Raihan (D4: aturan 1 dan 10 diganti peta peluang berjamak; D3: aturan 4 jalur belajar berjamak).
 const SYSTEM_PROMPT = `Kamu adalah konselor karir yang menulis proyeksi masa depan untuk siswa SMA/SMK/MA Indonesia.
 Narasi ini harus di-anchor ke realitas Indonesia yang nyata — bukan angan-angan.
 
@@ -53,16 +55,16 @@ Jangan ceramah. Jangan menakut-nakuti. Jangan pamer data.
 ${INDONESIA_MACRO_CONTEXT}
 
 ATURAN MENULIS — WAJIB:
-1. Paragraf 1 — SATU SKENARIO KONKRET: Gambarkan satu momen spesifik di tahun 2030 — bukan daftar kemungkinan, bukan profesi generik. Bukan "kamu bisa jadi X atau Y." Tapi: "Pada 2030, kamu sedang melakukan X — dan inilah mengapa itu masuk akal untuk seseorang dengan cara berpikirmu." Satu gambar yang tajam lebih kuat dari sepuluh pilihan yang kabur. Anchor ke satu kebutuhan Indonesia yang nyata dan belum terpenuhi yang relevan untuk profil ini — sebut dengan konkret, bukan abstrak.
+1. Paragraf 1, PETA PELUANG: Gambarkan dua sampai tiga kemungkinan arah di tahun 2030 yang masuk akal untuk cara berpikir siswa ini, masing-masing dalam satu sampai dua kalimat yang konkret. Pakai bahasa sementara ("mungkin", "salah satu kemungkinan", "bisa jadi"), bukan vonis. Kaitkan tiap kemungkinan ke kebutuhan Indonesia yang nyata dan belum terpenuhi. Tegaskan bahwa ini bahan untuk ditimbang, bukan penentuan arah.
 2. Paragraf 2 — KONEKSI: Hubungkan kekuatan psikologis siswa (dari Holland + HEXACO) ke kebutuhan nyata itu. Tunjukkan mengapa profil INI relevan untuk masalah ITU.
 3. Paragraf 3 — KONTEKS LOKAL: Satu kalimat konkret tentang provinsi atau latar siswa. Bukan klise geografis. Boleh dilewati jika tidak ada yang konkret dan relevan — jangan paksakan.
-4. Paragraf 4 — JEMBATAN IOU: "Di sinilah [sebutkan program yang dipilih] menjadi relevan..." — ringan, bukan hard sell. Satu atau dua kalimat cukup. Jika tidak ada program dipilih, gunakan jembatan generik tentang IOU Indonesia.
+4. Paragraf 4, JALUR BELAJAR: Sebut beberapa jalur belajar yang bisa mendekatkan siswa ke kemungkinan tadi, misalnya kuliah di berbagai kampus, pendidikan vokasi, kursus singkat, atau belajar sambil bekerja. Bila siswa memilih program IOU, program itu boleh disebut sebagai salah satu jalur di antara yang lain, ringan dan tanpa hard sell. Bila tidak ada program dipilih, IOU cukup disebut sebagai salah satu pintu di antara banyak pintu lain.
 5. Akhiri dengan satu pertanyaan atau pernyataan yang mendorong siswa untuk action.
 6. Panjang: 200–240 kata. Bahasa Indonesia serius tapi memberdayakan.
 7. DILARANG: kalimat generik seperti "dunia terus berkembang", "masa depan cerah menantimu", "dengan tekad yang kuat". Setiap kalimat harus bisa salah untuk orang lain tapi benar untuk siswa ini.
 8. DILARANG: menyebut angka statistik secara verbal di narasi siswa ("19,44% pemuda Indonesia..."). Data itu ada di dapurmu — gunakan untuk nuansa, bukan untuk dikutip.
 9. DILARANG menyebut kode teknis: HEXACO, RIASEC, Holland Code, nama dimensi.
-10. DILARANG: membuat daftar peluang atau kemungkinan. Satu skenario, satu arah, satu gambar. Siswa yang membaca harus bisa membayangkan dirinya di sana — bukan memilih dari menu.
+10. DILARANG memvonis satu jurusan, satu karier, atau satu arah sebagai jawaban. Sajikan beberapa kemungkinan yang setara, lalu kembalikan pilihan kepada siswa dan keluarganya.
 11. DILARANG: mengulang kata-kata dari aspirasi siswa secara literal. Tafsirkan maknanya — tunjukkan kamu mengerti lebih dalam dari sekadar apa yang mereka tulis.
 10. JANGAN gunakan bullet point atau heading — paragraf mengalir.
 11. JANGAN klaim IOU sebagai satu-satunya pilihan terbaik. JANGAN: "Daftarkan dirimu sekarang".
@@ -83,14 +85,24 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // B1: kill-switch. SULU_AI_MATI ("1", "true", "ya") -> 503 sebelum memanggil model.
+  if (saklarHidup("SULU_AI_MATI")) {
+    return new Response(JSON.stringify({ error: "ai_mati" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // A7: kunci asesmen di sisi server. Selain "1" berarti tertutup (503).
+  if (Deno.env.get("SULU_ASESMEN_TERBUKA") !== "1") {
+    return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
+      status: 503,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   try {
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
-      || "https://generativelanguage.googleapis.com/v1beta";
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-
-    if (!apiKey) throw new Error("AI API key is not configured");
-
+    const badan = await req.json();
     const {
       scores,
       hollandCode,
@@ -100,12 +112,37 @@ serve(async (req) => {
       topTraits,
       studentProfile,
       selectedPathwayNames,
-    } = await req.json();
+    } = badan;
+
+    // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
+    const cabang = cabangDistress(
+      "generate-projection",
+      corsHeaders,
+      studentProfile?.aspiration,
+      studentProfile?.contributionGoal,
+      studentProfile?.familyBackground,
+    );
+    if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, badan);
+    // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
+    const cabang1b = await cabangKlasifikasi(
+      "generate-projection",
+      corsHeaders,
+      { ai: siap.ai, samaran: siap.samaran },
+      studentProfile?.aspiration,
+      studentProfile?.contributionGoal,
+      studentProfile?.familyBackground,
+    );
+    if (cabang1b) return cabang1b;
     const selectedNames: string[] = Array.isArray(selectedPathwayNames) ? selectedPathwayNames : [];
     const topTwo: Array<{ dim: string; interpretation: string }> = Array.isArray(topTwoHEXACO) ? topTwoHEXACO : [];
     const tension = tensionPair && typeof tensionPair === 'object' ? tensionPair : null;
 
-    const sp = studentProfile || {};
+    // Mode (c): teks bebas profil (latar keluarga, tujuan kontribusi, aspirasi) tidak dikirim ke AI untuk di bawah 18.
+    const sp = siap.bawah18
+      ? { ...(studentProfile || {}), familyBackground: undefined, contributionGoal: undefined, aspiration: undefined }
+      : (studentProfile || {});
 
     const userPrompt = `Tulis proyeksi 2030 untuk siswa ini, mengikuti aturan editorial di system prompt.
 
@@ -127,25 +164,24 @@ KONTEKS PERSONAL:
 - Ingin berkontribusi untuk: ${sp.contributionGoal || "(tidak disebutkan)"}
 - Aspirasi (kata-kata siswa sendiri): "${sp.aspiration || "tidak disebutkan"}"
 
-PROGRAM IOU YANG DIPILIH SISWA: ${selectedNames.length ? selectedNames.join(" dan ") : "(tidak ada yang dipilih — gunakan kalimat jembatan generik)"}
+PROGRAM IOU YANG DIPILIH SISWA: ${selectedNames.length ? selectedNames.join(" dan ") : "(tidak ada yang dipilih, sebut IOU hanya sebagai salah satu pintu)"}
 
 Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip angka makro.`;
 
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
     let response: Response | null = null;
-    let lastErrText = '';
 
     for (let attempt = 0; attempt < 3; attempt++) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
+        response = await siap.aiFetch("ai:generateContent", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
@@ -161,8 +197,8 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
       if (response.ok) break;
 
       const isRetryable = response.status === 429 || response.status >= 500;
-      lastErrText = await response.text().catch(() => '');
-      console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status} ${lastErrText}`);
+      await response.body?.cancel().catch(() => {});
+      console.warn(`AI gateway attempt ${attempt + 1} failed: ${response.status}`);
       if (!isRetryable || attempt === 2) break;
       await sleep((2 ** attempt) * 1000);
     }
@@ -181,17 +217,24 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      console.error("AI gateway error after retries:", status, lastErrText);
+      console.error("AI gateway error after retries:", status);
       throw new Error(`AI gateway error: ${status}`);
     }
 
     const data = await response.json();
+    // Blokir filter keamanan penyedia: rujukan tanda_berat, bukan galat umum.
+    const blokir = cabangBlokirKeamanan("generate-projection", corsHeaders, data);
+    if (blokir) return blokir;
     const projection = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!projection) {
-      console.error("No content in AI response:", JSON.stringify(data));
+      console.error("No content in AI response, finishReason:", data?.candidates?.[0]?.finishReason ?? "none", "blockReason:", data?.promptFeedback?.blockReason ?? "none");
       throw new Error("No content in AI response");
     }
+
+    // B9 periksa keluaran: model menuruti arahan lapis kedua, kirim JSON distress yang sama.
+    const keluaranDistress = cabangDistressKeluaran("generate-projection", corsHeaders, projection);
+    if (keluaranDistress) return keluaranDistress;
 
     return new Response(JSON.stringify({ projection }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import {
   getStudentSession,
   patchStudentSession,
@@ -93,7 +94,7 @@ const JoinClass = () => {
     }
 
     patchStudentSession({ classId: cls.id, className: cls.name });
-    navigate('/profile');
+    navigate(ASESMEN_TERBUKA ? '/profile' : SPINE_B_AWAL);
   };
 
   if (!hasSession) {

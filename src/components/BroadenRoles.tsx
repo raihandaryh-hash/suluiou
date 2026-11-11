@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { buildSuluContext } from "@/lib/buildSuluContext";
+import RujukanDistress from "@/components/RujukanDistress";
+import { periksaDistressNilai, type TingkatDistress } from "@/lib/distress";
 
 type Role = {
   title: string;
@@ -44,6 +46,7 @@ export default function BroadenRoles({
   const [revealed, setRevealed] = useState(0);
   const [picked, setPicked] = useState<string[]>(initialPicked);
   const [errorMsg, setErrorMsg] = useState("");
+  const [distress, setDistress] = useState<TingkatDistress | null>(null);
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
@@ -63,18 +66,29 @@ export default function BroadenRoles({
   }
 
   async function run() {
+    // B3a/B7: pemeriksa distress di klien atas teks bebas siswa, sebelum panggilan AI.
+    const ctx = buildSuluContext(province);
+    const personSide = {
+      skills: ctx.reflection.phase2b || "",
+      values: ctx.reflection.phase2a || "",
+    };
+    const cek = periksaDistressNilai(personSide.skills, personSide.values);
+    if (cek.cocok) {
+      setDistress(cek.tingkat);
+      return;
+    }
     setPhase("loading");
     setErrorMsg("");
     try {
-      const ctx = buildSuluContext(province);
-      const personSide = {
-        skills: ctx.reflection.phase2b || "",
-        values: ctx.reflection.phase2a || "",
-      };
       const { supabase } = await import("@/integrations/supabase/client");
       const { data, error } = await supabase.functions.invoke("broaden-roles", {
         body: { medan, subPicks, siapa, province, personSide },
       });
+      if (data?.distress) {
+        setDistress(data.tingkat === "bahaya_langsung" ? "bahaya_langsung" : "tanda_berat");
+        setPhase("idle");
+        return;
+      }
       if (error || !data || data.error || !Array.isArray(data.roles) || !data.roles.length) {
         throw new Error(data?.error || error?.message || "empty");
       }
@@ -102,6 +116,10 @@ export default function BroadenRoles({
       onPickedChange?.(next);
       return next;
     });
+  }
+
+  if (distress) {
+    return <RujukanDistress tingkat={distress} onTutup={() => setDistress(null)} />;
   }
 
   if (phase === "idle") {

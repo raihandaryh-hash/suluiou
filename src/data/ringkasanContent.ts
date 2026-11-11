@@ -80,13 +80,11 @@ export const ringkasanContent = {
 
         badge: "Penyelenggara Sulu",
 
-        desc: "Kuliah Islam berbasis online, bisa dari rumah, jadwal fleksibel. Sejak semester pertama sudah praktik nyata lewat Layanan Mahasiswa.",
+        desc: "Kuliah Islam berbasis online, bisa dari rumah, jadwal fleksibel. Sejak semester pertama sudah praktik nyata lewat Layanan Masyarakat.",
 
         bullets: [
 
           "Biaya: Rp 1,5\u20132,4 juta per semester",
-
-          "Ijazah setara Kemendikbud RI",
 
           "Program: BBA, Psikologi, BAIS, ALS, Pendidikan",
 
@@ -101,8 +99,6 @@ export const ringkasanContent = {
         title: "Jalur Lain & Gap Year",
 
         desc: "Kerja, magang, atau bangun keahlian dulu. Ini strategi yang diambil banyak orang yang akhirnya masuk jalur terbaik mereka.",
-
-        meta: "Lihat juga: /programs",
 
       },
 

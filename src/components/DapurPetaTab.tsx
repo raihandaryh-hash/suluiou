@@ -6,6 +6,7 @@ import {
   dapurPetaSeksiD,
   dapurPetaSeksiE,
   dapurPetaPenutup,
+  dapurPetaAtribusiOecd,
   crosswalkTable,
   getConnectionBasisCounts,
 } from "@/data/dapurPetaContent";
@@ -135,6 +136,20 @@ export default function DapurPetaTab() {
         </ul>
 
         <p className="text-sm text-foreground/80 leading-relaxed mt-4">{dapurPetaSeksiE.closing}</p>
+      </section>
+
+      {/* E20: atribusi OECD */}
+      <section className="space-y-3">
+        <h2 className="font-heading text-lg font-bold text-foreground">{dapurPetaAtribusiOecd.judul}</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">{dapurPetaAtribusiOecd.pengantar}</p>
+        <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/85">
+          {dapurPetaAtribusiOecd.sitasi.map((s) => (
+            <li key={s.judul}>
+              OECD ({s.tahun}), {s.url ? <a href={s.url} className="underline underline-offset-2" rel="noopener noreferrer">{s.judul}</a> : s.judul}
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-muted-foreground leading-relaxed">{dapurPetaAtribusiOecd.disclaimer}</p>
       </section>
 
       {/* Penutup */}

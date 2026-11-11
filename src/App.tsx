@@ -9,6 +9,7 @@ import { AssessmentProvider } from "@/context/AssessmentContext";
 import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
 import Mukadimah from "./pages/Mukadimah";
+import BilaTidakBaikBaikSaja from "./pages/BilaTidakBaikBaikSaja";
 import Assessment from "./pages/Assessment";
 import Profile from "./pages/Profile";
 import Consent from "./pages/Consent";
@@ -42,6 +43,11 @@ import RequireAuth from "@/components/RequireAuth";
 import SpineBLayout from "@/components/SpineBLayout";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from "@/data/flags";
+
+// A7: guard tingkat rute untuk pintu asesmen. Flag mati = dialihkan ke awal Spine B.
+const AsesmenGuard = ({ children }: { children: JSX.Element }) =>
+  ASESMEN_TERBUKA ? children : <Navigate to={SPINE_B_AWAL} replace />;
 
 const queryClient = new QueryClient();
 
@@ -64,13 +70,15 @@ const App = () => {
             <Route path="/mukadimah" element={<Mukadimah />} />
             <Route path="/login" element={<Login />} />
             {/* Legacy /join route — kept as a redirect into the new Step 0 flow. */}
-            <Route path="/join" element={<Navigate to="/profile" replace />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/consent" element={<Consent />} />
-            <Route path="/assessment" element={<Assessment />} />
+            <Route path="/join" element={<Navigate to={ASESMEN_TERBUKA ? "/profile" : SPINE_B_AWAL} replace />} />
+            <Route path="/profile" element={<AsesmenGuard><Profile /></AsesmenGuard>} />
+            <Route path="/consent" element={<AsesmenGuard><Consent /></AsesmenGuard>} />
+            <Route path="/assessment" element={<AsesmenGuard><Assessment /></AsesmenGuard>} />
             <Route path="/results" element={<Results />} />
             <Route path="/hasil/:resultId" element={<PublicResult />} />
             <Route path="/suar" element={<Suar />} />
+            {/* B10: halaman publik penjelasan cabang distress (teks DRAF) */}
+            <Route path="/bila-tidak-baik-baik-saja" element={<BilaTidakBaikBaikSaja />} />
             <Route element={<AppLayout />}>
               <Route path="/insight" element={<Insight />} />
               <Route path="/skill-map" element={<SkillMap />} />

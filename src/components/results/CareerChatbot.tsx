@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { keselamatanContent } from '@/data/keselamatanContent';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Loader2, Bot, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,8 @@ import { traitLabels } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
 import { useAssessment } from '@/context/AssessmentContext';
 import { api } from '@/services/api';
+import RujukanDistress from '@/components/RujukanDistress';
+import { periksaDistress, type TingkatDistress } from '@/lib/distress';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -30,6 +33,7 @@ export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [distress, setDistress] = useState<TingkatDistress | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -61,6 +65,15 @@ export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
 
+    // B3a/B7: pemeriksa distress di klien, sebelum panggilan AI. Teks tidak dikirim dan tidak disimpan.
+    const cek = periksaDistress(text);
+    if (cek.cocok) {
+      setInput('');
+      setDistress(cek.tingkat);
+      return;
+    }
+    setDistress(null);
+
     const userMsg: Msg = { role: 'user', content: text.trim() };
     const allMessages = [...messages, userMsg];
     setMessages(allMessages);
@@ -74,9 +87,18 @@ export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
 
       if (!resp.ok) {
         const err = await resp.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(err.error || `Error ${resp.status}`);
+        throw new Error(resp.status === 503 ? keselamatanContent.aiGalatIsi : (err.error || `Error ${resp.status}`));
       }
 
+      // B3a: server mengembalikan JSON { distress: true } tanpa memanggil model.
+      if (resp.headers.get('content-type')?.includes('application/json')) {
+        const j = await resp.json().catch(() => null);
+        if (j?.distress) {
+          setMessages(messages);
+          setDistress(j.tingkat === 'bahaya_langsung' ? 'bahaya_langsung' : 'tanda_berat');
+          return;
+        }
+      }
       if (!resp.body) throw new Error('No response body');
 
       const reader = resp.body.getReader();
@@ -232,6 +254,7 @@ export function CareerChatbot({ scores, topSelection }: CareerChatbotProps) {
                 </div>
               ))}
 
+              {distress && <RujukanDistress tingkat={distress} onTutup={() => setDistress(null)} />}
               {isLoading && messages[messages.length - 1]?.role !== 'assistant' && (
                 <div className="flex gap-2">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">

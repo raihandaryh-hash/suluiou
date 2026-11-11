@@ -11,6 +11,8 @@ import { Sparkles, ArrowRight, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { traitLabels, type DimensionScores } from '@/lib/scoring';
 import type { Dimension } from '@/data/questions';
+import { HASIL_PUBLIK_TERBUKA } from '@/data/flags';
+import { keselamatanContent } from '@/data/keselamatanContent';
 
 interface PublicResultRow {
   id: string;
@@ -32,6 +34,11 @@ const PublicResult = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // A6: flag mati = tidak memanggil RPC sama sekali.
+    if (!HASIL_PUBLIK_TERBUKA) {
+      setLoading(false);
+      return;
+    }
     let alive = true;
     (async () => {
       if (!resultId) {
@@ -57,6 +64,20 @@ const PublicResult = () => {
       alive = false;
     };
   }, [resultId]);
+
+  if (!HASIL_PUBLIK_TERBUKA) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
+        <div className="text-center max-w-md">
+          <h1 className="text-2xl font-heading font-bold mb-3">{keselamatanContent.hasilPublikJudul}</h1>
+          <p className="text-muted-foreground mb-6">{keselamatanContent.hasilPublikIsi}</p>
+          <Button asChild>
+            <Link to="/">{keselamatanContent.hasilPublikTombol}</Link>
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -116,6 +137,9 @@ const PublicResult = () => {
           </h1>
           <p className="text-muted-foreground">
             Hasil tes minat & kepribadian di Sulu by IOU Indonesia.
+          </p>
+          <p className="text-sm text-muted-foreground mt-3" role="note">
+            {keselamatanContent.nonDiagnostik}
           </p>
         </motion.div>
 

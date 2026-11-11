@@ -19,6 +19,7 @@ import { api } from '@/services/api';
 import { calculateLeadScore } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
+import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
@@ -31,6 +32,8 @@ import {
   buildAfterAssessmentMessage,
   buildWaUrl,
 } from '@/lib/constants';
+import { keselamatanContent } from '@/data/keselamatanContent';
+import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 
 const Results = () => {
@@ -43,11 +46,15 @@ const Results = () => {
     isComplete,
     resetAssessment,
     generatingProjection,
+    projectionFailed,
+    asesmenDitutup,
     studentProfile,
     triggerProjection,
     layer1,
     generatingLayer1,
     triggerLayer1,
+    distressHasil,
+    tutupDistressHasil,
     hollandCode,
     sdsCounts,
   } = useAssessment();
@@ -62,7 +69,7 @@ const Results = () => {
   const [showProjection, setShowProjection] = useState(false);
 
   useEffect(() => {
-    if (!isComplete) navigate('/assessment');
+    if (!isComplete) navigate(ASESMEN_TERBUKA ? '/assessment' : SPINE_B_AWAL);
   }, [isComplete, navigate]);
 
   // Scroll to top when results page mounts (fix UX: user lands mid-page after assessment)
@@ -311,6 +318,17 @@ const Results = () => {
     fullMark: 5,
   }));
 
+  // B3a/B9: server mengganti layer1 atau proyeksi dengan rujukan distress.
+  if (distressHasil) {
+    return (
+      <div className="min-h-screen bg-background px-4 py-8">
+        <div className="container mx-auto max-w-xl">
+          <RujukanDistress tingkat={distressHasil} onTutup={tutupDistressHasil} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="min-h-screen bg-background">
@@ -341,6 +359,9 @@ const Results = () => {
             </h1>
             <p className="text-muted-foreground text-lg">
               Berdasarkan analisis Kepribadian & Minat, inilah profil unikmu.
+            </p>
+            <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto" role="note">
+              {keselamatanContent.nonDiagnostik}
             </p>
           </motion.div>
 
@@ -395,7 +416,7 @@ const Results = () => {
             </motion.div>
           </div>
 
-          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={savedRowId} />
+          <CaptureShareButton targetId="results-capture-zone" fileSlug={`sulu-${topSelection.pathwayId || 'profil'}`} resultId={HASIL_PUBLIK_TERBUKA ? savedRowId : null} showLinkShare={HASIL_PUBLIK_TERBUKA} />
 
           {/* Section 2: Program-Program di IOU Indonesia */}
           <div className="text-center">
@@ -527,6 +548,20 @@ const Results = () => {
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
+            ) : projectionFailed && !generatingProjection && !projection ? (
+              <div className="space-y-3" role="alert">
+                <p className="text-sm font-semibold">
+                  {asesmenDitutup ? keselamatanContent.asesmenDitutupJudul : keselamatanContent.aiGalatJudul}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {asesmenDitutup ? keselamatanContent.asesmenDitutupIsi : keselamatanContent.aiGalatIsi}
+                </p>
+                {!asesmenDitutup && (
+                  <Button variant="outline" size="sm" onClick={() => void triggerProjection()}>
+                    {keselamatanContent.aiGalatCobaLagi}
+                  </Button>
+                )}
+              </div>
             ) : generatingProjection || !projection ? (
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -555,7 +590,7 @@ const Results = () => {
           <SaveToGoogleSection resultId={savedRowId} />
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.95 }} className="mb-12">
-            <ShareButtons scores={scores} topSelection={topSelection} resultId={savedRowId} />
+            <ShareButtons scores={scores} topSelection={topSelection} resultId={HASIL_PUBLIK_TERBUKA ? savedRowId : null} />
           </motion.div>
 
           <motion.div
@@ -630,6 +665,7 @@ const Results = () => {
               </div>
             </div>
 
+            {ASESMEN_TERBUKA && (
             <div className="mt-10 pt-8 border-t border-border/40">
               <p className="text-xs text-muted-foreground mb-3">
                 Device ini akan dipakai siswa lain?
@@ -649,6 +685,7 @@ const Results = () => {
                 Mulai asesmen baru (siswa lain)
               </Button>
             </div>
+            )}
           </motion.div>
         </div>
       </div>
