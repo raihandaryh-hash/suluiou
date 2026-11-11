@@ -43,6 +43,13 @@
       "when": 1794390421329,
       "tag": "0005_kelas_cocok_kode",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794391896218,
+      "tag": "0006_rilis_keamanan_1c",
+      "breakpoints": true
     }
   ]
 }
