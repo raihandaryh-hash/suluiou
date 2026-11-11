@@ -631,6 +631,50 @@ export type Database = {
         }
         Relationships: []
       }
+      sulu_izin: {
+        Row: {
+          diberikan_pada: string
+          dicabut_pada: string | null
+          id: string
+          menyatakan_18_plus: boolean
+          pemberi: string
+          result_id: string
+          teks_versi: string
+          tujuan: string
+          user_id: string | null
+        }
+        Insert: {
+          diberikan_pada?: string
+          dicabut_pada?: string | null
+          id?: string
+          menyatakan_18_plus?: boolean
+          pemberi: string
+          result_id: string
+          teks_versi: string
+          tujuan: string
+          user_id?: string | null
+        }
+        Update: {
+          diberikan_pada?: string
+          dicabut_pada?: string | null
+          id?: string
+          menyatakan_18_plus?: boolean
+          pemberi?: string
+          result_id?: string
+          teks_versi?: string
+          tujuan?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sulu_izin_result_id_fkey"
+            columns: ["result_id"]
+            isOneToOne: false
+            referencedRelation: "assessment_results"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           id: string
@@ -704,6 +748,23 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
+      sulu_hitung_skor: {
+        Args: { r: Database["public"]["Tables"]["assessment_results"]["Row"] }
+        Returns: number
+      }
+      sulu_isi_kontak: {
+        Args: {
+          p_hp: string
+          p_kelas: string
+          p_minta_surel?: boolean
+          p_nama: string
+          p_provinsi: string
+          p_result_id: string
+          p_sekolah: string
+          p_surel: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
       app_role: "admin" | "user"
