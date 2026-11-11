@@ -1003,6 +1003,8 @@ export type Database = {
         Returns: undefined
       }
       sulu_dewasa: { Args: { p_uid: string }; Returns: boolean }
+      sulu_hapus_data_anak_lama: { Args: never; Returns: number }
+      sulu_hapus_data_sendiri: { Args: never; Returns: undefined }
       sulu_hitung_laju: {
         Args: { p_aksi: string; p_batas: number; p_kunci: string }
         Returns: boolean
