@@ -246,7 +246,8 @@ describe("samaran · nama orang lain dan huruf kecil", () => {
     const teks = "aku cerita ke bu wulandari kusumaningrum soal jurusan, terus Kak Sylvandra bilang coba teknik";
     const s = new Samaran(teks);
     const keluar = s.samarkan(teks);
-    for (const n of ["wulandari", "kusumaningrum", "Sylvandra"]) expect(keluar).not.toContain(n);
+    // Huruf kecil hanya kata pertama (temuan pemeriksa 2): "kusumaningrum" sengaja dibiarkan.
+    for (const n of ["wulandari", "Sylvandra"]) expect(keluar).not.toContain(n);
     expect(s.buka(keluar)).toBe(teks);
   });
   it("tidak menyamarkan jabatan atau sapaan bertumpuk", () => {
@@ -263,5 +264,39 @@ describe("samaran · nama orang lain dan huruf kecil", () => {
   it("menangkap nama sesudah 'atas nama' hanya bila berhuruf kapital", () => {
     expect(cariNamaLain("surat atas nama Nazwa Putri sudah ada")).toEqual(["Nazwa Putri"]);
     expect(cariNamaLain("atas nama sekolah kami")).toEqual([]);
+  });
+});
+
+// Regresi pemeriksa independen 11 Nov atas commit 132015a.
+describe("samaran · regresi pemeriksa 132015a", () => {
+  const tetap = [
+    "Panggil pengguna dengan sebutan Kak Anda. Anda adalah konselor.",
+    "Jawab singkat ke kak siswa. Setiap siswa berhak dijawab.",
+    "Kalau bingung, tanya kak Sulu. Sulu siap membantu.",
+    "Kalau kak sedang bingung, tidak apa. Sedang apa sekarang?",
+  ];
+  for (const t of tetap) it(`prompt tetap utuh: ${t.slice(0, 30)}`, () => { expect(new Samaran(t).samarkan(t)).toBe(t); });
+  it("rangkaian huruf kecil tidak menelan kata kerja", () => {
+    const t = "kak rina sedang mengajar di kelas sedang";
+    const s = new Samaran(t); const k = s.samarkan(t);
+    expect(k).not.toContain("rina"); expect(k).toContain("sedang mengajar di kelas sedang"); expect(s.buka(k)).toBe(t);
+  });
+  it("KAPITAL semua hanya satu kata", () => {
+    const t = "MAS JOKO DATANG"; const k = new Samaran(t).samarkan(t);
+    expect(k).not.toContain("JOKO"); expect(k).toContain("DATANG");
+  });
+  it("sapaan bertumpuk dilompati", () => {
+    for (const t of ["bu Dr. Rina datang", "pak Dr. Hasan datang"]) {
+      const k = new Samaran(t).samarkan(t); expect(k).not.toMatch(/Rina|Hasan/);
+    }
+  });
+  it("kata huruf kecil sesudah sapaan tidak diganti di tempat lain", () => {
+    const t = "kak bintang bilang bintang di langit"; const s = new Samaran(t); const k = s.samarkan(t);
+    expect(k.endsWith("bintang di langit")).toBe(true); expect(s.buka(k)).toBe(t);
+  });
+  it("regex surel dan HP linear pada 200 KB", () => {
+    const t0 = Date.now();
+    new Samaran().samarkan("a".repeat(200_000)); new Samaran().samarkan("0".repeat(200_000));
+    expect(Date.now() - t0).toBeLessThan(2000);
   });
 });
