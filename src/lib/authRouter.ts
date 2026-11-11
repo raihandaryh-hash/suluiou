@@ -6,7 +6,7 @@ import { patchStudentSession, type StudentSession } from '@/lib/classSession';
 import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
 import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import { keServer, pemilikPerangkat, fetchProgress } from '@/lib/progress';
-import { bacaPerangkat, tulisPerangkat } from '@/lib/perangkat';
+import { bacaPerangkat, pindahkanDataServerKePerangkat, tulisPerangkat } from '@/lib/perangkat';
 
 // Tonggak 2a: keanggotaan kelas mode perangkat (tamu dan akun tanpa izin) disimpan di perangkat.
 interface KelasPerangkat { classId: string; className: string | null }
@@ -95,6 +95,8 @@ function profileHasAllRequired(p: Record<string, unknown> | null | undefined): b
 
 /** Determine where the authenticated student should go next. */
 export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute> {
+  // Tonggak 2a Putusan 2: data server lama milik akun anak tanpa izin dipindah ke perangkat.
+  if (session.kind === 'google') await pindahkanDataServerKePerangkat(session.userId);
   // Always try to ensure session has classId populated from DB.
   if (!session.classId) {
     const enr = await findEnrolledClass(session);

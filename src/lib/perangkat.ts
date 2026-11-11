@@ -144,3 +144,28 @@ export function pindahPemilikPerangkat(dari: string, ke: string) {
     for (const [a, b] of pindah) { const v = localStorage.getItem(a); if (v !== null) localStorage.setItem(b, v); localStorage.removeItem(a); }
   } catch { /* abaikan */ }
 }
+
+/**
+ * Data lama akun anak tanpa izin (manifest Putusan 2): saat pemiliknya masuk, salin data fase dari server ke
+ * perangkat, lalu minta server menghapusnya. Server hanya menghapus bila umur akun terkunci di bawah 18.
+ */
+export async function pindahkanDataServerKePerangkat(userId: string): Promise<void> {
+  try {
+    const { data: u } = await supabase.auth.getUser();
+    const meta = (u.user?.app_metadata ?? {}) as Record<string, unknown>;
+    if (meta.umur_terkunci !== true || meta.dewasa === true) return;
+    if (await bolehSimpan(true)) return;
+    const KUNCI_SELESAI = `${AWALAN}pindah_selesai.${userId}`;
+    if (localStorage.getItem(KUNCI_SELESAI)) return;
+    let ada = false;
+    for (const t of TABEL_FASE) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data } = await (supabase as any).from(t).select('data').eq('user_id', userId).maybeSingle();
+      if (data?.data) { tulisPerangkat(t, userId, data.data); ada = true; }
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any).rpc('sulu_hapus_data_sendiri');
+    if (!error) localStorage.setItem(KUNCI_SELESAI, String(Date.now()));
+    void ada;
+  } catch { /* coba lagi pada pemuatan berikutnya */ }
+}
