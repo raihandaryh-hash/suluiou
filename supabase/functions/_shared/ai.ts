@@ -30,6 +30,10 @@ export async function siapkanAI(
   const ai = konfigDariEnv(env);
   const usia = await statusUsiaPermintaan(req, { supabaseUrl: env("SUPABASE_URL"), anonKey: env("SUPABASE_ANON_KEY") });
   const bawah18 = usia === "bawah18" && modeCHidup(env);
+  // Pengaman celah pengakuan jalur mahasiswa (PUTUSAN ATAS DELEGASI 11 Nov 2026, berlaku sampai verifikasi
+  // akun mahasiswa IOU di Tonggak 2, paling lambat 16 Jan 2027): hitung pemakaian jalur dewasa tanpa identitas,
+  // supaya lonjakan yang tidak cocok dengan jumlah mahasiswa IOU terlihat.
+  if (usia === "dewasa") console.log(JSON.stringify({ evt: "jalur_dewasa", t: new Date().toISOString() }));
   const pakaiSamaran = usia === "bawah18" || ai.penyedia !== "anthropic";
   let samaran: Samaran | undefined;
   if (pakaiSamaran) {
