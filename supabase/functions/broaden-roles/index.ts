@@ -31,8 +31,6 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, body);
     const medan = body.medan || {};
     const subPicks: string[] = Array.isArray(body.subPicks) ? body.subPicks : [];
     const siapa: string[] = Array.isArray(body.siapa) ? body.siapa : [];
@@ -44,6 +42,8 @@ serve(async (req) => {
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("broaden-roles", corsHeaders, skills, values);
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, body);
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "broaden-roles",

@@ -26,8 +26,6 @@ serve(async (req) => {
 
   try {
     const { messages, studentContext = {} } = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, { messages, studentContext }, [["nama", studentContext?.studentProfile?.name]]);
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const teksUser = Array.isArray(messages)
@@ -43,6 +41,8 @@ serve(async (req) => {
     ];
     const cabang = cabangDistress("career-chat", corsHeaders, teksUser, teksKonteks);
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, { messages, studentContext }, [["nama", studentContext?.studentProfile?.name]]);
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "career-chat",

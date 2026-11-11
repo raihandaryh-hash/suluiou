@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
+import { GalatKonfigAI } from "../_shared/penyedia.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -49,19 +50,20 @@ serve(async (req) => {
 
   try {
     const { session_id, values_top3, possible_selves, odyssey_plans } = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, { values_top3, possible_selves, odyssey_plans });
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("generate-reflection", corsHeaders, possible_selves, odyssey_plans);
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    // Kunci AI hilang: jalur tanpa AI lama tetap jalan (narasi cadangan + tandai selesai).
+    const siap = await siapkanAI(req, { values_top3, possible_selves, odyssey_plans }).catch((e) => { if (e instanceof GalatKonfigAI) return null; throw e; });
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
-    const cabang1b = await cabangKlasifikasi(
+    const cabang1b = siap ? await cabangKlasifikasi(
       "generate-reflection",
       corsHeaders,
       { ai: siap.ai, samaran: siap.samaran },
       possible_selves, odyssey_plans,
-    );
+    ) : null;
     if (cabang1b) return cabang1b;
 
     if (!session_id) {
@@ -94,10 +96,10 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, serviceKey);
 
-    let narrative = siap.bawah18 ? TERKUNCI_BAWAH18 : FALLBACK;
+    let narrative = siap?.bawah18 ? TERKUNCI_BAWAH18 : FALLBACK;
     let keluaranDistress: Response | null = null;
 
-    if (!siap.bawah18) {
+    if (siap && !siap.bawah18) {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);

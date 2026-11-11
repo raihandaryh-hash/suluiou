@@ -17,6 +17,26 @@ export type PersiapanAI = {
 
 const env = (k: string) => Deno.env.get(k);
 
+/** Kunci badan permintaan yang berisi data pribadi, menurut nama kunci. */
+const KUNCI_PRIBADI: Array<[RegExp, JenisPribadi]> = [
+  [/^(name|nama|guest_?name|nickname|nama_?panggilan|full_?name)$/i, "nama"],
+  [/^(school|school_?name|sekolah|nama_?sekolah)$/i, "sekolah"],
+  [/^(phone|guest_?phone|hp|no_?hp|wa|wa_?number)$/i, "hp"],
+  [/^(email|surel)$/i, "surel"],
+];
+
+/** Kumpulkan nilai pribadi dari badan permintaan (objek bersarang), menurut nama kunci. */
+export function cariPribadi(v: unknown, d = 0, keluar: Array<[JenisPribadi, unknown]> = []): Array<[JenisPribadi, unknown]> {
+  if (d > 6 || v == null || typeof v !== "object") return keluar;
+  if (Array.isArray(v)) { v.forEach((x) => cariPribadi(x, d + 1, keluar)); return keluar; }
+  for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+    const cocok = KUNCI_PRIBADI.find(([re]) => re.test(k));
+    if (cocok && typeof x === "string") keluar.push([cocok[1], x]);
+    else cariPribadi(x, d + 1, keluar);
+  }
+  return keluar;
+}
+
 /**
  * pribadi: nilai pribadi yang diketahui dari badan permintaan (nama, sekolah, kelas, HP, surel) untuk didaftarkan.
  * semuaTeks: seluruh badan permintaan, agar nilai tiruan tidak bertabrakan dengan isi siswa.
@@ -33,7 +53,7 @@ export async function siapkanAI(
   let samaran: Samaran | undefined;
   if (pakaiSamaran) {
     samaran = new Samaran(JSON.stringify(semuaTeks ?? ""));
-    for (const [jenis, nilai] of pribadi) samaran.daftar(jenis, nilai);
+    for (const [jenis, nilai] of [...pribadi, ...cariPribadi(semuaTeks)]) samaran.daftar(jenis, nilai);
   }
   return { ai, bawah18, samaran, aiFetch: buatFetchAI(ai, samaran) };
 }

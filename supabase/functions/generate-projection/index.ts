@@ -103,8 +103,6 @@ serve(async (req) => {
 
   try {
     const badan = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, badan);
     const {
       scores,
       hollandCode,
@@ -125,6 +123,8 @@ serve(async (req) => {
       studentProfile?.familyBackground,
     );
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, badan);
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-projection",

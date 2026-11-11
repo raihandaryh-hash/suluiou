@@ -164,3 +164,50 @@ describe("Samaran batas kata", () => {
     expect(s.buka(s.samarkan(asli))).toBe(asli);
   });
 });
+
+describe("Perbaikan pemeriksa independen 11 Nov", () => {
+  it("membuka tiruan tidak merusak kata biasa (Sekar dalam Sekarang)", () => {
+    const s = new Samaran();
+    // paksa tiruan "Sekar": isi kolam sebelum Sekar sudah muncul di teks
+    const s2 = new Samaran("Laras Bima");
+    const t = s2.daftar("nama", "Andi")!;
+    expect(t).toBe("Sekar");
+    expect(s2.buka(`${t}, sekarang dan Sekarang giliranmu`)).toBe("Andi, sekarang dan Sekarang giliranmu");
+    expect(s.buka("tanpa tiruan")).toBe("tanpa tiruan");
+  });
+  it("aliran: tiruan utuh di ujung potongan yang ternyata bagian kata", () => {
+    const s = new Samaran("Laras Bima");
+    s.daftar("nama", "Andi");
+    const b = s.pembukaAliran();
+    const keluar = ["Halo Sekar", "ang kita mulai. Sekar", ", semangat"].map((p) => b.dorong(p)).join("") + b.tutup();
+    expect(keluar).toBe("Halo Sekarang kita mulai. Andi, semangat");
+  });
+  it("nama yang juga kata biasa tidak mengganti kata huruf kecil", () => {
+    const s = new Samaran();
+    const t = s.daftar("nama", "Indah")!;
+    expect(s.samarkan("pemandangan yang indah, kata Indah")).toBe(`pemandangan yang indah, kata ${t}`);
+  });
+  it("HP dengan spasi sesudah 62 tersamar", () => {
+    const s = new Samaran();
+    expect(s.samarkan("hubungi 62 812 3456 7890")).not.toContain("3456");
+  });
+  it("badan Anthropic untuk Haiku: tanpa temperature, thinking mati, effort low", async () => {
+    let badan: Record<string, unknown> = {};
+    const fetchFn = (async (_u: string, init: RequestInit) => {
+      badan = JSON.parse(String(init.body));
+      return new Response(JSON.stringify({ content: [{ type: "text", text: "ok" }], stop_reason: "end_turn" }));
+    }) as unknown as typeof fetch;
+    await panggilAI({ penyedia: "anthropic", apiKey: "k", model: "claude-haiku-5-5", baseUrl: "https://x" },
+      { system: "s", pesan: [{ role: "user", content: "x" }], maxTokens: 32, temperature: 0.8 }, { fetchFn });
+    expect(badan.temperature).toBeUndefined();
+    expect(badan.thinking).toEqual({ type: "disabled" });
+    expect(badan.output_config).toEqual({ effort: "low" });
+  });
+  it("galat penyedia atau aliran kosong sebelum teks: dilempar dengan status, bukan 200 kosong", async () => {
+    const cfg = { penyedia: "anthropic" as const, apiKey: "k", model: "claude-haiku-5-5", baseUrl: "https://x" };
+    const galat = (async () => new Response(`event: error\ndata: ${JSON.stringify({ type: "error", error: { type: "overloaded_error" } })}\n\n`)) as unknown as typeof fetch;
+    await expect(aliranAI(cfg, { system: "s", pesan: [{ role: "user", content: "x" }], maxTokens: 9, temperature: 0 }, { fetchFn: galat })).rejects.toMatchObject({ status: 503 });
+    const kosong = (async () => new Response("")) as unknown as typeof fetch;
+    await expect(aliranAI(cfg, { system: "s", pesan: [{ role: "user", content: "x" }], maxTokens: 9, temperature: 0 }, { fetchFn: kosong })).rejects.toMatchObject({ status: 502 });
+  });
+});

@@ -14,6 +14,8 @@ export type KonfigAI = {
   apiKey: string;
   model: string;
   baseUrl: string;
+  /** Anthropic output_config.effort: low (bawaan), medium, high. */
+  effort?: string;
 };
 
 export type Pesan = { role: "user" | "assistant"; content: string };
@@ -49,6 +51,7 @@ export function konfigDariEnv(get: (k: string) => string | undefined): KonfigAI 
     apiKey,
     model: get("AI_MODEL_ANTHROPIC") || "claude-haiku-5-5",
     baseUrl: get("ANTHROPIC_BASE_URL") || "https://api.anthropic.com/v1",
+    effort: get("AI_EFFORT") || "low",
   };
 }
 
@@ -60,19 +63,25 @@ export function sseGemini(teks: string, finishReason?: string): string {
 }
 
 /** Terjemahkan satu peristiwa SSE Anthropic menjadi teks (delta) atau tanda penolakan. */
-export function bacaPeristiwaAnthropic(ev: unknown): { teks?: string; tolak?: boolean } {
+export function bacaPeristiwaAnthropic(ev: unknown): { teks?: string; tolak?: boolean; galat?: boolean } {
   const e = ev as { type?: string; delta?: { type?: string; text?: string; stop_reason?: string } } | null;
   if (!e) return {};
+  if (e.type === "error") return { galat: true };
   if (e.type === "content_block_delta" && e.delta?.type === "text_delta") return { teks: e.delta.text ?? "" };
   if (e.type === "message_delta" && e.delta?.stop_reason === "refusal") return { tolak: true };
   return {};
 }
 
 function badanAnthropic(cfg: KonfigAI, p: PermintaanAI, stream: boolean): string {
+  // Claude Haiku 5.5: temperature tidak dikirim; thinking dimatikan (boleh pada effort high ke bawah) supaya
+  // token jawaban tidak habis untuk berpikir, terutama pengklasifikasi 32 token. Sumber:
+  // platform.claude.com/docs/en/models/haiku-5-5/overview dan /build-with-claude/effort (dibaca 11 Nov 2026).
+  const haiku = cfg.model.includes("haiku");
   return JSON.stringify({
     model: cfg.model,
     max_tokens: p.maxTokens,
-    temperature: Math.min(1, Math.max(0, p.temperature)),
+    ...(haiku ? { thinking: { type: "disabled" } } : {}),
+    output_config: { effort: cfg.effort ?? "low" },
     ...(p.system ? { system: p.system } : {}),
     messages: p.pesan.map((m) => ({ role: m.role, content: m.content || "." })),
     stream,
@@ -164,7 +173,7 @@ export async function aliranAI(
   let buf = "";
 
   // Urai aliran penyedia menjadi daftar peristiwa {teks, tolak}.
-  const ambilPeristiwa = async (): Promise<Array<{ teks?: string; tolak?: boolean }> | null> => {
+  const ambilPeristiwa = async (): Promise<Array<{ teks?: string; tolak?: boolean; galat?: boolean }> | null> => {
     while (true) {
       const batas = buf.indexOf("\n\n");
       if (batas >= 0) {
@@ -191,8 +200,10 @@ export async function aliranAI(
   let pertama: unknown = null;
   while (pertama === null) {
     const evs = await ambilPeristiwa();
-    if (evs === null) { pertama = { candidates: [{ content: { parts: [{ text: "" }] } }] }; break; }
+    // Aliran kosong atau galat sebelum teks pertama: gagal dengan status, bukan jawaban kosong 200.
+    if (evs === null) { reader.cancel().catch(() => {}); throw Object.assign(new Error("aliran kosong"), { status: 502 }); }
     for (const e of evs) {
+      if ((e as { galat?: boolean }).galat) { reader.cancel().catch(() => {}); throw Object.assign(new Error("galat penyedia"), { status: 503 }); }
       tertunda.push(e);
       if (e.tolak) pertama = { candidates: [{ finishReason: "SAFETY" }] };
       else if (e.teks) pertama = { candidates: [{ content: { parts: [{ text: e.teks }] } }] };

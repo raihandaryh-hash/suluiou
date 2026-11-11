@@ -16,11 +16,23 @@ const TIRUAN: Record<JenisPribadi, string[]> = {
   surel: ["pengguna1@contoh.id", "pengguna2@contoh.id", "pengguna3@contoh.id", "pengguna4@contoh.id"],
 };
 
-const POLA_HP = /(?:\+?62|0)8[0-9][0-9\s\-]{6,13}[0-9]/g;
+const POLA_HP = /(?:\+?62[\s-]?|0)8[0-9][0-9\s\-]{6,13}[0-9]/g;
 const POLA_SUREL = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 
 function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Pola kata utuh: tidak didahului atau diikuti huruf/angka (Unicode). */
+function kataUtuh(isi: string, flag = "gu"): RegExp {
+  return new RegExp(`(?<![\\p{L}\\p{N}])(?:${isi})(?![\\p{L}\\p{N}])`, flag);
+}
+
+/** Varian penulisan sebuah nilai: persis, Huruf Awal Besar, KAPITAL. Tidak memakai huruf kecil semua,
+ * supaya nama yang juga kata biasa ("Indah", "Cahaya") tidak mengganti kata biasa di prompt. */
+function varian(s: string): string[] {
+  const awal = s.replace(/(^|\s)(\p{L})/gu, (_m, a, h) => a + h.toUpperCase());
+  return [...new Set([s, awal, s.toUpperCase()])];
 }
 
 export class Samaran {
@@ -66,8 +78,8 @@ export class Samaran {
     hasil = hasil.replace(POLA_HP, (m) => this.keAsli.has(m) ? m : this.daftar("hp", m)!);
     const asliUrut = [...this.keTiruan.keys()].sort((a, b) => b.length - a.length);
     for (const asli of asliUrut) {
-      // Utuh sebagai kata: "Ani" tidak mengganti bagian dari "Daniel".
-      hasil = hasil.replace(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(asli)}(?![\\p{L}\\p{N}])`, "giu"), this.keTiruan.get(asli)!);
+      // Utuh sebagai kata ("Ani" tidak mengganti bagian dari "Daniel"), peka huruf besar ("indah" tetap).
+      hasil = hasil.replace(kataUtuh(varian(asli).map(escapeRe).join("|")), this.keTiruan.get(asli)!);
     }
     return hasil;
   }
@@ -89,12 +101,13 @@ export class Samaran {
   }
 
   /** Kembalikan nilai tiruan ke nilai asli di teks jawaban AI. */
-  buka(teks: string): string {
+  buka(teks: string, sebelum = ""): string {
     if (!teks || this.keAsli.size === 0) return teks;
-    let hasil = teks;
+    // "sebelum": huruf terakhir yang sudah dikirim, agar batas kata di sambungan aliran tetap benar.
+    let hasil = sebelum + teks;
     const tiruanUrut = [...this.keAsli.keys()].sort((a, b) => b.length - a.length);
-    for (const t of tiruanUrut) hasil = hasil.split(t).join(this.keAsli.get(t)!);
-    return hasil;
+    for (const t of tiruanUrut) hasil = hasil.replace(kataUtuh(escapeRe(t)), this.keAsli.get(t)!);
+    return hasil.slice(sebelum.length);
   }
 
   /** Panjang tiruan terpanjang; dipakai pembuka aliran untuk menahan ekor yang mungkin terpotong. */
@@ -110,25 +123,32 @@ export class Samaran {
    */
   pembukaAliran(): { dorong: (potongan: string) => string; tutup: () => string } {
     let sisa = "";
+    let akhir = ""; // huruf terakhir yang sudah dikirim
     const tiruan = [...this.keAsli.keys()];
-    // Panjang akhiran terpanjang dari teks yang merupakan awalan sejati salah satu tiruan.
+    // Panjang akhiran terpanjang yang merupakan awalan sebuah tiruan, termasuk tiruan utuh di ujung
+    // (huruf berikutnya bisa membuatnya bukan kata utuh, mis. "Sekar" lalu "ang").
     const ekorGantung = (s: string): number => {
       let k = 0;
       for (const t of tiruan) {
-        for (let n = Math.min(t.length - 1, s.length); n > k; n--) {
+        for (let n = Math.min(t.length, s.length); n > k; n--) {
           if (s.endsWith(t.slice(0, n))) { k = n; break; }
         }
       }
       return k;
+    };
+    const kirim = (s: string): string => {
+      const keluar = this.buka(s, akhir);
+      if (s) akhir = s.slice(-1);
+      return keluar;
     };
     return {
       dorong: (potongan: string) => {
         const gabung = sisa + potongan;
         const k = ekorGantung(gabung);
         sisa = gabung.slice(gabung.length - k);
-        return this.buka(gabung.slice(0, gabung.length - k));
+        return kirim(gabung.slice(0, gabung.length - k));
       },
-      tutup: () => { const k = this.buka(sisa); sisa = ""; return k; },
+      tutup: () => { const k = kirim(sisa); sisa = ""; return k; },
     };
   }
 }

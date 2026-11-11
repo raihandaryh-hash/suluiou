@@ -17,15 +17,20 @@ export async function statusUsiaPermintaan(
   req: Request,
   env: { supabaseUrl?: string; anonKey?: string },
   fetchFn: typeof fetch = fetch,
+  timeoutMs = 2500,
 ): Promise<StatusUsia> {
   const auth = req.headers.get("authorization");
   if (!auth || !env.supabaseUrl || !env.anonKey) return "bawah18";
+  const c = new AbortController();
+  const t = setTimeout(() => c.abort(), timeoutMs);
   try {
-    const r = await fetchFn(`${env.supabaseUrl}/auth/v1/user`, { headers: { authorization: auth, apikey: env.anonKey } });
+    const r = await fetchFn(`${env.supabaseUrl}/auth/v1/user`, { headers: { authorization: auth, apikey: env.anonKey }, signal: c.signal });
     if (!r.ok) return "bawah18";
     return putuskanUsia(await r.json());
   } catch {
-    return "bawah18";
+    return "bawah18"; // termasuk lewat batas waktu
+  } finally {
+    clearTimeout(t);
   }
 }
 

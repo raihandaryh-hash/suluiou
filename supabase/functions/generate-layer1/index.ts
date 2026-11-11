@@ -64,8 +64,6 @@ serve(async (req) => {
 
   try {
     const badan = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, badan);
     const {
       hexaco,
       riasec,
@@ -85,6 +83,8 @@ serve(async (req) => {
       profile?.familyBackground,
     );
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, badan);
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-layer1",

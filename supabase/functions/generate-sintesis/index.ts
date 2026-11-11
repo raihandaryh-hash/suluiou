@@ -35,8 +35,6 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
-    const siap = await siapkanAI(req, body);
     let fondasi: { q: string; a: string }[] = Array.isArray(body.fondasi)
       ? body.fondasi.map((x: { q: unknown; a: unknown }) => ({ q: clip(x?.q, 120), a: clip(x?.a) }))
       : [];
@@ -54,6 +52,8 @@ serve(async (req) => {
       body.langkah,
     );
     if (cabang) return cabang;
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, body);
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-sintesis",
