@@ -1,4 +1,5 @@
 -- Prasyarat lokal untuk uji 0007: tiruan minimal skema produksi (nama policy dari pg_policies 11 Nov 22.32).
+create role service_role;
 create role anon; create role authenticated;
 create schema auth;
 create table auth.users(id uuid primary key, email text, raw_app_meta_data jsonb default '{}', raw_user_meta_data jsonb default '{}');

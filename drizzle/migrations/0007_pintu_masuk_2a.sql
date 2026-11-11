@@ -212,9 +212,10 @@ REVOKE ALL ON FUNCTION public.sulu_hitung_laju(text, text, int) FROM PUBLIC;
 
 -- Pemeriksa laju lengkap: per IP (dengan pengali IP mitra), per /24, dan global sebagai alarm saja.
 -- p_tambahan: kunci tambahan (mis. kelas) yang digabung dengan IP.
-CREATE OR REPLACE FUNCTION public.sulu_laju_ok(p_aksi text, p_batas_ip int, p_tambahan text DEFAULT '')
+-- Varian dengan IP eksplisit untuk edge function (yang memanggil basis data atas namanya sendiri).
+CREATE OR REPLACE FUNCTION public.sulu_laju_ok_ip(p_aksi text, p_batas_ip int, p_ip text, p_tambahan text DEFAULT '')
 RETURNS boolean LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
-DECLARE v_ip text := public.sulu_ip_pemanggil();
+DECLARE v_ip text := coalesce(nullif(p_ip,''), 'tanpa-ip');
         k int := coalesce((SELECT m.pengali FROM public.sulu_ip_mitra m WHERE m.ip = v_ip), 1);
         net text := CASE WHEN v_ip ~ '^\d+\.\d+\.\d+\.\d+$' THEN regexp_replace(v_ip, '\.\d+$', '.0/24') ELSE v_ip END;
         ok_ip boolean; ok_net boolean; w timestamptz; g int;
@@ -230,6 +231,13 @@ BEGIN
   END IF;
   RETURN ok_ip AND ok_net;
 END $$;
+REVOKE ALL ON FUNCTION public.sulu_laju_ok_ip(text, int, text, text) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION public.sulu_laju_ok_ip(text, int, text, text) TO service_role;
+
+CREATE OR REPLACE FUNCTION public.sulu_laju_ok(p_aksi text, p_batas_ip int, p_tambahan text DEFAULT '')
+RETURNS boolean LANGUAGE sql SECURITY DEFINER SET search_path = '' AS $$
+  SELECT public.sulu_laju_ok_ip(p_aksi, p_batas_ip, public.sulu_ip_pemanggil(), p_tambahan);
+$$;
 REVOKE ALL ON FUNCTION public.sulu_laju_ok(text, int, text) FROM PUBLIC;
 
 -- Hapus hitungan lama (dipanggil oportunistik dari RPC; jendela > 1 hari).
@@ -238,6 +246,22 @@ RETURNS void LANGUAGE sql SECURITY DEFINER SET search_path = '' AS $$
   DELETE FROM public.sulu_batas_laju WHERE jendela < now() - interval '1 day';
 $$;
 REVOKE ALL ON FUNCTION public.sulu_bersihkan_laju() FROM PUBLIC;
+
+-- ===== A.9 Permintaan buka kunci umur (ditangani admin) =====
+CREATE TABLE IF NOT EXISTS public.sulu_permintaan_buka_kunci (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL,
+  dibuat_pada timestamptz NOT NULL DEFAULT now(),
+  ditangani_pada timestamptz,
+  ditangani_oleh uuid
+);
+CREATE UNIQUE INDEX IF NOT EXISTS sulu_permintaan_buka_satu_terbuka ON public.sulu_permintaan_buka_kunci(user_id) WHERE ditangani_pada IS NULL;
+ALTER TABLE public.sulu_permintaan_buka_kunci ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.sulu_permintaan_buka_kunci FROM anon, authenticated;
+GRANT SELECT, UPDATE ON public.sulu_permintaan_buka_kunci TO authenticated;
+DROP POLICY IF EXISTS "Admin menangani permintaan buka kunci" ON public.sulu_permintaan_buka_kunci;
+CREATE POLICY "Admin menangani permintaan buka kunci" ON public.sulu_permintaan_buka_kunci FOR ALL TO authenticated
+  USING (public.is_admin(auth.uid())) WITH CHECK (public.is_admin(auth.uid()));
 
 -- ===== E.1 Kode kelas 6 karakter dari server; kode 4 karakter berakhir pada tanggal pengaturan =====
 ALTER TABLE public.classes ALTER COLUMN join_code TYPE varchar(6);

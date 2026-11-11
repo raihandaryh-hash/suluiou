@@ -131,9 +131,12 @@ describe("aliranAI (Anthropic → SSE bergaya Gemini)", () => {
 });
 
 describe("usia", () => {
-  it("hanya jalur mahasiswa IOU yang dewasa", () => {
-    expect(putuskanUsia({ user_metadata: { user_track: "mahasiswa_iou" } })).toBe("dewasa");
-    expect(putuskanUsia({ user_metadata: { user_track: "siswa" } })).toBe("bawah18");
+  it("hanya app_metadata.dewasa === true yang dewasa (Tonggak 2a)", () => {
+    expect(putuskanUsia({ app_metadata: { dewasa: true } })).toBe("dewasa");
+    // user_metadata bisa diubah pengguna: tidak lagi dibaca
+    expect(putuskanUsia({ user_metadata: { user_track: "mahasiswa_iou" } })).toBe("bawah18");
+    expect(putuskanUsia({ app_metadata: { dewasa: "true" } })).toBe("bawah18");
+    expect(putuskanUsia({ app_metadata: { dewasa: true }, is_anonymous: true })).toBe("bawah18");
     expect(putuskanUsia(null)).toBe("bawah18");
   });
   it("tanpa token atau gagal baca akun → bawah18", async () => {
@@ -142,7 +145,7 @@ describe("usia", () => {
     const req = new Request("https://x", { headers: { authorization: "Bearer t" } });
     const gagal = (async () => new Response("", { status: 401 })) as unknown as typeof fetch;
     expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, gagal)).toBe("bawah18");
-    const ok = (async () => new Response(JSON.stringify({ user_metadata: { user_track: "mahasiswa_iou" } }))) as unknown as typeof fetch;
+    const ok = (async () => new Response(JSON.stringify({ app_metadata: { dewasa: true } }))) as unknown as typeof fetch;
     expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, ok)).toBe("dewasa");
   });
   it("mode (c) hidup kecuali dimatikan", () => {

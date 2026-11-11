@@ -1,15 +1,14 @@
 // Tonggak 1 · penentu usia di server (KEPUTUSAN Raihan 11 Nov 2026 10.21, butir 1: mode (c) untuk di bawah 18).
-// Sulu tidak menyimpan umur. Aturan, condong hati-hati:
-// - Akun login dengan user_metadata.user_track = "mahasiswa_iou" → dewasa.
-// - Selain itu (tamu kelas sekolah, akun jalur siswa, akun tanpa jalur, gagal membaca akun) → bawah18.
-// Batas yang diketahui: user_track ditulis klien sendiri (supabase.auth.updateUser), jadi siswa bisa memilih
-// jalur mahasiswa. Penutupnya (verifikasi akun mahasiswa IOU) di Tonggak 2.
+// Tonggak 2a (manifest v0.6 A.5): status dewasa hanya dari app_metadata.dewasa, yang ditulis service role lewat
+// atur-peran, aktivasi kode peserta, atau backfill 0007. user_metadata (bisa diubah pengguna) tidak lagi dibaca.
+// Selain dewasa === true (tamu, token anon, akun tanpa status, gagal membaca) → bawah18 (gagal tertutup).
 
 export type StatusUsia = "dewasa" | "bawah18";
 
 export function putuskanUsia(pengguna: unknown): StatusUsia {
-  const p = pengguna as { user_metadata?: { user_track?: unknown } } | null;
-  return p?.user_metadata?.user_track === "mahasiswa_iou" ? "dewasa" : "bawah18";
+  const p = pengguna as { app_metadata?: { dewasa?: unknown }; is_anonymous?: unknown } | null;
+  if (p?.is_anonymous === true) return "bawah18";
+  return p?.app_metadata?.dewasa === true ? "dewasa" : "bawah18";
 }
 
 /** Baca akun pemanggil dari token permintaan. Gagal, tamu, atau token anon → bawah18. */
