@@ -6,6 +6,7 @@ export type Jenjang = "kelas_10_11" | "kelas_12" | "baru_lulus" | null;
 export interface MetaUmur {
   peran?: Peran;
   jenjang?: Jenjang;
+  mahasiswa_iou?: boolean; // hanya untuk isi (jam bakti, rujukan HSA), bukan keselamatan
   dewasa?: boolean;
   umur_terkunci?: boolean;
   umur_ditulis_pada?: string; // ISO, tulisan pertama
@@ -17,6 +18,7 @@ export const MASA_RALAT_MS = 15 * 60 * 1000;
 export interface Permintaan {
   peran: Peran;
   jenjang?: Jenjang;
+  mahasiswaIou?: boolean;
   menyatakan18: boolean;
 }
 
@@ -39,17 +41,18 @@ export function putuskanTulisan(lama: MetaUmur, p: Permintaan, sekarang: Date): 
   if (!PERAN.includes(p.peran)) return { ok: false, alasan: "peran_tidak_dikenal" };
   const dewasaBaru = dewasaDari(p);
   const jenjang = p.peran === "siswa" ? (p.jenjang ?? null) : null;
+  const mahasiswa_iou = p.peran === "mahasiswa" && p.mahasiswaIou === true;
   if (!lama.umur_terkunci) {
-    return { ok: true, meta: { peran: p.peran, jenjang, dewasa: dewasaBaru, umur_terkunci: true, umur_ditulis_pada: sekarang.toISOString(), umur_sumber: "diri" } };
+    return { ok: true, meta: { peran: p.peran, jenjang, mahasiswa_iou, dewasa: dewasaBaru, umur_terkunci: true, umur_ditulis_pada: sekarang.toISOString(), umur_sumber: "diri" } };
   }
   const ditulis = lama.umur_ditulis_pada ? Date.parse(lama.umur_ditulis_pada) : NaN;
   const dalamRalat = lama.umur_sumber === "diri" && Number.isFinite(ditulis) && sekarang.getTime() - ditulis <= MASA_RALAT_MS;
   if (dalamRalat) {
-    return { ok: true, meta: { ...lama, peran: p.peran, jenjang, dewasa: dewasaBaru } };
+    return { ok: true, meta: { ...lama, peran: p.peran, jenjang, mahasiswa_iou, dewasa: dewasaBaru } };
   }
   // terkunci: dewasa → bawah 18 boleh; bawah 18 → dewasa ditolak
   if (dewasaBaru && lama.dewasa !== true) return { ok: false, alasan: "terkunci_arah_longgar" };
-  return { ok: true, meta: { ...lama, peran: p.peran, jenjang, dewasa: lama.dewasa === true ? dewasaBaru : false } };
+  return { ok: true, meta: { ...lama, peran: p.peran, jenjang, mahasiswa_iou, dewasa: lama.dewasa === true ? dewasaBaru : false } };
 }
 
 /** Sisa masa ralat dalam milidetik (0 bila habis atau tidak berlaku). */

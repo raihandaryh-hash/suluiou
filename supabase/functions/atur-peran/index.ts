@@ -27,11 +27,11 @@ serve(async (req) => {
 
   switch (isi.aksi) {
     case "baca":
-      return jawab(200, { peran: meta.peran ?? null, jenjang: meta.jenjang ?? null, dewasa: meta.dewasa === true,
+      return jawab(200, { peran: meta.peran ?? null, jenjang: meta.jenjang ?? null, mahasiswa_iou: meta.mahasiswa_iou === true, dewasa: meta.dewasa === true,
         terkunci: meta.umur_terkunci === true, sisa_ralat_ms: sisaRalat(meta, sekarang) });
 
     case "tulis": {
-      const p: Permintaan = { peran: isi.peran as Permintaan["peran"], jenjang: (isi.jenjang ?? null) as Permintaan["jenjang"], menyatakan18: isi.menyatakan18 === true };
+      const p: Permintaan = { peran: isi.peran as Permintaan["peran"], jenjang: (isi.jenjang ?? null) as Permintaan["jenjang"], mahasiswaIou: isi.mahasiswaIou === true, menyatakan18: isi.menyatakan18 === true };
       const h = putuskanTulisan(meta, p, sekarang);
       if (!h.ok) return jawab(409, { galat: h.alasan });
       const { error } = await layanan.auth.admin.updateUserById(pengguna.id, { app_metadata: { ...meta, ...h.meta } });
