@@ -2,7 +2,7 @@
 import { describe, it, expect } from "vitest";
 import { calculateLeadScore, getLeadPriority, TANPA_IZIN } from "../lib/leadScoring";
 import { tentukanAlur, normalkanIzin, tautanTarik } from "../lib/izinKuliah";
-import { KANAL_PENERIMAAN, TEKS_IZIN } from "../data/izinKuliahContent";
+import { KANAL_PENERIMAAN, TEKS_IZIN, TEKS_TARIK } from "../data/izinKuliahContent";
 
 const lengkap = { student_name: "A", student_email: "a@b.id", student_phone: "0812", school_name: "SMA X", match_percentage: 100, scores: { o: 5, c: 5, e: 5, a: 5, h: 5 } };
 
@@ -60,6 +60,6 @@ describe("teks izin berversi", () => {
     expect(new Set(v).size).toBe(4);
   });
   it("teks tanpa em dash", () => {
-    expect(JSON.stringify(TEKS_IZIN)).not.toContain("—");
+    expect(JSON.stringify(TEKS_IZIN) + JSON.stringify(TEKS_TARIK)).not.toContain("—");
   });
 });

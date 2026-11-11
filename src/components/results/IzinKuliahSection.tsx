@@ -38,6 +38,7 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
   const t = TEKS_IZIN[VARIAN_AKTIF];
   const tt = TEKS_TARIK[VARIAN_AKTIF];
   const [userId, setUserId] = useState<string | null>(null);
+  const [sesiDibaca, setSesiDibaca] = useState(false);
   const [menyatakan18, setMenyatakan18] = useState(false);
   const [p1, setP1] = useState(false);
   const [p2, setP2] = useState(false);
@@ -45,7 +46,7 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
   const [memuat, setMemuat] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setUserId(data.user?.id ?? null));
+    supabase.auth.getUser().then(({ data }) => { setUserId(data.user?.id ?? null); setSesiDibaca(true); });
   }, []);
 
   useEffect(() => {
@@ -68,6 +69,8 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resultId, userId]);
 
+  // Pernyataan dewasa yang disimpan: jalur mahasiswa IOU dianggap dewasa; selain itu dari kotak 18+.
+  const dewasaDinyatakan = track === 'mahasiswa_iou' || menyatakan18;
   const alur = tentukanAlur({ masuk: !!userId, jalurMahasiswa: track === 'mahasiswa_iou', menyatakan18 });
 
   const simpan = async () => {
@@ -75,17 +78,22 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
     setMemuat(true);
     const izin = normalkanIzin({ dihubungi: p1, hasilUntukTawaran: p2 });
     const baris = [
-      { result_id: resultId, user_id: userId, tujuan: 'dihubungi_kuliah', pemberi: 'diri', menyatakan_18_plus: menyatakan18, teks_versi: t.p1.versi },
+      { result_id: resultId, user_id: userId, tujuan: 'dihubungi_kuliah', pemberi: 'diri', menyatakan_18_plus: dewasaDinyatakan, teks_versi: t.p1.versi },
       ...(izin.hasilUntukTawaran
-        ? [{ result_id: resultId, user_id: userId, tujuan: 'hasil_untuk_tawaran', pemberi: 'diri', menyatakan_18_plus: menyatakan18, teks_versi: t.p2.versi }]
+        ? [{ result_id: resultId, user_id: userId, tujuan: 'hasil_untuk_tawaran', pemberi: 'diri', menyatakan_18_plus: dewasaDinyatakan, teks_versi: t.p2.versi }]
         : []),
     ];
     // P1 lebih dulu: kebijakan basis data menolak P2 tanpa P1 aktif.
     for (const b of baris) {
       const { error } = await tabelIzin().insert(b);
       if (error) {
+        // Muat ulang supaya tampilan sama dengan basis data (mis. P1 masuk, P2 gagal).
+        const { data } = await tabelIzin().select('id, tujuan, dicabut_pada').eq('result_id', resultId).is('dicabut_pada', null);
+        const sisa = (data as BarisIzin[] | null) ?? [];
+        setAktif(sisa);
+        onIzinBerubah(normalkanIzin({ dihubungi: sisa.some((x) => x.tujuan === 'dihubungi_kuliah'), hasilUntukTawaran: sisa.some((x) => x.tujuan === 'hasil_untuk_tawaran') }));
         setMemuat(false);
-        toast({ title: 'Belum tersimpan', description: error.message, variant: 'destructive' });
+        toast({ title: 'Belum tersimpan', description: 'Coba lagi sebentar lagi.', variant: 'destructive' });
         return;
       }
     }
@@ -103,7 +111,13 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
     const p1Aktif = aktif.find((b) => b.tujuan === 'dihubungi_kuliah');
     const sasaran = p1Aktif ? [p1Aktif] : aktif;
     for (const b of sasaran) {
-      await tabelIzin().update({ dicabut_pada: new Date().toISOString() }).eq('id', b.id);
+      const { data, error } = await tabelIzin().update({ dicabut_pada: new Date().toISOString() }).eq('id', b.id).select('id');
+      // UPDATE yang tersaring RLS tidak memberi galat; periksa juga jumlah baris (pemeriksa 1b, S4).
+      if (error || !data || data.length === 0) {
+        setMemuat(false);
+        toast({ title: 'Izin belum tercabut', description: 'Coba lagi sebentar lagi.', variant: 'destructive' });
+        return;
+      }
     }
     setAktif([]);
     setP1(false);
@@ -113,6 +127,8 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
     toast({ title: t.dicabut });
   };
 
+  // Belum tahu apakah pengguna masuk: jangan tampilkan apa pun dulu (pemeriksa 1b, S3).
+  if (!sesiDibaca) return null;
   // Tamu (tanpa akun, termasuk kelas sekolah) selalu diperlakukan sebagai anak.
   if (!userId) {
     return <JalurTarik programDipilih={programDipilih} />;

@@ -66,6 +66,8 @@ const Results = () => {
   const [savedRowId, setSavedRowId] = useState<string | null>(null);
   // Izin per tujuan saat ini (P1/P2). Skor prospek dihitung ulang tiap izin berubah.
   const izinRef = useRef<IzinSkor>(TANPA_IZIN);
+  // Formulir kontak hanya tampil sesudah izin dihubungi (P1) aktif; skor dihitung basis data (drizzle 0003).
+  const [izinDihubungi, setIzinDihubungi] = useState(false);
   const [autoSaving, setAutoSaving] = useState(false);
   const autoSaveTriedRef = useRef(false);
   const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
@@ -139,7 +141,7 @@ const Results = () => {
       const leadScore = calculateLeadScore({
         student_name: studentProfile?.name || null,
         student_email: session?.kind === 'google' ? session.email : null,
-        student_phone: session?.kind === 'guest' ? session.phone : null,
+        student_phone: null, // nomor tamu tidak disimpan ke hasil (manifest 1b; pemeriksa B2)
         school_name: 'Umum',
         match_percentage: 0,
         scores: scores as Record<string, number>,
@@ -148,7 +150,7 @@ const Results = () => {
       const insertData: Parameters<typeof api.saveResult>[0] & Record<string, unknown> = {
         student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
         student_email: session?.kind === 'google' ? session.email : null,
-        student_phone: session?.kind === 'guest' ? session.phone : null,
+        student_phone: null, // nomor tamu tidak disimpan ke hasil (manifest 1b; pemeriksa B2)
         student_class: session?.className ?? null,
         school_name: 'Umum',
         student_province: profileProvince || null,
@@ -195,18 +197,7 @@ const Results = () => {
 
   const handleIzinBerubah = (izin: IzinSkor) => {
     izinRef.current = izin;
-    if (!savedRowId || !scores) return;
-    const session = getStudentSession();
-    const leadScore = calculateLeadScore({
-      student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
-      student_email: session?.kind === 'google' ? session.email : null,
-      student_phone: session?.kind === 'guest' ? session.phone : null,
-      school_name: null,
-      match_percentage: 0,
-    }, izin);
-    void api.updateResultContact(savedRowId, { lead_score: leadScore }).then(({ error }) => {
-      if (error) console.warn('update lead_score after izin failed:', error.message);
-    });
+    setIzinDihubungi(izin.dihubungi);
   };
 
   const handleRevealProjection = () => {
@@ -253,7 +244,7 @@ const Results = () => {
       const { error } = await api.updateResultContact(savedRowId, {
         student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
         student_email: info.email || (session?.kind === 'google' ? session.email : null),
-        student_phone: info.phone || (session?.kind === 'guest' ? session.phone : null),
+        student_phone: info.phone || null,
         student_class: info.student_class || (session?.className ?? null),
         school_name: info.school || 'Umum',
         student_province: resolvedProvince || null,
@@ -282,7 +273,7 @@ const Results = () => {
     const insertData: Parameters<typeof api.saveResult>[0] = {
       student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
       student_email: info.email || (session?.kind === 'google' ? session.email : null),
-      student_phone: info.phone || (session?.kind === 'guest' ? session.phone : null),
+      student_phone: info.phone || null,
       student_class: info.student_class || (session?.className ?? null),
       school_name: info.school || 'Umum',
       student_province: resolvedProvince || null,
@@ -532,15 +523,15 @@ const Results = () => {
             </p>
           </motion.div>
 
-          {/* Student Info Form */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75 }} className="mb-12">
+          {/* Student Info Form: hanya untuk pengguna yang sudah memberi izin dihubungi (P1). */}
+          {izinDihubungi && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75 }} className="mb-12">
             <StudentInfoForm
               onSubmit={handleSaveStudent}
               saved={saved}
               defaultProvince={studentProfile?.province}
               provinceUsed={provinceUsed}
             />
-          </motion.div>
+          </motion.div>}
 
           {/* Layer 3 */}
           <motion.div className="relative glass rounded-2xl p-8 md:p-12 mb-12 overflow-hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }}>

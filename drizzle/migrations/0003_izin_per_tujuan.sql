@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS public.sulu_izin (
 );
 
 CREATE INDEX IF NOT EXISTS sulu_izin_result_idx ON public.sulu_izin (result_id);
+-- Satu izin aktif per tujuan per hasil (pemeriksa 1b, S4).
+CREATE UNIQUE INDEX IF NOT EXISTS sulu_izin_satu_aktif ON public.sulu_izin (result_id, tujuan) WHERE dicabut_pada IS NULL;
 
 ALTER TABLE public.sulu_izin ENABLE ROW LEVEL SECURITY;
 
@@ -32,13 +34,11 @@ CREATE POLICY "Izin diri oleh pemilik dewasa" ON public.sulu_izin
     pemberi = 'diri'
     AND user_id = auth.uid()
     AND dicabut_pada IS NULL
-    AND (
-      menyatakan_18_plus
-      OR coalesce(auth.jwt() -> 'user_metadata' ->> 'user_track', '') = 'mahasiswa_iou'
-    )
+    -- user_metadata bisa diubah pengguna sendiri, jadi tidak dipakai sebagai bukti dewasa (pemeriksa 1b, S5).
+    AND menyatakan_18_plus
     AND EXISTS (
       SELECT 1 FROM public.assessment_results r
-      WHERE r.id = result_id AND r.user_id = auth.uid()
+      WHERE r.id = sulu_izin.result_id AND r.user_id = auth.uid()
     )
     AND (
       tujuan = 'dihubungi_kuliah'
@@ -64,30 +64,67 @@ CREATE POLICY "Pemilik mencabut izin" ON public.sulu_izin
   USING (user_id = auth.uid() AND dicabut_pada IS NULL)
   WITH CHECK (user_id = auth.uid() AND dicabut_pada IS NOT NULL);
 
--- Pencabutan ditegakkan basis data:
--- - P1 dicabut: skor 0 (tanpa prioritas) dan izin P2 ikut dicabut;
--- - P2 dicabut: skor dibatasi 60, batas tertinggi skor tanpa kecocokan program (src/lib/leadScoring.ts).
-CREATE OR REPLACE FUNCTION public.sulu_izin_saat_dicabut()
+-- Skor prospek dihitung basis data, bukan klien (pemeriksa 1b, B1). Rumus sama dengan src/lib/leadScoring.ts:
+-- tanpa P1 aktif 0; P1 30 + nama 5 + surel 10 + HP 10 + sekolah selain "Umum" 5; dengan P2 + kecocokan x 0,4.
+-- Nilai lead_score yang dikirim klien selalu ditimpa.
+CREATE OR REPLACE FUNCTION public.sulu_hitung_skor(r public.assessment_results)
+RETURNS integer
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT CASE
+    WHEN NOT EXISTS (SELECT 1 FROM public.sulu_izin i WHERE i.result_id = r.id AND i.tujuan = 'dihubungi_kuliah' AND i.dicabut_pada IS NULL)
+      THEN 0
+    ELSE LEAST(100,
+      30
+      + CASE WHEN coalesce(r.student_name, '') <> '' THEN 5 ELSE 0 END
+      + CASE WHEN coalesce(r.student_email, '') <> '' THEN 10 ELSE 0 END
+      + CASE WHEN coalesce(r.student_phone, '') <> '' THEN 10 ELSE 0 END
+      + CASE WHEN coalesce(r.school_name, '') NOT IN ('', 'Umum') THEN 5 ELSE 0 END
+      + CASE WHEN EXISTS (SELECT 1 FROM public.sulu_izin i WHERE i.result_id = r.id AND i.tujuan = 'hasil_untuk_tawaran' AND i.dicabut_pada IS NULL)
+          THEN round(GREATEST(0, LEAST(100, coalesce(r.match_percentage, 0))) * 0.4)::integer ELSE 0 END)
+  END;
+$$;
+
+CREATE OR REPLACE FUNCTION public.sulu_skor_sebelum_simpan()
 RETURNS trigger
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
 AS $$
 BEGIN
-  IF NEW.dicabut_pada IS NOT NULL AND OLD.dicabut_pada IS NULL THEN
-    IF NEW.tujuan = 'dihubungi_kuliah' THEN
-      UPDATE public.assessment_results SET lead_score = 0 WHERE id = NEW.result_id;
-      UPDATE public.sulu_izin SET dicabut_pada = NEW.dicabut_pada
-        WHERE result_id = NEW.result_id AND tujuan = 'hasil_untuk_tawaran' AND dicabut_pada IS NULL;
-    ELSE
-      UPDATE public.assessment_results SET lead_score = LEAST(lead_score, 60) WHERE id = NEW.result_id;
-    END IF;
+  NEW.lead_score := public.sulu_hitung_skor(NEW);
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS sulu_skor_hasil ON public.assessment_results;
+CREATE TRIGGER sulu_skor_hasil
+  BEFORE INSERT OR UPDATE ON public.assessment_results
+  FOR EACH ROW EXECUTE FUNCTION public.sulu_skor_sebelum_simpan();
+
+-- Tiap perubahan izin menghitung ulang skor hasilnya. Cabut P1 juga mencabut P2.
+CREATE OR REPLACE FUNCTION public.sulu_izin_berubah()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  IF TG_OP = 'UPDATE' AND NEW.tujuan = 'dihubungi_kuliah' AND NEW.dicabut_pada IS NOT NULL AND OLD.dicabut_pada IS NULL THEN
+    UPDATE public.sulu_izin SET dicabut_pada = NEW.dicabut_pada
+      WHERE result_id = NEW.result_id AND tujuan = 'hasil_untuk_tawaran' AND dicabut_pada IS NULL;
   END IF;
+  -- Menyentuh baris memicu sulu_skor_hasil.
+  UPDATE public.assessment_results SET lead_score = lead_score WHERE id = NEW.result_id;
   RETURN NEW;
 END;
 $$;
 
 DROP TRIGGER IF EXISTS sulu_izin_dicabut ON public.sulu_izin;
-CREATE TRIGGER sulu_izin_dicabut
-  AFTER UPDATE OF dicabut_pada ON public.sulu_izin
-  FOR EACH ROW EXECUTE FUNCTION public.sulu_izin_saat_dicabut();
+DROP TRIGGER IF EXISTS sulu_izin_berubah ON public.sulu_izin;
+CREATE TRIGGER sulu_izin_berubah
+  AFTER INSERT OR UPDATE OF dicabut_pada ON public.sulu_izin
+  FOR EACH ROW EXECUTE FUNCTION public.sulu_izin_berubah();
