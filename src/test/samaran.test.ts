@@ -1,6 +1,6 @@
 // Uji modul bersama edge function: samaran bolak-balik, penyedia AI, penentu usia (Tonggak 1, 11 Nov 2026).
 import { describe, it, expect } from "vitest";
-import { Samaran } from "../../supabase/functions/_shared/samaran";
+import { Samaran, cariNamaLain } from "../../supabase/functions/_shared/samaran";
 import { konfigDariEnv, aliranAI, panggilAI, bacaPeristiwaAnthropic, GalatKonfigAI } from "../../supabase/functions/_shared/penyedia";
 import { putuskanUsia, statusUsiaPermintaan, modeCHidup } from "../../supabase/functions/_shared/usia";
 
@@ -237,5 +237,31 @@ describe("Verifikasi kedua pemeriksa (N1–N3)", () => {
     await panggilAI({ penyedia: "anthropic", apiKey: "k", model: "claude-3-haiku", baseUrl: "https://x" }, p, { fetchFn });
     expect(badan.output_config).toBeUndefined();
     expect(badan.thinking).toBeUndefined();
+  });
+});
+
+// Penyamaan dengan War Room samaran-0.7.2 (pengenal sapaan, 11 Nov): nama orang lain di teks bebas dan nama sendiri huruf kecil.
+describe("samaran · nama orang lain dan huruf kecil", () => {
+  it("menyamarkan nama sesudah sapaan, dua kata huruf kecil, dan membukanya kembali", () => {
+    const teks = "aku cerita ke bu wulandari kusumaningrum soal jurusan, terus Kak Sylvandra bilang coba teknik";
+    const s = new Samaran(teks);
+    const keluar = s.samarkan(teks);
+    for (const n of ["wulandari", "kusumaningrum", "Sylvandra"]) expect(keluar).not.toContain(n);
+    expect(s.buka(keluar)).toBe(teks);
+  });
+  it("tidak menyamarkan jabatan atau sapaan bertumpuk", () => {
+    const teks = "pak ustadz bilang guru BK dan bu kepala sekolah mau bantu";
+    expect(new Samaran(teks).samarkan(teks)).toBe(teks);
+  });
+  it("menyamarkan nama siswa yang ditulis huruf kecil", () => {
+    const teks = "halo aku zahra, mau tanya jurusan";
+    const s = new Samaran(teks); s.daftar("nama", "Zahra");
+    const keluar = s.samarkan(teks);
+    expect(keluar).not.toMatch(/zahra/i);
+    expect(s.buka(keluar)).toBe("halo aku Zahra, mau tanya jurusan");
+  });
+  it("menangkap nama sesudah 'atas nama' hanya bila berhuruf kapital", () => {
+    expect(cariNamaLain("surat atas nama Nazwa Putri sudah ada")).toEqual(["Nazwa Putri"]);
+    expect(cariNamaLain("atas nama sekolah kami")).toEqual([]);
   });
 });
