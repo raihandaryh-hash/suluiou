@@ -300,3 +300,9 @@ describe("samaran · regresi pemeriksa 132015a", () => {
     expect(Date.now() - t0).toBeLessThan(2000);
   });
 });
+
+describe("samaran · regresi pemeriksa kedua fdd98aa", () => {
+  for (const [x, bocor] of [["Pak Budi dan bu Rina datang", /Budi|Rina/], ["Mas Ahmad dan mas Agus", /Ahmad|Agus/], ["Prof Rina dan dr. Andi", /Rina|Andi/], ["bu Ani-Wati datang", /Ani|Wati/]] as const) {
+    it(`dua nama dan tanda hubung: ${x}`, () => { const s = new Samaran(x); const k = s.samarkan(x); expect(k).not.toMatch(bocor); expect(s.buka(k)).toBe(x); });
+  }
+});

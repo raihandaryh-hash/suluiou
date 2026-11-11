@@ -39,11 +39,11 @@ anda kamu kalian engkau kau siswa siswi murid pengguna sedang sulu kakak semua s
 // Nama yang juga kata biasa (War Room nama_umum.js NAMA_KATA_BIASA): tidak dicari dalam huruf kecil, supaya "indah" tetap kata biasa.
 const NAMA_KATA_BIASA = new Set(`indah putri putra budi sari jaya mulia iman amal ikhlas rahmat hidayah rizki rezeki intan permata melati bunga cahya cahaya
 fajar bayu agung bagus dewi ayu kurnia wati santi suci endah rosa mega yoga dian dini nur umi tri eka dwi lia lina risa alam`.split(/\s+/));
-const KATA = String.raw`\p{L}[\p{L}'’]*`;
+const KATA = String.raw`\p{L}[\p{L}'’]*(?:-\p{L}[\p{L}'’]*)*`; // tanda hubung ikut: "Ani-Wati" satu nama
 // Tanpa flag i: dengan i, \p{Lu} ikut cocok dengan huruf kecil. Sapaan dibuat tiga varian huruf secara manual.
 const tigaVarian = (alt: string) => alt.split("|").flatMap((w) => [w, w[0].toUpperCase() + w.slice(1), w.toUpperCase()]).join("|");
-const POLA_SAPAAN = new RegExp(`(?<![\\p{L}\\p{N}])(?:${tigaVarian(SAPAAN)})\\.?[ \\t]+((?:(?:${tigaVarian(SAPAAN)})\\.?[ \\t]+)*)(${KATA}(?:[ \\t]+${KATA}){0,2})`, "gu");
-const POLA_KONTEKS = new RegExp(`(?<![\\p{L}\\p{N}])(?:${KONTEKS_KUAT})[ \\t]+()(${KATA}(?:[ \\t]+${KATA}){0,2})`, "gu");
+const POLA_SAPAAN = new RegExp(`(?<![\\p{L}\\p{N}])(?:${tigaVarian(SAPAAN)})\\.?[ \\t]+((?:(?:${tigaVarian(SAPAAN)})\\.?[ \\t]+)*)(${KATA})(?=((?:[ \\t]+${KATA}){0,2}))`, "gu");
+const POLA_KONTEKS = new RegExp(`(?<![\\p{L}\\p{N}])(?:${KONTEKS_KUAT})[ \\t]+()(${KATA})(?=((?:[ \\t]+${KATA}){0,2}))`, "gu");
 const awalKapital = (w: string) => /^\p{Lu}\p{Ll}/u.test(w);
 /** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
 function namaDariCocok(kataStr: string, wajibKapital: boolean): string | null {
@@ -65,7 +65,7 @@ function namaDariCocok(kataStr: string, wajibKapital: boolean): string | null {
 export function cariNamaLain(teks: string): string[] {
   const keluar: string[] = [];
   for (const [re, wajib] of [[POLA_SAPAAN, false], [POLA_KONTEKS, true]] as const) {
-    for (const m of teks.matchAll(re)) { const n = namaDariCocok(m[2], wajib || !!m[1]); if (n) keluar.push(n); }
+    for (const m of teks.matchAll(re)) { const n = namaDariCocok(m[2] + m[3], wajib || !!m[1]); if (n) keluar.push(n); }
   }
   return keluar;
 }
@@ -134,7 +134,9 @@ export class Samaran {
     // Nama orang lain (guru, teman, keluarga) di teks bebas. Nama Berhuruf Awal Besar didaftarkan dan diganti di seluruh teks;
     // nama huruf kecil atau KAPITAL semua hanya diganti di posisi sesudah sapaan, supaya kata biasa di tempat lain tidak tersentuh.
     for (const [re, wajib] of [[POLA_SAPAAN, false], [POLA_KONTEKS, true]] as const) {
-      hasil = hasil.replace(re, (m, tumpuk: string, kataStr: string) => {
+      hasil = hasil.replace(re, (m, tumpuk: string, kata1: string, lanjut: string) => {
+        // Kata lanjutan hanya diintip (lookahead, temuan pemeriksa kedua): "Pak Budi dan bu Rina" tetap memindai "bu Rina".
+        const kataStr = kata1 + lanjut;
         // Sesudah sapaan bertumpuk ("pak ustadz mengisi"), nama wajib berhuruf kapital.
         const n = namaDariCocok(kataStr, wajib || !!tumpuk);
         if (!n || this.keAsli.has(n)) return m;
@@ -144,8 +146,8 @@ export class Samaran {
           return m;
         }
         const t = this.daftar("nama", n, "lain")!;
-        const i = m.lastIndexOf(kataStr);
-        return m.slice(0, i) + t + m.slice(i + n.length);
+        // Nama huruf kecil atau KAPITAL selalu satu kata = kata1, yang ada di ujung cocokan.
+        return m.slice(0, m.length - kata1.length) + t;
       });
     }
     const asliUrut = [...this.keTiruan.keys()].sort((a, b) => b.length - a.length);
