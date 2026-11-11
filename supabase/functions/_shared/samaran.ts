@@ -46,14 +46,27 @@ const POLA_SAPAAN = new RegExp(`(?<![\\p{L}\\p{N}])(?:${tigaVarian(SAPAAN)})\\.?
 const POLA_KONTEKS = new RegExp(`(?<![\\p{L}\\p{N}])(?:${KONTEKS_KUAT})[ \\t]+()(${KATA})(?=((?:[ \\t]+${KATA}){0,2}))`, "gu");
 const awalKapital = (w: string) => /^\p{Lu}\p{Ll}/u.test(w);
 /** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
+const KLITIK = /-(?:nya|lah|pun|kah|ku|mu)$/iu;
+/** Kata calon nama tanpa klitik ("Rina-nya" → "Rina"), atau null bila kata biasa, termasuk bentuk ulang ("guru-guru", "mas-mas"). */
+function bersihkan(w: string): string | null {
+  const k = w.replace(KLITIK, "");
+  const bagian = k.split("-");
+  if (k.length < 2 || BUKAN_SESUDAH_SAPAAN.has(bagian[0].toLowerCase())) return null;
+  if (bagian.length > 1 && bagian.every((x) => x.toLowerCase() === bagian[0].toLowerCase())) return null;
+  return k;
+}
+/** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
 function namaDariCocok(kataStr: string, wajibKapital: boolean): string | null {
   const kata = kataStr.split(/[ \t]+/);
-  if (kata[0].length < 2 || BUKAN_SESUDAH_SAPAAN.has(kata[0].toLowerCase()) || (wajibKapital && !/^\p{Lu}/u.test(kata[0]))) return null;
-  const nama = [kata[0]];
-  if (awalKapital(kata[0])) {
+  const awal = bersihkan(kata[0]);
+  if (!awal || (wajibKapital && !/^\p{Lu}/u.test(awal))) return null;
+  const nama = [awal];
+  if (awalKapital(awal) && awal === kata[0]) {
     for (const w of kata.slice(1)) {
-      if (!awalKapital(w) || BUKAN_SESUDAH_SAPAAN.has(w.toLowerCase())) break;
-      nama.push(w);
+      const b = bersihkan(w);
+      if (!b || !awalKapital(b)) break;
+      nama.push(b);
+      if (b !== w) break; // klitik menutup nama: "Budi Santoso-nya bilang"
     }
   }
   return nama.join(" ");
@@ -142,12 +155,12 @@ export class Samaran {
         if (!n || this.keAsli.has(n)) return m;
         if (awalKapital(n)) {
           this.daftar("nama", n, "lain");
-          for (const k of n.split(" ")) if (k.length >= 3 && !this.keAsli.has(k)) this.daftar("nama", k, "lain");
+          for (const k of n.split(/[ \t-]+/)) if (k.length >= 3 && !this.keAsli.has(k)) this.daftar("nama", k, "lain");
           return m;
         }
         const t = this.daftar("nama", n, "lain")!;
         // Nama huruf kecil atau KAPITAL selalu satu kata = kata1, yang ada di ujung cocokan.
-        return m.slice(0, m.length - kata1.length) + t;
+        return m.slice(0, m.length - kata1.length) + t + kata1.slice(n.length); // klitik dipertahankan
       });
     }
     const asliUrut = [...this.keTiruan.keys()].sort((a, b) => b.length - a.length);

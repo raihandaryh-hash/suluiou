@@ -306,3 +306,12 @@ describe("samaran · regresi pemeriksa kedua fdd98aa", () => {
     it(`dua nama dan tanda hubung: ${x}`, () => { const s = new Samaran(x); const k = s.samarkan(x); expect(k).not.toMatch(bocor); expect(s.buka(k)).toBe(x); });
   }
 });
+
+describe("samaran · regresi pemeriksa ketiga 729ab98", () => {
+  for (const [x, bocor] of [["bu Rina-nya bilang, lalu Rina pergi", /Rina/], ["Pak Budi-lah yang datang; Budi baik", /Budi/], ["Bu Ani-Wati datang. Ani juga.", /Ani|Wati/], ["kak dimas-nya datang", /dimas/]] as const) {
+    it(`klitik dan bagian nama: ${x}`, () => { const s = new Samaran(x); const k = s.samarkan(x); expect(k).not.toMatch(bocor); expect(s.buka(k)).toBe(x); });
+  }
+  for (const x of ["bu guru-guru semua", "kak anak-anak semua", "mas mas-mas", "kak ke-2 ya"]) {
+    it(`kata ulang tetap: ${x}`, () => { expect(new Samaran(x).samarkan(x)).toBe(x); });
+  }
+});
