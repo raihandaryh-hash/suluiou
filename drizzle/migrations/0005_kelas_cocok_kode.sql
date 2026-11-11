@@ -10,7 +10,7 @@ RETURNS TABLE (id uuid, name text, school_name text, session_closed boolean)
 LANGUAGE sql
 STABLE
 SECURITY DEFINER
-SET search_path = public
+SET search_path = ''
 AS $$
   SELECT c.id, c.name, c.school_name, c.session_closed
   FROM public.classes c
@@ -21,3 +21,14 @@ $$;
 
 REVOKE ALL ON FUNCTION public.cari_kelas_dari_kode(text) FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION public.cari_kelas_dari_kode(text) TO anon, authenticated;
+
+-- Peserta yang masuk (akun Google) tetap bisa membaca kelas tempat ia terdaftar, untuk join bersarang
+-- class_enrollments → classes di src/lib/authRouter.ts (pemeriksa 1c, temuan 1). Tamu tidak bisa membaca
+-- class_enrollments sejak drizzle 0001, jadi tidak terdampak.
+DROP POLICY IF EXISTS "Peserta membaca kelasnya" ON public.classes;
+CREATE POLICY "Peserta membaca kelasnya" ON public.classes
+  FOR SELECT TO authenticated
+  USING (EXISTS (
+    SELECT 1 FROM public.class_enrollments e
+    WHERE e.class_id = classes.id AND e.user_id = auth.uid()
+  ));
