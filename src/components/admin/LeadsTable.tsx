@@ -82,8 +82,10 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
 
     const matchStatus = statusFilter === 'all' || lead.follow_up_status === statusFilter;
 
+    // "Semua" hanya memuat baris berizin dihubungi (P1); baris tanpa izin dilihat lewat pilihan tersendiri.
+    const prio = getLeadPriority(lead.lead_score);
     const matchPriority =
-      priorityFilter === 'all' || getLeadPriority(lead.lead_score) === priorityFilter;
+      priorityFilter === 'all' ? prio !== 'none' : prio === priorityFilter;
 
     return matchSearch && matchStatus && matchPriority;
   });
@@ -125,6 +127,7 @@ export function LeadsTable({ leads, onUpdate }: LeadsTableProps) {
               <SelectItem value="hot">🔥 Hot</SelectItem>
               <SelectItem value="warm">🌤️ Warm</SelectItem>
               <SelectItem value="cold">❄️ Cold</SelectItem>
+              <SelectItem value="none">Tanpa izin dihubungi</SelectItem>
             </SelectContent>
           </Select>
         </div>

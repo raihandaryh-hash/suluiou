@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer,
 } from 'recharts';
@@ -16,14 +17,16 @@ import LogoutButton from '@/components/LogoutButton';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { api } from '@/services/api';
-import { calculateLeadScore } from '@/lib/leadScoring';
+import { calculateLeadScore, TANPA_IZIN, type IzinSkor } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
-import { ParentConsentSection } from '@/components/results/ParentConsentSection';
+// ParentConsentSection tidak lagi ditampilkan (manifest Persetujuan dan Jalur Tarik v0.2): anak tidak mengisi nomor
+// orang tua. Komponennya disimpan untuk alur orang tua Tonggak 2.
+import { IzinKuliahSection } from '@/components/results/IzinKuliahSection';
 import { SaveToGoogleSection } from '@/components/results/SaveToGoogleSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
@@ -62,6 +65,10 @@ const Results = () => {
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
   const [savedRowId, setSavedRowId] = useState<string | null>(null);
+  // Izin per tujuan saat ini (P1/P2). Skor prospek dihitung ulang tiap izin berubah.
+  const izinRef = useRef<IzinSkor>(TANPA_IZIN);
+  // Formulir kontak hanya tampil sesudah izin dihubungi (P1) aktif; skor dihitung basis data (drizzle 0003).
+  const [izinDihubungi, setIzinDihubungi] = useState(false);
   const [autoSaving, setAutoSaving] = useState(false);
   const autoSaveTriedRef = useRef(false);
   const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
@@ -135,16 +142,16 @@ const Results = () => {
       const leadScore = calculateLeadScore({
         student_name: studentProfile?.name || null,
         student_email: session?.kind === 'google' ? session.email : null,
-        student_phone: session?.kind === 'guest' ? session.phone : null,
+        student_phone: null, // nomor tamu tidak disimpan ke hasil (manifest 1b; pemeriksa B2)
         school_name: 'Umum',
         match_percentage: 0,
         scores: scores as Record<string, number>,
-      });
+      }, TANPA_IZIN); // baris baru belum punya izin: skor 0
 
       const insertData: Parameters<typeof api.saveResult>[0] & Record<string, unknown> = {
         student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
         student_email: session?.kind === 'google' ? session.email : null,
-        student_phone: session?.kind === 'guest' ? session.phone : null,
+        student_phone: null, // nomor tamu tidak disimpan ke hasil (manifest 1b; pemeriksa B2)
         student_class: session?.className ?? null,
         school_name: 'Umum',
         student_province: profileProvince || null,
@@ -189,6 +196,11 @@ const Results = () => {
     });
   }, [savedRowId, layer1, layer1PersistedFor]);
 
+  const handleIzinBerubah = (izin: IzinSkor) => {
+    izinRef.current = izin;
+    setIzinDihubungi(izin.dihubungi);
+  };
+
   const handleRevealProjection = () => {
     if (selectedPathways.length === 0) {
       toast({
@@ -224,23 +236,26 @@ const Results = () => {
       school_name: info.school || 'Umum',
       match_percentage: 0,
       scores: scores as Record<string, number>,
-    });
+    }, izinRef.current);
 
     const session = getStudentSession();
 
     // Prefer UPDATE if auto-save already created a row.
     if (savedRowId) {
-      const { error } = await api.updateResultContact(savedRowId, {
-        student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
-        student_email: info.email || (session?.kind === 'google' ? session.email : null),
-        student_phone: info.phone || (session?.kind === 'guest' ? session.phone : null),
-        student_class: info.student_class || (session?.className ?? null),
-        school_name: info.school || 'Umum',
-        student_province: resolvedProvince || null,
-        province: resolvedProvince || null,
-        email_requested: info.email_requested,
-        lead_score: leadScore,
+      // Kontak ditulis lewat fungsi basis data yang mensyaratkan izin dihubungi (P1) aktif dan pemilik baris
+      // (drizzle 0003 sulu_isi_kontak). UPDATE langsung tersaring RLS tanpa galat (pemeriksa 1b kedua, N1).
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data: tersimpan, error: galatRpc } = await (supabase as any).rpc('sulu_isi_kontak', {
+        p_result_id: savedRowId,
+        p_nama: info.name || studentProfile?.name || '',
+        p_surel: info.email || (session?.kind === 'google' ? session.email : '') || '',
+        p_hp: info.phone || '',
+        p_sekolah: info.school || '',
+        p_kelas: info.student_class || '',
+        p_provinsi: resolvedProvince || '',
+        p_minta_surel: !!info.email_requested,
       });
+      const error = galatRpc ?? (tersimpan === true ? null : { message: 'izin dihubungi belum aktif atau baris bukan milikmu' });
 
       if (error) {
         console.error('UPDATE contact failed:', error.message);
@@ -258,58 +273,12 @@ const Results = () => {
       return;
     }
 
-    // Fallback: row not auto-saved yet (rare) → INSERT now.
-    const insertData: Parameters<typeof api.saveResult>[0] = {
-      student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
-      student_email: info.email || (session?.kind === 'google' ? session.email : null),
-      student_phone: info.phone || (session?.kind === 'guest' ? session.phone : null),
-      student_class: info.student_class || (session?.className ?? null),
-      school_name: info.school || 'Umum',
-      student_province: resolvedProvince || null,
-      province: resolvedProvince || null,
-      family_background: studentProfile?.familyBackground || null,
-      aspiration: studentProfile?.aspiration || null,
-      scores: scores as Record<string, number>,
-      top_pathway_id: selectedPathways[0] ?? 'none',
-      top_pathway_name: selectedPathways[0] ? getPathwayName(selectedPathways[0]) : '-',
-      match_percentage: 0,
-      all_matches: selectedPathways.map((id) => ({
-        pathway: { id, name: getPathwayName(id) },
-      })),
-      selected_pathways: selectedPathways,
-      projection: projection ?? '',
-      lead_score: leadScore,
-      layer1_text: layer1 ?? null,
-      email_requested: info.email_requested,
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const extra: any = {
-      class_id: session?.classId ?? null,
-      guest_identifier: session?.kind === 'guest' ? session.guestIdentifier : null,
-      user_id: session?.kind === 'google' ? session.userId : null,
-      completed_at: new Date().toISOString(),
-    };
-
-    const { error, id } = await api.saveResult({ ...insertData, ...extra });
-
-    if (error) {
-      console.error('INSERT fallback failed:', error.message);
-      toast({
-        title: 'Oops',
-        description: `Gagal menyimpan (${error.message.slice(0, 60)}). Coba lagi atau hubungi fasilitator.`,
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setProvinceUsed({ value: resolvedProvince, source: provinceSource });
-    setSaved(true);
-    if (id) {
-      setSavedRowId(id);
-      if (layer1) setLayer1PersistedFor(layer1);
-    }
-    toast({ title: 'Terkirim!', description: 'Tim IOU akan segera menghubungimu.' });
+    // Tanpa baris tersimpan tidak ada izin dihubungi, jadi kontak tidak disimpan (pemeriksa 1b ketiga, N4).
+    toast({
+      title: 'Hasil belum tersimpan',
+      description: 'Muat ulang halaman, lalu coba lagi.',
+      variant: 'destructive',
+    });
   };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
@@ -512,15 +481,15 @@ const Results = () => {
             </p>
           </motion.div>
 
-          {/* Student Info Form */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75 }} className="mb-12">
+          {/* Student Info Form: hanya untuk pengguna yang sudah memberi izin dihubungi (P1). */}
+          {izinDihubungi && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75 }} className="mb-12">
             <StudentInfoForm
               onSubmit={handleSaveStudent}
               saved={saved}
               defaultProvince={studentProfile?.province}
               provinceUsed={provinceUsed}
             />
-          </motion.div>
+          </motion.div>}
 
           {/* Layer 3 */}
           <motion.div className="relative glass rounded-2xl p-8 md:p-12 mb-12 overflow-hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }}>
@@ -585,7 +554,11 @@ const Results = () => {
             )}
           </motion.div>
 
-          <ParentConsentSection resultId={savedRowId} />
+          <IzinKuliahSection
+            resultId={savedRowId}
+            programDipilih={selectedPathways.map((id) => getPathwayName(id))}
+            onIzinBerubah={handleIzinBerubah}
+          />
 
           <SaveToGoogleSection resultId={savedRowId} />
 
