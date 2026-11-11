@@ -4,7 +4,7 @@
 // Dewasa (jalur mahasiswa IOU) memakai Anthropic tanpa samaran, sesuai KEPUTUSAN 10 Nov 22.23
 // (samaran otomatis hanya untuk model non-Anthropic); bila saklar balik ke Gemini, samaran dipakai semua orang.
 import { buatFetchAI, konfigDariEnv, type KonfigAI } from "./penyedia.ts";
-import { Samaran, type JenisPribadi } from "./samaran.ts";
+import { cariPribadi, Samaran, type JenisPribadi } from "./samaran.ts";
 import { modeCHidup, statusUsiaPermintaan } from "./usia.ts";
 
 export type PersiapanAI = {
@@ -17,25 +17,6 @@ export type PersiapanAI = {
 
 const env = (k: string) => Deno.env.get(k);
 
-/** Kunci badan permintaan yang berisi data pribadi, menurut nama kunci. */
-const KUNCI_PRIBADI: Array<[RegExp, JenisPribadi]> = [
-  [/^(name|nama|guest_?name|nickname|nama_?panggilan|full_?name)$/i, "nama"],
-  [/^(school|school_?name|sekolah|nama_?sekolah)$/i, "sekolah"],
-  [/^(phone|guest_?phone|hp|no_?hp|wa|wa_?number)$/i, "hp"],
-  [/^(email|surel)$/i, "surel"],
-];
-
-/** Kumpulkan nilai pribadi dari badan permintaan (objek bersarang), menurut nama kunci. */
-export function cariPribadi(v: unknown, d = 0, keluar: Array<[JenisPribadi, unknown]> = []): Array<[JenisPribadi, unknown]> {
-  if (d > 6 || v == null || typeof v !== "object") return keluar;
-  if (Array.isArray(v)) { v.forEach((x) => cariPribadi(x, d + 1, keluar)); return keluar; }
-  for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
-    const cocok = KUNCI_PRIBADI.find(([re]) => re.test(k));
-    if (cocok && typeof x === "string") keluar.push([cocok[1], x]);
-    else cariPribadi(x, d + 1, keluar);
-  }
-  return keluar;
-}
 
 /**
  * pribadi: nilai pribadi yang diketahui dari badan permintaan (nama, sekolah, kelas, HP, surel) untuk didaftarkan.

@@ -16,7 +16,14 @@ const TIRUAN: Record<JenisPribadi, string[]> = {
   surel: ["pengguna1@contoh.id", "pengguna2@contoh.id", "pengguna3@contoh.id", "pengguna4@contoh.id"],
 };
 
-const POLA_HP = /(?:\+?62[\s-]?|0)8[0-9][0-9\s\-]{6,13}[0-9]/g;
+const POLA_HP_CALON = /(?:\+?62[\s-]?|0)8[0-9][0-9\s\-]{6,13}[0-9]/g;
+/** Calon HP diterima bila 10–14 digit dan tidak berupa deret kelompok dua digit (mis. daftar skor "62 80 81 82"). */
+function benarHP(m: string): boolean {
+  const digit = m.replace(/\D/g, "").length;
+  if (digit < 10 || digit > 14) return false;
+  const kelompok = m.replace(/^\+/, "").split(/[\s-]+/);
+  return kelompok.length === 1 || kelompok.filter((k) => k.length <= 2).length <= 1;
+}
 const POLA_SUREL = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 
 function escapeRe(s: string): string {
@@ -75,7 +82,7 @@ export class Samaran {
     if (!teks) return teks;
     // Surel dan HP lebih dulu, supaya nama di dalam alamat surel tidak terganti setengah.
     let hasil = teks.replace(POLA_SUREL, (m) => this.keAsli.has(m) ? m : this.daftar("surel", m)!);
-    hasil = hasil.replace(POLA_HP, (m) => this.keAsli.has(m) ? m : this.daftar("hp", m)!);
+    hasil = hasil.replace(POLA_HP_CALON, (m) => (this.keAsli.has(m) || !benarHP(m)) ? m : this.daftar("hp", m)!);
     const asliUrut = [...this.keTiruan.keys()].sort((a, b) => b.length - a.length);
     for (const asli of asliUrut) {
       // Utuh sebagai kata ("Ani" tidak mengganti bagian dari "Daniel"), peka huruf besar ("indah" tetap).
@@ -151,4 +158,25 @@ export class Samaran {
       tutup: () => { const k = kirim(sisa); sisa = ""; return k; },
     };
   }
+}
+
+/**
+ * Kumpulkan nilai pribadi dari badan permintaan menurut nama kunci, hanya di akar dan di objek profil
+ * (profile, studentProfile, studentContext). Objek lain seperti medan.nama (nama bidang) tidak disentuh.
+ */
+const INDUK_PROFIL = new Set(["", "profile", "studentprofile", "studentcontext", "student", "pengguna", "user"]);
+const KUNCI_PRIBADI: Array<[RegExp, JenisPribadi]> = [
+  [/^(name|nama|guest_?name|nickname|nama_?panggilan|full_?name)$/i, "nama"],
+  [/^(school|school_?name|sekolah|nama_?sekolah)$/i, "sekolah"],
+  [/^(phone|guest_?phone|hp|no_?hp|wa|wa_?number)$/i, "hp"],
+  [/^(email|surel)$/i, "surel"],
+];
+export function cariPribadi(v: unknown, induk = "", keluar: Array<[JenisPribadi, unknown]> = []): Array<[JenisPribadi, unknown]> {
+  if (v == null || typeof v !== "object" || Array.isArray(v) || !INDUK_PROFIL.has(induk.toLowerCase())) return keluar;
+  for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+    const cocok = KUNCI_PRIBADI.find(([re]) => re.test(k));
+    if (cocok && typeof x === "string") keluar.push([cocok[1], x]);
+    else if (x && typeof x === "object") cariPribadi(x, k, keluar);
+  }
+  return keluar;
 }

@@ -77,11 +77,14 @@ function badanAnthropic(cfg: KonfigAI, p: PermintaanAI, stream: boolean): string
   // token jawaban tidak habis untuk berpikir, terutama pengklasifikasi 32 token. Sumber:
   // platform.claude.com/docs/en/models/haiku-5-5/overview dan /build-with-claude/effort (dibaca 11 Nov 2026).
   const haiku = cfg.model.includes("haiku");
+  // effort hanya low/medium/high (xhigh/max ditolak bersama thinking disabled), dan hanya untuk keluarga model 5.x.
+  const effort = ["low", "medium", "high"].includes(cfg.effort ?? "low") ? (cfg.effort ?? "low") : "low";
+  const dukungEffort = /^claude-(haiku|sonnet|opus|fable)-5/.test(cfg.model);
   return JSON.stringify({
     model: cfg.model,
     max_tokens: p.maxTokens,
-    ...(haiku ? { thinking: { type: "disabled" } } : {}),
-    output_config: { effort: cfg.effort ?? "low" },
+    ...(haiku && dukungEffort ? { thinking: { type: "disabled" } } : {}),
+    ...(dukungEffort ? { output_config: { effort } } : {}),
     ...(p.system ? { system: p.system } : {}),
     messages: p.pesan.map((m) => ({ role: m.role, content: m.content || "." })),
     stream,

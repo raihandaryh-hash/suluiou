@@ -211,3 +211,31 @@ describe("Perbaikan pemeriksa independen 11 Nov", () => {
     await expect(aliranAI(cfg, { system: "s", pesan: [{ role: "user", content: "x" }], maxTokens: 9, temperature: 0 }, { fetchFn: kosong })).rejects.toMatchObject({ status: 502 });
   });
 });
+
+import { cariPribadi } from "../../supabase/functions/_shared/samaran";
+describe("Verifikasi kedua pemeriksa (N1–N3)", () => {
+  it("N1: nama bidang (medan.nama) tidak dianggap nama orang; nama di profil tetap", () => {
+    expect(cariPribadi({ medan: { nama: "Kesehatan" }, subPicks: ["gizi"] })).toEqual([]);
+    expect(cariPribadi({ profile: { name: "Aisyah", province: "Jabar" } })).toEqual([["nama", "Aisyah"]]);
+    expect(cariPribadi({ studentContext: { studentProfile: { name: "Budi" } } })).toEqual([["nama", "Budi"]]);
+    const s = new Samaran();
+    for (const [j, v] of cariPribadi({ medan: { nama: "Kesehatan" } })) s.daftar(j, v);
+    expect(s.samarkan("Medan yang dipilih siswa: Kesehatan")).toBe("Medan yang dipilih siswa: Kesehatan");
+  });
+  it("N2: deret skor dua digit bukan HP; HP asli tetap tersamar", () => {
+    const s = new Samaran();
+    expect(s.samarkan("skor 62 80 81 82 83 84")).toBe("skor 62 80 81 82 83 84");
+    expect(s.samarkan("wa 0812-3456-7890")).not.toContain("3456");
+    expect(s.samarkan("hubungi 62 812 3456 7890")).not.toContain("3456");
+  });
+  it("N3: effort di luar low/medium/high jatuh ke low; model non-5.x tanpa output_config", async () => {
+    let badan: Record<string, unknown> = {};
+    const fetchFn = (async (_u: string, init: RequestInit) => { badan = JSON.parse(String(init.body)); return new Response(JSON.stringify({ content: [], stop_reason: "end_turn" })); }) as unknown as typeof fetch;
+    const p = { system: "s", pesan: [{ role: "user" as const, content: "x" }], maxTokens: 9, temperature: 0 };
+    await panggilAI({ penyedia: "anthropic", apiKey: "k", model: "claude-haiku-5-5", baseUrl: "https://x", effort: "max" }, p, { fetchFn });
+    expect(badan.output_config).toEqual({ effort: "low" });
+    await panggilAI({ penyedia: "anthropic", apiKey: "k", model: "claude-3-haiku", baseUrl: "https://x" }, p, { fetchFn });
+    expect(badan.output_config).toBeUndefined();
+    expect(badan.thinking).toBeUndefined();
+  });
+});
