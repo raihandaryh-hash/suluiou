@@ -44,6 +44,8 @@ import {
 } from '@/data/insightContent';
 import { SkillMapView } from '@/pages/SkillMap';
 import { getNote, upsertNote, removeNote } from '@/lib/notes';
+import { useDewasa } from '@/hooks/useDewasa';
+import DaftarTungguTarik from '@/components/DaftarTungguTarik';
 
 // ───── Countdown hook ─────
 function useCountdownTo(targetIso: string) {
@@ -753,16 +755,20 @@ function WaitlistForm({ persona }: { persona: Persona }) {
   const [whatsapp, setWhatsapp] = useState('');
   const [state, setState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const f = ctaSection.waitlist.fields;
+  const dewasa = useDewasa();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !whatsapp.trim()) return;
     setState('submitting');
-    const { error } = await supabase
-      .from('waitlist_sulu' as never)
-      .insert([{ name: name.trim(), email: email.trim(), whatsapp: whatsapp.trim(), persona } as never]);
+    // Tonggak 2a C.4: hanya dewasa, lewat RPC berbatas laju.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any).rpc('sulu_daftar_tunggu', { p_nama: name.trim(), p_email: email.trim(), p_whatsapp: whatsapp.trim(), p_persona: persona });
     setState(error ? 'error' : 'success');
   }
+
+  if (dewasa === null) return null;
+  if (!dewasa) return <DaftarTungguTarik />;
 
   if (state === 'success') {
     return (

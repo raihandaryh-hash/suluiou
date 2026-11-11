@@ -5,11 +5,20 @@ import { cariKelasDariKode } from '@/lib/cariKelas';
 import { patchStudentSession, type StudentSession } from '@/lib/classSession';
 import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
 import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import { keServer, pemilikPerangkat, fetchProgress } from '@/lib/progress';
+import { bacaPerangkat, tulisPerangkat } from '@/lib/perangkat';
+
+// Tonggak 2a: keanggotaan kelas mode perangkat (tamu dan akun tanpa izin) disimpan di perangkat.
+interface KelasPerangkat { classId: string; className: string | null }
+export function catatKelasPerangkat(session: StudentSession, k: KelasPerangkat) {
+  tulisPerangkat('kelas', pemilikPerangkat(session), k);
+}
 
 /** Look up a student's most recent class enrollment and return class info. */
 async function findEnrolledClass(
   session: StudentSession,
 ): Promise<{ classId: string; className: string | null } | null> {
+  if (!(await keServer(session))) return bacaPerangkat<KelasPerangkat>('kelas', pemilikPerangkat(session));
   try {
     let q = supabase
       .from('class_enrollments')
@@ -45,7 +54,7 @@ async function tryEnrollFromPendingCode(
       clearPendingClassCode();
       return null;
     }
-    if (session.kind === 'google') {
+    if (session.kind === 'google' && (await keServer(session))) {
       const { error } = await supabase
         .from('class_enrollments')
         .insert({ class_id: cls.id, user_id: session.userId });
@@ -53,6 +62,10 @@ async function tryEnrollFromPendingCode(
         console.warn('[tryEnrollFromPendingCode] insert failed', error);
         return null;
       }
+    } else {
+      catatKelasPerangkat(session, { classId: cls.id, className: cls.name ?? null });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: cls.id, p_jenis: 'mulai' });
     }
     clearPendingClassCode();
     return { classId: cls.id, className: cls.name ?? null };
@@ -98,6 +111,19 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
       patchStudentSession({ classId: enr.classId, className: enr.className });
       session = { ...session, classId: enr.classId, className: enr.className };
     }
+  }
+
+  // Mode perangkat: hasil dan progres dibaca dari perangkat.
+  if (!(await keServer(session))) {
+    if (bacaPerangkat('hasil', pemilikPerangkat(session))) return '/results';
+    if (!ASESMEN_TERBUKA) return SPINE_B_AWAL;
+    const pr = await fetchProgress(session);
+    if (pr) {
+      if (!profileHasAllRequired((pr.student_profile ?? null) as Record<string, unknown> | null)) return '/profile';
+      if (!pr.consent_given) return '/consent';
+      return '/assessment';
+    }
+    return '/profile';
   }
 
   // 1) Finished assessment?

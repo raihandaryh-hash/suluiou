@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { kenaliDirimuContent as C, type Prompt } from "@/data/kenaliDirimuContent";
+import { bacaFase, simpanFase } from "@/lib/perangkat";
 
 const LS_KEY = "sulu_phase2a";
 
@@ -107,11 +108,7 @@ export default function KenaliDirimu() {
     (async () => {
       try {
         if (user) {
-          const { data } = await supabase
-            .from("phase_2a_inventory")
-            .select("data")
-            .eq("user_id", user.id)
-            .maybeSingle();
+          const { data } = await bacaFase("phase_2a_inventory", user.id);
           if (data?.data) {
             setA(data.data as Answers);
             try { localStorage.setItem(LS_KEY, JSON.stringify(data.data)); } catch {}
@@ -145,12 +142,7 @@ export default function KenaliDirimu() {
       // Mirror ke localStorage untuk SEMUA user: Surat Perjalanan (compileSurat) berbasis localStorage.
       localStorage.setItem(LS_KEY, JSON.stringify(a));
       if (user) {
-        const { error } = await supabase
-          .from("phase_2a_inventory")
-          .upsert(
-            { user_id: user.id, data: a, updated_at: new Date().toISOString() },
-            { onConflict: "user_id" },
-          );
+        const { error } = await simpanFase("phase_2a_inventory", user.id, a);
         if (error) throw error;
       }
       toast.success("Catatan tersimpan ✓");

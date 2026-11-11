@@ -134,7 +134,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
     if (!canSubmit) return;
     const code = alreadyBoundToClass
       ? null
-      : classCode.trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || null;
+      : classCode.trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6) || null;
     onComplete(
       {
         name: studentProfile?.name || sessionName || '',
@@ -198,11 +198,11 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
                     value={classCode}
                     onChange={(e) =>
                       setClassCode(
-                        e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4),
+                        e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6),
                       )
                     }
                     placeholder="ABCD"
-                    maxLength={4}
+                    maxLength={6}
                     disabled={codeLocked && Boolean(classCode)}
                     className="uppercase tracking-widest font-mono text-center text-lg pr-9"
                   />

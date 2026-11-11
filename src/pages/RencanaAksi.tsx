@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useUserTrack } from "@/hooks/useUserTrack";
 import { rencanaAksiContent as R } from "@/data/rencanaAksiContent";
 import { DALIL_ANFAL_60_TERBUKA } from "@/data/flags";
+import { bacaFase, simpanFase } from "@/lib/perangkat";
 
 const LS_KEY = "sulu_phase5_action_plan";
 
@@ -74,9 +75,9 @@ export default function RencanaAksi() {
       try {
         if (user) {
           const [p2a, p2b, p5] = await Promise.all([
-            supabase.from("phase_2a_inventory").select("data").eq("user_id", user.id).maybeSingle(),
-            supabase.from("phase_2b_skills").select("data").eq("user_id", user.id).maybeSingle(),
-            supabase.from("phase_5_action_plan").select("data").eq("user_id", user.id).maybeSingle(),
+            bacaFase("phase_2a_inventory", user.id),
+            bacaFase("phase_2b_skills", user.id),
+            bacaFase("phase_5_action_plan", user.id),
           ]);
           const a = (p2a.data?.data ?? {}) as Record<string, string>;
           const b = (p2b.data?.data ?? {}) as { selected?: string[] };
@@ -131,12 +132,7 @@ export default function RencanaAksi() {
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(form));
       if (user) {
-        const { error } = await supabase
-          .from("phase_5_action_plan")
-          .upsert(
-            { user_id: user.id, data: form, updated_at: new Date().toISOString() },
-            { onConflict: "user_id" },
-          );
+        const { error } = await simpanFase("phase_5_action_plan", user.id, form);
         if (error) throw error;
       }
       toast.success(R.ui.savedToast);

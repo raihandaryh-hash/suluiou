@@ -7,7 +7,6 @@
 // rows to set user_id (so the result shows up under their Google login), and
 // clear the claim.
 
-import { supabase } from '@/integrations/supabase/client';
 
 const CLAIM_KEY = 'sulu.pendingClaim.v1';
 
@@ -51,30 +50,6 @@ export function clearPendingClaim() {
 }
 
 /** UPDATE existing guest rows to attach a Google user_id. */
-export async function applyClaim(claim: PendingClaim, userId: string) {
-  // 1) Attach user_id to assessment_results (by id if known, else by guest_identifier)
-  if (claim.resultId) {
-    await supabase
-      .from('assessment_results')
-      .update({ user_id: userId })
-      .eq('id', claim.resultId);
-  } else {
-    await supabase
-      .from('assessment_results')
-      .update({ user_id: userId })
-      .eq('guest_identifier', claim.guestIdentifier);
-  }
 
-  // 2) Attach user_id to assessment_progress for the same guest
-  await supabase
-    .from('assessment_progress')
-    .update({ user_id: userId })
-    .eq('guest_identifier', claim.guestIdentifier);
-
-  // 3) Re-point class_enrollments so the student appears under their Google login too
-  await supabase
-    .from('class_enrollments')
-    .update({ user_id: userId })
-    .eq('guest_identifier', claim.guestIdentifier)
-    .is('user_id', null);
-}
+// applyClaim dihapus di Tonggak 2a (T4, B.8): tamu tidak punya baris server; pindah hasil kini di perangkat
+// (pindahPemilikPerangkat di src/lib/perangkat.ts), dipanggil Login sesudah OAuth.
