@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { z } from 'zod';
 import { lovable } from '@/integrations/lovable/index';
 import { supabase } from '@/integrations/supabase/client';
+import { cariKelasDariKode } from '@/lib/cariKelas';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -318,11 +319,7 @@ const Login = () => {
     // Class code is now optional. If provided, enroll into that class; otherwise
     // proceed as a public/Umum guest with no class binding.
     if (code) {
-      const { data: cls, error: clsErr } = await supabase
-        .from('classes')
-        .select('id, name, school_name, session_closed')
-        .eq('join_code', code)
-        .maybeSingle();
+      const { data: cls, error: clsErr } = await cariKelasDariKode(code);
 
       if (clsErr || !cls) {
         setError('Kode tidak valid. Tanyakan ke gurumu.');

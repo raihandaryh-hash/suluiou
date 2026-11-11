@@ -36,6 +36,13 @@
       "when": 1794388944965,
       "tag": "0004_catatan_sulu_izin",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794390421329,
+      "tag": "0005_kelas_cocok_kode",
+      "breakpoints": true
     }
   ]
 }

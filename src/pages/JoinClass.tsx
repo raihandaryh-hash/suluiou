@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
+import { cariKelasDariKode } from '@/lib/cariKelas';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -57,11 +58,7 @@ const JoinClass = () => {
     }
     setLoading(true);
 
-    const { data: cls, error: clsErr } = await supabase
-      .from('classes')
-      .select('id, name, school_name, session_closed')
-      .eq('join_code', code)
-      .maybeSingle();
+    const { data: cls, error: clsErr } = await cariKelasDariKode(code);
 
     if (clsErr || !cls) {
       setError('Kode tidak valid. Tanyakan ke gurumu.');
