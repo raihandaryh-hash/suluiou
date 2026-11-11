@@ -1,5 +1,5 @@
 // Teks izin per tujuan dan jalur tarik (manifest Persetujuan dan Jalur Tarik v0.2, disetujui Raihan 11 Nov 15.52).
-// Dua varian untuk dipilih Raihan; VARIAN_AKTIF menentukan yang tampil. Ganti teks di sini, bukan di JSX.
+// Varian A = pilihan Raihan 11 Nov 16.14; B disimpan sebagai riwayat. VARIAN_AKTIF menentukan yang tampil. Ganti teks di sini, bukan di JSX.
 // Setiap perubahan teks P1/P2 wajib menaikkan versinya, karena versi disimpan bersama izin.
 
 export type VarianTeks = 'A' | 'B';
@@ -7,18 +7,19 @@ export const VARIAN_AKTIF: VarianTeks = 'A';
 
 export const TEKS_IZIN = {
   A: {
-    judul: 'Mau ngobrol soal kuliah?',
-    pengantar: 'Kalau kamu mau, tim IOU bisa menghubungimu. Kamu yang memutuskan, dan bisa berubah pikiran kapan saja.',
+    // Dipilih Raihan 11 Nov 16.14 (gabungan baris).
+    judul: 'Mau ngobrol soal kuliah di IOU?',
+    pengantar: 'Centang hanya yang kamu setujui.',
     umur: 'Saya berumur 18 tahun atau lebih',
     p1: { versi: 'p1-A-2026-11-11', teks: 'Saya ingin dihubungi IOU soal kuliah' },
     p2: {
       versi: 'p2-A-2026-11-11',
       teks: 'Hasil asesmen saya boleh dipakai untuk menentukan program IOU yang paling relevan untuk ditawarkan kepada saya',
     },
-    simpan: 'Simpan pilihanku',
-    tersimpan: 'Pilihanmu tersimpan. Kamu bisa mencabutnya di sini kapan saja.',
+    simpan: 'Simpan',
+    tersimpan: 'Tersimpan. Izin ini bisa kamu cabut kapan saja.',
     cabut: 'Cabut izin',
-    dicabut: 'Izin dicabut. Tim IOU tidak akan menghubungimu.',
+    dicabut: 'Izin dicabut.',
   },
   B: {
     judul: 'Tertarik kuliah di IOU?',
@@ -38,7 +39,8 @@ export const TEKS_IZIN = {
 
 export const TEKS_TARIK = {
   A: {
-    judul: 'Penasaran soal kuliah?',
+    // Dipilih Raihan 11 Nov 16.14.
+    judul: 'Mau tanya soal kuliah?',
     pengantar: 'Tanya langsung ke tim IOU. Kamu yang memulai obrolan, dan Sulu tidak menyimpan nomormu.',
     tombol: 'Tanya soal kuliah di IOU',
   },
