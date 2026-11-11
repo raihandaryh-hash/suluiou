@@ -1,6 +1,7 @@
 // Decide where an authenticated student should land based on DB state.
 // Used by Login (after Google OAuth or guest enroll) and by /consent / /assessment.
 import { supabase } from '@/integrations/supabase/client';
+import { cariKelasDariKode } from '@/lib/cariKelas';
 import { patchStudentSession, type StudentSession } from '@/lib/classSession';
 import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
 import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
@@ -39,11 +40,7 @@ async function tryEnrollFromPendingCode(
   const code = getPendingClassCode();
   if (!code) return null;
   try {
-    const { data: cls } = await supabase
-      .from('classes')
-      .select('id, name, session_closed')
-      .eq('join_code', code)
-      .maybeSingle();
+    const { data: cls } = await cariKelasDariKode(code);
     if (!cls || cls.session_closed) {
       clearPendingClassCode();
       return null;

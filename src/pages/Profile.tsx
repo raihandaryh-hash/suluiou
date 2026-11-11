@@ -7,6 +7,7 @@ import { useAssessment, type StudentProfile } from '@/context/AssessmentContext'
 import { Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { supabase } from '@/integrations/supabase/client';
+import { cariKelasDariKode } from '@/lib/cariKelas';
 import {
   getStudentSession,
   patchStudentSession,
@@ -28,11 +29,7 @@ const ProfilePage = () => {
       if (classCode) {
         const session = getStudentSession();
         if (session && !session.classId) {
-          const { data: cls, error: clsErr } = await supabase
-            .from('classes')
-            .select('id, name, session_closed')
-            .eq('join_code', classCode)
-            .maybeSingle();
+          const { data: cls, error: clsErr } = await cariKelasDariKode(classCode);
 
           if (clsErr || !cls) {
             toast({
