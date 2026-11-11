@@ -97,6 +97,10 @@ AS $$
 BEGIN
   -- Hitung ulang hanya saat baris baru, saat izin berubah (penanda sesi dari sulu_izin_berubah), atau saat kolom
   -- pembentuk skor berubah. Ubahan admin seperti follow_up_status tidak menyentuh skor (pemeriksa 1b kedua, N5).
+  -- Saat baris lahir belum ada P1, jadi nomor HP tidak disimpan siapa pun pengirimnya (pemeriksa 1b ketiga, N3).
+  IF TG_OP = 'INSERT' THEN
+    NEW.student_phone := NULL;
+  END IF;
   IF TG_OP = 'INSERT'
      OR coalesce(current_setting('sulu.hitung_skor', true), '') = '1'
      OR NEW.student_name IS DISTINCT FROM OLD.student_name
@@ -127,6 +131,9 @@ BEGIN
   IF TG_OP = 'UPDATE' AND NEW.tujuan = 'dihubungi_kuliah' AND NEW.dicabut_pada IS NOT NULL AND OLD.dicabut_pada IS NULL THEN
     UPDATE public.sulu_izin SET dicabut_pada = NEW.dicabut_pada
       WHERE result_id = NEW.result_id AND tujuan = 'hasil_untuk_tawaran' AND dicabut_pada IS NULL;
+    -- Kontak dikumpulkan atas dasar P1; saat P1 dicabut, kontak dihapus (pemeriksa 1b ketiga, N2; UU 27/2022 Pasal 43).
+    UPDATE public.assessment_results SET student_phone = NULL, student_email = NULL, email_requested = false
+      WHERE id = NEW.result_id;
   END IF;
   -- Menyentuh baris memicu sulu_skor_hasil; penanda sesi memaksa hitung ulang.
   PERFORM set_config('sulu.hitung_skor', '1', true);
@@ -152,7 +159,8 @@ CREATE OR REPLACE FUNCTION public.sulu_isi_kontak(
   p_hp text,
   p_sekolah text,
   p_kelas text,
-  p_provinsi text
+  p_provinsi text,
+  p_minta_surel boolean DEFAULT false
 )
 RETURNS boolean
 LANGUAGE plpgsql
@@ -170,19 +178,23 @@ BEGIN
   ) THEN
     RETURN false;
   END IF;
+  -- Nilai menggantikan isi lama; isian kosong berarti dikosongkan (pemeriksa 1b ketiga, N1 dan N6).
+  -- Nama tetap dipertahankan bila kosong, karena dipakai juga untuk tampilan hasil.
   UPDATE public.assessment_results SET
     student_name = coalesce(nullif(trim(p_nama), ''), student_name),
-    student_email = coalesce(nullif(trim(p_surel), ''), student_email),
-    student_phone = coalesce(nullif(trim(p_hp), ''), student_phone),
-    school_name = coalesce(nullif(trim(p_sekolah), ''), school_name),
-    student_class = coalesce(nullif(trim(p_kelas), ''), student_class),
-    student_province = coalesce(nullif(trim(p_provinsi), ''), student_province),
-    province = coalesce(nullif(trim(p_provinsi), ''), province)
+    student_email = nullif(trim(p_surel), ''),
+    student_phone = nullif(trim(p_hp), ''),
+    school_name = coalesce(nullif(trim(p_sekolah), ''), 'Umum'),
+    student_class = nullif(trim(p_kelas), ''),
+    student_province = nullif(trim(p_provinsi), ''),
+    province = coalesce(nullif(trim(p_provinsi), ''), province),
+    email_requested = coalesce(p_minta_surel, false)
   WHERE id = p_result_id AND user_id = auth.uid();
   GET DIAGNOSTICS n = ROW_COUNT;
   RETURN n = 1;
 END;
 $$;
 
-REVOKE ALL ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text) FROM PUBLIC, anon;
-GRANT EXECUTE ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text) TO authenticated;
+DROP FUNCTION IF EXISTS public.sulu_isi_kontak(uuid, text, text, text, text, text, text);
+REVOKE ALL ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text, boolean) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text, boolean) TO authenticated;

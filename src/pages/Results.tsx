@@ -253,6 +253,7 @@ const Results = () => {
         p_sekolah: info.school || '',
         p_kelas: info.student_class || '',
         p_provinsi: resolvedProvince || '',
+        p_minta_surel: !!info.email_requested,
       });
       const error = galatRpc ?? (tersimpan === true ? null : { message: 'izin dihubungi belum aktif atau baris bukan milikmu' });
 
@@ -272,58 +273,12 @@ const Results = () => {
       return;
     }
 
-    // Fallback: row not auto-saved yet (rare) → INSERT now.
-    const insertData: Parameters<typeof api.saveResult>[0] = {
-      student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
-      student_email: info.email || (session?.kind === 'google' ? session.email : null),
-      student_phone: info.phone || null,
-      student_class: info.student_class || (session?.className ?? null),
-      school_name: info.school || 'Umum',
-      student_province: resolvedProvince || null,
-      province: resolvedProvince || null,
-      family_background: studentProfile?.familyBackground || null,
-      aspiration: studentProfile?.aspiration || null,
-      scores: scores as Record<string, number>,
-      top_pathway_id: selectedPathways[0] ?? 'none',
-      top_pathway_name: selectedPathways[0] ? getPathwayName(selectedPathways[0]) : '-',
-      match_percentage: 0,
-      all_matches: selectedPathways.map((id) => ({
-        pathway: { id, name: getPathwayName(id) },
-      })),
-      selected_pathways: selectedPathways,
-      projection: projection ?? '',
-      lead_score: leadScore,
-      layer1_text: layer1 ?? null,
-      email_requested: info.email_requested,
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const extra: any = {
-      class_id: session?.classId ?? null,
-      guest_identifier: session?.kind === 'guest' ? session.guestIdentifier : null,
-      user_id: session?.kind === 'google' ? session.userId : null,
-      completed_at: new Date().toISOString(),
-    };
-
-    const { error, id } = await api.saveResult({ ...insertData, ...extra });
-
-    if (error) {
-      console.error('INSERT fallback failed:', error.message);
-      toast({
-        title: 'Oops',
-        description: `Gagal menyimpan (${error.message.slice(0, 60)}). Coba lagi atau hubungi fasilitator.`,
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setProvinceUsed({ value: resolvedProvince, source: provinceSource });
-    setSaved(true);
-    if (id) {
-      setSavedRowId(id);
-      if (layer1) setLayer1PersistedFor(layer1);
-    }
-    toast({ title: 'Terkirim!', description: 'Tim IOU akan segera menghubungimu.' });
+    // Tanpa baris tersimpan tidak ada izin dihubungi, jadi kontak tidak disimpan (pemeriksa 1b ketiga, N4).
+    toast({
+      title: 'Hasil belum tersimpan',
+      description: 'Muat ulang halaman, lalu coba lagi.',
+      variant: 'destructive',
+    });
   };
 
   const radarData = (Object.keys(traitLabels) as Dimension[]).map((key) => ({
