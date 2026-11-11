@@ -725,6 +725,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      cari_kelas_dari_kode: {
+        Args: { p_kode: string }
+        Returns: {
+          id: string
+          name: string
+          school_name: string
+          session_closed: boolean
+        }[]
+      }
       get_public_result: {
         Args: { result_id: string }
         Returns: {
