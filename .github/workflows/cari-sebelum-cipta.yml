@@ -1,0 +1,27 @@
+# Gerbang "cari sebelum cipta" (KEPUTUSAN Raihan 11 Nov 2026 12.08). Menolak PR yang bagian
+# "## Cari sebelum cipta" kosong atau tidak ada. Isi tiap baris: fungsi · yang dicek · putusan · alasan.
+name: cari-sebelum-cipta
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+jobs:
+  periksa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Periksa badan PR
+        env:
+          BADAN: ${{ github.event.pull_request.body }}
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          b = os.environ.get("BADAN") or ""
+          m = re.search(r"^##\s*Cari sebelum cipta\s*$(.*?)(?=^##\s|\Z)", b, re.M | re.S | re.I)
+          if not m:
+              sys.exit("GAGAL: bagian '## Cari sebelum cipta' tidak ada di badan PR.")
+          baris = [l.strip("-* \t") for l in m.group(1).splitlines()]
+          isi = [l for l in baris if l and not l.startswith("Untuk tiap fungsi") and not l.startswith("<!--")]
+          sah = [l for l in isi if re.search(r"\b(pakai|tiru|bangun)\b", l, re.I)]
+          if not sah:
+              sys.exit("GAGAL: bagian 'Cari sebelum cipta' belum memuat satu baris pun dengan putusan pakai / tiru / bangun.")
+          print(f"Lulus: {len(sah)} baris putusan.")
+          PY
