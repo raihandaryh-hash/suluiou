@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer,
 } from 'recharts';
@@ -241,17 +242,19 @@ const Results = () => {
 
     // Prefer UPDATE if auto-save already created a row.
     if (savedRowId) {
-      const { error } = await api.updateResultContact(savedRowId, {
-        student_name: info.name || studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
-        student_email: info.email || (session?.kind === 'google' ? session.email : null),
-        student_phone: info.phone || null,
-        student_class: info.student_class || (session?.className ?? null),
-        school_name: info.school || 'Umum',
-        student_province: resolvedProvince || null,
-        province: resolvedProvince || null,
-        email_requested: info.email_requested,
-        lead_score: leadScore,
+      // Kontak ditulis lewat fungsi basis data yang mensyaratkan izin dihubungi (P1) aktif dan pemilik baris
+      // (drizzle 0003 sulu_isi_kontak). UPDATE langsung tersaring RLS tanpa galat (pemeriksa 1b kedua, N1).
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data: tersimpan, error: galatRpc } = await (supabase as any).rpc('sulu_isi_kontak', {
+        p_result_id: savedRowId,
+        p_nama: info.name || studentProfile?.name || '',
+        p_surel: info.email || (session?.kind === 'google' ? session.email : '') || '',
+        p_hp: info.phone || '',
+        p_sekolah: info.school || '',
+        p_kelas: info.student_class || '',
+        p_provinsi: resolvedProvince || '',
       });
+      const error = galatRpc ?? (tersimpan === true ? null : { message: 'izin dihubungi belum aktif atau baris bukan milikmu' });
 
       if (error) {
         console.error('UPDATE contact failed:', error.message);

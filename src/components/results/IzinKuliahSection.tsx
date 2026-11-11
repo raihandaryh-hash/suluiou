@@ -11,7 +11,6 @@ import { Label } from '@/components/ui/label';
 import { Loader2, MessageCircle } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { useUserTrack } from '@/hooks/useUserTrack';
 import { TEKS_IZIN, TEKS_TARIK, VARIAN_AKTIF, KANAL_PENERIMAAN } from '@/data/izinKuliahContent';
 import { normalkanIzin, tautanTarik, tentukanAlur } from '@/lib/izinKuliah';
 import { TANPA_IZIN, type IzinSkor } from '@/lib/leadScoring';
@@ -34,7 +33,6 @@ const tabelIzin = () => (supabase as any).from('sulu_izin');
 
 export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: Props) {
   const { toast } = useToast();
-  const track = useUserTrack();
   const t = TEKS_IZIN[VARIAN_AKTIF];
   const tt = TEKS_TARIK[VARIAN_AKTIF];
   const [userId, setUserId] = useState<string | null>(null);
@@ -55,7 +53,11 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
       .select('id, tujuan, dicabut_pada')
       .eq('result_id', resultId)
       .is('dicabut_pada', null)
-      .then(({ data }: { data: BarisIzin[] | null }) => {
+      .then(({ data, error }: { data: BarisIzin[] | null; error: { message: string } | null }) => {
+        if (error) {
+          toast({ title: 'Pilihan izin belum terbaca', description: 'Muat ulang halaman sebentar lagi.', variant: 'destructive' });
+          return;
+        }
         const baris = data ?? [];
         setAktif(baris);
         onIzinBerubah(
@@ -70,8 +72,9 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
   }, [resultId, userId]);
 
   // Pernyataan dewasa yang disimpan: jalur mahasiswa IOU dianggap dewasa; selain itu dari kotak 18+.
-  const dewasaDinyatakan = track === 'mahasiswa_iou' || menyatakan18;
-  const alur = tentukanAlur({ masuk: !!userId, jalurMahasiswa: track === 'mahasiswa_iou', menyatakan18 });
+  // Pernyataan 18+ selalu dari kotak yang dicentang pengguna sendiri (pemeriksa 1b kedua, N2).
+  const dewasaDinyatakan = menyatakan18;
+  const alur = tentukanAlur({ masuk: !!userId, jalurMahasiswa: false, menyatakan18 });
 
   const simpan = async () => {
     if (!resultId || !userId || !p1) return;
@@ -139,7 +142,7 @@ export function IzinKuliahSection({ resultId, programDipilih, onIzinBerubah }: P
       <h3 className="text-lg font-heading font-bold mb-1">{alur === 'dewasa' ? t.judul : tt.judul}</h3>
       <p className="text-sm text-muted-foreground mb-4">{alur === 'dewasa' ? t.pengantar : tt.pengantar}</p>
 
-      {track !== 'mahasiswa_iou' && aktif.length === 0 && (
+      {aktif.length === 0 && (
         <div className="flex items-start gap-3 mb-4">
           <Checkbox id="izin-umur" checked={menyatakan18} onCheckedChange={(v) => { setMenyatakan18(v === true); if (v !== true) { setP1(false); setP2(false); } }} />
           <Label htmlFor="izin-umur" className="text-sm leading-relaxed">{t.umur}</Label>

@@ -95,7 +95,18 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 BEGIN
-  NEW.lead_score := public.sulu_hitung_skor(NEW);
+  -- Hitung ulang hanya saat baris baru, saat izin berubah (penanda sesi dari sulu_izin_berubah), atau saat kolom
+  -- pembentuk skor berubah. Ubahan admin seperti follow_up_status tidak menyentuh skor (pemeriksa 1b kedua, N5).
+  IF TG_OP = 'INSERT'
+     OR coalesce(current_setting('sulu.hitung_skor', true), '') = '1'
+     OR NEW.student_name IS DISTINCT FROM OLD.student_name
+     OR NEW.student_email IS DISTINCT FROM OLD.student_email
+     OR NEW.student_phone IS DISTINCT FROM OLD.student_phone
+     OR NEW.school_name IS DISTINCT FROM OLD.school_name
+     OR NEW.match_percentage IS DISTINCT FROM OLD.match_percentage
+     OR NEW.lead_score IS DISTINCT FROM OLD.lead_score THEN
+    NEW.lead_score := public.sulu_hitung_skor(NEW);
+  END IF;
   RETURN NEW;
 END;
 $$;
@@ -117,8 +128,10 @@ BEGIN
     UPDATE public.sulu_izin SET dicabut_pada = NEW.dicabut_pada
       WHERE result_id = NEW.result_id AND tujuan = 'hasil_untuk_tawaran' AND dicabut_pada IS NULL;
   END IF;
-  -- Menyentuh baris memicu sulu_skor_hasil.
+  -- Menyentuh baris memicu sulu_skor_hasil; penanda sesi memaksa hitung ulang.
+  PERFORM set_config('sulu.hitung_skor', '1', true);
   UPDATE public.assessment_results SET lead_score = lead_score WHERE id = NEW.result_id;
+  PERFORM set_config('sulu.hitung_skor', '', true);
   RETURN NEW;
 END;
 $$;
@@ -128,3 +141,48 @@ DROP TRIGGER IF EXISTS sulu_izin_berubah ON public.sulu_izin;
 CREATE TRIGGER sulu_izin_berubah
   AFTER INSERT OR UPDATE OF dicabut_pada ON public.sulu_izin
   FOR EACH ROW EXECUTE FUNCTION public.sulu_izin_berubah();
+
+-- Simpan kontak oleh pemilik yang sudah memberi P1 (pemeriksa 1b kedua, N1). Policy UPDATE lama di
+-- assessment_results hanya mengizinkan pengisian layer1_text kosong, sehingga UPDATE kontak dari klien tersaring
+-- tanpa galat. Fungsi ini satu-satunya jalan klien menulis kontak, dan menolak bila P1 tidak aktif.
+CREATE OR REPLACE FUNCTION public.sulu_isi_kontak(
+  p_result_id uuid,
+  p_nama text,
+  p_surel text,
+  p_hp text,
+  p_sekolah text,
+  p_kelas text,
+  p_provinsi text
+)
+RETURNS boolean
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE
+  n integer;
+BEGIN
+  IF auth.uid() IS NULL THEN RETURN false; END IF;
+  IF NOT EXISTS (
+    SELECT 1 FROM public.sulu_izin i
+    WHERE i.result_id = p_result_id AND i.user_id = auth.uid()
+      AND i.tujuan = 'dihubungi_kuliah' AND i.dicabut_pada IS NULL
+  ) THEN
+    RETURN false;
+  END IF;
+  UPDATE public.assessment_results SET
+    student_name = coalesce(nullif(trim(p_nama), ''), student_name),
+    student_email = coalesce(nullif(trim(p_surel), ''), student_email),
+    student_phone = coalesce(nullif(trim(p_hp), ''), student_phone),
+    school_name = coalesce(nullif(trim(p_sekolah), ''), school_name),
+    student_class = coalesce(nullif(trim(p_kelas), ''), student_class),
+    student_province = coalesce(nullif(trim(p_provinsi), ''), student_province),
+    province = coalesce(nullif(trim(p_provinsi), ''), province)
+  WHERE id = p_result_id AND user_id = auth.uid();
+  GET DIAGNOSTICS n = ROW_COUNT;
+  RETURN n = 1;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.sulu_isi_kontak(uuid, text, text, text, text, text, text) TO authenticated;
