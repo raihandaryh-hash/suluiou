@@ -16,14 +16,16 @@ import LogoutButton from '@/components/LogoutButton';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StudentInfoForm } from '@/components/results/StudentInfoForm';
 import { api } from '@/services/api';
-import { calculateLeadScore } from '@/lib/leadScoring';
+import { calculateLeadScore, TANPA_IZIN, type IzinSkor } from '@/lib/leadScoring';
 import { useToast } from '@/hooks/use-toast';
 import { CareerChatbot } from '@/components/results/CareerChatbot';
 import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
-import { ParentConsentSection } from '@/components/results/ParentConsentSection';
+// ParentConsentSection tidak lagi ditampilkan (manifest Persetujuan dan Jalur Tarik v0.2): anak tidak mengisi nomor
+// orang tua. Komponennya disimpan untuk alur orang tua Tonggak 2.
+import { IzinKuliahSection } from '@/components/results/IzinKuliahSection';
 import { SaveToGoogleSection } from '@/components/results/SaveToGoogleSection';
 import {
   IOU_WA_NUMBER_IKHWAN,
@@ -62,6 +64,8 @@ const Results = () => {
   const { toast } = useToast();
   const [saved, setSaved] = useState(false);
   const [savedRowId, setSavedRowId] = useState<string | null>(null);
+  // Izin per tujuan saat ini (P1/P2). Skor prospek dihitung ulang tiap izin berubah.
+  const izinRef = useRef<IzinSkor>(TANPA_IZIN);
   const [autoSaving, setAutoSaving] = useState(false);
   const autoSaveTriedRef = useRef(false);
   const [layer1PersistedFor, setLayer1PersistedFor] = useState<string | null>(null);
@@ -139,7 +143,7 @@ const Results = () => {
         school_name: 'Umum',
         match_percentage: 0,
         scores: scores as Record<string, number>,
-      });
+      }, TANPA_IZIN); // baris baru belum punya izin: skor 0
 
       const insertData: Parameters<typeof api.saveResult>[0] & Record<string, unknown> = {
         student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
@@ -189,6 +193,22 @@ const Results = () => {
     });
   }, [savedRowId, layer1, layer1PersistedFor]);
 
+  const handleIzinBerubah = (izin: IzinSkor) => {
+    izinRef.current = izin;
+    if (!savedRowId || !scores) return;
+    const session = getStudentSession();
+    const leadScore = calculateLeadScore({
+      student_name: studentProfile?.name || (session?.kind === 'guest' ? session.name : null),
+      student_email: session?.kind === 'google' ? session.email : null,
+      student_phone: session?.kind === 'guest' ? session.phone : null,
+      school_name: null,
+      match_percentage: 0,
+    }, izin);
+    void api.updateResultContact(savedRowId, { lead_score: leadScore }).then(({ error }) => {
+      if (error) console.warn('update lead_score after izin failed:', error.message);
+    });
+  };
+
   const handleRevealProjection = () => {
     if (selectedPathways.length === 0) {
       toast({
@@ -224,7 +244,7 @@ const Results = () => {
       school_name: info.school || 'Umum',
       match_percentage: 0,
       scores: scores as Record<string, number>,
-    });
+    }, izinRef.current);
 
     const session = getStudentSession();
 
@@ -585,7 +605,11 @@ const Results = () => {
             )}
           </motion.div>
 
-          <ParentConsentSection resultId={savedRowId} />
+          <IzinKuliahSection
+            resultId={savedRowId}
+            programDipilih={selectedPathways.map((id) => getPathwayName(id))}
+            onIzinBerubah={handleIzinBerubah}
+          />
 
           <SaveToGoogleSection resultId={savedRowId} />
 
