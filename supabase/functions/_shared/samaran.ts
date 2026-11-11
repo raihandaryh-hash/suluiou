@@ -52,7 +52,8 @@ function bersihkan(w: string): string | null {
   const k = w.replace(KLITIK, "");
   const bagian = k.split("-");
   if (k.length < 2 || BUKAN_SESUDAH_SAPAAN.has(bagian[0].toLowerCase())) return null;
-  if (bagian.length > 1 && bagian.every((x) => x.toLowerCase() === bagian[0].toLowerCase())) return null;
+  // Kata ulang ("guru-guru", "mas-mas") bukan nama; nama asli berbentuk ulang ("Hari-Hari") tetap nama.
+  if (bagian.length > 1 && !awalKapital(bagian[0]) && bagian.every((x) => x.toLowerCase() === bagian[0].toLowerCase())) return null;
   return k;
 }
 /** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
@@ -71,6 +72,14 @@ function namaDariCocok(kataStr: string, wajibKapital: boolean): string | null {
   }
   return nama.join(" ");
 }
+/** Nama Huruf Awal Besar tepat sesudah nama yang berklitik ("bu Rina-nya Ani"): didaftarkan sebagai nama tersendiri. */
+function namaSesudahKlitik(kataStr: string, nama: string): string | null {
+  const kata = kataStr.split(/[ \t]+/);
+  const n = nama.split(" ").length;
+  if (kata.length <= n || !KLITIK.test(kata[n - 1])) return null;
+  const b = bersihkan(kata[n]);
+  return b && awalKapital(b) ? b : null;
+}
 /**
  * Calon nama orang lain di teks: kata sesudah sapaan (sapaan bertumpuk dilompati), atau sesudah "atas nama"/"bernama".
  * Nama Berhuruf Awal Besar boleh sampai tiga kata; huruf kecil atau KAPITAL semua hanya satu kata (temuan pemeriksa 2).
@@ -78,7 +87,13 @@ function namaDariCocok(kataStr: string, wajibKapital: boolean): string | null {
 export function cariNamaLain(teks: string): string[] {
   const keluar: string[] = [];
   for (const [re, wajib] of [[POLA_SAPAAN, false], [POLA_KONTEKS, true]] as const) {
-    for (const m of teks.matchAll(re)) { const n = namaDariCocok(m[2] + m[3], wajib || !!m[1]); if (n) keluar.push(n); }
+    for (const m of teks.matchAll(re)) {
+      const n = namaDariCocok(m[2] + m[3], wajib || !!m[1]);
+      if (!n) continue;
+      keluar.push(n);
+      const lagi = namaSesudahKlitik(m[2] + m[3], n);
+      if (lagi) keluar.push(lagi);
+    }
   }
   return keluar;
 }
@@ -153,6 +168,8 @@ export class Samaran {
         // Sesudah sapaan bertumpuk ("pak ustadz mengisi"), nama wajib berhuruf kapital.
         const n = namaDariCocok(kataStr, wajib || !!tumpuk);
         if (!n || this.keAsli.has(n)) return m;
+        const lagi = namaSesudahKlitik(kataStr, n);
+        if (lagi && !this.keAsli.has(lagi)) this.daftar("nama", lagi, "lain");
         if (awalKapital(n)) {
           this.daftar("nama", n, "lain");
           for (const k of n.split(/[ \t-]+/)) if (k.length >= 3 && !this.keAsli.has(k)) this.daftar("nama", k, "lain");

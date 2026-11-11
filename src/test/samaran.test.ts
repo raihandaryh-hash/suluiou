@@ -315,3 +315,9 @@ describe("samaran · regresi pemeriksa ketiga 729ab98", () => {
     it(`kata ulang tetap: ${x}`, () => { expect(new Samaran(x).samarkan(x)).toBe(x); });
   }
 });
+
+describe("samaran · regresi pemeriksa keempat ebbd8ab", () => {
+  for (const [x, bocor] of [["bu Rina-nya Ani juga datang. Ani", /Rina|Ani/], ["Pak Budi-nya Santoso, Santoso", /Budi|Santoso/], ["pak Hari-Hari datang", /Hari/]] as const) {
+    it(`nama sesudah klitik dan nama ulang: ${x}`, () => { const s = new Samaran(x); const k = s.samarkan(x); expect(k).not.toMatch(bocor); expect(s.buka(k)).toBe(x); });
+  }
+});
