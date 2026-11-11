@@ -44,15 +44,21 @@ export function tulisPerangkat<T>(nama: string, pemilik: string, data: T) {
   try { localStorage.setItem(kunci(nama, pemilik), JSON.stringify({ data, disentuh: Date.now() } satisfies Simpanan<T>)); } catch { /* penuh */ }
 }
 
+// Kunci Sulu lain yang memuat data pengguna di perangkat (pemeriksa kode 2a, S1).
+const KUNCI_SULU_LAIN = ['sulu.studentSession.v1', 'sulu.assessmentComplete.v1', 'jalan_bakti_v1', 'sulu_phase2a', 'sulu_phase2b',
+  'sulu_phase4_sintesis', 'sulu_phase5_action_plan', 'sulu_notes_v1', 'sulu_scratchpad_v1', 'kd_session_id', 'sulu.pendingClaim.v1',
+  'sulu_insight_persona', 'sulu.analytics.hari.v1'];
+
 /** Tombol "Hapus dari perangkat ini" (C.7): semua data Sulu mode perangkat ikut terhapus. */
 export function hapusSemuaDariPerangkat() {
   try {
     const hapus: string[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k && (k.startsWith(AWALAN) || k.startsWith('sulu.progressBackup.') || k === 'sulu.studentSession.v1' || k === 'sulu.assessmentComplete.v1')) hapus.push(k);
+      if (k && (k.startsWith(AWALAN) || k.startsWith('sulu.progressBackup.') || KUNCI_SULU_LAIN.includes(k))) hapus.push(k);
     }
     hapus.forEach((k) => localStorage.removeItem(k));
+    sessionStorage.removeItem('sulu.studentSession.v1');
   } catch { /* abaikan */ }
 }
 

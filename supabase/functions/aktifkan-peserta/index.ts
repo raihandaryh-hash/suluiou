@@ -46,11 +46,16 @@ serve(async (req) => {
   if (lain) return jawab(409, { galat: "akun_sudah_terikat_peserta_lain" });
 
   if (!peserta.user_id_aktif) {
-    const { error } = await layanan.from("sulu_peserta").update({ user_id_aktif: pengguna.id, diaktifkan_pada: new Date().toISOString() })
-      .eq("id", peserta.id).is("user_id_aktif", null);
+    const { data: kena, error } = await layanan.from("sulu_peserta").update({ user_id_aktif: pengguna.id, diaktifkan_pada: new Date().toISOString() })
+      .eq("id", peserta.id).is("user_id_aktif", null).select("id");
     if (error) return jawab(500, { galat: "gagal_simpan" });
+    if (!kena || kena.length === 0) return jawab(409, { galat: "kode_sudah_dipakai" }); // kalah balapan (pemeriksa R1)
     const meta = (pengguna.app_metadata || {}) as Record<string, unknown>;
-    await layanan.auth.admin.updateUserById(pengguna.id, { app_metadata: { ...meta, peran: "siswa", dewasa: false, umur_terkunci: true, umur_sumber: "aktivasi_peserta" } });
+    const { error: eMeta } = await layanan.auth.admin.updateUserById(pengguna.id, { app_metadata: { ...meta, peran: "siswa", dewasa: false, umur_terkunci: true, umur_sumber: "aktivasi_peserta" } });
+    if (eMeta) {
+      await layanan.from("sulu_peserta").update({ user_id_aktif: null, diaktifkan_pada: null }).eq("id", peserta.id);
+      return jawab(500, { galat: "gagal_simpan" });
+    }
     // baris jalur cadangan pindah ke akun (B.4)
     await layanan.from("assessment_progress").update({ user_id: pengguna.id, guest_identifier: null }).eq("guest_identifier", `p_${peserta.id}`);
     await layanan.from("assessment_results").update({ user_id: pengguna.id, guest_identifier: null }).eq("guest_identifier", `p_${peserta.id}`);

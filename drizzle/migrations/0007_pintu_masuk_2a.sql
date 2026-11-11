@@ -7,9 +7,21 @@
 
 -- ===== A. Status umur dari server =====
 -- app_metadata hanya bisa ditulis service role; dibaca langsung dari auth.users, bukan dari token (A.6).
+-- Penanya hanya boleh menanyakan dirinya sendiri; tanpa auth.uid(), hanya service role atau koneksi langsung
+-- (migrasi) yang boleh menanyakan akun lain (pemeriksa kode 2a, R3).
+CREATE OR REPLACE FUNCTION public.sulu_boleh_tanya(p_uid uuid)
+RETURNS boolean LANGUAGE plpgsql STABLE SET search_path = '' AS $$
+DECLARE peran text;
+BEGIN
+  IF auth.uid() IS NOT NULL THEN RETURN p_uid = auth.uid(); END IF;
+  BEGIN peran := current_setting('request.jwt.claims', true)::json->>'role'; EXCEPTION WHEN others THEN peran := NULL; END;
+  RETURN coalesce(peran, 'service_role') = 'service_role';
+END $$;
+
 CREATE OR REPLACE FUNCTION public.sulu_dewasa(p_uid uuid)
 RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path = '' AS $$
-  SELECT coalesce((SELECT (u.raw_app_meta_data->>'dewasa')::boolean FROM auth.users u WHERE u.id = p_uid), false);
+  SELECT public.sulu_boleh_tanya(p_uid)
+     AND coalesce((SELECT (u.raw_app_meta_data->>'dewasa')::boolean FROM auth.users u WHERE u.id = p_uid), false);
 $$;
 REVOKE ALL ON FUNCTION public.sulu_dewasa(uuid) FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION public.sulu_dewasa(uuid) TO authenticated;
@@ -75,7 +87,7 @@ CREATE TRIGGER sulu_peserta_matikan_token AFTER UPDATE ON public.sulu_peserta
 -- ===== C.2 boleh_simpan + policy restriktif =====
 CREATE OR REPLACE FUNCTION public.boleh_simpan(p_uid uuid)
 RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path = '' AS $$
-  SELECT p_uid IS NOT NULL AND (
+  SELECT p_uid IS NOT NULL AND public.sulu_boleh_tanya(p_uid) AND (
     public.sulu_dewasa(p_uid)
     OR public.is_admin(p_uid)
     OR EXISTS (SELECT 1 FROM public.sulu_peserta p
@@ -106,6 +118,9 @@ CREATE POLICY "Pemilik mengisi layer1 kosong" ON public.assessment_results FOR U
 DROP POLICY IF EXISTS "Pemilik masuk kelas" ON public.class_enrollments;
 CREATE POLICY "Pemilik masuk kelas" ON public.class_enrollments FOR INSERT TO authenticated
   WITH CHECK (user_id = auth.uid());
+
+-- C.5: kenali_dirimu_sessions dipensiunkan; tidak ada hak tulis klien.
+REVOKE INSERT, UPDATE, DELETE ON public.kenali_dirimu_sessions FROM anon, authenticated;
 
 -- Hak tabel anon dicabut sekalian (pertahanan kedua di balik policy).
 REVOKE INSERT, UPDATE, DELETE ON public.assessment_progress, public.assessment_results, public.class_enrollments,
@@ -311,7 +326,7 @@ LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path = '' AS $$
 DECLARE kd text := upper(trim(p_kode)); batas4 date;
 BEGIN
   IF length(kd) NOT IN (4, 6) THEN RETURN; END IF;
-  IF NOT public.sulu_laju_ok('cari_kelas', 200) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'P0429'; END IF;
+  IF NOT public.sulu_laju_ok('cari_kelas', 200) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'PT429'; END IF;
   IF length(kd) = 4 THEN
     SELECT nullif(s.nilai,'')::date INTO batas4 FROM public.sulu_pengaturan s WHERE s.kunci = 'kode4_berlaku_sampai';
     IF batas4 IS NOT NULL AND current_date > batas4 THEN RETURN; END IF;
@@ -342,7 +357,7 @@ RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
 BEGIN
   IF p_jenis NOT IN ('mulai','selesai') THEN RAISE EXCEPTION 'jenis tidak dikenal'; END IF;
   IF NOT EXISTS (SELECT 1 FROM public.classes c WHERE c.id = p_class AND NOT coalesce(c.session_closed,false)) THEN RETURN; END IF;
-  IF NOT public.sulu_laju_ok('hitung_kelas', 400, p_class::text) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'P0429'; END IF;
+  IF NOT public.sulu_laju_ok('hitung_kelas', 400, p_class::text) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'PT429'; END IF;
   INSERT INTO public.sulu_hitung_kelas(class_id, tanggal, jenis, jumlah) VALUES (p_class, current_date, p_jenis, 1)
   ON CONFLICT (class_id, tanggal, jenis) DO UPDATE SET jumlah = public.sulu_hitung_kelas.jumlah + 1;
 END $$;
@@ -356,8 +371,8 @@ ALTER TABLE public.waitlist_sulu ADD COLUMN IF NOT EXISTS user_id uuid;
 CREATE OR REPLACE FUNCTION public.sulu_daftar_tunggu(p_nama text, p_email text, p_whatsapp text, p_persona text)
 RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
 BEGIN
-  IF NOT public.sulu_dewasa(auth.uid()) THEN RAISE EXCEPTION 'khusus_dewasa' USING ERRCODE = 'P0403'; END IF;
-  IF NOT public.sulu_laju_ok('daftar_tunggu', 5) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'P0429'; END IF;
+  IF NOT public.sulu_dewasa(auth.uid()) THEN RAISE EXCEPTION 'khusus_dewasa' USING ERRCODE = 'PT403'; END IF;
+  IF NOT public.sulu_laju_ok('daftar_tunggu', 5) THEN RAISE EXCEPTION 'terlalu_sering' USING ERRCODE = 'PT429'; END IF;
   INSERT INTO public.waitlist_sulu(name, email, whatsapp, persona, user_id)
   VALUES (left(trim(p_nama), 120), left(trim(p_email), 200), nullif(left(trim(coalesce(p_whatsapp,'')), 30), ''),
           left(p_persona, 40), auth.uid());

@@ -1,9 +1,9 @@
 -- Uji 0008 (Putusan 2), sesudah prasyarat 0007, data, 0007, dan uji 0007. Gagal = EXCEPTION.
 \set ON_ERROR_STOP on
 reset role;
+select set_config('x.uid','',false);
 alter table class_enrollments add column if not exists guest_name text;
 alter table assessment_results add column if not exists parent_phone text, add column if not exists student_name text;
-create table if not exists kenali_dirimu_sessions(id uuid primary key default gen_random_uuid(), session_id text, wa_number text);
 create or replace function pg_temp.harus(ok boolean, pesan text) returns void language plpgsql as $$
 begin if not coalesce(ok,false) then raise exception 'GAGAL: %', pesan; end if; raise notice 'lulus: %', pesan; end $$;
 insert into assessment_results(user_id, guest_identifier, student_phone, parent_phone, student_name) values (null,'guest_081234567890_AB2C','0812','0813','Budi');
@@ -12,6 +12,7 @@ insert into class_enrollments(class_id, guest_identifier, guest_phone, guest_nam
 insert into kenali_dirimu_sessions(session_id, wa_number) values ('s','0812');
 insert into waitlist_sulu(name,email,whatsapp) values ('Anak','anak@x.id','0812'),('Dewasa2','dewasa@x.id','0899');
 insert into phase_2a_inventory(user_id, data) values ('00000000-0000-0000-0000-0000000000b1','{"x":1}');
+select set_config('x.uid','',false);
 \i 0008_bersihkan_data_lama_2a.sql
 select pg_temp.harus((select count(*) from assessment_results where guest_identifier ~ '^guest_[0-9]') = 0, 'tidak ada pengenal ber-HP di hasil');
 select pg_temp.harus((select count(*) from class_enrollments where guest_identifier ~ '^guest_[0-9]') = 0, 'tidak ada pengenal ber-HP di enrollment');

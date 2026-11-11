@@ -11,6 +11,8 @@
 //   - Cleared 24h after assessmentComplete flag is set
 //   - NOT cleared on refresh, tab switch, or background
 
+import { hapusSemuaDariPerangkat } from '@/lib/perangkat';
+
 const KEY = 'sulu.studentSession.v1';
 const COMPLETE_KEY = 'sulu.assessmentComplete.v1';
 // Auto-clear the saved student session 1 hour after completion so a shared
@@ -60,8 +62,8 @@ export function getStudentSession(): StudentSession | null {
     if (completedAt) {
       const ts = Number(completedAt);
       if (!Number.isNaN(ts) && Date.now() - ts > COMPLETE_TTL_MS) {
-        localStorage.removeItem(KEY);
-        localStorage.removeItem(COMPLETE_KEY);
+        // Tonggak 2a (pemeriksa kode S2): perangkat kelas siap untuk siswa berikutnya, termasuk hasil dan data fase.
+        hapusSemuaDariPerangkat();
         return null;
       }
     }

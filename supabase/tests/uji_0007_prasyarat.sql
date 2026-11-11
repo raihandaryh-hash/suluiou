@@ -40,3 +40,5 @@ create policy "Anyone can enroll in a class" on class_enrollments for insert to 
 create policy "Users can create their own bridge requests" on bridge_requests for insert to public with check (auth.uid() = user_id);
 create policy "Anyone can join waitlist" on waitlist_sulu for insert to anon, authenticated with check (true);
 create policy "Anyone can insert analytics events" on analytics_events for insert to anon, authenticated with check (true);
+create table kenali_dirimu_sessions(id uuid primary key default gen_random_uuid(), session_id text, wa_number text);
+grant insert, update on kenali_dirimu_sessions to authenticated;

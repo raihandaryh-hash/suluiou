@@ -112,8 +112,9 @@ const Results = () => {
       // Tonggak 2a (B.2, C.3): tamu dan akun tanpa izin menyimpan hasil hanya di perangkat.
       if (!session || !(await keServer(session))) {
         if (session) {
-          tulisPerangkat('hasil', pemilikPerangkat(session), { scores, selectedPathways, layer1: layer1 ?? null, selesai: new Date().toISOString() });
-          if (session.classId) {
+          const sudah = bacaPerangkat<{ dihitung?: boolean }>('hasil', pemilikPerangkat(session));
+          tulisPerangkat('hasil', pemilikPerangkat(session), { scores, selectedPathways, layer1: layer1 ?? null, selesai: new Date().toISOString(), dihitung: true });
+          if (session.classId && !sudah?.dihitung) {
             const { supabase } = await import('@/integrations/supabase/client');
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: session.classId, p_jenis: 'selesai' });

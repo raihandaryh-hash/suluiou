@@ -36,7 +36,7 @@ do $$ begin
   begin insert into phase_4_sintesis(user_id) values ('00000000-0000-0000-0000-0000000000c1'); raise exception 'GAGAL: anak tanpa izin menyimpan fase'; exception when insufficient_privilege then raise notice 'lulus: anak tanpa izin tidak menyimpan fase'; end;
   begin insert into class_enrollments(class_id,user_id) values ('00000000-0000-0000-0000-00000000c1a5','00000000-0000-0000-0000-0000000000c1'); raise exception 'GAGAL: anak tanpa izin masuk kelas server'; exception when insufficient_privilege then raise notice 'lulus: anak tanpa izin tidak menulis enrollment'; end;
   begin insert into bridge_requests(user_id) values ('00000000-0000-0000-0000-0000000000c1'); raise exception 'GAGAL: anak tanpa izin bridge'; exception when insufficient_privilege then raise notice 'lulus: anak tanpa izin tidak menulis bridge'; end;
-  begin perform public.sulu_daftar_tunggu('a','b','0812','siswa'); raise exception 'GAGAL: anak daftar tunggu'; exception when sqlstate 'P0403' then raise notice 'lulus: anak ditolak daftar tunggu'; end;
+  begin perform public.sulu_daftar_tunggu('a','b','0812','siswa'); raise exception 'GAGAL: anak daftar tunggu'; exception when sqlstate 'PT403' then raise notice 'lulus: anak ditolak daftar tunggu'; end;
 end $$;
 -- §6.1 / T12: anak tidak bisa memberi izin P1 dengan boolean klien
 reset role;
@@ -107,4 +107,13 @@ end loop; end $$;
 select pg_temp.harus((select count(*) from sulu_alarm_laju where aksi='uji_global')=1,'global terlampaui memicu alarm');
 select set_config('request.headers','{"cf-connecting-ip":"40.0.0.1"}',false);
 select pg_temp.harus(public.sulu_laju_ok('uji_global',100),'global terlampaui tidak memblokir IP baru');
+-- R3: akun tidak bisa menanyakan status akun lain
+select pg_temp.sebagai('authenticated','00000000-0000-0000-0000-0000000000c1');
+select pg_temp.harus(not public.sulu_dewasa('00000000-0000-0000-0000-0000000000d1'),'tidak bisa menanyakan status dewasa akun lain');
+select pg_temp.harus(not public.boleh_simpan('00000000-0000-0000-0000-0000000000d1'),'tidak bisa menanyakan izin akun lain');
+do $$ begin insert into kenali_dirimu_sessions(session_id) values ('x'); raise exception 'GAGAL: kd masih bisa ditulis'; exception when insufficient_privilege then raise notice 'lulus: kenali_dirimu_sessions tanpa hak tulis'; end $$;
+reset role;
+select set_config('request.jwt.claims','{"role":"anon"}',false);
+select pg_temp.harus(not public.sulu_dewasa('00000000-0000-0000-0000-0000000000d1'),'anon tidak bisa menanyakan status akun');
+select set_config('request.jwt.claims','',false);
 select 'SEMUA UJI 0007 LULUS' as hasil;

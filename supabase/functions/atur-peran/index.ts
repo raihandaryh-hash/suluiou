@@ -52,8 +52,8 @@ serve(async (req) => {
       const { data: t, error: e1 } = await layanan.auth.admin.getUserById(target);
       if (e1 || !t.user) return jawab(404, { galat: "tidak_ada" });
       const lama = (t.user.app_metadata || {}) as Record<string, unknown>;
-      const { umur_terkunci: _a, umur_ditulis_pada: _b, umur_sumber: _c, dewasa: _d, ...sisa } = lama;
-      const { error: e2 } = await layanan.auth.admin.updateUserById(target, { app_metadata: { ...sisa, umur_terkunci: false, dewasa: false } });
+      // GoTrue menggabungkan app_metadata; kunci dihapus dengan nilai null (pemeriksa R2).
+      const { error: e2 } = await layanan.auth.admin.updateUserById(target, { app_metadata: { ...lama, umur_terkunci: false, dewasa: false, umur_ditulis_pada: null, umur_sumber: null } });
       if (e2) return jawab(500, { galat: "gagal_simpan" });
       await layanan.from("sulu_permintaan_buka_kunci").update({ ditangani_pada: sekarang.toISOString(), ditangani_oleh: pengguna.id })
         .eq("user_id", target).is("ditangani_pada", null);
