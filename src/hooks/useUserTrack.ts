@@ -4,36 +4,27 @@ import { supabase } from '@/integrations/supabase/client';
 export type UserTrack = 'siswa' | 'mahasiswa_iou';
 
 /**
- * Returns the track stored on the current Supabase user's
- * `user_metadata.user_track` (Fork Dua-Pintu, 6 Jul 2026).
- *
- * Defaults to 'siswa' when: no user signed in (guest/anon), or track not set.
- * Guest sessions never carry user_track by design — see comment on
- * handleGuest in Login.tsx.
+ * Jalur isi (jam bakti, rujukan HSA) dari peran yang ditulis server (Tonggak 2a, app_metadata).
+ * Bukan penentu keselamatan: status dewasa hanya dibaca server (usia.ts, boleh_simpan).
+ * Akun lama tanpa peran di app_metadata tetap membaca user_metadata.user_track bila akunnya dewasa (backfill 0007).
  */
+export function trackDari(app: Record<string, unknown> | undefined, user: Record<string, unknown> | undefined): UserTrack {
+  if (app?.peran === 'mahasiswa' && app?.mahasiswa_iou === true) return 'mahasiswa_iou';
+  if (!app?.peran && app?.dewasa === true && user?.user_track === 'mahasiswa_iou') return 'mahasiswa_iou';
+  return 'siswa';
+}
+
 export function useUserTrack(): UserTrack {
   const [track, setTrack] = useState<UserTrack>('siswa');
 
   useEffect(() => {
     let active = true;
-
-    const read = (meta: Record<string, unknown> | undefined) => {
-      const t = meta?.user_track;
-      if (active) setTrack(t === 'mahasiswa_iou' ? 'mahasiswa_iou' : 'siswa');
+    const read = (u: { app_metadata?: unknown; user_metadata?: unknown } | null | undefined) => {
+      if (active) setTrack(trackDari(u?.app_metadata as Record<string, unknown>, u?.user_metadata as Record<string, unknown>));
     };
-
-    supabase.auth.getUser().then(({ data }) => {
-      read(data.user?.user_metadata as Record<string, unknown> | undefined);
-    });
-
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      read(session?.user?.user_metadata as Record<string, unknown> | undefined);
-    });
-
-    return () => {
-      active = false;
-      sub.subscription.unsubscribe();
-    };
+    supabase.auth.getUser().then(({ data }) => read(data.user));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => read(session?.user));
+    return () => { active = false; sub.subscription.unsubscribe(); };
   }, []);
 
   return track;

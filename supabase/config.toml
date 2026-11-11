@@ -6,5 +6,4 @@ verify_jwt = false
 [functions.career-chat]
 verify_jwt = false
 
-[functions.generate-reflection]
-verify_jwt = false
+# generate-reflection dipensiunkan di Tonggak 2a (C.5): tidak di-deploy lagi.

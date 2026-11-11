@@ -1,0 +1,44 @@
+-- Prasyarat lokal untuk uji 0007: tiruan minimal skema produksi (nama policy dari pg_policies 11 Nov 22.32).
+create role service_role;
+create role anon; create role authenticated;
+create schema auth;
+create table auth.users(id uuid primary key, email text, raw_app_meta_data jsonb default '{}', raw_user_meta_data jsonb default '{}');
+create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('x.uid',true),'')::uuid $$;
+grant usage on schema auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;
+create type app_role as enum('admin','user');
+create table user_roles(user_id uuid, role app_role);
+create table admin_users(email text);
+create function is_admin(_user_id uuid) returns boolean language sql stable security definer set search_path = public as $$
+  select exists(select 1 from public.user_roles where user_id=_user_id and role='admin') or exists(select 1 from public.admin_users au join auth.users u on lower(u.email)=lower(au.email) where u.id=_user_id) $$;
+create table classes(id uuid primary key default gen_random_uuid(), name text, school_name text, session_closed boolean default false, join_code char(4) not null unique);
+create table class_enrollments(id uuid primary key default gen_random_uuid(), class_id uuid, user_id uuid, guest_identifier text, guest_phone text);
+create table assessment_progress(id uuid primary key default gen_random_uuid(), user_id uuid, guest_identifier text, data jsonb);
+create table assessment_results(id uuid primary key default gen_random_uuid(), user_id uuid, guest_identifier text, student_phone text, layer1_text text);
+create table bridge_requests(id uuid primary key default gen_random_uuid(), user_id uuid);
+create table waitlist_sulu(id uuid primary key default gen_random_uuid(), name text not null, email text not null, whatsapp text not null, persona text, created_at timestamptz default now());
+create table analytics_events(id uuid primary key default gen_random_uuid(), event_name text not null, session_id text, props jsonb default '{}');
+create table sulu_izin(id uuid primary key default gen_random_uuid(), result_id uuid, user_id uuid, tujuan text, pemberi text, menyatakan_18_plus boolean, dicabut_pada timestamptz);
+do $$ declare t text; begin foreach t in array array['phase_2a_inventory','phase_2b_skills','phase_3_jalan_bakti','phase_4_sintesis','phase_5_action_plan'] loop
+  execute format('create table %I(id uuid primary key default gen_random_uuid(), user_id uuid unique, data jsonb)', t);
+  execute format('alter table %I enable row level security', t);
+  execute format('create policy "Users manage own" on %I for all to public using (user_id = auth.uid()) with check (user_id = auth.uid())', t);
+  execute format('grant select, insert, update, delete on %I to anon, authenticated', t);
+end loop; end $$;
+alter table class_enrollments enable row level security; alter table assessment_progress enable row level security;
+alter table assessment_results enable row level security; alter table bridge_requests enable row level security;
+alter table waitlist_sulu enable row level security; alter table analytics_events enable row level security; alter table sulu_izin enable row level security;
+grant select, insert, update on class_enrollments, assessment_progress, assessment_results, bridge_requests, waitlist_sulu, analytics_events to anon, authenticated;
+grant select, insert on sulu_izin to authenticated;
+grant select on classes to anon, authenticated;
+create policy "Anyone can create progress" on assessment_progress for insert to anon, authenticated with check (true);
+create policy "Own progress update" on assessment_progress for update to authenticated using (user_id = auth.uid());
+create policy "Own progress read" on assessment_progress for select to authenticated using (user_id = auth.uid());
+create policy "Anyone can submit assessment" on assessment_results for insert to public with check (true);
+create policy "Owner can fill empty layer1_text" on assessment_results for update to anon, authenticated using (layer1_text is null) with check (true);
+create policy "Users view own assessment" on assessment_results for select to authenticated using (user_id = auth.uid());
+create policy "Anyone can enroll in a class" on class_enrollments for insert to anon, authenticated with check (true);
+create policy "Users can create their own bridge requests" on bridge_requests for insert to public with check (auth.uid() = user_id);
+create policy "Anyone can join waitlist" on waitlist_sulu for insert to anon, authenticated with check (true);
+create policy "Anyone can insert analytics events" on analytics_events for insert to anon, authenticated with check (true);
+create table kenali_dirimu_sessions(id uuid primary key default gen_random_uuid(), session_id text, wa_number text);
+grant insert, update on kenali_dirimu_sessions to authenticated;

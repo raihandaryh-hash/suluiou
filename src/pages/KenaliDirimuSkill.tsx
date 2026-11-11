@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { bacaFase, simpanFase } from "@/lib/perangkat";
 
 const LS_KEY = "sulu_phase2b";
 
@@ -132,11 +133,7 @@ export default function KenaliDirimuSkill() {
     (async () => {
       try {
         if (user) {
-          const { data } = await supabase
-            .from("phase_2b_skills")
-            .select("data")
-            .eq("user_id", user.id)
-            .maybeSingle();
+          const { data } = await bacaFase("phase_2b_skills", user.id);
           if (data?.data) {
             const merged = { ...EMPTY, ...(data.data as SkillData) };
             setD(merged);
@@ -181,12 +178,7 @@ export default function KenaliDirimuSkill() {
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(d));
       if (user) {
-        const { error } = await supabase
-          .from("phase_2b_skills")
-          .upsert(
-            { user_id: user.id, data: d, updated_at: new Date().toISOString() },
-            { onConflict: "user_id" },
-          );
+        const { error } = await simpanFase("phase_2b_skills", user.id, d);
         if (error) throw error;
       }
       toast.success("Catatan tersimpan ✓");

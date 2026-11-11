@@ -1,10 +1,14 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { bolehSimpan } from "@/lib/perangkat";
+import { KANAL_PENERIMAAN, TEKS_TARIK, VARIAN_AKTIF } from "@/data/izinKuliahContent";
+import { tautanTarik } from "@/lib/izinKuliah";
+import { TEKS_PINTU } from "@/data/pintuMasukContent";
 
 type Payung = {
   readonly id: string;
@@ -78,6 +82,24 @@ function BridgeRequestForm({
   const [questionText, setQuestionText] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  // Tonggak 2a C.3: permintaan jembatan menyimpan data di server, jadi hanya untuk akun berizin.
+  const [boleh, setBoleh] = useState<boolean | null>(null);
+  useEffect(() => { if (userId) void bolehSimpan().then(setBoleh); }, [userId]);
+
+  if (userId && boleh === false) {
+    return (
+      <div className="space-y-2 pt-1">
+        <p className="text-xs text-muted-foreground">{TEKS_PINTU[VARIAN_AKTIF].jembatanTerkunci}</p>
+        <div className="flex flex-wrap gap-2">
+          {KANAL_PENERIMAAN.map((k) => (
+            <a key={k.nomorWa} href={tautanTarik(k.nomorWa, [])} target="_blank" rel="noopener noreferrer" className="text-xs underline">
+              {TEKS_TARIK[VARIAN_AKTIF].tombol} · {k.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   if (!userId) {
     return (

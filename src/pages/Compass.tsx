@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 import Logo from "@/components/Logo";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { useDewasa } from "@/hooks/useDewasa";
+import DaftarTungguTarik from "@/components/DaftarTungguTarik";
 import {
   compassHero,
   compassSections,
@@ -202,6 +204,7 @@ function WaitlistForm() {
   const [done, setDone] = useState(false);
 
   const { fields, submit, successMessage } = compassCTA.waitlist;
+  const dewasa = useDewasa();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -210,12 +213,9 @@ function WaitlistForm() {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("waitlist_sulu").insert({
-      name: name.trim(),
-      email: email.trim(),
-      whatsapp: whatsapp.trim(),
-      persona: "compass",
-    });
+    // Tonggak 2a C.4: hanya dewasa, lewat RPC berbatas laju.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any).rpc("sulu_daftar_tunggu", { p_nama: name.trim(), p_email: email.trim(), p_whatsapp: whatsapp.trim(), p_persona: "compass" });
     setLoading(false);
     if (error) {
       toast.error("Gagal menyimpan. Coba lagi sebentar.");
@@ -240,6 +240,9 @@ function WaitlistForm() {
       </div>
     );
   }
+
+  if (dewasa === null) return null;
+  if (!dewasa) return <DaftarTungguTarik />;
 
   return (
     <form

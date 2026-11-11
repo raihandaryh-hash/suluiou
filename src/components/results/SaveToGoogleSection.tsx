@@ -64,8 +64,9 @@ export function SaveToGoogleSection({ resultId }: SaveToGoogleSectionProps) {
             Simpan hasil ke akun Google-mu
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Supaya kamu bisa kembali lihat hasil ini kapan saja dari device manapun.
-            Tanpa ini, hasil hanya bisa diakses dari device ini selama 1 jam ke depan.
+            {/* Tonggak 2a: hasil anak tanpa izin tetap di perangkat; jangan menjanjikan akses dari perangkat lain. */}
+            Hasilmu tetap di perangkat ini dan terhubung ke akun Google-mu. Begitu izin orang tua tercatat lewat
+            sekolah dan kode peserta kamu aktifkan, hasilnya tersimpan di akun dan bisa dibuka dari perangkat lain.
           </p>
           <Button onClick={handleSave} disabled={busy} className="gap-2">
             {busy ? (

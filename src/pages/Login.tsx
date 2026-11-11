@@ -18,7 +18,11 @@ import {
   type StudentSession,
 } from '@/lib/classSession';
 import { getPendingClassCode } from '@/lib/pendingClassCode';
-import { applyClaim, clearPendingClaim, getPendingClaim } from '@/lib/claimGuestResult';
+import { clearPendingClaim, getPendingClaim } from '@/lib/claimGuestResult';
+import { sudahPilihPeran } from '@/lib/peran';
+import { pindahPemilikPerangkat } from '@/lib/perangkat';
+import { TEKS_PINTU } from '@/data/pintuMasukContent';
+import { VARIAN_AKTIF } from '@/data/izinKuliahContent';
 import { routeAfterAuth } from '@/lib/authRouter';
 import { useToast } from '@/hooks/use-toast';
 import AdminQuickAccess from '@/components/AdminQuickAccess';
@@ -79,10 +83,8 @@ const hasProvince = (meta: Record<string, unknown> | undefined): boolean => {
 // guest selalu default 'siswa' tanpa gate ini (lihat handleGuest), karena
 // showGuestOption() hanya aktif untuk konteks kelas SMA/masyarakat umum;
 // mahasiswa IOU tidak pernah masuk lewat jalur guest.
-const hasRole = (meta: Record<string, unknown> | undefined): boolean => {
-  const t = meta?.user_track;
-  return t === 'siswa' || t === 'mahasiswa_iou';
-};
+// Tonggak 2a: peran dan umur dari app_metadata (ditulis server). Gate berlaku untuk semua akun Google.
+const hasRole = (appMeta: Record<string, unknown> | undefined): boolean => sudahPilihPeran(appMeta);
 
 const guestSchema = z.object({
   name: z
@@ -90,15 +92,11 @@ const guestSchema = z.object({
     .trim()
     .min(2, { message: 'Nama minimal 2 karakter.' })
     .max(80, { message: 'Nama terlalu panjang.' }),
-  phone: z
-    .string()
-    .trim()
-    .regex(/^\d{10,13}$/, { message: 'Nomor WhatsApp 10–13 digit angka.' }),
   joinCode: z
     .string()
     .trim()
     .toUpperCase()
-    .regex(/^[A-Z0-9]{4}$/, { message: 'Kode kelas 4 karakter.' })
+    .regex(/^([A-Z0-9]{4}|[A-Z0-9]{6})$/, { message: 'Kode kelas 4 atau 6 karakter.' })
     .optional()
     .or(z.literal('')),
 });
@@ -114,7 +112,6 @@ const Login = () => {
   const [continueLoading, setContinueLoading] = useState(false);
 
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
   const [joinCode, setJoinCode] = useState(() => getPendingClassCode() ?? '');
 
   const [existing, setExisting] = useState<StudentSession | null>(null);
@@ -138,15 +135,10 @@ const Login = () => {
         const u = authData.user;
 
         if (claim && u) {
-          // Apply claim: rewrite guest_identifier rows to user_id.
+          // Tonggak 2a: tamu tanpa izin tidak punya hasil di server, jadi tidak ada yang dipindah (applyClaim dihapus).
+          // Hasil tamu tetap di perangkat; siswa berizin mengaktifkan kode peserta di profil.
           try {
-            await applyClaim(claim, u.id);
-            toast({
-              title: 'Hasil tersimpan ke Google',
-              description: 'Sekarang kamu bisa lihat hasilmu dari device manapun.',
-            });
-          } catch (e) {
-            console.warn('[claim] failed', e);
+            pindahPemilikPerangkat(claim.guestIdentifier, u.id);
           } finally {
             clearPendingClaim();
             // Drop the old guest session — we're now Google-authenticated.
@@ -170,7 +162,7 @@ const Login = () => {
             setPendingProvince({ session, forcedNext: '/results' });
             return;
           }
-          if (!hasRole(u.user_metadata as Record<string, unknown> | undefined)) {
+          if (!hasRole(u.app_metadata as Record<string, unknown> | undefined)) {
             setPendingRole({ session, forcedNext: '/results' });
             return;
           }
@@ -204,7 +196,7 @@ const Login = () => {
             setPendingProvince({ session, forcedNext: null });
             return;
           }
-          if (!hasRole(u.user_metadata as Record<string, unknown> | undefined)) {
+          if (!hasRole(u.app_metadata as Record<string, unknown> | undefined)) {
             setPendingRole({ session, forcedNext: null });
             return;
           }
@@ -231,7 +223,7 @@ const Login = () => {
         setContinueLoading(false);
         return;
       }
-      if (!hasRole(meta)) {
+      if (!hasRole(data.user?.app_metadata as Record<string, unknown> | undefined)) {
         setPendingRole({ session: existing, forcedNext: null });
         setContinueLoading(false);
         return;
@@ -250,7 +242,7 @@ const Login = () => {
     // just landed.
     const { data } = await supabase.auth.getUser();
     const meta = data.user?.user_metadata as Record<string, unknown> | undefined;
-    if (!hasRole(meta)) {
+    if (!hasRole(data.user?.app_metadata as Record<string, unknown> | undefined)) {
       setPendingRole({ session, forcedNext });
       return;
     }
@@ -304,7 +296,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
 
-    const parsed = guestSchema.safeParse({ name, phone, joinCode });
+    const parsed = guestSchema.safeParse({ name, joinCode });
     if (!parsed.success) {
       setError(parsed.error.errors[0].message);
       return;
@@ -335,32 +327,21 @@ const Login = () => {
       className = cls.name;
     }
 
-    // Identifier still needs a stable suffix even without a code so two guests
-    // on the same phone can't collide. Use 'UMUM' as the bucket for public.
-    const guestIdentifier = makeGuestIdentifier(parsed.data.phone, code || 'UMUM');
+    // Tonggak 2a B.1: pengenal tamu acak per perangkat, tanpa nomor HP.
+    const guestIdentifier = makeGuestIdentifier(code || 'UMUM');
 
     clearStudentSession();
 
     if (classId) {
-      const { error: enrErr } = await supabase.from('class_enrollments').insert({
-        class_id: classId,
-        guest_identifier: guestIdentifier,
-        guest_name: parsed.data.name,
-        guest_phone: parsed.data.phone,
-      });
-
-      if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
-        setError('Gagal mendaftar ke kelas. Coba lagi.');
-        setGuestLoading(false);
-        return;
-      }
+      // Tonggak 2a C.8: tamu tidak menulis enrollment; kelas hanya menghitung tanpa identitas.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: classId, p_jenis: 'mulai' });
     }
 
     const session: StudentSession = {
       kind: 'guest',
       guestIdentifier,
       name: parsed.data.name,
-      phone: parsed.data.phone,
       classId,
       className,
     };
@@ -507,32 +488,17 @@ const Login = () => {
                   ) : (
                     <form onSubmit={handleGuest} className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="g-name">Nama Lengkap</Label>
+                        <Label htmlFor="g-name">Nama panggilan</Label>
                         <Input
                           id="g-name"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Misal: Andi Pratama"
+                          placeholder="Misal: Andi"
                           maxLength={80}
                           required
                         />
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="g-phone">Nomor WhatsApp</Label>
-                        <Input
-                          id="g-phone"
-                          type="tel"
-                          inputMode="numeric"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                          placeholder="08xxxxxxxxxx"
-                          maxLength={13}
-                          required
-                        />
-                        <p className="text-xs text-muted-foreground">
-                          Dipakai untuk kembali melanjutkan jika browser tertutup.
-                        </p>
-                      </div>
+                      <p className="text-xs text-muted-foreground">{TEKS_PINTU[VARIAN_AKTIF].tamuPengantar} {TEKS_PINTU[VARIAN_AKTIF].modePerangkat}</p>
                       <div className="space-y-2">
                         <Label htmlFor="g-code">
                           Kode Kelas{' '}
@@ -542,10 +508,10 @@ const Login = () => {
                           id="g-code"
                           value={joinCode}
                           onChange={(e) =>
-                            setJoinCode(e.target.value.toUpperCase().slice(0, 4))
+                            setJoinCode(e.target.value.toUpperCase().slice(0, 6))
                           }
                           placeholder="ABCD"
-                          maxLength={4}
+                          maxLength={6}
                           className="uppercase tracking-widest font-mono text-center text-lg"
                         />
                         <p className="text-xs text-muted-foreground">

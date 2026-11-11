@@ -5,6 +5,18 @@
 import { supabase } from '@/integrations/supabase/client';
 import type { StudentSession } from '@/lib/classSession';
 import type { StudentProfile } from '@/context/AssessmentContext';
+import { bolehSimpan } from '@/lib/perangkat';
+
+/** Pemilik data perangkat: akun Google atau pengenal tamu acak. */
+export function pemilikPerangkat(session: StudentSession): string {
+  return session.kind === 'google' ? session.userId : session.guestIdentifier;
+}
+
+// Tonggak 2a (manifest v0.6 B.2, C.3): tamu dan akun tanpa izin menyimpan progres hanya di perangkat.
+export async function keServer(session: StudentSession): Promise<boolean> {
+  if (session.kind !== 'google') return false;
+  return bolehSimpan();
+}
 
 export interface ProgressRow {
   id: string;
@@ -85,6 +97,10 @@ function clearBackup(session: StudentSession) {
 export async function fetchProgress(
   session: StudentSession
 ): Promise<ProgressRow | null> {
+  if (!(await keServer(session))) {
+    const snap = readBackup(session);
+    return snap ? snapshotToRow(session, snap) : null;
+  }
   let query = supabase
     .from('assessment_progress')
     .select('*')
@@ -167,6 +183,11 @@ export async function saveProgress(
   session: StudentSession,
   snap: ProgressSnapshot
 ) {
+  if (!(await keServer(session))) {
+    writeBackup(session, snap);
+    emit('local');
+    return;
+  }
   emit('saving');
 
   // Attempt 1, then retry with 1s, then 2s backoff.
@@ -197,6 +218,7 @@ export async function saveProgress(
 export async function syncBackupProgress(session: StudentSession): Promise<void> {
   const snap = readBackup(session);
   if (!snap) return;
+  if (!(await keServer(session))) return; // mode perangkat: cadangan adalah simpanan utamanya
   emit('saving');
   const res = await attemptSave(session, snap);
   if (res.ok) {
@@ -209,6 +231,7 @@ export async function syncBackupProgress(session: StudentSession): Promise<void>
 
 /** Mark progress completed so it's not resumed again. */
 export async function markProgressCompleted(session: StudentSession) {
+  if (!(await keServer(session))) { clearBackup(session); return; }
   let query = supabase
     .from('assessment_progress')
     .update({ completed_at: new Date().toISOString() });
@@ -228,6 +251,7 @@ export async function markProgressCompleted(session: StudentSession) {
 
 /** Delete the in-progress row (used by "Mulai asesmen baru"). */
 export async function deleteProgress(session: StudentSession) {
+  if (!(await keServer(session))) { clearBackup(session); return; }
   let q = supabase.from('assessment_progress').delete().is('completed_at', null);
   if (session.kind === 'google') {
     q = q.eq('user_id', session.userId);
@@ -276,5 +300,25 @@ export function rowToSnapshot(row: ProgressRow): ProgressSnapshot {
     hexacoIndex: row.hexaco_index ?? 0,
     sdsSection: section,
     consentGiven: Boolean(row.consent_given),
+  };
+}
+
+/** Cadangan perangkat dalam bentuk baris, untuk alur lanjutkan yang membaca ProgressRow. */
+function snapshotToRow(session: StudentSession, snap: ProgressSnapshot): ProgressRow {
+  const hexaco: Record<string, number> = {};
+  Object.entries(snap.hexacoAnswers).forEach(([k, v]) => { hexaco[k] = v; });
+  return {
+    id: 'perangkat',
+    user_id: session.kind === 'google' ? session.userId : null,
+    guest_identifier: session.kind === 'guest' ? session.guestIdentifier : null,
+    class_id: session.classId,
+    student_profile: snap.studentProfile,
+    hexaco_answers: hexaco,
+    sds_answers: snap.sdsAnswers,
+    stage: snap.stage,
+    hexaco_index: snap.hexacoIndex,
+    sds_section: snap.sdsSection,
+    consent_given: snap.consentGiven,
+    completed_at: null,
   };
 }

@@ -58,15 +58,7 @@ interface ClassRow {
   completed_count: number;
 }
 
-const ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // no I/L/O/0/1
-
-function genCode() {
-  let s = '';
-  for (let i = 0; i < 4; i++) {
-    s += ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
-  }
-  return s;
-}
+// Tonggak 2a E.1: kode kelas 6 karakter dibuat server (sulu_kode_kelas_baru, gen_random_uuid), bukan Math.random.
 
 const AdminClasses = () => {
   const { toast } = useToast();
@@ -134,17 +126,12 @@ const AdminClasses = () => {
     if (!name.trim()) return;
     setCreating(true);
 
-    let attempts = 0;
-    let code = genCode();
-    while (attempts < 10) {
-      const { data: existing } = await supabase
-        .from('classes')
-        .select('id')
-        .eq('join_code', code)
-        .maybeSingle();
-      if (!existing) break;
-      code = genCode();
-      attempts++;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: code, error: kodeErr } = await (supabase as any).rpc('sulu_kode_kelas_baru');
+    if (kodeErr || !code) {
+      toast({ title: 'Gagal', description: 'Kode kelas belum bisa dibuat. Coba lagi.', variant: 'destructive' });
+      setCreating(false);
+      return;
     }
 
     const { error } = await supabase.from('classes').insert({

@@ -15,6 +15,8 @@ import {
 import { clearPendingClassCode } from '@/lib/pendingClassCode';
 import { toast } from '@/hooks/use-toast';
 import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import { keServer } from '@/lib/progress';
+import { catatKelasPerangkat } from '@/lib/authRouter';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -50,28 +52,24 @@ const ProfilePage = () => {
             return;
           }
 
-          const enrollment =
-            session.kind === 'google'
-              ? { class_id: cls.id, user_id: session.userId }
-              : {
-                  class_id: cls.id,
-                  guest_identifier: session.guestIdentifier,
-                  guest_name: session.name,
-                  guest_phone: session.phone,
-                };
-
-          const { error: enrErr } = await supabase
-            .from('class_enrollments')
-            .insert(enrollment);
-
-          if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
-            toast({
-              title: 'Gagal mendaftar ke kelas',
-              description: 'Coba lagi sebentar lagi.',
-              variant: 'destructive',
-            });
-            setSubmitting(false);
-            return;
+          // Tonggak 2a C.3: hanya akun berizin menulis enrollment; selain itu kelas dicatat di perangkat + penghitung.
+          if (await keServer(session)) {
+            const { error: enrErr } = await supabase
+              .from('class_enrollments')
+              .insert({ class_id: cls.id, user_id: (session as { userId: string }).userId });
+            if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
+              toast({
+                title: 'Gagal mendaftar ke kelas',
+                description: 'Coba lagi sebentar lagi.',
+                variant: 'destructive',
+              });
+              setSubmitting(false);
+              return;
+            }
+          } else {
+            catatKelasPerangkat(session, { classId: cls.id, className: cls.name ?? null });
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: cls.id, p_jenis: 'mulai' });
           }
 
           patchStudentSession({ classId: cls.id, className: cls.name });

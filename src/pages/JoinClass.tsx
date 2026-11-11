@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label';
 import { AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import { keServer } from '@/lib/progress';
+import { catatKelasPerangkat } from '@/lib/authRouter';
 import {
   getStudentSession,
   patchStudentSession,
@@ -52,7 +54,7 @@ const JoinClass = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (code.length !== 4) {
+    if (code.length !== 4 && code.length !== 6) {
       setError('Kode kelas 4 karakter.');
       return;
     }
@@ -79,15 +81,21 @@ const JoinClass = () => {
       return;
     }
 
-    const { error: enrErr } = await supabase.from('class_enrollments').insert({
-      class_id: cls.id,
-      user_id: session.userId,
-    });
-
-    if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
-      setError('Gagal mendaftar ke kelas. Coba lagi.');
-      setLoading(false);
-      return;
+    // Tonggak 2a C.3: akun tanpa izin dicatat di perangkat; tidak ada pesan galat karena penolakan izin.
+    if (await keServer(session)) {
+      const { error: enrErr } = await supabase.from('class_enrollments').insert({
+        class_id: cls.id,
+        user_id: session.userId,
+      });
+      if (enrErr && !enrErr.message.toLowerCase().includes('duplicate')) {
+        setError('Gagal mendaftar ke kelas. Coba lagi.');
+        setLoading(false);
+        return;
+      }
+    } else {
+      catatKelasPerangkat(session, { classId: cls.id, className: cls.name ?? null });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: cls.id, p_jenis: 'mulai' });
     }
 
     patchStudentSession({ classId: cls.id, className: cls.name });
@@ -138,10 +146,10 @@ const JoinClass = () => {
                 id="code"
                 value={code}
                 onChange={(e) =>
-                  setCode(e.target.value.toUpperCase().slice(0, 4))
+                  setCode(e.target.value.toUpperCase().slice(0, 6))
                 }
                 placeholder="ABCD"
-                maxLength={4}
+                maxLength={6}
                 className="uppercase tracking-widest font-mono text-center text-3xl h-16"
                 autoFocus
                 required
@@ -150,7 +158,7 @@ const JoinClass = () => {
             <Button
               type="submit"
               className="w-full gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
-              disabled={loading || code.length !== 4}
+              disabled={loading || (code.length !== 4 && code.length !== 6)}
             >
               {loading ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

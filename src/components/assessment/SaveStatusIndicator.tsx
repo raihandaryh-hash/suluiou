@@ -39,7 +39,7 @@ export default function SaveStatusIndicator({ className }: { className?: string 
         className,
       )}
       aria-live="polite"
-      title={status === 'local' ? 'Tersimpan di perangkat. Akan disinkronkan saat online.' : undefined}
+      title={status === 'local' ? 'Tersimpan di perangkat ini.' : undefined}
     >
       {icon}
       <span className="hidden sm:inline">{text}</span>

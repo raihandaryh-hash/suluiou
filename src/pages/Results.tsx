@@ -38,6 +38,9 @@ import {
 import { keselamatanContent } from '@/data/keselamatanContent';
 import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
+import { keServer, pemilikPerangkat } from '@/lib/progress';
+import { bacaPerangkat, tulisPerangkat } from '@/lib/perangkat';
+import PintuAkun from '@/components/PintuAkun';
 
 const Results = () => {
   const {
@@ -105,6 +108,21 @@ const Results = () => {
       setAutoSaving(true);
       const session = getStudentSession();
       const profileProvince = studentProfile?.province?.trim() ?? '';
+
+      // Tonggak 2a (B.2, C.3): tamu dan akun tanpa izin menyimpan hasil hanya di perangkat.
+      if (!session || !(await keServer(session))) {
+        if (session) {
+          const sudah = bacaPerangkat<{ dihitung?: boolean }>('hasil', pemilikPerangkat(session));
+          tulisPerangkat('hasil', pemilikPerangkat(session), { scores, selectedPathways, layer1: layer1 ?? null, selesai: new Date().toISOString(), dihitung: true });
+          if (session.classId && !sudah?.dihitung) {
+            const { supabase } = await import('@/integrations/supabase/client');
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            await (supabase as any).rpc('sulu_naikkan_hitung', { p_class: session.classId, p_jenis: 'selesai' });
+          }
+        }
+        setAutoSaving(false);
+        return;
+      }
 
       // Check if a row already exists for this session (handles refresh/re-entry).
       try {
@@ -186,6 +204,16 @@ const Results = () => {
       setAutoSaving(false);
     })();
   }, [isComplete, scores, savedRowId, studentProfile, selectedPathways, layer1]);
+
+  // Mode perangkat: layer1 yang datang belakangan ikut disimpan di perangkat.
+  useEffect(() => {
+    if (savedRowId || !layer1) return;
+    const session = getStudentSession();
+    if (!session) return;
+    const pemilik = pemilikPerangkat(session);
+    const ada = bacaPerangkat<Record<string, unknown>>('hasil', pemilik);
+    if (ada && ada.layer1 !== layer1) tulisPerangkat('hasil', pemilik, { ...ada, layer1 });
+  }, [savedRowId, layer1]);
 
   useEffect(() => {
     if (!savedRowId || !layer1) return;
@@ -559,6 +587,7 @@ const Results = () => {
             programDipilih={selectedPathways.map((id) => getPathwayName(id))}
             onIzinBerubah={handleIzinBerubah}
           />
+          <PintuAkun />
 
           <SaveToGoogleSection resultId={savedRowId} />
 

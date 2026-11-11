@@ -17,6 +17,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { ArrowLeft, Download, Loader2, Monitor, RefreshCw } from 'lucide-react';
 import ProjectorMode from '@/components/admin/ProjectorMode';
+import PesertaKelasAdmin from '@/components/admin/PesertaKelasAdmin';
 
 const HEXACO_LABELS: Record<string, string> = {
   honesty: 'H — Kejujuran & Kerendahan Hati',
@@ -317,6 +318,8 @@ const AdminClassSession = () => {
                 </div>
               </div>
             </div>
+
+            <PesertaKelasAdmin classId={classId} namaKelas={meta.name} />
 
             {completed.length === 0 ? (
               <div className="rounded-xl border border-dashed border-border p-12 text-center text-muted-foreground">

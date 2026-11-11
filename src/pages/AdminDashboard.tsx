@@ -22,6 +22,7 @@ import {
 import { Flame, LogOut, RefreshCw, X, Users, Presentation, FileText } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
+import PermintaanBukaKunci from '@/components/admin/PermintaanBukaKunci';
 
 interface LeadResult {
   id: string;
@@ -221,6 +222,8 @@ const AdminDashboard = () => {
       </header>
 
       <div className="container mx-auto px-6 py-8 space-y-8">
+        <PermintaanBukaKunci />
+
         {/* Title */}
         <div>
           <h1 className="text-3xl font-heading font-bold">

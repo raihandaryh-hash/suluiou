@@ -11,6 +11,8 @@
 //   - Cleared 24h after assessmentComplete flag is set
 //   - NOT cleared on refresh, tab switch, or background
 
+import { hapusSemuaDariPerangkat } from '@/lib/perangkat';
+
 const KEY = 'sulu.studentSession.v1';
 const COMPLETE_KEY = 'sulu.assessmentComplete.v1';
 // Auto-clear the saved student session 1 hour after completion so a shared
@@ -29,9 +31,8 @@ export type StudentSession =
     }
   | {
       kind: 'guest';
-      guestIdentifier: string; // guest_{phone}_{joinCode}
+      guestIdentifier: string; // tamu_<acak>_<KODE>, hanya di perangkat (Tonggak 2a)
       name: string;
-      phone: string;
       classId: string | null;
       className: string | null;
     };
@@ -61,8 +62,8 @@ export function getStudentSession(): StudentSession | null {
     if (completedAt) {
       const ts = Number(completedAt);
       if (!Number.isNaN(ts) && Date.now() - ts > COMPLETE_TTL_MS) {
-        localStorage.removeItem(KEY);
-        localStorage.removeItem(COMPLETE_KEY);
+        // Tonggak 2a (pemeriksa kode S2): perangkat kelas siap untuk siswa berikutnya, termasuk hasil dan data fase.
+        hapusSemuaDariPerangkat();
         return null;
       }
     }
@@ -114,6 +115,8 @@ export function markAssessmentComplete() {
   }
 }
 
-export function makeGuestIdentifier(phone: string, joinCode: string) {
-  return `guest_${phone.replace(/\D/g, '')}_${joinCode.toUpperCase()}`;
+/** Tonggak 2a B.1: pengenal tamu acak per perangkat, tanpa nomor HP. Hanya hidup di perangkat. */
+export function makeGuestIdentifier(joinCode: string) {
+  const acak = (typeof crypto !== 'undefined' && 'randomUUID' in crypto) ? crypto.randomUUID().replace(/-/g, '').slice(0, 16) : Math.random().toString(36).slice(2, 18);
+  return `tamu_${acak}_${joinCode.toUpperCase()}`;
 }

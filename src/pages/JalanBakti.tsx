@@ -17,6 +17,7 @@ import { jalanBaktiContent as C } from "@/data/jalanBaktiContent";
 import JalanBaktiOpening from "@/components/JalanBaktiOpening";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 import { keselamatanContent } from "@/data/keselamatanContent";
+import { bacaFase, simpanFase } from "@/lib/perangkat";
 
 type ProvinceContext = {
   economic_sectors: string[];
@@ -197,11 +198,7 @@ export default function JalanBakti() {
     (async () => {
       try {
         if (user) {
-          const { data } = await supabase
-            .from("phase_3_jalan_bakti")
-            .select("data")
-            .eq("user_id", user.id)
-            .maybeSingle();
+          const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
           if (data?.data) {
             const merged = { ...EMPTY, ...(data.data as JBData) };
             setD(merged);
@@ -256,12 +253,7 @@ export default function JalanBakti() {
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(d));
       if (user) {
-        const { error } = await supabase
-          .from("phase_3_jalan_bakti")
-          .upsert(
-            { user_id: user.id, data: d, updated_at: new Date().toISOString() },
-            { onConflict: "user_id" },
-          );
+        const { error } = await simpanFase("phase_3_jalan_bakti", user.id, d);
         if (error) throw error;
       }
       toast.success(C.ui.savedToast);
