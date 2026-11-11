@@ -1,6 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
+import { sseGemini } from "../_shared/penyedia.ts";
+import { TEKS_OBROLAN_TERKUNCI } from "../_shared/usia.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -22,14 +25,9 @@ serve(async (req) => {
   }
 
   try {
-    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-    if (!AI_API_KEY) {
-      throw new Error("AI_API_KEY is not configured");
-    }
-
     const { messages, studentContext = {} } = await req.json();
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, { messages, studentContext }, [["nama", studentContext?.studentProfile?.name]]);
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const teksUser = Array.isArray(messages)
@@ -49,10 +47,17 @@ serve(async (req) => {
     const cabang1b = await cabangKlasifikasi(
       "career-chat",
       corsHeaders,
-      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey: AI_API_KEY },
+      { ai: siap.ai, samaran: siap.samaran },
       teksUser, teksKonteks,
     );
     if (cabang1b) return cabang1b;
+
+    // Mode (c): obrolan bebas untuk di bawah 18 terkunci sampai persetujuan orang tua; pemeriksa tanda bahaya di atas tetap jalan.
+    if (siap.bawah18) {
+      return new Response(sseGemini(TEKS_OBROLAN_TERKUNCI), {
+        headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+      });
+    }
 
     const profile = studentContext.studentProfile;
     const province = studentContext.province || profile?.province || null;
@@ -146,8 +151,8 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 15000);
-    const response = await fetch(
-      `${AI_BASE_URL}/models/${AI_MODEL}:streamGenerateContent?key=${AI_API_KEY}&alt=sse`,
+    const response = await siap.aiFetch(
+      "ai:streamGenerateContent",
       {
         method: "POST",
         headers: {

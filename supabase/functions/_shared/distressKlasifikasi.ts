@@ -1,20 +1,22 @@
 // Tonggak 1 D6: lapis 1b, pengklasifikasi keselamatan kecil.
 // Dipanggil keenam edge function SESUDAH lapis 1 (daftar pemicu) tidak cocok dan
 // SEBELUM panggilan model utama. Memakai penyedia yang sama dengan fungsi pemanggil
-// (AI_BASE_URL, AI_MODEL, AI_API_KEY || GEMINI_API_KEY; Gemini generateContent).
+// (penyedia.ts: Anthropic bawaan sejak KEPUTUSAN 11 Nov 2026 10.21, Gemini lewat saklar balik).
+// Teks yang dinilai disamarkan bila pemanggil memberi Samaran.
 // - Risiko -> JSON rujukan statis yang sama dengan lapis 1 (jawabanDistress).
 // - Galat atau lewat 3 detik -> lanjut (lapis 2 tetap berlaku), log penghitung gagal.
 // - SULU_KLASIFIKASI_MATI = "1", "true", atau "ya" (tanpa membedakan huruf besar kecil) -> dilewati.
 // Log hanya penghitung: tanpa teks, tanpa identitas (B5a).
 import type { TingkatDistress } from "./distress.ts";
 import { jawabanDistress, saklarHidup } from "./distressServer.ts";
+import { panggilAI, type KonfigAI } from "./penyedia.ts";
+import type { Samaran } from "./samaran.ts";
 
 export type Risiko = TingkatDistress | "aman";
 
 export type KonfigKlasifikasi = {
-  baseUrl: string;
-  model: string;
-  apiKey?: string | null;
+  ai: KonfigAI;
+  samaran?: Samaran;
   timeoutMs?: number;
 };
 
@@ -66,43 +68,34 @@ export async function klasifikasiRisiko(
   cfg: KonfigKlasifikasi,
   fetchFn: typeof fetch = fetch,
 ): Promise<Risiko> {
-  if (!cfg.apiKey) throw new Error("kunci AI tidak ada");
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), cfg.timeoutMs ?? 3000);
   try {
-    const resp = await fetchFn(`${cfg.baseUrl}/models/${cfg.model}:generateContent?key=${cfg.apiKey}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: PROMPT_KLASIFIKASI }] },
-        contents: [{ role: "user", parts: [{ text: `<teks>\n${bersihkanPembatas(teks)}\n</teks>` }] }],
-        generationConfig: {
-          temperature: 0,
-          maxOutputTokens: 32,
-          thinkingConfig: { thinkingBudget: 0 },
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "OBJECT",
-            properties: { risiko: { type: "STRING", enum: ["bahaya_langsung", "tanda_berat", "aman"] } },
-            required: ["risiko"],
-          },
+    const data = await panggilAI(cfg.ai, {
+      system: PROMPT_KLASIFIKASI,
+      pesan: [{ role: "user", content: `<teks>\n${bersihkanPembatas(teks)}\n</teks>` }],
+      maxTokens: 32,
+      temperature: 0,
+      geminiTambahan: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          properties: { risiko: { type: "STRING", enum: ["bahaya_langsung", "tanda_berat", "aman"] } },
+          required: ["risiko"],
         },
-        // Pengklasifikasi harus bisa MEMBACA teks berisiko; filter penyedia tidak boleh menelannya.
+      },
+      // Pengklasifikasi harus bisa MEMBACA teks berisiko; filter penyedia tidak boleh menelannya.
+      geminiAkar: {
         safetySettings: [
           "HARM_CATEGORY_HARASSMENT",
           "HARM_CATEGORY_HATE_SPEECH",
           "HARM_CATEGORY_SEXUALLY_EXPLICIT",
           "HARM_CATEGORY_DANGEROUS_CONTENT",
         ].map((category) => ({ category, threshold: "BLOCK_NONE" })),
-      }),
-    });
-    if (!resp.ok) throw new Error(`status ${resp.status}`);
-    const data = await resp.json();
-    if (data?.promptFeedback?.blockReason || data?.candidates?.[0]?.finishReason === "SAFETY") {
-      return "bahaya_langsung";
-    }
-    const raw: string = data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p?.text ?? "").join("") ?? "";
+      },
+    }, { samaran: cfg.samaran, signal: controller.signal, fetchFn });
+    if (data.candidates[0]?.finishReason === "SAFETY") return "bahaya_langsung";
+    const raw = data.candidates[0]?.content?.parts?.map((p) => p?.text ?? "").join("") ?? "";
     const m = raw.match(/"risiko"\s*:\s*"(bahaya_langsung|tanda_berat|aman)"/);
     if (!m) throw new Error("jawaban tidak terbaca");
     return m[1] as Risiko;

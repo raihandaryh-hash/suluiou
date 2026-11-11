@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -62,13 +63,9 @@ serve(async (req) => {
   }
 
   try {
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL")
-      || "https://generativelanguage.googleapis.com/v1beta";
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-
-    if (!apiKey) throw new Error("AI API key is not configured");
-
+    const badan = await req.json();
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, badan);
     const {
       hexaco,
       riasec,
@@ -77,7 +74,7 @@ serve(async (req) => {
       hexacoInterpretations,
       tensionPair,
       profile,
-    } = await req.json();
+    } = badan;
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress(
@@ -92,14 +89,17 @@ serve(async (req) => {
     const cabang1b = await cabangKlasifikasi(
       "generate-layer1",
       corsHeaders,
-      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey },
+      { ai: siap.ai, samaran: siap.samaran },
       profile?.aspiration,
       profile?.contributionGoal,
       profile?.familyBackground,
     );
     if (cabang1b) return cabang1b;
 
-    const safeProfile = profile || {};
+    // Mode (c): teks bebas profil (latar keluarga, tujuan kontribusi, aspirasi) tidak dikirim ke AI untuk di bawah 18.
+    const safeProfile = siap.bawah18
+      ? { ...(profile || {}), familyBackground: undefined, contributionGoal: undefined, aspiration: undefined }
+      : (profile || {});
     const interp = hexacoInterpretations || {};
     const tension = tensionPair || { label: '(belum terdeteksi)', detail: '' };
 
@@ -140,7 +140,7 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
-        response = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
+        response = await siap.aiFetch("ai:generateContent", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

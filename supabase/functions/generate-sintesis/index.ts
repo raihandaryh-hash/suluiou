@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -33,21 +34,17 @@ serve(async (req) => {
   }
 
   try {
-    const AI_API_KEY = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL =
-      Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-    if (!AI_API_KEY) throw new Error("AI_API_KEY is not configured");
-
     const body = await req.json();
-    const fondasi: { q: string; a: string }[] = Array.isArray(body.fondasi)
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, body);
+    let fondasi: { q: string; a: string }[] = Array.isArray(body.fondasi)
       ? body.fondasi.map((x: { q: unknown; a: unknown }) => ({ q: clip(x?.q, 120), a: clip(x?.a) }))
       : [];
     const skills: string[] = Array.isArray(body.skills) ? body.skills.map((s: unknown) => clip(s, 80)) : [];
     const bakti: string[] = Array.isArray(body.bakti) ? body.bakti.map((s: unknown) => clip(s, 120)) : [];
     const siapa: string[] = Array.isArray(body.siapa) ? body.siapa.map((s: unknown) => clip(s, 80)) : [];
     const roles: string[] = Array.isArray(body.roles) ? body.roles.map((s: unknown) => clip(s, 80)) : [];
-    const langkah = clip(body.langkah);
+    let langkah = clip(body.langkah);
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress(
@@ -61,11 +58,14 @@ serve(async (req) => {
     const cabang1b = await cabangKlasifikasi(
       "generate-sintesis",
       corsHeaders,
-      { baseUrl: AI_BASE_URL, model: AI_MODEL, apiKey: AI_API_KEY },
+      { ai: siap.ai, samaran: siap.samaran },
       Array.isArray(body.fondasi) ? body.fondasi.map((x: { a?: unknown }) => x?.a) : [],
       body.langkah,
     );
     if (cabang1b) return cabang1b;
+    // Mode (c): jawaban tertulis (fondasi) dan langkah yang ditulis sendiri tidak dikirim ke AI untuk di bawah 18;
+    // pilihan kemampuan, tantangan, kelompok, dan peran tetap.
+    if (siap.bawah18) { fondasi = []; langkah = ""; }
 
     const ctx = [
       fondasi.length
@@ -106,8 +106,8 @@ Aturan wajib:
 
 "catatan": satu kalimat penutup yang mengingatkan bahwa tenunan ini cermin sementara yang bisa berubah seiring ia tumbuh, dan keputusan selalu di tangannya.`;
 
-    const response = await fetch(
-      `${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${AI_API_KEY}`,
+    const response = await siap.aiFetch(
+      "ai:generateContent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
+import { siapkanAI } from "../_shared/ai.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
@@ -32,6 +33,8 @@ JANGAN menyebut IOU, nama kampus, atau program studi apapun
 Nama siswa sudah diganti menjadi "kamu" sebelum sampai ke sini — pertahankan "kamu" saja`;
 
 const FALLBACK = "Refleksimu sudah tersimpan. Untuk melihat ringkasan, coba muat ulang halaman ini.";
+// Mode (c): seluruh masukan fungsi ini teks bebas, jadi untuk di bawah 18 AI tidak dipanggil. DRAF rumusan.
+const TERKUNCI_BAWAH18 = "Refleksimu sudah tersimpan. Ringkasan dari Sulu akan terbuka setelah orang tua atau wali kamu memberi izin.";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -46,6 +49,8 @@ serve(async (req) => {
 
   try {
     const { session_id, values_top3, possible_selves, odyssey_plans } = await req.json();
+    // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
+    const siap = await siapkanAI(req, { values_top3, possible_selves, odyssey_plans });
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("generate-reflection", corsHeaders, possible_selves, odyssey_plans);
@@ -54,11 +59,7 @@ serve(async (req) => {
     const cabang1b = await cabangKlasifikasi(
       "generate-reflection",
       corsHeaders,
-      {
-        baseUrl: Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta",
-        model: Deno.env.get("AI_MODEL") || "gemini-2.5-flash",
-        apiKey: Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY"),
-      },
+      { ai: siap.ai, samaran: siap.samaran },
       possible_selves, odyssey_plans,
     );
     if (cabang1b) return cabang1b;
@@ -89,22 +90,18 @@ Lintasan C (${planC.judul}): ${planC.gambaran}
 
 Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 200-300 kata. Awali dengan "Dari yang kamu tuliskan sendiri..."`;
 
-    const apiKey = Deno.env.get("AI_API_KEY") || Deno.env.get("GEMINI_API_KEY");
-    const AI_BASE_URL = Deno.env.get("AI_BASE_URL") || "https://generativelanguage.googleapis.com/v1beta";
-    const AI_MODEL = Deno.env.get("AI_MODEL") || "gemini-2.5-flash";
-
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, serviceKey);
 
-    let narrative = FALLBACK;
+    let narrative = siap.bawah18 ? TERKUNCI_BAWAH18 : FALLBACK;
     let keluaranDistress: Response | null = null;
 
-    if (apiKey) {
+    if (!siap.bawah18) {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 25000);
-        const aiResp = await fetch(`${AI_BASE_URL}/models/${AI_MODEL}:generateContent?key=${apiKey}`, {
+        const aiResp = await siap.aiFetch("ai:generateContent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -147,8 +144,6 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
       } catch (e) {
         console.error("AI call failed:", e);
       }
-    } else {
-      console.error("No AI API key configured");
     }
 
     // Keluaran distress dikembalikan SEBELUM tulis DB apa pun (teks rujukan tidak disimpan).
