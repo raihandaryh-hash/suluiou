@@ -29,6 +29,13 @@
       "when": 1794387473097,
       "tag": "0003_izin_per_tujuan",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794388944965,
+      "tag": "0004_catatan_sulu_izin",
+      "breakpoints": true
     }
   ]
 }

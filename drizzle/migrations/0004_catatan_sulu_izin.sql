@@ -1,0 +1,1 @@
+COMMENT ON TABLE public.sulu_izin IS 'Izin per tujuan (Tonggak 1b): dihubungi_kuliah dan hasil_untuk_tawaran.';
