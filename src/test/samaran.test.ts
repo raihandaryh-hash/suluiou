@@ -321,3 +321,9 @@ describe("samaran · regresi pemeriksa keempat ebbd8ab", () => {
     it(`nama sesudah klitik dan nama ulang: ${x}`, () => { const s = new Samaran(x); const k = s.samarkan(x); expect(k).not.toMatch(bocor); expect(s.buka(k)).toBe(x); });
   }
 });
+
+describe("samaran · temuan sedang pemeriksa kelima a4cc419", () => {
+  for (const x of ["pak Budi-nya Allah maha baik, Allah", "pak Budi-nya Senin depan, Senin", "Pak Anak-anak datang", "bu Teman-teman saya"]) {
+    it(`kata umum tetap: ${x}`, () => { const k = new Samaran(x).samarkan(x); expect(k).toMatch(/Allah|Senin|Anak-anak|Teman-teman/); });
+  }
+});

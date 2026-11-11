@@ -46,6 +46,9 @@ const POLA_SAPAAN = new RegExp(`(?<![\\p{L}\\p{N}])(?:${tigaVarian(SAPAAN)})\\.?
 const POLA_KONTEKS = new RegExp(`(?<![\\p{L}\\p{N}])(?:${KONTEKS_KUAT})[ \\t]+()(${KATA})(?=((?:[ \\t]+${KATA}){0,2}))`, "gu");
 const awalKapital = (w: string) => /^\p{Lu}\p{Ll}/u.test(w);
 /** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
+// Kata Kapital umum yang bisa muncul sesudah nama berklitik (pemeriksa kelima, temuan 1): lafaz, hari, bulan, kata waktu.
+const BUKAN_SESUDAH_KLITIK = new Set(`allah tuhan rasulullah nabi senin selasa rabu kamis jumat sabtu minggu ahad besok kemarin lusa hari tadi nanti
+januari februari maret april mei juni juli agustus september oktober november desember terima tolong mohon semoga insya insyaallah alhamdulillah`.split(/\s+/));
 const KLITIK = /-(?:nya|lah|pun|kah|ku|mu)$/iu;
 /** Kata calon nama tanpa klitik ("Rina-nya" → "Rina"), atau null bila kata biasa, termasuk bentuk ulang ("guru-guru", "mas-mas"). */
 function bersihkan(w: string): string | null {
@@ -53,7 +56,7 @@ function bersihkan(w: string): string | null {
   const bagian = k.split("-");
   if (k.length < 2 || BUKAN_SESUDAH_SAPAAN.has(bagian[0].toLowerCase())) return null;
   // Kata ulang ("guru-guru", "mas-mas") bukan nama; nama asli berbentuk ulang ("Hari-Hari") tetap nama.
-  if (bagian.length > 1 && !awalKapital(bagian[0]) && bagian.every((x) => x.toLowerCase() === bagian[0].toLowerCase())) return null;
+  if (bagian.length > 1 && !bagian.every((x) => awalKapital(x)) && bagian.every((x) => x.toLowerCase() === bagian[0].toLowerCase())) return null;
   return k;
 }
 /** Nama dari satu cocokan, atau null. Rangkaian lanjut hanya bila kata pertama dan lanjutannya berbentuk Huruf Awal Besar. */
@@ -78,7 +81,7 @@ function namaSesudahKlitik(kataStr: string, nama: string): string | null {
   const n = nama.split(" ").length;
   if (kata.length <= n || !KLITIK.test(kata[n - 1])) return null;
   const b = bersihkan(kata[n]);
-  return b && awalKapital(b) ? b : null;
+  return b && awalKapital(b) && !BUKAN_SESUDAH_KLITIK.has(b.toLowerCase()) ? b : null;
 }
 /**
  * Calon nama orang lain di teks: kata sesudah sapaan (sapaan bertumpuk dilompati), atau sesudah "atas nama"/"bernama".
