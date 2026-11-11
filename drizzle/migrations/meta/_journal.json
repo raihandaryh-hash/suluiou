@@ -50,6 +50,13 @@
       "when": 1794391896218,
       "tag": "0006_rilis_keamanan_1c",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794421553059,
+      "tag": "0007_pintu_masuk_2a",
+      "breakpoints": true
     }
   ]
 }

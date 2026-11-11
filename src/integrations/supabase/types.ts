@@ -631,6 +631,98 @@ export type Database = {
         }
         Relationships: []
       }
+      sulu_alarm_laju: {
+        Row: {
+          aksi: string
+          dicatat_pada: string
+          id: number
+          jendela: string
+          jumlah: number
+        }
+        Insert: {
+          aksi: string
+          dicatat_pada?: string
+          id?: number
+          jendela: string
+          jumlah: number
+        }
+        Update: {
+          aksi?: string
+          dicatat_pada?: string
+          id?: number
+          jendela?: string
+          jumlah?: number
+        }
+        Relationships: []
+      }
+      sulu_batas_laju: {
+        Row: {
+          aksi: string
+          jendela: string
+          jumlah: number
+          kunci: string
+        }
+        Insert: {
+          aksi: string
+          jendela: string
+          jumlah?: number
+          kunci: string
+        }
+        Update: {
+          aksi?: string
+          jendela?: string
+          jumlah?: number
+          kunci?: string
+        }
+        Relationships: []
+      }
+      sulu_hitung_kelas: {
+        Row: {
+          class_id: string
+          jenis: string
+          jumlah: number
+          tanggal: string
+        }
+        Insert: {
+          class_id: string
+          jenis: string
+          jumlah?: number
+          tanggal: string
+        }
+        Update: {
+          class_id?: string
+          jenis?: string
+          jumlah?: number
+          tanggal?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sulu_hitung_kelas_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sulu_ip_mitra: {
+        Row: {
+          catatan: string | null
+          ip: string
+          pengali: number
+        }
+        Insert: {
+          catatan?: string | null
+          ip: string
+          pengali?: number
+        }
+        Update: {
+          catatan?: string | null
+          ip?: string
+          pengali?: number
+        }
+        Relationships: []
+      }
       sulu_izin: {
         Row: {
           diberikan_pada: string
@@ -675,6 +767,139 @@ export type Database = {
           },
         ]
       }
+      sulu_pengaturan: {
+        Row: {
+          kunci: string
+          nilai: string | null
+        }
+        Insert: {
+          kunci: string
+          nilai?: string | null
+        }
+        Update: {
+          kunci?: string
+          nilai?: string | null
+        }
+        Relationships: []
+      }
+      sulu_permintaan_buka_kunci: {
+        Row: {
+          dibuat_pada: string
+          ditangani_oleh: string | null
+          ditangani_pada: string | null
+          id: string
+          user_id: string
+        }
+        Insert: {
+          dibuat_pada?: string
+          ditangani_oleh?: string | null
+          ditangani_pada?: string | null
+          id?: string
+          user_id: string
+        }
+        Update: {
+          dibuat_pada?: string
+          ditangani_oleh?: string | null
+          ditangani_pada?: string | null
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      sulu_peserta: {
+        Row: {
+          class_id: string
+          diaktifkan_pada: string | null
+          dibuat_pada: string
+          dicabut_pada: string | null
+          dicatat_oleh: string
+          id: string
+          izin_asesmen_ai: boolean
+          izin_dihubungi_kuliah: boolean
+          izin_hasil_untuk_tawaran: boolean
+          kode_hmac: string
+          kunci_versi: number
+          nama_orang_tua: string
+          nama_panggilan: string
+          pin_hmac: string | null
+          pin_salah: number
+          tanggal_formulir: string
+          user_id_aktif: string | null
+        }
+        Insert: {
+          class_id: string
+          diaktifkan_pada?: string | null
+          dibuat_pada?: string
+          dicabut_pada?: string | null
+          dicatat_oleh: string
+          id?: string
+          izin_asesmen_ai?: boolean
+          izin_dihubungi_kuliah?: boolean
+          izin_hasil_untuk_tawaran?: boolean
+          kode_hmac: string
+          kunci_versi?: number
+          nama_orang_tua: string
+          nama_panggilan: string
+          pin_hmac?: string | null
+          pin_salah?: number
+          tanggal_formulir: string
+          user_id_aktif?: string | null
+        }
+        Update: {
+          class_id?: string
+          diaktifkan_pada?: string | null
+          dibuat_pada?: string
+          dicabut_pada?: string | null
+          dicatat_oleh?: string
+          id?: string
+          izin_asesmen_ai?: boolean
+          izin_dihubungi_kuliah?: boolean
+          izin_hasil_untuk_tawaran?: boolean
+          kode_hmac?: string
+          kunci_versi?: number
+          nama_orang_tua?: string
+          nama_panggilan?: string
+          pin_hmac?: string | null
+          pin_salah?: number
+          tanggal_formulir?: string
+          user_id_aktif?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sulu_peserta_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sulu_token_peserta: {
+        Row: {
+          berlaku_sampai: string
+          peserta_id: string
+          sidik: string
+        }
+        Insert: {
+          berlaku_sampai: string
+          peserta_id: string
+          sidik: string
+        }
+        Update: {
+          berlaku_sampai?: string
+          peserta_id?: string
+          sidik?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sulu_token_peserta_peserta_id_fkey"
+            columns: ["peserta_id"]
+            isOneToOne: false
+            referencedRelation: "sulu_peserta"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           id: string
@@ -700,7 +925,8 @@ export type Database = {
           id: string
           name: string
           persona: string | null
-          whatsapp: string
+          user_id: string | null
+          whatsapp: string | null
         }
         Insert: {
           created_at?: string
@@ -708,7 +934,8 @@ export type Database = {
           id?: string
           name: string
           persona?: string | null
-          whatsapp: string
+          user_id?: string | null
+          whatsapp?: string | null
         }
         Update: {
           created_at?: string
@@ -716,7 +943,8 @@ export type Database = {
           id?: string
           name?: string
           persona?: string | null
-          whatsapp?: string
+          user_id?: string | null
+          whatsapp?: string | null
         }
         Relationships: []
       }
@@ -725,6 +953,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      boleh_simpan: { Args: { p_uid: string }; Returns: boolean }
       cari_kelas_dari_kode: {
         Args: { p_kode: string }
         Returns: {
@@ -757,10 +986,32 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
+      izin_peserta_aktif: { Args: { p_peserta: string }; Returns: boolean }
+      sulu_bersihkan_laju: { Args: never; Returns: undefined }
+      sulu_boleh_tanya: { Args: { p_uid: string }; Returns: boolean }
+      sulu_catat_peristiwa: {
+        Args: { p_nama: string; p_props: Json; p_sesi: string }
+        Returns: undefined
+      }
+      sulu_daftar_tunggu: {
+        Args: {
+          p_email: string
+          p_nama: string
+          p_persona: string
+          p_whatsapp: string
+        }
+        Returns: undefined
+      }
+      sulu_dewasa: { Args: { p_uid: string }; Returns: boolean }
+      sulu_hitung_laju: {
+        Args: { p_aksi: string; p_batas: number; p_kunci: string }
+        Returns: boolean
+      }
       sulu_hitung_skor: {
         Args: { r: Database["public"]["Tables"]["assessment_results"]["Row"] }
         Returns: number
       }
+      sulu_ip_pemanggil: { Args: never; Returns: string }
       sulu_isi_kontak: {
         Args: {
           p_hp: string
@@ -773,6 +1024,25 @@ export type Database = {
           p_surel: string
         }
         Returns: boolean
+      }
+      sulu_kode_acak: { Args: { p_panjang: number }; Returns: string }
+      sulu_kode_kelas_baru: { Args: never; Returns: string }
+      sulu_laju_ok: {
+        Args: { p_aksi: string; p_batas_ip: number; p_tambahan?: string }
+        Returns: boolean
+      }
+      sulu_laju_ok_ip: {
+        Args: {
+          p_aksi: string
+          p_batas_ip: number
+          p_ip: string
+          p_tambahan?: string
+        }
+        Returns: boolean
+      }
+      sulu_naikkan_hitung: {
+        Args: { p_class: string; p_jenis: string }
+        Returns: undefined
       }
     }
     Enums: {
