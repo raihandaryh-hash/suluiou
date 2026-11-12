@@ -2,24 +2,36 @@ apiVersion: v3.1.0
 kind: DataContract
 id: ssgi-2024
 name: Survei Status Gizi Indonesia 2024
-version: 0.1.0
+version: 0.2.0
 status: draft
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
-  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
-    produk resmi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
 team:
 - name: Kementerian Kesehatan (BKPK)
   role: pemilik data
 servers:
-- server: utama
+- server: buku-dalam-angka
   type: https
-  url: https://www.badankebijakan.kemkes.go.id/
+  url: https://drive.usercontent.google.com/download?id=1FmhMtFsElv0l95YNGqsoKy5xJh-m-glM&export=download
+  description: Buku Hasil SSGI 2024 Dalam Angka, ditautkan dari https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/
 customProperties:
 - property: tingkat_wilayah
-  value: kabkota
-- property: syarat_pakai_kutipan
-  value: 'BELUM: wajib dikutip di SU-0'
+  value: kabkota (514; Tabel 4.3–4.40) dan provinsi (Tabel 4.1)
+- property: berkas_sha256
+  value: 06eae149a5f84888c1f0dab6ce8506a2dbf2e3ad93da3c2809f09e091e2a7c65
+- property: berkas_meta
+  value: PDF 352 halaman, 16.198.994 bita, dibuat 15 Agu 2025
 - property: SU-0
-  value: laman induk 200 (12 Nov 18.20); unduhan tabel per kab/kota belum ditemukan
-    (RISET §6)
+  value: 'akses LOLOS 12 Nov 2026 18.26 WIB: dua unduhan terpisah (laptop dan ruang kerja) memberi sidik sama'
+- property: syarat_pakai_kutipan
+  value: 'TIDAK DITEMUKAN. Dicari di 4 laman BKPK (ssgi-2024, survei-status-gizi-indonesia-ssgi-2024, laporan-hasil-survei,
+    layanan-permintaan-data) dan teks penuh PDF (kata: hak cipta, dilarang, diperbanyak, mengutip, dikutip, sitasi,
+    lisensi, creative commons, ISBN). G1.7 TERTAHAN sampai ada syarat tertulis dari BKPK.'
+- property: pengurai
+  value: mesin/parser/ssgi_2024.py; pemeriksa mesin/parser/periksa_ssgi_2024.py
+- property: cacat_terbitan
+  value: 6 sel nilai di luar CI-nya sendiri (Aceh Barat Daya overweight, Katingan wasting, Tana Tidung/Nunukan/Kota
+    Tarakan stunting, Aceh provinsi stunting); 1 baris kolom hilang (Ponorogo); semuanya ditekan otomatis
+- property: publikasi_kedua
+  value: 'BELUM ADA untuk G1.3. Kandidat: permintaan data lewat layanandata.kemkes.go.id; publikasi dinkes provinsi'
