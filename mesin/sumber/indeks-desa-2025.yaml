@@ -2,12 +2,11 @@ apiVersion: v3.1.0
 kind: DataContract
 id: indeks-desa-2025
 name: Indeks Desa 2025
-version: 0.1.0
-status: draft
+version: 0.2.0
+status: retired
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
-  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
-    produk resmi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
 team:
 - name: Kementerian Desa PDT
   role: pemilik data
@@ -21,5 +20,6 @@ customProperties:
 - property: syarat_pakai_kutipan
   value: 'BELUM: wajib dikutip di SU-0'
 - property: SU-0
-  value: 'GAGAL: sertifikat TLS tidak dipercaya PowerShell (12 Nov 18.20); coba lewat
-    data.go.id'
+  value: 'GAGAL 13 Nov 2026: idm.kemendesa.go.id menyajikan sertifikat TLS kedaluwarsa (curl schannel SEC_E_CERT_EXPIRED);
+    pemeriksaan TLS tidak dimatikan. Unduhan nasional tidak ditemukan (2 kueri); hanya portal kabupaten (Sumbawa
+    Barat, Kutai Barat) yang menerbitkan potongan. Per aturan G1.0, diganti dari bank sebelum ME2.'
