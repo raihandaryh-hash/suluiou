@@ -43,3 +43,6 @@ customProperties:
     daftar wilayah induk (0 gagal; Ponorogo tetap tanpa kolom severe wasting).
 - property: G1.3_status
   value: 'belum: publikasi kedua independen belum ada'
+- property: G1.5
+  value: 'RSE didekati dari CI 95% terbit; stunting: 509 andal, 1 hati_hati, 3 ditekan, 0 tidak_diketahui. G1.5
+    LULUS.'

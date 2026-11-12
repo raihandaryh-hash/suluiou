@@ -30,9 +30,6 @@ customProperties:
 - property: G1.0-G1.3
   value: 514/514 kode resmi bernilai; cocok dengan tabel provinsi 310/310 pasangan (231 tanpa pasangan); Jumlah
     selalu diapit Laki-laki dan Perempuan; mutasi 100/100
-- property: G1.5
-  value: RSE Sakernas kab/kota terbit di publikasi Sampling Error Sakernas per provinsi (contoh DKI Jakarta 2023),
-    belum dipanen; sementara semua sel hati_hati per aturan beku
 - property: syarat_pakai_kutipan
   value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
 - property: catatan_wilayah
@@ -43,3 +40,7 @@ customProperties:
     dinamis, diakses 13 Nov 2026.
 - property: G1.3_status
   value: lulus
+- property: G1.5
+  value: 'Pencarian publikasi "sampling error" di 35 domain BPS (13 Nov 2026): hanya DKI Jakarta menerbitkan Sampling
+    Error Sakernas (2023, 2024, 2025). Per aturan beku G1.5: kab/kota di luar DKI hati_hati; DKI dapat memakai RSE
+    terbit saat diurai. G1.5 LULUS lewat jalur cadangan.'

@@ -26,8 +26,6 @@ customProperties:
   value: '2025: 505 kab/kota bernilai (9 kode resmi tanpa nilai, wilayah Papua); cocok dengan tabel provinsi 108/108
     pasangan dari 9 provinsi; 2024: 139/139 (2 karena tabel provinsi dibulatkan); 0 berbeda; rentang 0-100 terpenuhi;
     mutasi 100/100.'
-- property: G1.5
-  value: RSE Susenas kab/kota belum dipanen; semua sel hati_hati per aturan beku
 - property: syarat_pakai_kutipan
   value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
 - property: wilayah
@@ -38,3 +36,6 @@ customProperties:
     Kabupaten/Kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
 - property: G1.3_status
   value: lulus
+- property: G1.5
+  value: 'Publikasi sampling error Susenas tidak ditemukan di 35 domain BPS (13 Nov 2026). Per aturan beku G1.5:
+    hati_hati. G1.5 LULUS lewat jalur cadangan.'

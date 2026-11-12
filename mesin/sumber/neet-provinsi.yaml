@@ -25,10 +25,11 @@ customProperties:
     di 34 domain provinsi: 4 variabel kandidat, 0 pasangan provinsi).'
 - property: G1.3_status
   value: 'belum: publikasi kedua (buku Indikator Pasar Tenaga Kerja atau publikasi SDG BPS) belum diurai'
-- property: G1.5
-  value: RSE belum dipanen; hati_hati per aturan beku
 - property: syarat_pakai_kutipan
   value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
 - property: sitasi
   value: Badan Pusat Statistik. Persentase Usia Muda (15-24 Tahun) yang Tidak Sekolah, Bekerja, atau Mengikuti Pelatihan
     menurut Provinsi, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
+- property: G1.5
+  value: 'Publikasi sampling error Sakernas tingkat nasional tidak ditemukan; per aturan beku G1.5: hati_hati. G1.5
+    LULUS lewat jalur cadangan.'

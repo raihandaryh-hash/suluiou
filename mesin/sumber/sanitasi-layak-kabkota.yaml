@@ -25,8 +25,6 @@ customProperties:
 - property: G1.0-G1.3
   value: '2025: 504 kab/kota bernilai; tabel provinsi cocok 79 pasangan, berbeda 15; 2024: cocok 110, berbeda 15;
     mutasi 100/100.'
-- property: G1.5
-  value: RSE Susenas kab/kota belum dipanen; semua sel hati_hati per aturan beku
 - property: syarat_pakai_kutipan
   value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
 - property: wilayah
@@ -41,3 +39,6 @@ customProperties:
     kabupaten/kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
 - property: G1.3_status
   value: lulus (15 sel berselisih ditekan)
+- property: G1.5
+  value: 'Publikasi sampling error Susenas tidak ditemukan di 35 domain BPS (13 Nov 2026). Per aturan beku G1.5:
+    hati_hati. G1.5 LULUS lewat jalur cadangan.'

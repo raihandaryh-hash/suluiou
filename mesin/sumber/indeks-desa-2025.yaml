@@ -50,5 +50,14 @@ customProperties:
   value: Kode Kemendagri di SID TIDAK searah dengan kode domain BPS (contoh Kemendagri 1101 Aceh Selatan, BPS 1101
     Simeulue; 178 dari 428 pasangan berbeda kode). Penggabungan antarsumber wajib lewat mesin/parser/wilayah_induk.py
     (pencocokan nama di dalam provinsi).
+- property: G1.5
+  value: 'Data registrasi desa tanpa galat sampel: keandalan administratif (aturan skema 2). G1.5 tidak berlaku.'
+- property: publikasi_kedua
+  value: 'Keputusan Menteri Desa PDT Nomor 343 Tahun 2025 (27 Agu 2025), dikutip sekunder lewat GoodStats 21 Nov
+    2025 (https://data.goodstats.id/statistic/5-provinsi-dengan-jumlah-desa-mandiri-terbanyak-2025-d4kO5). Desa
+    mandiri 5 provinsi: SID lebih rendah 6-76 desa (Jatim 4.682 vs 4.716; Jabar 2.698 vs 2.774; Jateng 2.182 vs
+    2.208; Kalbar 1.039 vs 1.045; Kalsel 954 vs 960). Dugaan, belum diuji: SID memuat keadaan sesudah Kepmendes,
+    termasuk 2.030 desa berstatus belum dihitung. Teks primer Kepmendes 343/2025 belum ditemukan (2 kueri, jdih.kemendesa).'
 - property: G1.3_status
-  value: 'belum: publikasi kedua independen belum ada'
+  value: 'belum: berselisih dengan publikasi kedua (sekunder), penjelasan belum diuji; kartu wajib menyebut sumber
+    SID dan tanggal aksesnya, bukan status hukum Kepmendes'

@@ -32,10 +32,6 @@ customProperties:
 - property: G1.0-G1.3
   value: 514/514 kab/kota terpetakan ke kode BPS unik; jumlah penduduk miskin kab/kota = angka provinsi pada 38/38
     provinsi; P0 cocok dengan tabel dinamis WebAPI pada 392/392 pasangan (122 tanpa pasangan); mutasi 100/100 tertangkap
-- property: G1.5
-  value: 'RSE kab/kota tidak terbit di buku (grep RSE, Relative Standard, kesalahan baku, sampling error: 0 temuan).
-    Estimasi kab/kota diturunkan dari P0 provinsi (Bab 1.2), jadi per aturan beku G1.5 semua sel berlabel hati_hati
-    sampai publikasi sampling error ditemukan'
 - property: syarat_pakai_kutipan
   value: 'Syarat tertulis BPS (Syarat Penggunaan situs BPS, butir 2 dan 2.2, dikutip dari https://acehjayakab.bps.go.id/id/term-of-use
     pada 13 Nov 2026; https://www.bps.go.id/assets/term-of-use menolak pengambilan otomatis): konten "diberikan
@@ -50,3 +46,7 @@ customProperties:
     BPS, 2025.'
 - property: G1.3_status
   value: lulus
+- property: G1.5
+  value: 'RSE kab/kota tidak terbit: buku tanpa RSE, dan pencarian publikasi "sampling error" di 35 domain BPS (13
+    Nov 2026, 80 publikasi) tidak memuat Susenas. Estimasi kab/kota diturunkan dari P0 provinsi. Per aturan beku
+    G1.5: semua sel hati_hati. G1.5 LULUS lewat jalur cadangan.'
