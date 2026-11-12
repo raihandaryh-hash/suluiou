@@ -1,0 +1,2 @@
+populasi     TPR 50/90 (LB 0.453) | TNR 50/50 (LB 0.929) | tuduh lintas mode 0/60 | lolos per asal {'penulis_nyata': 40} | n masuk 200
+sebab        TPR 56/57 (LB 0.907) | TNR 50/50 (LB 0.929) | tuduh lintas mode 0/60 | lolos per asal {'penulis_nyata': 1} | n masuk 167

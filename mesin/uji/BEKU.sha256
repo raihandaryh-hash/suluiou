@@ -4,3 +4,11 @@ d097e11314bede543a035488d3acaa8f0bcc03a88730b8f7b25f471ca09bb230  uji/SU5_vonis_
 de1dcdc7693bad9fdbe53bb397465d3611f61f4dfa3dd18675e38ebc5f68350d  bank/bank_kandidat_v1.yaml
 df8f006b9e7d1b10000b4a1914c1669033fe7f51d609f00be5b6a8ca6fdd3506  bank/bobot_v1.yaml
 dc2a393cc8efad62f9a33436d299171cdbea4c157ea1fb53f5836bfad6316df5  kontrak/jalur-jelajah-1.schema.json
+# Tambahan 13 Nov 2026: SU-2 separuh terbuka, aturan mode, prompt juri dibekukan sebelum juri pertama dijalankan.
+084b0ba7d6e3d890b3222105d74afb7a1a15277782bdad386dc1a8b97dd12462  uji/SU2_ATURAN.md
+4a36e035972bd19136bc1bbca2c70d53a96d87eb02dc3557631f5ad6b52e673f  uji/SU2_terbuka.jsonl
+66f1f22711228fadf1abde53b50bbbed4003456c36d80ac2fde8b5e26aa82de6  uji/SU2_kartu_terbuka.jsonl
+8ef152b82796ca16dd1afd4abfa16d6d513f94af1912c7a93a5322aaaadaeafe  juri/PROMPT_JURI.md
+6216bc069407b65c5668a3a4f16f58126353d2debf537327136fe9fb5e243339  juri/definisi_mode.json
+# 13 Nov 2026: prompt juri final v3 dibekukan sebelum separuh tersembunyi SU-2 dinilai.
+b9c86b1c6b20bd0747d79bd43176ff2b437c05195f7c8663857caaf829aeac05  juri/PROMPT_JURI_v3.md
