@@ -21,6 +21,10 @@ servers:
   url: https://webapi.bps.go.id/v1/api/
   description: tabel dinamis BPS provinsi (pembanding G1.3)
 customProperties:
+- property: G1.3m
+  value: 'SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 (kolom_bergeser 25/25, tahun_sebelah 25/25, koma_desimal 25/25, sae_ditukar 24/25) LULUS. Seluruh tabel: 87/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+- property: cakupan_terverifikasi
+  value: 'Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 392 kab/kota di 26 provinsi.'
 - property: sidik_l3
   value: '93a658d3d2c4 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, alat/dikk_2025.py atas DIKK-2025.pdf)'
 - property: dipakai_kartu

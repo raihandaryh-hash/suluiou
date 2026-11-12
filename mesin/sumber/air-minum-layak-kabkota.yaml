@@ -20,6 +20,10 @@ servers:
   url: https://webapi.bps.go.id/v1/api/
   description: tabel kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
+- property: G1.3m
+  value: 'SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 (25/25, 24/25, 25/25, 25/25) LULUS. Seluruh tabel: 29/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+- property: cakupan_terverifikasi
+  value: 'Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 108 kab/kota di 9 provinsi.'
 - property: sidik_l3
   value: '176db7066fc3 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
 - property: dipakai_kartu
