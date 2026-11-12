@@ -12,3 +12,7 @@ dc2a393cc8efad62f9a33436d299171cdbea4c157ea1fb53f5836bfad6316df5  kontrak/jalur-
 6216bc069407b65c5668a3a4f16f58126353d2debf537327136fe9fb5e243339  juri/definisi_mode.json
 # 13 Nov 2026: prompt juri final v3 dibekukan sebelum separuh tersembunyi SU-2 dinilai.
 b9c86b1c6b20bd0747d79bd43176ff2b437c05195f7c8663857caaf829aeac05  juri/PROMPT_JURI_v3.md
+# 13 Nov 2026: persona SU-4 dan pasangan SU-6 dibekukan sebelum L6 ditulis.
+f562d58200903d44a7d5442eda57e09a0e59e5374565bd30d087d20ae52e0b17  uji/persona.py
+4a6967399f3754df2ee26bb172f80bb180eacad549c11a0847d693571567ba27  uji/persona/SU4_persona.json
+7f63754896e8ac4604ded18b346cb32b61dcbc4e9afbc0bfbe114b5a30333791  uji/persona/SU6_kontrafaktual.json
