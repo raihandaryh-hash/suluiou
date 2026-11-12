@@ -34,6 +34,10 @@ else:
     if hashlib.sha256(open(os.path.join(tmp, "jalur-jelajah-1.schema.json"), "rb").read()).hexdigest() != \
        hashlib.sha256(open(os.path.join(AKAR, "kontrak/jalur-jelajah-1.schema.json"), "rb").read()).hexdigest():
         gagal.append("G4.1: skema di repo berbeda dari keluaran generator")
+# G1.1 dan G1.4: provenans dan teks kartu (fixture)
+rk = subprocess.run([sys.executable, os.path.join(AKAR, "alat/periksa_kartu.py")], capture_output=True, text=True)
+print(rk.stdout.strip())
+if rk.returncode != 0: gagal.append("G1.1/G1.4: kartu cacat")
 # G1.0 dan G1.7: registri sumber
 rs = subprocess.run([sys.executable, os.path.join(AKAR, "alat/periksa_sumber.py")], capture_output=True, text=True)
 print(rs.stdout.strip())
