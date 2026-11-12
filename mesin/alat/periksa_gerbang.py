@@ -16,9 +16,14 @@ for m in ["K1","K2","K3","K4","K5","K6","K7"]:
 if len({k['id'] for k in bank}) != len(bank): gagal.append("G2.0: id ganda")
 # Pembekuan: sidik berkas beku harus cocok dengan BEKU.sha256
 beku = os.path.join(AKAR, "uji/BEKU.sha256")
+# Berkas tertulis lebih dari sekali: baris terakhir yang berlaku, baris lama tetap sebagai riwayat (BEKU hanya ditambah).
+# Entri "laptop:" berada di luar repo dan diperiksa di laptop, bukan di CI.
+terakhir = {}
 for baris in open(beku):
     if not baris.strip() or baris.startswith("#"): continue
-    h, p = baris.split(None, 1); p = p.strip()
+    h, p = baris.split(None, 1); terakhir[p.strip()] = h
+for p, h in terakhir.items():
+    if p.startswith("laptop:"): continue
     jalur = os.path.join(AKAR, p)
     if not os.path.exists(jalur): gagal.append(f"BEKU: {p} hilang"); continue
     if hashlib.sha256(open(jalur, "rb").read()).hexdigest() != h: gagal.append(f"BEKU: {p} berubah sesudah dibekukan")
