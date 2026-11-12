@@ -52,7 +52,7 @@ def urai_berkas(path, wilayah=None):
         if not cocok: tolak.append(f"{os.path.basename(path)}: kunci {kunci} tak terurai"); continue
         vv, tv, th, tt = cocok
         prov2 = os.path.basename(path)[:2]
-        if re.fullmatch(r"\d{4}", vv) and vv[:2] == prov2:
+        if re.fullmatch(r"\d{4}", vv) and (vv[:2] == prov2 or prov2 == "00"):  # domain 0000 memakai kode wilayah penuh
             kode, cara = vv, "kode_vervar"
         elif re.search(r"^(jumlah|total|indonesia)$", nama[vv].strip().lower()):
             kode, cara = prov2 + "00", "baris_jumlah"

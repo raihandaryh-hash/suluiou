@@ -2,24 +2,42 @@ apiVersion: v3.1.0
 kind: DataContract
 id: sakernas-agustus
 name: Survei Angkatan Kerja Nasional Agustus
-version: 0.1.0
+version: 0.2.0
 status: draft
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
-  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
-    produk resmi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
 team:
 - name: BPS
   role: pemilik data
 servers:
-- server: utama
+- server: webapi-nasional
   type: https
-  url: https://webapi.bps.go.id/
+  url: https://webapi.bps.go.id/v1/api/
+  description: domain 0000 var 2824 TPT menurut Jenis Kelamin dan Kabupaten/Kota, tahun 2025 (Agustus), pembaruan
+    BPS 28 Agu 2026
+- server: webapi-provinsi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel TPT kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
 - property: tingkat_wilayah
-  value: kabkota
-- property: syarat_pakai_kutipan
-  value: 'BELUM: wajib dikutip di SU-0'
+  value: kabkota 514 (ditambah 27 kode kab/kota provinsi pemekaran Papua yang belum ada di daftar domain BPS)
+- property: berkas_sha256
+  value: 0000_tpt_2824_2025.json sha256 awalan 8688b81a6d27 (diunduh 13 Nov 2026)
 - property: SU-0
-  value: WebAPI hidup (400 tanpa kunci sah, 12 Nov 18.20); menunggu kunci Raihan;
-    www.bps.go.id 403 untuk klien tanpa peramban
+  value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
+- property: G1.0-G1.3
+  value: 514/514 kode resmi bernilai; cocok dengan tabel provinsi 310/310 pasangan (231 tanpa pasangan); Jumlah
+    selalu diapit Laki-laki dan Perempuan; mutasi 100/100
+- property: G1.5
+  value: RSE Sakernas kab/kota terbit di publikasi Sampling Error Sakernas per provinsi (contoh DKI Jakarta 2023),
+    belum dipanen; sementara semua sel hati_hati per aturan beku
+- property: syarat_pakai_kutipan
+  value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
+- property: catatan_wilayah
+  value: Tabel nasional memuat kode lama dan kode baru untuk kab/kota di provinsi pemekaran Papua. Mesin perlu satu
+    daftar wilayah induk sebelum ME2.
+- property: sitasi
+  value: Badan Pusat Statistik. Tingkat Pengangguran Terbuka menurut Jenis Kelamin dan Kabupaten/Kota, 2025. Tabel
+    dinamis, diakses 13 Nov 2026.
