@@ -16,3 +16,23 @@ Jumlah percobaan: 3 putaran prompt, 10 panggilan juri. Batas bawah Wilson pada n
 Catatan jujur: tafsir di v2 dan v3 ditulis sesudah melihat galat di separuh terbuka, termasuk satu frasa yang dikutip dari set itu. Karena itu angka putaran 3 pada separuh terbuka bersifat optimistis; ukuran yang sah hanya hasil pada separuh tersembunyi.
 
 Temuan penulis: pemutus menilai 47 dari 180 teks penulis v1 bergalat (40 populasi, 7 sebab). Prompt penulis dinaikkan ke v2 (`kartu/PROMPT_PENULIS.md`).
+
+## Vonis G1.6 (13 Nov 2026, sesudah separuh tersembunyi dinilai dengan prompt v3 beku)
+
+Separuh tersembunyi: 350 butir (sha256 e00c4a41…f5ea, hanya di laptop), ditulis agen Sonnet terpisah; dinilai enam juri Haiku di laptop; pembangun hanya menerima hitungan. Gabungan = separuh terbuka (putaran final per mode) + separuh tersembunyi.
+
+| Mode | Tersembunyi TPR | Tersembunyi TNR | Gabungan TPR | Gabungan TNR | G1.6 |
+|---|---|---|---|---|---|
+| wilayah | 50/50 | 50/50 | 100/100 (LB 0.963) | 100/100 (LB 0.963) | LULUS |
+| populasi | 50/50 | 50/50 | 140/140 (LB 0.973) | 100/100 (LB 0.963) | LULUS |
+| sebab | 50/50 | 50/50 | 106/107 (LB 0.949) | 100/100 (LB 0.963) | LULUS |
+| vonis | 50/50 | 50/50 | 100/100 (LB 0.963) | 100/100 (LB 0.963) | LULUS |
+| placeholder | 49/50 | 50/50 | 99/100 (LB 0.946) | 100/100 (LB 0.963) | LULUS |
+| kuantitas | 50/50 | 50/50 | 100/100 (LB 0.963) | 100/100 (LB 0.963) | LULUS |
+
+Ambang beku: TPR batas bawah Wilson >= 0,90 dan TNR >= 0,85, masing-masing pada n >= 100. Semua mode lulus. Tuduhan lintas mode pada separuh tersembunyi: 0 dari 60 di keenam mode.
+
+Batasan yang tetap berlaku:
+1. Juri, penulis, dan penulis set tersembunyi semuanya keluarga Claude. Syarat "beda penyedia" belum terpenuhi; hasil ini sah untuk G1.6 sebagai juri bukan-penulis, tetapi galat yang dibagi bersama satu keluarga model belum teruji.
+2. Hampir sempurna di dua separuh menandakan SU-2 mungkin terlalu mudah: galat ditulis oleh model yang tahu aturannya. Ukuran yang lebih keras datang dari galat penulis nyata (47 dari 180 di uji pertama); set berikutnya perlu lebih banyak galat nyata dari penulis versi produksi.
+3. Koreksi bias (arXiv 2511.21140) tidak mengubah hasil karena galat juri hampir nol; rumusnya dipasang saat juri dipakai menaksir mutu kartu tayang.
