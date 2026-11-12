@@ -2,8 +2,8 @@ apiVersion: v3.1.0
 kind: DataContract
 id: indeks-desa-2025
 name: Indeks Desa 2025
-version: 0.2.0
-status: retired
+version: 0.4.0
+status: draft
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
   usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
@@ -11,15 +11,42 @@ team:
 - name: Kementerian Desa PDT
   role: pemilik data
 servers:
-- server: utama
+- server: sid
   type: https
-  url: https://idm.kemendesa.go.id/
+  url: https://sid.kemendesa.go.id/indeks-desa?tahun=2025
+  description: 'Sistem Informasi Desa Kemendesa; titik data JSON publik yang dipakai laman itu: /indeks-desa/data?tahun=T&kode=K
+    dan /indeks-desa/wilayah?tahun=T&induk=K (ditunjukkan Raihan 13 Nov 2026 02.15)'
 customProperties:
 - property: tingkat_wilayah
   value: desa
 - property: syarat_pakai_kutipan
   value: 'BELUM: wajib dikutip di SU-0'
 - property: SU-0
-  value: 'GAGAL 13 Nov 2026: idm.kemendesa.go.id menyajikan sertifikat TLS kedaluwarsa (curl schannel SEC_E_CERT_EXPIRED);
-    pemeriksaan TLS tidak dimatikan. Unduhan nasional tidak ditemukan (2 kueri); hanya portal kabupaten (Sumbawa
-    Barat, Kutai Barat) yang menerbitkan potongan. Per aturan G1.0, diganti dari bank sebelum ME2.'
+  value: 'LOLOS 13 Nov 2026 02.17: 37 provinsi, 432 kab/kota berdesa, 74.186 desa, tahun final 2025 (2026 sementara).
+    TLS menyala. Catatan riwayat: idm.kemendesa.go.id bersertifikat kedaluwarsa; jalur itu tidak dipakai.'
+- property: kode_wilayah
+  value: kode Kemendagri (Papua 91 = Papua, 92 = Papua Barat, 93-96 provinsi pemekaran); berbeda dengan kode domain
+    BPS untuk wilayah Papua. Wajib lewat daftar wilayah induk.
+- property: syarat_pakai_kutipan
+  value: 'Tidak ada syarat tertulis di laman; kaki laman hanya memuat "Hak Cipta 2025". Dasar pakai: aturan butir
+    1 (publikasi resmi pemerintah, sitasi + UU 28/2014 Pasal 43 huruf b, KEPUTUSAN Raihan 13 Nov 01.48). Risiko
+    ringan: pemberitahuan hak cipta umum bukan larangan pemakaian, dan yang dipakai adalah angka hitungan desa.'
+- property: sitasi
+  value: Kementerian Desa dan Pembangunan Daerah Tertinggal. Indeks Desa 2025, Sistem Informasi Desa. https://sid.kemendesa.go.id/indeks-desa?tahun=2025
+    (diakses 13 Nov 2026)
+- property: pengurai
+  value: mesin/parser/sid_2025.py; panen mesin/alat/sid/sid_panen.py dan sid_panen_kab.py (432 berkas kab/kota,
+    0 gagal, 13 Nov 02.23); tabel L3 sha256 awalan a083acb7294b
+- property: G1.0-G1.3
+  value: 'Uji internal lulus: status desa per kab/kota = jumlah desa; jumlah kab/kota = ringkasan provinsi untuk
+    semua kolom (status, BUMDes, bencana, kajian risiko); kecamatan = kab/kota; provinsi = berkas nasional; total
+    74.186 desa. Mutasi 100/100 tertangkap oleh pemeriksa jumlah provinsi. Publikasi kedua yang independen BELUM
+    ada (uji di atas semuanya dari satu sistem).'
+- property: mutu_data
+  value: Papua Barat Daya memuat Tambrauw dan Maybrat dua kali dengan kode dan jumlah desa berbeda (9604/9609, 9605/9610);
+    Sorong Selatan, Raja Ampat (Papua Barat Daya), Pegunungan Arfak (Papua Barat), Lanny Jaya (Papua Pegunungan)
+    tidak ada; Kaimana hanya 3 desa. Semua kab/kota provinsi 92-96 ditekan sampai dicocokkan dengan publikasi kedua.
+- property: wilayah_induk
+  value: Kode Kemendagri di SID TIDAK searah dengan kode domain BPS (contoh Kemendagri 1101 Aceh Selatan, BPS 1101
+    Simeulue; 178 dari 428 pasangan berbeda kode). Penggabungan antarsumber wajib lewat mesin/parser/wilayah_induk.py
+    (pencocokan nama di dalam provinsi).
