@@ -20,6 +20,10 @@ servers:
   url: https://webapi.bps.go.id/v1/api/
   description: tabel kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
+- property: sidik_l3
+  value: '176db7066fc3 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
+- property: dipakai_kartu
+  value: 'tidak: 79 pasangan cocok di bawah minimal 100; 15 selisih baru ditekan, belum diuji ulang dengan sampel segar (audit ME1 13 Nov)'
 - property: SU-0
   value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
 - property: G1.0-G1.3
@@ -38,7 +42,7 @@ customProperties:
   value: Badan Pusat Statistik. 6.2.1* Persentase rumah tangga yang memiliki akses terhadap sanitasi layak menurut
     kabupaten/kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
 - property: G1.3_status
-  value: lulus (15 sel berselisih ditekan)
+  value: 'belum: 79 cocok (minimal 100 per sumber); 15 sel berselisih ditekan, uji ulang sampel segar belum'
 - property: G1.5
   value: 'Publikasi sampling error Susenas tidak ditemukan di 35 domain BPS (13 Nov 2026). Per aturan beku G1.5:
     hati_hati. G1.5 LULUS lewat jalur cadangan.'

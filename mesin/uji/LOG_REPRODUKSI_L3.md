@@ -1,0 +1,12 @@
+# Log reproduksi L3 (G1.2) · 13 Nov 2026 06.41 WIB (jam sistem) · keluaran alat apa adanya
+
+Alat: `mesin/alat/reproduksi_l3.py` (sha256 awalan 69d4cb932368, salinan laptop bersidik sama). Tiap baris: dua proses terpisah dari gudang mentah ke dua berkas baru. Pengurai di laptop bersidik sama dengan repo (dikk_2025 d801c88c70ae, bps_webapi 26d6ad1bbc0c, sid_2025 a4f81e82428f).
+
+```
+[laptop] kemiskinan: jalan1 93a658d3d2c4 · jalan2 93a658d3d2c4 → identik
+[laptop] bps-webapi: jalan1 176db7066fc3 · jalan2 176db7066fc3 → identik
+[laptop] indeks-desa: jalan1 a083acb7294b · jalan2 a083acb7294b → identik
+[ruang kerja] ssgi-2024: jalan1 27e9cf9164e2 · jalan2 27e9cf9164e2 → identik
+```
+Sidik berkas L3 tersimpan sebelumnya: 93a658d3d2c4, 176db7066fc3, a083acb7294b (laptop), 27e9cf9164e2 (ruang kerja): semuanya sama dengan hasil ulang.
+Catatan: sidik SSGI 1a7168163e3d di STATUS lama adalah sidik baris di dalam periksa_ssgi_2024.py (metode lain), bukan sidik berkas.

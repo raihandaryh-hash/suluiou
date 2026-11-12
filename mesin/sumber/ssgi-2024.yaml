@@ -16,6 +16,10 @@ servers:
   url: https://drive.usercontent.google.com/download?id=1FmhMtFsElv0l95YNGqsoKy5xJh-m-glM&export=download
   description: Buku Hasil SSGI 2024 Dalam Angka, ditautkan dari https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/
 customProperties:
+- property: sidik_l3
+  value: '27e9cf9164e2 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; ruang kerja, parser/ssgi_2024.py atas PDF bersidik 06eae149a5f8 (poppler pdftotext))'
+- property: dipakai_kartu
+  value: 'tidak: G1.3 belum, publikasi kedua independen belum ada (audit ME1 13 Nov)'
 - property: tingkat_wilayah
   value: kabkota (514; Tabel 4.3–4.40) dan provinsi (Tabel 4.1)
 - property: berkas_sha256

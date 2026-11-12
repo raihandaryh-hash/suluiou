@@ -17,6 +17,8 @@ servers:
   url: https://webapi.bps.go.id/v1/api/
   description: domain 0000 var 1360, 38 provinsi, tahun 2024 dan 2025
 customProperties:
+- property: dipakai_kartu
+  value: 'tidak: G1.3 dan mutasi belum'
 - property: tingkat_wilayah
   value: provinsi 38
 - property: SU-0

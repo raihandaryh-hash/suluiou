@@ -23,10 +23,17 @@ for r in R:
         if nilai(r) is None: continue
         if dari_baru: A[k] = nilai(r)  # baris berkode baru (pasca-pemekaran) menang atas baris berkode lama
         else: A.setdefault(k, nilai(r))
+# Koreksi B yang terverifikasi: label tahun tabel provinsi tertukar. Bukti: 28 dari 28 sel B tahun T sama persis
+# dengan A tahun lain (14 kab/kota Kalbar x 2 tahun), uji 13 Nov 2026; lihat sumber/sanitasi-layak-kabkota.yaml.
+TUKAR_TAHUN_B = {"6100_sanitasi_368"}
+def tahun_efektif(f):
+    awal, th = f[:-5].rsplit("_", 1)
+    if awal in TUKAR_TAHUN_B: th = {"2024": "2025", "2025": "2024"}.get(th, th)
+    return th
 B = collections.defaultdict(set)
 for r in R:
     f = r["berkas"]
-    if f.startswith("0000") or f"_{IND}_" not in f or not f.endswith(f"_{TH}.json") or r["tingkat"] != TINGKAT: continue
+    if f.startswith("0000") or f"_{IND}_" not in f or tahun_efektif(f) != TH or r["tingkat"] != TINGKAT: continue
     if TINGKAT == "provinsi" and r["kode_bps"][:2] != f[:2]: continue  # baris provinsi hanya dari domain provinsinya sendiri
     if nilai(r) is not None: B[r["kode_bps"]].add(round(nilai(r), 2))
 print(f"[{IND} {TH}] (1) A: {len(A)} kode; resmi tercakup {len(set(A) & resmi)} dari {len(resmi)}; di luar daftar resmi {len(set(A) - resmi)}")

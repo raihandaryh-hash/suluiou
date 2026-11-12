@@ -20,6 +20,10 @@ servers:
   url: https://webapi.bps.go.id/v1/api/
   description: tabel kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
+- property: sidik_l3
+  value: '176db7066fc3 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
+- property: dipakai_kartu
+  value: 'ya'
 - property: SU-0
   value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
 - property: G1.0-G1.3

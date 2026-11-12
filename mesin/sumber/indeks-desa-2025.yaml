@@ -17,10 +17,12 @@ servers:
   description: 'Sistem Informasi Desa Kemendesa; titik data JSON publik yang dipakai laman itu: /indeks-desa/data?tahun=T&kode=K
     dan /indeks-desa/wilayah?tahun=T&induk=K (ditunjukkan Raihan 13 Nov 2026 02.15)'
 customProperties:
+- property: sidik_l3
+  value: 'a083acb7294b (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/sid_2025.py atas mentah/sid)'
+- property: dipakai_kartu
+  value: 'tidak: G1.3 belum, berselisih dengan Kepmendes 343/2025; aturan G1.3 mewajibkan ditarik (audit ME1 13 Nov)'
 - property: tingkat_wilayah
   value: desa
-- property: syarat_pakai_kutipan
-  value: 'BELUM: wajib dikutip di SU-0'
 - property: SU-0
   value: 'LOLOS 13 Nov 2026 02.17: 37 provinsi, 432 kab/kota berdesa, 74.186 desa, tahun final 2025 (2026 sementara).
     TLS menyala. Catatan riwayat: idm.kemendesa.go.id bersertifikat kedaluwarsa; jalur itu tidak dipakai.'

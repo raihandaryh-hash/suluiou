@@ -1,4 +1,4 @@
-# Status tonggak ME1 (Fondasi data) · 13 Nov 2026 06.40 WIB · SINTESIS
+# Status tonggak ME1 (Fondasi data) · 13 Nov 2026 06.32 WIB (jam sistem) · SINTESIS
 
 Dasar: rencana mesin v1 (isi v1.3) §4.2, disetujui Raihan 12 Nov 2026 18.16. Cabang `mesin-me1-fondasi`, PR draf #6.
 

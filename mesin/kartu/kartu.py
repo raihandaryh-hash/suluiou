@@ -29,13 +29,15 @@ def placeholder_sah(k):
     ind = k["indikator"][0]["kode"]
     return {ind, "pembanding", "jarak", "tahun_data"}
 
-def bangun_kartu(jenis, kode_bps, nama, nilai, keandalan, median, tanggal_akses="2026-11-13"):
+def bangun_kartu(jenis, kode_bps, nama, nilai, keandalan, median, tanggal_akses="2026-11-13", alasan_keandalan="rse_dari_ci"):
+    """alasan_keandalan: rse_dari_ci (RSE dihitung dari CI terbit) atau rse_tidak_terbit (label hati_hati karena
+    galat sampel tidak diterbitkan, jalur cadangan G1.5; lihat uji/AMBANG_CATATAN.md)."""
     jk, ind, pop, medan, arah_buruk = JENIS[jenis]; sid, th, url, sha = SUMBER[jenis]
     jarak = round(nilai - median, 2)
     return {"id": f"{jk}.{kode_bps}", "versi": VERSI, "jenis_kebutuhan": jk, "medan": medan,
             "wilayah": {"kode_bps": kode_bps, "nama": nama, "tingkat": "kabkota"}, "populasi": pop,
             "indikator": [{"kode": ind, "nilai": nilai, "satuan": "persen", "tahun_data": th, "rse": None,
-                           "keandalan": keandalan, "metode": "langsung", "sumber_id": sid, "url": url, "sha256": sha,
+                           "keandalan": keandalan, "alasan_keandalan": alasan_keandalan, "metode": "langsung", "sumber_id": sid, "url": url, "sha256": sha,
                            "tanggal_akses": tanggal_akses}],
             "pembanding": {"jenis": "median_nasional", "nilai": median, "sumber_id": sid, "url": url,
                            "catatan": "nilai tengah seluruh kabupaten/kota; bukan target resmi (target resmi dicari di ME2)"},
@@ -92,7 +94,7 @@ def kartu_dari_dikk(path):
     R = [r for r in csv.DictReader(open(path, encoding="utf-8")) if r["tingkat"] == "kabkota"]
     med = round(statistics.median(float(r["p0"]) for r in R), 2)
     return [bangun_kartu("p0", r["kode_bps"], r["nama"] if r["nama"].startswith("Kota") else "Kab. " + r["nama"],
-                         float(r["p0"]), "hati_hati", med) for r in R]
+                         float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit") for r in R]
 
 if __name__ == "__main__":
     kart = kartu_dari_ssgi(sys.argv[1])
