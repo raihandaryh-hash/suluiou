@@ -28,7 +28,7 @@ def keandalan(nilai, bawah, atas):
     RSE didekati (atas-bawah)/3,92/nilai; CI nol-nol = tidak_diketahui."""
     if bawah is None or atas is None or atas <= bawah or nilai <= 0: return "tidak_diketahui", None
     rse = (atas - bawah) / 3.92 / nilai
-    t = "andal" if rse <= 0.25 else ("hati_hati" if rse <= 0.50 else "ditekan")
+    t = "andal" if rse < 0.25 else ("hati_hati" if rse < 0.50 else "ditekan")  # batas: RSE >= 50% tidak disajikan (cek ME1, lihat uji/CEK_AMBANG_RSE.md)
     return t, round(rse, 4)
 
 def urai(pdf):
