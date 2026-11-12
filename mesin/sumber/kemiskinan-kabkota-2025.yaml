@@ -2,23 +2,49 @@ apiVersion: v3.1.0
 kind: DataContract
 id: kemiskinan-kabkota-2025
 name: Data dan Informasi Kemiskinan Kabupaten/Kota 2025
-version: 0.1.0
+version: 0.2.0
 status: draft
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
-  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
-    produk resmi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
 team:
 - name: BPS
   role: pemilik data
 servers:
-- server: utama
+- server: buku
   type: https
-  url: https://webapi.bps.go.id/
+  url: https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html
+  description: Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025, ISSN 2087-2216, rilis 28 Nov 2025, Tabel
+    2.1; diunduh lewat WebAPI view/publication
+- server: webapi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel dinamis BPS provinsi (pembanding G1.3)
 customProperties:
 - property: tingkat_wilayah
-  value: kabkota
-- property: syarat_pakai_kutipan
-  value: 'BELUM: wajib dikutip di SU-0'
+  value: kabkota 514 dan provinsi 38 (Susenas Maret 2025)
+- property: berkas_sha256
+  value: a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511 (PDF 27.459.461 bita)
 - property: SU-0
-  value: sama dengan Sakernas
+  value: akses LOLOS 13 Nov 2026 dari laptop lewat WebAPI dengan kunci IOU
+- property: pengurai
+  value: mesin/parser/dikk_2025.py (pdftotext -table -nodiag); tabel L3 sha256 93a658d3d2c4
+- property: G1.0-G1.3
+  value: 514/514 kab/kota terpetakan ke kode BPS unik; jumlah penduduk miskin kab/kota = angka provinsi pada 38/38
+    provinsi; P0 cocok dengan tabel dinamis WebAPI pada 392/392 pasangan (122 tanpa pasangan); mutasi 100/100 tertangkap
+- property: G1.5
+  value: 'RSE kab/kota tidak terbit di buku (grep RSE, Relative Standard, kesalahan baku, sampling error: 0 temuan).
+    Estimasi kab/kota diturunkan dari P0 provinsi (Bab 1.2), jadi per aturan beku G1.5 semua sel berlabel hati_hati
+    sampai publikasi sampling error ditemukan'
+- property: syarat_pakai_kutipan
+  value: 'Syarat tertulis BPS (Syarat Penggunaan situs BPS, butir 2 dan 2.2, dikutip dari https://acehjayakab.bps.go.id/id/term-of-use
+    pada 13 Nov 2026; https://www.bps.go.id/assets/term-of-use menolak pengambilan otomatis): konten "diberikan
+    kepada Anda secara gratis, di seluruh dunia, terus-menerus, dan non-eksklusif" "untuk tujuan menyalin, mendistribusikan/
+    mentransmisikan konten", dengan kewajiban "memberikan kutipan atau kredit kepada BPS. Kutipan harus mencantumkan
+    judul konten, tanggal akses, penulis (jika ada)" dan "tautan langsung ke konten asli". Butir 2.6: tidak boleh
+    menyiratkan BPS mendukung atau terkait dengan pemakai. Buku sendiri memuat larangan mereproduksi isi buku untuk
+    tujuan komersial tanpa izin tertulis; Sulu menampilkan angka bersitasi, tidak menggandakan buku. Aturan dasar
+    pakai butir 3 (syarat tertulis menang). G1.7 LULUS.'
+- property: sitasi
+  value: 'Badan Pusat Statistik. Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025. ISSN 2087-2216. Jakarta:
+    BPS, 2025.'
