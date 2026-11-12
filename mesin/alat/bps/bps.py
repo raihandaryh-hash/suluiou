@@ -13,8 +13,11 @@ def bersih(s):
 def ambil(jalur):
     url = f"https://webapi.bps.go.id/v1/api/{jalur.strip('/')}/key/{KUNCI}/"
     req = urllib.request.Request(url, headers={"User-Agent": "Sulu-Mesin-Eksplorasi/0.1 (IOU Indonesia)"})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return bersih(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            return bersih(r.read().decode("utf-8"))
+    except Exception as e:  # jangan biarkan URL berkunci ikut ke jejak galat
+        raise RuntimeError(bersih(f"{type(e).__name__}: {e}")) from None
 
 if __name__ == "__main__":
     try:

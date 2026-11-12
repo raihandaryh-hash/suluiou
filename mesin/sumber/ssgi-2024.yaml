@@ -38,3 +38,6 @@ customProperties:
 - property: sitasi
   value: Badan Kebijakan Pembangunan Kesehatan, Kementerian Kesehatan RI. Buku Hasil SSGI 2024 Dalam Angka. 2025.
     https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/ (diakses 12 Nov 2026)
+- property: wilayah
+  value: SSGI tanpa kode wilayah; 513 kab/kota terpasang ke kode BPS unik lewat mesin/parser/ssgi_wilayah.py dan
+    daftar wilayah induk (0 gagal; Ponorogo tetap tanpa kolom severe wasting).

@@ -1,0 +1,35 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: air-minum-layak-kabkota
+name: Persentase Rumah Tangga dengan Akses Sumber Air Minum Layak menurut Kabupaten/Kota
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber pengganti dari bank (aturan G1.0) untuk K6 air dan sanitasi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: BPS (Susenas Maret)
+  role: pemilik data
+servers:
+- server: webapi-nasional
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: domain 0000 var 2830, tahun 2024 dan 2025
+- server: webapi-provinsi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel kab/kota per domain provinsi (pembanding G1.3)
+customProperties:
+- property: SU-0
+  value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
+- property: G1.0-G1.3
+  value: '2025: 505 kab/kota bernilai (9 kode resmi tanpa nilai, wilayah Papua); cocok dengan tabel provinsi 108/108
+    pasangan dari 9 provinsi; 2024: 139/139 (2 karena tabel provinsi dibulatkan); 0 berbeda; rentang 0-100 terpenuhi;
+    mutasi 100/100.'
+- property: G1.5
+  value: RSE Susenas kab/kota belum dipanen; semua sel hati_hati per aturan beku
+- property: syarat_pakai_kutipan
+  value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
+- property: wilayah
+  value: kode BPS baru untuk provinsi pemekaran Papua dipetakan ke kode domain lama lewat kolom kode_bps_baru di
+    daftar wilayah induk

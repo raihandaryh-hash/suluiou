@@ -41,7 +41,12 @@ for kb, nama in sorted(bps.items()):
     else:
         km = idx_sid[p2].get(key) or ""
         if not km and int(kb[2:]) < 71: masalah.append((kb, nama, "kab tanpa pasangan di SID"))
-    baris.append(dict(kode_bps=kb, kode_kemendagri=km, nama=("Kota " if int(kb[2:]) >= 71 else "") + nama,
+    # kode BPS baru (tabel nasional BPS pasca-pemekaran: 92 Papua Barat Daya, 95 Papua Selatan, 96 Papua Tengah, 97 Papua Pegunungan)
+    kbb = kb
+    if p2 in PAPUA_BPS:
+        alt = [k for k, n in baru.items() if k[:2] in (("92",) if p2 == "91" else ("95", "96", "97")) and kanon(("kota " if int(k[2:]) >= 71 else "") + n) == key]
+        if len(alt) == 1: kbb = alt[0]
+    baris.append(dict(kode_bps=kb, kode_bps_baru=kbb, kode_kemendagri=km, nama=("Kota " if int(kb[2:]) >= 71 else "") + nama,
                       provinsi_bps=prov_bps.get(p2, ""), ada_di_sid=km in sid, provinsi_kemendagri=(sid.get(km) or ("", ""))[1]))
 with open(sys.argv[1], "w", newline="", encoding="utf-8") as o:
     w = csv.DictWriter(o, fieldnames=list(baris[0].keys())); w.writeheader(); w.writerows(baris)
