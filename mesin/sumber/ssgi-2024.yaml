@@ -2,7 +2,7 @@ apiVersion: v3.1.0
 kind: DataContract
 id: ssgi-2024
 name: Survei Status Gizi Indonesia 2024
-version: 0.2.0
+version: 0.3.0
 status: draft
 description:
   purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
@@ -25,9 +25,9 @@ customProperties:
 - property: SU-0
   value: 'akses LOLOS 12 Nov 2026 18.26 WIB: dua unduhan terpisah (laptop dan ruang kerja) memberi sidik sama'
 - property: syarat_pakai_kutipan
-  value: 'TIDAK DITEMUKAN. Dicari di 4 laman BKPK (ssgi-2024, survei-status-gizi-indonesia-ssgi-2024, laporan-hasil-survei,
-    layanan-permintaan-data) dan teks penuh PDF (kata: hak cipta, dilarang, diperbanyak, mengutip, dikutip, sitasi,
-    lisensi, creative commons, ISBN). G1.7 TERTAHAN sampai ada syarat tertulis dari BKPK.'
+  value: 'Tidak ada syarat tertulis (dicari di 4 laman BKPK dan teks penuh PDF, 9 kata kunci). Tidak ada pernyataan
+    perlindungan. Dasar pakai: sitasi + UU 28/2014 Pasal 43 huruf b, per KEPUTUSAN Raihan 13 Nov 2026 01.48 (sumber/ATURAN_DASAR-PAKAI.md).
+    G1.7 LULUS untuk sumber ini.'
 - property: pengurai
   value: mesin/parser/ssgi_2024.py; pemeriksa mesin/parser/periksa_ssgi_2024.py
 - property: cacat_terbitan
@@ -35,3 +35,6 @@ customProperties:
     Tarakan stunting, Aceh provinsi stunting); 1 baris kolom hilang (Ponorogo); semuanya ditekan otomatis
 - property: publikasi_kedua
   value: 'BELUM ADA untuk G1.3. Kandidat: permintaan data lewat layanandata.kemkes.go.id; publikasi dinkes provinsi'
+- property: sitasi
+  value: Badan Kebijakan Pembangunan Kesehatan, Kementerian Kesehatan RI. Buku Hasil SSGI 2024 Dalam Angka. 2025.
+    https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/ (diakses 12 Nov 2026)
