@@ -1,10 +1,12 @@
 """Pemeriksa angka umum (L2v) untuk satu indikator BPS kab/kota: tabel nasional A vs tabel provinsi B.
 Uji: (1) cakupan A terhadap 514 kode resmi; (2) A vs B per kode dan tahun (toleransi 0,005); (3) nilai di rentang 0-100
 untuk persentase; (4) mutasi 100. Tidak memakai model.
-Pakai: python periksa_lintas.py _l3_bps.csv _domain_all.json IND VAR_A TAHUN [TURVAR_A]"""
+Pakai: python periksa_lintas.py _l3_bps.csv _domain_all.json IND VAR_A TAHUN [TURVAR_A|-] [kabkota|provinsi]"""
 import csv, collections, json, random, sys
 R = list(csv.DictReader(open(sys.argv[1], encoding="utf-8")))
-resmi = {d["domain_id"] for d in json.load(open(sys.argv[2], encoding="utf-8"))["data"][1] if not d["domain_id"].endswith("00")}
+TINGKAT = sys.argv[7] if len(sys.argv) > 7 else "kabkota"
+_D = json.load(open(sys.argv[2], encoding="utf-8"))["data"][1]
+resmi = {d["domain_id"] for d in _D if not d["domain_id"].endswith("00")} if TINGKAT == "kabkota" else {d["domain_id"] for d in _D if d["domain_id"].endswith("00") and d["domain_id"] != "0000"} | {"9200", "9500", "9600", "9700"}
 IND, VAR, TH = sys.argv[3], sys.argv[4], sys.argv[5]; TV = sys.argv[6] if len(sys.argv) > 6 and sys.argv[6] != "-" else None
 import os
 WI = os.path.join(os.path.dirname(sys.argv[2]), "..", "_wilayah_induk.csv")
@@ -14,7 +16,7 @@ def nilai(r):
     except ValueError: return None
 A = {}
 for r in R:
-    if r["berkas"] == f"0000_{IND}_{VAR}_{TH}.json" and r["tingkat"] == "kabkota" and (TV is None or r["turvar"].strip() == TV):
+    if r["berkas"] == f"0000_{IND}_{VAR}_{TH}.json" and r["tingkat"] == TINGKAT and (TV is None or r["turvar"].strip() == TV):
         k = r["kode_bps"]; dari_baru = False
         if k not in resmi and k in BARU: k, dari_baru = BARU[k], True  # kode BPS baru Papua -> kode domain lama
         elif k not in resmi: continue  # baris di luar daftar resmi
@@ -24,7 +26,8 @@ for r in R:
 B = collections.defaultdict(set)
 for r in R:
     f = r["berkas"]
-    if f.startswith("0000") or f"_{IND}_" not in f or not f.endswith(f"_{TH}.json") or r["tingkat"] != "kabkota": continue
+    if f.startswith("0000") or f"_{IND}_" not in f or not f.endswith(f"_{TH}.json") or r["tingkat"] != TINGKAT: continue
+    if TINGKAT == "provinsi" and r["kode_bps"][:2] != f[:2]: continue  # baris provinsi hanya dari domain provinsinya sendiri
     if nilai(r) is not None: B[r["kode_bps"]].add(round(nilai(r), 2))
 print(f"[{IND} {TH}] (1) A: {len(A)} kode; resmi tercakup {len(set(A) & resmi)} dari {len(resmi)}; di luar daftar resmi {len(set(A) - resmi)}")
 cocok, beda, tanpa, bulat = 0, [], 0, []

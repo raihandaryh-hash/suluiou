@@ -34,6 +34,10 @@ else:
     if hashlib.sha256(open(os.path.join(tmp, "jalur-jelajah-1.schema.json"), "rb").read()).hexdigest() != \
        hashlib.sha256(open(os.path.join(AKAR, "kontrak/jalur-jelajah-1.schema.json"), "rb").read()).hexdigest():
         gagal.append("G4.1: skema di repo berbeda dari keluaran generator")
+# G1.0 dan G1.7: registri sumber
+rs = subprocess.run([sys.executable, os.path.join(AKAR, "alat/periksa_sumber.py")], capture_output=True, text=True)
+print(rs.stdout.strip())
+if rs.returncode != 0: gagal.append("G1.0/G1.7: registri sumber cacat")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)

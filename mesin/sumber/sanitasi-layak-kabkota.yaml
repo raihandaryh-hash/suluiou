@@ -36,3 +36,8 @@ customProperties:
   value: '14 selisih di Kalimantan Barat (6101-6112, 6171, 6172): nilai nasional tahun T sama dengan nilai tabel
     Kalimantan Barat berlabel T-1, jadi label tahun di tabel provinsi itu bergeser satu tahun. 1 selisih tanpa penjelasan:
     Kota Metro (1872) 99,29 vs 87,29 (2025) dan 99,68 vs 85,44 (2024). Per G1.3, 15 sel ini ditekan sampai dijelaskan.'
+- property: sitasi
+  value: Badan Pusat Statistik. 6.2.1* Persentase rumah tangga yang memiliki akses terhadap sanitasi layak menurut
+    kabupaten/kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
+- property: G1.3_status
+  value: lulus (15 sel berselisih ditekan)

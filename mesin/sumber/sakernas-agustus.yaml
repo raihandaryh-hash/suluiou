@@ -41,3 +41,5 @@ customProperties:
 - property: sitasi
   value: Badan Pusat Statistik. Tingkat Pengangguran Terbuka menurut Jenis Kelamin dan Kabupaten/Kota, 2025. Tabel
     dinamis, diakses 13 Nov 2026.
+- property: G1.3_status
+  value: lulus

@@ -50,3 +50,5 @@ customProperties:
   value: Kode Kemendagri di SID TIDAK searah dengan kode domain BPS (contoh Kemendagri 1101 Aceh Selatan, BPS 1101
     Simeulue; 178 dari 428 pasangan berbeda kode). Penggabungan antarsumber wajib lewat mesin/parser/wilayah_induk.py
     (pencocokan nama di dalam provinsi).
+- property: G1.3_status
+  value: 'belum: publikasi kedua independen belum ada'

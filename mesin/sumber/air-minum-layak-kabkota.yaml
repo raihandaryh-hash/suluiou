@@ -33,3 +33,8 @@ customProperties:
 - property: wilayah
   value: kode BPS baru untuk provinsi pemekaran Papua dipetakan ke kode domain lama lewat kolom kode_bps_baru di
     daftar wilayah induk
+- property: sitasi
+  value: Badan Pusat Statistik. Persentase Rumah Tangga yang Memiliki Akses terhadap Sumber Air Minum Layak menurut
+    Kabupaten/Kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
+- property: G1.3_status
+  value: lulus

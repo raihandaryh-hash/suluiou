@@ -48,3 +48,5 @@ customProperties:
 - property: sitasi
   value: 'Badan Pusat Statistik. Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025. ISSN 2087-2216. Jakarta:
     BPS, 2025.'
+- property: G1.3_status
+  value: lulus

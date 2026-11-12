@@ -41,3 +41,5 @@ customProperties:
 - property: wilayah
   value: SSGI tanpa kode wilayah; 513 kab/kota terpasang ke kode BPS unik lewat mesin/parser/ssgi_wilayah.py dan
     daftar wilayah induk (0 gagal; Ponorogo tetap tanpa kolom severe wasting).
+- property: G1.3_status
+  value: 'belum: publikasi kedua independen belum ada'

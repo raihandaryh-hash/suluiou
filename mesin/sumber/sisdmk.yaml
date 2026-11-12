@@ -23,3 +23,5 @@ customProperties:
   value: 'GAGAL 13 Nov 2026: satusehat.kemkes.go.id/sdmk/ adalah layanan akun tenaga kesehatan (STR, izin), tanpa
     tabel agregat publik per kab/kota dan tanpa syarat pakai. Per aturan G1.0, diganti dari bank sebelum ME2; kandidat:
     tabel tenaga kesehatan kab/kota BPS provinsi.'
+- property: G1.3_status
+  value: tidak berlaku
