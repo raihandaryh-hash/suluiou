@@ -9,6 +9,9 @@ Lokasi mutasi diambil acak dari SEMUA kab/kota bernilai, bukan hanya yang berpas
 bisa lolos: itu yang diukur. Mutasi yang tidak mengubah nilai (selisih <=0,005) diundi ulang.
 Pemeriksa = pemeriksa gerbang G1.3: beda dengan publikasi kedua (toleransi pembulatan) atau di luar 0-100.
 
+Mode berpasangan (lingkungan SU1M_BERPASANGAN=1): lokasi mutasi hanya sel yang cocok dengan publikasi kedua, yaitu
+tabel yang boleh dipakai kartu menurut PUTUSAN ATAS DELEGASI 13 Nov 2026 (sel tanpa pasangan ditahan).
+
 Dua langkah supaya set beku sebelum dinilai:
   buat:  python su1m.py buat  SUMBER BENIH KELUARAN.jsonl -- <argumen muat>
   nilai: python su1m.py nilai SUMBER MUTASI.jsonl          -- <argumen muat>
@@ -106,6 +109,9 @@ def tertangkap(m, B):
 if __name__ == "__main__":
     pisah = sys.argv.index("--"); depan, argm = sys.argv[1:pisah], sys.argv[pisah + 1:]
     A, prev, B = muat(argm)
+    if os.environ.get("SU1M_BERPASANGAN") == "1":
+        A = {k: v for k, v in A.items() if k in B and any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 or abs(round(v) - x) <= 0.005 for x in B[k])}
+        print(f"mode berpasangan: {len(A)} sel cocok dengan publikasi kedua dari {len(set(A) | set(B))} kode")
     if depan[0] == "buat":
         sumber, benih, out = depan[1], int(depan[2]), depan[3]
         M, ulang = buat(A, prev, benih)
