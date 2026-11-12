@@ -1,0 +1,25 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: ssgi-2024
+name: Survei Status Gizi Indonesia 2024
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
+    produk resmi
+team:
+- name: Kementerian Kesehatan (BKPK)
+  role: pemilik data
+servers:
+- server: utama
+  type: https
+  url: https://www.badankebijakan.kemkes.go.id/
+customProperties:
+- property: tingkat_wilayah
+  value: kabkota
+- property: syarat_pakai_kutipan
+  value: 'BELUM: wajib dikutip di SU-0'
+- property: SU-0
+  value: laman induk 200 (12 Nov 18.20); unduhan tabel per kab/kota belum ditemukan
+    (RISET §6)

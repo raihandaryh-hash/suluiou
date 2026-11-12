@@ -1,0 +1,24 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: sisdmk
+name: Sistem Informasi SDM Kesehatan
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
+    produk resmi
+team:
+- name: Kementerian Kesehatan
+  role: pemilik data
+servers:
+- server: utama
+  type: https
+  url: https://satusehat.kemkes.go.id/sdmk/
+customProperties:
+- property: tingkat_wilayah
+  value: kabkota
+- property: syarat_pakai_kutipan
+  value: 'BELUM: wajib dikutip di SU-0'
+- property: SU-0
+  value: 308 alih alamat (12 Nov 18.20); syarat penggunaan belum dikutip

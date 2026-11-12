@@ -1,0 +1,24 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: kemiskinan-kabkota-2025
+name: Data dan Informasi Kemiskinan Kabupaten/Kota 2025
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim
+    produk resmi
+team:
+- name: BPS
+  role: pemilik data
+servers:
+- server: utama
+  type: https
+  url: https://webapi.bps.go.id/
+customProperties:
+- property: tingkat_wilayah
+  value: kabkota
+- property: syarat_pakai_kutipan
+  value: 'BELUM: wajib dikutip di SU-0'
+- property: SU-0
+  value: sama dengan Sakernas

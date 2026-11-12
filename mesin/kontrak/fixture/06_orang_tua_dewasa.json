@@ -1,0 +1,153 @@
+{
+ "kontrak": "jalur-jelajah/1",
+ "id_permintaan": "contoh",
+ "dibuat": "2026-11-12T03:00:00+07:00",
+ "versi_mesin": "mesin@contoh",
+ "versi_data": "2026.1",
+ "status": "ok",
+ "untuk": {
+  "peran": "orang_tua",
+  "jenjang": null,
+  "situasi": "bekerja",
+  "kode_provinsi": "32",
+  "kode_kabkota": null,
+  "mode_ai": "dewasa",
+  "tujuan_di_luar_bank": false
+ },
+ "jalur": [
+  {
+   "id": "j-data",
+   "jenis": "data",
+   "judul": "Banyak balita di daerahmu belum tumbuh optimal",
+   "kebutuhan": {
+    "kartu_id": "stunting-balita.3204",
+    "kartu_versi": "2026.1",
+    "wilayah_kode": "3204",
+    "tingkat": "kabkota",
+    "berlaku_sampai": "2027-12-31",
+    "ringkasan": "Prevalensi stunting balita di kabupaten ini {prevalensi_stunting}."
+   },
+   "angka_kunci": [
+    {
+     "kode": "prevalensi_stunting",
+     "nilai": 0.0,
+     "satuan": "persen",
+     "tahun_data": 2024,
+     "label": "prevalensi stunting balita",
+     "sumber_id": "ssgi-2024",
+     "sumber_nama": "Survei Status Gizi Indonesia 2024, Kemenkes",
+     "url": "https://www.badankebijakan.kemkes.go.id/contoh",
+     "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+     "keandalan": "andal"
+    }
+   ],
+   "peran_contoh": [
+    {
+     "nama": "kader posyandu",
+     "kbji_kode": null,
+     "jenis": "sukarela",
+     "sumber_id": "pedoman-contoh"
+    }
+   ],
+   "skill": [
+    {
+     "nama": "komunikasi",
+     "simpul_skillmap": null
+    }
+   ],
+   "jalur_belajar": [
+    {
+     "nama": "pelatihan kader",
+     "jenis": "kursus",
+     "penyelenggara": null,
+     "url": null,
+     "sumber_id": "pedoman-contoh",
+     "milik_iou": false
+    }
+   ],
+   "langkah_pertama": {
+    "teks": "Datangi posyandu terdekat dan tanyakan apa yang paling kurang",
+    "paling_lama_hari": 14,
+    "butuh_orang_lain": true
+   },
+   "orang_untuk_ditanya": [
+    {
+     "jenis": "praktisi",
+     "cara": "lewat Career Center"
+    }
+   ],
+   "keyakinan": "sedang",
+   "batas": "angka tingkat kabupaten, bukan desa",
+   "bukti_cara_kerja": [],
+   "harapan": "Posyandu yang aktif sudah terbukti menolong, dan kamu bisa ikut membantunya"
+  },
+  {
+   "id": "j-cipta",
+   "jenis": "cipta",
+   "judul": "Rancang caramu sendiri",
+   "kartu_id": "stunting-balita.3204",
+   "undangan": "Tulis dulu gagasanmu sendiri",
+   "langkah_pertama": {
+    "teks": "Tulis satu gagasan lalu uji kecil",
+    "paling_lama_hari": 30,
+    "butuh_orang_lain": false
+   },
+   "orang_untuk_ditanya": [
+    {
+     "jenis": "orang_terdekat",
+     "cara": "minta pendapat"
+    }
+   ],
+   "keyakinan": "sedang",
+   "batas": "belum diuji",
+   "bukti_cara_kerja": [],
+   "harapan": "Gagasan kecil yang kamu uji sendiri bisa menjadi awal yang berarti"
+  },
+  {
+   "id": "j-lain",
+   "jenis": "jalan_lain",
+   "judul": "Jalan yang kamu pilih juga bermakna",
+   "tujuan": "jalan hidup lain yang kamu pilih",
+   "peran_contoh": [],
+   "langkah_pertama": {
+    "teks": "Tulis apa yang ingin kamu tekuni pekan ini",
+    "paling_lama_hari": 7,
+    "butuh_orang_lain": false
+   },
+   "orang_untuk_ditanya": [
+    {
+     "jenis": "komunitas",
+     "cara": "cari kelompok sebaya"
+    }
+   ],
+   "keyakinan": "tinggi",
+   "batas": "mesin tidak menilai pilihan ini",
+   "bukti_cara_kerja": [],
+   "harapan": "Pilihanmu ini juga jalan bermanfaat bagi dirimu dan sesama"
+  }
+ ],
+ "rujukan": null,
+ "untuk_pemilik": {
+  "alasan": [
+   {
+    "jalur_id": "j-data",
+    "dari_profil": [
+     "medan:K1"
+    ],
+    "teks": "Kamu memilih medan kesehatan"
+   }
+  ]
+ },
+ "pernyataan": {
+  "jalan_lain_sah": true,
+  "bukan_fatwa": true,
+  "teks_tetap_id": "teks-tetap-1"
+ },
+ "pemberitahuan_tarik": [],
+ "jejak": {
+  "kartu_dipakai": [],
+  "gerbang": {},
+  "model": {}
+ },
+ "bingkai_nilai_id": null
+}

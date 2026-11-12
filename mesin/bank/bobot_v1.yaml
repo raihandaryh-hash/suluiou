@@ -1,0 +1,13 @@
+# Bobot saringan · v1 · ditulis SEBELUM skor apa pun dihitung (gerbang G2.3).
+# Label: SINTESIS sesi mesin 12 Nov 2026, atas KEPUTUSAN Raihan 12 Nov 18.16 yang menyetujui
+# kerangka skala–keterabaian–keterpecahan tanpa bobot nilai agama (paket keputusan butir 3).
+# Bobot sama rata dipilih karena belum ada bukti untuk mengunggulkan satu komponen; G2.3 menguji
+# kestabilan 5 teratas saat tiap bobot diubah ±25%. Boleh diubah Raihan; perubahan = bobot_v2.
+versi: bobot/1
+komponen:
+  skala: 0.3334        # orang terdampak × jarak dari pembanding (log)
+  keterabaian: 0.3333  # kapasitas dan program yang sudah diarahkan per orang terdampak (dibalik)
+  keterpecahan: 0.3333 # ada bukti_cara_kerja Live di Evidence DB atau dokumen resmi
+syarat_tayang:
+  lantai_provinsi_berangka: 34   # dari 38; bila tidak, kartu nasional saja (G2.1)
+  bukan_bobot: [ketersediaan_data]
