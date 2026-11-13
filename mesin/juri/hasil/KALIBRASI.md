@@ -36,3 +36,21 @@ Batasan yang tetap berlaku:
 1. Juri, penulis, dan penulis set tersembunyi semuanya keluarga Claude. Syarat "beda penyedia" belum terpenuhi; hasil ini sah untuk G1.6 sebagai juri bukan-penulis, tetapi galat yang dibagi bersama satu keluarga model belum teruji.
 2. Hampir sempurna di dua separuh menandakan SU-2 mungkin terlalu mudah: galat ditulis oleh model yang tahu aturannya. Ukuran yang lebih keras datang dari galat penulis nyata (47 dari 180 di uji pertama); set berikutnya perlu lebih banyak galat nyata dari penulis versi produksi.
 3. Koreksi bias (arXiv 2511.21140) tidak mengubah hasil karena galat juri hampir nol; rumusnya dipasang saat juri dipakai menaksir mutu kartu tayang.
+
+## Putaran 4 · vonis G1.6 pada set tersembunyi segar SU-2b · 13 Nov 2026 07.02 WIB (jam sistem) · menggantikan vonis gabungan di atas
+Menjawab audit ME1 butir 1: vonis hanya dari separuh tersembunyi, n = 100 per sisi per mode, prompt v3 beku (keenam prompt per mode dirender ulang dari `PROMPT_JURI_v3.md` dan `definisi_mode.json`, identik 6 dari 6), satu kali jalan, sampel belum pernah dilihat pembangun maupun pada putaran 1-3.
+Set: 700 butir ditulis agen terpisah dari 140 kartu yang tidak dipakai set mana pun; 100 benar, tiap mode 100 bergalat (50 mutasi skrip berbenih rahasia, 50 "penulis yang dilonggarkan"). Sidik di `uji/TERSEMBUNYI.sha256`, dibekukan sebelum dinilai. Juri Haiku, satu mode per agen, tiap mode menilai 100 bergalat + 100 benar + 50 bergalat mode lain.
+
+| Mode | TPR | LB | TNR | LB | Tuduh lintas mode | Vonis |
+|---|---|---|---|---|---|---|
+| wilayah | 100/100 | 0,963 | 100/100 | 0,963 | 0/50 | LULUS |
+| populasi | 100/100 | 0,963 | 95/100 | 0,888 | 6/50 | LULUS |
+| sebab | 100/100 | 0,963 | 100/100 | 0,963 | 0/50 | LULUS |
+| vonis | 100/100 | 0,963 | 100/100 | 0,963 | 0/50 | LULUS |
+| placeholder | 98/100 | 0,930 | 100/100 | 0,963 | 0/50 | LULUS |
+| kuantitas | 100/100 | 0,963 | 100/100 | 0,963 | 0/50 | LULUS |
+
+Ambang beku: LB TPR ≥ 0,90; LB TNR ≥ 0,85. Jumlah percobaan pada set ini: 1.
+Sidik keluaran juri: kuantitas 3980be0c1a9a, placeholder ad6bdf4a58d5, populasi 90d3d12a494b, sebab 92526cfff972, vonis b205fabf112c, wilayah 1cc2bd114660.
+
+Batasan yang tetap: (1) penulis set (Sonnet) dan juri (Haiku) satu keluarga; syarat juri beda penyedia (rencana §9 butir 4) belum terpenuhi. (2) Hasil nyaris sempurna di lima mode menandakan set mungkin masih mudah; separuh "penulis yang dilonggarkan" ditulis agen, bukan keluaran penulis produksi. (3) Juri populasi menuduh 6 dari 50 teks bergalat mode lain; tidak digerbang, dicatat untuk ME2.

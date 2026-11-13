@@ -16,9 +16,10 @@ for r in kab: jml[r["provinsi"]] += float(r["jumlah_ribu"]); n[r["provinsi"]] +=
 selisih = [(p, round(jml[p], 2), prov[p]) for p in prov if abs(jml[p] - prov[p]) > 0.01 * n[p] + 0.02]
 print(f"(2) jumlah kab/kota vs provinsi: {len(prov) - len(selisih)} dari {len(prov)} cocok dalam toleransi pembulatan; selisih: {selisih}")
 pola = re.compile(r"persentase penduduk miskin", re.I); tolak = re.compile(r"ekstrem|usia|tahun ke atas|garis|jumlah|klasifikasi|rumah tangga|desa/kota", re.I)
+keras = re.compile(r"ekstrem|usia|tahun ke atas|klasifikasi|rumah tangga|desa/kota", re.I)  # tabel gabungan diterima lewat turvar (temuan 13 Nov: DKI 3100_p0_645)
 Bp = collections.defaultdict(set)
 for r in B:
-    if r["tingkat"] == "kabkota" and r["tahun"] == "2025" and pola.search(r["judul"]) and not tolak.search(r["judul"]):
+    if r["tingkat"] == "kabkota" and r["tahun"] == "2025" and pola.search(r["judul"]) and (not tolak.search(r["judul"]) or r.get("turvar", "").strip().lower() == "persentase penduduk miskin") and not keras.search(r["judul"]):
         try: Bp[r["kode_bps"]].add(round(float(r["nilai"]), 2))
         except ValueError: pass
 pas, beda, tanpa = 0, [], 0

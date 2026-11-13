@@ -58,9 +58,10 @@ def muat_dikk(dikk, l3):
     A = {r["kode_bps"]: float(r["p0"]) for r in csv.DictReader(open(dikk, encoding="utf-8")) if r["tingkat"] == "kabkota"}
     pola = re.compile(r"persentase penduduk miskin", re.I)
     tolak = re.compile(r"ekstrem|usia|tahun ke atas|garis|jumlah|klasifikasi|rumah tangga|desa/kota", re.I)
+    keras = re.compile(r"ekstrem|usia|tahun ke atas|klasifikasi|rumah tangga|desa/kota", re.I)  # tabel gabungan (garis, jumlah, persentase) diterima lewat turvar
     B, prev = collections.defaultdict(set), {}
     for r in csv.DictReader(open(l3, encoding="utf-8")):
-        if r["tingkat"] == "kabkota" and pola.search(r["judul"]) and not tolak.search(r["judul"]):
+        if r["tingkat"] == "kabkota" and pola.search(r["judul"]) and (not tolak.search(r["judul"]) or r.get("turvar", "").strip().lower() == "persentase penduduk miskin") and not keras.search(r["judul"]):
             v = _nilai(r["nilai"])
             if v is None: continue
             if r["tahun"] == "2025": B[r["kode_bps"]].add(round(v, 2))
