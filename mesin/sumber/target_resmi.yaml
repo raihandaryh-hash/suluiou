@@ -1,0 +1,30 @@
+# Target resmi pemerintah untuk pembanding kartu (G2.4). Hanya baris yang dibaca langsung dari gambar halaman dokumen
+# hukum (bukan OCR) dan ukurannya sama dengan indikator kartu. SINTESIS, dicek 13 Nov 2026 14.18 WIB (jam sistem).
+dokumen:
+  id: perpres-12-2025-lampiran-i
+  judul: Lampiran I Peraturan Presiden Nomor 12 Tahun 2025 tentang RPJMN 2025-2029
+  berkas: "laptop: MESIN/mentah/rpjmn/lampiran-i.pdf (309 halaman; sha256 awalan abf7c07dbf7e; diunduh Raihan 13 Nov 2026 ke folder Transcripts)"
+  tautan_resmi_terakhir: https://jdih.kemenkoinfra.go.id/perpres-no-12-tahun-2025 (berkas lampiran membalas 404 per 13 Nov 2026 14.10 WIB)
+  pembanding_kedua: "Ringkasan RPJMN Tahun 2025-2029 (Bappenas, versi digital), laptop MESIN/mentah/rpjmn/ringkasan.pdf, sha256 awalan 254845ab7856"
+target:
+- sumber_id: kemiskinan-kabkota-2025
+  indikator_dokumen: Tingkat kemiskinan (%)
+  letak: Tabel 3.9 Sasaran Utama pada Prioritas Nasional 6, nomor 1, halaman 173 (SK No 252197 A)
+  baseline: {tahun: 2024, nilai: "9,03"}
+  target_2025: "7,0-8,0"
+  target_2029: "4,5-5,0"
+  cara_baca: gambar halaman 173 dirender dan dibaca langsung; cocok dengan Ringkasan RPJMN (teks digital)
+  tingkat: nasional
+- sumber_id: sakernas-agustus
+  indikator_dokumen: Tingkat Pengangguran Terbuka (%)
+  letak: tabel sasaran Prioritas Nasional 4 (Menguatnya Iptek, Inovasi, dan Produktivitas Tenaga Kerja), nomor 22, halaman 132 (SK No 252153 A)
+  baseline: {tahun: 2024, nilai: "4,91"}
+  target_2025: "4,50-5,00"
+  target_2029: "4,00-4,71"
+  cara_baca: gambar halaman 132 dirender dan dibaca langsung; cocok dengan Ringkasan RPJMN (target 2025; kolom 2029 di teks digital tergeser tata letak)
+  tingkat: nasional
+tidak_ada_target_ukuran_sama:
+- sumber_id: air-minum-layak-kabkota
+  catatan: "RPJMN memakai 'Akses rumah tangga perkotaan terhadap air siap minum perpipaan (%)' (24 (2020); 39,20; 51,36) dan Jakstranas SPAM 2026-2030 (Permen PU 6/2026) memakai 'air minum aman' dan 'perpipaan'; tidak ada target 'air minum layak'. Ukuran berbeda, tidak dipakai."
+- sumber_id: sanitasi-layak-kabkota
+  catatan: "RPJMN memakai 'Rumah Tangga dengan Akses Sanitasi Aman (%)' (10,21 (2023); 12,5; 30); ukuran berbeda dari sanitasi layak."
