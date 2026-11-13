@@ -1,0 +1,2 @@
+# Wilayah
+`kode_baru_papua.csv`: peta kode BPS lama (34 provinsi) ke kode BPS baru (38 provinsi) untuk 26 kab/kota di Papua Barat dan Papua yang pindah ke Papua Barat Daya (92), Papua Selatan (95), Papua Tengah (96), dan Papua Pegunungan (97). Sumber: label vervar berkode baru di tabel nasional BPS WebAPI 2025 (`0000_airminum_2830_2025.json`, `0000_sanitasi_2748_2025.json`; laptop MESIN/mentah/bps), dicocokkan nama persis dengan wilayah induk, 26 dari 26 tepat satu pasangan. Dibuat 13 Nov 2026. SINTESIS.
