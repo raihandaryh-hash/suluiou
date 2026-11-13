@@ -80,6 +80,8 @@ def muat_dikk(dikk, l3, *l3_lain):
     return A, prev, B
 
 def muat(argv):
+    if argv[0] == "bps" and len(argv) > 6 and argv[6].lower().endswith(".csv"):
+        sys.exit("GAGAL: argumen ke-7 adalah TURVAR atau '-', bukan berkas; tulis '-' sebelum L3 tambahan")
     return muat_bps(*argv[1:6], None if len(argv) < 7 or argv[6] == "-" else argv[6], *argv[7:]) if argv[0] == "bps" else muat_dikk(*argv[1:])
 
 JENIS = ["kolom_bergeser", "tahun_sebelah", "koma_desimal", "sae_ditukar"]
