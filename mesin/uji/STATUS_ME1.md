@@ -3,12 +3,13 @@
 Dasar: rencana mesin v1 (isi v1.3) §4.2, disetujui Raihan 12 Nov 2026 18.16. Cabang `mesin-me1-fondasi`, PR draf #6.
 Vonis pemeriksa independen: putaran 1 BELUM, putaran 2 BELUM, **putaran 3 (13 Nov siang) SELESAI BERSYARAT**. Syarat yang dibawa ke ME2: juri beda penyedia; pengukuran ulang G1.6 dengan set baru SU-2c.
 
-## Sumber DIPAKAI untuk kartu (3), hanya sel yang cocok dengan publikasi kedua
+## Sumber DIPAKAI untuk kartu (3)
+Target resmi pembanding (G2.4, ME2): `sumber/target/target_resmi.yaml` (kemiskinan dan TPT dari RPJMN, dibaca dari gambar halaman; air minum layak tanpa target ukuran sama)., hanya sel yang cocok dengan publikasi kedua
 | Sumber | Sel (daftar beku `sumber/sel/`) | G1.2 | G1.3 | G1.3m (empat jenis, beku sebelum dinilai) | G1.5 | G1.7 |
 |---|---|---|---|---|---|---|
 | Kemiskinan kab/kota 2025 | 490 kab/kota, 34 provinsi (f911c48b30a0) | 93a658d3d2c4 identik dua jalan | 490 cocok, 0 berselisih (pembanding: tabel BPS provinsi dan kab/kota) | 100/100 (SU1mP3) | hati_hati, rse_tidak_terbit | Syarat BPS |
 | TPT Agustus 2025 | 410 kab/kota, 31 provinsi (29b723c7b1f5) | 779aa79d7a2e identik | 410 cocok, 0 berselisih (pembanding: tabel BPS provinsi dan kab/kota) | 100/100 (SU1mP4_tpt, empat jenis) | hati_hati, rse_tidak_terbit | Syarat BPS |
-| Air minum layak 2025 | 108 kab/kota, 9 provinsi (57f8ae606190) | 176db7066fc3 identik | 108 cocok, 0 berselisih | 99/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
+| Air minum layak 2025 | 160 kab/kota, 14 provinsi (be6bc6f8c9d7) | 176db7066fc3 identik | 160 cocok, 1 berselisih ditarik (Kota Pangkalpinang) | 100/100 (SU1mP4_airminum) | hati_hati, rse_tidak_terbit | Syarat BPS |
 Gabungan: 34 dari 34 provinsi. `kartu.py` hanya membangun kartu untuk sel dalam daftar; `alat/periksa_kartu.py` menolak kartu non-draf di luar daftar (uji negatif ada).
 
 Pembanding: nilai tengah nasional dihitung dari seluruh kab/kota di tabel terbit A (termasuk sel yang ditahan), karena ia ringkasan tabel resmi, bukan angka sel; dicatat juga di `pembanding.catatan` tiap kartu (audit putaran 3 N1).

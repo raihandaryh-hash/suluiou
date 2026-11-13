@@ -21,9 +21,9 @@ servers:
   description: tabel kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
 - property: G1.3m
-  value: 'SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 (25/25, 24/25, 25/25, 25/25) LULUS. Seluruh tabel: 29/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+  value: 'Putaran 2 (13 Nov 2026 14.20 WIB): 100/100 (25/25 tiap jenis) pada 160 sel, set SU1mP4_airminum beku sebelum dinilai, publikasi kedua termasuk tabel BPS kab/kota. SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 (25/25, 24/25, 25/25, 25/25) LULUS. Seluruh tabel: 29/100; semua yang lolos ada di sel tanpa publikasi kedua.'
 - property: cakupan_terverifikasi
-  value: 'Daftar sel: sumber/sel/air-minum-layak-kabkota.csv (sha256 awalan 57f8ae606190, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 108 kab/kota di 9 provinsi.'
+  value: 'Daftar sel: sumber/sel/air-minum-layak-kabkota.csv (sha256 awalan be6bc6f8c9d7, 13 Nov 2026 14.20 WIB; sebelumnya 57f8ae606190, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 160 kab/kota di 14 provinsi; publikasi kedua: tabel BPS provinsi dan kab/kota (panen 514 domain, 34 berkas air minum; L3 39d8454ff8a5); 1 berselisih DITARIK (1971 Kota Pangkalpinang).'
 - property: sidik_l3
   value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
 - property: dipakai_kartu

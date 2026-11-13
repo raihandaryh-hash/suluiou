@@ -22,3 +22,11 @@ Panen `alat/bps_kab_panen.py tpt`: 514 domain, 240 berkas. Pengurai `parser/bps_
 sakernas-agustus: 410 sel cocok, 0 berpasangan tetapi berselisih (ditarik) [], 104 tanpa pasangan (ditahan); sha256 29b723c7b1f5
 tpt: 100 dari 100 tertangkap (ambang >=98) · kolom_bergeser 25/25 · tahun_sebelah 25/25 · koma_desimal 25/25 · sae_ditukar 25/25
 ```
+
+## Pembaruan air minum · 13 Nov 2026 14.20 WIB (jam sistem)
+Panen air minum: 514 domain, 34 berkas. L3 gabungan kab/kota `mentah/bps_kab/_l3_bps_kab.csv` 39d8454ff8a5; dengan L3 ini daftar kemiskinan tetap f911c48b30a0 dan TPT tetap 29b723c7b1f5.
+Catatan: satu jalan pertama memberi 0 sel karena L3 tambahan terbaca sebagai TURVAR; `uji/su1m.py` 32768711a71b kini menolak argumen itu.
+```
+air-minum-layak-kabkota: 160 sel cocok, 1 berpasangan tetapi berselisih (ditarik) ['1971'], 344 tanpa pasangan (ditahan); sha256 be6bc6f8c9d7
+airminum: 100 dari 100 tertangkap (ambang >=98) · kolom_bergeser 25/25 · tahun_sebelah 25/25 · koma_desimal 25/25 · sae_ditukar 25/25
+```
