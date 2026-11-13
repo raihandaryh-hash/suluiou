@@ -24,3 +24,9 @@ Tiga jenis teratas saringan v7: penduduk tanpa jaminan kesehatan, kemiskinan, st
 - **Cakupan rendah:** 22 dari 86 pasangan benar (26%). Dari 64 yang terlewat, 47 bersandar pada dokumen yang tidak ada di register L0, 9 dokumennya ada di register, 8 tanpa nomor dokumen.
 - Akibat untuk gerbang: G3.2 butuh ≥100 pasangan yang diloloskan; dengan cakupan 26% atas 149 pasangan benar (A+B) hanya ~39 yang lolos. Jalan: register L0 diperluas (pedoman dan juknis yang menyebut pelaksana) oleh agen yang tetap tidak membaca SU-3; tidak memasukkan dokumen yang dikutip SU-3 secara langsung.
 - Putusan pemeta yang paling bisa diperdebatkan (laporan pemeta): "dokter" untuk dokter umum, salah baca OCR "pekeda sosial", lembaga usaha/LSM sebagai pelaksana.
+
+## G3.2 pengembangan putaran 2 (13 Nov 2026 23.34 WIB) · separuh A, register L0 v2 (+43 dokumen terunduh), penyiap bundel v2, prompt v1
+- Keluaran `MESIN\peran\periksa_A2_keluaran.jsonl` (sidik bb26c81fd368); validator: 130 sah, 0 ditolak.
+- Diloloskan 36: benar 36, salah 0 → presisi 1,00 (Wilson 0,90 pada n=36). Elusi 0/44. Cakupan 36/86 = 42% (putaran 1: 26%).
+- Terlewat 50: 34 dokumennya tidak di register, 9 ada di register, 7 tanpa nomor. Terbanyak: perkawinan anak, UMKM, korban bencana (5 masing-masing).
+- Hitungan kelayakan: G3.2 meminta ≥100 pasangan diloloskan. SU-3 berlaku memuat 149 pasangan benar (A 86 + B 63); pada cakupan 42% yang lolos ~62. Syarat n≥100 butuh cakupan ≥67%, jadi tidak tercapai dengan SU-3 sekarang tanpa menambah pasangan atau dokumen. Diajukan ke Raihan.
