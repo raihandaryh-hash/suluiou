@@ -25,7 +25,7 @@ for r in R:
         else: A.setdefault(k, nilai(r))
 # Koreksi B yang terverifikasi: label tahun tabel provinsi tertukar. Bukti: 28 dari 28 sel B tahun T sama persis
 # dengan A tahun lain (14 kab/kota Kalbar x 2 tahun), uji 13 Nov 2026; lihat sumber/sanitasi-layak-kabkota.yaml.
-TUKAR_TAHUN_B = {"6100_sanitasi_368"}
+TUKAR_TAHUN_B = set()  # 13 Nov: koreksi Kalbar dicabut (audit ulang S2): bukti 28/28 tidak menunjukkan tabel mana yang salah label; 14 sel Kalbar DITARIK
 def tahun_efektif(f):
     awal, th = f[:-5].rsplit("_", 1)
     if awal in TUKAR_TAHUN_B: th = {"2024": "2025", "2025": "2024"}.get(th, th)

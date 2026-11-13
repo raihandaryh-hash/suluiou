@@ -90,11 +90,17 @@ def kartu_dari_ssgi(path):
             out.append(bangun_kartu(jenis, r["kode_bps"], nama, float(r["nilai"]), r["keandalan"], med))
     return out
 
+def sel_terverifikasi(sumber_id):
+    """Kode kab/kota yang cocok dengan publikasi kedua (sumber/sel/<sumber>.csv); hanya ini yang boleh jadi kartu."""
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sumber", "sel", sumber_id + ".csv")
+    return {r["kode_bps"] for r in csv.DictReader(open(p, encoding="utf-8"))}
+
 def kartu_dari_dikk(path):
     R = [r for r in csv.DictReader(open(path, encoding="utf-8")) if r["tingkat"] == "kabkota"]
-    med = round(statistics.median(float(r["p0"]) for r in R), 2)
+    sah = sel_terverifikasi("kemiskinan-kabkota-2025")
+    med = round(statistics.median(float(r["p0"]) for r in R), 2)  # nilai tengah dari semua kab/kota; kartu hanya sel sah
     return [bangun_kartu("p0", r["kode_bps"], r["nama"] if r["nama"].startswith("Kota") else "Kab. " + r["nama"],
-                         float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit") for r in R]
+                         float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit") for r in R if r["kode_bps"] in sah]
 
 if __name__ == "__main__":
     kart = kartu_dari_ssgi(sys.argv[1])

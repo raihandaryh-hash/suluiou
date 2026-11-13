@@ -29,7 +29,7 @@ def muat_bps(l3, domain, ind, var, th, tv=None):
     wi = os.path.join(os.path.dirname(domain), "..", "_wilayah_induk.csv")
     baru = {w["kode_bps_baru"]: w["kode_bps"] for w in csv.DictReader(open(wi, encoding="utf-8"))
             if w.get("kode_bps_baru") and w["kode_bps_baru"] != w["kode_bps"]} if os.path.exists(wi) else {}
-    tukar = {"6100_sanitasi_368"}  # sama dengan parser/periksa_lintas.py
+    tukar = set()  # sama dengan parser/periksa_lintas.py (koreksi Kalbar dicabut 13 Nov)
     def tabel_a(tahun):
         A = {}
         for r in R:
@@ -76,7 +76,9 @@ JENIS = ["kolom_bergeser", "tahun_sebelah", "koma_desimal", "sae_ditukar"]
 def buat(A, prev, benih, n_per=25):
     rnd = random.Random(benih); kode = sorted(A); per_prov = collections.defaultdict(list)
     for k in kode: per_prov[k[:2]].append(k)
-    jenis = [j for j in JENIS if j != "tahun_sebelah" or any(k in prev for k in kode)]
+    jenis = list(JENIS)
+    if not any(k in prev for k in kode):
+        sys.exit("GAGAL: tabel tahun sebelumnya tidak ada, jenis tahun_sebelah tidak bisa dibuat; SU-1m wajib empat jenis")
     n = {j: 100 // len(jenis) + (1 if i < 100 % len(jenis) else 0) for i, j in enumerate(jenis)}
     keluar, ulang = [], 0
     for j in jenis:

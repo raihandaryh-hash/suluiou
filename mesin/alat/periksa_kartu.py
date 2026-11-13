@@ -11,10 +11,17 @@ DIPAKAI = set()
 for q in glob.glob(os.path.join(AKAR, "sumber", "*.yaml")):
     d = yaml.safe_load(open(q, encoding="utf-8"))
     if any(c["property"] == "dipakai_kartu" and str(c["value"]) == "ya" for c in d.get("customProperties", [])): DIPAKAI.add(d["id"])
+import csv as _csv
+SEL = {os.path.basename(q)[:-4]: {r["kode_bps"] for r in _csv.DictReader(open(q, encoding="utf-8"))}
+       for q in glob.glob(os.path.join(AKAR, "sumber", "sel", "*.csv"))}
 def sumber_ditahan(k):
-    """Kartu yang bukan draf hanya boleh memakai sumber berstatus dipakai_kartu: ya."""
+    """Kartu yang bukan draf hanya boleh memakai sumber berstatus dipakai_kartu: ya, dan hanya sel yang tercantum
+    di sumber/sel/<sumber>.csv (sel yang cocok dengan publikasi kedua)."""
     if k.get("status") == "draf": return []
-    return [f"{k['id']}: status {k.get('status')} memakai sumber ditahan {i['sumber_id']}" for i in k["indikator"] if i["sumber_id"] not in DIPAKAI]
+    out = [f"{k['id']}: status {k.get('status')} memakai sumber ditahan {i['sumber_id']}" for i in k["indikator"] if i["sumber_id"] not in DIPAKAI]
+    out += [f"{k['id']}: sel {k['wilayah']['kode_bps']} tidak terverifikasi untuk {i['sumber_id']}" for i in k["indikator"]
+            if i["sumber_id"] in DIPAKAI and k["wilayah"]["kode_bps"] not in SEL.get(i["sumber_id"], set())]
+    return out
 gagal = []
 kart = [json.loads(l) for l in open(p, encoding="utf-8")]
 for k in kart:
@@ -33,6 +40,10 @@ rusak = json.loads(json.dumps(kart[0])); rusak["teks"]["ringkasan"] = "Angkanya 
 if not K.periksa_teks(rusak): gagal.append("periksa_teks meloloskan kartu rusak")
 terbit = json.loads(json.dumps(kart[0])); terbit["status"] = "terbit"; terbit["indikator"][0]["sumber_id"] = "ssgi-2024"
 if not sumber_ditahan(terbit): gagal.append("kartu terbit bersumber ditahan diloloskan")
+sel_luar = json.loads(json.dumps(kart[0])); sel_luar["status"] = "terbit"; sel_luar["indikator"][0]["sumber_id"] = "kemiskinan-kabkota-2025"; sel_luar["wilayah"]["kode_bps"] = "1701"
+if not sumber_ditahan(sel_luar): gagal.append("kartu terbit dengan sel tak terverifikasi diloloskan")
+sel_dalam = json.loads(json.dumps(sel_luar)); sel_dalam["wilayah"]["kode_bps"] = "3171"
+if sumber_ditahan(sel_dalam): gagal.append("kartu terbit dengan sel terverifikasi ditolak")
 print(f"G1.1/G1.4: {len(kart)} kartu, {len(gagal)} pelanggaran")
 for g in gagal: print("  ", g)
 sys.exit(1 if gagal else 0)

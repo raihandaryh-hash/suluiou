@@ -5,7 +5,7 @@ AMBANG.yaml tetap beku dan tidak diubah. Catatan ini mencatat dua tafsir yang di
 ## 1. Batas `rse_tekan_di_atas: 0.50` dibaca inklusif
 - Bunyi ambang/1: "ditekan di atas 0,50". Kode SSGI semula `rse > 0.50`; sejak commit c10aa2d `rse >= 0.50`.
 - Dasar: dokumen resmi yang memakai data BPS menyatakan RSE "lebih dari atau sama dengan 50 persen" tidak disajikan (lihat `CEK_AMBANG_RSE.md`).
-- Arah: lebih ketat (konservatif). Sel yang terdampak di SSGI 2024: 0 sel dengan RSE tepat 0,50 pada data yang diurai (hitungan ulang di bawah).
+- Arah: lebih ketat (konservatif). Sel yang terdampak di SSGI 2024: 0 dari 2.565 sel memiliki RSE tepat 0,50 bila dihitung langsung dari CI terbit (hitungan 13 Nov atas ssgi_kabkota.csv bersidik 27e9cf9164e2, toleransi 1e-9). Tafsir inklusif tidak mengubah satu sel pun.
 - Tafsir ini dicatat sesudah hasil terlihat. Karena arahnya hanya menambah penekanan, tafsir ini tidak meloloskan sel yang sebelumnya gagal.
 
 ## 2. Label `hati_hati` punya dua alasan
