@@ -6,9 +6,9 @@ Vonis pemeriksa independen: putaran 1 BELUM, putaran 2 BELUM, **putaran 3 (13 No
 ## Sumber DIPAKAI untuk kartu (2), hanya sel yang cocok dengan publikasi kedua
 | Sumber | Sel (daftar beku `sumber/sel/`) | G1.2 | G1.3 | G1.3m (empat jenis, beku sebelum dinilai) | G1.5 | G1.7 |
 |---|---|---|---|---|---|---|
-| Kemiskinan kab/kota 2025 | 398 kab/kota, 27 provinsi (108f45f2a0cf) | 93a658d3d2c4 identik dua jalan | 398 cocok, 0 berselisih | 100/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
+| Kemiskinan kab/kota 2025 | 490 kab/kota, 34 provinsi (f911c48b30a0) | 93a658d3d2c4 identik dua jalan | 490 cocok, 0 berselisih (pembanding: tabel BPS provinsi dan kab/kota) | 100/100 (SU1mP3) | hati_hati, rse_tidak_terbit | Syarat BPS |
 | Air minum layak 2025 | 108 kab/kota, 9 provinsi (57f8ae606190) | 176db7066fc3 identik | 108 cocok, 0 berselisih | 99/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
-Gabungan: 30 dari 34 provinsi. `kartu.py` hanya membangun kartu untuk sel dalam daftar; `alat/periksa_kartu.py` menolak kartu non-draf di luar daftar (uji negatif ada).
+Gabungan: 34 dari 34 provinsi. `kartu.py` hanya membangun kartu untuk sel dalam daftar; `alat/periksa_kartu.py` menolak kartu non-draf di luar daftar (uji negatif ada).
 
 Pembanding: nilai tengah nasional dihitung dari seluruh kab/kota di tabel terbit A (termasuk sel yang ditahan), karena ia ringkasan tabel resmi, bukan angka sel; dicatat juga di `pembanding.catatan` tiap kartu (audit putaran 3 N1).
 Asal daftar sel: `uji/LOG_SEL_TERVERIFIKASI.md`. Validator mewajibkan sumber dipakai punya daftar sel ≥100 baris.
