@@ -39,6 +39,8 @@ def urai_berkas(path, wilayah=None):
     var = j["var"][0]; turvar = j["turvar"]; tahun = j["tahun"]; turth = j["turtahun"]
     nama = {str(v["val"]): v["label"] for v in j["vervar"]}
     baris, tolak = [], []
+    if not isinstance(j.get("datacontent"), dict):  # tabel tanpa isi (BPS mengembalikan daftar kosong)
+        return [], [f"{os.path.basename(path)}: datacontent kosong"]
     for kunci, nilai in j["datacontent"].items():
         cocok = None
         for vv in nama:
