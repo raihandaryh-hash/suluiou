@@ -1,0 +1,15 @@
+# Metode hitung saringan · v5 · ditulis 13 Nov 2026 (jam sistem di baris "ditulis") SEBELUM skor v5 apa pun; v1-v4 tetap beku.
+# Dasar: KEPUTUSAN Raihan 13 Nov 2026, menjawab pertanyaan aturan skala: "Pakai jarak ke median (Recommended)".
+# Masalah yang dijawab: skala v3 untuk kandidat tanpa target = log10(orang) saja, sehingga kebutuhan yang mencakup hampir
+# seluruh kelompoknya (mis. pemuda tidak berorganisasi 94%) naik di atas kebutuhan yang timpang antardaerah.
+versi: metode-saringan/5
+ditulis: "13 Nov 2026 17.26 WIB"
+bobot: bank/bobot_v2.yaml
+dasar: [bank/metode_saringan_v1.yaml, bank/metode_saringan_v2.yaml, bank/metode_saringan_v3.yaml, bank/metode_saringan_v4.yaml]
+skala:
+  bertarget: "tetap v3: log10(orang terdampak nasional x jarak relatif ke batas target terdekat); di dalam rentang target = skala terendah"
+  tanpa_target: "log10(orang kelebihan di atas median provinsi) = log10( jumlah atas provinsi p dari max(0, laju_p - median_laju) x populasi_kelompok_p ), median = median laju 38 provinsi (provinsi tanpa angka tidak ikut median dan dicatat). Arah buruk naik; untuk indikator yang arah buruknya turun, laju dibalik dulu menjadi persen terdampak."
+  syarat_data: "laju per provinsi dan populasi kelompok per provinsi dari publikasi resmi yang sama atau proyeksi/SUPAS BPS; >=34 dari 38 provinsi; tanpa itu kandidat 'belum lengkap' untuk v5"
+  label: "kartu dan keluaran menyebut 'orang kelebihan di atas median provinsi', bukan 'orang terdampak'"
+alasan: "Median provinsi dipakai karena kartu kab/kota sudah memakai median nasional berlabel sebagai pembanding saat target resmi tidak ada (G2.4), jadi saringan dan kartu memakai pembanding yang sama. Ukuran ini membaca ketimpangan antardaerah; kebutuhan yang merata tinggi di semua provinsi akan bernilai rendah dan itu dicatat sebagai keterbatasan, bukan disembunyikan."
+uji_G2_3: "sama dengan v2"
