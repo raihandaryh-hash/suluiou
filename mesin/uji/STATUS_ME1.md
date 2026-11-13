@@ -24,9 +24,9 @@ Catatan cara ukur (audit S1): G1.3 dan G1.3m pada sel berpasangan menguji pemban
 | G1.2 | lulus: `alat/reproduksi_l3.py`, `uji/LOG_REPRODUKSI_L3.md` |
 | G1.4 | lulus pada fixture dan 180 teks penulis; teks 180 belum utuh di repo |
 | G1.5 | patuh jalur cadangan; `uji/AMBANG_CATATAN.md` |
-| G1.6 | ukuran lulus pada SU-2b segar (n=100 per sisi, prompt v3 beku, satu jalan; `juri/hasil/KALIBRASI.md` putaran 4). Cara ukur belum lengkap: juri beda penyedia (§9 butir 4) belum. SU-2b kini dianggap terpakai; putaran berikut butuh set SU-2c dengan separuh keluaran penulis produksi |
+| G1.6 | LULUS BERSYARAT (syarat beda penyedia ditunda ke ME2 oleh Raihan). Ukuran lulus pada SU-2b segar (n=100 per sisi, prompt v3 beku, satu jalan; `juri/hasil/KALIBRASI.md` putaran 4). Cara ukur belum lengkap: juri beda penyedia (§9 butir 4) belum. SU-2b kini dianggap terpakai; putaran berikut butuh set SU-2c dengan separuh keluaran penulis produksi |
 | SU-4 / SU-6 | 72 persona, 450 pasangan; beku |
 
-## Menunggu Raihan
-1. Juri beda penyedia: kunci Gemini di folder kunci lokal, atau keputusan menunda syarat ini.
-2. Cakupan: menerima bahwa kartu hanya memakai sel terverifikasi (sekarang 2 sumber, 30 provinsi), atau arah lain.
+## Keputusan Raihan
+1. KEPUTUSAN 13 Nov 2026 10.59 WIB: "Saya tidak punya API Gemini. Ditunda saja ke tahap kedua." Syarat juri beda penyedia G1.6 pindah ke ME2.
+2. Cakupan, kutipan yang sama: "tinggal cari saja bahan-bahan yang valid, lalu sitasi, apa susahnya?" Dibaca sebagai: aturan sel terverifikasi berlaku, cakupan diperluas dengan memanen publikasi kedua yang sah (tabel BPS kabupaten/kota dan provinsi lain). Pekerjaan perluasan tidak menahan penutupan ME1 karena G1.0-G1.7 dinilai per sumber yang dipakai.
