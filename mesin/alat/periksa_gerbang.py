@@ -9,6 +9,8 @@ gagal = []
 amb = yaml.safe_load(open(os.path.join(AKAR, "uji/AMBANG.yaml")))
 # G2.0
 bank = yaml.safe_load(open(os.path.join(AKAR, "bank/bank_kandidat_v1.yaml")))["kandidat"]
+_v2 = os.path.join(AKAR, "bank/bank_kandidat_v2.yaml")   # v2 = v1 + tambahan (v1 tidak disunting)
+if os.path.exists(_v2): bank = bank + yaml.safe_load(open(_v2))["tambahan"]
 per = collections.Counter(k["medan"] for k in bank)
 if len(bank) < amb["G2.0_bank"]["minimal_kandidat"]: gagal.append(f"G2.0: bank {len(bank)} < 30")
 for m in ["K1","K2","K3","K4","K5","K6","K7"]:
