@@ -1,0 +1,39 @@
+kode_prov,nama_prov,laju_persen,populasi_kelompok,sumber_laju,sumber_populasi
+11,Aceh,1.08,4155944,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+12,Sumatera Utara,0.99,11653360,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+13,Sumatera Barat,0.92,4483042,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+14,Riau,1,5034095,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+15,Jambi,2.41,2829000,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+16,Sumatera Selatan,1.11,6675759,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+17,Bengkulu,2.2,1608738,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+18,Lampung,2.17,7192537,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+19,Kep. Bangka Belitung,1.8,1185147,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+21,Kep. Riau,0.54,1648217,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+31,DKI Jakarta,0.29,8430623,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+32,Jawa Barat,1.1,39237385,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+33,Jawa Tengah,4.8,30037087,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+34,DI Yogyakarta,4.07,3049126,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+35,Jawa Timur,5.15,33472420,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+36,Banten,1,9539824,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+51,Bali,3.58,3547519,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+52,Nusa Tenggara Barat,8.93,4210582,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+53,Nusa Tenggara Timur,4.08,4091938,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+61,Kalimantan Barat,3.91,4342061,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+62,Kalimantan Tengah,0.82,2158251,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+63,Kalimantan Selatan,2.18,3212466,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+64,Kalimantan Timur,1.04,3120112,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+65,Kalimantan Utara,1.86,569126,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+71,Sulawesi Utara,0.2,2119895,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+72,Sulawesi Tengah,1.61,2351470,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+73,Sulawesi Selatan,4.95,7343490,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+74,Sulawesi Tenggara,2.78,2069384,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+75,Gorontalo,1.46,946299,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+76,Sulawesi Barat,4.38,1109763,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+81,Maluku,0.65,1476429,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+82,Maluku Utara,1.14,1014226,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+91,Papua Barat,2.04,434339,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+92,Papua Barat Daya,1.42,475885,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+94,Papua,1.61,729072,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+95,Papua Selatan,4.73,336718,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+96,Papua Tengah,14.18,1109718,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
+97,Papua Pegunungan,31.68,1166767,100 - BPS WebAPI var 1458 th2025 sidik 9c4a4b44ea90,BPS WebAPI var 2397 Agustus 2025 (Sakernas penduduk 15+) sidik 4f1efc988132
