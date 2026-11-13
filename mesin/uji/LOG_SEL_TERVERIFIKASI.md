@@ -15,3 +15,10 @@ Panen `alat/bps_kab_panen.py`: 422 domain kab/kota (34 provinsi), 206 berkas; L3
 kemiskinan-kabkota-2025: 490 sel cocok, 0 berpasangan tetapi berselisih (ditarik) [], 24 tanpa pasangan (ditahan); sha256 f911c48b30a0
 kemiskinan: 100 dari 100 tertangkap (ambang >=98) · kolom_bergeser 25/25 · tahun_sebelah 25/25 · koma_desimal 25/25 · sae_ditukar 25/25
 ```
+
+## Pembaruan TPT · 13 Nov 2026 14.03 WIB (jam sistem)
+Panen `alat/bps_kab_panen.py tpt`: 514 domain, 240 berkas. Pengurai `parser/bps_webapi.py` 38ff4f1c3e88 (tabel tanpa isi dilewati). L3 `mentah/bps_kab/_l3_bps_kab_tpt.csv` 3584a064ed3f. Daftar kemiskinan diperiksa ulang dengan L3 ini: tetap f911c48b30a0.
+```
+sakernas-agustus: 410 sel cocok, 0 berpasangan tetapi berselisih (ditarik) [], 104 tanpa pasangan (ditahan); sha256 29b723c7b1f5
+tpt: 100 dari 100 tertangkap (ambang >=98) · kolom_bergeser 25/25 · tahun_sebelah 25/25 · koma_desimal 25/25 · sae_ditukar 25/25
+```

@@ -22,9 +22,9 @@ servers:
   description: tabel TPT kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
 - property: G1.3m
-  value: 'Putaran 3 (13 Nov 2026 12.24 WIB): sesudah tabel TPT nasional 2024 dipanen, set SU1mP3_tpt empat jenis dibekukan sebelum dinilai: 100/100 (25/25 tiap jenis) pada 321 sel berpasangan, LULUS. Riwayat: putaran 1 tiga jenis 99/100 (tidak memenuhi syarat empat jenis); seluruh tabel 58/100.'
+  value: 'Putaran 4 (13 Nov 2026 14.03 WIB): 100/100 (25/25 tiap jenis) pada 410 sel, set SU1mP4_tpt beku sebelum dinilai, publikasi kedua termasuk tabel BPS kab/kota. Putaran 3 (13 Nov 2026 12.24 WIB): sesudah tabel TPT nasional 2024 dipanen, set SU1mP3_tpt empat jenis dibekukan sebelum dinilai: 100/100 (25/25 tiap jenis) pada 321 sel berpasangan, LULUS. Riwayat: putaran 1 tiga jenis 99/100 (tidak memenuhi syarat empat jenis); seluruh tabel 58/100.'
 - property: cakupan_terverifikasi
-  value: 'Daftar sel: sumber/sel/sakernas-agustus.csv (sha256 awalan 3cc288d98e7d, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 321 kab/kota di 21 provinsi.'
+  value: 'Daftar sel: sumber/sel/sakernas-agustus.csv (sha256 awalan 29b723c7b1f5, 13 Nov 2026 14.03 WIB; sebelumnya 3cc288d98e7d, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 410 kab/kota di 31 provinsi (belum: DKI Jakarta, Gorontalo, Kepulauan Riau); publikasi kedua: tabel BPS provinsi dan kab/kota (panen 514 domain, 240 berkas, L3 3584a064ed3f); 0 berselisih.'
 - property: sidik_l3
   value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/bps_webapi.py atas mentah/bps (tabel L3 BPS bersama))'
 - property: dipakai_kartu

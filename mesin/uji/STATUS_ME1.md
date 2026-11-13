@@ -7,7 +7,7 @@ Vonis pemeriksa independen: putaran 1 BELUM, putaran 2 BELUM, **putaran 3 (13 No
 | Sumber | Sel (daftar beku `sumber/sel/`) | G1.2 | G1.3 | G1.3m (empat jenis, beku sebelum dinilai) | G1.5 | G1.7 |
 |---|---|---|---|---|---|---|
 | Kemiskinan kab/kota 2025 | 490 kab/kota, 34 provinsi (f911c48b30a0) | 93a658d3d2c4 identik dua jalan | 490 cocok, 0 berselisih (pembanding: tabel BPS provinsi dan kab/kota) | 100/100 (SU1mP3) | hati_hati, rse_tidak_terbit | Syarat BPS |
-| TPT Agustus 2025 | 321 kab/kota, 21 provinsi (3cc288d98e7d) | 779aa79d7a2e identik | 321 cocok, 0 berselisih | 100/100 (SU1mP3_tpt, empat jenis) | hati_hati, rse_tidak_terbit | Syarat BPS |
+| TPT Agustus 2025 | 410 kab/kota, 31 provinsi (29b723c7b1f5) | 779aa79d7a2e identik | 410 cocok, 0 berselisih (pembanding: tabel BPS provinsi dan kab/kota) | 100/100 (SU1mP4_tpt, empat jenis) | hati_hati, rse_tidak_terbit | Syarat BPS |
 | Air minum layak 2025 | 108 kab/kota, 9 provinsi (57f8ae606190) | 176db7066fc3 identik | 108 cocok, 0 berselisih | 99/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
 Gabungan: 34 dari 34 provinsi. `kartu.py` hanya membangun kartu untuk sel dalam daftar; `alat/periksa_kartu.py` menolak kartu non-draf di luar daftar (uji negatif ada).
 
