@@ -22,6 +22,17 @@ def sumber_ditahan(k):
     out += [f"{k['id']}: sel {k['wilayah']['kode_bps']} tidak terverifikasi untuk {i['sumber_id']}" for i in k["indikator"]
             if i["sumber_id"] in DIPAKAI and k["wilayah"]["kode_bps"] not in SEL.get(i["sumber_id"], set())]
     return out
+def periksa_pembanding(k):
+    """Pembanding target resmi wajib sama persis dengan sumber/target/target_resmi.yaml dan jaraknya dihitung ulang."""
+    pb = k["pembanding"]
+    if pb.get("jenis") == "median_nasional": return []
+    if pb.get("jenis") != "target_resmi": return [f"{k['id']}: jenis pembanding tak dikenal"]
+    t = K.muat_target(k["indikator"][0]["sumber_id"])
+    if not t or any(pb.get(f) != t[f] for f in ("nilai_bawah", "nilai_atas", "tahun_target", "sumber_id")):
+        return [f"{k['id']}: pembanding target_resmi tidak sama dengan berkas target"]
+    jn, arah = K.jarak_ke(k["indikator"][0]["nilai"], pb)
+    if (jn, arah) != (k["jarak"]["nilai"], k["jarak"]["arah"]): return [f"{k['id']}: jarak ke target salah"]
+    return []
 gagal = []
 kart = [json.loads(l) for l in open(p, encoding="utf-8")]
 for k in kart:
@@ -32,9 +43,17 @@ for k in kart:
         if not re.fullmatch(r"[0-9a-f]{64}", ind.get("sha256") or ""): gagal.append(f"{k['id']}: sha256 bukan sidik penuh")
     if not re.search(r"@[0-9a-f]{12}$", k["jarak"].get("dihitung_oleh", "")): gagal.append(f"{k['id']}: jarak tanpa versi skrip")
     if not k["pembanding"].get("sumber_id"): gagal.append(f"{k['id']}: pembanding tanpa sumber")
+    gagal += periksa_pembanding(k)
     gagal += sumber_ditahan(k)
     if k.get("teks", {}).get("judul"):
         K.normalisasi_satuan(k); gagal += [f"{k['id']}: {x}" for x in K.periksa_teks(k)]
+# uji negatif pembanding: target dipalsukan dan jarak salah wajib ditolak
+_kt = K.bangun_kartu("p0", "3171", "Kota Jakarta Selatan", 3.23, "hati_hati", 9.0, alasan_keandalan="rse_tidak_terbit", target=K.muat_target("kemiskinan-kabkota-2025"))
+if periksa_pembanding(_kt): gagal.append("pembanding target sah ditolak")
+_p = json.loads(json.dumps(_kt)); _p["pembanding"]["nilai_atas"] = 9.9
+if not periksa_pembanding(_p): gagal.append("target palsu diloloskan")
+_p = json.loads(json.dumps(_kt)); _p["jarak"]["nilai"] = 1.0
+if not periksa_pembanding(_p): gagal.append("jarak salah diloloskan")
 # uji negatif: kartu rusak wajib ditolak
 rusak = json.loads(json.dumps(kart[0])); rusak["teks"]["ringkasan"] = "Angkanya 25 persen, hampir seperempat balita."
 if not K.periksa_teks(rusak): gagal.append("periksa_teks meloloskan kartu rusak")

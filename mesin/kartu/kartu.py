@@ -29,19 +29,44 @@ def placeholder_sah(k):
     ind = k["indikator"][0]["kode"]
     return {ind, "pembanding", "jarak", "tahun_data"}
 
-def bangun_kartu(jenis, kode_bps, nama, nilai, keandalan, median, tanggal_akses="2026-11-13", alasan_keandalan="rse_dari_ci"):
+def muat_target(sumber_id):
+    """Target resmi pembanding dari sumber/target/target_resmi.yaml (G2.4); None bila tidak ada target ukuran sama."""
+    import yaml
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sumber", "target", "target_resmi.yaml")
+    d = yaml.safe_load(open(p, encoding="utf-8"))
+    for t in d["target"]:
+        if t["sumber_id"] == sumber_id:
+            lo, hi = (float(x.replace(",", ".")) for x in t["target_2029"].split("-"))
+            return {"jenis": "target_resmi", "nilai_bawah": lo, "nilai_atas": hi, "tahun_target": 2029,
+                    "tingkat": t["tingkat"], "sumber_id": d["dokumen"]["id"], "letak": t["letak"],
+                    "catatan": f"target nasional {t['indikator_dokumen']} tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota"}
+    return None
+
+def jarak_ke(nilai, pb, arah_buruk="naik"):
+    """Jarak ke pembanding. Target rentang: 0 bila di dalam rentang. Arah 'di_atas'/'di_bawah'/'di_dalam'."""
+    if pb["jenis"] == "target_resmi":
+        lo, hi = pb["nilai_bawah"], pb["nilai_atas"]
+        if nilai > hi: return round(nilai - hi, 2), "di_atas"
+        if nilai < lo: return round(lo - nilai, 2), "di_bawah"
+        return 0.0, "di_dalam"
+    j = round(nilai - pb["nilai"], 2)
+    return abs(j), ("di_atas" if j > 0 else "di_bawah")
+
+def bangun_kartu(jenis, kode_bps, nama, nilai, keandalan, median, tanggal_akses="2026-11-13", alasan_keandalan="rse_dari_ci", target=None):
     """alasan_keandalan: rse_dari_ci (RSE dihitung dari CI terbit) atau rse_tidak_terbit (label hati_hati karena
-    galat sampel tidak diterbitkan, jalur cadangan G1.5; lihat uji/AMBANG_CATATAN.md)."""
+    galat sampel tidak diterbitkan, jalur cadangan G1.5; lihat uji/AMBANG_CATATAN.md).
+    target: pembanding target resmi (muat_target); bila None, pembanding median nasional berlabel."""
     jk, ind, pop, medan, arah_buruk = JENIS[jenis]; sid, th, url, sha = SUMBER[jenis]
-    jarak = round(nilai - median, 2)
+    pb = target or {"jenis": "median_nasional", "nilai": median, "sumber_id": sid, "url": url,
+                    "catatan": "nilai tengah seluruh kabupaten/kota di tabel terbit, termasuk yang belum terverifikasi publikasi kedua; bukan target resmi"}
+    jn, arah = jarak_ke(nilai, pb, arah_buruk)
     return {"id": f"{jk}.{kode_bps}", "versi": VERSI, "jenis_kebutuhan": jk, "medan": medan,
             "wilayah": {"kode_bps": kode_bps, "nama": nama, "tingkat": "kabkota"}, "populasi": pop,
             "indikator": [{"kode": ind, "nilai": nilai, "satuan": "persen", "tahun_data": th, "rse": None,
                            "keandalan": keandalan, "alasan_keandalan": alasan_keandalan, "metode": "langsung", "sumber_id": sid, "url": url, "sha256": sha,
                            "tanggal_akses": tanggal_akses}],
-            "pembanding": {"jenis": "median_nasional", "nilai": median, "sumber_id": sid, "url": url,
-                           "catatan": "nilai tengah seluruh kabupaten/kota di tabel terbit, termasuk yang belum terverifikasi publikasi kedua; bukan target resmi (target resmi dicari di ME2)"},
-            "jarak": {"nilai": abs(jarak), "arah": "di_atas" if jarak > 0 else "di_bawah", "dihitung_oleh": f"mesin/kartu/kartu.py@{SHA_SKRIP}"},
+            "pembanding": pb, "konteks": {"median_nasional": median},
+            "jarak": {"nilai": jn, "arah": arah, "dihitung_oleh": f"mesin/kartu/kartu.py@{SHA_SKRIP}"},
             "teks": {"judul": "", "ringkasan": "", "harapan": ""}, "status": "draf"}
 
 SATUAN_SESUDAH_PH = re.compile(r"(\{[a-z0-9_]+\})\s+(persen|poin|persentase poin)\b")
@@ -75,7 +100,9 @@ def render(k):
     ind = k["indikator"][0]
     if ind["keandalan"] == "ditekan": raise ValueError("indikator ditekan tidak dirender")
     f = lambda x: f"{x:.1f}".replace(".", ",")
-    nilai = {ind["kode"]: f(ind["nilai"]) + " persen", "pembanding": f(k["pembanding"]["nilai"]) + " persen",
+    pb = k["pembanding"]
+    teks_pb = (f(pb["nilai_bawah"]) + "–" + f(pb["nilai_atas"]) + " persen") if pb["jenis"] == "target_resmi" else f(pb["nilai"]) + " persen"
+    nilai = {ind["kode"]: f(ind["nilai"]) + " persen", "pembanding": teks_pb,
              "jarak": f(k["jarak"]["nilai"]) + " poin", "tahun_data": str(ind["tahun_data"])}
     return {b: PLACEHOLDER.sub(lambda m: nilai[m.group(1)], k["teks"][b]) for b in ("judul", "ringkasan", "harapan")}
 
@@ -100,7 +127,8 @@ def kartu_dari_dikk(path):
     sah = sel_terverifikasi("kemiskinan-kabkota-2025")
     med = round(statistics.median(float(r["p0"]) for r in R), 2)  # nilai tengah dari semua kab/kota; kartu hanya sel sah
     return [bangun_kartu("p0", r["kode_bps"], r["nama"] if r["nama"].startswith("Kota") else "Kab. " + r["nama"],
-                         float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit") for r in R if r["kode_bps"] in sah]
+                         float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit",
+                         target=muat_target("kemiskinan-kabkota-2025")) for r in R if r["kode_bps"] in sah]
 
 if __name__ == "__main__":
     kart = kartu_dari_ssgi(sys.argv[1])
