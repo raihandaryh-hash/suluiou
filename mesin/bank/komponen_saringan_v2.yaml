@@ -32,7 +32,7 @@ kandidat:
   # ---- tambahan bank v2 (RISET_Orang-Terdampak-24-Tambahan dan RISET_Keterpecahan-24-Tambahan, 13 Nov 2026) ----
   anak-tidak-paud: {orang: 9410708, tahun: 2025, rumus: "absolut: anak 3-6 belum terlayani PAUD (Dirjen PAUD, portal Kemendikdasmen 12 Nov 2025)", url: "internal-portal.kemdikbud.go.id/news/92f4d5bb712acce48e4a4994ecd73ff349fcf32dc992e63242fbbbfebf28e0d5",
     keterpecahan: 1, alasan_k: "ECED RCT bertahap 310 desa, partisipasi prasekolah +7 sampai +9 poin, makalah dibuka (Brinkman dkk. WBER 2017)"}
-  penduduk-tanpa-jaminan-kesehatan: {orang: 69771944, tahun: 2025, rumus: "(1-0,7549) x 284.667.253 (BPS var 2279 x SUPAS total)", url: "BPS var 2279 sidik efeb768d27e5",
+  penduduk-tanpa-jaminan-kesehatan: {orang: 69771944, tahun: 2025, rumus: "(1-0,7549) x 284.667.253 (BPS var 2279 x SUPAS total)", url: "BPS var 2279 sidik efeb768d27e5", catatan: "riset berlabel SEBAGIAN: var 2279 menghitung jaminan kesehatan yang tercakup survei; asuransi swasta murni mungkin tidak terhitung, jadi angka orang bisa sedikit lebih tinggi dari yang sebenarnya; kartu dan keluaran wajib menyebut ini",
     keterpecahan: 1, alasan_k: "RCT subsidi iuran JKN ~6.000 RT, kepesertaan +18,6 poin (Banerjee dkk. AER 2021)"}
   buta-huruf-dewasa: {orang: 6326867, tahun: 2025, rumus: "(1-0,9710) x 218.167.814 (AMA 15+ BPS x Sakernas 15+)", url: "https://www.bps.go.id/id/statistics-table/2/MTQ2MCMy",
     keterpecahan: 0.5, alasan_k: "Keaksaraan Fungsional resmi; hanya pra-pasca satu kelompok"}
