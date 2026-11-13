@@ -40,7 +40,7 @@ def bangun_kartu(jenis, kode_bps, nama, nilai, keandalan, median, tanggal_akses=
                            "keandalan": keandalan, "alasan_keandalan": alasan_keandalan, "metode": "langsung", "sumber_id": sid, "url": url, "sha256": sha,
                            "tanggal_akses": tanggal_akses}],
             "pembanding": {"jenis": "median_nasional", "nilai": median, "sumber_id": sid, "url": url,
-                           "catatan": "nilai tengah seluruh kabupaten/kota; bukan target resmi (target resmi dicari di ME2)"},
+                           "catatan": "nilai tengah seluruh kabupaten/kota di tabel terbit, termasuk yang belum terverifikasi publikasi kedua; bukan target resmi (target resmi dicari di ME2)"},
             "jarak": {"nilai": abs(jarak), "arah": "di_atas" if jarak > 0 else "di_bawah", "dihitung_oleh": f"mesin/kartu/kartu.py@{SHA_SKRIP}"},
             "teks": {"judul": "", "ringkasan": "", "harapan": ""}, "status": "draf"}
 

@@ -22,6 +22,9 @@ for p in sorted(glob.glob(os.path.join(AKAR, "sumber", "*.yaml"))):
     sit = bool(cp.get("sitasi"))
     g13m = ("LULUS" in cp.get("G1.3m", "") and "BELUM" not in cp.get("G1.3m", "")) or "administratif" in cp.get("G1.5", "")
     baris.append((d["id"], "dipakai" if pakai else "ditahan", g10, g13, g17, sit))
+    sel = os.path.join(AKAR, "sumber", "sel", d["id"] + ".csv")
+    n_sel = sum(1 for _ in open(sel, encoding="utf-8")) - 1 if os.path.exists(sel) else 0
+    if pakai and n_sel < 100: cacat.append(f"{d['id']}: dipakai tetapi daftar sel terverifikasi {n_sel} baris (minimal 100)")
     if pakai and not (g10 and g13 and g13m and g17 and sit):
         cacat.append(f"{d['id']}: dipakai tetapi gerbang belum lengkap (G1.0={g10} G1.3={g13} G1.3m={g13m} G1.7={g17} sitasi={sit})")
 print(f"{'sumber':32} {'status':8} G1.0  G1.3  G1.7  sitasi")

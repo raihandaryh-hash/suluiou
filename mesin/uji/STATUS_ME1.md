@@ -1,7 +1,7 @@
-# Status tonggak ME1 (Fondasi data) · 13 Nov 2026 07.10 WIB (jam sistem) · SINTESIS
+# Status tonggak ME1 (Fondasi data) · 13 Nov 2026 11.03 WIB (jam sistem) · SINTESIS
 
 Dasar: rencana mesin v1 (isi v1.3) §4.2, disetujui Raihan 12 Nov 2026 18.16. Cabang `mesin-me1-fondasi`, PR draf #6.
-Vonis pemeriksa independen: putaran 1 (13 Nov pagi) BELUM; putaran 2 (13 Nov) BELUM, bisa naik ke SELESAI BERSYARAT bila (a) Raihan memutus soal juri beda penyedia dan (b) penahanan sel ditegakkan kode. Butir (b) dikerjakan sesudah putaran 2 (bagian di bawah). Butir (a) dan keputusan cakupan menunggu Raihan.
+Vonis pemeriksa independen: putaran 1 BELUM, putaran 2 BELUM, **putaran 3 (13 Nov siang) SELESAI BERSYARAT**. Syarat yang dibawa ke ME2: juri beda penyedia; pengukuran ulang G1.6 dengan set baru SU-2c.
 
 ## Sumber DIPAKAI untuk kartu (2), hanya sel yang cocok dengan publikasi kedua
 | Sumber | Sel (daftar beku `sumber/sel/`) | G1.2 | G1.3 | G1.3m (empat jenis, beku sebelum dinilai) | G1.5 | G1.7 |
@@ -9,6 +9,9 @@ Vonis pemeriksa independen: putaran 1 (13 Nov pagi) BELUM; putaran 2 (13 Nov) BE
 | Kemiskinan kab/kota 2025 | 398 kab/kota, 27 provinsi (108f45f2a0cf) | 93a658d3d2c4 identik dua jalan | 398 cocok, 0 berselisih | 100/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
 | Air minum layak 2025 | 108 kab/kota, 9 provinsi (57f8ae606190) | 176db7066fc3 identik | 108 cocok, 0 berselisih | 99/100 | hati_hati, rse_tidak_terbit | Syarat BPS |
 Gabungan: 30 dari 34 provinsi. `kartu.py` hanya membangun kartu untuk sel dalam daftar; `alat/periksa_kartu.py` menolak kartu non-draf di luar daftar (uji negatif ada).
+
+Pembanding: nilai tengah nasional dihitung dari seluruh kab/kota di tabel terbit A (termasuk sel yang ditahan), karena ia ringkasan tabel resmi, bukan angka sel; dicatat juga di `pembanding.catatan` tiap kartu (audit putaran 3 N1).
+Asal daftar sel: `uji/LOG_SEL_TERVERIFIKASI.md`. Validator mewajibkan sumber dipakai punya daftar sel ≥100 baris.
 
 Catatan cara ukur (audit S1): G1.3 dan G1.3m pada sel berpasangan menguji pembanding publikasi kedua, belum menguji invarian. Pada seluruh tabel, SU-1m hanya menangkap 26-87 dari 100; karena itu sel tanpa pasangan ditahan (PUTUSAN ATAS DELEGASI 13 Nov 2026, diajukan ke Raihan karena mengubah cakupan).
 
@@ -29,4 +32,4 @@ Catatan cara ukur (audit S1): G1.3 dan G1.3m pada sel berpasangan menguji pemban
 
 ## Keputusan Raihan
 1. KEPUTUSAN 13 Nov 2026 10.59 WIB: "Saya tidak punya API Gemini. Ditunda saja ke tahap kedua." Syarat juri beda penyedia G1.6 pindah ke ME2.
-2. Cakupan, kutipan yang sama: "tinggal cari saja bahan-bahan yang valid, lalu sitasi, apa susahnya?" Dibaca sebagai: aturan sel terverifikasi berlaku, cakupan diperluas dengan memanen publikasi kedua yang sah (tabel BPS kabupaten/kota dan provinsi lain). Pekerjaan perluasan tidak menahan penutupan ME1 karena G1.0-G1.7 dinilai per sumber yang dipakai.
+2. PUTUSAN ATAS DELEGASI (tafsir, bukan kutipan keputusan), dasar kutipan yang sama: "tinggal cari saja bahan-bahan yang valid, lalu sitasi, apa susahnya?" Dibaca sebagai: aturan sel terverifikasi berlaku, cakupan diperluas dengan memanen publikasi kedua yang sah (tabel BPS kabupaten/kota dan provinsi lain). Pekerjaan perluasan tidak menahan penutupan ME1 karena G1.0-G1.7 dinilai per sumber yang dipakai.
