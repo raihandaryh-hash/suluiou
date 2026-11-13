@@ -2,6 +2,15 @@
 
 Dasar: rencana mesin v1 §4.3 G2.0-G2.5 (koreksi rujukan dari §4.2, temuan pemeriksa ME2). Dimulai 13 Nov 2026 sesudah ME1 SELESAI BERSYARAT (pemeriksa putaran 3) dan arahan Raihan "Lanjut". Tinjauan akhir ME1 oleh Raihan masih terbuka.
 
+**Vonis pemeriksa independen putaran 2 (13 Nov 2026): SELESAI BERSYARAT.** Putaran 1: BELUM (kartu ME2 belum ada). Syarat yang dibawa ke tonggak berikut, dicatat 18.05 WIB:
+1. Uji total G2.2 untuk TPT dan air minum, kartu nasional air minum, dan pemeriksaan G2.1 ulang dengan wilayah induk f3b676e88a71 (ketiganya butuh laptop).
+2. Daftar 3T 2025-2029 belum ditemukan; laporan 3T terpisah tertunda.
+3. Dari 5 teratas saringan hanya kemiskinan yang punya kartu; jaminan kesehatan, stunting, pemilih, kerawanan pangan belum (ME3 meminta kartu untuk tiga teratas).
+4. Wilayah induk masuk repo dan G2.1 serta laporan Papua masuk CI.
+5. Kartu ME2 belum berteks; status `siap_tinjau` belum ada di skema kartu.
+6. Metode v7 (target 2029) adalah putusan atas delegasi yang menggeser satu dari lima teratas; disampaikan ke Raihan 13 Nov.
+Temuan B1 (gerbang tidak membaca kode keluar pembangun kartu) sudah diperbaiki dan diuji: masukan DIKK dihapus → gerbang GAGAL.
+
 | Gerbang | Status | Bukti |
 |---|---|---|
 | G2.0 bank kandidat | LULUS. Bank v2 dibekukan 13 Nov 2026 16.10 WIB (commit b14d062) sebelum angka kandidat baru diambil: 33 v1 + 24 tambahan bersatuan orang; per medan K1 10, K2 9, K3 9, K4 6, K5 10, K6 6, K7 7 | `alat/periksa_gerbang.py` (membaca v1 + tambahan v2) |
