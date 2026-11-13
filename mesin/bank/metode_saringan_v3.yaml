@@ -1,0 +1,9 @@
+# Metode hitung saringan · v3 · ditulis 13 Nov 2026 15.40 WIB (jam sistem) SEBELUM skor apa pun; melengkapi v1 dan v2 (keduanya tetap beku).
+# Perubahan: skala untuk kandidat tanpa target resmi. Masalah yang ditemukan peta ketersediaan 13 Nov: untuk indikator
+# yang hanya punya angka nasional, "median" tidak ada, sehingga jarak relatif tidak terdefinisi.
+# PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: "Lanjut" Raihan 15.40), bisa dibalik; perubahan = v4.
+versi: metode-saringan/3
+bobot: bank/bobot_v2.yaml
+dasar: [bank/metode_saringan_v1.yaml, bank/metode_saringan_v2.yaml]
+skala: "kandidat dengan target resmi ukuran sama: log10(orang terdampak nasional × jarak relatif ke batas target terdekat; 0 bila sudah di dalam rentang target). Kandidat tanpa target resmi: log10(orang terdampak nasional) saja, dengan label 'tanpa target resmi'. Dua kelompok ini diperingkat bersama dalam persentil; uji G2.3 dijalankan dua kali: semua kandidat, dan hanya kandidat bertarget, dan keduanya dilaporkan."
+orang_terdampak: "angka absolut nasional dari publikasi resmi (BPS, kementerian), tahun terbaru <=2025, ber-URL dan bersidik bila berkas terunduh; persen dikali jumlah populasi baku dari publikasi yang sama atau dari SP2020/proyeksi BPS, dengan rumus dicatat"
