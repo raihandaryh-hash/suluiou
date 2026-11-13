@@ -6,7 +6,7 @@ import csv, hashlib, os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "uji"))
 import su1m
 pisah = sys.argv.index("--"); sumber, out = sys.argv[1:pisah]; A, _, B = su1m.muat(sys.argv[pisah + 1:])
-cocok = lambda v, xs: any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 or abs(round(v) - x) <= 0.005 for x in xs)
+cocok = lambda v, xs: any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 for x in xs)
 ok = sorted(k for k, v in A.items() if k in B and cocok(v, B[k]))
 beda = sorted(k for k, v in A.items() if k in B and not cocok(v, B[k]))
 with open(out, "w", newline="", encoding="utf-8") as f:

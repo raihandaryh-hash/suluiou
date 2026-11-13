@@ -53,23 +53,31 @@ def muat_bps(l3, domain, ind, var, th, tv=None):
         if v is not None: B[r["kode_bps"]].add(round(v, 2))
     return tabel_a(th), tabel_a(str(int(th) - 1)), B
 
-def muat_dikk(dikk, l3):
+def muat_dikk(dikk, l3, *l3_lain):
+    """A = DIKK 2025 Tabel 2.1. B = semua tabel BPS lain (domain provinsi dan, sejak 13 Nov, domain kabupaten/kota)
+    yang memuat persentase penduduk miskin. Baris diterima bila judul menyebut persentase penduduk miskin atau P0,
+    judul tidak menyebut ekstrem/usia/kedalaman/keparahan/pengeluaran/klasifikasi/rumah tangga/desa-kota, dan
+    turvar 'Tidak ada' atau diawali 'Persentase Penduduk Miskin' (tabel gabungan garis-jumlah-persentase)."""
     import re
     A = {r["kode_bps"]: float(r["p0"]) for r in csv.DictReader(open(dikk, encoding="utf-8")) if r["tingkat"] == "kabkota"}
-    pola = re.compile(r"persentase penduduk miskin", re.I)
-    tolak = re.compile(r"ekstrem|usia|tahun ke atas|garis|jumlah|klasifikasi|rumah tangga|desa/kota", re.I)
-    keras = re.compile(r"ekstrem|usia|tahun ke atas|klasifikasi|rumah tangga|desa/kota", re.I)  # tabel gabungan (garis, jumlah, persentase) diterima lewat turvar
+    pola = re.compile(r"persentase penduduk miskin|\bp\(?0\)?\b", re.I)
+    keras = re.compile(r"ekstrem|usia|tahun ke atas|kedalaman|keparahan|pengeluaran|klasifikasi|rumah tangga|desa/kota", re.I)
+    def turvar_sah(r):
+        tv = r.get("turvar", "").strip().lower()
+        if tv in ("", "tidak ada"): return not re.search(r"garis|jumlah", r["judul"], re.I)
+        return tv.startswith("persentase penduduk miskin")
     B, prev = collections.defaultdict(set), {}
-    for r in csv.DictReader(open(l3, encoding="utf-8")):
-        if r["tingkat"] == "kabkota" and pola.search(r["judul"]) and (not tolak.search(r["judul"]) or r.get("turvar", "").strip().lower() == "persentase penduduk miskin") and not keras.search(r["judul"]):
-            v = _nilai(r["nilai"])
-            if v is None: continue
-            if r["tahun"] == "2025": B[r["kode_bps"]].add(round(v, 2))
-            elif r["tahun"] == "2024": prev.setdefault(r["kode_bps"], v)
+    for path in (l3,) + l3_lain:
+        for r in csv.DictReader(open(path, encoding="utf-8")):
+            if r["tingkat"] == "kabkota" and pola.search(r["judul"]) and not keras.search(r["judul"]) and turvar_sah(r):
+                v = _nilai(r["nilai"])
+                if v is None: continue
+                if r["tahun"] == "2025": B[r["kode_bps"]].add(round(v, 2))
+                elif r["tahun"] == "2024": prev.setdefault(r["kode_bps"], v)
     return A, prev, B
 
 def muat(argv):
-    return muat_bps(*argv[1:6], None if len(argv) < 7 or argv[6] == "-" else argv[6]) if argv[0] == "bps" else muat_dikk(*argv[1:3])
+    return muat_bps(*argv[1:6], None if len(argv) < 7 or argv[6] == "-" else argv[6]) if argv[0] == "bps" else muat_dikk(*argv[1:])
 
 JENIS = ["kolom_bergeser", "tahun_sebelah", "koma_desimal", "sae_ditukar"]
 
@@ -105,7 +113,7 @@ def tertangkap(m, B):
     for u in m["ubah"]:
         v = u["baru"]
         if not 0 <= v <= 100: return "rentang"
-        if u["kode"] in B and not any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 or abs(round(v) - x) <= 0.005 for x in B[u["kode"]]):
+        if u["kode"] in B and not any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 for x in B[u["kode"]]):
             return "publikasi_kedua"
     return None
 
@@ -113,7 +121,7 @@ if __name__ == "__main__":
     pisah = sys.argv.index("--"); depan, argm = sys.argv[1:pisah], sys.argv[pisah + 1:]
     A, prev, B = muat(argm)
     if os.environ.get("SU1M_BERPASANGAN") == "1":
-        A = {k: v for k, v in A.items() if k in B and any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 or abs(round(v) - x) <= 0.005 for x in B[k])}
+        A = {k: v for k, v in A.items() if k in B and any(abs(v - x) <= 0.005 or abs(round(v, 1) - x) <= 0.005 for x in B[k])}
         print(f"mode berpasangan: {len(A)} sel cocok dengan publikasi kedua dari {len(set(A) | set(B))} kode")
     if depan[0] == "buat":
         sumber, benih, out = depan[1], int(depan[2]), depan[3]
