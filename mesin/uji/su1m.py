@@ -15,15 +15,18 @@ tabel yang boleh dipakai kartu menurut PUTUSAN ATAS DELEGASI 13 Nov 2026 (sel ta
 Dua langkah supaya set beku sebelum dinilai:
   buat:  python su1m.py buat  SUMBER BENIH KELUARAN.jsonl -- <argumen muat>
   nilai: python su1m.py nilai SUMBER MUTASI.jsonl          -- <argumen muat>
-Argumen muat: bps L3.csv DOMAIN.json IND VAR TH [TURVAR|-]   atau   dikk DIKK_TABEL21.csv L3.csv"""
+Argumen muat: bps L3.csv DOMAIN.json IND VAR TH [TURVAR|-] [L3_LAIN.csv ...]   atau   dikk DIKK_TABEL21.csv L3.csv [L3_LAIN.csv ...]"""
 import collections, csv, hashlib, json, os, random, statistics, sys
 
 def _nilai(s):
     try: return float(s)
     except (TypeError, ValueError): return None
 
-def muat_bps(l3, domain, ind, var, th, tv=None):
+def muat_bps(l3, domain, ind, var, th, tv=None, *l3_lain):
+    """A dari tabel nasional (domain 0000) di l3. B dari semua tabel non-nasional indikator yang sama di l3 dan di
+    l3_lain (misalnya L3 dari domain BPS kabupaten/kota, sejak 13 Nov)."""
     R = list(csv.DictReader(open(l3, encoding="utf-8")))
+    R_lain = [r for p in l3_lain for r in csv.DictReader(open(p, encoding="utf-8"))]
     D = json.load(open(domain, encoding="utf-8"))["data"][1]
     resmi = {d["domain_id"] for d in D if not d["domain_id"].endswith("00")}
     wi = os.path.join(os.path.dirname(domain), "..", "_wilayah_induk.csv")
@@ -46,7 +49,7 @@ def muat_bps(l3, domain, ind, var, th, tv=None):
         awal, t = f[:-5].rsplit("_", 1)
         return {"2024": "2025", "2025": "2024"}.get(t, t) if awal in tukar else t
     B = collections.defaultdict(set)
-    for r in R:
+    for r in R + R_lain:
         f = r["berkas"]
         if f.startswith("0000") or f"_{ind}_" not in f or th_ef(f) != th or r["tingkat"] != "kabkota": continue
         v = _nilai(r["nilai"])
@@ -77,7 +80,7 @@ def muat_dikk(dikk, l3, *l3_lain):
     return A, prev, B
 
 def muat(argv):
-    return muat_bps(*argv[1:6], None if len(argv) < 7 or argv[6] == "-" else argv[6]) if argv[0] == "bps" else muat_dikk(*argv[1:])
+    return muat_bps(*argv[1:6], None if len(argv) < 7 or argv[6] == "-" else argv[6], *argv[7:]) if argv[0] == "bps" else muat_dikk(*argv[1:])
 
 JENIS = ["kolom_bergeser", "tahun_sebelah", "koma_desimal", "sae_ditukar"]
 
