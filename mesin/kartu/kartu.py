@@ -17,12 +17,19 @@ JENIS = {  # jenis kebutuhan -> (indikator, populasi baku, medan, arah buruk)
     "stunting": ("stunting-balita", "prevalensi_stunting", "balita", "K1", "naik"),
     "wasting": ("wasting-balita", "prevalensi_wasting", "balita", "K1", "naik"),
     "p0": ("kemiskinan-kabkota", "persentase_penduduk_miskin", "penduduk", "K5", "naik"),
+    "tpt": ("pengangguran-terbuka-kabkota", "tingkat_pengangguran_terbuka", "angkatan_kerja", "K5", "naik"),
+    "airminum": ("air-minum-layak-kabkota", "akses_air_minum_layak", "rumah_tangga", "K6", "turun"),
 }
 SUMBER = {"stunting": ("ssgi-2024", 2024, "https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/",
                        "06eae149a5f84888c1f0dab6ce8506a2dbf2e3ad93da3c2809f09e091e2a7c65"),
           "p0": ("kemiskinan-kabkota-2025", 2025, "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html",
                  "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511")}
 SUMBER["wasting"] = SUMBER["stunting"]
+# Tabel nasional BPS WebAPI (domain 0000); url tanpa kunci. Sidik = sha256 berkas mentah di laptop MESIN/mentah/bps.
+SUMBER["tpt"] = ("sakernas-agustus", 2025, "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824",
+                 "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27")
+SUMBER["airminum"] = ("air-minum-layak-kabkota", 2025, "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2830",
+                      "15e5c0f127d02b367968f05c3c18450683417d422e97e9498f7ca7a68601e610")
 SHA_SKRIP = hashlib.sha256(open(__file__, "rb").read()).hexdigest()[:12]
 
 def placeholder_sah(k):
@@ -129,6 +136,15 @@ def kartu_dari_dikk(path):
     return [bangun_kartu("p0", r["kode_bps"], r["nama"] if r["nama"].startswith("Kota") else "Kab. " + r["nama"],
                          float(r["p0"]), "hati_hati", med, alasan_keandalan="rse_tidak_terbit",
                          target=muat_target("kemiskinan-kabkota-2025")) for r in R if r["kode_bps"] in sah]
+
+def kartu_dari_bps(path_a, path_nama, jenis):
+    """Kartu dari tabel nasional BPS (A, dibaca su1m.muat_bps di laptop lalu disalin bersidik); hanya sel terverifikasi."""
+    A = json.load(open(path_a, encoding="utf-8"))[{"tpt": "tpt", "airminum": "airminum"}[jenis]]
+    nama = json.load(open(path_nama, encoding="utf-8"))
+    sid = SUMBER[jenis][0]; sah = sel_terverifikasi(sid)
+    med = round(statistics.median(A.values()), 2)
+    return [bangun_kartu(jenis, k, nama[k] if nama[k].startswith("Kota") else "Kab. " + nama[k], float(v), "hati_hati", med,
+                         alasan_keandalan="rse_tidak_terbit", target=muat_target(sid)) for k, v in sorted(A.items()) if k in sah]
 
 if __name__ == "__main__":
     kart = kartu_dari_ssgi(sys.argv[1])
