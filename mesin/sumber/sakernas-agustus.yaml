@@ -22,13 +22,13 @@ servers:
   description: tabel TPT kab/kota per domain provinsi (pembanding G1.3)
 customProperties:
 - property: G1.3m
-  value: 'SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 pada TIGA jenis (kolom_bergeser 34/34, koma_desimal 33/33, sae_ditukar 32/33); tahun_sebelah tidak ada karena tabel 2024 tidak dipanen: BELUM (rencana mewajibkan empat jenis). Seluruh tabel: 58/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+  value: 'Putaran 3 (13 Nov 2026 12.24 WIB): sesudah tabel TPT nasional 2024 dipanen, set SU1mP3_tpt empat jenis dibekukan sebelum dinilai: 100/100 (25/25 tiap jenis) pada 321 sel berpasangan, LULUS. Riwayat: putaran 1 tiga jenis 99/100 (tidak memenuhi syarat empat jenis); seluruh tabel 58/100.'
 - property: cakupan_terverifikasi
   value: 'Daftar sel: sumber/sel/sakernas-agustus.csv (sha256 awalan 3cc288d98e7d, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 321 kab/kota di 21 provinsi.'
 - property: sidik_l3
-  value: '176db7066fc3 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/bps_webapi.py atas mentah/bps (tabel L3 BPS bersama))'
+  value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/bps_webapi.py atas mentah/bps (tabel L3 BPS bersama))'
 - property: dipakai_kartu
-  value: 'tidak: G1.3m belum empat jenis (tabel TPT 2024 belum dipanen, jenis tahun_sebelah tidak bisa dibuat); audit ulang 13 Nov'
+  value: 'ya'
 - property: tingkat_wilayah
   value: kabkota 514 (ditambah 27 kode kab/kota provinsi pemekaran Papua yang belum ada di daftar domain BPS)
 - property: berkas_sha256

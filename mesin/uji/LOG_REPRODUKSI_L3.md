@@ -10,3 +10,9 @@ Alat: `mesin/alat/reproduksi_l3.py` (sha256 awalan 69d4cb932368, salinan laptop 
 ```
 Sidik berkas L3 tersimpan sebelumnya: 93a658d3d2c4, 176db7066fc3, a083acb7294b (laptop), 27e9cf9164e2 (ruang kerja): semuanya sama dengan hasil ulang.
 Catatan: sidik SSGI 1a7168163e3d di STATUS lama adalah sidik baris di dalam periksa_ssgi_2024.py (metode lain), bukan sidik berkas.
+
+## Pembaruan 13 Nov 2026 12.24 WIB (jam sistem)
+Tabel L3 BPS dibangun ulang sesudah `0000_tpt_2824_2024.json` (bc4c6f139e79) dipanen. Satu-satunya perubahan: 1.737 baris dari berkas itu bertambah, tidak ada baris hilang (dicek per berkas).
+```
+[laptop] bps-webapi: jalan1 779aa79d7a2e · jalan2 779aa79d7a2e → identik
+```

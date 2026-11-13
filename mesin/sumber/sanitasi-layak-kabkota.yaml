@@ -25,7 +25,7 @@ customProperties:
 - property: cakupan_terverifikasi
   value: 'Daftar sel: sumber/sel/sanitasi-layak-kabkota.csv (sha256 awalan ab7293f7ce0a, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 79 kab/kota di 7 provinsi.'
 - property: sidik_l3
-  value: '176db7066fc3 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
+  value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
 - property: dipakai_kartu
   value: 'tidak: audit ulang 13 Nov: koreksi label tahun Kalbar dicabut (tidak terbukti tabel mana yang salah), 14 sel Kalbar dan Kota Metro ditarik; tersisa 79 sel cocok, di bawah minimal 100'
 - property: SU-0
