@@ -2,6 +2,8 @@
 
 Dasar: rencana mesin v1 §4.3 G2.0-G2.5 (koreksi rujukan dari §4.2, temuan pemeriksa ME2). Dimulai 13 Nov 2026 sesudah ME1 SELESAI BERSYARAT (pemeriksa putaran 3) dan arahan Raihan "Lanjut". Tinjauan akhir ME1 oleh Raihan masih terbuka.
 
+**KEPUTUSAN Raihan 13 Nov 2026 19.04 WIB atas tinjauan akhir ME2: "Lanjut"** (diajukan dengan kalimat: bila hasilnya bisa diterima, "lanjut" dari Anda menutupnya). ME2 ditutup SELESAI BERSYARAT; syarat di bawah dibawa ke ME3.
+
 **Vonis pemeriksa independen putaran 2 (13 Nov 2026): SELESAI BERSYARAT.** Putaran 1: BELUM (kartu ME2 belum ada). Syarat yang dibawa ke tonggak berikut, dicatat 18.05 WIB:
 1. Uji total G2.2 untuk TPT dan air minum, kartu nasional air minum, dan pemeriksaan G2.1 ulang dengan wilayah induk f3b676e88a71 (ketiganya butuh laptop).
 2. Daftar 3T 2025-2029 belum ditemukan; laporan 3T terpisah tertunda.
