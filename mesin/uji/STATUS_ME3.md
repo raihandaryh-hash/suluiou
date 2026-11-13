@@ -17,3 +17,10 @@ Tiga jenis teratas saringan v7: penduduk tanpa jaminan kesehatan, kemiskinan, st
 3. Kartu jaminan kesehatan dan stunting (= langkah 2 di atas).
 4. Wilayah induk ke repo; G2.1 dan laporan Papua ke CI.
 5. Teks kartu dan status `siap_tinjau` di skema.
+
+## G3.2 pengembangan putaran 1 (13 Nov 2026 22.49 WIB) · separuh A, 130 pasangan, pemeta Opus mode PERIKSA, prompt v1
+- Keluaran pemeta di laptop `MESIN\peran\periksa_A_keluaran.jsonl` (sidik 50a9482124df); validator kutipan: 130 sah, 0 ditolak.
+- Diloloskan 22: benar 22, salah 0 → presisi 1,00 (batas bawah Wilson 0,85 pada n=22). Elusi 0/44 = 0%.
+- **Cakupan rendah:** 22 dari 86 pasangan benar (26%). Dari 64 yang terlewat, 47 bersandar pada dokumen yang tidak ada di register L0, 9 dokumennya ada di register, 8 tanpa nomor dokumen.
+- Akibat untuk gerbang: G3.2 butuh ≥100 pasangan yang diloloskan; dengan cakupan 26% atas 149 pasangan benar (A+B) hanya ~39 yang lolos. Jalan: register L0 diperluas (pedoman dan juknis yang menyebut pelaksana) oleh agen yang tetap tidak membaca SU-3; tidak memasukkan dokumen yang dikutip SU-3 secara langsung.
+- Putusan pemeta yang paling bisa diperdebatkan (laporan pemeta): "dokter" untuk dokter umum, salah baca OCR "pekeda sosial", lembaga usaha/LSM sebagai pelaksana.
