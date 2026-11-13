@@ -1,0 +1,38 @@
+# Bagian terdampak dari kelompok populasinya (persen), untuk aturan batas mayoritas metode_saringan_v6.
+# Label: SINTESIS 13 Nov 2026. Sumber angka sama dengan bank/komponen_saringan_v2.yaml; SUPAS 2025 = BPS var 2777 sidik 5fe70eb6ef03.
+# jenis: laju = persen terbit; hitung = orang / populasi kelompok; batas_atas = bagian paling besar yang mungkin.
+ketat:
+  stunting-balita: {bagian: 19.8, jenis: laju}
+  wasting-balita: {bagian: 7.4, jenis: laju}
+  anak-tidak-sekolah: {bagian: 13.3, jenis: batas_atas, catatan: "2.922.607 / 22.015.009 (SUPAS 10-14, subset dari 7-18)"}
+  lansia-sendiri: {bagian: 5.03, jenis: laju}
+  perkawinan-anak: {bagian: 4.56, jenis: laju}
+  neet-muda: {bagian: 19.44, jenis: laju}
+  tpt-kabkota: {bagian: 4.85, jenis: laju}
+  kemiskinan-kabkota: {bagian: 8.47, jenis: laju}
+  kerawanan-pangan: {bagian: 7.89, jenis: laju}
+  anak-tidak-paud: {bagian: 53.0, jenis: hitung, catatan: "9.410.708 / 17.756.284 anak 3-6 (sumber yang sama, Dirjen PAUD 12 Nov 2025)"}
+  penduduk-tanpa-jaminan-kesehatan: {bagian: 24.51, jenis: laju}
+  buta-huruf-dewasa: {bagian: 2.90, jenis: laju}
+  lansia-miskin: {bagian: 8.76, jenis: laju}
+  korban-bencana: {bagian: 4.25, jenis: batas_atas, catatan: "12.110.618 / 284.667.253 penduduk total"}
+  pekerja-informal: {bagian: 57.80, jenis: laju}
+  setengah-penganggur: {bagian: 7.91, jenis: laju}
+  pemuda-tidak-berorganisasi: {bagian: 93.84, jenis: laju}
+  pemilih-tidak-menggunakan-hak: {bagian: 17.77, jenis: hitung, catatan: "36.385.211 / 204.807.222 DPT"}
+longgar:
+  air-minum-layak: {bagian: 6.8, jenis: hitung, catatan: "aproksimasi 19,3 juta / penduduk total"}
+  sanitasi-layak: {bagian: 14.6, jenis: hitung, catatan: "aproksimasi 41,6 juta / penduduk total"}
+  persalinan-tanpa-nakes: {bagian: 3.9, jenis: laju}
+  anemia-ibu-hamil: {bagian: 27.7, jenis: laju}
+  imunisasi-dasar-tidak-lengkap: {bagian: 36.31, jenis: laju}
+  kekerasan-anak: {bagian: 52.0, jenis: hitung, catatan: "aproksimasi 11,5 juta / ~22,05 juta anak 13-17 (2/5 SUPAS 10-14 + 3/5 SUPAS 15-19)"}
+  pekerja-anak: {bagian: 2.0, jenis: batas_atas, catatan: "1.052.789 / >=66 juta penduduk 5-19"}
+  anak-tanpa-akta-lahir: {bagian: 6.1, jenis: laju}
+  kesehatan-jiwa-remaja: {bagian: 2.0, jenis: laju}
+  disabilitas-sekolah: {bagian: 2.17, jenis: laju}
+  anak-tanpa-orang-tua-kandung: {bagian: 1.66, jenis: laju}
+  penduduk-terpapar-bencana: {bagian: 95.2, jenis: hitung, catatan: "271.130.365 / 284.667.253"}
+  guru-honorer: {bagian: null, jenis: tidak_diketahui}
+catatan_tambahan:
+  literasi-keuangan-syariah: "belum lengkap; bila dilengkapi, bagian = 86,59% (1 - inklusi syariah 13,41%), jadi kebutuhan mayoritas menurut v6"

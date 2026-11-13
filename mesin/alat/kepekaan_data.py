@@ -4,13 +4,15 @@ meleset, apakah urutan tetap sama? Pakai metode skala yang berlaku di alat/sarin
 Varian: K = ketat (komponen_saringan_v2); L1 = + rumah tangga dikali anggota / aproksimasi kasar; L2 = + basis sasaran
 program; L3 = + sumber sekunder; L4 = + rentang/ukuran tidak persis; L5 = semua kelonggaran. Plus gangguan angka:
 tiap angka TURUNAN/aproksimasi dikali 0,7 atau 1,3 secara acak (200 ulangan, benih tetap).
+Pakai: python3 alat/kepekaan_data.py [--v6]
 Angka kelonggaran dicatat di LONGGAR di bawah, diambil dari laporan riset 13 Nov (label SINTESIS), BUKAN dipakai kartu."""
 import importlib.util, os, random, sys, yaml, math
 akar = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sp = importlib.util.spec_from_file_location("s", os.path.join(akar, "alat/saringan.py"))
 src = open(sp.origin).read().split("semua = sorted(K)")[0]; ns = {"__file__": sp.origin}
-sys.argv = [sp.origin, os.path.join(akar, "bank/komponen_saringan_v2.yaml")]; exec(src, ns)
-K, peringkat, W = ns["K"], ns["peringkat"], ns["W"]
+V6 = "--v6" in sys.argv
+sys.argv = [sp.origin, os.path.join(akar, "bank/komponen_saringan_v2.yaml")] + (["--v6"] if V6 else []); exec(src, ns)
+K, peringkat, W, BAG = ns["K"], ns["peringkat"], ns["W"], ns.get("BAG", {})
 LONGGAR = {  # id: (varian, orang, keterpecahan v4, asal)
  "air-minum-layak": ("L1", 19.3e6, 0.5, "persen RT x jiwa"), "sanitasi-layak": ("L1", 41.6e6, 1, "persen RT x jiwa"),
  "persalinan-tanpa-nakes": ("L2", 182683, 1, "SKI x sasaran Kemenkes"), "anemia-ibu-hamil": ("L2", 1359288, 0.5, "SKI x sasaran"),
@@ -23,6 +25,7 @@ LONGGAR = {  # id: (varian, orang, keterpecahan v4, asal)
 TURUNAN = [i for i, k in K.items() if "x" in str(k.get("rumus", "")) or "TURUNAN" in str(k.get("rumus", ""))]
 def tambah(varian):
     for i, (v, o, kp, a) in LONGGAR.items():
+        if V6 and ((BAG.get(i) or {}).get("bagian") or 0) > 50: continue   # batas mayoritas metode v6
         if varian == "L5" or v == varian: K[i] = {"orang": o, "keterpecahan": kp, "rumus": a + " x"}
 def kendall(a, b):
     c = [x for x in a if x in b]; ra = {x: i for i, x in enumerate(a)}; rb = {x: i for i, x in enumerate(b)}

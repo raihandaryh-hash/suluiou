@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Skor saringan ME2 dan uji stabilitas G2.3 (metode_saringan v1-v4, bobot_v2).
-Pakai: python3 alat/saringan.py [bank/komponen_saringan_vN.yaml] [--v5]
+Pakai: python3 alat/saringan.py [bank/komponen_saringan_vN.yaml] [--v5 | --v6]
+--v6: skala v3 + batas mayoritas (bagian terdampak >50% keluar), bank/bagian_kelompok_v1.yaml.
 --v5: skala tanpa target = orang kelebihan di atas median provinsi (metode_saringan_v5), data sumber/prov/<id>.csv.
 skala: bertarget -> log10(orang x jarak relatif ke batas target terdekat), di dalam rentang -> skala terendah;
 tanpa target -> log10(orang). Normalisasi persentil (0 terendah, 1 tertinggi; seri dirata-rata).
@@ -53,6 +54,13 @@ def uji(ids, nama):
     lulus = min(hasil) >= 4; sah = len(ids) >= 30
     print(f"   G2.3 {'lulus' if lulus else 'gagal'} perhitungan; {'SAH' if sah else 'BELUM SAH (butuh >=30 kandidat lengkap)'}")
     return lulus and sah
+V6 = "--v6" in sys.argv
+BAG = {}
+if V6:
+    _b = yaml.safe_load(open(os.path.join(akar, "bank/bagian_kelompok_v1.yaml"), encoding="utf-8"))
+    BAG = {**_b["ketat"], **_b["longgar"]}
+    for _i in [i for i in K if (BAG.get(i) or {}).get("bagian") is not None and BAG[i]["bagian"] > 50]:
+        print(f"v6 kebutuhan mayoritas ({BAG[_i]['bagian']}%), keluar dari peringkat:", _i); del K[_i]
 if V5:  # kandidat tanpa target yang belum punya laju provinsi >=34 = belum lengkap untuk v5
     for _i in [i for i in K if "target" not in K[i] and kelebihan(i) is None]: print("v5 belum lengkap:", _i); del K[_i]
 semua = sorted(K); bertarget = [i for i in semua if "target" in K[i]]
