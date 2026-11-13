@@ -22,10 +22,10 @@ kandidat:
   neet-muda: {orang: 8604136, tahun: 2025, rumus: "0,1944 x 44.259.960 (BPS var 1186 x Sakernas 15-24)", url: "BPS var 1186 sidik 7f60cde592f5",
     keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan (hasil pekerjaan individu, bukan angka NEET); data administrasi nol"}
   tpt-kabkota: {orang: 7461507, tahun: 2025, rumus: "angka absolut Sakernas Agt 2025 (BPS var 674)", url: "BPS var 674 sidik caedec89c7b8",
-    nilai_nasional: 4.85, nilai_sumber: "BPS var 2824 2025 baris INDONESIA, sidik 8688b81a6d27", target: "4,50-5,00 (2025)",
+    nilai_nasional: 4.85, nilai_sumber: "BPS var 2824 2025 baris INDONESIA, sidik 8688b81a6d27", target: "4,50-5,00 (2025)", target_2029: "4,00-4,71",
     keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan; data administrasi nol"}
   kemiskinan-kabkota: {orang: 23854560, tahun: 2025, rumus: "angka absolut Maret 2025 (BPS var 185)", url: "BPS var 185 sidik 7b17951a39ba",
-    nilai_nasional: 8.47, nilai_sumber: "TURUNAN dari DIKK 2025 Tabel 2.1: jumlah miskin / (jumlah miskin / P0) atas 514 kab/kota; jumlah 23.854,91 ribu cocok dengan BPS 23.854,56", target: "7,0-8,0 (2025)",
+    nilai_nasional: 8.47, nilai_sumber: "TURUNAN dari DIKK 2025 Tabel 2.1: jumlah miskin / (jumlah miskin / P0) atas 514 kab/kota; jumlah 23.854,91 ribu cocok dengan BPS 23.854,56", target: "7,0-8,0 (2025)", target_2029: "4,5-5,0",
     keterpecahan: 1, alasan_k: "BPNT vs Rastra, RCT 105 kab/kota, kemiskinan turun 20% di 15% RT terbawah (Banerjee dkk. 2023)"}
   kerawanan-pangan: {orang: 22460246, tahun: 2025, rumus: "0,0789 x 284.667.253 (PoU BPS var 1473 x SUPAS total)", url: "BPS var 1473 sidik 3d3230518513",
     keterpecahan: 0.5, alasan_k: "BPNT RCT mengukur bantuan diterima dan konsumsi telur, bukan prevalensi kurang gizi (PoU): bersebelahan"}

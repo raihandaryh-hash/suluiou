@@ -1,10 +1,10 @@
 # Bagian terdampak dari kelompok populasinya (persen), untuk aturan batas mayoritas metode_saringan_v6.
-# Label: SINTESIS 13 Nov 2026. Sumber angka sama dengan bank/komponen_saringan_v2.yaml; SUPAS 2025 = BPS var 2777 sidik 5fe70eb6ef03.
+# Label: SINTESIS 13 Nov 2026. Koreksi label sesudah pemeriksa ME2 (korban-bencana = hitung; pekerja-anak = batas atas dengan SUPAS 10-14). Sumber angka sama dengan bank/komponen_saringan_v2.yaml; SUPAS 2025 = BPS var 2777 sidik 5fe70eb6ef03.
 # jenis: laju = persen terbit; hitung = orang / populasi kelompok; batas_atas = bagian paling besar yang mungkin.
 ketat:
   stunting-balita: {bagian: 19.8, jenis: laju}
   wasting-balita: {bagian: 7.4, jenis: laju}
-  anak-tidak-sekolah: {bagian: 13.3, jenis: batas_atas, catatan: "2.922.607 / 22.015.009 (SUPAS 10-14, subset dari 7-18)"}
+  anak-tidak-sekolah: {bagian: 13.3, jenis: batas_atas, catatan: "2.922.607 / 22.015.009; 22.015.009 = SUPAS 2025 kelompok umur 10-14 (BPS var 2777 sidik 5fe70eb6ef03, dibaca 13 Nov 17.4x), yang seluruhnya termasuk 7-18, jadi penduduk 7-18 >= angka ini"}
   lansia-sendiri: {bagian: 5.03, jenis: laju}
   perkawinan-anak: {bagian: 4.56, jenis: laju}
   neet-muda: {bagian: 19.44, jenis: laju}
@@ -15,7 +15,7 @@ ketat:
   penduduk-tanpa-jaminan-kesehatan: {bagian: 24.51, jenis: laju}
   buta-huruf-dewasa: {bagian: 2.90, jenis: laju}
   lansia-miskin: {bagian: 8.76, jenis: laju}
-  korban-bencana: {bagian: 4.25, jenis: batas_atas, catatan: "12.110.618 / 284.667.253 penduduk total"}
+  korban-bencana: {bagian: 4.25, jenis: hitung, catatan: "12.110.618 / 284.667.253 penduduk total (kelompok = seluruh penduduk)"}
   pekerja-informal: {bagian: 57.80, jenis: laju}
   setengah-penganggur: {bagian: 7.91, jenis: laju}
   pemuda-tidak-berorganisasi: {bagian: 93.84, jenis: laju}
@@ -27,7 +27,7 @@ longgar:
   anemia-ibu-hamil: {bagian: 27.7, jenis: laju}
   imunisasi-dasar-tidak-lengkap: {bagian: 36.31, jenis: laju}
   kekerasan-anak: {bagian: 52.0, jenis: hitung, catatan: "aproksimasi 11,5 juta / ~22,05 juta anak 13-17 (2/5 SUPAS 10-14 + 3/5 SUPAS 15-19)"}
-  pekerja-anak: {bagian: 2.0, jenis: batas_atas, catatan: "1.052.789 / >=66 juta penduduk 5-19"}
+  pekerja-anak: {bagian: 4.8, jenis: batas_atas, catatan: "1.052.789 / 22.015.009 (SUPAS 10-14, seluruhnya termasuk 5-17)"}
   anak-tanpa-akta-lahir: {bagian: 6.1, jenis: laju}
   kesehatan-jiwa-remaja: {bagian: 2.0, jenis: laju}
   disabilitas-sekolah: {bagian: 2.17, jenis: laju}

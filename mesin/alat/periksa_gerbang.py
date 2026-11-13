@@ -49,6 +49,18 @@ if rk.returncode != 0: gagal.append("G1.1/G1.4: kartu cacat")
 rs = subprocess.run([sys.executable, os.path.join(AKAR, "alat/periksa_sumber.py")], capture_output=True, text=True)
 print(rs.stdout.strip())
 if rs.returncode != 0: gagal.append("G1.0/G1.7: registri sumber cacat")
+# ME2: kartu ME2 (G2.5) dibangun ulang dan harus sama sidiknya; diperiksa provenans/sel; saringan v7 (G2.3) dan kepekaan
+km = os.path.join(AKAR, "kartu/keluaran/kartu_me2.jsonl")
+if os.path.exists(km):
+    h0 = hashlib.sha256(open(km, "rb").read()).hexdigest()
+    subprocess.run([sys.executable, os.path.join(AKAR, "alat/bangun_kartu_me2.py")], capture_output=True, text=True)
+    if hashlib.sha256(open(km, "rb").read()).hexdigest() != h0: gagal.append("G2.5: kartu ME2 tidak tereproduksi dari masukan")
+    r2 = subprocess.run([sys.executable, os.path.join(AKAR, "alat/periksa_kartu.py"), km], capture_output=True, text=True)
+    print("ME2", r2.stdout.strip().splitlines()[0] if r2.stdout.strip() else "")
+    if r2.returncode != 0: gagal.append("G2.5: kartu ME2 cacat")
+    rg = subprocess.run([sys.executable, os.path.join(AKAR, "alat/saringan.py"), os.path.join(AKAR, "bank/komponen_saringan_v2.yaml"), "--v7"], capture_output=True, text=True)
+    print("G2.3 v7:", [l for l in rg.stdout.splitlines() if "G2.3" in l][:1])
+    if rg.returncode != 0: gagal.append("G2.3: saringan v7 tidak lulus perhitungan")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)
