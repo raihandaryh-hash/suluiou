@@ -62,6 +62,14 @@ if os.path.exists(km):
     rg = subprocess.run([sys.executable, os.path.join(AKAR, "alat/saringan.py"), os.path.join(AKAR, "bank/komponen_saringan_v2.yaml"), "--v7"], capture_output=True, text=True)
     print("G2.3 v7:", [l for l in rg.stdout.splitlines() if "G2.3" in l][:1])
     if rg.returncode != 0: gagal.append("G2.3: saringan v7 tidak lulus perhitungan")
+# ME3: validator kutipan pemeta peran harus menolak tiga kasus buruk dan menerima satu kasus baik (uji/validasi_kutipan)
+vk = os.path.join(AKAR, "uji/validasi_kutipan")
+if os.path.isdir(vk):
+    import shutil, tempfile
+    tmp = tempfile.mkdtemp(); shutil.copy(os.path.join(vk, "contoh.jsonl"), tmp)
+    rv = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan.py"), os.path.join(tmp, "contoh.jsonl"), os.path.join(vk, "reg.csv"), os.path.join(vk, "dok")], capture_output=True, text=True)
+    print("ME3 validator kutipan:", rv.stdout.strip())
+    if not rv.stdout.startswith("sah 1 ditolak 3"): gagal.append("G3.2: validator kutipan tidak menolak kasus buruk")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)
