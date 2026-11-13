@@ -16,3 +16,6 @@ Tabel L3 BPS dibangun ulang sesudah `0000_tpt_2824_2024.json` (bc4c6f139e79) dip
 ```
 [laptop] bps-webapi: jalan1 779aa79d7a2e · jalan2 779aa79d7a2e → identik
 ```
+
+## Wilayah induk · 13 Nov 2026 14.40 WIB (jam sistem)
+`parser/wilayah_induk.py` (7493c88fa84e, salinan laptop sama) dijalankan dua kali ke berkas baru: f3b676e88a71 dan f3b676e88a71, identik dengan berkas `mentah/_wilayah_induk.csv` di laptop (ditulis 13 Nov 02.39). Ringkasan sesi sebelumnya mencatat sidik lain (c1fee24ceef1); sidik itu tidak tercatat di repo dan tidak bisa ditelusuri, jadi yang berlaku adalah f3b676e88a71 yang terbukti bisa dibangun ulang.
