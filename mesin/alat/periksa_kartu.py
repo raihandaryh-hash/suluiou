@@ -40,7 +40,7 @@ rusak = json.loads(json.dumps(kart[0])); rusak["teks"]["ringkasan"] = "Angkanya 
 if not K.periksa_teks(rusak): gagal.append("periksa_teks meloloskan kartu rusak")
 terbit = json.loads(json.dumps(kart[0])); terbit["status"] = "terbit"; terbit["indikator"][0]["sumber_id"] = "ssgi-2024"
 if not sumber_ditahan(terbit): gagal.append("kartu terbit bersumber ditahan diloloskan")
-sel_luar = json.loads(json.dumps(kart[0])); sel_luar["status"] = "terbit"; sel_luar["indikator"][0]["sumber_id"] = "kemiskinan-kabkota-2025"; sel_luar["wilayah"]["kode_bps"] = "1701"
+sel_luar = json.loads(json.dumps(kart[0])); sel_luar["status"] = "terbit"; sel_luar["indikator"][0]["sumber_id"] = "kemiskinan-kabkota-2025"; sel_luar["wilayah"]["kode_bps"] = "9999"
 if not sumber_ditahan(sel_luar): gagal.append("kartu terbit dengan sel tak terverifikasi diloloskan")
 sel_dalam = json.loads(json.dumps(sel_luar)); sel_dalam["wilayah"]["kode_bps"] = "3171"
 if sumber_ditahan(sel_dalam): gagal.append("kartu terbit dengan sel terverifikasi ditolak")
