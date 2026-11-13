@@ -1,0 +1,92 @@
+# Komponen saringan · v2 · = v1 + 9 kandidat bank v2 (13 Nov 2026 16.4x WIB). Asal v1:
+# Komponen saringan · v1 · data masukan untuk alat/saringan.py. Ditulis 13 Nov 2026 15.51 WIB (jam sistem), sesudah metode v1-v4 beku.
+# Label: SINTESIS (angka dari laporan riset 13 Nov, RISET_Orang-Terdampak-33-Kandidat dan RISET_Keterpecahan-33-Kandidat).
+# Aturan masuk orang_terdampak (metode v3): angka absolut resmi, atau persen x populasi baku dengan rumus tercatat.
+# Ditolak (unit bukan orang, ukuran beda, basis tak terambil, atau hanya sumber sekunder) dicatat di "belum_lengkap".
+# Keterpecahan dinilai ulang dengan metode v4 (skor 1 hanya bila evaluasi berpembanding mengukur indikator kandidat
+# sendiri dan efeknya positif bermakna).
+populasi_baku:
+  supas_2025: {var: 2777, sidik: 5fe70eb6ef03, total: 284667253, umur_0_4: 22741968, perempuan_20_24: 10756635, umur_60_plus: 34076980}
+  sakernas_agt_2025: {var: 2519, sidik: c170743827b7, umur_15_24: 44259960}
+kandidat:
+  stunting-balita: {orang: 4400000, tahun: 2024, rumus: "angka absolut BKPK Kemenkes (SSGI 2024)", url: "https://www.badankebijakan.kemkes.go.id/capaian-ssgi-2024-ungkap-tren-positif",
+    keterpecahan: 1, alasan_k: "PKH, RCT 360 kecamatan, stunting turun (Cahyadi dkk.); catatan imbang: RCT MCC 2024 nol"}
+  wasting-balita: {orang: 1682906, tahun: 2024, rumus: "0,074 x 22.741.968 (SSGI 2024 x SUPAS 0-4)", url: "https://www.unicef.org/indonesia/id/media/24481/file/update-gizi-volume-6.pdf",
+    keterpecahan: 0.5, alasan_k: "tidak ada evaluasi berpembanding dengan wasting sebagai hasil; PKH dan RCT MCC nol pada wasting"}
+  anak-tidak-sekolah: {orang: 2922607, tahun: 2025, rumus: "angka absolut Susenas 2025 (anak 7-18)", url: "https://puslapdik.kemendikdasmen.go.id/rekomendasi-konsolnas-dikdasmen-2026-terkait-penanganan-anak-tidak-sekolah",
+    keterpecahan: 1, alasan_k: "PKH RCT menurunkan separuh anak 7-15 tidak terdaftar; CLEAR kualitas moderat; 16-18 tidak tercakup langsung"}
+  lansia-sendiri: {orang: 1714072, tahun: 2025, rumus: "0,0503 x 34.076.980 (Statistik Lansia 2025 x SUPAS 60+)", url: "BPS Statistik Penduduk Lanjut Usia 2025 (salinan sekunder cdn.gnfi.net; var 2789 sidik d015a53dccb4)",
+    keterpecahan: 0.5, alasan_k: "ASLUT, PKH lansia ada; tidak ada evaluasi berpembanding"}
+  perkawinan-anak: {orang: 490503, tahun: 2025, rumus: "0,0456 x 10.756.635 (BPS var 1360 x SUPAS perempuan 20-24; dua survei)", url: "https://www.bps.go.id/id/statistics-table/2/MTM2MCMy/",
+    keterpecahan: 1, alasan_k: "PKH, fuzzy RD, perkawinan anak perempuan perdesaan turun ~3,5 poin persen (Priebe & Sumarto 2025)"}
+  neet-muda: {orang: 8604136, tahun: 2025, rumus: "0,1944 x 44.259.960 (BPS var 1186 x Sakernas 15-24)", url: "BPS var 1186 sidik 7f60cde592f5",
+    keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan (hasil pekerjaan individu, bukan angka NEET); data administrasi nol"}
+  tpt-kabkota: {orang: 7461507, tahun: 2025, rumus: "angka absolut Sakernas Agt 2025 (BPS var 674)", url: "BPS var 674 sidik caedec89c7b8",
+    nilai_nasional: 4.85, nilai_sumber: "BPS var 2824 2025 baris INDONESIA, sidik 8688b81a6d27", target: "4,50-5,00 (2025)",
+    keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan; data administrasi nol"}
+  kemiskinan-kabkota: {orang: 23854560, tahun: 2025, rumus: "angka absolut Maret 2025 (BPS var 185)", url: "BPS var 185 sidik 7b17951a39ba",
+    nilai_nasional: 8.47, nilai_sumber: "TURUNAN dari DIKK 2025 Tabel 2.1: jumlah miskin / (jumlah miskin / P0) atas 514 kab/kota; jumlah 23.854,91 ribu cocok dengan BPS 23.854,56", target: "7,0-8,0 (2025)",
+    keterpecahan: 1, alasan_k: "BPNT vs Rastra, RCT 105 kab/kota, kemiskinan turun 20% di 15% RT terbawah (Banerjee dkk. 2023)"}
+  kerawanan-pangan: {orang: 22460246, tahun: 2025, rumus: "0,0789 x 284.667.253 (PoU BPS var 1473 x SUPAS total)", url: "BPS var 1473 sidik 3d3230518513",
+    keterpecahan: 0.5, alasan_k: "BPNT RCT mengukur bantuan diterima dan konsumsi telur, bukan prevalensi kurang gizi (PoU): bersebelahan"}
+  # ---- tambahan bank v2 (RISET_Orang-Terdampak-24-Tambahan dan RISET_Keterpecahan-24-Tambahan, 13 Nov 2026) ----
+  anak-tidak-paud: {orang: 9410708, tahun: 2025, rumus: "absolut: anak 3-6 belum terlayani PAUD (Dirjen PAUD, portal Kemendikdasmen 12 Nov 2025)", url: "internal-portal.kemdikbud.go.id/news/92f4d5bb712acce48e4a4994ecd73ff349fcf32dc992e63242fbbbfebf28e0d5",
+    keterpecahan: 1, alasan_k: "ECED RCT bertahap 310 desa, partisipasi prasekolah +7 sampai +9 poin, makalah dibuka (Brinkman dkk. WBER 2017)"}
+  penduduk-tanpa-jaminan-kesehatan: {orang: 69771944, tahun: 2025, rumus: "(1-0,7549) x 284.667.253 (BPS var 2279 x SUPAS total)", url: "BPS var 2279 sidik efeb768d27e5",
+    keterpecahan: 1, alasan_k: "RCT subsidi iuran JKN ~6.000 RT, kepesertaan +18,6 poin (Banerjee dkk. AER 2021)"}
+  buta-huruf-dewasa: {orang: 6326867, tahun: 2025, rumus: "(1-0,9710) x 218.167.814 (AMA 15+ BPS x Sakernas 15+)", url: "https://www.bps.go.id/id/statistics-table/2/MTQ2MCMy",
+    keterpecahan: 0.5, alasan_k: "Keaksaraan Fungsional resmi; hanya pra-pasca satu kelompok"}
+  lansia-miskin: {orang: 2985143, tahun: 2025, rumus: "0,0876 x 34.076.980 (Statistik Lansia 2025 x SUPAS 60+)", url: "BPS Statistik Penduduk Lanjut Usia 2025 (salinan sekunder cdn.gnfi.net)",
+    keterpecahan: 0.5, alasan_k: "ASLUT, PKH Lansia; hanya simulasi dan deskriptif"}
+  korban-bencana: {orang: 12110618, tahun: 2025, rumus: "absolut: menderita dan mengungsi (LAKIP BNPB 2025)", url: "bnpb.go.id/storage/app/media/Lakip%20BNPB%202025%20-%20R1_compressed.pdf",
+    keterpecahan: 0.5, alasan_k: "Destana dan program pengurangan risiko; hanya deskriptif"}
+  pekerja-informal: {orang: 84700000, tahun: 2025, rumus: "absolut: 57,80% x 146,54 juta pekerja (BRS BPS 103/11/Th. XXVIII, Agt 2025)", url: "BPS BRS 103/11/Th. XXVIII",
+    keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan dan nol pada data administrasi: sudah diuji, belum terbukti"}
+  setengah-penganggur: {orang: 11600000, tahun: 2025, rumus: "absolut (BRS BPS 103/11/Th. XXVIII, Lampiran 1)", url: "BPS BRS 103/11/Th. XXVIII",
+    keterpecahan: 0.5, alasan_k: "Prakerja RCT bersebelahan"}
+  pemuda-tidak-berorganisasi: {orang: 60264048, tahun: 2024, rumus: "(1-0,0616) x 64.220.000 pemuda 16-30 (Laporan IPP 2025 Kemenpora, data Susenas 2024)", url: "satudata.kemenpora.go.id/cdn/uploads/produk/1/0/ok-laporan-ipp-2025_compressed.pdf",
+    keterpecahan: 0.5, alasan_k: "Karang Taruna resmi; hanya deskriptif"}
+  pemilih-tidak-menggunakan-hak: {orang: 36385211, tahun: 2024, rumus: "DPT 204.807.222 - pengguna hak pilih Pilpres 168.422.011 (Lembar Fakta KPU ed. 1)", url: "kpu.go.id/dmdocument/1759822082Lembar%20Fakta%20KPU%20edisi%201%20OKE.pdf",
+    keterpecahan: 0.5, alasan_k: "pendidikan pemilih; RD kabur bukan program KPU"}
+belum_lengkap:
+  puskesmas-tanpa-9-nakes: "orang: unit puskesmas; keterpecahan v4 0,5 (Nusantara Sehat mengukur persalinan nakes)"
+  dokter-per-penduduk: "orang: hanya hitungan dokter; keterpecahan 0,5"
+  kesehatan-jiwa-remaja: "orang: ukuran beda (SKI masalah jiwa, bukan gangguan mental emosional); keterpecahan v4 0,5 (Bogor tidak bermakna)"
+  rasio-murid-guru: "orang: tidak ada defisit; keterpecahan 0,5"
+  apk-perguruan-tinggi: "orang: penduduk 19-23 tak terambil; keterpecahan 0,5"
+  buta-aksara-quran: "orang: basis Muslim tak terambil; keterpecahan 0,5"
+  tpq-per-anak: "orang: anak tanpa akses tak tersedia; keterpecahan 0,5"
+  disabilitas-sekolah: "orang: bukan usia sekolah; keterpecahan 0,5"
+  kekerasan-anak: "orang: hanya sumber sekunder (berita); keterpecahan v4 0,5 (Families First tidak mencegah)"
+  sampah-tidak-terkelola: "orang: unit ton; keterpecahan 0,5"
+  desa-rawan-bencana: "orang: unit desa, ukuran kebalikan; keterpecahan 0,5"
+  rasio-elektrifikasi-ebt: "orang: tidak ditemukan; keterpecahan v4 0,5 (DiD mengukur kemiskinan, hasil rinci tidak dibaca)"
+  umkm-akses-kredit: "orang: tidak ditemukan; keterpecahan v4 1 (KUR DiD 6.341 UMKM, inklusi lebih baik)"
+  penyerapan-zakat: "orang: unit rupiah; keterpecahan 0,5"
+  wakaf-belum-produktif: "orang: unit bidang tanah; keterpecahan v4 0,5 (DiD tidak signifikan, hasil nol: sudah diuji, belum terbukti)"
+  literasi-keuangan-syariah: "orang: basis 15-79 tak terambil; keterpecahan 0,5"
+  petani-muda: "orang: angka petani milenial adalah populasi, bukan orang terdampak; keterpecahan 0,5"
+  air-minum-layak: "orang: persen rumah tangga x jiwa, aproksimasi kasar; keterpecahan 0,5"
+  sanitasi-layak: "orang: persen rumah tangga x jiwa, aproksimasi kasar; keterpecahan v4 1 (CLTS RCT, jamban naik)"
+  nilai-tambah-pertanian: "orang: bukan tentang orang; keterpecahan 0,5"
+  desa-tertinggal: "orang: unit desa; keterpecahan v4 0,5 (Dana Desa DiD mengukur kemiskinan, bukan status desa)"
+  kepala-desa-muda: "orang: tidak ditemukan; keterpecahan 0"
+  tata-kelola-masjid: "orang: unit masjid; keterpecahan 0,5"
+  partisipasi-musrenbang: "orang: indeks; keterpecahan v4 0,5 (KDP mengukur kepuasan, bukan partisipasi Musrenbang; bukti lama 2010)"
+belum_lengkap_v2:
+  persalinan-tanpa-nakes: "orang: basis sasaran program Kemenkes lintas sumber; keterpecahan v4 1"
+  imunisasi-dasar-tidak-lengkap: "orang: basis 12-23 bulan diaproksimasi dari pita 0-4; keterpecahan 0,5 (hasil nol)"
+  anemia-ibu-hamil: "orang: basis sasaran program, bukan proyeksi BPS; keterpecahan v4 0,5 (satu klaster per lengan)"
+  bblr: "orang: basis kelahiran tidak ada; keterpecahan 0,5 (hasil nol)"
+  anak-tidak-tuntas-sma: "orang: tidak ditemukan"
+  guru-honorer: "orang: hanya sumber sekunder (berita)"
+  anak-tanpa-akta-lahir: "orang: basis 0-17 diaproksimasi dari sumber sekunder"
+  anak-tanpa-orang-tua-kandung: "orang: hanya 0-6 tahun"
+  pekerja-anak: "orang: rentang 5-17, kandidat 10-17; keterpecahan v4 1 (subkelompok 13-15)"
+  disabilitas-tidak-bekerja: "orang: hanya sekunder"
+  penduduk-terpapar-bencana: "orang: tidak dipilah kelas bahaya"
+  penduduk-tanpa-pengangkutan-sampah: "orang: hanya per rumah tangga"
+  penganggur-muda: "orang: angkatan kerja 15-24 belum diambil (bisa dari Sakernas lewat laptop)"
+  penduduk-miskin-sektor-pertanian: "orang: satuan kepala rumah tangga"
+  kepala-desa-di-atas-60: "orang: tidak ditemukan; keterpecahan 0"
+  literasi-keuangan-syariah: "basis 15-79 belum dihitung (laptop terputus)"
