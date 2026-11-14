@@ -33,6 +33,35 @@ def periksa_pembanding(k):
     jn, arah = K.jarak_ke(k["indikator"][0]["nilai"], pb)
     if (jn, arah) != (k["jarak"]["nilai"], k["jarak"]["arah"]): return [f"{k['id']}: jarak ke target salah"]
     return []
+# S4 (syarat bawaan ME1): skema kartu, sidik bukan nol, URL hanya dari kontrak sumber; S3: SUMBER kartu.py sama dengan kontrak
+import jsonschema, urllib.parse
+SKEMA = jsonschema.Draft202012Validator(json.load(open(os.path.join(AKAR, "kartu", "kartu-1.schema.json"), encoding="utf-8")))
+KONTRAK = {}
+for q in glob.glob(os.path.join(AKAR, "sumber", "*.yaml")):
+    d = yaml.safe_load(open(q, encoding="utf-8")); cp = {c["property"]: str(c["value"]) for c in d.get("customProperties", [])}
+    m = re.match(r"[0-9a-f]{64}\b", cp.get("berkas_sha256", ""))
+    KONTRAK[d["id"]] = {"sha256": m.group(0) if m else None, "url": cp.get("berkas_url")}
+HOST_RESMI = {"www.bps.go.id", "webapi.bps.go.id", "www.badankebijakan.kemkes.go.id"}
+def periksa_asal(k):
+    out = [f"{k['id']}: skema: {e.message[:80]}" for e in SKEMA.iter_errors(k)]
+    for i in k.get("indikator", []):
+        h = i.get("sha256") or ""
+        if re.fullmatch(r"(.)\1{63}", h): out.append(f"{k['id']}: sidik nol atau berulang")
+        kt = KONTRAK.get(i.get("sumber_id"))
+        if kt and kt["url"]:
+            if i.get("url") != kt["url"]: out.append(f"{k['id']}: url tidak sama dengan berkas_url kontrak {i['sumber_id']}")
+            if kt["sha256"] and h != kt["sha256"]: out.append(f"{k['id']}: sha256 tidak sama dengan berkas_sha256 kontrak {i['sumber_id']}")
+        else:
+            if k.get("status") != "draf": out.append(f"{k['id']}: sumber {i.get('sumber_id')} tanpa kontrak ber-URL, kartu wajib draf")
+            if urllib.parse.urlparse(i.get("url") or "").hostname not in HOST_RESMI: out.append(f"{k['id']}: host url bukan host resmi")
+    return out
+def periksa_sumber_kartu():
+    out = []
+    for j, (sid, th, url, sha) in K.SUMBER.items():
+        kt = KONTRAK.get(sid) or {}
+        if kt.get("url") != url: out.append(f"kartu.py SUMBER[{j}]: url berbeda dari kontrak {sid}")
+        if kt.get("sha256") != sha: out.append(f"kartu.py SUMBER[{j}]: sha256 berbeda dari kontrak {sid}")
+    return out
 gagal = []
 kart = [json.loads(l) for l in open(p, encoding="utf-8")]
 for k in kart:
@@ -45,6 +74,7 @@ for k in kart:
     if not k["pembanding"].get("sumber_id"): gagal.append(f"{k['id']}: pembanding tanpa sumber")
     gagal += periksa_pembanding(k)
     gagal += sumber_ditahan(k)
+    gagal += periksa_asal(k)
     if k.get("teks", {}).get("judul"):
         K.normalisasi_satuan(k); gagal += [f"{k['id']}: {x}" for x in K.periksa_teks(k)]
 # uji negatif pembanding: target dipalsukan dan jarak salah wajib ditolak
@@ -63,6 +93,18 @@ sel_luar = json.loads(json.dumps(kart[0])); sel_luar["status"] = "terbit"; sel_l
 if not sumber_ditahan(sel_luar): gagal.append("kartu terbit dengan sel tak terverifikasi diloloskan")
 sel_dalam = json.loads(json.dumps(sel_luar)); sel_dalam["wilayah"]["kode_bps"] = "3171"
 if sumber_ditahan(sel_dalam): gagal.append("kartu terbit dengan sel terverifikasi ditolak")
+# uji negatif S4: sidik nol, url palsu, sha tak sama kontrak, sumber tanpa kontrak berstatus terbit, skema rusak
+gagal += periksa_sumber_kartu()
+_b = json.loads(json.dumps(kart[0]))
+for nama, ubah in (("sidik nol", lambda x: x["indikator"][0].update(sha256="0" * 64)),
+                   ("url palsu", lambda x: x["indikator"][0].update(url="https://www.badankebijakan.kemkes.go.id.contoh.com/ssgi")),
+                   ("url lain di host resmi", lambda x: x["indikator"][0].update(url="https://www.bps.go.id/id/publication/palsu.html")),
+                   ("sha lain", lambda x: x["indikator"][0].update(sha256="ab" * 32)),
+                   ("tanpa kontrak terbit", lambda x: (x["indikator"][0].update(sumber_id="tak-terdaftar"), x.update(status="terbit"))),
+                   ("skema: medan tak dikenal", lambda x: x.update(medan="K9"))):
+    _x = json.loads(json.dumps(_b)); ubah(_x)
+    if not periksa_asal(_x): gagal.append(f"S4: {nama} diloloskan")
+if periksa_asal(_b): gagal.append("S4: kartu sah ditolak")
 print(f"G1.1/G1.4: {len(kart)} kartu, {len(gagal)} pelanggaran")
 for g in gagal: print("  ", g)
 sys.exit(1 if gagal else 0)

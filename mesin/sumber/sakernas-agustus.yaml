@@ -32,7 +32,9 @@ customProperties:
 - property: tingkat_wilayah
   value: kabkota 514 (ditambah 27 kode kab/kota provinsi pemekaran Papua yang belum ada di daftar domain BPS)
 - property: berkas_sha256
-  value: 0000_tpt_2824_2025.json sha256 awalan 8688b81a6d27 (diunduh 13 Nov 2026)
+  value: 8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27 (0000_tpt_2824_2025.json, laptop MESIN/mentah/bps, diunduh 13 Nov 2026; sidik penuh dicek ulang di laptop 15 Nov 2026)
+- property: berkas_url
+  value: https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824
 - property: SU-0
   value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
 - property: G1.0-G1.3

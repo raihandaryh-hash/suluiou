@@ -24,6 +24,8 @@ customProperties:
   value: kabkota (514; Tabel 4.3–4.40) dan provinsi (Tabel 4.1)
 - property: berkas_sha256
   value: 06eae149a5f84888c1f0dab6ce8506a2dbf2e3ad93da3c2809f09e091e2a7c65
+- property: berkas_url
+  value: https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/
 - property: berkas_meta
   value: PDF 352 halaman, 16.198.994 bita, dibuat 15 Agu 2025
 - property: SU-0

@@ -84,6 +84,19 @@ if os.path.isdir(vk31):
     r31 = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan_v3_1.py"), os.path.join(t31, "contoh.jsonl"), os.path.join(vk31, "reg.csv"), os.path.join(vk31, "dok")], capture_output=True, text=True)
     print("ME3 validator kutipan v3.1:", r31.stdout.strip())
     if not r31.stdout.startswith("sah 2 ditolak 3"): gagal.append("G3.2: validator kutipan v3.1 meloloskan penanda di nama peran")
+# S6 (syarat bawaan ME1): manifest gudang mentah; tiap berkas_sha256 kontrak wajib tercantum di manifest
+mf = os.path.join(AKAR, "sumber", "MANIFEST_mentah.csv")
+if os.path.exists(mf):
+    import csv as _csv, re as _re
+    MR = list(_csv.DictReader(open(mf, encoding="utf-8"))); MS = {r["sha256"] for r in MR}
+    if any(not _re.fullmatch(r"[0-9a-f]{64}", r["sha256"]) for r in MR): gagal.append("S6: manifest memuat sidik tidak penuh")
+    for q in sorted(os.listdir(os.path.join(AKAR, "sumber"))):
+        if not q.endswith(".yaml"): continue
+        d = yaml.safe_load(open(os.path.join(AKAR, "sumber", q), encoding="utf-8"))
+        for c in d.get("customProperties", []):
+            m = _re.match(r"[0-9a-f]{64}\b", str(c["value"])) if c["property"] == "berkas_sha256" else None
+            if m and m.group(0) not in MS: gagal.append(f"S6: berkas_sha256 kontrak {d['id']} tidak ada di manifest mentah")
+    print(f"S6 manifest mentah: {len(MR)} berkas, {sum(1 for r in MR if r['url'])} ber-URL")
 # ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai tanpa cacat mekanis; uji negatif validator rantai
 kp = os.path.join(AKAR, "kartu/keluaran/kartu_me3_prov.jsonl")
 if os.path.exists(kp):
