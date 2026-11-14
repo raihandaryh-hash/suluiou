@@ -132,3 +132,12 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Kutipan tugas dan kebutuhan dicocokkan di laptop: semua cocok setelah satu kutipan fasilitator dipendekkan (versi panjang tidak ada persis di teks; tertangkap pencocok).
 - Pemeta USUL atas Permensos 1/2018 (Sonnet, prompt beku): 12 usulan, semua formal (SDM PKH); belum dipakai rantai.
 - Hasil: G3.1 tetap 1 dari 3 (kemiskinan, 2 jalur; dua jenis lain menunggu kartu); G3.3 3 dari 3; uji negatif 14 dari 14 (N9 disesuaikan); G4 diulang: G4.1 224/224, G4.10 168/168, D3 84 dari 168 jalur tanpa gelar berdokumen (tepat 50%).
+
+## Pemeta v2 diukur ulang (butir 105) · 15 Nov 2026 00.59 WIB
+- Aturan v2 (kutipan wajib memuat tugas peran, tolak tim, lembaga, jabatan politik) dan validatornya dibekukan 00.48, aturan pelabel dan skrip sampel dibekukan 00.51, sebelum keluaran ada. Pemeta: Sonnet, lima bagian, pada cuplikan top-3 yang sama dengan v1.
+- Keluaran: 47 usulan; 40 sah, 7 ditolak validator. Ketujuh penolakan berupa `kata_tugas` frasa ("melakukan monitoring"), bukan satu kata; isinya tampak sah. Ini salah tolak format, dicatat untuk validator v2.1, tidak diubah di putaran beku ini.
+- Sampel: seluruh 40 usulan sah (populasi 40 < 40 kuota), dilabel Fable 5.2 baru dari kutipan saja.
+- Hasil: benar 23, salah 0, ragu 17. Wilson batas bawah 0,422 bila ragu dihitung salah; 0,857 bila ragu dibuang. Banding v1: benar 14 → 23, salah 7 → 0, ragu 19 → 17; batas ketat 0,22 → 0,42.
+- Ke-17 ragu seluruhnya "kaitan dengan kebutuhan tidak tampak dari kutipan"; 7 berasal dari Inpres 8/2025 (pejabat nasional: Kepala BPS, Panglima TNI, Kapolri). Tidak ada lagi tim, lembaga, atau daftar tanpa tugas: aturan v2 menutup dua akar kesalahan v1.
+- Batasan: pemeta JKN bagian 0 tidak membaca penuh 3 dari 15 cuplikan (cakupan, bukan ketepatan).
+- Putusan (atas delegasi): mode USUL tetap usulan, tidak masuk rantai langsung. Gerbang rantai yang berlaku sejak 14 Nov (kutipan tugas terverifikasi, kutipan kebutuhan bila kaitan lemah, label "benar" independen) tetap jalan masuk satu-satunya. Aturan v3 yang diuji berikutnya: kutipan memuat penanda kebutuhan atau disertai kutipan kebutuhan kedua; `kata_tugas` frasa diterima dengan kata pertama sebagai kata kerja.
