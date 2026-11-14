@@ -118,3 +118,8 @@ ca23df056fe8c2fe398e19089ee7ddc1719ebc51819a3b4557efb43e7b7536d8  uji/kuantitas/
 # 15 Nov 2026 01.55: pendaftaran uji juri kuantitas 96 dan peta id
 24df6e0d4df673b7875166a0c105c4b97acdbe5f83e2ac5c44ec48492ef6b207  uji/kuantitas/JURI96.md
 74d9b2b8a09e97c8b4c1c23b0f8b49889cb4fb31f6eb6c1975f6f6685376c5ca  uji/kuantitas/peta_juri96.json
+# 15 Nov 2026 02.44: jejak 109 dan alat yang belum beku (tinjauan Fable K7); dibekukan sesudah dipakai, sebagai catatan, bukan bukti urutan
+1f504b5ef48974b502c80e6740608f2ef96d4efe1c897e60d2b38f33c471c1b4  uji/presisi_usul/HOLDOUT_109_kandidat.json
+40af6f35527f4b908e02b3f22211b8c1302a65ea7b558cf80eeafdb2f646675a  peran/potong_cuplikan.py
+e5cd6e2956688174b923a23626251cc0de52c176503cab2585ead7d8376afbc9  uji/kuantitas/nilai.py
+ba46d0d1c169eecd229843ff1f7e270cdb3522044f74520961fca4f86cd7c41e  uji/presisi_usul/h109/LOG_ambil.txt
