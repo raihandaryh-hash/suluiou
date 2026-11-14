@@ -84,6 +84,9 @@ if os.path.exists(kp):
     rn = subprocess.run([sys.executable, os.path.join(AKAR, "uji/rantai_negatif.py")], capture_output=True, text=True)
     print("ME3 uji negatif rantai:", (rn.stdout.strip().splitlines() or [""])[-1])
     if rn.returncode != 0: gagal.append("G3.1: validator rantai meloloskan rantai rusak (uji/rantai_negatif.py)")
+    rc = subprocess.run([sys.executable, os.path.join(AKAR, "cipta/uji_cipta.py")], capture_output=True, text=True)
+    print("ME3 cipta:", [l for l in rc.stdout.splitlines() if l.startswith("G3b")])
+    if rc.returncode != 0: gagal.append("G3b: alur cipta atau bank pemantik gagal (cipta/uji_cipta.py)")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)

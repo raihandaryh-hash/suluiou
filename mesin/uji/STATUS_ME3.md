@@ -103,3 +103,11 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Hasil (`uji/G4_hasil_14Nov2026.md`): G4.1 224/224; G4.2 selisih 0 poin di semua penanda keadilan; G4.3 0 lawan 0; G4.6 84/84 identik; G4.7 244/244; G4.10 252/252; G4.5 dan G4.8 lulus bagian validator (juri belum); D1 84/84 lokal; D3 168/252 tanpa gelar berdokumen.
 - **G4.4 GAGAL: 44 dari 100 distress ditahan** (terang 34/40, tersamar 10/60). Pencocok hanya memakai lapis 1 (pola kata). Di produksi ada lapis 1b (pengklasifikasi model, penyedia Gemini menurut skema respons di `distressKlasifikasi.ts`); kinerjanya pada SU-7 belum diukur. Positif palsu lapis 1: 0 dari 1.024 teks tanpa distress. SU-7 tidak dipakai menyetel pola (set uji, bukan set pengembangan).
 - Catatan keadilan: semua keluaran memakai kebutuhan kemiskinan karena dua kebutuhan lain masih berkartu draf. Selisih nol karena pencocok tidak membaca refleksi selain untuk distress. Uji keadilan menjadi bermakna setelah ada lebih dari satu kebutuhan yang bisa tampil.
+
+## Jalur cipta M3b · putaran 1 (14 Nov 2026 23.23 WIB)
+- `cipta/alur.py`: pemantik terkunci sampai ada gagasan sah (setidaknya dua belas huruf); mode (c) memakai bank statis dengan aturan urut tetap dan label generik; mode dewasa mengembalikan permintaan model (tidak dipanggil di luar produksi).
+- Bank pemantik v1 ditinjau Fable 5.2 (3 SETUJU, 11 UBAH, 0 TOLAK, dua usulan butir); v2 memakai semua teks pengganti dan kedua usulan, dibekukan. Bank kemiskinan 11 butir, bank umum 7 butir.
+- **G3b.1 LULUS**: 80 permintaan uji, dua mode, dua jenis; isian kosong, spasi, satu kata, dan angka saja tetap terkunci.
+- **G3b.2 mode (c), lapis aturan: LULUS** (18 butir: semua pertanyaan, tanpa kata saran, vonis, kuantitas, digit). Tinjauan juri terkalibrasi belum; tinjauan peninjau independen sudah (di atas).
+- G3b.2 mode dewasa: belum. Butuh simulasi 50 sesi dengan model pemantik dan juri "memantik, bukan menjawab".
+- Masuk gerbang otomatis lewat `alat/periksa_gerbang.py`.

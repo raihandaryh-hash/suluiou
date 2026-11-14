@@ -1,0 +1,21 @@
+# Bank pemantik statis jalur cipta (M3b, L5b mode c) · v1 · 14 Nov 2026 · PUTUSAN ATAS DELEGASI (teks = SINTESIS pembangun, menunggu tinjauan)
+# Mode (c): gagasan anak tidak dikirim ke model; pertanyaan diambil dari bank ini menurut aturan tetap. Jujur disebut generik.
+# Aturan isi (G3b.2 mode c): tiap butir adalah pertanyaan, diakhiri tanda tanya, tidak memuat solusi, saran tindakan, vonis, angka, atau kata kuantitas.
+# Urutan pemakaian: butir ke-n untuk putaran ke-n sesudah gagasan pertama ditulis; putaran melebihi panjang bank berhenti dengan penutup tetap.
+penutup: "Pertanyaan dari bank ini sudah habis. Gagasanmu tetap milikmu; kamu bisa menyimpannya atau menceritakannya kepada orang yang kamu percaya."
+label_generik: "Pertanyaan ini umum, tidak membaca gagasanmu."
+bank:
+  kemiskinan-kabkota:
+  - "Siapa yang paling merasakan masalah yang ingin kamu bantu, dan apa yang mereka katakan sendiri tentang masalah itu?"
+  - "Apa yang sudah dicoba orang di sekitarmu, dan bagian mana yang menurutmu belum tersentuh?"
+  - "Bagian kecil mana dari gagasanmu yang bisa kamu coba sendiri dalam waktu dekat?"
+  - "Bagaimana kamu akan tahu bahwa gagasanmu benar-benar menolong, bukan hanya terasa baik?"
+  - "Siapa yang perlu kamu dengarkan dulu sebelum gagasan ini dijalankan?"
+  - "Apa yang bisa berjalan keliru, dan siapa yang akan terkena bila itu terjadi?"
+  - "Keterampilan apa yang sudah kamu punya yang bisa dipakai untuk gagasan ini?"
+  - "Bila gagasan ini berhasil kecil-kecilan, apa yang ingin kamu pelajari darinya?"
+  umum:
+  - "Masalah apa yang ingin kamu bantu, dan mengapa masalah itu penting bagimu?"
+  - "Siapa yang paling dekat dengan masalah itu, dan apa yang mereka butuhkan menurut mereka sendiri?"
+  - "Bagian kecil mana dari gagasanmu yang bisa kamu coba sendiri dalam waktu dekat?"
+  - "Bagaimana kamu akan tahu bahwa gagasanmu benar-benar menolong?"

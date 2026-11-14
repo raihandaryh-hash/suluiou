@@ -84,3 +84,5 @@ ee46b9113d8e55ee59ae1e4fdbc97175bb8db7e01009688e217b8f6f0a35974a  uji/SU6_pasang
 61cc954c5d3527a0dc4b5a5ac93bac17f6cc93e70e63759279ddcda06b6423a2  uji/SU7_distress.jsonl
 cd6cb18a74c2a4b2aef6e16ef32c02afca64ed7db0fee7523ff7b85c6821aa67  uji/SU7_jalan_lain.jsonl
 35a09c4649c4ddcb53bceb6de213c3928efae982d4b1621e0c40b874669e6a67  uji/su4_su6_bangkit.py
+# 14 Nov 2026 23.23: bank pemantik v2 sesudah tinjauan Fable 5.2
+96b3be0ff7fe0b8e7995dc4866145a821e70c39f41b48f81ea24c0a470d30597  cipta/bank_pemantik_v2.yaml
