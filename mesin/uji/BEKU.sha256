@@ -140,3 +140,5 @@ f0af4dafe922ca46160d2353022c1740ff79b9d5991cfc8fb82c4bb7b7f87c35  juri/definisi_
 423119c733e0b102d40aeef80ec1ec38bf061b4f830431a1e14d439ff37e159a  juri/PROMPT_JURI_v4_1.md
 700c8baea5a9cd20324f180d6a47ff3607292805bea5f2e56c6da9cb7a012612  uji/kuantitas/PROMPT_PENULIS_SET_D.md
 f1e40a4580c8fb01b9215a1de325bc38a0b6739f7d9878e0533d556785765f5b  uji/kuantitas/juri_D.py
+# 15 Nov 2026 03.20: set D-uji (uji sekali juri v4.1), ditulis agen terpisah, dibekukan sebelum dinilai
+08d76840a4aa7d99b9c79f481e1b3dd97a90a255a887627e74affef0631e87d8  uji/kuantitas/set_D_uji.jsonl
