@@ -30,3 +30,10 @@ Tiga jenis teratas saringan v7: penduduk tanpa jaminan kesehatan, kemiskinan, st
 - Diloloskan 36: benar 36, salah 0 → presisi 1,00 (Wilson 0,90 pada n=36). Elusi 0/44. Cakupan 36/86 = 42% (putaran 1: 26%).
 - Terlewat 50: 34 dokumennya tidak di register, 9 ada di register, 7 tanpa nomor. Terbanyak: perkawinan anak, UMKM, korban bencana (5 masing-masing).
 - Hitungan kelayakan: G3.2 meminta ≥100 pasangan diloloskan. SU-3 berlaku memuat 149 pasangan benar (A 86 + B 63); pada cakupan 42% yang lolos ~62. Syarat n≥100 butuh cakupan ≥67%, jadi tidak tercapai dengan SU-3 sekarang tanpa menambah pasangan atau dokumen. Diajukan ke Raihan.
+
+## G3.2 PENILAIAN AKHIR (14 Nov 2026 08.48 WIB) · sekali, register L0 v3, penyiap bundel v2, prompt v1, pemeta Opus
+- Separuh A (terbuka): diloloskan 37, benar 37, salah 0; cakupan 37/86; elusi 0/44. Keluaran laptop `periksa_A3_keluaran.jsonl` (sidik 2f6f0f74fbd0); validator 130 sah.
+- Separuh B (tersembunyi, dinilai di laptop oleh `peran/b_nilai.py`, hanya agregat; label sidik bf930a90…): diloloskan 26, benar 26, salah 0; Wilson 0,871; cakupan 26/63; elusi 0/42. Keluaran `periksa_B3_keluaran.jsonl` (sidik 06e0802d36b5); validator 105 sah.
+- Gabungan: 63/63 benar → presisi 1,00, **batas bawah Wilson 95% 0,942 ≥ 0,85**; elusi 0/86 = 0% ≤ 5%; cakupan 63/149 = 42%.
+- **G3.2 LULUS** menurut protokol + tambahan 1 (KEPUTUSAN Raihan "Batas bawah saja"). Catatan wajib: n = 63 (bukan 100), cakupan 42%; kandidat ditolak 86 (rencana 100).
+- Kasus batas yang dilaporkan pemeta (diloloskan dan ternyata benar menurut label, atau di B tidak diketahui): padanan istilah (guru ngaji, TKSK, ATLM), lembaga masyarakat berisi orang (LAZ, UPZ, Kelompok Masyarakat SPAM) diloloskan sesuai prompt beku.
