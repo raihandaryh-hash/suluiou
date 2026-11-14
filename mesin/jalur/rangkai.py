@@ -13,7 +13,8 @@ DOK = sys.argv[sys.argv.index("--dokumen") + 1] if "--dokumen" in sys.argv else 
 R = yaml.safe_load(open(os.path.join(AKAR, "jalur", "rantai_v1.yaml"), encoding="utf-8"))["jalur"]
 T = yaml.safe_load(open(os.path.join(AKAR, "jalur", "templat_langkah_pertama_v1.yaml"), encoding="utf-8"))["templat"]
 SAH = [json.loads(l) for l in open(os.path.join(AKAR, "peran", "usul_top3_keluaran.sah.jsonl"), encoding="utf-8")]
-L0 = {r["doc_id"]: r for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "dokumen", "L0_register_v3.csv"), encoding="utf-8"))}
+L0 = {r["doc_id"]: r for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "dokumen", "L0_register_v4.csv"), encoding="utf-8"))}
+L0K = {(r["kebutuhan"], r["doc_id"]) for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "dokumen", "L0_register_v4.csv"), encoding="utf-8"))}
 SIMPUL = set(re.findall(r'\{ id: "([a-z-]+)", layer:', open(os.path.join(REPO, "src", "data", "skillMapContent.ts"), encoding="utf-8").read()))
 KARTU = [json.loads(l) for f in ("kartu_me2.jsonl", "kartu_me3_prov.jsonl") for l in open(os.path.join(AKAR, "kartu", "keluaran", f), encoding="utf-8")]
 S = json.load(open(os.path.join(AKAR, "kontrak", "jalur-jelajah-1.schema.json"), encoding="utf-8"))
@@ -66,13 +67,13 @@ def periksa(r, j, k):
     m.append(("skill", all(s["simpul"] in SIMPUL for s in r["skill"]), ",".join(s["simpul"] for s in r["skill"])))
     if r["jalur_belajar"]:
         cek = [ada_di_dokumen(x["sumber_id"], x["kutipan"]) for x in r["jalur_belajar"]]
-        ok = all(x["sumber_id"] in L0 for x in r["jalur_belajar"]) and all(c is not False for c in cek)
+        ok = all((r["kebutuhan"], x["sumber_id"]) in L0K for x in r["jalur_belajar"]) and all(c is not False for c in cek)
         m.append(("jalur_belajar", ok, "kutipan " + ("cocok" if all(cek) else "tidak diperiksa" if None in cek else "TIDAK COCOK")))
     else:
         m.append(("jalur_belajar", bool(r.get("jalur_belajar_label")), "kosong berlabel"))
     m.append(("langkah_pertama", r["templat"] in T and bool(set(T[r["templat"]]["cocok_untuk"]) & {j["peran_contoh"][0]["jenis"]}), r["templat"] + " (templat menunggu tinjauan sekali)"))
     m.append(("orang", bool(r["orang"]) and all(o["jenis"] in ORANG for o in r["orang"]), ",".join(o["jenis"] for o in r["orang"])))
-    m.append(("bukti", all(b in L0 for b in r["bukti"]), "dokumen resmi L0: " + ",".join(r["bukti"])))
+    m.append(("bukti", all((r["kebutuhan"], b) in L0K for b in r["bukti"]), "dokumen resmi L0: " + ",".join(r["bukti"])))
     return m
 
 def periksa_teks(j):
@@ -101,7 +102,8 @@ print()
 g33 = True
 for je in jenis_all:
     rs = [r for r in R if r["kebutuhan"] == je]; n_l = sum(l for r, m, s, l, k in hasil if r["kebutuhan"] == je)
-    tg = [r["id"] for r in rs if r["mulai_tanpa_gelar"] == "ya_berdokumen"]
+    tg = [r["id"] for r in rs if r["mulai_tanpa_gelar"] == "ya_berdokumen" and (je, r.get("mulai_tanpa_gelar_sumber")) in L0K
+          and ada_di_dokumen(r["mulai_tanpa_gelar_sumber"], r["mulai_tanpa_gelar_kutipan"]) is not False]
     nf = [r["id"] for r, m, s, l, k in hasil if r["kebutuhan"] == je and m[1][1] and next(x["jenis_peran"] for x in SAH if x["peran"] == r["peran"]["nama"] and x["doc_id"] == r["peran"]["doc_id"]) in ("nonformal", "sukarela")]
     kd = {k["status"] for r, m, s, l, k in hasil if r["kebutuhan"] == je}
     g33 &= bool(tg) and bool(nf)
