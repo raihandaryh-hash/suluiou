@@ -151,3 +151,10 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Kepekaan: bila kepala badan setingkat menteri dihitung jabatan politik, batas bawah 0,68 (3 pindah) atau 0,63 (5 pindah).
 - **Belum lulus 0,85 ketat.** Peringatan tambahan: aturan v2 dan v3 disusun sesudah melihat kesalahan pada dokumen yang sama; ukuran ini bisa terlalu optimis. Ukuran yang sah untuk menutup butir ini adalah dokumen yang belum pernah dipakai menyusun aturan (butir 107). Pelabel dan pemeta sama-sama Anthropic (syarat bawaan penyedia tunggal tetap berlaku).
 - Putusan (atas delegasi): gerbang rantai tetap jalan masuk satu-satunya; mode USUL v3 menjadi bawaan pemeta untuk kebutuhan baru.
+
+## Celah penanda (butir 108) dan uji dokumen baru (butir 107) · 15 Nov 2026
+- Validator v3.1: penanda kebutuhan dicari sesudah nama peran dibuang dari kutipan. Fixture (2 sah, 3 tolak) masuk gerbang; gerbang lulus. Diterapkan ulang pada 41 usulan v3: 3 tertolak (1 yang dilabel ragu, 2 yang dilabel benar). Sampel sah tersisa: benar 34 dari 37, batas bawah 0,787 (ragu dihitung salah). Ketepatan naik sedikit, cakupan turun 2.
+- Uji dokumen baru didaftarkan dan dibekukan sebelum cuplikan dibuat (`uji/presisi_usul/HOLDOUT_107.md`, 11 dokumen, 13 pasangan).
+- Ketersediaan teks: 3 dari 11 dokumen punya teks di laptop. Unduhan ulang: 2 tautan mengembalikan halaman HTML, 1 galat server 503, 3 tautan LMS BKKBN kosong, 2 PDF berhasil tetapi hasil pindaian tanpa lapisan teks (0 karakter). Tidak ada pengganti, sesuai pendaftaran.
+- Pemotong cuplikan beku pada 3 dokumen bertekst: kemiskinan 0 cuplikan, stunting 0, JKN 6 (satu dokumen, pemeriksaan kesehatan gratis). Sampel sebesar itu tidak bisa mencapai batas 0,85 sekalipun semua benar (perlu ≥23 usulan benar tanpa satu pun ragu). **Butir 107 tidak bisa diputus dengan himpunan ini**; pemeta tidak dijalankan.
+- Langkah berikut (butir 109): pendaftaran kedua berisi dokumen baru berlapis teks per kebutuhan, dicari dan dicek teksnya lebih dulu, dibekukan sebelum pemetaan; ukuran contoh dirancang ≥40 usulan.
