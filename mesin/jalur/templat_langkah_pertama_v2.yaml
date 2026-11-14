@@ -4,7 +4,7 @@
 # Teks di bawah = teks pengganti peninjau, persis. Label: PUTUSAN ATAS DELEGASI (pembangun menerapkan vonis peninjau).
 # Dua titik terbuka peninjau diputus pembangun atas delegasi ("decide the best for things", 14 Nov 09.10):
 #   mode (c) boleh baca_pedoman: YA; daftar_kegiatan untuk usia di bawah delapan belas tahun: TIDAK di v1.
-# Laporan peninjau: laptop MESIN\tinjauan\TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md
+# Laporan peninjau: mesin/uji/tinjauan/TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md
 templat:
   amati_dan_tanya:
     teks: "Datangi {tempat} di dekat tempat tinggalmu pada jam layanan, bila perlu bersama orang yang kamu percaya. Sampaikan bahwa kamu ingin mengenal pekerjaan {peran}, lalu tanyakan satu hal: bantuan seperti apa yang paling terasa manfaatnya bagi {kebutuhan_ringkas}."

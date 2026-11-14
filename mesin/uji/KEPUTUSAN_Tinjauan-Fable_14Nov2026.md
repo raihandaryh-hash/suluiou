@@ -1,7 +1,7 @@
 # Putusan atas tinjauan Fable 5.2 · 14 Nov 2026
 Dasar delegasi, KEPUTUSAN Raihan 14 Nov 2026 09.10 WIB: "Gunakan Fable 5.2 sebagai peninjau, juga untuk poin 56. Review the progress til now, decide the best for things, go SOTA."
 Semua butir di bawah: PUTUSAN ATAS DELEGASI (bisa dibalik Raihan), kecuali yang disebut lain. Laporan peninjau (SINTESIS peninjau):
-laptop `MESIN\tinjauan\TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md` dan `MESIN\tinjauan\TINJAUAN_Fable_Akhir-ME1-dan-ME2_14Nov2026.md`.
+`uji/tinjauan/TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md` dan `uji/tinjauan/TINJAUAN_Fable_Akhir-ME1-dan-ME2_14Nov2026.md`.
 
 ## A. Templat langkah pertama (butir papan 93) dan rantai ME3
 1. Vonis peninjau dipakai utuh: keempat templat dan aturan pilih diganti teks pengganti peninjau (`jalur/templat_langkah_pertama_v2.yaml`, dibekukan). Tinjauan sekali rencana §4.4 dianggap terpenuhi oleh peninjau yang ditunjuk Raihan.
