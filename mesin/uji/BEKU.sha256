@@ -103,3 +103,8 @@ f5e03c26615a115ab3d6a5cb9102624eefaba8cd974097efd44a14354df10ebc  uji/presisi_us
 a6d4b1cd07a5173015b39be7a7aa4a69d09694248b9fb050e483504e73fe412f  peran/PROMPT_PEMETA_v3.md
 e11dd706c866c41e718fab54bcc017b23967282055748590b26d138100d018b5  peran/validasi_kutipan_v3.py
 6eab0a1f1bdb61d6f1514260174996a2e46e085401bc759159445cec552bc699  uji/validasi_kutipan_v3/contoh.jsonl
+# 15 Nov 2026 01.14: validator v3.1 (butir 108) dan fixture-nya dibekukan
+9d2c4aeb775c1bfd1fdde3364713eede4b715b936b4ce509726b2a60e3a9331d  peran/validasi_kutipan_v3_1.py
+a39f92794c0847f0ec8bede1abedc077fa2cf65457e058543314b4ae38b0d2f4  uji/validasi_kutipan_v3_1/contoh.jsonl
+# 15 Nov 2026 01.15: pendaftaran uji dokumen baru 107
+556ccce9dc784668578da3758b69dd3dfab317e59da05c03183714ce537b89dc  uji/presisi_usul/HOLDOUT_107.md
