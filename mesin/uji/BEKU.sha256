@@ -110,3 +110,6 @@ a39f92794c0847f0ec8bede1abedc077fa2cf65457e058543314b4ae38b0d2f4  uji/validasi_k
 556ccce9dc784668578da3758b69dd3dfab317e59da05c03183714ce537b89dc  uji/presisi_usul/HOLDOUT_107.md
 # 15 Nov 2026 01.20: aturan pemilihan uji dokumen baru 109
 06c93d7dc168b883c3c72889aef48cfacad6fb2ab756e55994615711f7f80ccb  uji/presisi_usul/HOLDOUT_109.md
+# 15 Nov 2026 01.44: set uji kata kuantitas A (penyetelan) dan B (uji sekali), ditulis agen terpisah, dibekukan sebelum regex diubah
+4d05cd5503bd331bbe20fc6dc27918e9b0d5c3afeaa39b4062fc9f9fcb88cd1a  uji/kuantitas/set_A.jsonl
+5524954529df6d46a2f353e070938f677c7b9a09eb167683139f667c6b734577  uji/kuantitas/set_B.jsonl
