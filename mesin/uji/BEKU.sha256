@@ -86,3 +86,7 @@ cd6cb18a74c2a4b2aef6e16ef32c02afca64ed7db0fee7523ff7b85c6821aa67  uji/SU7_jalan_
 35a09c4649c4ddcb53bceb6de213c3928efae982d4b1621e0c40b874669e6a67  uji/su4_su6_bangkit.py
 # 14 Nov 2026 23.23: bank pemantik v2 sesudah tinjauan Fable 5.2
 96b3be0ff7fe0b8e7995dc4866145a821e70c39f41b48f81ea24c0a470d30597  cipta/bank_pemantik_v2.yaml
+# 14 Nov 2026 23.43: prompt pemantik dewasa dan juri memantik dibekukan sebelum simulasi dan kalibrasi
+ec031517d3d17c99c7d551f2309c77d7e711ca8cb7821faf696cb164ef0d7573  cipta/PROMPT_PEMANTIK_DEWASA_v1.md
+1f6cfb4e17c69a679167eb53e90f2c66406450d9be457b2381363040a3449052  cipta/JURI_MEMANTIK_v1.md
+e510f1ed22c6d892feaab9ecfc1c94f08624edaf7182b947377a33723c330251  cipta/nilai_g3b2.py
