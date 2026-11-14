@@ -115,3 +115,6 @@ a39f92794c0847f0ec8bede1abedc077fa2cf65457e058543314b4ae38b0d2f4  uji/validasi_k
 5524954529df6d46a2f353e070938f677c7b9a09eb167683139f667c6b734577  uji/kuantitas/set_B.jsonl
 # 15 Nov 2026 01.48: set uji kata kuantitas C (uji sekali untuk v2.1), ditulis agen terpisah, dibekukan sebelum dinilai
 ca23df056fe8c2fe398e19089ee7ddc1719ebc51819a3b4557efb43e7b7536d8  uji/kuantitas/set_C.jsonl
+# 15 Nov 2026 01.55: pendaftaran uji juri kuantitas 96 dan peta id
+24df6e0d4df673b7875166a0c105c4b97acdbe5f83e2ac5c44ec48492ef6b207  uji/kuantitas/JURI96.md
+74d9b2b8a09e97c8b4c1c23b0f8b49889cb4fb31f6eb6c1975f6f6685376c5ca  uji/kuantitas/peta_juri96.json
