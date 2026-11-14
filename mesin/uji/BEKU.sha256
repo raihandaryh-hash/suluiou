@@ -90,3 +90,6 @@ cd6cb18a74c2a4b2aef6e16ef32c02afca64ed7db0fee7523ff7b85c6821aa67  uji/SU7_jalan_
 ec031517d3d17c99c7d551f2309c77d7e711ca8cb7821faf696cb164ef0d7573  cipta/PROMPT_PEMANTIK_DEWASA_v1.md
 1f6cfb4e17c69a679167eb53e90f2c66406450d9be457b2381363040a3449052  cipta/JURI_MEMANTIK_v1.md
 e510f1ed22c6d892feaab9ecfc1c94f08624edaf7182b947377a33723c330251  cipta/nilai_g3b2.py
+# 14 Nov 2026 23.45: set kalibrasi juri memantik (agen Sonnet terpisah) dan simulasi pemantik (Haiku) dibekukan sebelum juri dijalankan
+cbd345158e8a9611ba8ac13e53d171cff94a9049312ccda14913c9dba5d018c2  cipta/sim/KAL_memantik.jsonl
+551cd35e830cd6b720630b4e8f965a1dcf40792f92a492028d173003e2523c65  cipta/sim/SIM_pemantik.jsonl
