@@ -111,3 +111,16 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - **G3b.2 mode (c), lapis aturan: LULUS** (18 butir: semua pertanyaan, tanpa kata saran, vonis, kuantitas, digit). Tinjauan juri terkalibrasi belum; tinjauan peninjau independen sudah (di atas).
 - G3b.2 mode dewasa: belum. Butuh simulasi 50 sesi dengan model pemantik dan juri "memantik, bukan menjawab".
 - Masuk gerbang otomatis lewat `alat/periksa_gerbang.py`.
+
+## G3b.2 mode dewasa · putaran 1 (14 Nov 2026 23.47 WIB)
+- Prompt pemantik dewasa, prompt juri, dan penilai dibekukan 23.43 sebelum ada hasil. Set kalibrasi 200 (100 GAGAL, 100 LULUS; 31 dan 30 kasus sulit) ditulis agen Sonnet terpisah; simulasi 50 sesi (100 giliran AI) oleh agen Haiku sebagai pemantik; juri agen Sonnet terpisah, buta label.
+- Kalibrasi juri: 100 dari 100 GAGAL tertangkap, 100 dari 100 LULUS dibiarkan, 0 salah pada kasus sulit (ambang rencana: 96 dan 92) → juri lulus kalibrasi.
+- Simulasi: 0 dari 100 giliran AI dinilai memuat solusi langsung (ambang ≤5).
+- **G3b.2 dewasa: LULUS BERSYARAT.** Syarat: (a) juri dan pemantik sama-sama model Anthropic (syarat bawaan H1, juri beda penyedia); (b) set kalibrasi ditulis satu penulis dalam pasangan gagasan yang sama untuk kedua label, jadi kontrasnya lebih jelas daripada keluaran nyata; skor sempurna dibaca sebagai batas atas. Ukur ulang di pilot dengan keluaran nyata.
+
+## Ketepatan peran usulan pemeta (butir 97) · 14 Nov 2026 malam
+- Sampel acak 40 dari 92 usulan USUL top-3 (seed 97), dilabel Fable 5.2 dari kutipan saja, aturan: pelaksana berupa orang, bukan lembaga, tim, sasaran, atau jabatan politik.
+- Hasil: benar 14, salah 7 (6 tim atau lembaga, 1 penerima), ragu 19 (15 kutipan berupa daftar tanpa tugas, 4 jabatan struktural). Batas bawah Wilson: 0,22 bila ragu dihitung salah; 0,45 bila ragu dibuang. **Jauh di bawah 0,85.** G3.2 (mode PERIKSA) tetap lulus, tetapi mode USUL yang dipakai rantai belum layak tanpa saringan tambahan.
+- Peran di rantai (10 baris): benar 4 (pemasar JKN, fasilitator, operator, kader posyandu), salah 2 (karang taruna = lembaga, TPK = tim), ragu 4 (pendamping PKH, PSM, bidan, Kader JKN: kutipan daftar atau definisi tanpa tugas).
+- Akar: kutipan pemeta dipilih yang memuat nama peran, sering baris daftar anggota; aturan pemeta tidak mewajibkan kutipan tugas dan tidak menolak tim atau lembaga.
+- Perbaikan berjalan: tiap peran di rantai wajib membawa kutipan tugas terverifikasi (orang melakukan sesuatu); peran lembaga atau tim diganti peran orang dari dokumen; aturan pemeta v2 (kutipan tugas, tolak tim dan lembaga) diukur ulang pada sampel baru, bukan 40 baris ini.
