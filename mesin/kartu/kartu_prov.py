@@ -15,7 +15,7 @@ JENIS = {
     "penduduk-tanpa-jaminan-kesehatan": {"ind": "persen_tanpa_jaminan_kesehatan", "pop": "penduduk", "medan": "K1", "th": 2025, "sid": "bps-var-2279",
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2279",
         "sha": "efeb768d27e5d67c1daedaad9d1df3197d797dde52cab41221e5c0f97217a1a4", "keandalan": "hati_hati",
-        "alasan": "rse_tidak_terbit", "metode": "turunan", "catatan": "nilai = 100 dikurangi var 2279; asuransi swasta murni mungkin tidak terhitung survei, jadi nilai bisa sedikit lebih tinggi dari yang sebenarnya"},
+        "alasan": "rse_tidak_terbit", "metode": "turunan", "catatan": "nilai = 100 dikurangi var 2279 (penduduk ber-JKN: BPJS PBI, BPJS non-PBI, atau Jamkesda, Susenas Maret 2025); yang berasuransi swasta saja ikut terhitung tanpa JKN"},
 }
 
 # Kedua sumber belum boleh dipakai kartu tayang (periksa_kartu: dipakai_kartu): kartu berstatus draf sampai syaratnya terpenuhi.
