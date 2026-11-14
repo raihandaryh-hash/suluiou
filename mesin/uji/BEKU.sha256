@@ -113,3 +113,5 @@ a39f92794c0847f0ec8bede1abedc077fa2cf65457e058543314b4ae38b0d2f4  uji/validasi_k
 # 15 Nov 2026 01.44: set uji kata kuantitas A (penyetelan) dan B (uji sekali), ditulis agen terpisah, dibekukan sebelum regex diubah
 4d05cd5503bd331bbe20fc6dc27918e9b0d5c3afeaa39b4062fc9f9fcb88cd1a  uji/kuantitas/set_A.jsonl
 5524954529df6d46a2f353e070938f677c7b9a09eb167683139f667c6b734577  uji/kuantitas/set_B.jsonl
+# 15 Nov 2026 01.48: set uji kata kuantitas C (uji sekali untuk v2.1), ditulis agen terpisah, dibekukan sebelum dinilai
+ca23df056fe8c2fe398e19089ee7ddc1719ebc51819a3b4557efb43e7b7536d8  uji/kuantitas/set_C.jsonl
