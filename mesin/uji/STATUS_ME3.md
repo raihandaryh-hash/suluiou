@@ -141,3 +141,13 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Ke-17 ragu seluruhnya "kaitan dengan kebutuhan tidak tampak dari kutipan"; 7 berasal dari Inpres 8/2025 (pejabat nasional: Kepala BPS, Panglima TNI, Kapolri). Tidak ada lagi tim, lembaga, atau daftar tanpa tugas: aturan v2 menutup dua akar kesalahan v1.
 - Batasan: pemeta JKN bagian 0 tidak membaca penuh 3 dari 15 cuplikan (cakupan, bukan ketepatan).
 - Putusan (atas delegasi): mode USUL tetap usulan, tidak masuk rantai langsung. Gerbang rantai yang berlaku sejak 14 Nov (kutipan tugas terverifikasi, kutipan kebutuhan bila kaitan lemah, label "benar" independen) tetap jalan masuk satu-satunya. Aturan v3 yang diuji berikutnya: kutipan memuat penanda kebutuhan atau disertai kutipan kebutuhan kedua; `kata_tugas` frasa diterima dengan kata pertama sebagai kata kerja.
+
+## Pemeta v3 diukur (butir 106) · 15 Nov 2026 01.11 WIB
+- Aturan v3 (penanda kebutuhan wajib di kutipan atau kutipan kebutuhan kedua yang persis; kata tugas frasa diterima) dan validator v3 dibekukan sebelum dijalankan; fixture validator v3 (2 sah, 2 tolak) masuk gerbang deterministik.
+- Keluaran: 41 usulan, semua lolos validator di laptop. Kelima pemeta melaporkan cuplikan terbaca penuh (11/11, 15/15, 15/15, 15/15, 15/15). Inpres 8/2025 turun dari 10 usulan ke 3, yang kutipannya menyebut kemiskinan.
+- Sampel 40 dari 41 (seed 106), dilabel Fable 5.2 baru; kutipan kebutuhan kedua dibaca sebagai bagian kutipan.
+- Hasil: benar 36, salah 0, ragu 4. Wilson batas bawah **0,769** bila ragu dihitung salah; 0,904 bila ragu dibuang. Urutan: v1 0,22 → v2 0,42 → v3 0,77.
+- Ragu (4): kaitan kebutuhan ditopang kutipan kedua yang berisi tindakan pelaku lain (2), tanpa penanda di luar nama peran (1: "kepesertaan" hanya ada di nama "Staf Administrasi Perluasan Kepesertaan"; celah validator, butir 108: nama peran dibuang dari kutipan sebelum penanda dicari), tugas kader KB yang stunting-nya hanya "mendapatkan informasi" (1).
+- Kepekaan: bila kepala badan setingkat menteri dihitung jabatan politik, batas bawah 0,68 (3 pindah) atau 0,63 (5 pindah).
+- **Belum lulus 0,85 ketat.** Peringatan tambahan: aturan v2 dan v3 disusun sesudah melihat kesalahan pada dokumen yang sama; ukuran ini bisa terlalu optimis. Ukuran yang sah untuk menutup butir ini adalah dokumen yang belum pernah dipakai menyusun aturan (butir 107). Pelabel dan pemeta sama-sama Anthropic (syarat bawaan penyedia tunggal tetap berlaku).
+- Putusan (atas delegasi): gerbang rantai tetap jalan masuk satu-satunya; mode USUL v3 menjadi bawaan pemeta untuk kebutuhan baru.
