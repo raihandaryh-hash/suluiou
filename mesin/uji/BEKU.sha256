@@ -142,3 +142,8 @@ f0af4dafe922ca46160d2353022c1740ff79b9d5991cfc8fb82c4bb7b7f87c35  juri/definisi_
 f1e40a4580c8fb01b9215a1de325bc38a0b6739f7d9878e0533d556785765f5b  uji/kuantitas/juri_D.py
 # 15 Nov 2026 03.20: set D-uji (uji sekali juri v4.1), ditulis agen terpisah, dibekukan sebelum dinilai
 08d76840a4aa7d99b9c79f481e1b3dd97a90a255a887627e74affef0631e87d8  uji/kuantitas/set_D_uji.jsonl
+# 15 Nov 2026 03.22: keluaran juri D-uji (Haiku penentu, Sonnet silang)
+ccee880b918ed1889a85fdc70ee7294c58d6cc95a0a1e3af940cf6c4759debee  uji/kuantitas/hasil_Duji/haiku/keluar_kuantitas.jsonl
+8938ba74dd9d0211004501d33c8654e8b38330dcff89148735baefeb6bfb107f  uji/kuantitas/hasil_Duji/haiku/keluar_perbandingan.jsonl
+f5b628408b0ae32821b65c30657998e3206fb783fa1711256b429badb236765a  uji/kuantitas/hasil_Duji/sonnet/keluar_kuantitas.jsonl
+2968bf1f381b14271d5d6336eba5090dcfbaa3a3df03c8ddd9e018ffe52079fa  uji/kuantitas/hasil_Duji/sonnet/keluar_perbandingan.jsonl
