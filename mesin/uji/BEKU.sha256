@@ -93,3 +93,6 @@ e510f1ed22c6d892feaab9ecfc1c94f08624edaf7182b947377a33723c330251  cipta/nilai_g3
 # 14 Nov 2026 23.45: set kalibrasi juri memantik (agen Sonnet terpisah) dan simulasi pemantik (Haiku) dibekukan sebelum juri dijalankan
 cbd345158e8a9611ba8ac13e53d171cff94a9049312ccda14913c9dba5d018c2  cipta/sim/KAL_memantik.jsonl
 551cd35e830cd6b720630b4e8f965a1dcf40792f92a492028d173003e2523c65  cipta/sim/SIM_pemantik.jsonl
+# 15 Nov 2026 00.48: pemeta v2 dan validatornya dibekukan sebelum dijalankan
+4001bc29577cdb6e1fc04059fcb9d88cd5bb043e1e9aef4931a73a11afaf7cfb  peran/PROMPT_PEMETA_v2.md
+1d08446b1e3cd9abbd0bf003a2a38c7767eaf6438314a4a3966e5244a84ea475  peran/validasi_kutipan_v2.py
