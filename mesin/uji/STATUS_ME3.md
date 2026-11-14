@@ -69,9 +69,9 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - H5 teks 180 penulis utuh di repo untuk G1.4; juri populasi menuduh lintas mode 6 dari 50.
 - S2 sidik masukan kartu, target, kartu keluaran di BEKU: SELESAI 14 Nov.
 - [SELESAI 15 Nov, butir 100; lihat STATUS_ME1] S3 `berkas_sha256` penuh di kontrak sakernas dan air minum; `kartu.py` membaca sidik dan URL dari kontrak.
-- [SELESAI 15 Nov, butir 100; lihat STATUS_ME1] S4 skema JSON kartu di CI (janji G1.1); `periksa_kartu.py` menolak sidik nol dan URL palsu.
+- [SEBAGIAN 15 Nov: draf berlubang, tinjauan Fable P10] S4 skema JSON kartu di CI (janji G1.1); `periksa_kartu.py` menolak sidik nol dan URL palsu.
 - S5 basis hitung provinsi dicatat di STATUS_ME1: SELESAI 14 Nov.
-- [SELESAI 15 Nov, butir 100; lihat STATUS_ME1] S6 manifest gudang mentah (nama, URL, sidik penuh, tanggal unduh, versi alat) masuk repo.
+- [SEBAGIAN 15 Nov: URL dari pola, tinjauan Fable P11] S6 manifest gudang mentah (nama, URL, sidik penuh, tanggal unduh, versi alat) masuk repo.
 - Tambahan peninjau: G1.4 regex kuantitas meloloskan "dua pertiga", "kebanyakan", "nyaris seluruh" (10 dari 13 frasa uji); diperluas sebelum teks kartu ditulis.
 
 ## Antre baru dari tinjauan

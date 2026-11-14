@@ -2,7 +2,7 @@
 URL diisi bila tercatat mekanis: daftar kandidat uji 109, unduhan uji 107, dan berkas BPS WebAPI (URL tabel tanpa kunci, dibentuk dari
 domain dan var di nama berkas, sama dengan cara kontrak menulis URL). Selain itu kolom asal_tercatat berisi pola yang terbaca dari nama
 berkas, atau "tidak tercatat". Waktu ubah berkas dipakai sebagai pengganti tanggal unduh dan diberi label begitu.
-Tidak membaca folder kunci. Pakai: python manifest_mentah.py  -> MESIN/MANIFEST_mentah.csv"""
+Kolom jenis_url: pola_tabel = URL tabel WebAPI tanpa kunci dan tanpa tahun, dibentuk dari nama berkas (bukan URL unduhan persis; banyak berkas berbagi satu URL); kandidat_unduh = URL yang dipakai mengunduh berkas itu; halaman_pendarat = halaman sumber, bukan berkasnya. Tidak membaca folder kunci. Pakai: python manifest_mentah.py  -> MESIN/MANIFEST_mentah.csv"""
 import csv, datetime, hashlib, json, os, re
 M = r"C:\Users\p\Documents\IOU\Foresight\Sulu Build\Audit-Nov2026\MESIN"
 RAW = os.path.join(M, "mentah")
@@ -34,12 +34,13 @@ for r, ds, fs in os.walk(RAW):
             if m: asal = fmt.format(*m.groups()); break
         wm = WEBAPI.match(rel)
         if wm and rel not in URL: URL[rel] = f"https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/{wm.group(1)}/var/{wm.group(3)}"
-        baris.append([rel, URL.get(rel, ""), asal, h, st.st_size,
+        u = URL.get(rel, ""); jenis = "" if not u else ("pola_tabel" if wm else ("halaman_pendarat" if rel.startswith(("bps-pub/", "ssgi-2024/")) else "kandidat_unduh"))
+        baris.append([rel, u, jenis, asal, h, st.st_size,
                       datetime.datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d %H:%M"), VERSI])
 out = os.path.join(M, "MANIFEST_mentah.csv")
 with open(out, "w", encoding="utf-8", newline="") as fo:
     w = csv.writer(fo, lineterminator="\n")
-    w.writerow(["berkas", "url", "asal_tercatat", "sha256", "bita", "waktu_ubah_berkas", "versi_alat"]); w.writerows(baris)
-print(len(baris), "berkas;", sum(1 for b in baris if b[1]), "ber-URL;", sum(1 for b in baris if b[2] != "tidak tercatat"), "berpola; versi", VERSI)
-print("tanpa asal:", [b[0] for b in baris if b[2] == "tidak tercatat" and not b[1]])
+    w.writerow(["berkas", "url_tercatat", "jenis_url", "asal_tercatat", "sha256", "bita", "waktu_ubah_berkas", "versi_alat"]); w.writerows(baris)
+print(len(baris), "berkas;", sum(1 for b in baris if b[1]), "ber-URL;", sum(1 for b in baris if b[3] != "tidak tercatat"), "berpola; versi", VERSI)
+print("tanpa asal:", [b[0] for b in baris if b[3] == "tidak tercatat" and not b[1]][:3])
 print(hashlib.sha256(open(out, "rb").read()).hexdigest())

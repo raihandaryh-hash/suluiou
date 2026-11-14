@@ -96,7 +96,7 @@ if os.path.exists(mf):
         for c in d.get("customProperties", []):
             m = _re.match(r"[0-9a-f]{64}\b", str(c["value"])) if c["property"] == "berkas_sha256" else None
             if m and m.group(0) not in MS: gagal.append(f"S6: berkas_sha256 kontrak {d['id']} tidak ada di manifest mentah")
-    print(f"S6 manifest mentah: {len(MR)} berkas, {sum(1 for r in MR if r['url'])} ber-URL")
+    print(f"S6 manifest mentah: {len(MR)} berkas, {sum(1 for r in MR if r["jenis_url"] == "kandidat_unduh")} URL unduhan, {sum(1 for r in MR if r["jenis_url"] == "pola_tabel")} URL pola tabel")
 # ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai tanpa cacat mekanis; uji negatif validator rantai
 kp = os.path.join(AKAR, "kartu/keluaran/kartu_me3_prov.jsonl")
 if os.path.exists(kp):

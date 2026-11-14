@@ -35,7 +35,9 @@ def periksa_pembanding(k):
     return []
 # S4 (syarat bawaan ME1): skema kartu, sidik bukan nol, URL hanya dari kontrak sumber; S3: SUMBER kartu.py sama dengan kontrak
 import jsonschema, urllib.parse
-SKEMA = jsonschema.Draft202012Validator(json.load(open(os.path.join(AKAR, "kartu", "kartu-1.schema.json"), encoding="utf-8")))
+SKEMA = jsonschema.Draft202012Validator(json.load(open(os.path.join(AKAR, "kartu", "kartu-1.schema.json"), encoding="utf-8")), format_checker=jsonschema.FormatChecker())
+import csv as _csvm
+MANIFEST = {r["sha256"]: r for r in _csvm.DictReader(open(os.path.join(AKAR, "sumber", "MANIFEST_mentah.csv"), encoding="utf-8"))}
 KONTRAK = {}
 for q in glob.glob(os.path.join(AKAR, "sumber", "*.yaml")):
     d = yaml.safe_load(open(q, encoding="utf-8")); cp = {c["property"]: str(c["value"]) for c in d.get("customProperties", [])}
@@ -54,6 +56,9 @@ def periksa_asal(k):
         else:
             if k.get("status") != "draf": out.append(f"{k['id']}: sumber {i.get('sumber_id')} tanpa kontrak ber-URL, kartu wajib draf")
             if urllib.parse.urlparse(i.get("url") or "").hostname not in HOST_RESMI: out.append(f"{k['id']}: host url bukan host resmi")
+            mr = MANIFEST.get(h)
+            if mr and mr.get("url_tercatat", mr.get("url")) != i.get("url"): out.append(f"{k['id']}: url tidak sama dengan url tercatat berkas mentah bersidik itu")
+        if h not in MANIFEST: out.append(f"{k['id']}: sidik tidak ada di manifest mentah")
     return out
 def periksa_sumber_kartu():
     out = []
@@ -101,7 +106,11 @@ for nama, ubah in (("sidik nol", lambda x: x["indikator"][0].update(sha256="0" *
                    ("url lain di host resmi", lambda x: x["indikator"][0].update(url="https://www.bps.go.id/id/publication/palsu.html")),
                    ("sha lain", lambda x: x["indikator"][0].update(sha256="ab" * 32)),
                    ("tanpa kontrak terbit", lambda x: (x["indikator"][0].update(sumber_id="tak-terdaftar"), x.update(status="terbit"))),
-                   ("skema: medan tak dikenal", lambda x: x.update(medan="K9"))):
+                   ("skema: medan tak dikenal", lambda x: x.update(medan="K9")),
+                   ("skema: tanggal mustahil", lambda x: x["indikator"][0].update(tanggal_akses="2026-19-39")),
+                   ("skema: draf tanpa alasan", lambda x: (x.update(status="draf"), x.pop("alasan_draf", None))),
+                   ("draf tanpa kontrak, sidik di luar manifest", lambda x: (x.update(status="draf", alasan_draf="uji negatif jalur draf"), x["indikator"][0].update(sumber_id="tak-terdaftar", sha256="cd" * 32))),
+                   ("draf tanpa kontrak, url lain dari manifest", lambda x: (x.update(status="draf", alasan_draf="uji negatif jalur draf"), x["indikator"][0].update(sumber_id="tak-terdaftar", url="https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/9999")))):
     _x = json.loads(json.dumps(_b)); ubah(_x)
     if not periksa_asal(_x): gagal.append(f"S4: {nama} diloloskan")
 if periksa_asal(_b): gagal.append("S4: kartu sah ditolak")

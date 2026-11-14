@@ -1,41 +1,329 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://suluiou/mesin/kartu-1.schema.json",
-  "title": "Kartu kebutuhan wilayah (kartu/1)",
-  "description": "Skema kartu kebutuhan (janji G1.1, syarat bawaan ME1 S4). Diperiksa di gerbang deterministik atas fixture dan semua kartu keluaran.",
-  "type": "object",
-  "required": ["id", "versi", "jenis_kebutuhan", "medan", "wilayah", "populasi", "indikator", "pembanding", "jarak", "teks", "status"],
-  "additionalProperties": false,
-  "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9-]+\\.[0-9]{2,4}$"},
-    "versi": {"type": "string", "pattern": "^[0-9]{4}\\.[0-9]+$"},
-    "jenis_kebutuhan": {"type": "string", "pattern": "^[a-z0-9-]+$"},
-    "medan": {"enum": ["K1", "K2", "K3", "K4", "K5", "K6", "K7"]},
-    "wilayah": {"type": "object", "required": ["kode_bps", "nama", "tingkat"], "additionalProperties": false,
-      "properties": {"kode_bps": {"type": "string", "pattern": "^[0-9]{2}([0-9]{2})?$"}, "nama": {"type": "string", "minLength": 2},
-                     "tingkat": {"enum": ["provinsi", "kabkota"]}}},
-    "populasi": {"type": "string", "minLength": 2},
-    "populasi_kelompok": {"type": "integer", "minimum": 0},
-    "konteks": {"type": ["object", "null"]},
-    "alasan_draf": {"type": "string", "minLength": 10},
-    "indikator": {"type": "array", "minItems": 1, "items": {"type": "object",
-      "required": ["kode", "nilai", "satuan", "tahun_data", "rse", "keandalan", "metode", "sumber_id", "url", "sha256", "tanggal_akses", "alasan_keandalan"],
-      "additionalProperties": false,
-      "properties": {
-        "kode": {"type": "string"}, "nilai": {"type": "number"}, "satuan": {"enum": ["persen"]},
-        "tahun_data": {"type": "integer", "minimum": 2000, "maximum": 2100}, "rse": {"type": ["number", "null"]},
-        "keandalan": {"enum": ["andal", "hati_hati", "tidak_andal"]}, "metode": {"enum": ["langsung", "turunan"]},
-        "sumber_id": {"type": "string"}, "url": {"type": "string", "pattern": "^https://[a-z0-9.-]+\\.go\\.id/"},
-        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "tanggal_akses": {"type": "string", "format": "date", "pattern": "^20[0-9]{2}-[01][0-9]-[0-3][0-9]$"},
-        "alasan_keandalan": {"enum": ["rse_dari_ci", "rse_tidak_terbit", "administratif"]}, "catatan_sumber": {"type": "string"}}}},
-    "pembanding": {"type": "object", "required": ["jenis", "sumber_id", "catatan"],
-      "properties": {"jenis": {"enum": ["median_nasional", "target_resmi"]}, "sumber_id": {"type": "string"}, "catatan": {"type": "string"}}},
-    "jarak": {"type": "object", "required": ["nilai", "arah", "dihitung_oleh"], "additionalProperties": false,
-      "properties": {"nilai": {"type": "number"}, "arah": {"enum": ["di_bawah", "di_atas", "di_dalam"]},
-                     "dihitung_oleh": {"type": "string", "pattern": "^mesin/[a-z0-9_/]+\\.py@[0-9a-f]{12}$"}}},
-    "teks": {"type": "object", "required": ["judul", "ringkasan", "harapan"], "additionalProperties": false,
-      "properties": {"judul": {"type": "string"}, "ringkasan": {"type": "string"}, "harapan": {"type": "string"}}},
-    "status": {"enum": ["draf", "siap_tinjau", "terbit"]}
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://suluiou/mesin/kartu-1.schema.json",
+ "title": "Kartu kebutuhan wilayah (kartu/1)",
+ "description": "Skema kartu kebutuhan (janji G1.1, syarat bawaan ME1 S4). Diperiksa di gerbang deterministik atas fixture dan semua kartu keluaran.",
+ "type": "object",
+ "required": [
+  "id",
+  "versi",
+  "jenis_kebutuhan",
+  "medan",
+  "wilayah",
+  "populasi",
+  "indikator",
+  "pembanding",
+  "jarak",
+  "teks",
+  "status"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z0-9-]+\\.[0-9]{2,4}$"
   },
-  "if": {"properties": {"status": {"const": "draf"}}}, "then": {}, "else": {"not": {"required": ["alasan_draf"]}}
+  "versi": {
+   "type": "string",
+   "pattern": "^[0-9]{4}\\.[0-9]+$"
+  },
+  "jenis_kebutuhan": {
+   "type": "string",
+   "pattern": "^[a-z0-9-]+$"
+  },
+  "medan": {
+   "enum": [
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7"
+   ]
+  },
+  "wilayah": {
+   "type": "object",
+   "required": [
+    "kode_bps",
+    "nama",
+    "tingkat"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "kode_bps": {
+     "type": "string",
+     "pattern": "^[0-9]{2}([0-9]{2})?$"
+    },
+    "nama": {
+     "type": "string",
+     "minLength": 2
+    },
+    "tingkat": {
+     "enum": [
+      "provinsi",
+      "kabkota"
+     ]
+    }
+   }
+  },
+  "populasi": {
+   "type": "string",
+   "minLength": 2
+  },
+  "populasi_kelompok": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "konteks": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "alasan_draf": {
+   "type": "string",
+   "minLength": 10
+  },
+  "indikator": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "kode",
+     "nilai",
+     "satuan",
+     "tahun_data",
+     "rse",
+     "keandalan",
+     "metode",
+     "sumber_id",
+     "url",
+     "sha256",
+     "tanggal_akses",
+     "alasan_keandalan"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "kode": {
+      "type": "string"
+     },
+     "nilai": {
+      "type": "number"
+     },
+     "satuan": {
+      "enum": [
+       "persen"
+      ]
+     },
+     "tahun_data": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+     },
+     "rse": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "keandalan": {
+      "enum": [
+       "andal",
+       "hati_hati",
+       "tidak_andal"
+      ]
+     },
+     "metode": {
+      "enum": [
+       "langsung",
+       "turunan"
+      ]
+     },
+     "sumber_id": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string",
+      "pattern": "^https://[a-z0-9.-]+\\.go\\.id/"
+     },
+     "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+     },
+     "tanggal_akses": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+     },
+     "alasan_keandalan": {
+      "enum": [
+       "rse_dari_ci",
+       "rse_tidak_terbit",
+       "administratif"
+      ]
+     },
+     "catatan_sumber": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "pembanding": {
+   "type": "object",
+   "required": [
+    "jenis",
+    "sumber_id",
+    "catatan"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "jenis": {
+     "enum": [
+      "median_nasional",
+      "target_resmi"
+     ]
+    },
+    "sumber_id": {
+     "type": "string"
+    },
+    "catatan": {
+     "type": "string"
+    },
+    "nilai": {
+     "type": "number"
+    },
+    "url": {
+     "type": "string",
+     "pattern": "^https://[a-z0-9.-]+\\.go\\.id/"
+    },
+    "letak": {
+     "type": "string"
+    },
+    "nilai_atas": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "nilai_bawah": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "tahun_target": {
+     "type": "integer"
+    },
+    "tingkat": {
+     "type": "string"
+    }
+   },
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "jenis": {
+        "const": "median_nasional"
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "nilai",
+       "url"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "jenis": {
+        "const": "target_resmi"
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "nilai_atas",
+       "nilai_bawah",
+       "tahun_target"
+      ]
+     }
+    }
+   ]
+  },
+  "jarak": {
+   "type": "object",
+   "required": [
+    "nilai",
+    "arah",
+    "dihitung_oleh"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "nilai": {
+     "type": "number"
+    },
+    "arah": {
+     "enum": [
+      "di_bawah",
+      "di_atas",
+      "di_dalam"
+     ]
+    },
+    "dihitung_oleh": {
+     "type": "string",
+     "pattern": "^mesin/[a-z0-9_/]+\\.py@[0-9a-f]{12}$"
+    }
+   }
+  },
+  "teks": {
+   "type": "object",
+   "required": [
+    "judul",
+    "ringkasan",
+    "harapan"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "judul": {
+     "type": "string"
+    },
+    "ringkasan": {
+     "type": "string"
+    },
+    "harapan": {
+     "type": "string"
+    }
+   }
+  },
+  "status": {
+   "enum": [
+    "draf",
+    "siap_tinjau",
+    "terbit"
+   ]
+  }
+ },
+ "if": {
+  "properties": {
+   "status": {
+    "const": "draf"
+   }
+  }
+ },
+ "then": {
+  "required": [
+   "alasan_draf"
+  ]
+ },
+ "else": {
+  "not": {
+   "required": [
+    "alasan_draf"
+   ]
+  }
+ }
 }
