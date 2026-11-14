@@ -51,6 +51,8 @@ def kutipan_rantai(r):
     out = [(j["sumber_id"], j["kutipan"]) for j in r["jalur_belajar"]]
     if r.get("mulai_tanpa_gelar") == "ya_berdokumen": out.append((r["mulai_tanpa_gelar_sumber"], r["mulai_tanpa_gelar_kutipan"]))
     if r.get("skill_kutipan"): out.append((r["skill_kutipan_sumber"], r["skill_kutipan"]))
+    if isinstance(r.get("kutipan_tugas"), dict): out.append((r["kutipan_tugas"]["doc_id"], r["kutipan_tugas"]["kutipan"]))
+    for q in r.get("kutipan_kebutuhan", []): out.append((q["doc_id"], q["kutipan"]))
     return out
 
 if __name__ == "__main__" and "--kutipan-perlu" in sys.argv:
@@ -60,6 +62,10 @@ if __name__ == "__main__" and "--kutipan-perlu" in sys.argv:
 
 _kv = os.path.join(AKAR, "uji", "kutipan_terverifikasi.jsonl")
 KV = {(x["doc_id"], x["kutipan"]) for x in (json.loads(l) for l in open(_kv, encoding="utf-8")) if x["ada"]} if os.path.exists(_kv) else set()
+
+# Label peran dari pelabel independen (Fable 5.2) atas pasangan peran + kutipan tugas; hanya "benar" yang meloloskan mata rantai peran.
+_lb = os.path.join(AKAR, "uji", "presisi_usul", "rantai_label_v2.jsonl")
+LABEL_PERAN = {x["id"]: x for x in (json.loads(l) for l in open(_lb, encoding="utf-8"))} if os.path.exists(_lb) else {}
 
 def kartu_contoh(jenis):
     k = [x for x in KARTU if x["jenis_kebutuhan"] == jenis and x["jarak"]["arah"] == "di_atas"]
@@ -144,8 +150,16 @@ def periksa_rantai(r):
     m.append(("kebutuhan", k is not None, (k["id"] + " " + k["status"]) if k else "tanpa kartu"))
     kunci = (r["kebutuhan"], r["peran"]["nama"], r["peran"]["doc_id"])
     ok = kunci in SAH3 and (r["kebutuhan"], r["peran"]["doc_id"]) in L0K
-    m.append(("peran", ok, r["peran"]["doc_id"]))
     if not ok: cacat.append("peran tidak ada di berkas sah untuk kebutuhan ini")
+    kt = r.get("kutipan_tugas")
+    if kt == "baris_pemeta": ok_t = ok
+    elif isinstance(kt, dict): ok_t = (r["kebutuhan"], kt["doc_id"]) in L0K and (kt["doc_id"], kt["kutipan"]) in KV
+    else: ok_t = False
+    if not ok_t: cacat.append("kutipan tugas peran tidak ada atau belum terverifikasi")
+    for q in r.get("kutipan_kebutuhan", []):
+        if (r["kebutuhan"], q["doc_id"]) not in L0K or (q["doc_id"], q["kutipan"]) not in KV: cacat.append("kutipan kebutuhan peran belum terverifikasi")
+    lab = LABEL_PERAN.get("R-" + r["id"], {}).get("label")
+    m.append(("peran", ok and ok_t and lab == "benar", r["peran"]["doc_id"] + f" (label pelabel: {lab or 'belum'})"))
     ok = bool(r["skill"]) and all(s["simpul"] in SIMPUL for s in r["skill"])
     m.append(("skill", ok, ",".join(s["simpul"] for s in r["skill"]) + ("" if r.get("skill_kutipan") else " (sintesis, tanpa kutipan)")))
     if not ok: cacat.append("simpul skill tidak ada")
@@ -188,7 +202,7 @@ def main():
             m, c = periksa_rantai(r)
             hasil.append([r, m, c, {}])
             cacat_semua += [f"{r['id']}: {x}" for x in c]
-            rusak |= bool(c) or not all(x[1] for x in m)
+            rusak |= bool(c)  # mata rantai yang belum terpenuhi (mis. label belum ada) tetap dirender dan dipindai
         if rusak: continue
         for mode in ("dewasa", "c"):
             pil = pilih_templat(rs, mode)

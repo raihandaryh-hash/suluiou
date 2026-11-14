@@ -5,6 +5,7 @@
 # jenis_bukti_gelar: syarat_eksplisit (daftar syarat tanpa gelar) dan keanggotaan_terbuka dihitung G3.3; asal_kader dan jalan_masuk tidak dihitung;
 # v2.1 14 Nov malam: jkn-operator jadi cadangan (klerikal, paling rentan otomasi; skema membatasi tiga jalur data); jkn-kader-jkn ditambah dari pemeta USUL atas Peraturan DJSN 2/2020.
 # harapan_jenis: bisa_dilakukan (tanpa klaim dampak) atau terbukti (wajib sumber Evidence DB Live; belum ada).
+# v2.2 14 Nov 23.5x: tiap peran wajib kutipan_tugas (orang melakukan tugas) dan label "benar" dari pelabel independen (uji/presisi_usul/rantai_label_v2.jsonl); karang taruna dan TPK jadi cadangan; KPM ditambah.
 jalur:
 - id: jkn-pemasar
   kebutuhan: penduduk-tanpa-jaminan-kesehatan
@@ -46,6 +47,7 @@ jalur:
     cara: tanyakan pengalaman keluargamu mendaftar jaminan kesehatan
   harapan_jenis: bisa_dilakukan
   skill_kutipan_sumber: perdir-bpjs-26-2021
+  kutipan_tugas: baris_pemeta
 - id: jkn-fasilitator
   kebutuhan: penduduk-tanpa-jaminan-kesehatan
   peran:
@@ -86,6 +88,9 @@ jalur:
   - jenis: guru_bk
     cara: ceritakan minatmu membantu warga mendapat jaminan kesehatan
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: perbup-bogor-60-2023
+    kutipan: Fasilitator memasukan data sasaran ke dalam daftar calon Peserta PBPU
 - id: jkn-operator
   cadangan: true
   kebutuhan: penduduk-tanpa-jaminan-kesehatan
@@ -116,6 +121,7 @@ jalur:
   - jenis: orang_terdekat
     cara: tanyakan apakah mereka mengenal operator data di kantor desa
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas: baris_pemeta
 - id: miskin-pendamping-pkh
   kebutuhan: kemiskinan-kabkota
   peran:
@@ -137,6 +143,7 @@ jalur:
     cara: minta dikenalkan bila mereka mengenal pendamping
   bukti:
   - perbup-pringsewu-23-2023
+  - permensos-1-2018
   studi_kandidat:
   - judul: Cahyadi dkk. 2020, Cumulative Impacts of Conditional Cash Transfer Programs
     url: https://tnp2k.go.id/downloads/cumulative-impacts-of-conditional-cash-transfer-programs:-experimental-evidence-from-indonesia
@@ -144,13 +151,16 @@ jalur:
   harapan: Pendamping yang mengenal keluarga dampingannya membantu bantuan sampai dan dipakai untuk sekolah dan kesehatan anak
   batas: Dokumen ini pedoman satu kabupaten; susunan tim di daerahmu bisa berbeda
   peran_frasa: pendamping PKH
-  cakupan_dokumen: daerah
+  cakupan_dokumen: nasional
   kontak_c:
   - jenis: orang_tua
     cara: tanyakan apakah mereka mengenal pendamping keluarga penerima bantuan
   - jenis: guru_bk
     cara: ceritakan minatmu mendampingi keluarga
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: permensos-1-2018
+    kutipan: Pendamping sosial sebagaimana dimaksud dalam Pasal 10 ayat (1) huruf h bertugas melaksanakan tugas pendampingan PKH di kecamatan
 - id: miskin-karang-taruna
   kebutuhan: kemiskinan-kabkota
   peran:
@@ -188,6 +198,8 @@ jalur:
   - jenis: orang_terdekat
     cara: ajak teman sebaya bertanya bersama
   harapan_jenis: bisa_dilakukan
+  cadangan: true
+  catatan_cadangan: karang taruna adalah wadah (lembaga), bukan peran orang (pelabel independen 14 Nov); tugas orang di dalamnya tidak ditemukan di Permensos 25/2019 jo. 9/2025
 - id: miskin-psm
   kebutuhan: kemiskinan-kabkota
   peran:
@@ -206,7 +218,9 @@ jalur:
     kutipan: telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan Sosial
   mulai_tanpa_gelar: ya_berdokumen
   mulai_tanpa_gelar_sumber: permensos-10-2019
-  mulai_tanpa_gelar_kutipan: 'Persyaratan untuk menjadi PSM terdiri atas: a. warga negara Indonesia; b. memiliki kemauan, kepedulian, dan komitmen sebagai relawan sosial; c. memiliki kartu tanda penduduk di wilayah desa atau kelurahan atau nama lain sesuai dengan domisili; d. usia paling rendah 18 (delapan belas) tahun; e. mampu membaca dan menulis; f. berkelakuan baik; dan g. telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan Sosial'
+  mulai_tanpa_gelar_kutipan: 'Persyaratan untuk menjadi PSM terdiri atas: a. warga negara Indonesia; b. memiliki kemauan, kepedulian, dan komitmen sebagai relawan sosial; c. memiliki kartu tanda penduduk di wilayah desa atau
+    kelurahan atau nama lain sesuai dengan domisili; d. usia paling rendah 18 (delapan belas) tahun; e. mampu membaca dan menulis; f. berkelakuan baik; dan g. telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan
+    Sosial'
   tempat: kantor desa
   orang:
   - jenis: komunitas
@@ -226,6 +240,14 @@ jalur:
   - jenis: guru_bk
     cara: ceritakan minatmu menjadi relawan sosial
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: permensos-10-2019
+    kutipan: 'PSM mempunyai tugas: a. mengambil inisiatif dalam penanganan masalah sosial;'
+  kutipan_kebutuhan:
+  - doc_id: perbup-pringsewu-23-2023
+    kutipan: TKPK Pekon/Kelurahan sebagaimana dimaksud pada ayat (1) terdiri dari unsur pemerintah, masyarakat, dunia usaha dan pemangku kepentingan lainnya dalam penanggulangan kemiskinan
+  - doc_id: perbup-pringsewu-23-2023
+    kutipan: Kepala Seksi Kesejahteraan Rakyat Pekeija Sosial Masyarakat (PSM)
 - id: stunting-kader-posyandu
   kebutuhan: stunting-balita
   peran:
@@ -271,6 +293,7 @@ jalur:
   - jenis: guru_bk
     cara: tanyakan kegiatan sekolah yang terhubung dengan puskesmas
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas: baris_pemeta
 - id: stunting-tpk
   kebutuhan: stunting-balita
   peran:
@@ -304,6 +327,44 @@ jalur:
   - jenis: guru_bk
     cara: ceritakan minatmu mendampingi keluarga
   harapan_jenis: bisa_dilakukan
+  cadangan: true
+  catatan_cadangan: TPK adalah tim, bukan peran orang (pelabel independen 14 Nov); diganti kader pembangunan manusia
+- id: stunting-kpm
+  kebutuhan: stunting-balita
+  peran:
+    nama: Kader Pembangunan Manusia (KPM)
+    doc_id: juknis-ukur-serentak-2024
+  skill:
+  - nama: pendataan dan pemantauan
+    simpul: berpikir-sistemik
+  - nama: komunikasi
+    simpul: komunikasi-kompleks
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang pelatihan kader pembangunan manusia
+  mulai_tanpa_gelar: tidak_disebut
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor desa siapa kader pembangunan manusia di desamu
+  - jenis: orang_terdekat
+    cara: ceritakan rencanamu
+  bukti:
+  - juknis-ukur-serentak-2024
+  - perpres-72-2021
+  judul: Bantu desa melihat siapa yang sudah dan belum terlayani
+  harapan: Kader yang mendata dan memantau layanan membantu desa tahu keluarga mana yang belum terjangkau
+  batas: Peran ini bertumpu pada program desa; cara penunjukan kader di desamu bisa berbeda
+  peran_frasa: kader pembangunan manusia
+  cakupan_dokumen: nasional
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal kader pembangunan manusia di desamu
+  - jenis: guru_bk
+    cara: ceritakan minatmu membantu desa memantau layanan
+  harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: juknis-ukur-serentak-2024
+    kutipan: Kader Pembangunan Manusia (KPM) melakukan pendataan sasaran dan layanan serta melakukan pemantauan layanan yang diterima sasaran
 - id: stunting-bidan
   kebutuhan: stunting-balita
   peran:
@@ -334,6 +395,9 @@ jalur:
   - jenis: guru_bk
     cara: tanyakan jurusan kesehatan yang cocok untukmu
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: buku-panduan-bokb-2024
+    kutipan: terdiri dari Bidan, Kader TP PKK dan Kader KB untuk melaksanakan pendampingan meliputi penyuluhan, fasilitasi pelayanan rujukan dan fasilitasi penerimaan program bantuan sosial
 - id: jkn-kader-jkn
   kebutuhan: penduduk-tanpa-jaminan-kesehatan
   peran:
@@ -370,3 +434,7 @@ jalur:
   - jenis: guru_bk
     cara: ceritakan minatmu membantu warga mendapat jaminan kesehatan
   harapan_jenis: bisa_dilakukan
+  kutipan_tugas:
+    doc_id: djsn-2-2020
+    kutipan: Kader JKN adalah orang/individu yang bekerja sama sebagai mitra Badan Penyelenggara Jaminan Sosial Kesehatan berdasarkan hubungan kemitraan yang menjalankan sebagian fungsi Badan Penyelenggara Jaminan Sosial Kesehatan
+      dalam suatu wilayah tertentu

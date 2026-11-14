@@ -23,8 +23,8 @@ def n8(d):
     r = idx(d, "miskin-psm"); r["orang"] = [{"jenis": "komunitas", "cara": "kamu wajib datang; ini satu-satunya jalan dan tanggung jawabmu"}]
     r["jalur_belajar"][0]["nama"] = "Kursus tiga bulan berbayar"
 def n9(d):
-    a = idx(d, "miskin-karang-taruna")
-    for i in ("miskin-psm", "miskin-pendamping-pkh"):
+    a = idx(d, "miskin-pendamping-pkh")  # v2.2: karang taruna jadi cadangan, sumber salinan diganti
+    for i in ("miskin-psm",):
         k = [n for n, r in enumerate(d["jalur"]) if r["id"] == i][0]; b = copy.deepcopy(a); b["id"] = i; d["jalur"][k] = b
 def n10(d):
     r = idx(d, "stunting-bidan"); r["harapan"] = "Ini kewajibanmu; kamu harus jadi bidan, kalau tidak kamu mengecewakan orang tuamu"; r["judul"] = "Hanya ini jalanmu, jangan pilih yang lain"
@@ -37,7 +37,7 @@ def n17(d): idx(d, "miskin-psm")["harapan"] = "Sebagian besar warga desa bisa te
 U = [("N2 peran dari kebutuhan lain", n2), ("N3 bukti kosong", n3), ("N4 cara meminta KTP dan biaya", n4),
      ("N6 kutipan jalur belajar karangan", n6),
      ("N7 klaim tanpa gelar dengan kutipan karangan", n7), ("N8 vonis di cara + biaya di nama jalur belajar", n8),
-     ("N9 tiga jalur dengan peran sama", n9), ("N10 vonis berimbuhan di harapan dan judul", n10),
+     ("N9 dua jalur dengan peran sama", n9), ("N10 vonis berimbuhan di harapan dan judul", n10),
      ("N11 tempat dan frasa peran kosong", n11), ("N12 kontak praktisi di mode (c)", n12),
      ("N14 harapan terlalu pendek dan batas kosong", n14), ("N15 harapan 'terbukti' tanpa Evidence DB", n15),
      ("N16 kontak mode (c) kosong", n16), ("N17 kata kuantitas di harapan", n17)]

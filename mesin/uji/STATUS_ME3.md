@@ -124,3 +124,11 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Peran di rantai (10 baris): benar 4 (pemasar JKN, fasilitator, operator, kader posyandu), salah 2 (karang taruna = lembaga, TPK = tim), ragu 4 (pendamping PKH, PSM, bidan, Kader JKN: kutipan daftar atau definisi tanpa tugas).
 - Akar: kutipan pemeta dipilih yang memuat nama peran, sering baris daftar anggota; aturan pemeta tidak mewajibkan kutipan tugas dan tidak menolak tim atau lembaga.
 - Perbaikan berjalan: tiap peran di rantai wajib membawa kutipan tugas terverifikasi (orang melakukan sesuatu); peran lembaga atau tim diganti peran orang dari dokumen; aturan pemeta v2 (kutipan tugas, tolak tim dan lembaga) diukur ulang pada sampel baru, bukan 40 baris ini.
+
+## Perbaikan peran rantai (15 Nov 2026 23.53 WIB) · tindak lanjut butir 97
+- Aturan baru di validator: tiap peran di rantai wajib membawa kutipan tugas (orang melakukan sesuatu) yang terverifikasi di teks dokumen, dan label "benar" dari pelabel independen (Fable 5.2) di `uji/presisi_usul/rantai_label_v2.jsonl`. Label belum ada atau bukan "benar" = mata rantai peran tidak lulus. Peran dengan kaitan kebutuhan yang lemah membawa kutipan kebutuhan tambahan.
+- Karang taruna (lembaga) dan TPK (tim) dijadikan cadangan. Kader Pembangunan Manusia (KPM) ditambah untuk stunting. Permensos 1/2018 tentang PKH masuk L0 untuk kutipan tugas pendamping sosial PKH.
+- Pelabelan ulang 8 peran aktif: 7 benar dan 1 ragu (PSM, kaitan dengan kemiskinan tak tampak); sesudah kutipan kebutuhan TKPK Pringsewu ditambah, PSM benar (catatan pelabel: bahwa daftar itu susunan TKPK bersandar pada catatan pembangun). Hasil akhir 8 dari 8 benar.
+- Kutipan tugas dan kebutuhan dicocokkan di laptop: semua cocok setelah satu kutipan fasilitator dipendekkan (versi panjang tidak ada persis di teks; tertangkap pencocok).
+- Pemeta USUL atas Permensos 1/2018 (Sonnet, prompt beku): 12 usulan, semua formal (SDM PKH); belum dipakai rantai.
+- Hasil: G3.1 tetap 1 dari 3 (kemiskinan, 2 jalur; dua jenis lain menunggu kartu); G3.3 3 dari 3; uji negatif 14 dari 14 (N9 disesuaikan); G4 diulang: G4.1 224/224, G4.10 168/168, D3 84 dari 168 jalur tanpa gelar berdokumen (tepat 50%).
