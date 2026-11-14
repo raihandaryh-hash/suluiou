@@ -14,8 +14,9 @@ AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO = os.path.dirname(AKAR)
 arg = lambda k, d=None: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
 R = yaml.safe_load(open(arg("--rantai", os.path.join(AKAR, "jalur", "rantai_v2.yaml")), encoding="utf-8"))["jalur"]
+R = [r for r in R if not r.get("cadangan")]  # cadangan: disimpan, tidak dirangkai (batas skema: tiga jalur data per keluaran)
 T = yaml.safe_load(open(os.path.join(AKAR, "jalur", "templat_langkah_pertama_v2.yaml"), encoding="utf-8"))["templat"]
-SAH = [json.loads(l) for l in open(os.path.join(AKAR, "peran", "usul_top3_keluaran.sah.jsonl"), encoding="utf-8")]
+SAH = [json.loads(l) for f in ("usul_top3_keluaran.sah.jsonl", "usul_jkn2_keluaran.sah.jsonl") for l in open(os.path.join(AKAR, "peran", f), encoding="utf-8")]
 SAH3 = {(x["kebutuhan"], x["peran"], x["doc_id"]): x for x in SAH}
 L0ROWS = list(csv.DictReader(open(os.path.join(AKAR, "sumber", "dokumen", "L0_register_v4.csv"), encoding="utf-8")))
 L0K = {(r["kebutuhan"], r["doc_id"]): r for r in L0ROWS}

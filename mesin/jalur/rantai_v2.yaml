@@ -3,6 +3,7 @@
 # Beda dari v1: templat dipilih kode (rangkai.py) menurut aturan_pilih v2, bukan ditulis tangan; peran_frasa untuk teks (tanpa .lower());
 # kontak_c = kontak untuk mode (c) dari {guru_bk, orang_tua, career_center, orang_terdekat}; cakupan_dokumen nasional/daerah menentukan keyakinan;
 # jenis_bukti_gelar: syarat_eksplisit (daftar syarat tanpa gelar) dan keanggotaan_terbuka dihitung G3.3; asal_kader dan jalan_masuk tidak dihitung;
+# v2.1 14 Nov malam: jkn-operator jadi cadangan (klerikal, paling rentan otomasi; skema membatasi tiga jalur data); jkn-kader-jkn ditambah dari pemeta USUL atas Peraturan DJSN 2/2020.
 # harapan_jenis: bisa_dilakukan (tanpa klaim dampak) atau terbukti (wajib sumber Evidence DB Live; belum ada).
 jalur:
 - id: jkn-pemasar
@@ -86,6 +87,7 @@ jalur:
     cara: ceritakan minatmu membantu warga mendapat jaminan kesehatan
   harapan_jenis: bisa_dilakukan
 - id: jkn-operator
+  cadangan: true
   kebutuhan: penduduk-tanpa-jaminan-kesehatan
   peran:
     nama: Operator SIKS-NG
@@ -331,4 +333,40 @@ jalur:
     cara: tanyakan kampus yang membuka pendidikan kebidanan
   - jenis: guru_bk
     cara: tanyakan jurusan kesehatan yang cocok untukmu
+  harapan_jenis: bisa_dilakukan
+- id: jkn-kader-jkn
+  kebutuhan: penduduk-tanpa-jaminan-kesehatan
+  peran:
+    nama: Kader JKN
+    doc_id: djsn-2-2020
+  skill:
+  - nama: komunikasi
+    simpul: komunikasi-kompleks
+  - nama: empati
+    simpul: empati
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang pelatihan kader JKN
+  mulai_tanpa_gelar: ya_berdokumen
+  mulai_tanpa_gelar_sumber: pengumuman-kaderjkn-beltim-2026
+  mulai_tanpa_gelar_kutipan: Pendidikan min. SLTA/sederajat Usia 18–50 tahun
+  jenis_bukti_gelar: syarat_eksplisit
+  tempat: kantor BPJS Kesehatan terdekat
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor BPJS Kesehatan atau puskesmas apakah ada kader JKN di wilayahmu
+  - jenis: orang_terdekat
+    cara: ceritakan rencanamu dan minta pendapat
+  bukti:
+  - djsn-2-2020
+  - pengumuman-kaderjkn-beltim-2026
+  judul: Bantu tetangga terdaftar dan tetap aktif di jaminan kesehatan
+  harapan: Kader yang datang ke rumah warga bisa membantu mereka memahami cara mendaftar dan membayar iuran jaminan kesehatan
+  batas: Kader JKN adalah mitra, bukan pegawai; syarat pendidikan paling rendah SLTA dan usia dewasa tercantum di pengumuman satu kantor cabang, syarat di daerahmu bisa berbeda
+  peran_frasa: kader JKN
+  cakupan_dokumen: daerah
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal kader JKN di lingkunganmu
+  - jenis: guru_bk
+    cara: ceritakan minatmu membantu warga mendapat jaminan kesehatan
   harapan_jenis: bisa_dilakukan
