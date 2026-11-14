@@ -78,3 +78,9 @@ b5d29da502d9c098005c88a909070d917a88944cfa13c77acc8adb377b09bd32  kartu/keluaran
 ab1c9b6265e086c13d5e9a67ce951a4ed1e74ef1cc7689afc2361b7c3e51092c  jalur/templat_langkah_pertama_v2.yaml
 # 14 Nov 2026 malam: kartu_me3_prov dibangun ulang, catatan sumber JKN diperjelas (var 2279 = JKN saja: PBI, non-PBI, Jamkesda); angka tidak berubah
 674759adcde72d113f0ba4f7c1395703e7d941aa99c6287998e5534b03fd923c  kartu/keluaran/kartu_me3_prov.jsonl
+# 14 Nov 2026 23.17: set uji pencocok dibekukan sebelum pencocok dinilai (SU-4, SU-6 dibangkitkan kode; SU-7 ditulis agen terpisah yang tidak membaca daftar pemicu distress)
+bb9d5124cd95ce4faa8e2fdb4ec802ab9d0cbccedbc240af503d6c0bb21c6db4  uji/SU4_persona.jsonl
+ee46b9113d8e55ee59ae1e4fdbc97175bb8db7e01009688e217b8f6f0a35974a  uji/SU6_pasangan.jsonl
+61cc954c5d3527a0dc4b5a5ac93bac17f6cc93e70e63759279ddcda06b6423a2  uji/SU7_distress.jsonl
+cd6cb18a74c2a4b2aef6e16ef32c02afca64ed7db0fee7523ff7b85c6821aa67  uji/SU7_jalan_lain.jsonl
+35a09c4649c4ddcb53bceb6de213c3928efae982d4b1621e0c40b874669e6a67  uji/su4_su6_bangkit.py

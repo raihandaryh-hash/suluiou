@@ -39,6 +39,9 @@ RINGKAS = {"stunting-balita": "tumbuh kembang balita", "kemiskinan-kabkota": "ke
            "penduduk-tanpa-jaminan-kesehatan": "warga yang belum punya jaminan kesehatan"}
 LABEL = {"prevalensi_stunting": "prevalensi stunting balita", "persentase_penduduk_miskin": "persentase penduduk miskin",
          "persen_tanpa_jaminan_kesehatan": "persentase penduduk tanpa Jaminan Kesehatan Nasional"}
+# Ringkasan tanpa kata "persentase": validasi() kontrak menolak kata kuantitas "persen" (tinjauan pencocok 14 Nov).
+LABEL_RINGKASAN = {"prevalensi_stunting": "angka stunting balita", "persentase_penduduk_miskin": "angka kemiskinan",
+                   "persen_tanpa_jaminan_kesehatan": "bagian penduduk tanpa Jaminan Kesehatan Nasional"}
 NAMA_SUMBER = {"ssgi-2024": "Survei Status Gizi Indonesia 2024, Kemenkes", "kemiskinan-kabkota-2025": "Data dan Informasi Kemiskinan Kabupaten/Kota 2025, BPS",
                "bps-var-2279": "Persentase Penduduk yang Memiliki Jaminan Kesehatan Nasional menurut Provinsi 2025, BPS"}
 # definisi_terbuka (14 Nov 20.18): definisi resmi peran memuat kriterianya sendiri tanpa syarat pendidikan (mis. Permendagri 13/2024 Pasal 1 angka 8 Kader Posyandu).
@@ -50,7 +53,7 @@ def kutipan_rantai(r):
     if r.get("skill_kutipan"): out.append((r["skill_kutipan_sumber"], r["skill_kutipan"]))
     return out
 
-if "--kutipan-perlu" in sys.argv:
+if __name__ == "__main__" and "--kutipan-perlu" in sys.argv:
     q = sorted({k for r in R for k in kutipan_rantai(r)})
     json.dump([{"doc_id": d, "kutipan": t} for d, t in q], open(arg("--kutipan-perlu"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("kutipan perlu diverifikasi:", len(q)); sys.exit(0)
@@ -77,15 +80,15 @@ def pilih_templat(rs, mode):
         pil[cal[0]["id"]] = "baca_pedoman"
     return pil
 
-def rangkai(r, templat, mode):
-    k = kartu_contoh(r["kebutuhan"]); ind = k["indikator"][0]; t = T[templat]
+def rangkai(r, templat, mode, kartu=None):
+    k = kartu or kartu_contoh(r["kebutuhan"]); ind = k["indikator"][0]; t = T[templat]
     frasa = r["peran_frasa"] if templat in ("daftar_kegiatan", "amati_dan_tanya") else r.get("peran_frasa_lengkap", r["peran_frasa"])
     langkah = t["teks"].replace("{peran}", frasa).replace("{kebutuhan_ringkas}", RINGKAS[r["kebutuhan"]]).replace("{tempat}", r.get("tempat") or "")
     url_c = lambda u: u if (mode != "c" or (u and PUTIH.match(u))) else None
     orang = r["kontak_c"] if mode == "c" else r["orang"]
     return {"id": r["id"], "jenis": "data", "judul": r["judul"],
         "kebutuhan": {"kartu_id": k["id"], "kartu_versi": k["versi"], "wilayah_kode": k["wilayah"]["kode_bps"], "tingkat": k["wilayah"]["tingkat"],
-                      "berlaku_sampai": "2027-12-31", "ringkasan": "Di " + k["wilayah"]["nama"] + ", " + LABEL[ind["kode"]] + " tercatat {" + ind["kode"] + "}."},
+                      "berlaku_sampai": "2027-12-31", "ringkasan": "Di " + k["wilayah"]["nama"] + ", " + LABEL_RINGKASAN[ind["kode"]] + " tercatat {" + ind["kode"] + "}."},
         "angka_kunci": [{"kode": ind["kode"], "nilai": ind["nilai"], "satuan": "persen", "tahun_data": ind["tahun_data"], "label": LABEL[ind["kode"]],
                          "sumber_id": ind["sumber_id"], "sumber_nama": NAMA_SUMBER[ind["sumber_id"]], "url": ind["url"], "sha256": ind["sha256"], "keandalan": ind["keandalan"]}],
         "peran_contoh": [{"nama": r["peran"]["nama"], "kbji_kode": None, "jenis": jenis_peran(r), "sumber_id": r["peran"]["doc_id"]}],
@@ -171,64 +174,68 @@ def periksa_rantai(r):
     if r.get("harapan_jenis") == "terbukti": cacat.append("harapan 'terbukti' butuh baris Evidence DB Live (belum didukung)")
     return m, cacat
 
-# --- jalankan
-hasil, keluaran, cacat_semua = [], {"dewasa": [], "c": []}, []
-jenis_all = sorted({r["kebutuhan"] for r in R})
-for je in jenis_all:
-    rs = [r for r in R if r["kebutuhan"] == je]
-    nama = [r["peran"]["nama"] for r in rs]
-    if len(set(nama)) != len(nama): cacat_semua.append(f"{je}: peran ganda dalam satu jenis")
-    if len({r["id"] for r in rs}) != len(rs): cacat_semua.append(f"{je}: id ganda")
-    rusak = False
-    for r in rs:
-        m, c = periksa_rantai(r)
-        hasil.append([r, m, c, {}])
-        cacat_semua += [f"{r['id']}: {x}" for x in c]
-        rusak |= bool(c) or not all(x[1] for x in m)
-    if rusak: continue
-    for mode in ("dewasa", "c"):
-        pil = pilih_templat(rs, mode)
-        data = []
+def main():
+    # --- jalankan
+    hasil, keluaran, cacat_semua = [], {"dewasa": [], "c": []}, []
+    jenis_all = sorted({r["kebutuhan"] for r in R})
+    for je in jenis_all:
+        rs = [r for r in R if r["kebutuhan"] == je]
+        nama = [r["peran"]["nama"] for r in rs]
+        if len(set(nama)) != len(nama): cacat_semua.append(f"{je}: peran ganda dalam satu jenis")
+        if len({r["id"] for r in rs}) != len(rs): cacat_semua.append(f"{je}: id ganda")
+        rusak = False
         for r in rs:
-            t = pil[r["id"]]
-            if mode == "c" and not T[t]["mode_c"]: cacat_semua.append(f"{r['id']}: templat {t} terlarang di mode (c)")
-            if T[t]["butuh_tempat"] and not r.get("tempat"): cacat_semua.append(f"{r['id']}: templat {t} butuh tempat")
-            if jenis_peran(r) not in T[t]["cocok_untuk"]: cacat_semua.append(f"{r['id']}: templat {t} tidak cocok untuk {jenis_peran(r)}")
-            j, k = rangkai(r, t, mode)
-            data.append(j); next(h for h in hasil if h[0] is r)[3][mode] = t
-            for p in pindai(j): cacat_semua.append(f"{r['id']} ({mode}): {p}")
-        if not any(not d["langkah_pertama"]["butuh_orang_lain"] for d in data): cacat_semua.append(f"{je} ({mode}): tidak ada jalur data berlangkah mandiri")
-        o = keluaran_penuh(data, mode)
-        for e in V.iter_errors(o): cacat_semua.append(f"{je} ({mode}): skema: {e.message[:100]}")
-        keluaran[mode] += data
-
-print("# G3.1 rantai lengkap, G3.3 keterjangkauan, G3.4 lapis 1 · rangkai.py v2")
-print(f"kutipan terverifikasi tercatat: {len(KV)} (uji/kutipan_terverifikasi.jsonl)\n")
-print("| jalur | kebutuhan | peran | skill | jalur belajar | langkah (dewasa / c) | orang | bukti | cacat |\n|---|---|---|---|---|---|---|---|---|")
-for r, m, c, t in hasil:
-    sel = [("ya" if x[1] else "TIDAK") + f" ({x[2]})" for x in m]
-    sel[4] = f"{t.get('dewasa', '-')} / {t.get('c', '-')}"
-    print(f"| {r['id']} | " + " | ".join(sel) + f" | {'; '.join(c) or '-'} |")
-print("\n## Vonis per jenis")
-g31_jenis, g33_jenis = {}, {}
-for je in jenis_all:
-    hs = [h for h in hasil if h[0]["kebutuhan"] == je]
-    mek = sum(1 for r, m, c, t in hs if not c and all(x[1] for x in m))
-    k = kartu_contoh(je); tayang = k is not None and k["status"] != "draf"
-    g31_jenis[je] = "LULUS" if mek >= 2 and tayang else ("LULUS MEKANIS, kartu " + (k["status"] if k else "tidak ada") if mek >= 2 else "GAGAL")
-    tg = [r["id"] for r, m, c, t in hs if r.get("mulai_tanpa_gelar") == "ya_berdokumen" and r.get("jenis_bukti_gelar") in GELAR_DIHITUNG and not c]
-    nf = [r["id"] for r, m, c, t in hs if not c and jenis_peran(r) in ("nonformal", "sukarela")]
-    g33_jenis[je] = "LULUS" if tg and nf else "BELUM"
-    print(f"- {je}: rantai {mek} dari {len(hs)} lulus mekanis → G3.1 {g31_jenis[je]}; tanpa gelar dengan syarat eksplisit: {tg or 'TIDAK ADA'}; "
-          f"nonformal/sukarela (label pemeta): {nf or 'TIDAK ADA'} → G3.3 {g33_jenis[je]}")
-lulus = lambda d: sum(v == "LULUS" for v in d.values())
-print(f"\nG3.1: {lulus(g31_jenis)} dari {len(jenis_all)} jenis lulus gerbang")
-print(f"G3.3: {lulus(g33_jenis)} dari {len(jenis_all)} jenis lulus")
-print(f"G3.4 lapis 1: {sum(('vonis' in x) or ('kuantitas' in x) or ('pribadi' in x) for x in cacat_semua)} pelanggaran pada seluruh teks jalur; lapis 2 (juri) belum")
-print(f"\nCACAT MEKANIS: {len(cacat_semua)}")
-for x in cacat_semua: print("  -", x)
-if not cacat_semua and "--rantai" not in sys.argv:
-    with open(os.path.join(AKAR, "jalur", "keluaran_jalur_me3.jsonl"), "w", encoding="utf-8") as f:
+            m, c = periksa_rantai(r)
+            hasil.append([r, m, c, {}])
+            cacat_semua += [f"{r['id']}: {x}" for x in c]
+            rusak |= bool(c) or not all(x[1] for x in m)
+        if rusak: continue
         for mode in ("dewasa", "c"):
-            for j in keluaran[mode]: f.write(json.dumps({"mode": mode, **j}, ensure_ascii=False, sort_keys=True) + "\n")
-sys.exit(1 if cacat_semua else 0)
+            pil = pilih_templat(rs, mode)
+            data = []
+            for r in rs:
+                t = pil[r["id"]]
+                if mode == "c" and not T[t]["mode_c"]: cacat_semua.append(f"{r['id']}: templat {t} terlarang di mode (c)")
+                if T[t]["butuh_tempat"] and not r.get("tempat"): cacat_semua.append(f"{r['id']}: templat {t} butuh tempat")
+                if jenis_peran(r) not in T[t]["cocok_untuk"]: cacat_semua.append(f"{r['id']}: templat {t} tidak cocok untuk {jenis_peran(r)}")
+                j, k = rangkai(r, t, mode)
+                data.append(j); next(h for h in hasil if h[0] is r)[3][mode] = t
+                for p in pindai(j): cacat_semua.append(f"{r['id']} ({mode}): {p}")
+            if not any(not d["langkah_pertama"]["butuh_orang_lain"] for d in data): cacat_semua.append(f"{je} ({mode}): tidak ada jalur data berlangkah mandiri")
+            o = keluaran_penuh(data, mode)
+            for e in V.iter_errors(o): cacat_semua.append(f"{je} ({mode}): skema: {e.message[:100]}")
+            keluaran[mode] += data
+
+    print("# G3.1 rantai lengkap, G3.3 keterjangkauan, G3.4 lapis 1 · rangkai.py v2")
+    print(f"kutipan terverifikasi tercatat: {len(KV)} (uji/kutipan_terverifikasi.jsonl)\n")
+    print("| jalur | kebutuhan | peran | skill | jalur belajar | langkah (dewasa / c) | orang | bukti | cacat |\n|---|---|---|---|---|---|---|---|---|")
+    for r, m, c, t in hasil:
+        sel = [("ya" if x[1] else "TIDAK") + f" ({x[2]})" for x in m]
+        sel[4] = f"{t.get('dewasa', '-')} / {t.get('c', '-')}"
+        print(f"| {r['id']} | " + " | ".join(sel) + f" | {'; '.join(c) or '-'} |")
+    print("\n## Vonis per jenis")
+    g31_jenis, g33_jenis = {}, {}
+    for je in jenis_all:
+        hs = [h for h in hasil if h[0]["kebutuhan"] == je]
+        mek = sum(1 for r, m, c, t in hs if not c and all(x[1] for x in m))
+        k = kartu_contoh(je); tayang = k is not None and k["status"] != "draf"
+        g31_jenis[je] = "LULUS" if mek >= 2 and tayang else ("LULUS MEKANIS, kartu " + (k["status"] if k else "tidak ada") if mek >= 2 else "GAGAL")
+        tg = [r["id"] for r, m, c, t in hs if r.get("mulai_tanpa_gelar") == "ya_berdokumen" and r.get("jenis_bukti_gelar") in GELAR_DIHITUNG and not c]
+        nf = [r["id"] for r, m, c, t in hs if not c and jenis_peran(r) in ("nonformal", "sukarela")]
+        g33_jenis[je] = "LULUS" if tg and nf else "BELUM"
+        print(f"- {je}: rantai {mek} dari {len(hs)} lulus mekanis → G3.1 {g31_jenis[je]}; tanpa gelar dengan syarat eksplisit: {tg or 'TIDAK ADA'}; "
+              f"nonformal/sukarela (label pemeta): {nf or 'TIDAK ADA'} → G3.3 {g33_jenis[je]}")
+    lulus = lambda d: sum(v == "LULUS" for v in d.values())
+    print(f"\nG3.1: {lulus(g31_jenis)} dari {len(jenis_all)} jenis lulus gerbang")
+    print(f"G3.3: {lulus(g33_jenis)} dari {len(jenis_all)} jenis lulus")
+    print(f"G3.4 lapis 1: {sum(('vonis' in x) or ('kuantitas' in x) or ('pribadi' in x) for x in cacat_semua)} pelanggaran pada seluruh teks jalur; lapis 2 (juri) belum")
+    print(f"\nCACAT MEKANIS: {len(cacat_semua)}")
+    for x in cacat_semua: print("  -", x)
+    if not cacat_semua and "--rantai" not in sys.argv:
+        with open(os.path.join(AKAR, "jalur", "keluaran_jalur_me3.jsonl"), "w", encoding="utf-8") as f:
+            for mode in ("dewasa", "c"):
+                for j in keluaran[mode]: f.write(json.dumps({"mode": mode, **j}, ensure_ascii=False, sort_keys=True) + "\n")
+    sys.exit(1 if cacat_semua else 0)
+
+if __name__ == "__main__":
+    main()
