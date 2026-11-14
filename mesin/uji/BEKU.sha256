@@ -99,3 +99,7 @@ cbd345158e8a9611ba8ac13e53d171cff94a9049312ccda14913c9dba5d018c2  cipta/sim/KAL_
 # 15 Nov 2026 00.51: aturan pelabel dan skrip sampel v2 dibekukan sebelum keluaran pemeta v2 ada
 f5452b16540f524139091c0b82a1af0a6af10f62f95fb36852ab8634ed6f77fa  uji/presisi_usul/PELABEL_v1.md
 f5e03c26615a115ab3d6a5cb9102624eefaba8cd974097efd44a14354df10ebc  uji/presisi_usul/sampel_v2.py
+# 15 Nov 2026 01.05: pemeta v3, validator v3, dan fixture-nya dibekukan sebelum dijalankan
+a6d4b1cd07a5173015b39be7a7aa4a69d09694248b9fb050e483504e73fe412f  peran/PROMPT_PEMETA_v3.md
+e11dd706c866c41e718fab54bcc017b23967282055748590b26d138100d018b5  peran/validasi_kutipan_v3.py
+6eab0a1f1bdb61d6f1514260174996a2e46e085401bc759159445cec552bc699  uji/validasi_kutipan_v3/contoh.jsonl

@@ -70,6 +70,13 @@ if os.path.isdir(vk):
     rv = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan.py"), os.path.join(tmp, "contoh.jsonl"), os.path.join(vk, "reg.csv"), os.path.join(vk, "dok")], capture_output=True, text=True)
     print("ME3 validator kutipan:", rv.stdout.strip())
     if not rv.stdout.startswith("sah 1 ditolak 3"): gagal.append("G3.2: validator kutipan tidak menolak kasus buruk")
+# ME3: validator pemeta v3 (penanda kebutuhan, kutipan kebutuhan persis) menolak dua kasus buruk dan menerima dua kasus baik
+vk3 = os.path.join(AKAR, "uji/validasi_kutipan_v3")
+if os.path.isdir(vk3):
+    tmp3 = tempfile.mkdtemp(); shutil.copy(os.path.join(vk3, "contoh.jsonl"), tmp3)
+    rv3 = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan_v3.py"), os.path.join(tmp3, "contoh.jsonl"), os.path.join(vk3, "reg.csv"), os.path.join(vk3, "dok")], capture_output=True, text=True)
+    print("ME3 validator kutipan v3:", rv3.stdout.strip())
+    if not rv3.stdout.startswith("sah 2 ditolak 2"): gagal.append("G3.2: validator kutipan v3 tidak menolak kasus buruk")
 # ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai tanpa cacat mekanis; uji negatif validator rantai
 kp = os.path.join(AKAR, "kartu/keluaran/kartu_me3_prov.jsonl")
 if os.path.exists(kp):
