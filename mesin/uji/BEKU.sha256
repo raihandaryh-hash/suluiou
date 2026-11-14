@@ -135,3 +135,8 @@ e7b18ec1fa5d2bb3152d39d65c3fb4c949f48314545dc2106e67d997d7ea5ea4  juri/definisi_
 34ed065e85b259a4c082a3440779d6a9ed157a13db029618dde8f7acdb50cb6d  uji/kuantitas/PROMPT_PENULIS_SET_D.md
 # 15 Nov 2026 03.17: set D-kal (kalibrasi juri v4), ditulis agen terpisah
 d7e914e72fd149742701943524296a618f128565c870bdbbab841efa9e76a2fd  uji/kuantitas/set_D_kal.jsonl
+# 15 Nov 2026 03.19: juri v4.1 dan pendaftaran D-uji sesudah kalibrasi D-kal, sebelum D-uji dibuka
+f0af4dafe922ca46160d2353022c1740ff79b9d5991cfc8fb82c4bb7b7f87c35  juri/definisi_mode_v4_1.json
+423119c733e0b102d40aeef80ec1ec38bf061b4f830431a1e14d439ff37e159a  juri/PROMPT_JURI_v4_1.md
+700c8baea5a9cd20324f180d6a47ff3607292805bea5f2e56c6da9cb7a012612  uji/kuantitas/PROMPT_PENULIS_SET_D.md
+f1e40a4580c8fb01b9215a1de325bc38a0b6739f7d9878e0533d556785765f5b  uji/kuantitas/juri_D.py

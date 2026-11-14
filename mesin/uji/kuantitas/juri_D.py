@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Butir 110. Bangun masukan juri dari set D (id diacak, label disembunyikan) dan nilai hasil juri + regex.
+"""Butir 110 (juri v4.1; aturan putus terdaftar: dua juri, yaitu kuantitas ATAU perbandingan; regex dilaporkan terpisah). Bangun masukan juri dari set D (id diacak, label disembunyikan) dan nilai hasil juri + regex.
 Pakai: juri_D.py bangun SET.jsonl FOLDER_KELUAR SEED   -> masuk.jsonl, peta.json, PROMPT_<mode>.md
        juri_D.py nilai SET.jsonl FOLDER_KELUAR           (membaca keluar_kuantitas.jsonl, keluar_perbandingan.jsonl)"""
 import json, math, os, random, re, sys
@@ -15,13 +15,13 @@ if cmd == "bangun":
     with open(os.path.join(OUT, "masuk.jsonl"), "w", encoding="utf-8") as f:
         for i, r in enumerate(X):
             b = f"Z{i:03d}"; peta[b] = r["id"]
-            f.write(json.dumps({"id": b, "kartu": {"wilayah": {"nama": "(lihat teks)"}, "populasi": "penduduk", "indikator": [{"kode": "prevalensi_stunting"}], "jarak": {"arah": "di_atas"}},
+            f.write(json.dumps({"id": b, "kartu": {"wilayah": {"nama": "(lihat teks)"}, "populasi": "penduduk", "indikator": [{"kode": "prevalensi_stunting"}], "jarak": {"arah": "(tidak diberikan)"}},
                                 "teks": teks_obj(r["teks"])}, ensure_ascii=False) + "\n")
     json.dump(peta, open(os.path.join(OUT, "peta.json"), "w"))
-    d = json.load(open(os.path.join(AKAR, "juri", "definisi_mode_v4.json"), encoding="utf-8"))
+    d = json.load(open(os.path.join(AKAR, "juri", "definisi_mode_v4_1.json"), encoding="utf-8"))
     for m in ("kuantitas", "perbandingan"):
         open(os.path.join(OUT, f"PROMPT_{m}.md"), "w", encoding="utf-8").write(
-            open(os.path.join(AKAR, "juri", "PROMPT_JURI_v4.md"), encoding="utf-8").read().replace("{MODE}", m).replace("{DEFINISI}", d[m]))
+            open(os.path.join(AKAR, "juri", "PROMPT_JURI_v4_1.md"), encoding="utf-8").read().replace("{MODE}", m).replace("{DEFINISI}", d[m]))
     print(len(X), "butir")
 else:
     import importlib.util
