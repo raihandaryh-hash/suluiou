@@ -1,0 +1,2 @@
+# Tambahan 1 atas AMBANG_CATATAN.md (berkas induk beku) · 14 Nov 2026 · catatan tinjauan Fable 5.2 (P4)
+G2.1 v2 (jalur cakupan ≥80% penduduk) ditulis 13 Nov 15.30 sesudah hasil TPT 32/38 provinsi terlihat. Aturannya KEPUTUSAN Raihan 13 Nov 15.29; angka 80% adalah contoh di usulan yang ia setujui (PUTUSAN ATAS DELEGASI untuk angka persis). AMBANG.yaml tetap memuat G2.1_lantai_provinsi: 34 sebagai bunyi rencana; G2.1 v2 adalah gerbang pengganti untuk ME2 dan berlabel bukan aturan buta. Kepekaan: TPT (85,7%) lulus pada ambang ≤85%, kemiskinan (98,8%) pada ambang ≤98%.

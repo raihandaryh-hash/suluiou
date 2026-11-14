@@ -1,0 +1,42 @@
+{
+ "kontrak": "jalur-jelajah/1",
+ "id_permintaan": "contoh",
+ "dibuat": "2026-11-12T03:00:00+07:00",
+ "versi_mesin": "mesin@contoh",
+ "versi_data": "2026.1",
+ "status": "ditahan_rujukan",
+ "untuk": {
+  "peran": "siswa",
+  "jenjang": "kelas_10_11",
+  "situasi": null,
+  "kode_provinsi": "32",
+  "kode_kabkota": null,
+  "mode_ai": "c",
+  "tujuan_di_luar_bank": false
+ },
+ "jalur": [],
+ "rujukan": {
+  "jenis": "distress",
+  "teks_tetap_id": "rujukan-siswa",
+  "kontak": [
+   "guru_bk",
+   "orang_tua",
+   "layanan_resmi"
+  ]
+ },
+ "untuk_pemilik": {
+  "alasan": []
+ },
+ "pernyataan": {
+  "jalan_lain_sah": true,
+  "bukan_fatwa": true,
+  "teks_tetap_id": "teks-tetap-1"
+ },
+ "pemberitahuan_tarik": [],
+ "jejak": {
+  "kartu_dipakai": [],
+  "gerbang": {},
+  "model": {}
+ },
+ "bingkai_nilai_id": null
+}

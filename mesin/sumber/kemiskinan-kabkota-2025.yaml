@@ -1,0 +1,60 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: kemiskinan-kabkota-2025
+name: Data dan Informasi Kemiskinan Kabupaten/Kota 2025
+version: 0.2.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: BPS
+  role: pemilik data
+servers:
+- server: buku
+  type: https
+  url: https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html
+  description: Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025, ISSN 2087-2216, rilis 28 Nov 2025, Tabel
+    2.1; diunduh lewat WebAPI view/publication
+- server: webapi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel dinamis BPS provinsi (pembanding G1.3)
+customProperties:
+- property: G1.3m
+  value: 'Putaran 3 (13 Nov 2026 12.17 WIB): 100/100 pada 490 sel berpasangan, empat jenis 25/25, set SU1mP3 beku sebelum dinilai, publikasi kedua termasuk tabel BPS kab/kota. Putaran 2 (13 Nov, sesudah filter tabel gabungan provinsi menerima DKI): 100/100 pada 398 sel berpasangan, set SU1mP2 beku. Putaran 1: SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 99/100 (kolom_bergeser 25/25, tahun_sebelah 25/25, koma_desimal 25/25, sae_ditukar 24/25) LULUS. Seluruh tabel: 87/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+- property: cakupan_terverifikasi
+  value: 'Daftar sel: sumber/sel/kemiskinan-kabkota-2025.csv (sha256 awalan f911c48b30a0; sebelumnya 108f45f2a0cf, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 490 kab/kota di 34 provinsi; publikasi kedua: tabel BPS provinsi dan tabel BPS kab/kota (panen 422 domain kab/kota, 206 berkas, MESIN/mentah/bps_kab, L3 3bcce756f5b8); 0 berselisih, 24 tanpa pasangan ditahan.'
+- property: sidik_l3
+  value: '93a658d3d2c4 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, alat/dikk_2025.py atas DIKK-2025.pdf)'
+- property: dipakai_kartu
+  value: 'ya'
+- property: tingkat_wilayah
+  value: kabkota 514 dan provinsi 38 (Susenas Maret 2025)
+- property: berkas_sha256
+  value: a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511 (PDF 27.459.461 bita)
+- property: SU-0
+  value: akses LOLOS 13 Nov 2026 dari laptop lewat WebAPI dengan kunci IOU
+- property: pengurai
+  value: mesin/parser/dikk_2025.py (pdftotext -table -nodiag); tabel L3 sha256 93a658d3d2c4
+- property: G1.0-G1.3
+  value: 514/514 kab/kota terpetakan ke kode BPS unik; jumlah penduduk miskin kab/kota = angka provinsi pada 38/38
+    provinsi; P0 cocok dengan tabel dinamis WebAPI pada 392/392 pasangan (122 tanpa pasangan); mutasi 100/100 tertangkap
+- property: syarat_pakai_kutipan
+  value: 'Syarat tertulis BPS (Syarat Penggunaan situs BPS, butir 2 dan 2.2, dikutip dari https://acehjayakab.bps.go.id/id/term-of-use
+    pada 13 Nov 2026; https://www.bps.go.id/assets/term-of-use menolak pengambilan otomatis): konten "diberikan
+    kepada Anda secara gratis, di seluruh dunia, terus-menerus, dan non-eksklusif" "untuk tujuan menyalin, mendistribusikan/
+    mentransmisikan konten", dengan kewajiban "memberikan kutipan atau kredit kepada BPS. Kutipan harus mencantumkan
+    judul konten, tanggal akses, penulis (jika ada)" dan "tautan langsung ke konten asli". Butir 2.6: tidak boleh
+    menyiratkan BPS mendukung atau terkait dengan pemakai. Buku sendiri memuat larangan mereproduksi isi buku untuk
+    tujuan komersial tanpa izin tertulis; Sulu menampilkan angka bersitasi, tidak menggandakan buku. Aturan dasar
+    pakai butir 3 (syarat tertulis menang). G1.7 LULUS.'
+- property: sitasi
+  value: 'Badan Pusat Statistik. Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025. ISSN 2087-2216. Jakarta:
+    BPS, 2025.'
+- property: G1.3_status
+  value: lulus
+- property: G1.5
+  value: 'RSE kab/kota tidak terbit: buku tanpa RSE, dan pencarian publikasi "sampling error" di 35 domain BPS (13
+    Nov 2026, 80 publikasi) tidak memuat Susenas. Estimasi kab/kota diturunkan dari P0 provinsi. Per aturan beku
+    G1.5: semua sel hati_hati. G1.5 LULUS lewat jalur cadangan.'

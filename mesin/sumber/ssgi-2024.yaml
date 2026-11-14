@@ -1,0 +1,52 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: ssgi-2024
+name: Survei Status Gizi Indonesia 2024
+version: 0.3.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: Kementerian Kesehatan (BKPK)
+  role: pemilik data
+servers:
+- server: buku-dalam-angka
+  type: https
+  url: https://drive.usercontent.google.com/download?id=1FmhMtFsElv0l95YNGqsoKy5xJh-m-glM&export=download
+  description: Buku Hasil SSGI 2024 Dalam Angka, ditautkan dari https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/
+customProperties:
+- property: sidik_l3
+  value: '27e9cf9164e2 (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; ruang kerja, parser/ssgi_2024.py atas PDF bersidik 06eae149a5f8 (poppler pdftotext))'
+- property: dipakai_kartu
+  value: 'tidak: G1.3 belum, publikasi kedua independen belum ada (audit ME1 13 Nov)'
+- property: tingkat_wilayah
+  value: kabkota (514; Tabel 4.3–4.40) dan provinsi (Tabel 4.1)
+- property: berkas_sha256
+  value: 06eae149a5f84888c1f0dab6ce8506a2dbf2e3ad93da3c2809f09e091e2a7c65
+- property: berkas_meta
+  value: PDF 352 halaman, 16.198.994 bita, dibuat 15 Agu 2025
+- property: SU-0
+  value: 'akses LOLOS 12 Nov 2026 18.26 WIB: dua unduhan terpisah (laptop dan ruang kerja) memberi sidik sama'
+- property: syarat_pakai_kutipan
+  value: 'Tidak ada syarat tertulis (dicari di 4 laman BKPK dan teks penuh PDF, 9 kata kunci). Tidak ada pernyataan
+    perlindungan. Dasar pakai: sitasi + UU 28/2014 Pasal 43 huruf b, per KEPUTUSAN Raihan 13 Nov 2026 01.48 (sumber/ATURAN_DASAR-PAKAI.md).
+    G1.7 LULUS untuk sumber ini.'
+- property: pengurai
+  value: mesin/parser/ssgi_2024.py; pemeriksa mesin/parser/periksa_ssgi_2024.py
+- property: cacat_terbitan
+  value: 6 sel nilai di luar CI-nya sendiri (Aceh Barat Daya overweight, Katingan wasting, Tana Tidung/Nunukan/Kota
+    Tarakan stunting, Aceh provinsi stunting); 1 baris kolom hilang (Ponorogo); semuanya ditekan otomatis
+- property: publikasi_kedua
+  value: 'BELUM ADA untuk G1.3. Kandidat: permintaan data lewat layanandata.kemkes.go.id; publikasi dinkes provinsi'
+- property: sitasi
+  value: Badan Kebijakan Pembangunan Kesehatan, Kementerian Kesehatan RI. Buku Hasil SSGI 2024 Dalam Angka. 2025.
+    https://www.badankebijakan.kemkes.go.id/survei-status-gizi-indonesia-ssgi-2024/ (diakses 12 Nov 2026)
+- property: wilayah
+  value: SSGI tanpa kode wilayah; 513 kab/kota terpasang ke kode BPS unik lewat mesin/parser/ssgi_wilayah.py dan
+    daftar wilayah induk (0 gagal; Ponorogo tetap tanpa kolom severe wasting).
+- property: G1.3_status
+  value: 'belum: publikasi kedua independen belum ada'
+- property: G1.5
+  value: 'RSE didekati dari CI 95% terbit; stunting: 509 andal, 1 hati_hati, 3 ditekan, 0 tidak_diketahui. G1.5
+    LULUS.'

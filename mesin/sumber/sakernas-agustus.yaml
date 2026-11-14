@@ -1,0 +1,54 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: sakernas-agustus
+name: Survei Angkatan Kerja Nasional Agustus
+version: 0.2.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: BPS
+  role: pemilik data
+servers:
+- server: webapi-nasional
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: domain 0000 var 2824 TPT menurut Jenis Kelamin dan Kabupaten/Kota, tahun 2025 (Agustus), pembaruan
+    BPS 28 Agu 2026
+- server: webapi-provinsi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel TPT kab/kota per domain provinsi (pembanding G1.3)
+customProperties:
+- property: G1.3m
+  value: 'Putaran 4 (13 Nov 2026 14.03 WIB): 100/100 (25/25 tiap jenis) pada 410 sel, set SU1mP4_tpt beku sebelum dinilai, publikasi kedua termasuk tabel BPS kab/kota. Putaran 3 (13 Nov 2026 12.24 WIB): sesudah tabel TPT nasional 2024 dipanen, set SU1mP3_tpt empat jenis dibekukan sebelum dinilai: 100/100 (25/25 tiap jenis) pada 321 sel berpasangan, LULUS. Riwayat: putaran 1 tiga jenis 99/100 (tidak memenuhi syarat empat jenis); seluruh tabel 58/100.'
+- property: cakupan_terverifikasi
+  value: 'Daftar sel: sumber/sel/sakernas-agustus.csv (sha256 awalan 29b723c7b1f5, 13 Nov 2026 14.03 WIB; sebelumnya 3cc288d98e7d, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 410 kab/kota di 31 provinsi (belum: DKI Jakarta, Gorontalo, Kepulauan Riau); publikasi kedua: tabel BPS provinsi dan kab/kota (panen 514 domain, 240 berkas, L3 3584a064ed3f); 0 berselisih.'
+- property: sidik_l3
+  value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/bps_webapi.py atas mentah/bps (tabel L3 BPS bersama))'
+- property: dipakai_kartu
+  value: 'ya'
+- property: tingkat_wilayah
+  value: kabkota 514 (ditambah 27 kode kab/kota provinsi pemekaran Papua yang belum ada di daftar domain BPS)
+- property: berkas_sha256
+  value: 0000_tpt_2824_2025.json sha256 awalan 8688b81a6d27 (diunduh 13 Nov 2026)
+- property: SU-0
+  value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
+- property: G1.0-G1.3
+  value: 514/514 kode resmi bernilai; cocok dengan tabel provinsi 310/310 pasangan (231 tanpa pasangan); Jumlah
+    selalu diapit Laki-laki dan Perempuan; mutasi 100/100
+- property: syarat_pakai_kutipan
+  value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
+- property: catatan_wilayah
+  value: Tabel nasional memuat kode lama dan kode baru untuk kab/kota di provinsi pemekaran Papua. Mesin perlu satu
+    daftar wilayah induk sebelum ME2.
+- property: sitasi
+  value: Badan Pusat Statistik. Tingkat Pengangguran Terbuka menurut Jenis Kelamin dan Kabupaten/Kota, 2025. Tabel
+    dinamis, diakses 13 Nov 2026.
+- property: G1.3_status
+  value: lulus
+- property: G1.5
+  value: 'Pencarian publikasi "sampling error" di 35 domain BPS (13 Nov 2026): hanya DKI Jakarta menerbitkan Sampling
+    Error Sakernas (2023, 2024, 2025). Per aturan beku G1.5: kab/kota di luar DKI hati_hati; DKI dapat memakai RSE
+    terbit saat diurai. G1.5 LULUS lewat jalur cadangan.'

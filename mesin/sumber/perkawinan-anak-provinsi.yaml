@@ -1,0 +1,38 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: perkawinan-anak-provinsi
+name: Proporsi Perempuan Umur 20-24 Tahun yang Berstatus Kawin atau Hidup Bersama sebelum Umur 18 Tahun menurut
+  Provinsi (SDG 5.3.1)
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber pengganti dari bank (aturan G1.0), tingkat provinsi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: BPS
+  role: pemilik data
+servers:
+- server: webapi-nasional
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: domain 0000 var 1360, 38 provinsi, tahun 2024 dan 2025
+customProperties:
+- property: dipakai_kartu
+  value: 'tidak: G1.3 dan mutasi belum'
+- property: tingkat_wilayah
+  value: provinsi 38
+- property: SU-0
+  value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
+- property: G1.0-G1.3
+  value: '38/38 provinsi bernilai, rentang 0-100 terpenuhi. Tabel provinsi pembanding hampir tidak ada (pencarian
+    di 34 domain provinsi: 2 variabel kandidat, 0 pasangan provinsi).'
+- property: G1.3_status
+  value: 'belum: publikasi kedua (buku Indikator Pasar Tenaga Kerja atau publikasi SDG BPS) belum diurai'
+- property: syarat_pakai_kutipan
+  value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
+- property: sitasi
+  value: Badan Pusat Statistik. Proporsi Perempuan Umur 20-24 Tahun yang Berstatus Kawin atau Hidup Bersama sebelum
+    Umur 18 Tahun menurut Provinsi (SDG 5.3.1), 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
+- property: G1.5
+  value: 'Publikasi sampling error Susenas tidak ditemukan; per aturan beku G1.5: hati_hati. G1.5 LULUS lewat jalur
+    cadangan.'
