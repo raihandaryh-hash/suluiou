@@ -3,7 +3,7 @@
 # Aturan: peran wajib ada persis (nama + doc_id) di berkas sah; skill wajib simpul skill-map yang ada; jalur belajar hanya dari dokumen L0
 # dengan kutipan, selain itu kosong berlabel; langkah pertama dari templat_langkah_pertama_v1; orang dari daftar tetap; bukti = dokumen
 # resmi L0 (Evidence DB belum dicek berisi baris Live untuk studi kandidat, jadi studi hanya dicatat sebagai kandidat, tidak ditayangkan).
-# v1.1 14 Nov 09.40: tambah Permensos 10/2019 (PSM), Permensos 25/2019 jo. 9/2025 (karang taruna) ke L0 v4 untuk G3.3.
+# v1.1 14 Nov 09.08: tambah Permensos 10/2019 (PSM), Permensos 25/2019 jo. 9/2025 (karang taruna) ke L0 v4 untuk G3.3.
 # mulai_tanpa_gelar: ya_berdokumen (dokumen menunjukkan jalan masuk tanpa syarat gelar, dengan kutipan) · tidak_disebut · butuh_pendidikan_profesi.
 jalur:
 - id: jkn-pemasar
