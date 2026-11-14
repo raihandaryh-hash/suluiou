@@ -129,3 +129,7 @@ ba46d0d1c169eecd229843ff1f7e270cdb3522044f74520961fca4f86cd7c41e  uji/presisi_us
 dc4819ca1ee5c333af107f79b15a557e41a4ad9a030db64bb2c774be14c541cd  uji/validasi_kutipan_v3_2/dok/d1.txt
 # 15 Nov 2026 03.13: 25 butir untuk dinilai Raihan secara buta (butir 115), dipilih sebelum ia menilai (seed 115: semua ragu + benar acak)
 c21aebac332327ca3a2eb10de246c26ae5acd5cd252b8515735025c4aa719e5e  uji/presisi_usul/raihan115_butir.jsonl
+# 15 Nov 2026 03.15: juri v4 (mode perbandingan, kuantitas diperluas) dan prompt penulis set D dibekukan sebelum set D ditulis
+e7b18ec1fa5d2bb3152d39d65c3fb4c949f48314545dc2106e67d997d7ea5ea4  juri/definisi_mode_v4.json
+6a1bed53f98f4ce9e98c260c126e9920d4b59e79ed4d2541868ea9e811881011  juri/PROMPT_JURI_v4.md
+34ed065e85b259a4c082a3440779d6a9ed157a13db029618dde8f7acdb50cb6d  uji/kuantitas/PROMPT_PENULIS_SET_D.md
