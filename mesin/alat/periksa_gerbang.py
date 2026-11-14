@@ -97,6 +97,13 @@ if os.path.exists(mf):
             m = _re.match(r"[0-9a-f]{64}\b", str(c["value"])) if c["property"] == "berkas_sha256" else None
             if m and m.group(0) not in MS: gagal.append(f"S6: berkas_sha256 kontrak {d['id']} tidak ada di manifest mentah")
     print(f"S6 manifest mentah: {len(MR)} berkas, {sum(1 for r in MR if r["jenis_url"] == "kandidat_unduh")} URL unduhan, {sum(1 for r in MR if r["jenis_url"] == "pola_tabel")} URL pola tabel")
+# ME3: validator v3.2 (tinjauan Fable 15 Nov P6): 8 kelas usulan rusak ditolak, 2 usulan baik diterima
+vk32 = os.path.join(AKAR, "uji/validasi_kutipan_v3_2")
+if os.path.isdir(vk32):
+    t32 = tempfile.mkdtemp(); shutil.copy(os.path.join(vk32, "contoh.jsonl"), t32)
+    r32 = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan_v3_2.py"), os.path.join(t32, "contoh.jsonl"), os.path.join(vk32, "reg.csv"), os.path.join(vk32, "dok"), os.path.join(vk32, "cup")], capture_output=True, text=True)
+    print("ME3 validator kutipan v3.2:", r32.stdout.strip()[:60])
+    if not r32.stdout.startswith("sah 2 ditolak 8"): gagal.append("G3.2: validator kutipan v3.2 meloloskan kelas rusak")
 # ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai tanpa cacat mekanis; uji negatif validator rantai
 kp = os.path.join(AKAR, "kartu/keluaran/kartu_me3_prov.jsonl")
 if os.path.exists(kp):

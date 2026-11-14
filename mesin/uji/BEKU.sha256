@@ -123,3 +123,7 @@ ca23df056fe8c2fe398e19089ee7ddc1719ebc51819a3b4557efb43e7b7536d8  uji/kuantitas/
 40af6f35527f4b908e02b3f22211b8c1302a65ea7b558cf80eeafdb2f646675a  peran/potong_cuplikan.py
 e5cd6e2956688174b923a23626251cc0de52c176503cab2585ead7d8376afbc9  uji/kuantitas/nilai.py
 ba46d0d1c169eecd229843ff1f7e270cdb3522044f74520961fca4f86cd7c41e  uji/presisi_usul/h109/LOG_ambil.txt
+# 15 Nov 2026 02.54: validator v3.2 dan fixture-nya (tinjauan Fable P6)
+71c5b118204c8acaccffa0d7874890ac7009b1f932e49b9317432a34f0b6414b  peran/validasi_kutipan_v3_2.py
+939b1cee1627ce74683bf871a4934b617ef6bda16d09e465a35738e72734e8a9  uji/validasi_kutipan_v3_2/contoh.jsonl
+dc4819ca1ee5c333af107f79b15a557e41a4ad9a030db64bb2c774be14c541cd  uji/validasi_kutipan_v3_2/dok/d1.txt
