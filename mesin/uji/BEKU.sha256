@@ -127,3 +127,5 @@ ba46d0d1c169eecd229843ff1f7e270cdb3522044f74520961fca4f86cd7c41e  uji/presisi_us
 71c5b118204c8acaccffa0d7874890ac7009b1f932e49b9317432a34f0b6414b  peran/validasi_kutipan_v3_2.py
 939b1cee1627ce74683bf871a4934b617ef6bda16d09e465a35738e72734e8a9  uji/validasi_kutipan_v3_2/contoh.jsonl
 dc4819ca1ee5c333af107f79b15a557e41a4ad9a030db64bb2c774be14c541cd  uji/validasi_kutipan_v3_2/dok/d1.txt
+# 15 Nov 2026 03.13: 25 butir untuk dinilai Raihan secara buta (butir 115), dipilih sebelum ia menilai (seed 115: semua ragu + benar acak)
+c21aebac332327ca3a2eb10de246c26ae5acd5cd252b8515735025c4aa719e5e  uji/presisi_usul/raihan115_butir.jsonl

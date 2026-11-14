@@ -18,3 +18,11 @@ Laporan: `uji/tinjauan/TINJAUAN_Fable_Kerja-15Nov2026.md` (P = 11, K = 9). Semua
 | K1 sampai K9 | Koreksi redaksi dan angka di STATUS; BEKU untuk alat yang belum beku (dibekukan sesudah dipakai, dicatat begitu) | selesai |
 
 Keputusan delegasi yang ditentang peninjau dan kini dibalik: "USUL v3 jadi bawaan" ditunda sampai validator v3.2 lulus fixture; "8 dari 8" bukan ukuran ketepatan; S4 dan S6 tidak lagi disebut "ditutup" tanpa catatan; "celah di definisi, bukan di juri" diganti "celah di definisi dan di juri"; A+B tidak dipakai apa adanya untuk kalibrasi butir 110.
+
+## KEPUTUSAN Raihan 15 Nov 2026 03.12 WIB (verbatim)
+"Model di luar Anthropic tidak usah, saya tak punya juga soalnya API-nya.
+Ahlinya saya saja.
+Lanjut."
+Akibat (PUTUSAN ATAS DELEGASI, 03.13 WIB):
+- Butir 102 ditutup: syarat juri dan pelabel beda penyedia (H1, rencana §9 butir 4) diganti dua pengaman: (a) label Raihan sebagai acuan manusia untuk mengukur galat pelabel dan juri model; (b) silang antarmodel dalam keluarga Anthropic (Haiku, Sonnet, Fable) dengan ketidaksepakatan dilaporkan. Galat bersama satu keluarga model tetap dicatat sebagai batasan, bukan syarat yang ditunggu.
+- Butir 115: Raihan menilai sekitar 25 usulan peran secara buta (label Fable tidak ditampilkan); hasilnya mengukur kesepakatan Fable dengan Raihan dan menjadi acuan PELABEL v2 (butir 113).
