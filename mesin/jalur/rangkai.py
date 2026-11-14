@@ -40,7 +40,8 @@ LABEL = {"prevalensi_stunting": "prevalensi stunting balita", "persentase_pendud
          "persen_tanpa_jaminan_kesehatan": "persentase penduduk tanpa jaminan kesehatan"}
 NAMA_SUMBER = {"ssgi-2024": "Survei Status Gizi Indonesia 2024, Kemenkes", "kemiskinan-kabkota-2025": "Data dan Informasi Kemiskinan Kabupaten/Kota 2025, BPS",
                "bps-var-2279": "Tabel penduduk yang memiliki jaminan kesehatan 2025, BPS"}
-GELAR_DIHITUNG = {"syarat_eksplisit", "keanggotaan_terbuka"}
+# definisi_terbuka (14 Nov 20.2x): definisi resmi peran memuat kriterianya sendiri tanpa syarat pendidikan (mis. Permendagri 13/2024 Pasal 1 angka 8 Kader Posyandu).
+GELAR_DIHITUNG = {"syarat_eksplisit", "keanggotaan_terbuka", "definisi_terbuka"}
 
 def kutipan_rantai(r):
     out = [(j["sumber_id"], j["kutipan"]) for j in r["jalur_belajar"]]

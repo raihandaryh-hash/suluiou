@@ -80,3 +80,8 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Skill berbukti: kutipan dokumen atau kode ESCO/O*NET dengan jembatan KBJI–ISCO-08.
 - Jalur belajar resmi (PDDikti kebidanan, kurikulum kader Kemenkes, rekrutmen pendamping PKH).
 - Status berlaku dokumen L0 dicek di laman resmi; dokumen nasional untuk peran yang kini berdokumen daerah.
+
+## Putaran 4 (14 Nov 2026 20.2x WIB) · butir 99, syarat resmi tanpa gelar
+- Permendagri 13/2024 tentang Posyandu (BPK, sidik 1b7f166422dd) masuk L0 untuk stunting. Pasal 1 angka 8: Kader Posyandu "anggota masyarakat yang bersedia, mampu, dan memiliki waktu" membantu kepala desa/lurah. Definisi ini tidak memuat syarat pendidikan. Kriteria baca tulis di Pasal 8 ayat 2 berlaku untuk pengurus, bukan kader. Jenis bukti baru `definisi_terbuka` (definisi resmi yang memuat kriterianya sendiri) dihitung G3.3. Kutipan dicocokkan di laptop: cocok (8 dari 8 kutipan rantai). Catatan OCR: teks resmi tertulis "desa/Jurah" (salah ketik "lurah" di PDF), kutipan disalin apa adanya.
+- **G3.3: 2 dari 3 jenis lulus** (kemiskinan, stunting). Jaminan kesehatan BELUM. Peraturan DJSN 2/2020 (bn1227-2020, sidik 42e1c456fed0) mendefinisikan Kader JKN sebagai mitra BPJS Kesehatan tanpa menyebut syarat pendidikan, tetapi Kader JKN belum ada di keluaran pemeta. Perlu: dokumen syarat Kader JKN atau fasilitator, lalu satu putaran pemeta USUL atas dokumen itu.
+- Uji negatif rantai tetap 14 dari 14; cacat mekanis 0.

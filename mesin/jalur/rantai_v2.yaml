@@ -241,8 +241,8 @@ jalur:
     sumber_id: juknis-ukur-serentak-2024
     kutipan: Pendaftaran Data Diri Kader Ke Puskesmas Pelaksanaan Pelatihan 25 Keterampilan Dasar Kader
   mulai_tanpa_gelar: ya_berdokumen
-  mulai_tanpa_gelar_sumber: juknis-ukur-serentak-2024
-  mulai_tanpa_gelar_kutipan: Pendaftaran Data Diri Kader Ke Puskesmas Pelaksanaan Pelatihan 25 Keterampilan Dasar Kader
+  mulai_tanpa_gelar_sumber: permendagri-13-2024
+  mulai_tanpa_gelar_kutipan: Kader Posyandu selanjutnya disebut Kader adalah anggota masyarakat yang bersedia, mampu, dan memiliki waktu untuk membantu kepala desa/Jurah dalam pemberdayaan masyarakat
   tempat: posyandu
   orang:
   - jenis: komunitas
@@ -252,6 +252,7 @@ jalur:
   bukti:
   - juknis-ukur-serentak-2024
   - permenkes-6-2024
+  - permendagri-13-2024
   studi_kandidat:
   - judul: Cahyadi dkk. 2020, Cumulative Impacts of Conditional Cash Transfer Programs
     url: https://tnp2k.go.id/downloads/cumulative-impacts-of-conditional-cash-transfer-programs:-experimental-evidence-from-indonesia
@@ -261,7 +262,7 @@ jalur:
   peran_frasa: kader
   peran_frasa_lengkap: kader posyandu
   cakupan_dokumen: nasional
-  jenis_bukti_gelar: jalan_masuk
+  jenis_bukti_gelar: definisi_terbuka
   kontak_c:
   - jenis: orang_tua
     cara: tanyakan kapan hari buka posyandu terdekat dan siapa kadernya
