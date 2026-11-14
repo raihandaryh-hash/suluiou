@@ -189,3 +189,9 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Laporan `uji/tinjauan/TINJAUAN_Fable_Kerja-15Nov2026.md`: P 11, K 9; angka STATUS hampir semua tereproduksi; yang menipu adalah apa yang diukur. Semua temuan diadopsi: `uji/KEPUTUSAN_Tinjauan-Fable_15Nov2026.md`.
 - Koreksi angka: regex v2 pada B tercatat 34/40 dan 1/40, tetapi v2 dan v2.1 berada di satu commit; HEAD (v2.1) memberi B 35/40 dan 0/40 (K4). Angka B untuk v2 tidak tereproduksi dari git dan dicatat sebagai catatan kerja, bukan hasil.
 - ME3 belum bisa ditutup: G3.2 mode USUL, G1.6 di luar sebaran, dan G3.4 lapis 2 belum lulus; jalan masuk peran bertumpu pada satu pelabel satu penyedia yang galatnya belum diukur.
+
+## Regex kuantitas v2.2 (butir 111, tinjauan Fable P7) · 15 Nov 2026 02.49 WIB
+- Dua daftar: KATA_KUANTITAS (ketat, teks kartu) dan KATA_KUANTITAS_PERAN (longgar, teks peran dan jalur, dipakai rangkai.py, validasi kontrak, dan pencocok). Daftar longgar membuang umumnya, dari setiap, di antara N, ter-, se-, lebih X daripada, rata-rata, dua kali, dan bilangan kata puluh/belas/ratus (syarat usia).
+- Nama wilayah (514 nama induk) dibuang sebelum pindai di rangkai.py dan periksa_kartu.py; tanpa itu "Kepulauan Seribu" ditolak (dibuktikan: periksa_teks langsung menolak, sesudah buang nama lolos).
+- Ketat ditambah: paling tinggi/banyak + se-/di antara/dari seluruh, se- umum, hampir setiap/tiap, sangat banyak, tidak sedikit, sejumlah besar, tinggi/rendah/besar sekali, terberat; batas kata penutup pada bilangan.
+- Uji tetap baru uji/kuantitas/uji_p7.py (20 kalimat dari tinjauan, masuk gerbang): 0 gagal. Set lama (sudah terpakai, hanya catatan, bukan ukuran): A 40/40 dengan 1 salah tangkap (A-N30 "hampir setiap pelosok", yang menurut peninjau salah label), B 37/40, C 37/50 (C berkorelasi dengan B dan terpakai). Ukuran sah menunggu set D (butir 110).

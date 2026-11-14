@@ -26,6 +26,9 @@ S = json.load(open(os.path.join(AKAR, "kontrak", "jalur-jelajah-1.schema.json"),
 V = Draft202012Validator(S, format_checker=FormatChecker())
 _src = open(os.path.join(AKAR, "kontrak", "buat_kontrak.py"), encoding="utf-8").read()
 KATA_KUANTITAS = re.compile(re.search(r'KATA_KUANTITAS = re\.compile\(r"(.+?)"\)\n', _src).group(1))
+KATA_KUANTITAS_PERAN = re.compile(re.search(r'KATA_KUANTITAS_PERAN = re\.compile\(r"(.+?)"\)\n', _src).group(1))
+_NAMA = json.load(open(os.path.join(AKAR, "sumber", "masukan_kartu", "nama_induk.json"), encoding="utf-8")).values()
+NAMA_WILAYAH = re.compile(r"(?i)\b(?:kab\.|kabupaten|kota|provinsi)?\s*(?:" + "|".join(sorted(map(re.escape, _NAMA), key=len, reverse=True)) + r")\b")  # nama wilayah dibuang sebelum pindai (P7)
 # Lapis 1 G3.4 diperluas (tinjauan Fable K2): bentuk berimbuhan dan larangan mutlak.
 VONIS = re.compile(r"(?i)(\b\w*wajib\w*\b|\bkeharusan\b|\bharus\b|\bhanya ini\b|\btidak ada jalan lain\b|\bjangan pilih\b|\bsatu-satunya\b|\bseharusnya\b|"
                    r"\btanggung jawabmu\b|\bberdosa\b|\bdosa\b|\bcukup\b|\btercukupi\b|\bfardh?u kifayah\b|\bkifayah\b|\bmengecewakan\b)")
@@ -135,10 +138,11 @@ def pindai(o, jalan=""):
         for i, v in enumerate(o): salah += pindai(v, f"{jalan}[{i}]")
     elif isinstance(o, str):
         t = re.sub(r"\{[a-z_]+\}", "", o)
+        t = NAMA_WILAYAH.sub("", t)
         t = re.sub(r"(?i)\bpersentase\b", "", t)          # nama indikator, bukan besaran (sama dengan kartu.periksa_teks)
         t2 = PENGECUALIAN_VONIS.sub("", t)
         if not jalan.endswith("peran_contoh[0].nama") and re.search(r"\d", t): salah.append(f"digit di {jalan}")
-        if KATA_KUANTITAS.search(t): salah.append(f"kuantitas '{KATA_KUANTITAS.search(t).group(0)}' di {jalan}")
+        if KATA_KUANTITAS_PERAN.search(t): salah.append(f"kuantitas '{KATA_KUANTITAS_PERAN.search(t).group(0)}' di {jalan}")
         if VONIS.search(t2): salah.append(f"vonis '{VONIS.search(t2).group(0)}' di {jalan}")
         if PRIBADI_BIAYA.search(t): salah.append(f"data pribadi atau biaya '{PRIBADI_BIAYA.search(t).group(0)}' di {jalan}")
     return salah

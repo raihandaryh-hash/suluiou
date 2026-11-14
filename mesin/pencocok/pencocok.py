@@ -18,7 +18,7 @@ from jsonschema import Draft202012Validator, FormatChecker  # noqa: E402
 VERSI = "pencocok-me3-v1"
 SKEMA = json.load(open(os.path.join(AKAR, "kontrak", "jalur-jelajah-1.schema.json"), encoding="utf-8"))
 _src = open(os.path.join(AKAR, "kontrak", "buat_kontrak.py"), encoding="utf-8").read()
-_ns = {"re": re, "KATA_KUANTITAS": RK.KATA_KUANTITAS, "V": Draft202012Validator(SKEMA, format_checker=FormatChecker())}
+_ns = {"re": re, "KATA_KUANTITAS": RK.KATA_KUANTITAS, "KATA_KUANTITAS_PERAN": RK.KATA_KUANTITAS_PERAN, "V": Draft202012Validator(SKEMA, format_checker=FormatChecker())}
 exec(_src[_src.index("def periksa_tambahan(o):"):_src.index('os.makedirs("fixture"')], _ns)  # validasi() persis dari buat_kontrak.py
 validasi = _ns["validasi"]
 

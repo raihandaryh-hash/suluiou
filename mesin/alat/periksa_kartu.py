@@ -67,6 +67,11 @@ def periksa_sumber_kartu():
         if kt.get("url") != url: out.append(f"kartu.py SUMBER[{j}]: url berbeda dari kontrak {sid}")
         if kt.get("sha256") != sha: out.append(f"kartu.py SUMBER[{j}]: sha256 berbeda dari kontrak {sid}")
     return out
+_NAMA = json.load(open(os.path.join(AKAR, "sumber", "masukan_kartu", "nama_induk.json"), encoding="utf-8")).values()
+NAMA_WILAYAH = re.compile(r"(?i)\b(?:kab\.|kabupaten|kota|provinsi)?\s*(?:" + "|".join(sorted(map(re.escape, _NAMA), key=len, reverse=True)) + r")\b")
+def tanpa_wilayah(k):
+    """Nama wilayah dibuang dari teks sebelum pindai kuantitas (tinjauan Fable 15 Nov P7: "Kepulauan Seribu", "Lima Puluh Kota")."""
+    x = json.loads(json.dumps(k)); x["teks"] = {b: NAMA_WILAYAH.sub("", v) for b, v in x.get("teks", {}).items()}; return x
 gagal = []
 kart = [json.loads(l) for l in open(p, encoding="utf-8")]
 for k in kart:
@@ -81,7 +86,7 @@ for k in kart:
     gagal += sumber_ditahan(k)
     gagal += periksa_asal(k)
     if k.get("teks", {}).get("judul"):
-        K.normalisasi_satuan(k); gagal += [f"{k['id']}: {x}" for x in K.periksa_teks(k)]
+        K.normalisasi_satuan(k); gagal += [f"{k['id']}: {x}" for x in K.periksa_teks(tanpa_wilayah(k))]
 # uji negatif pembanding: target dipalsukan dan jarak salah wajib ditolak
 _kt = K.bangun_kartu("p0", "3171", "Kota Jakarta Selatan", 3.23, "hati_hati", 9.0, alasan_keandalan="rse_tidak_terbit", target=K.muat_target("kemiskinan-kabkota-2025"))
 if periksa_pembanding(_kt): gagal.append("pembanding target sah ditolak")
@@ -98,6 +103,9 @@ sel_luar = json.loads(json.dumps(kart[0])); sel_luar["status"] = "terbit"; sel_l
 if not sumber_ditahan(sel_luar): gagal.append("kartu terbit dengan sel tak terverifikasi diloloskan")
 sel_dalam = json.loads(json.dumps(sel_luar)); sel_dalam["wilayah"]["kode_bps"] = "3171"
 if sumber_ditahan(sel_dalam): gagal.append("kartu terbit dengan sel terverifikasi ditolak")
+# uji tetap P7: nama wilayah dengan kata bilangan tidak boleh ditolak
+_w = json.loads(open(os.path.join(AKAR, "kartu", "fixture_kartu.jsonl"), encoding="utf-8").readline()); _w["teks"] = {"judul": "Kerja kecil bersama kader di Kepulauan Seribu.", "ringkasan": _w["teks"]["ringkasan"], "harapan": _w["teks"]["harapan"]}
+if K.periksa_teks(tanpa_wilayah(_w)): gagal.append("P7: nama wilayah Kepulauan Seribu ditolak")
 # uji negatif S4: sidik nol, url palsu, sha tak sama kontrak, sumber tanpa kontrak berstatus terbit, skema rusak
 gagal += periksa_sumber_kartu()
 _b = json.loads(json.dumps(kart[0]))
