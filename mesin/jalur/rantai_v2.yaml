@@ -5,7 +5,7 @@
 # jenis_bukti_gelar: syarat_eksplisit (daftar syarat tanpa gelar) dan keanggotaan_terbuka dihitung G3.3; asal_kader dan jalan_masuk tidak dihitung;
 # v2.1 14 Nov malam: jkn-operator jadi cadangan (klerikal, paling rentan otomasi; skema membatasi tiga jalur data); jkn-kader-jkn ditambah dari pemeta USUL atas Peraturan DJSN 2/2020.
 # harapan_jenis: bisa_dilakukan (tanpa klaim dampak) atau terbukti (wajib sumber Evidence DB Live; belum ada).
-# v2.2 14 Nov 23.5x: tiap peran wajib kutipan_tugas (orang melakukan tugas) dan label "benar" dari pelabel independen (uji/presisi_usul/rantai_label_v2.jsonl); karang taruna dan TPK jadi cadangan; KPM ditambah.
+# v2.2 14 Nov, dikunci 23.53: tiap peran wajib kutipan_tugas (orang melakukan tugas) dan label "benar" dari pelabel independen (uji/presisi_usul/rantai_label_v2.jsonl); karang taruna dan TPK jadi cadangan; KPM ditambah.
 jalur:
 - id: jkn-pemasar
   kebutuhan: penduduk-tanpa-jaminan-kesehatan

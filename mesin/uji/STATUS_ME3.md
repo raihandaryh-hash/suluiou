@@ -125,7 +125,7 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Akar: kutipan pemeta dipilih yang memuat nama peran, sering baris daftar anggota; aturan pemeta tidak mewajibkan kutipan tugas dan tidak menolak tim atau lembaga.
 - Perbaikan berjalan: tiap peran di rantai wajib membawa kutipan tugas terverifikasi (orang melakukan sesuatu); peran lembaga atau tim diganti peran orang dari dokumen; aturan pemeta v2 (kutipan tugas, tolak tim dan lembaga) diukur ulang pada sampel baru, bukan 40 baris ini.
 
-## Perbaikan peran rantai (15 Nov 2026 23.53 WIB) · tindak lanjut butir 97
+## Perbaikan peran rantai (14 Nov 2026 23.53 WIB) · tindak lanjut butir 97
 - Aturan baru di validator: tiap peran di rantai wajib membawa kutipan tugas (orang melakukan sesuatu) yang terverifikasi di teks dokumen, dan label "benar" dari pelabel independen (Fable 5.2) di `uji/presisi_usul/rantai_label_v2.jsonl`. Label belum ada atau bukan "benar" = mata rantai peran tidak lulus. Peran dengan kaitan kebutuhan yang lemah membawa kutipan kebutuhan tambahan.
 - Karang taruna (lembaga) dan TPK (tim) dijadikan cadangan. Kader Pembangunan Manusia (KPM) ditambah untuk stunting. Permensos 1/2018 tentang PKH masuk L0 untuk kutipan tugas pendamping sosial PKH.
 - Pelabelan ulang 8 peran aktif: 7 benar dan 1 ragu (PSM, kaitan dengan kemiskinan tak tampak); sesudah kutipan kebutuhan TKPK Pringsewu ditambah, PSM benar (catatan pelabel: bahwa daftar itu susunan TKPK bersandar pada catatan pembangun). Hasil akhir 8 dari 8 benar.
