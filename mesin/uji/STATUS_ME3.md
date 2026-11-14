@@ -50,3 +50,33 @@ Tiga jenis teratas saringan v7: penduduk tanpa jaminan kesehatan, kemiskinan, st
 - G3.4 lapis 1 (regex vonis + kata kuantitas + digit) dijalankan atas judul, batas, harapan, langkah, ringkasan kesembilan jalur: 0 pelanggaran. Lapis 2 (juri vonis terkalibrasi, ≥100 positif dan ≥100 negatif) belum.
 - G3.5: jalur tidak memuat angka upah atau lowongan; tidak ada yang diuji (0 dari 0). Lulus kosong, bukan bukti kemampuan.
 - Bukti cara kerja = dokumen resmi L0. Studi kandidat (Banerjee dkk. 2021 JKN; Cahyadi dkk. 2020 PKH) dicatat di rantai, tidak ditayangkan: dua pencarian Notion tidak menemukan barisnya di Evidence DB, jadi status Live belum terbukti.
+
+## Putaran 3 sesudah tinjauan Fable 5.2 (14 Nov 2026 09.24 WIB) · menggantikan klaim putaran 1 dan 2 di atas
+Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARAT" dan "G3.3 LULUS" di atas dicabut; peninjau menunjukkan validator v1 meloloskan 11 dari 13 rantai rusak.
+- Templat v2 (teks peninjau, dibekukan) dan aturan pilih dijalankan kode. Rantai v2 dirender dua mode (dewasa dan c) dan divalidasi terhadap skema keluaran penuh.
+- Validator v2: peran dicocokkan pada (kebutuhan, peran, dokumen); bukti minimal satu; peran unik per jenis; seluruh teks dipindai (vonis berimbuhan, kata kuantitas, digit, data pribadi, biaya); kutipan sah hanya bila tercatat di `uji/kutipan_terverifikasi.jsonl` (7 kutipan, dicocokkan di laptop terhadap teks bersidik). Uji negatif tetap `uji/rantai_negatif.py`: 14 dari 14 tertangkap, kontrol lolos. Di luar jangkauan: relevansi simpul skill, nada defisit.
+- **G3.1: 1 dari 3 jenis lulus gerbang** (kemiskinan). Jaminan kesehatan dan stunting: 3 dari 3 rantai lulus mekanis, kartu draf (SSGI ditahan G1.3; BPS var 2279 tanpa kontrak).
+- **G3.3: 1 dari 3 jenis lulus** (kemiskinan: karang taruna dengan keanggotaan terbuka Permensos 9/2025; PSM dengan daftar syarat Permensos 10/2019 Pasal 8). Jaminan kesehatan dan stunting BELUM: kutipan fasilitator ("kader masyarakat") dan kader posyandu (jalan masuk lewat puskesmas) tidak menyatakan syarat pendidikan. Perlu dokumen syarat kader posyandu (mis. pedoman Posyandu Kemendagri) dan syarat fasilitator.
+- **G3.4 lapis 1: 0 pelanggaran pada seluruh teks jalur** (kedua mode). Lapis 2 belum; bersyarat juri beda penyedia (syarat bawaan ME1 H1).
+- **G3.2:** angka gerbang = separuh B saja, 26 dari 26, batas bawah Wilson 0,871 (≥0,85, lulus). Separuh A dipakai pengembangan. Elusi B 0 dari 42, batas atas Wilson sekitar 8%, di atas ambang 5%: elusi belum terbukti ≤5% pada separuh bersih. Presisi mode USUL (yang dipakai rantai) belum diukur.
+- G3.5: tidak ada angka upah atau lowongan di jalur; tidak ada yang diuji.
+
+## Syarat bawaan ME1 (dipindah 14 Nov dari STATUS_ME1 dan tinjauan Fable)
+- H1 juri beda penyedia untuk G1.6, dan berlaku juga untuk G3.4 lapis 2; tenggat: sebelum teks tayang (tahap 2b).
+- H2 ukur ulang G1.6 dengan set SU-2c (separuh keluaran penulis produksi); SU-2b dianggap terpakai.
+- H3 target ≥30 kandidat ketat untuk G2.3 (sekarang 15).
+- H4 v7 diputus dipertahankan (KEPUTUSAN_Tinjauan-Fable B5).
+- H5 teks 180 penulis utuh di repo untuk G1.4; juri populasi menuduh lintas mode 6 dari 50.
+- S2 sidik masukan kartu, target, kartu keluaran di BEKU: SELESAI 14 Nov.
+- S3 `berkas_sha256` penuh di kontrak sakernas dan air minum; `kartu.py` membaca sidik dan URL dari kontrak.
+- S4 skema JSON kartu di CI (janji G1.1); `periksa_kartu.py` menolak sidik nol dan URL palsu.
+- S5 basis hitung provinsi dicatat di STATUS_ME1: SELESAI 14 Nov.
+- S6 manifest gudang mentah (nama, URL, sidik penuh, tanggal unduh, versi alat) masuk repo.
+- Tambahan peninjau: G1.4 regex kuantitas meloloskan "dua pertiga", "kebanyakan", "nyaris seluruh" (10 dari 13 frasa uji); diperluas sebelum teks kartu ditulis.
+
+## Antre baru dari tinjauan
+- Presisi mode USUL: sampel acak 40 dari 92 usulan, label agen terpisah, cek manusia sebagian.
+- Uji dukungan kutipan terhadap klaim peran (gaya ALCE, Gao dkk. 2023, https://arxiv.org/abs/2305.14627).
+- Skill berbukti: kutipan dokumen atau kode ESCO/O*NET dengan jembatan KBJI–ISCO-08.
+- Jalur belajar resmi (PDDikti kebidanan, kurikulum kader Kemenkes, rekrutmen pendamping PKH).
+- Status berlaku dokumen L0 dicek di laman resmi; dokumen nasional untuk peran yang kini berdokumen daerah.

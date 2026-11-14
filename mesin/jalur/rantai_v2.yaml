@@ -1,0 +1,333 @@
+# Rantai tujuh mata rantai (G3.1) · v2 · 14 Nov 2026 · menerapkan tinjauan Fable 5.2 (laptop MESIN\tinjauan\TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md).
+# Label: PUTUSAN ATAS DELEGASI (Raihan 14 Nov 09.10: "decide the best for things, go SOTA"); pilihan peran dan simpul skill = SINTESIS pembangun.
+# Beda dari v1: templat dipilih kode (rangkai.py) menurut aturan_pilih v2, bukan ditulis tangan; peran_frasa untuk teks (tanpa .lower());
+# kontak_c = kontak untuk mode (c) dari {guru_bk, orang_tua, career_center, orang_terdekat}; cakupan_dokumen nasional/daerah menentukan keyakinan;
+# jenis_bukti_gelar: syarat_eksplisit (daftar syarat tanpa gelar) dan keanggotaan_terbuka dihitung G3.3; asal_kader dan jalan_masuk tidak dihitung;
+# harapan_jenis: bisa_dilakukan (tanpa klaim dampak) atau terbukti (wajib sumber Evidence DB Live; belum ada).
+jalur:
+- id: jkn-pemasar
+  kebutuhan: penduduk-tanpa-jaminan-kesehatan
+  peran:
+    nama: Tenaga Pemasar/Relationship Officer (RO)
+    doc_id: perdir-bpjs-26-2021
+  skill:
+  - nama: komunikasi empatik
+    simpul: komunikasi-kompleks
+  - nama: empati
+    simpul: empati
+  skill_kutipan: mengedepankan kontak dan komunikasi empatik
+  jalur_belajar:
+  - nama: Belajar mandiri regulasi dan pedoman kepesertaan
+    jenis: mandiri
+    penyelenggara: null
+    sumber_id: perdir-bpjs-26-2021
+    kutipan: mempelajari regulasi dan/atau pedoman yang berlaku secara mandiri
+  mulai_tanpa_gelar: tidak_disebut
+  orang:
+  - jenis: career_center
+    cara: tanyakan apakah ada alumni yang bekerja di kantor cabang jaminan kesehatan
+  - jenis: orang_terdekat
+    cara: tanyakan pengalaman mereka mendaftar jaminan kesehatan
+  bukti:
+  - perdir-bpjs-26-2021
+  studi_kandidat:
+  - judul: Banerjee dkk. 2021, The Challenges of Universal Health Insurance in Developing Countries
+    url: https://www.aeaweb.org/doi/10.1257/aer.20200523
+  judul: Bantu orang terdaftar jaminan kesehatan lewat tempat kerja
+  harapan: Satu orang yang mau menjelaskan hak jaminan kesehatan dengan sabar bisa membantu rekan kerjanya mulai mendaftar
+  batas: Pedoman ini berlaku untuk perluasan kepesertaan badan usaha; syarat pendidikan petugas tidak disebut di dokumen
+  peran_frasa: tenaga pemasar jaminan kesehatan
+  cakupan_dokumen: nasional
+  kontak_c:
+  - jenis: career_center
+    cara: tanyakan apakah ada alumni yang bekerja di kantor cabang jaminan kesehatan
+  - jenis: orang_tua
+    cara: tanyakan pengalaman keluargamu mendaftar jaminan kesehatan
+  harapan_jenis: bisa_dilakukan
+  skill_kutipan_sumber: perdir-bpjs-26-2021
+- id: jkn-fasilitator
+  kebutuhan: penduduk-tanpa-jaminan-kesehatan
+  peran:
+    nama: Fasilitator
+    doc_id: perbup-bogor-60-2023
+  skill:
+  - nama: empati
+    simpul: empati
+  - nama: komunikasi
+    simpul: komunikasi-kompleks
+  jalur_belajar:
+  - nama: Bimbingan teknis dasar kesejahteraan sosial (jalan masuk lewat Pekerja Sosial Masyarakat)
+    jenis: kursus
+    penyelenggara: null
+    sumber_id: permensos-10-2019
+    kutipan: telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan Sosial
+  mulai_tanpa_gelar: ya_berdokumen
+  mulai_tanpa_gelar_sumber: perbup-bogor-60-2023
+  mulai_tanpa_gelar_kutipan: berasal dari unsur Potensi dan Sumber Kesejahteraan Sosial atau kader masyarakat
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor desa siapa fasilitator yang biasa memverifikasi warga
+  - jenis: orang_terdekat
+    cara: ceritakan rencanamu dan minta ditemani
+  bukti:
+  - perbup-bogor-60-2023
+  - perwal-batu-6-2026
+  judul: Bantu desa memastikan warga yang butuh tercatat
+  harapan: Verifikasi ulang yang teliti di desa membuka jalan bagi warga yang belum terdaftar untuk diusulkan
+  batas: Peran ini diatur peraturan daerah tertentu; nama, tugas, dan cara penunjukannya bisa berbeda di daerahmu
+  peran_frasa: fasilitator verifikasi di desa
+  cakupan_dokumen: daerah
+  jenis_bukti_gelar: asal_kader
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal fasilitator di desa atau kelurahanmu
+  - jenis: guru_bk
+    cara: ceritakan minatmu membantu warga mendapat jaminan kesehatan
+  harapan_jenis: bisa_dilakukan
+- id: jkn-operator
+  kebutuhan: penduduk-tanpa-jaminan-kesehatan
+  peran:
+    nama: Operator SIKS-NG
+    doc_id: perbup-bogor-60-2023
+  skill:
+  - nama: literasi teknologi
+    simpul: literasi-teknologi
+  - nama: ketelitian administrasi
+    simpul: klerikal
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang pelatihan operator
+  mulai_tanpa_gelar: tidak_disebut
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor desa atau dinas sosial siapa operator datanya
+  bukti:
+  - perbup-bogor-60-2023
+  judul: Rawat data warga supaya usulan bantuan tepat
+  harapan: Data yang dimasukkan dengan rapi membuat usulan pendaftaran warga bisa diproses
+  batas: Pekerjaan administrasi data termasuk yang paling mudah diotomasi; peran ini bisa berubah bentuk
+  peran_frasa: operator data kesejahteraan sosial
+  cakupan_dokumen: daerah
+  kontak_c:
+  - jenis: guru_bk
+    cara: tanyakan kegiatan sekolah yang melatih pengolahan data
+  - jenis: orang_terdekat
+    cara: tanyakan apakah mereka mengenal operator data di kantor desa
+  harapan_jenis: bisa_dilakukan
+- id: miskin-pendamping-pkh
+  kebutuhan: kemiskinan-kabkota
+  peran:
+    nama: Pendamping PKH
+    doc_id: perbup-pringsewu-23-2023
+  skill:
+  - nama: empati
+    simpul: empati
+  - nama: berpikir sistemik
+    simpul: berpikir-sistemik
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang rekrutmen pendamping
+  mulai_tanpa_gelar: tidak_disebut
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor desa siapa pendamping keluarga penerima bantuan
+  - jenis: orang_terdekat
+    cara: minta dikenalkan bila mereka mengenal pendamping
+  bukti:
+  - perbup-pringsewu-23-2023
+  studi_kandidat:
+  - judul: Cahyadi dkk. 2020, Cumulative Impacts of Conditional Cash Transfer Programs
+    url: https://tnp2k.go.id/downloads/cumulative-impacts-of-conditional-cash-transfer-programs:-experimental-evidence-from-indonesia
+  judul: Dampingi keluarga yang sedang keluar dari kemiskinan
+  harapan: Pendamping yang mengenal keluarga dampingannya membantu bantuan sampai dan dipakai untuk sekolah dan kesehatan anak
+  batas: Dokumen ini pedoman satu kabupaten; susunan tim di daerahmu bisa berbeda
+  peran_frasa: pendamping PKH
+  cakupan_dokumen: daerah
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal pendamping keluarga penerima bantuan
+  - jenis: guru_bk
+    cara: ceritakan minatmu mendampingi keluarga
+  harapan_jenis: bisa_dilakukan
+- id: miskin-karang-taruna
+  kebutuhan: kemiskinan-kabkota
+  peran:
+    nama: Karang Taruna
+    doc_id: perbup-pringsewu-23-2023
+  skill:
+  - nama: kepemimpinan
+    simpul: kepemimpinan
+  - nama: mengelola kegiatan
+    simpul: manajemen-proyek
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang pelatihan pengurus karang taruna
+  mulai_tanpa_gelar: ya_berdokumen
+  mulai_tanpa_gelar_sumber: permensos-9-2025
+  mulai_tanpa_gelar_kutipan: setiap generasi muda yang berusia 16 (enam belas) tahun sampai dengan 30 (tiga puluh) tahun otomatis menjadi Warga Karang Taruna
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan pengurus karang taruna di desamu
+  - jenis: orang_terdekat
+    cara: ajak teman sebaya ikut kegiatan
+  bukti:
+  - perbup-pringsewu-23-2023
+  - permensos-9-2025
+  judul: Bergerak bersama pemuda desa
+  harapan: Kelompok pemuda yang bergerak bersama bisa menghidupkan kegiatan ekonomi kecil di desanya
+  batas: Keanggotaan berlaku untuk generasi muda pada rentang usia yang diatur peraturan menteri sosial; perannya dalam pengentasan kemiskinan hanya tercantum di pedoman satu kabupaten
+  peran_frasa: pengurus karang taruna
+  peran_frasa_lengkap: karang taruna
+  cakupan_dokumen: nasional
+  jenis_bukti_gelar: keanggotaan_terbuka
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah karang taruna di desamu masih aktif
+  - jenis: orang_terdekat
+    cara: ajak teman sebaya bertanya bersama
+  harapan_jenis: bisa_dilakukan
+- id: miskin-psm
+  kebutuhan: kemiskinan-kabkota
+  peran:
+    nama: Pekerja Sosial Masyarakat (PSM)
+    doc_id: perbup-pringsewu-23-2023
+  skill:
+  - nama: empati
+    simpul: empati
+  - nama: komunikasi
+    simpul: komunikasi-kompleks
+  jalur_belajar:
+  - nama: Bimbingan teknis dasar kesejahteraan sosial
+    jenis: kursus
+    penyelenggara: null
+    sumber_id: permensos-10-2019
+    kutipan: telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan Sosial
+  mulai_tanpa_gelar: ya_berdokumen
+  mulai_tanpa_gelar_sumber: permensos-10-2019
+  mulai_tanpa_gelar_kutipan: 'Persyaratan untuk menjadi PSM terdiri atas: a. warga negara Indonesia; b. memiliki kemauan, kepedulian, dan komitmen sebagai relawan sosial; c. memiliki kartu tanda penduduk di wilayah desa atau kelurahan atau nama lain sesuai dengan domisili; d. usia paling rendah 18 (delapan belas) tahun; e. mampu membaca dan menulis; f. berkelakuan baik; dan g. telah mengikuti bimbingan teknis dasar di bidang Kesejahteraan Sosial'
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan di kantor desa siapa pekerja sosial masyarakat setempat
+  bukti:
+  - perbup-pringsewu-23-2023
+  - permensos-10-2019
+  judul: Jadi tetangga yang tahu ke mana warga bisa minta tolong
+  harapan: Warga yang tahu jalur bantuan bisa menghubungkan tetangganya dengan layanan yang ada
+  batas: Syarat menjadi pekerja sosial masyarakat antara lain sudah dewasa, bisa membaca dan menulis, dan mengikuti bimbingan teknis dasar; tugasnya di daerahmu bisa berbeda
+  peran_frasa: pekerja sosial masyarakat
+  cakupan_dokumen: nasional
+  jenis_bukti_gelar: syarat_eksplisit
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal pekerja sosial masyarakat di lingkunganmu
+  - jenis: guru_bk
+    cara: ceritakan minatmu menjadi relawan sosial
+  harapan_jenis: bisa_dilakukan
+- id: stunting-kader-posyandu
+  kebutuhan: stunting-balita
+  peran:
+    nama: Kader Posyandu
+    doc_id: juknis-ukur-serentak-2024
+  skill:
+  - nama: kesehatan dasar
+    simpul: kesehatan
+  - nama: empati
+    simpul: empati
+  jalur_belajar:
+  - nama: Pelatihan Keterampilan Dasar Kader
+    jenis: kursus
+    penyelenggara: Puskesmas
+    sumber_id: juknis-ukur-serentak-2024
+    kutipan: Pendaftaran Data Diri Kader Ke Puskesmas Pelaksanaan Pelatihan 25 Keterampilan Dasar Kader
+  mulai_tanpa_gelar: ya_berdokumen
+  mulai_tanpa_gelar_sumber: juknis-ukur-serentak-2024
+  mulai_tanpa_gelar_kutipan: Pendaftaran Data Diri Kader Ke Puskesmas Pelaksanaan Pelatihan 25 Keterampilan Dasar Kader
+  tempat: posyandu
+  orang:
+  - jenis: komunitas
+    cara: tanyakan kader posyandu di lingkunganmu kapan hari buka berikutnya
+  - jenis: orang_terdekat
+    cara: ajak orang di rumah yang punya balita ikut datang
+  bukti:
+  - juknis-ukur-serentak-2024
+  - permenkes-6-2024
+  studi_kandidat:
+  - judul: Cahyadi dkk. 2020, Cumulative Impacts of Conditional Cash Transfer Programs
+    url: https://tnp2k.go.id/downloads/cumulative-impacts-of-conditional-cash-transfer-programs:-experimental-evidence-from-indonesia
+  judul: Ikut menimbang dan mengukur balita di posyandu
+  harapan: Kader yang menimbang dan mengukur balita dengan alat terstandar membantu keluarga melihat masalah tumbuh kembang lebih awal
+  batas: Pelatihan kader diatur lewat puskesmas setempat; jadwal dan syaratnya bisa berbeda antardaerah
+  peran_frasa: kader
+  peran_frasa_lengkap: kader posyandu
+  cakupan_dokumen: nasional
+  jenis_bukti_gelar: jalan_masuk
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan kapan hari buka posyandu terdekat dan siapa kadernya
+  - jenis: guru_bk
+    cara: tanyakan kegiatan sekolah yang terhubung dengan puskesmas
+  harapan_jenis: bisa_dilakukan
+- id: stunting-tpk
+  kebutuhan: stunting-balita
+  peran:
+    nama: Tim Pendamping Keluarga (TPK)
+    doc_id: buku-panduan-bokb-2024
+  skill:
+  - nama: empati
+    simpul: empati
+  - nama: komunikasi
+    simpul: komunikasi-kompleks
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang cara bergabung dengan tim pendamping keluarga
+  mulai_tanpa_gelar: tidak_disebut
+  tempat: kantor desa
+  orang:
+  - jenis: komunitas
+    cara: tanyakan bidan desa atau kader PKK siapa anggota tim pendamping keluarga
+  - jenis: orang_terdekat
+    cara: ceritakan rencanamu
+  bukti:
+  - buku-panduan-bokb-2024
+  - juknis-ukur-serentak-2024
+  judul: Dampingi keluarga sejak sebelum menikah sampai anak tumbuh
+  harapan: Tim pendamping yang datang ke rumah membantu keluarga mendapat penyuluhan dan rujukan saat dibutuhkan
+  batas: Tim ini terdiri dari bidan, kader PKK, dan kader KB; cara bergabung tidak dijelaskan di dokumen
+  peran_frasa: anggota tim pendamping keluarga
+  cakupan_dokumen: nasional
+  kontak_c:
+  - jenis: orang_tua
+    cara: tanyakan apakah mereka mengenal bidan desa atau kader PKK
+  - jenis: guru_bk
+    cara: ceritakan minatmu mendampingi keluarga
+  harapan_jenis: bisa_dilakukan
+- id: stunting-bidan
+  kebutuhan: stunting-balita
+  peran:
+    nama: Bidan
+    doc_id: perpres-72-2021
+  skill:
+  - nama: kesehatan ibu dan anak
+    simpul: kesehatan
+  jalur_belajar: []
+  jalur_belajar_label: belum ada sumber terdaftar tentang program studi kebidanan
+  mulai_tanpa_gelar: butuh_pendidikan_profesi
+  orang:
+  - jenis: praktisi
+    cara: tanyakan bidan di puskesmas tentang pekerjaannya
+  - jenis: career_center
+    cara: tanyakan kampus yang membuka pendidikan kebidanan
+  bukti:
+  - perpres-72-2021
+  - permenkes-6-2024
+  judul: Jadi tenaga kesehatan ibu dan anak
+  harapan: Bidan di desa menjadi orang pertama yang menemani ibu hamil dan balita mendapat layanan
+  batas: Peran ini membutuhkan pendidikan profesi kesehatan; dokumen tidak memuat jalur pendidikannya
+  peran_frasa: bidan
+  cakupan_dokumen: nasional
+  kontak_c:
+  - jenis: career_center
+    cara: tanyakan kampus yang membuka pendidikan kebidanan
+  - jenis: guru_bk
+    cara: tanyakan jurusan kesehatan yang cocok untukmu
+  harapan_jenis: bisa_dilakukan

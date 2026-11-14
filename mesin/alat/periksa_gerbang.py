@@ -70,7 +70,7 @@ if os.path.isdir(vk):
     rv = subprocess.run([sys.executable, os.path.join(AKAR, "peran/validasi_kutipan.py"), os.path.join(tmp, "contoh.jsonl"), os.path.join(vk, "reg.csv"), os.path.join(vk, "dok")], capture_output=True, text=True)
     print("ME3 validator kutipan:", rv.stdout.strip())
     if not rv.stdout.startswith("sah 1 ditolak 3"): gagal.append("G3.2: validator kutipan tidak menolak kasus buruk")
-# ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai G3.1 lulus mekanis (bersyarat boleh)
+# ME3: kartu provinsi (butir 88) tereproduksi dan lolos periksa_kartu; rantai tanpa cacat mekanis; uji negatif validator rantai
 kp = os.path.join(AKAR, "kartu/keluaran/kartu_me3_prov.jsonl")
 if os.path.exists(kp):
     h0 = hashlib.sha256(open(kp, "rb").read()).hexdigest()
@@ -80,7 +80,10 @@ if os.path.exists(kp):
     if r3.returncode != 0: gagal.append("ME3: kartu provinsi cacat")
     rr = subprocess.run([sys.executable, os.path.join(AKAR, "jalur/rangkai.py")], capture_output=True, text=True)
     print("ME3", [l for l in rr.stdout.splitlines() if l.startswith("G3.")])
-    if rr.returncode != 0: gagal.append("G3.1: rantai jalur tidak lengkap")
+    if rr.returncode != 0: gagal.append("G3.1/G3.3/G3.4: rantai jalur bercacat mekanis (lihat rangkai.py)")
+    rn = subprocess.run([sys.executable, os.path.join(AKAR, "uji/rantai_negatif.py")], capture_output=True, text=True)
+    print("ME3 uji negatif rantai:", (rn.stdout.strip().splitlines() or [""])[-1])
+    if rn.returncode != 0: gagal.append("G3.1: validator rantai meloloskan rantai rusak (uji/rantai_negatif.py)")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)

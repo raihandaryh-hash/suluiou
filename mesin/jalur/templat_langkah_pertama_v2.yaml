@@ -1,0 +1,40 @@
+# Templat langkah pertama (mata rantai 5, G3.1) · v2 · 14 Nov 2026
+# Tinjauan sekali (rencana §4.4) oleh peninjau independen Fable 5.2, ditunjuk Raihan 14 Nov 2026 09.10:
+# "Gunakan Fable 5.2 sebagai peninjau, juga untuk poin 56." Vonis: keempat templat UBAH, aturan pilih UBAH.
+# Teks di bawah = teks pengganti peninjau, persis. Label: PUTUSAN ATAS DELEGASI (pembangun menerapkan vonis peninjau).
+# Dua titik terbuka peninjau diputus pembangun atas delegasi ("decide the best for things", 14 Nov 09.10):
+#   mode (c) boleh baca_pedoman: YA; daftar_kegiatan untuk usia di bawah delapan belas tahun: TIDAK di v1.
+# Laporan peninjau: laptop MESIN\tinjauan\TINJAUAN_Fable_Templat-dan-ME3_14Nov2026.md
+templat:
+  amati_dan_tanya:
+    teks: "Datangi {tempat} di dekat tempat tinggalmu pada jam layanan, bila perlu bersama orang yang kamu percaya. Sampaikan bahwa kamu ingin mengenal pekerjaan {peran}, lalu tanyakan satu hal: bantuan seperti apa yang paling terasa manfaatnya bagi {kebutuhan_ringkas}."
+    paling_lama_hari: 14
+    butuh_orang_lain: true
+    cocok_untuk: [formal, nonformal]
+    mode_c: false
+    butuh_tempat: true
+  baca_pedoman:
+    teks: "Buka dokumen resmi yang tercantum pada jalur ini dan cari bagian yang menyebut {peran}. Tulis dengan kata-katamu sendiri apa yang dikerjakan peran itu, satu hal yang membuatmu tertarik, dan satu hal yang ingin kamu pelajari."
+    paling_lama_hari: 7
+    butuh_orang_lain: false
+    cocok_untuk: [formal, nonformal, sukarela]
+    mode_c: true
+    butuh_tempat: false
+  tanya_orang_dekat:
+    teks: "Ceritakan jalur ini kepada orang tua, wali, guru BK, atau orang dewasa lain yang kamu percaya, lalu tanyakan apakah mereka mengenal {peran}. Bila ada, minta mereka menemanimu berkenalan."
+    paling_lama_hari: 7
+    butuh_orang_lain: true
+    cocok_untuk: [formal, nonformal, sukarela]
+    mode_c: true
+    butuh_tempat: false
+  daftar_kegiatan:
+    teks: "Cari tahu di {tempat} kapan kegiatan berikutnya yang melibatkan {peran}, lalu tanyakan apakah warga boleh hadir untuk melihat atau ikut membantu."
+    paling_lama_hari: 21
+    butuh_orang_lain: true
+    cocok_untuk: [nonformal, sukarela]
+    mode_c: false
+    butuh_tempat: true
+aturan_pilih: "Dewasa: nonformal/sukarela → daftar_kegiatan bila {tempat} diketahui, selain itu tanya_orang_dekat; formal → baca_pedoman; amati_dan_tanya hanya bila {tempat} diketahui dan peran memang bertugas di tempat itu. Mode (c): baca_pedoman atau tanya_orang_dekat saja. Di tiap jenis kebutuhan dan tiap mode, minimal satu jalur memakai baca_pedoman (langkah mandiri); validator menolak bila tidak ada."
+# Penerapan mesin (rangkai.py): aturan dijalankan kode. Bila suatu jenis tidak punya jalur baca_pedoman sesudah aturan,
+# jalur berperan formal didahulukan, lalu jalur yang dokumen perannya berlaku nasional, lalu urutan rantai; jalur itu dipindah ke baca_pedoman.
+# Mode (c): formal → baca_pedoman, lainnya → tanya_orang_dekat, lalu aturan minimal satu baca_pedoman yang sama.
