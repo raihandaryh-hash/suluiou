@@ -39,7 +39,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         term: "K-Shaped Recovery",
         padanan: "Pemulihan Ekonomi Berbentuk Huruf K",
         arti: "Ketika ekonomi \"pulih\", pertumbuhan tidak merata. Sektor yang sudah kuat (teknologi, keuangan, komoditas ekspor) tumbuh lebih cepat. Sektor padat karya tradisional, UMKM kecil, pekerja informal — tertinggal atau stagnan. Angka PDB nasional terlihat bagus, tapi banyak orang tidak merasakan manfaatnya.",
-        indonesia: "Gini index 0,381 (September 2024). Perkotaan 0,402. Kelas menengah menyusut dari 57,33 juta (2019) ke 47,85 juta (2024). Indonesia Gelap Februari 2025 dan protes Agustus 2025 adalah ekspresi langsung ketidakmerataan ini.",
+        indonesia: "Gini index 0,381 (September 2024). Perkotaan 0,402. Kelas menengah menyusut dari 57,33 juta (2019) ke 47,85 juta (2024).",
         konsekuensi: "Posisi di mana kamu berdiri ditentukan jalur yang dipilih sekarang. Yang masuk ke K-atas butuh kombinasi skill tertentu, jaringan, dan portofolio. Yang terjebak di K-bawah bukan karena malas — tapi tidak punya navigasi yang cukup saat memilih jalur.",
         navigasi: "Identifikasi sektor tempat kamu masuk — apakah ia ada di K-atas (teknologi, keuangan syariah, green economy, pendidikan digital) atau K-bawah (ritel manual, administrasi rutin). Bangun skill yang dibutuhkan di K-atas bahkan dari sekolah.",
         sumber: "BPS Sakernas 2024; World Bank Indonesia 2024; ISEAS Agustus 2025.",
@@ -169,13 +169,6 @@ export const glossaryCategories: GlossaryCategory[] = [
         arti: "NEET singkatan dari Not in Employment, Education, or Training: anak muda usia produktif yang sedang tidak bekerja, tidak bersekolah, dan tidak mengikuti pelatihan apa pun.",
         data: "19,44% pemuda NEET (BPS 2025). Setara 9 juta orang. Perempuan 35,77%, laki-laki 16,38%.",
         navigasi: "Bedakan antara pesimisme produktif (memahami kondisi nyata untuk keputusan lebih baik) dan pesimisme paralitik (tidak melakukan apapun). Yang pertama adalah aset, yang kedua adalah jebakan.",
-      },
-      {
-        id: "indonesia-gelap",
-        term: "Indonesia Gelap",
-        padanan: "Dark Indonesia Movement",
-        arti: "Gerakan protes Februari dan Agustus 2025. Bukan gerakan partai, tapi ekspresi frustrasi terhadap kesenjangan antara pejabat sejahtera dan pemuda yang tidak bisa menemukan pekerjaan layak.",
-        sumber: "ECPS September 2025; East Asia Forum September 2025.",
       },
       {
         id: "maybe-later-generation",
