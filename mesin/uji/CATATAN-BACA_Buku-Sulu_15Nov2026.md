@@ -105,3 +105,23 @@ Semua yang Raihan katakan 15 Nov sudah ada di memo ini. Kutipan (KEPUTUSAN, ucap
 | Jiwa jangan hilang | "Dari chat-chat saya dan Anda yang dari berbulan-bulan lalu, itu banyak sekali hidden gems … jiwa dari Sulu itu sendiri. Dan semua ini jangan sampai hilang." |
 
 Alasan pribadi Raihan (memo 1): pengalaman hijrah dan sulitnya mencari "where do I fit in this world" sambil menjaga nilai; ia ingin orang lain sampai ke titik yang sama tanpa proses sepanjang itu. Ini sumber ukuran "this is me".
+
+## 7. Putaran 2b · register pesan Raihan, tumpukan pertama (10.41 WIB)
+Sumber: `MESIN\mentah\riwayat\p1b\REGISTER_giliran-Raihan.jsonl` (3.059 pesan, 1.526.725 karakter, 16 Mar–18 Okt; 0 pesan dari lima chat terlarang). Alat pilah: `MESIN\alat\pilah_register.py`.
+Cakupan: 30 pesan (chat 8349d722, giliran 1–61, tiap pesan dipotong di 1.100 karakter) dari 3.059. Sekitar 1% jumlah pesan. SISANYA BELUM DIBACA SESI INI.
+
+Kutipan baru yang menyangkut mesin (KEPUTUSAN atau arahan, ucapan Raihan):
+| Tanggal · giliran | Kutipan |
+|---|---|
+| 2 Jun · g7 | "Ingat, jangan berpegang pada sunk-cost fallacy. Bottomline kita adalah ketersampaian." |
+| 2 Jun · g11 | "Dari Indonesia, dunia secara umum, konteksnya di ASEAN, sampai yang intim dan dekat seperti soal kepala desa, literasi Quran, dst." |
+| 3 Jun · g27 | "kita sudah banyak data, dan semua harus terjahit dengan rapi, audiens tak boleh jumbled si journeynya." |
+| 3 Jun · g39 | "saya rasa dia kurang satu hal juga: cara mempelajari skillnya. Apa berhenti di tahu saja? Kan itu tidak berguna." |
+| 3 Jun · g39 | "Landasan pemikiran saya, ide bahwa anak-anak yang menginventarisir kelebihan, kekurangan, dan interest mereka akan lebih baik dalam perkembangan karirnya." |
+| 3 Jun · g41 | "Saya sangat menghargai real feedback, karena saya butuh untuk benar, bukan sekadar merasa benar." |
+| 3 Jun · g43 | "jangan sampai ini jadi asesmen" (isian inventaris diri) |
+| 3 Jun · g45 | "di akhir tujuannya dia punya inventori sementara atas diri dia saja. Membangun self-awareness tentang diri sendiri, dan mendata interest." |
+| 4 Jun · g53 | "Jangan sampai jumbled seperti sebelumnya, hal yang masih bersifat diskusi/ajuan dari AI malah di-flag sebagai keputusan saya" |
+| 4 Jun · g55 | catatan diskusi dengan Pak Evan (pihak lain): "bukan hanya membuka mata, tapi ada tools practical yang bisa dipakai untuk berkembang … Intinya match antara passion/kesenangan, dengan opportunity yang ada. Konsep syakilah, kullun muyassarun." |
+| 4 Jun · g57 | "di Sulu ini kan saya memberikan insight soal dunia, agar mereka tahu realita dan tidak membuat rencana wishful thinking semata, juga goal Bonus Demografi 2030 sebagai urgensi, dan data-data gap fardu kifayah. Nah, itu hidupnya di mana?" |
+| 5 Jun · g61 | "Bukankah diskusi panjang kita ini adalah proses dialektika?" |
