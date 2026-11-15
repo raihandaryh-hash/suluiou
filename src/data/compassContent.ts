@@ -71,8 +71,8 @@ Pohon yang baik punya akar yang kokoh sebelum bisa menghasilkan buah yang berkel
     id: 'cabang',
     day: 'Perspektif 3',
     date: '5 Juni 2026',
-    speaker: 'Dillo Augustdi Putra, S.Psi., M.Psi., Psikolog',
-    role: 'Dosen Psikologi IOU Indonesia.',
+    speaker: 'Sulu',
+    role: 'Perspektif psikologi, dirangkum oleh Sulu.',
     tag: 'CABANG: POTENSI DAN SKILL',
     headline: 'Kamu tidak "tidak punya kelebihan".\nKamu belum menggalinya.',
     body: `Dari perspektif psikologi, kebingungan karier bukan karena kurang pintar atau kurang mau berusaha. Ini karena kurangnya self-awareness yang terstruktur — pemahaman yang akurat tentang kekuatan, kecenderungan, dan cara kamu berfungsi terbaik.
@@ -137,7 +137,6 @@ export const compassCTA = {
 export const compassSources = [
   'Evan Indrawijaya, S.E., M.B.A. — Operations Director IOU Indonesia; ex-HR Director Danone, Pfizer, Kimberly-Clark',
   'Mochammad Hilman Al Fiqhy, M.A. — Dosen IOU; materi IOU Fair 2026',
-  'Dillo Augustdi Putra, S.Psi., M.Psi., Psikolog — Dosen Psikologi IOU',
   'Dr. Evi Afifah Hurriyati, S.Si., M.Si. — Wakaprodi Psikologi IOU',
   "QS Al-Isra: 84; QS Ar-Ra'd: 11; QS Ibrahim: 24-25",
   'Krol & Bartz (2021), DOI: 10.1037/emo0000943 — Self-awareness sebagai prasyarat kausal empati',
