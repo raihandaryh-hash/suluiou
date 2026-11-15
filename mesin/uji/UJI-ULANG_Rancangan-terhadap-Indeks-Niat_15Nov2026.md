@@ -53,3 +53,34 @@ Nomor dalam kurung siku adalah nomor pesan di indeks.
 3. Bekal dari Kenali Diri adalah masukan wajib, bukan pelengkap (U8, U14).
 
 Belum diperiksa pemeriksa terpisah.
+
+## 4. Putaran kedua (16.53 WIB): topik peran AI, pengguna, tujuan, dan sebagian keterampilan, kenali diri, privasi
+
+Dibaca sesi ini: 145 pesan (peran AI, pengguna, tujuan) seluruhnya, dan 134 dari 180 pesan (keterampilan, kenali diri, privasi). Belum dibaca: 46 pesan sisanya di kelompok kedua, dan topik operasi manusia, bukti dan angka, copy, tampilan, arsitektur, cara kerja.
+
+| # | Niat Raihan | Kutipan | Keadaan di rancangan | Tindak |
+|---|---|---|---|---|
+| U21 | Fungsi AI di web, ditambah prompt yang dibagikan untuk model lebih kuat (menguatkan U5) | [880] 3 Jun: "mungkin ada fungsi di web kita, tapi juga di-share promptnya untuk dideploy sendiri dengan LLM Model yang lebih tinggi" | Belum ada | S14 naik prioritas |
+| U22 | Hasil buatan AI wajib bertanda | [441] 5 Mei: "Kalau tidak salah saya sudah minta untuk flag ketika ada hasil AI." | Sebagian (tanda pada dugaan dan temuan) | Tiap keluaran AI di S3 dan S4 membawa tanda "dibuat AI"; masuk gerbang |
+| U23 | Peta tidak boleh usang, kompas tidak boleh menyesatkan | [779] 30 Mei: "JANGAN SAMPAI PETA-NYA TIDAK UPDATE. JANGAN SAMPAI KOMPASNYA MENYESATKAN." | Hanya tahun data pada kartu | Gerbang kesegaran: kartu melewati batas umur ditandai usang dan tidak tampil sebagai keadaan sekarang |
+| U24 | Fitur versi pertama (chatbot karier, data provinsi) dirombak untuk arsitektur baru, bukan dibuang | [1060] 13 Jun: "Apa itu semua bisa di-revamp untuk arsitektur baru kita?" | Tidak ada; dua fungsi server lama saya catat sebagai "tampak tidak dipanggil" | Ajukan ke chief: fungsi lama itu calon wadah penjelajah lokal, sebelum membuat fungsi baru |
+| U25 | Riset Gemini dan dokumen OECD yang sudah ada menjadi bahan rujukan AI | [1065] 13 Jun: "saya ada data dari puluhan Gemini deep researches, dan dokumen-dokumen OECD dst. yang relevan dan bisa menjadi acuan RAG/semisalnya" | Tidak ada | Inventaris bahan itu; yang lulus pemeriksaan bukti menjadi korpus |
+| U26 | Bekal juga dari orang terdekat: pembuat formulir untuk dikirim ke orang tepercaya | [2162] 18 Agu: "ada form generator untuk mereka kirimkan ke orang-orang yang mereka percaya" | Tidak ada | Tambah ke S12 sebagai sumber bekal; lajur chief untuk pemasangan |
+| U27 | Inventori bekal lewat klik, tanpa pengukuran dan tanpa isian per keterampilan | [879] 3 Jun: "Cukup muncul pertanyaan tersebut (yang sudah punya apa saja), lalu mereka klik-klik." | Sejalan | Tetap; mesin membaca hasil klik itu |
+| U28 | Inti Sulu: memperkenalkan pada kenyataan; untuk siswa, mahasiswa, dan lebih | [2120] 30 Jul: "This \"onboarding to reality\" is the very essence of Sulu." | Tersirat | Kalimat arah; menguatkan fakta upah dan biaya hidup bersumber (S9) |
+| U29 | Tidak memosisikan diri sebagai bimbingan karier | [836] 1 Jun: "Yakin kita posisikan diri sebagai bimbingan karier? Bagaimana itu pertanggungjawabannya? Mana prinsip no overclaimnya?" | Ada (gerbang I) | Tetap |
+| U30 | Hasil tidak boleh generik seperti ramalan | [445] 24 Apr: "tidak terasa seperti ramalan populer atau zodiak yang ngawang sekali gitu lho." | Tidak ada gerbang | Gerbang kekhususan: keluaran S4 harus memuat unsur dari kartu wilayah dan bekal pengguna itu; keluaran yang sama untuk dua profil berbeda = gagal |
+| U31 | Tidak semua disampaikan sebagai paragraf | [1246] 6 Jul: "tidak semua harus disampaikan AS A PARAGRAPH, kan?" | Sejalan (kartu, pilihan, daftar cek) | Tetap; teks kartu tiga kalimat adalah batas atas |
+| U32 | Sah bukan hanya angkanya, juga relevansi dan atribusi | [847] 2 Jun: "Yg harus valid bukan hanya angka ya, tapi juga relevansi ke konteks kita, dan semua sisi lain seperti atribusi, dlsb." | Sebagian | Gerbang A ditambah: atribusi penerbit dan catatan relevansi populasi pada tiap kartu |
+| U33 | Audit yang sudah ada dulu, lalu melampaui | [1910] 25 Jul: "Kan Sulu tidak dibangun sejak awal, harus tahu apa yang sudah bagus" | Sejalan (inventaris, garis dasar) | Tetap |
+| U34 | Mengkurasi, bukan mencipta taksonomi | [1407] 8 Jul: "kita tak menciptakan taksonomi baru, tapi mengkurasi dan menerjemahkan." | **Dilanggar**: bank dugaan dan daftar topik kueri saya tulis sendiri | Ganti dengan kurasi dari sumber (pedoman kader posyandu, juknis program, klasifikasi resmi), tiap butir bersumber |
+| U35 | Pertanyaan tidak boleh membuat pengguna berkhayal | [877] 3 Jun: "jangan menanyakan sesuatu yang justru membuat mereka halu" | Sejalan (dugaan = hal yang bisa dicek) | Tetap |
+| U36 | Pembanding per fitur, bukan per platform | [1420] 9 Jul: "Kita juga harus tahu benchmark bukan per platform mungkin, tapi per fungsi/fitur Sulu." | Belum | Pindai karya terdahulu per fitur: penjelajah lokal, kartu kebutuhan, prompt siap pakai |
+| U37 | Untuk umum, bukan hanya pesantren | [961] 8 Jun: "audiens kita bukan hanya anak pesantren lho, ini harus fleksibel untuk umum juga." | Sejalan (gerbang E) | Tetap |
+| U38 | Bukan sekadar membuat nyaman | [1047] 13 Jun: "Kita juga tidak seperti psikologi populer yang bottomline-nya sekadar membuat orang feel good." | Sejalan (varian lugas) | Tetap |
+
+## 5. Yang berubah akibat putaran kedua
+
+1. Bank dugaan dan daftar topik kueri berstatus sementara sampai dikurasi dari sumber (U34). Keduanya tidak boleh sampai ke pengguna dalam bentuk sekarang.
+2. Tiga gerbang baru: kesegaran (U23), kekhususan (U30), atribusi dan relevansi (U32).
+3. Dua fungsi server lama bukan sisa, melainkan calon wadah (U24). Catatan saya sebelumnya yang menyebutnya "tampak tidak dipanggil" tetap benar sebagai fakta kode, tetapi maknanya berbeda.
