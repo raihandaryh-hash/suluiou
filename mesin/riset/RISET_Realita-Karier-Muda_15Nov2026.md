@@ -1,6 +1,6 @@
 # RISET · Realita karier anak muda Indonesia (retrieval, 15 Nov 2026)
 
-Asal: SINTESIS (hasil telusur sesi SESI-11NOV-SULU-MESIN, 15 Nov 2026 09.16–09.40 WIB). Pemicu: pesan Raihan 15 Nov 09.16.
+Asal: SINTESIS (hasil telusur sesi SESI-11NOV-SULU-MESIN pada 15 Nov 2026, sesudah pesan Raihan 09.16 WIB; berkas ditulis 09.25 WIB menurut jam sistem). Pemicu: pesan Raihan 15 Nov 09.16.
 Sifat: retrieval saja, tanpa vonis. Semua sumber di bawah adalah sumber SEKUNDER (media yang mengutip BPS, Kemnaker, BKN, Bank Dunia, LinkedIn), kecuali disebut lain. Halaman rilis BPS tidak bisa dibuka langsung dari sesi ini. Sebelum satu angka pun masuk teks yang dilihat siswa, angka itu wajib dicek ke rilis primernya dan punya baris Evidence DB berstatus Live.
 
 Status per butir: TERBACA = isi artikel dibaca sesi ini · JUDUL = hanya judul hasil cari, isi belum dibaca · TIDAK DITEMUKAN.
