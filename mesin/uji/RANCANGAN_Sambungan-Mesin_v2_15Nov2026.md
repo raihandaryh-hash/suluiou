@@ -170,3 +170,10 @@ Koreksi status: yang benar-benar punya alat ukur hanya A (bagian data), D (sebag
 6. Baru kode: jenis kartu tambahan, S14, lalu usulan perubahan S4 untuk PR chief.
 
 Catatan angka: versi 1 menulis 265 butir; sesudah perbaikan arah jarak, keluaran menjadi 234 butir.
+
+## 15. Tambahan 15 Nov 2026 17.51 WIB
+
+- KEPUTUSAN Raihan 15 Nov 17.49: "Terus untuk Pak Dillo, itu gak usah dikutip lagi atas nama Pak Dillo. Pak Evan saja yang dipertahankan. Sisanya langsung dari sisi Sulu as a platform saja." Akibat bagi mesin: tidak ada keluaran, teks kartu, prompt, atau dokumen metode mesin yang menyebut nama itu sebagai sumber; kerangka yang dipakai dirujuk ke sumber akademiknya atau disampaikan sebagai milik Sulu. Perubahan di kode tayang (7 berkas memuat nama itu pada cabang utama @96be475) adalah lajur Chief Sulu.
+- Pembagian lajur dengan Chief Sulu (Ledger 15 Nov, titipan triase): sesi mesin memegang sisi niat (indeks, setia atau tidaknya rancangan); Chief memegang kode tayang. Titik temu: tabel triase di folder BUKU dan manifest tahap berikutnya.
+- Putusan Chief yang mengikat rancangan ini: penjelajah lokal dibuat sebagai fungsi baru, bukan memakai fungsi lama; tulisan bebas pengguna di bawah 18 hanya disimpan di perangkatnya, tidak ke server dan tidak ke AI; formulir orang terdekat ditunda sampai kajian data pribadi ditandatangani; pencocokan ke program studi IOU tidak dilakukan.
+- Versi 1 dan 2 dokumen arsitektur ada di folder Sulu Build; bagian 6 ("tidak ada") keliru. Audit penuh tiga versi sedang berjalan.
