@@ -58,7 +58,7 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 
 1. **Memperkaya yang tayang, bukan mengganti.** Tidak ada fungsi atau isi tayang yang dicabut. Sebelum membuat sesuatu, cari padanannya di aplikasi dan di fitur lama. Bagian peluang di Insight diperkaya lebih dulu sebelum ada kartu peluang baru, dan angkanya ikut gerbang A. (U24, U33, V10)
 2. **Karier bukan pekerjaan; untuk siapa pun.** Dasarnya ucapan 10.11 di 0.1: "karir itu bukan job"; "bukan hanya untuk anak muda … tapi siapapun itu". (U37, V43, V48)
-3. **Layar dan isian baru adalah pengecualian yang diajukan.** Bawaannya memanen jawaban yang ada. Tiap tambahan masuk daftar di bagian 9 untuk diputuskan Raihan. (V41)
+3. **Menambah tanpa merusak, di balik saklar, tanpa membebani pengguna.** Kata pemilik: "Dengan cara yang tidak merusak build, tapi menambah. Jadi, kalau nanti tim punya resource, bisa dibuka. Kalau tidak, ya tinggal dinonaktifkan dulu" (U4, [1033] 12 Jun); "Saya ingin explorasi maksimal — bukan hanya yang sudah ada sekarang." (V41); "Tidak diminta input per skill juga, lelah sekali." ([879] 3 Jun); "pertanyaannya juga tidak seabrek langsung kan, tapi dijahit ke tiap subsesi?" ([958] 8 Jun). Jadi tambahan yang diminta pemilik dibangun, dipasang di balik saklar, dan isian baru dijahit ke alur yang ada serta boleh dilewati. Kalimat versi 1 "tidak ada layar baru dan tidak ada pertanyaan baru" dan aturan "pengecualian diajukan, bawaan tidak dipasang" adalah rumusan sesi mesin, bukan kata pemilik; keduanya dicabut 16 Nov sesudah uji balik (dua pola kata di 3.059 pesan dan pencarian chat lampau: tidak ada pesan pemilik yang memuatnya). (U4, V41)
 4. **Kebutuhan dulu, peran sebagai contoh, jalur cipta setara.** Temuan berita tidak dipakai untuk menokohkan orang. (U11, U12)
 5. **Mengkurasi, bukan mengarang.** Daftar, hal untuk dicek, topik, dan cara berlatih diambil dari sumber. (U34, V45, V49)
 6. **AI memantik dan memantulkan, tidak memvonis.** Keluaran model bertanda. (U22, V37)
@@ -358,21 +358,21 @@ Urutannya: L1 dan L2 berjalan lebih dulu. L3 sampai L16 mendahului kode. L17 men
 
 | # | Butir | Bawaan sampai dijawab | Niat |
 |---|---|---|---|
-| R1 | Perombakan dua fungsi lama: kapan dan dalam bentuk apa. Kutipan U24: "Apa itu semua bisa di-revamp untuk arsitektur baru kita?" Putusan Chief Sulu di 2.2 membiarkan keduanya tayang tanpa diubah di tonggak 2b | keduanya tetap tayang, tidak dirombak | U24 |
+| R1 | SUDAH TERJAWAB, bukan pertanyaan. U24 ("Apa itu semua bisa di-revamp untuk arsitektur baru kita?", 13 Jun) sudah dikerjakan Juni: chatbot lama hidup sebagai "Tanya Sulu". Dua fungsi lama lain tetap tayang di 2b (putusan Chief) | tidak ada | U24 |
 | R2 | Apakah prompt siap pakai (S14) ditawarkan kepada pengguna di bawah 18. Prompt itu dibawa ke model luar tanpa lapis distress | tidak ditawarkan kepada di bawah 18 | U5, V31 |
-| R3 | Apakah saringan pencarian menahan tema sensitif yang dimaksud V33 | ditahan | V33 |
+| R3 | SUDAH TERJAWAB oleh kata pemilik sendiri (V33): tema yang ia sebut satu, "Indonesia Gelap". Saringan menahan tema itu saja; tidak diperluas tanpa kata pemilik | ditahan untuk tema itu | V33 |
 | R4 | Cara tampil label keandalan "hati-hati" (T5). Semua kartu berlabel itu | kartu tidak naik ke `terbit` | U32 |
 | R5 | Apakah S9 tayang | tidak tayang | U28 |
-| R6 | Putusan atas tiap pengecualian di 9.2 | tidak dipasang | V41 |
-| R7 | Nasib tiap unsur "Gambaran arah daerahmu" | keempatnya tetap tayang | V26 |
-| R8 | Penyalaan bendera pencarian S3(b), berikut penyedia, akun, dan biayanya | bendera mati | U4, V35, V36 |
-| R9 | Persetujuan atas teks tayang yang berkurang (gerbang D), kalibrasi penilai (gerbang G), dan penilaian sesi utuh (gerbang J) | tidak ada klaim lulus | V25 |
-| R10 | Isi saringan peran (L13) dan ambang set uji konteks lokal (L15) | S4 tidak diajukan sebagai PR | V16, U18 |
+| R6 | DICABUT 16 Nov. Tiap butir 9.2 berasal dari permintaan pemilik sendiri (asal tiap butir: `EVALUASI_Arah-dan-Uji-Balik-R_16Nov2026.md` bagian 2); yang tersisa hanya syarat keselamatan dan penyalaan saklar | dibangun di balik saklar | U4, V41 |
+| R7 | BUKAN PERTANYAAN sekarang. Keempat unsur tetap tayang ("enhance, bukan break"); dinilai per unsur hanya bila kartu terbukti lebih baik | keempatnya tetap tayang | V26 |
+| R8 | Yang tersisa untuk Raihan hanya dua: akun berbayar penyedia pencarian dan penyalaan saklar di akhir. Pemilihan penyedia dikerjakan sesi mesin. Catatan: V35 ("jangan yang berbayar mahal") berasal dari chat tentang Obsidian, bukan Sulu, dan tidak lagi dipakai sebagai dasar | saklar mati | U4, V36 |
+| R9 | BUKAN PERTANYAAN di muka. Ini tinjauan Raihan di akhir tonggak: teks tayang yang berkurang (gerbang D), kalibrasi penilai (G), penilaian sesi utuh (J) | tidak ada klaim lulus | V25 |
+| R10 | DIPUTUS ATAS DELEGASI (14 Nov 09.10). Isi saringan peran disusun dari kata pemilik di V16 dan ditinjau Raihan satu kali dalam paket ACC, bukan sebagai syarat PR. Ambang set uji konteks lokal ditetapkan sesi mesin sebelum uji (U18 hanya meminta ujinya) | PR S4 boleh disiapkan | V16, U18 |
 | R11 | Apakah isian tayang pengguna di bawah 18 (teks kemampuan dan nilai di `broaden-roles`, refleksi di `generate-reflection`) disamakan dengan B6 | kode tayang tidak diubah | V42, V30 |
-| R12 | Cara pengguna di bawah 18 berbagi setoran ke orang tua bila tulisannya hanya ada di perangkat | belum ada fitur berbagi untuk di bawah 18 | V47 |
-| R13 | Lapis distress untuk tulisan pengguna di bawah 18 yang hanya ada di perangkat: tulisan itu tidak melewati lapis distress server | rujukan bantuan statis selalu tampil di layar tempat menulis | V31, V42 |
+| R12 | PINDAH ke Tonggak 2c (Proposal Diri dan persetujuan orang tua), lajur Chief | belum ada fitur berbagi untuk di bawah 18 | V47 |
+| R13 | BUKAN PERTANYAAN. Rancangan keselamatan lajur Chief: rujukan bantuan statis selalu tampil di layar tempat menulis | rujukan statis tampil | V31, V42 |
 
-Butir R1 sampai R13 belum diuji balik ke riwayat chat. Sebelum satu pun diajukan ke Raihan, tiap butir diuji dengan dua pola kata di register, pencarian chat lampau, dan Ledger.
+Uji balik 16 Nov (register 3.059 pesan, pencarian chat lampau, Ledger): R4 dan R5 sudah diputus Raihan; R1, R3 sudah terjawab; R6 dicabut; R7, R9, R13 bukan pertanyaan; R10 diputus atas delegasi; R12 pindah ke 2c. Yang benar-benar tersisa untuk Raihan: R2 dan R11 (keduanya menyangkut pengguna di bawah 18 dan keputusan pelindungan data 11 Nov, yang giliran aslinya belum dibaca sesi mesin), serta akun berbayar dan penyalaan saklar di R8. Rinci: `EVALUASI_Arah-dan-Uji-Balik-R_16Nov2026.md`.
 
 ### 9.2 Pengecualian yang diajukan (prinsip 3)
 
@@ -382,7 +382,7 @@ Butir R1 sampai R13 belum diuji balik ke riwayat chat. Sebelum satu pun diajukan
 | Tulisan untuk diri sendiri bagi di bawah 18 (S3) | teks bebas | hanya pengguna | disimpan hanya di perangkatnya, tidak ke server, tidak ke AI (B6) |
 | Kata kunci pencarian (S3(b)), dewasa | paling banyak tiga kata, huruf saja | fungsi pencarian; tidak disimpan | isian baru; tidak ditawarkan kepada di bawah 18 |
 | Minta provinsi di tempat (S1) | provinsi | aplikasi | sudah ada di profil bagi yang login |
-| Formulir orang terdekat (S12) | jawaban pihak ketiga | pengguna | data pihak ketiga; butuh pembaca bernama dan persetujuan orang itu; ditunda sampai kajian data pribadi ditandatangani; lajur Chief |
+| Formulir orang terdekat (S12) | jawaban pihak ketiga | pengguna | SUDAH DIPUTUS Raihan 12 Nov 12.45: "Bangun, tanpa simpan nomor (Rekomendasi)". Penundaan sampai kajian data pribadi ditandatangani adalah putusan Chief 15 Nov yang bertabrakan dengan keputusan itu; Chief perlu menyelaraskan atau membawa tabrakan ini ke Raihan dengan kutipannya |
 | Prompt siap pakai (S14) | tidak ada | tidak ada | disusun di perangkat pengguna; untuk di bawah 18 lihat R2 |
 | "Titikmu" (S11) | tidak ada | tidak ada | kalimat penutup |
 | Berbagi dengan orang tua (S8) | tidak ada data baru | orang tua | dengan persetujuan |
@@ -503,3 +503,11 @@ Keduanya tetap terbuka. Tiga permintaan lain di versi 1 sudah dijawab: kontrak (
 Pemeriksa ketiga (Fable, bukan penulis) memvonis v3 LULUS BERSYARAT: W1–W26 tertutup 23, sebagian 3, belum 0; tidak ada pasangan aturan yang berlawanan; 17 suntingan diminta. Ketujuh belasnya diterapkan di berkas ini: (1) catatan dan setoran di bawah 18 tunduk B6, cara berbagi menjadi R12; (2) keluaran bekal dan jurusan dipisah per usia; (3) cakupan B6 dan perilaku kode tayang, R11; (4) S3(b) tahap pertama tanpa model bahasa, gerbang O dan baris S15 disesuaikan; (5) gerbang Q mencakup 4.1; (6) arti "di bawah 18" dan saklar mode (c); (7) status gerbang P; (8) kata kunci pencarian dewasa sebagai pengecualian dan baris data, guna isian gejala dewasa; (9) "daftar tertutup hasil kurasi"; (10) asal W1–W26; (11) L19 dipecah, L21a, L21b, L21c, alat L16; (12) penetap ambang dan cakupan gerbang C; (13) tiga kalimat v2.1 dipulihkan; (14) frasa gerbang G tidak lagi bertanda kutip; (15) `iou_program_relevance` di gerbang R; (16) R13; (17) baris S9 dan S10 di pemetaan kontrak.
 
 Belum diperiksa ulang sesudah 17 suntingan ini.
+
+### Perubahan 16 Nov 2026 (v3.1, sesudah uji balik R1–R13 dan evaluasi arah)
+
+1. Prinsip 3 diganti dengan kata pemilik; aturan "pengecualian diajukan, bawaan tidak dipasang" dicabut.
+2. Status R1–R13 diisi menurut uji balik; R6 dicabut.
+3. Baris formulir orang terdekat di 9.2 memuat keputusan Raihan 12 Nov 12.45.
+4. Batas yang baru diketahui: 91 niat berasal dari pesan sampai 18 Okt 2026. Ada 53 baris keputusan Raihan untuk Sulu di Ledger (2 sampai 15 Nov 2026) yang belum diuji satu per satu terhadap dokumen ini. Dua sudah ditemukan tidak terbawa: keputusan 12 Nov 12.45 tentang formulir orang terdekat, dan kalimat pemberdayaan pemilik pada hari yang sama ("Sulu instills and helps find purpose, the \"spark\" that ignites life").
+5. Belum diperiksa ulang pemeriksa terpisah.
