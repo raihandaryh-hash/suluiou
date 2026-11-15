@@ -56,3 +56,25 @@ Gerbang pengganti S9 (ambang ditetapkan sebelum uji):
 2. S3b: adakah keputusan Raihan soal angka gaji di luar Buku?
 3. Bab atau ujaran mana yang wajib saya baca utuh sebelum arah ini dikunci?
 4. Narasi awal dan peta keterampilan (permintaan Raihan 15 Nov 09.16): dikerjakan sesi ini di cabang, atau jalur Chief?
+
+## E. Tambahan 10.23 WIB · konteks dari Raihan 15 Nov 10.23 (KEPUTUSAN, kutipan sebagian)
+
+> "soal kepala desa itu kan ya memang problemnya adalah mayoritas kepala desa itu cuman lulusan SMA … anak-anak kuliah itu mereka semua cuma pengen ke kota … sedangkan pekerjaan di kota juga udah semakin tertutup pintunya"
+> "ada dua sisi … pertama itu orang itu pengen mencari tahu dia itu sebenarnya potensinya apa, callingnya dia tuh apa … setelah dia tahu juga kan dengan keadaan di Indonesia ini dia terbentur … mereka masih memakai peta lama … peta dari orang tua mereka"
+> "as local as possible itu bukan sekedar kartu-kartu yang kita punya, tapi juga memang ada mesin AI yang itu untuk explore … sampai dia di daerah mananya, di lingkungan seperti apa, itu mereka bisa dibantu untuk mengeksplor where to start"
+> "anxiety itu karena ketidakjelasan akan masa depan … mereka dituntut untuk segera berpenghasilan keluarganya, makanya kita bantu kan mereka jalan yang bisa mensintesakan atau mengintegrasikan itu semua … mengejar passionnya … dapat penghasilan … berdampak, bermanfaat"
+
+Niat tambahan:
+| ID | Niat |
+|---|---|
+| N14 | Dua sisi yang harus digabung: sisi diri (potensi, panggilan) dan sisi medan (keadaan Indonesia sekarang, bukan peta lama orang tua) |
+| N15 | Keluaran = jalan yang menyatukan tiga hal: yang ia memang bagus di sana, penghasilan (termasuk tekanan segera berpenghasilan), dan manfaat |
+| N16 | Selokal mungkin berarti mesin AI penjelajah atas konteks yang dimasukkan pengguna sampai tingkat lingkungan, bukan hanya kartu; tujuannya "where to start" |
+| N17 | Sasaran psikologis: kecemasan akibat ketidakjelasan masa depan; ukurannya kejelasan langkah awal |
+| N18 | Peran kepemimpinan lokal (mis. kepala desa) adalah jalan yang sah dan dibutuhkan, dalam konteks masalah lokal dan arus ke kota |
+
+Akibat pada bagian B dan C (SINTESIS):
+- Usul "penolak otomatis jabatan struktural" DICABUT. Yang salah pada keluaran lama bukan jenis jabatannya, tetapi peran yang disodorkan tanpa konteks diri dan tanpa konteks tempat. Gerbang C.4 diganti: tiap peran yang muncul harus terikat pada masalah lokal yang dipilih pengguna dan pada bekal yang ia tulis sendiri.
+- S7 (kartu) tidak cukup untuk N16: perlu penjelajah AI di atas kartu. Buku b.135 mencatat urutan skema → statis → AI; mesin baru sampai statis.
+- Lembar fakta (butir 117) bergeser dari "fakta per profesi" ke "peta baru": apa yang berubah dibanding zaman orang tua, per bidang dan wilayah, bersumber.
+- Gerbang C ditambah: sesi berakhir dengan langkah awal yang jelas dan satu cara berpenghasilan yang realistis dalam jangka dekat, tanpa janji.
