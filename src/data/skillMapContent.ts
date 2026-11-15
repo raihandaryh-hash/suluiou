@@ -122,7 +122,7 @@ export const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: s
   { popular: "Soft skills", layer: "Layer 0 + Layer 1", nodes: [
     { label: "Sikap & Disposisi", id: null, note: "(seluruh Layer 0)" },
     { label: "Kapasitas Manusia", id: null, note: "(seluruh Layer 1)" },
-  ], primary: false },
+  ], primary: false, note: "Soft skills itu istilah populer. Di kajian akademis, isinya biasa disebut sikap dan disposisi, serta kapasitas manusia." },
   { popular: "Berpikir Kritis / Critical Thinking", layer: "Layer 1", nodes: [
     { label: "Berpikir Analitis", id: "berpikir-analitis" },
     { label: "Berpikir Sistemik", id: "berpikir-sistemik" },
