@@ -9,8 +9,15 @@ Aturan pakai: SEBELUM satu pertanyaan atau "keputusan baru" sampai ke Raihan, ja
 dengan kata kunci butir itu. Keluaran dilampirkan di samping butirnya. Tanpa keluaran ini,
 butir tidak boleh diberi label "belum pernah diputuskan".
 
-Batas: hanya sejauh berkas ekspor (lihat `rentang`). Di luar rentang, pakai indeks niat
-(pesan Raihan saja) dan nyatakan batasnya.
+URUTAN SUMBER riwayat chat (ATURAN, lahir dari teguran Raihan 15 Nov 2026 20.56 dan 20.59):
+  1. Pencarian chat lampau bawaan sesi (cari, lalu buka giliran di sekitar hasil): dua sisi,
+     semua chat, sampai hari ini. INI JALUR PERTAMA dan tidak butuh apa pun dari Raihan.
+  2. Register pesan Raihan (MESIN\mentah\riwayat\p1b): untuk pencarian pola massal.
+  3. Berkas ekspor dua sisi (alat ini): pola massal atas jawaban asisten, sejauh `rentang`.
+  4. Ledger: keputusan yang sudah dicatat.
+Dilarang menulis "tidak ada", "tidak bisa dibaca", atau meminta ekspor kepada Raihan sebelum
+keempat jalur dicoba dan hasilnya dicetak: [jalur dicoba: 1 … · 2 … · 3 … · 4 …].
+Satu pola kata tidak cukup: paling sedikit dua pola per butir, dan giliran yang kena dibaca utuh.
 
   bangun  <ekspor.zip|conversations.json> <keluar.jsonl>
   rentang <jsonl>
