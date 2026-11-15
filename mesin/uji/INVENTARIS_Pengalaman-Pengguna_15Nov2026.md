@@ -22,3 +22,20 @@ Cara: peramban di laptop Raihan, lebar 1024, hanya membaca dan menekan tombol "L
 
 ## Yang dibutuhkan untuk menyelesaikan inventaris
 Raihan masuk akun di panel peramban (atau menyediakan akun uji), dan mengizinkan sesi ini mengisi isian dengan data uji. Isian itu tersimpan di basis data yang tayang, jadi perlu izinnya lebih dulu.
+
+## Tambahan 11.56 WIB · jalur berakun (akun Raihan, jalur mahasiswa IOU; hanya membaca)
+Raihan masuk akun 15 Nov 10.47 dan memberi izin 10.50. Akun sudah berisi jawaban lama ("4 DARI 4 DOMAIN SELESAI"; sebagian isian uji seperti "asd"), jadi tidak ada isian yang ditimpa dan tidak ada tombol AI yang ditekan.
+
+| Urutan | Halaman | Yang terbaca | Catatan untuk mesin |
+|---|---|---|---|
+| 6 | Kenali Dirimu | Syukur QS Ibrāhīm 7; empat domain (Fondasi Keimanan, Karakter dan Keterampilan Latent, Modal Relasional, Adaptabilitas Karier); "Yang Belum Tertangkap"; "Catatan Perjalananmu"; "Cermin dari Luar"; tombol "Bagikan ke Orang Tua / Guru" | Sisi diri sudah kaya. Ini bekal yang harus sampai ke mesin |
+| 7 | Kenali Kompetensimu | QS al-Qaṣaṣ 26 (al-Qawiyy, al-Amīn); tujuh kompetensi, tiga tingkat ("Belum banyak saya latih", "Sedang saya kembangkan", "Saya cukup percaya diri di sini"); refleksi pilihan | Tujuh kompetensi di sini dan 25 simpul Peta Bekal adalah dua daftar yang berbeda |
+| 8 | Jalan Bakti, 4 langkah | Pembuka: "Karier terbaik bukan sekadar yang bergengsi atau bergaji besar, melainkan titik temu antara siapa dirimu dan apa yang dunia butuhkan." Doa Nabi Sulaimān (QS an-Naml 19). Dengar: kebutuhan umat manusia (SDG), "Gambaran arah daerahmu — Sumatera Selatan", Tujuh Jalan Bakti, "Siapa yang Ingin Kamu Tolong?" (delapan asnaf, empat wajah PPKS). Pahami: "Lihat Lebih Dekat", tombol "Nyalakan peran yang belum terlihat". Desain: "Rancang Langkah Pertamamu" dengan empat payung, "Minta dijembatani". Penutup: "Panen Kecilmu" | Kerangka mesin sudah tayang seluruhnya. "Gambaran arah daerahmu" berisi label umum tanpa sumber dan menulis sendiri "bukan data resmi atau vonis": di sinilah kartu kebutuhan bersumber seharusnya masuk |
+| 9 | Sintesis | "Titik Temu" empat hal: minat, kemampuan, nilai, kebutuhan nyata. "Yang Mulai Terbentuk", "Tenunan" (tombol "Tenun ulang"), "Satu Pertanyaan Terakhir" | Minat kosong menunggu asesmen. Tenunan memantulkan isian apa adanya, termasuk isian uji |
+| 10 | Rencana Aksi | QS al-Qaṣaṣ 22; "sandaran utamamu tetap kepada-Nya, bukan kepada dirimu sendiri atau angka-angka itu"; Rumus Karier; Arah, Tujuan, Komitmen | Nada penyajian data sudah ditetapkan di sini |
+| 11 | Ringkasan | "Surat untukmu, dan siapa pun yang kamu percaya"; "Pintu-pintu yang nyata untukmu"; Cetak / Simpan PDF | Bakal Proposal Diri |
+
+Temuan tambahan:
+7. Tiap halaman berakun baru tampil sesudah ±8 detik; 3 detik pertama hanya bilah langkah.
+8. Kalimat "Lihat Lebih Dekat" sudah merumuskan tugas lapis peran dengan benar: "Bukan soal medan mana yang paling benar, melainkan peran mana yang paling pas dengan bekalmu."
+9. Belum diperiksa: keluaran tombol "Nyalakan peran yang belum terlihat", "Tanya Sulu", dan "Tenun ulang" (memanggil AI); tampilan ponsel; rupa visual; jalur siswa (akun ini jalur mahasiswa IOU).
