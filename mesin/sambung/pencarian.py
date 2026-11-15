@@ -15,6 +15,10 @@ MAKS = 5
 TOPIK = {"kemiskinan-kabkota": "kemiskinan bantuan sosial", "pengangguran-terbuka-kabkota": "pengangguran lapangan kerja pelatihan",
          "stunting-balita": "stunting posyandu gizi balita", "penduduk-tanpa-jaminan-kesehatan": "jaminan kesehatan BPJS kepesertaan"}
 TINGKAT = {1: re.compile(r"(^|\.)go\.id$"), 2: re.compile(r"(^|\.)(antaranews\.com|rri\.co\.id|kompas\.com|kompas\.id|tempo\.co|detik\.com|republika\.co\.id|tribunnews\.com|medcom\.id)$")}
+# Saringan wajib (jawaban Chief Sulu 15 Nov 14.08): butir dibuang utuh bila judul atau cuplikannya menyangkut kasus orang pribadi
+# atau kriminal dan kekerasan. Daftar ini lantai pertama; saringan nama orang pribadi oleh model ada di sisi aplikasi.
+KASUS = re.compile(r"(?i)\b(korban|tersangka|terdakwa|pelaku|tewas|meninggal|dibunuh|pembunuhan|bunuh diri|pemerkosaan|perkosa\w*|cabul\w*|asusila|pelecehan|kekerasan|penganiayaan|aniaya|ditangkap|dibekuk|narkoba|pencurian|begal|tawuran|mayat|jenazah|gantung diri|kdrt)\b")
+KALIMAT_KOSONG = "Belum ada berita yang cocok."
 KATA = re.compile(r"^[A-Za-z]{3,20}$")
 
 def kueri(wilayah_nama, jenis, kata_pengguna=(), mode_ai="dewasa", tahun=None):
@@ -45,6 +49,9 @@ def periksa_temuan(t, hari_ini=None):
         s.append("tanpa tanggal terbit")
     if t.get("tanda") != "dari_pencarian_perlu_dicek": s.append("tanpa tanda")
     if t.get("ringkasan"): s.append("ringkasan isi tidak diizinkan")
+    for bagian in ("judul", "cuplikan"):
+        m = KASUS.search(t.get(bagian) or "")
+        if m: s.append(f"menyangkut kasus atau kekerasan: '{m.group(0)}'"); break
     if url.lower().endswith(".pdf") or "/article/download/" in url: s.append("bukan berita (berkas jurnal)")
     return s
 
@@ -52,3 +59,10 @@ def saring(daftar, hari_ini=None):
     lolos = [dict(t, tingkat_sumber=tingkat(t["url"])) for t in daftar if not periksa_temuan(t, hari_ini)]
     lolos.sort(key=lambda t: (t["tingkat_sumber"], -datetime.date.fromisoformat(t["tanggal_terbit"]).toordinal()))
     return lolos[:MAKS]
+
+def tampilan(daftar, hari_ini=None):
+    """Yang sampai ke layar: butir lolos tanpa cuplikan, atau kalimat netral bila nol. Tidak disimpan per pengguna."""
+    lolos = saring(daftar, hari_ini)
+    return {"skema": "temuan-berita/1", "disimpan": False, "masuk_proposal_diri": False,
+            "butir": [{k: t[k] for k in ("judul", "url", "penerbit", "tanggal_terbit", "tanda", "tingkat_sumber")} for t in lolos],
+            "kosong": None if lolos else KALIMAT_KOSONG}

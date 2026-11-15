@@ -148,3 +148,20 @@ Uji coba nyata sesi ini (dua pencarian, 15 Nov 14.02):
 - Kueri berbentuk "berita stunting Garut November 2026": 15 dari 19 hasil adalah berita atau laman pemerintah (jabarprov.go.id, Antara Jabar, RRI Bandung, detik, medcom), 4 jurnal. Sebagian jelas berita lama (judul menyebut 2024). Tanggal terbit tidak ada di hasil pencarian, jadi halaman harus dibuka dulu untuk mengambil tanggal sebelum temuan boleh tampil.
 
 Yang belum ada: pemanggilan pencarian dan pembacaan tanggal di sisi aplikasi (lajur chief); biaya per pencarian; uji pada kabupaten kecil di luar Jawa, tempat berita lokal mungkin tipis; penanganan berita yang menyebut nama orang pribadi.
+
+## 11. Pencarian sudah diminta Raihan sejak April; jawaban chief soal lapis pencarian (15 Nov 14.07 WIB)
+
+Raihan 15 Nov 14.06: "Laah, ini bukannya pernah dibahas dahulu kala?" Benar. Pencarian atas arsip pesan beliau (skrip `mesin/alat/cari_register.py`, pola pencarian web × daerah) menemukan empat ucapan:
+
+| Tanggal | Kutipan |
+|---|---|
+| 24 Apr 2026 17.46 | "Apa tak terpikir untuk memanfaatkan data luas yang bisa diakses Gemini? Untuk memanfaatkan strength-nya di akses ke data Google yang bisa fetch virtually anything tentang suatu daerah/provinsi? Juga lainnya seperti problem sosial, arah pembangunan yang bisa di-match ke profil, dlsb.?" |
+| 5 Jun 2026 20.20 | "Jadi, SDGs itu kan hal yg \"konstan\" sbg zeitgeist masalah zaman ini ya. Lalu baru mengerucut ke yang sifatnya dinamis yg di-call via prompting untuk di-web search oleh AI." |
+| 6 Jun 2026 10.56 | "Kemudian, baru ke hyperlocal di Provinsi atau Kota, di sini ada AI prompting, mereka isi dan nanti muncul data dari web search dan RAG." |
+| 12 Jun 2026 13.31 | "Hanya saja, bagaimana desain AI-nya agar benar-benar data yang di-fetch itu nanti kaya, up-to-date, dan relevan." |
+
+Kesalahan sesi ini: register niat yang saya susun pagi ini tidak memuat keempatnya, dan TEMUAN §3 mencap rancangan itu usang. Pencegah mekanis: aturan di kepala `cari_register.py` (tidak ada cap "usang" atau "baru" tanpa keluaran pencarian arsip dikutip).
+
+Hal baru dari kutipan lama yang belum ada di rancangan: pencarian juga untuk **arah pembangunan** daerah dan **dicocokkan ke profil** (24 Apr), serta digabung dengan **RAG** atas data yang sudah dimiliki (6 Jun). Topik kueri sekarang baru empat kebutuhan; arah pembangunan belum ada.
+
+Jawaban Chief Sulu 15 Nov 14.08 (SINTESIS chief): setuju dua jalur; temuan tidak masuk Proposal Diri sebagai fakta dan tidak disimpan per pengguna; fungsi tepi baru di Tonggak 2b dengan bendera mati sampai Raihan menyalakan; penyedia pencarian belum diputus (butuh akun dan biaya, keputusan Raihan); pencarian tetap terbuka untuk di bawah 18 dari wilayah dan kebutuhan pilihan; butir yang menyangkut kasus orang pribadi, kriminal, atau kekerasan dibuang utuh; bila nol butir, tampil "Belum ada berita yang cocok". Saringan kata kasus, kalimat kosong, dan bendera tidak-disimpan sudah masuk `pencarian.py` dan ujinya.
