@@ -84,3 +84,89 @@ Pembanding per fitur (penjelajah lokal, kartu, prompt siap pakai) dipindai sebel
 ## 6. Batas
 
 Topik "cara kerja" (1.422 pesan) hanya dipanen sebagai lima belas prinsip. Arsip berhenti 18 Okt 2026. Versi 1 dan 2 dokumen arsitektur yang utuh tidak ada. Notion dan tampilan nyata di layar tidak diperiksa. Belum diperiksa pemeriksa terpisah.
+
+---
+
+# Perbaikan sesudah pemeriksa terpisah (versi 2.1, 15 Nov 2026 17.24 WIB) · SINTESIS
+
+Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan ketiga uji. Vonis: LAYAK DENGAN PERBAIKAN. Hitungannya: 69 niat setia, 12 melemah, 9 hanya ditempeli nomor, 1 salah tempat; 5 temuan berat. Intinya: versi 2 sendiri mengencerkan versi 1 dan sebagian niat. Laporan utuh: `TINJAUAN_Pemeriksa_Rancangan-v2_15Nov2026.md`. Bagian 7–14 di bawah ini mengikat; bila berbeda dengan bagian 1–6, bagian ini yang berlaku.
+
+## 7. Batas dari versi 1 yang tetap mengikat (tidak dicabut)
+
+1. Kode tayang (`src/`, `supabase/`) hanya lewat PR Chief Sulu. Mesin menulis isi dan data di `mesin/`.
+2. Mesin tidak menulis `province_contexts`. Isi lapis provinsi keluar sebagai `mesin/sambung/keluaran/lapis_provinsi.json`. Slot provinsi Peta Medan punya gerbang keras: skema data provinsi harus dapat dipertanggungjawabkan dulu.
+3. Dua jalur tidak dicampur: bukti (angka kartu; hanya bukti berstatus Live) dan temuan pencarian. Temuan tidak pernah menjadi bukti, tidak disimpan per pengguna, tidak masuk Proposal Diri sebagai fakta, dan **bukan bahan S4** (kata "temuan" di baris S4 bagian 2 dicabut).
+4. Pagar pencarian: kueri hanya dari nama wilayah resmi, topik dari daftar kurasi, paling banyak tiga kata kunci huruf saja (ditolak untuk di bawah 18); temuan wajib https, berpenerbit, bertanggal, paling lama 24 bulan, tanpa ringkasan karangan, paling banyak lima; kasus orang pribadi, kriminal, dan kekerasan dibuang; nol butir menampilkan kalimat netral lalu menawarkan S14.
+5. Tiap pintu AI baru melewati lapis distress yang tayang sebelum model dipanggil; fungsi baru lahir dengan bendera mati dan hanya dinyalakan Raihan.
+6. Fakta kode: S4 hari ini menyapa "siswa SMA/MA", meminta "peran atau jabatan NYATA", dan untuk di bawah 18 mengosongkan keterampilan dan nilai sebelum ke model.
+
+## 8. Yang tetap tayang (kolom versi 1 yang terhapus, dipulihkan)
+
+Tujuh Jalan Bakti, SDG, Lensa Kepedulian; empat unsur "Gambaran arah daerahmu" (nasibnya per unsur diputuskan Raihan); isi "Lihat Lebih Dekat"; dua daftar keterampilan (7 dan 25) tidak digabung dan tidak diubah; empat payung langkah dan "Minta dijembatani"; Sintesis tanpa AI baru; Ringkasan tanpa label atau skor, surat dan cetak tetap.
+
+## 9. S4 ditulis jujur
+
+Wadah dan nama "Nyalakan peran yang belum terlihat" tetap. Yang **berubah lewat PR chief**: sapaan (siapa pun, bukan hanya siswa), aturan "jabatan nyata" (ditambah jalur cipta), masukan (kartu, minat, nilai, kemampuan), dan skema keluaran (dasar pencocokan, bekal yang belum ada beserta jalan keluar). Untuk pengguna di bawah 18, masukan ke model mengikuti kode tayang: tanpa keterampilan, nilai, dan teks bebas; pencocokan untuk mereka dikerjakan di luar model dari pilihan terstruktur.
+
+## 10. Per sambungan: apa yang dikirim ke model
+
+| Sambungan | Dewasa | Di bawah 18 |
+|---|---|---|
+| S3 (a) hal untuk dicek | tidak ada model | tidak ada model |
+| S3 (b) pencarian | wilayah, topik, ≤3 kata kunci | wilayah dan topik pilihan saja |
+| S3 isian gejala | teks disamarkan otomatis | pilihan gejala terstruktur dari kartu; tulisan bebas tidak dikirim |
+| S4 | medan, siapa, provinsi, kartu, minat, nilai, kemampuan (disamarkan) | medan, siapa, provinsi, kartu |
+| S14 | disusun tanpa model | disusun tanpa model, tanpa teks bebas |
+
+## 11. Daftar pengecualian yang diajukan kepada Raihan (prinsip 2)
+
+| Tambahan | Data yang dikumpulkan | Pembaca | Catatan |
+|---|---|---|---|
+| Isian gejala setempat (S3) | teks pendek | hanya pengguna; tidak disimpan bawaan | jawaban yang ada dipanen dulu |
+| Tulisan untuk diri sendiri bagi di bawah 18 (S3) | teks bebas anak | hanya pengguna | **penyimpanan baru data anak; butuh putusan Raihan dan telaah pelindungan data oleh chief; bawaan: tidak disimpan** |
+| Minta provinsi di tempat (S1) | provinsi | aplikasi | sudah ada di profil bagi yang login |
+| Formulir orang terdekat (S12) | jawaban pihak ketiga | pengguna | **data pihak ketiga; butuh pembaca bernama dan persetujuan; lajur chief** |
+| Prompt siap pakai (S14) | tidak ada | — | disusun di perangkat pengguna |
+| "Titikmu" (S11) | tidak ada | — | kalimat penutup |
+| Berbagi dengan orang tua (S8) | — | orang tua | dengan persetujuan |
+| Halaman metode (S16) | tidak ada | publik | layar baru |
+
+## 12. Niat yang melemah atau hanya ditempeli nomor, kini ditulis isinya
+
+- **U3, U8:** bekal dari Kenali Diri **wajib** menjadi masukan S4 dan penyusun S14; topik pencarian mencakup masalah sosial, arah pembangunan, dan program. Pencocokan ke profil dikerjakan sesudah pencarian, di sisi aplikasi, bukan dengan memasukkan profil ke kueri.
+- **U4:** lapis pencarian bisa dimatikan tanpa merusak; bawaan mati.
+- **U11:** temuan berita tidak dipakai untuk menokohkan orang.
+- **U18:** set uji tetap "kemampuan model memberi konteks lokal" per provinsi.
+- **U20, V2, V46:** contoh peran terikat bekal jurusan; data keterampilan yang kurang dan berlebih pasokan menjadi bahan S4, bersumber.
+- **U22:** gerbang O: 100% keluaran model di S3 dan S4 bertanda "dibuat AI".
+- **U28:** prinsip 10: memperkenalkan pada kenyataan adalah inti; S9 mengikutinya.
+- **U30:** gerbang L diperketat: keluaran wajib memuat unsur dari kartu wilayah itu dan dari bekal pengguna itu.
+- **U31:** teks kartu paling banyak tiga kalimat.
+- **V3, V7:** jenis kartu menyertakan deprivasi multidimensi, daerah rawan, dan kemiskinan kota bila ada sumbernya; jenis kebutuhan dipetakan ke 8 ashnaf dan kelompok pemerlu pelayanan yang sudah tayang.
+- **V4:** cara mengecek (S3) dan langkah (S6) diarahkan ke desa, RT, RW.
+- **V8:** isu sesudah 2030 berada di lapis dunia, sebelum mengerucut ke provinsi (bukan di S11).
+- **V17:** pertemuan bekal dan kebutuhan tanpa dasar tertulis tidak tampil, termasuk di "Titikmu".
+- **V18:** daftar variabel yang masuk prompt S3 dan S4 beserta asalnya ditulis dan diuji silang sebelum dikunci.
+- **V20, V21, V23, V24:** lugas bukan berarti dingin. Kalimat mengikuti cara lembaga sumber membahasakan angka, tanpa melebih-lebihkan dan tanpa menakut-nakuti; tampilan tidak dibuka dengan deretan angka buruk; peluang tampil berdampingan; tidak ada keluaran yang melemahkan. Dasar "lugas": KEPUTUSAN Raihan 15 Nov 13.49 di Ledger ("Varian A, lugas is better").
+- **V33:** diajukan ke Raihan: apakah saringan pencarian juga menahan tema sensitif yang beliau sebut.
+- **V39:** saat mengurasi dokumen arah pembangunan, catat yang ditekankan dokumen tetapi tidak ada di daftar.
+- **V50:** peta titik sentuh sepanjang Jalan Bakti masuk urutan kerja, sebelum S3 dikunci.
+
+Aturan pemenang antarprinsip: nama indikator dan kelompok memakai istilah sumber; daftar kata yang dihindari berlaku pada kalimat buatan Sulu; istilah dapur tidak pernah tampil; "cari padanan dulu" menang atas "buat kartu baru" (bagian peluang Insight diperkaya, dan angkanya ikut gerbang A).
+
+## 13. Gerbang: tambahan dan kekurangan alat ukur
+
+Ditambah: **J** (dari UJI Setia Niat: rumusan dalam kata pengguna; keberagaman gagasan; Raihan menilai sesi utuh; jabatan berhonor program tidak dijadikan tujuan), **O** tanda keluaran AI, **P** temuan pencarian (alat: `uji_pencarian.py`, lulus), **Q** keselamatan dan privasi (distress, saklar mati, penyamaran, aturan di bawah 18), **R** larangan (kerangka maqashid, jualan IOU).
+
+Koreksi status: yang benar-benar punya alat ukur hanya A (bagian data), D (sebagian), P. Gerbang B "bersumber" belum terukur karena butir dugaan belum punya bidang sumber. Gerbang D belum menghitung komponen dan render; angka "6 bidang provinsi tampil" keliru, yang dirender 5 (`iou_program_relevance` hanya ada di deklarasi tipe). Kekurangan tiap gerbang lain tertulis di bagian E laporan pemeriksa dan menjadi daftar kerja.
+
+## 14. Urutan kerja (mengganti bagian 5)
+
+1. Jalur kritis S1: teks kartu varian A sudah ada; kartu baru boleh tampil sesudah bukti berstatus Live. Hari ini 0 dari 234 butir boleh tampil. Tanpa ini lapis provinsi kosong.
+2. Perbaiki `garis_dasar.py` (komponen, render, angka 5).
+3. Pemetaan ulang S1–S16 ke kontrak `jalur-jelajah/1` dan skema kartu, lalu ajukan ke chief bila perlu versi baru.
+4. Kurasi sumber untuk S3(a) dan topik kueri; inventaris bagian peluang dan lapis dunia; inventaris riset Gemini dan OECD; baca pesan [1303] dan transkrip yang ditunjuk V53; peta titik sentuh (V50).
+5. Alat ukur gerbang, mulai dari C, L, O, Q.
+6. Baru kode: jenis kartu tambahan, S14, lalu usulan perubahan S4 untuk PR chief.
+
+Catatan angka: versi 1 menulis 265 butir; sesudah perbaikan arah jarak, keluaran menjadi 234 butir.
