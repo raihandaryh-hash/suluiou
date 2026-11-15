@@ -1120,7 +1120,7 @@ const Insight = () => {
               <div className="flex gap-3 items-start rounded-xl border border-teal-200 bg-teal-50/60 px-4 py-3">
                 <span className="font-heading text-sm font-bold text-teal-800 shrink-0 mt-0.5">L0&nbsp;+&nbsp;L1</span>
                 <p className="text-sm text-foreground/80 leading-relaxed">
-                  <strong className="text-foreground">Wajib dimiliki semua orang.</strong> Sikap dasar dan kapasitas manusiawi, inilah human skills yang membuatmu tetap dibutuhkan justru ketika AI ada di mana-mana. Tujuh keterampilan inti yang disebut Pak Dillo hidup di sini: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan termasuk di antaranya.
+                  <strong className="text-foreground">Wajib dimiliki semua orang.</strong> Sikap dasar dan kapasitas manusiawi, inilah human skills yang membuatmu tetap dibutuhkan justru ketika AI ada di mana-mana. Tujuh keterampilan inti hidup di sini: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan termasuk di antaranya.
                 </p>
               </div>
               <div className="flex gap-3 items-start rounded-xl border border-blue-200 bg-blue-50/60 px-4 py-3">
