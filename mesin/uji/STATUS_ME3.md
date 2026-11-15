@@ -209,3 +209,12 @@ Putusan: `uji/KEPUTUSAN_Tinjauan-Fable_14Nov2026.md`. Klaim "G3.1 LULUS BERSYARA
 - Regex ketat dilaporkan, tidak menentukan: TPR 68/160, TNR 147/160 (salah tolak di syarat hukum 4 dan pengecoh 9-11). Gabungan regex ∪ juri menurunkan TNR ke 145/160 (LB 0,851): regex ketat tidak dipakai sebagai penolak otomatis teks peran; ia tetap lapis 1 untuk teks kartu dan penanda tinjau.
 - Batasan: penulis set, juri, dan label satu keluarga model; label set adalah label penulis tanpa adjudikasi manusia; tiga lolosan intensitas ("mengkhawatirkan", "memprihatinkan") berbatasan dengan mode vonis. Teks produksi (H2, SU-2c) belum diuji; uji itu jalan begitu penulis produksi menulis teks kartu dan jalur.
 - Bagian nada (G3.4 lapis 2 untuk jalur: vonis, sebab, defisit) belum; kerangka yang sama dipakai berikutnya.
+
+## Penilaian Raihan atas usulan peran (butir 115) · 15 Nov 2026 09.06 WIB (diisi), dibaca 09.07
+- Terisi 6 dari 25 butir: pelaksana ragu 4 (2 kosong); terbuka ragu 2, tidak 4. Tidak satu pun "ya".
+- Catatan verbatim:
+  - b01: "Apa coba maksudnya staf perluasan peserta? Gak lazim banget. Kartu-kartu yang muncul di engine Sulu sebelumnya lebih riil daripada ini. Katakanlah memang ada pekerjaan bernama "Staf Perluasan Peserta" ini, apakah dia sustainable? Apakah ketika programnya selesai, role ini masih ada? Instead of "designer", atau "pemberdayaan masyarakat", atau "konselor pendidikan remaja" dan semisalnya?"
+  - b03: "Ini, role-role seperti ini, memang gajinya berapa sih? Ratusan ribu bukannya, semisal ibu-ibu PKK begitu? Atau mentok-mentok sejutaan. Apa menarik? Aneh-aneh saja. Lagian, apa ada orang yang mau diarahkan cita-citanya untuk menjadi TKSK? Sesempit itu?"
+  - b04: "LOL, masa kepala dinas? OMG, please. Realistislah. Memang kepala dinas itu jabatan yang bisa Anda pilih sendiri?"
+  - Pesan chat 09.07: "Itu sudah saya isi sedikit, ini jelek banget ya."
+- Arti (SINTESIS): ukuran G3.2 selama ini menilai "orang yang mengerjakan tugas", bukan "karier yang layak dituju". Lapis peran bersumber peraturan program menghasilkan jabatan program, jabatan struktural, dan peran berhonor kecil. Kesepakatan Fable dengan Raihan pada 6 butir ini: Fable memberi "benar" pada sebagian besar; Raihan tidak memberi "ya" pada satu pun.
