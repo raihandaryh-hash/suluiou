@@ -84,7 +84,7 @@ export const indonesiaSection = {
       artinya: {
         siswa: 'Satu dari lima pemuda seusiamu saat ini belum terlibat dalam pendidikan, pekerjaan, atau pelatihan apa pun.',
         orangtua: 'Ini termasuk anak-anak dari keluarga yang juga berencana dengan baik.',
-        gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apapun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
+        gurubk: 'Satu dari lima siswa usia 16-30 sudah terputus dari jalur apa pun. Data ini pembuka percakapan yang lebih jujur dari sekadar "kamu mau jadi apa?"',
       } as Record<ContentPersona, string>,
       dampak: [
         'Hilangnya bonus demografi: Potensi tenaga kerja besar terbuang, sehingga pertumbuhan ekonomi melambat.',
@@ -617,7 +617,7 @@ export const evanInsights = {
       { label: 'Fardi', story: 'Menyesal tidak pernah magang. Puluhan lamaran, hanya 3–4 interview, 2 tahun menganggur.', source: 'Mojok, September 2025' },
       { label: '300 lamaran, 299 penolakan', story: 'Hampir kehilangan kepercayaan diri sebelum akhirnya diterima setelah ikut program pendampingan.', source: 'Viva, Agustus 2025' },
     ],
-    neetNote: 'Hampir 9 juta anak muda Indonesia saat ini berstatus NEET: tidak bekerja, tidak sekolah, tidak dalam pelatihan apapun.',
+    neetNote: 'Hampir 9 juta anak muda Indonesia saat ini berstatus NEET: tidak bekerja, tidak sekolah, tidak dalam pelatihan apa pun.',
     neetSource: 'BPS Sakernas Agustus 2025',
   },
   ironi: {
@@ -747,7 +747,7 @@ export const worldLayerSection = {
     {
       headline: 'Umat ini pernah memimpin ilmu dunia. Warisan itu menunggu diteruskan.',
       body: [
-        'Kaum muslimin hari ini sekitar dua miliar jiwa, hampir seperempat penduduk bumi. Dan umat ini punya jejak yang nyata: aljabar, ilmu kedokteran, optik, dan banyak cabang pengetahuan modern tumbuh dari peradaban ini, ketika para ulamanya sekaligus menjadi ilmuwan dunia.',
+        'Kaum muslimin hari ini sekitar dua miliar jiwa, hampir seperempat penduduk bumi. Umat ini punya jejak yang nyata: aljabar, ilmu kedokteran, optik, dan banyak cabang pengetahuan modern tumbuh dari peradaban ini, ketika para ulamanya sekaligus menjadi ilmuwan dunia.',
         'Hari ini, dari seluruh nilai ekonomi dunia, negeri-negeri muslim baru menyumbang sekitar 8,5 persen. Angka itu bukan aib. Angka itu peta. Jarak antara warisan itu dan kenyataan hari ini bukan alasan untuk meratap, melainkan pekerjaan yang menunggu generasimu. Ia pernah dikerjakan, artinya ia bukan mustahil.',
       ],
     },

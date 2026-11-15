@@ -33,7 +33,7 @@ export const compassSections: CompassSection[] = [
 
 Yang paling sering membedakan kandidat yang berhasil bukan IPK-nya. Bukan nama universitasnya. Tapi ini: apakah ia tahu siapa dirinya, apa yang ia bawa, dan ke mana ia mau pergi — dan bisa menjelaskannya dengan jelas.
 
-Dunia kerja sedang berubah struktural. 57,95 persen tenaga kerja Indonesia tidak punya kontrak formal. Sektor yang dulu stabil sekarang bergerak lebih cepat dari yang bisa diantisipasi. Dalam kondisi ini, satu-satunya aset yang tidak bisa diambil siapapun adalah kemandirian yang tumbuh dari pemahaman diri yang dalam.
+Dunia kerja sedang berubah struktural. 57,95 persen tenaga kerja Indonesia tidak punya kontrak formal. Sektor yang dulu stabil sekarang bergerak lebih cepat dari yang bisa diantisipasi. Dalam kondisi ini, satu-satunya aset yang tidak bisa diambil siapa pun adalah kemandirian yang tumbuh dari pemahaman diri yang dalam.
 
 Kemandirian bukan motivasi. Ini adalah kumpulan kemampuan konkret: belajar hal baru tanpa ada yang membimbing, menyelesaikan masalah dengan sumber daya yang terbatas, tetap produktif ketika tidak ada yang memotivasi dari luar, dan menciptakan nilai meski tidak ada deskripsi kerja yang jelas.`,
     questions: [
@@ -104,7 +104,7 @@ Hampir nol skill yang bisa digantikan sepenuhnya oleh AI saat ini adalah skill y
 
 Yang anak Anda butuhkan dari Anda bukan jawaban tentang jurusan. Yang mereka butuhkan adalah percakapan yang jujur, ruang untuk mengeksplorasi, dan orang tua yang memahami konteks dunia yang akan mereka masuki.
 
-Framework yang berguna: sebelum memberi saran, tanyakan empat hal tentang anak Anda — apa kekuatan alaminya, apa yang benar-benar membuatnya bersemangat, nilai apa yang penting baginya, dan peluang apa yang relevan dengan kombinasi itu. Pertanyaan ini lebih bernilai dari jawaban apapun tentang jurusan.`,
+Framework yang berguna: sebelum memberi saran, tanyakan empat hal tentang anak Anda — apa kekuatan alaminya, apa yang benar-benar membuatnya bersemangat, nilai apa yang penting baginya, dan peluang apa yang relevan dengan kombinasi itu. Pertanyaan ini lebih bernilai dari jawaban apa pun tentang jurusan.`,
     questions: [
       'Bayangkan percakapan terakhir Anda dengan anak tentang masa depannya. Siapa yang paling banyak berbicara — dan siapa yang paling banyak bertanya?',
       'Satu asumsi tentang dunia kerja yang Anda pegang dengan kuat — apakah Anda yakin asumsi itu masih berlaku untuk generasi anak Anda?',
