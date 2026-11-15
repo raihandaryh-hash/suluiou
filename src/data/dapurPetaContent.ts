@@ -110,27 +110,26 @@ export const dapurPetaPenutup = {
 };
 
 // E20: atribusi OECD (lisensi CC BY). Tanpa logo OECD.
-// Pengantar berbahasa Indonesia masih DRAF dan menunggu paket teks Raihan.
+// Pengantar: varian A pilihan Raihan ("tetap A"; ditegaskan 15 Nov 2026 12.26).
 // Daftar ini mencakup setiap sumber OECD bertahun yang dirujuk di src/ (judul dan tahun
-// persis seperti tertulis di kode). `url` hanya diisi bila kode sudah memuat URL-nya;
-// saat ini tidak ada, jadi sitasi dirender sebagai judul tanpa tautan.
-// URL diverifikasi sebelum rilis (jangan diisi dari ingatan).
+// persis seperti tertulis di kode). `url` = DOI resmi OECD, dicek 15 Nov 2026
+// (halaman hak cipta PDF laporan 2025; katalog perpustakaan untuk WP 164).
 export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi: string };
 
 export const dapurPetaAtribusiOecd = {
-  judul: "DRAF: Atribusi OECD",
-  pengantar: "DRAF: Pengantar atribusi OECD menunggu teks dari Raihan.",
+  judul: "Atribusi OECD",
+  pengantar: "Sebagian data di Sulu diolah dari publikasi OECD. Berikut sumbernya, beserta pernyataan lisensinya.",
   sitasi: [
     {
       tahun: "2025",
       judul: "The State of Global Teenage Career Preparation",
-      // URL diverifikasi sebelum rilis
+      url: "https://doi.org/10.1787/d5f8e3f2-en",
       dipakaiDi: "insightContent.ts, skillMapContent.ts, references.ts (oecd-teenage-career-2025)",
     },
     {
       tahun: "2015",
       judul: "NEET Youth in the Aftermath of the Crisis (OECD Working Paper No. 164, Carcillo dkk.)",
-      // URL diverifikasi sebelum rilis
+      url: "https://doi.org/10.1787/5js6363503f6-en",
       dipakaiDi: "mukadimahBabakContent.ts, references.ts (mukadimah-neet-scarring)",
     },
   ] as OecdSitasi[],
