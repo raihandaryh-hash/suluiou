@@ -126,7 +126,7 @@ export const ISTILAH_BRIDGE: { popular: string; layer: string; nodes: { label: s
   { popular: "Berpikir Kritis / Critical Thinking", layer: "Layer 1", nodes: [
     { label: "Berpikir Analitis", id: "berpikir-analitis" },
     { label: "Berpikir Sistemik", id: "berpikir-sistemik" },
-  ], primary: "berpikir-analitis", note: "Dalam OECD Learning Compass dan framework Pak Dillo, Critical Thinking mencakup kemampuan mengevaluasi bukti dan mempertanyakan asumsi, ini terdistribusi di Berpikir Analitis dan Berpikir Sistemik di peta ini." },
+  ], primary: "berpikir-analitis", note: "Dalam OECD Learning Compass, Critical Thinking mencakup kemampuan mengevaluasi bukti dan mempertanyakan asumsi, ini terdistribusi di Berpikir Analitis dan Berpikir Sistemik di peta ini." },
   { popular: "Teamwork", layer: "Layer 1–2", nodes: [
     { label: "Empati", id: "empati" },
     { label: "Kepemimpinan", id: "kepemimpinan" },
