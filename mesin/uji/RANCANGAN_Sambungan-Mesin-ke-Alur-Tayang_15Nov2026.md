@@ -104,3 +104,22 @@ Pemeriksa bukan penulis (Fable, tidak membaca transkrip sesi ini). Vonis: LAYAK 
 | K10 | Angka kepala desa: dokumen lama menulis 56,4%, yang tayang 57,54%. Keduanya belum dicek ke sumber asli. | ringan 10 |
 
 Belum dikerjakan dari laporan pemeriksa: beda daftar nilai keandalan antara skema kartu dan kontrak; keandalan "hati-hati" pada semua 973 kartu belum punya cara tampil.
+
+## 9. Jawaban kedua Chief Sulu dan alat ukur gerbang D (15 Nov 13.40 WIB) · SINTESIS
+
+Chief Sulu, 15 Nov 13.13 (Ledger, RENCANA v3.5): setuju S1 ditambah di samping, keempat unsur lama tetap tayang sampai Raihan memutus per unsur; bekal untuk jalur cipta dan jalan lain dirangkai di sisi aplikasi dari data peta bekal pengguna, kontrak tetap versi 1. Isi RENCANA v3.5 belum saya baca sendiri.
+
+Gerbang D kini terukur: `mesin/sambung/garis_dasar.py` menghitung dari git, tanpa menjalankan aplikasi. Garis dasar aplikasi tayang pada commit 6dea505 (`keluaran/garis_dasar_main.json`):
+
+| Yang dihitung | Jumlah |
+|---|---|
+| Rute | 32 |
+| Halaman | 32 |
+| Fungsi tepi | 9 |
+| Pemanggilan fungsi tepi dari aplikasi | 7 |
+| Bidang data provinsi yang ditampilkan Jalan Bakti | 6 |
+| Berkas isi | 26, dengan 127 ekspor dan 2.117 teks panjang |
+
+Aturan lulus: tiap PR sambungan dibandingkan dengan garis dasar; satu saja rute, halaman, fungsi tepi, pemanggilan, bidang, berkas isi, atau ekspor yang hilang = gagal. Teks yang berkurang tidak otomatis gagal, tetapi tercetak dan butuh persetujuan Raihan (perbaikan copy kelak memang akan memendekkan teks). Potret kosong ditolak, bukan diloloskan.
+
+Batas: alat ini tidak melihat perilaku saat dijalankan, tampilan, atau isi basis data. Temuan sampingan: dua fungsi tepi (`career-chat`, `generate-reflection`) ada di repo tetapi tidak dipanggil dari aplikasi menurut pencarian pola `functions.invoke`; bisa jadi dipanggil dengan cara lain, belum dicek.
