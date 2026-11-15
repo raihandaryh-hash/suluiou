@@ -6,7 +6,7 @@ Pemanggilan pencarian dan pembacaan halaman dilakukan di sisi aplikasi (lajur Ch
 Aturan:
 - kueri hanya dari: nama wilayah resmi, kata topik kebutuhan (daftar tertutup), dan paling banyak tiga kata kunci pengguna
   (huruf saja). Kalimat bebas pengguna tidak pernah masuk kueri; untuk pengguna di bawah 18 kata kunci pengguna ditolak.
-- temuan bukan bukti: tidak masuk kartu, tidak mengubah angka. Tampil sebagai "berita untuk kamu cek", bertautan dan bertanggal.
+- temuan bukan bukti: tidak masuk kartu, tidak mengubah angka. Tampil sebagai "dari pencarian, perlu kamu cek", bertautan dan bertanggal.
 - temuan tanpa tanggal terbit, lebih tua dari BATAS_BULAN, atau bukan https ditolak. Tidak ada ringkasan isi yang dikarang:
   hanya judul asli, penerbit, tanggal, tautan, dan satu pertanyaan cek dari bank dugaan."""
 import re, datetime
@@ -34,7 +34,7 @@ def tingkat(url):
     return next((t for t, p in TINGKAT.items() if p.search(host)), 3)
 
 def periksa_temuan(t, hari_ini=None):
-    """Kembalikan daftar alasan tolak. Kosong = boleh tampil sebagai 'berita untuk kamu cek'."""
+    """Kembalikan daftar alasan tolak. Kosong = boleh tampil sebagai 'dari pencarian, perlu kamu cek'."""
     s, hari_ini = [], hari_ini or datetime.date.today()
     url = t.get("url", "")
     if not url.startswith("https://"): s.append("bukan https")

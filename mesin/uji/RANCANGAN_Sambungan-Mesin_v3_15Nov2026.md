@@ -37,7 +37,7 @@ Pencocokan kutipan dengan arsip dinyatakan oleh kepala berkas sumber. Arsip pesa
 
 ### 0.4 Hasil pemeriksa terpisah atas versi 2
 
-Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan ketiga uji. Vonisnya: LAYAK DENGAN PERBAIKAN. Hitungannya: 69 niat setia, 12 melemah, 9 hanya ditempeli nomor, 1 salah tempat, dan 5 temuan berat. Laporan utuh: `TINJAUAN_Pemeriksa_Rancangan-v2_15Nov2026.md`. Versi 3 menerapkan 26 suntingan wajib dari pemeriksa (W1–W26). Daftarnya ada di Catatan perubahan.
+Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan ketiga uji. Vonisnya: LAYAK DENGAN PERBAIKAN. Hitungannya: 69 niat setia, 12 melemah, 9 hanya ditempeli nomor, 1 salah tempat, dan 5 temuan berat. Laporan utuh: `TINJAUAN_Pemeriksa_Rancangan-v2_15Nov2026.md`. Versi 2.1 lalu diperiksa pemeriksa kedua, yang memvonisnya GAGAL karena pertentangan aturan tentang pengguna di bawah 18 dan pencarian (`TINJAUAN-2_Pemeriksa_Rancangan-v2.1_15Nov2026.md`). Versi 3 menerapkan 26 suntingan wajib dari tinjauan kedua itu (W1–W26). Daftarnya ada di Catatan perubahan. Versi 3 sendiri diperiksa pemeriksa ketiga: lulus bersyarat, dengan 17 suntingan yang sudah diterapkan di berkas ini (lihat akhir Catatan perubahan).
 
 ### 0.5 Keadaan hari ini
 
@@ -63,7 +63,7 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 5. **Mengkurasi, bukan mengarang.** Daftar, hal untuk dicek, topik, dan cara berlatih diambil dari sumber. (U34, V45, V49)
 6. **AI memantik dan memantulkan, tidak memvonis.** Keluaran model bertanda. (U22, V37)
 7. **Tiap angka bersumber, bertahun, beratribusi, dan relevan.** Angka yang usang ditandai. (U23, U32, V19, V51)
-8. **Nada tampilan mengikuti kata pemilik di V23:** "tapi dalam "UI/UX" ke orang lain, harus ceria, lembut, enlightening, tidak memberatkan, memudahkan, memicu tafa'ul (bukan justru doom-thoughts), tidak membuat lari, dst." Tampilan memicu tafāʾul dan tidak melemahkan (V24). Kata "lugas" hanya berlaku untuk pilihan varian teks kartu (varian A, keputusan 13.49). Kalimat kartu mengikuti cara lembaga sumber membahasakan angkanya (V20). Tampilan tidak dibuka dengan deretan angka buruk, dan peluang tampil berdampingan (V21, V22). Batas lainnya ada di U38.
+8. **Nada tampilan mengikuti kata pemilik di V23:** "tapi dalam "UI/UX" ke orang lain, harus ceria, lembut, enlightening, tidak memberatkan, memudahkan, memicu tafa'ul (bukan justru doom-thoughts), tidak membuat lari, dst." Tampilan memicu tafāʾul dan tidak melemahkan (V24). Kata "lugas" hanya berlaku untuk pilihan varian teks kartu (varian A, keputusan 13.49). Kalimat kartu mengikuti cara lembaga sumber membahasakan angkanya, tanpa melebih-lebihkan dan tanpa menakut-nakuti (V20). Tampilan tidak dibuka dengan deretan angka buruk, dan peluang tampil berdampingan (V21, V22). Batas lainnya ada di U38.
 9. **Tidak memosisikan diri sebagai bimbingan karier, tanpa jualan IOU, tanpa kerangka maqashid.** Pencocokan ke program studi IOU tidak dilakukan. (U16, U19, U29)
 10. **Upah: fakta bersumber, bukan janji.** Lihat U28: "This \"onboarding to reality\" is the very essence of Sulu." S9 mengikuti prinsip ini.
 11. **Tidak semua jadi paragraf.** (U31)
@@ -82,6 +82,10 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 | B4 | Dua jalur tidak dicampur: bukti (angka kartu; hanya bukti berstatus Live) dan temuan pencarian. Temuan tidak pernah menjadi bukti, tidak disimpan per pengguna, tidak masuk Proposal Diri sebagai fakta, bukan bahan S4, dan tidak dipakai untuk menokohkan orang | jawaban Chief 14.08 | U3, U11, V17 |
 | B5 | Keselamatan: tiap pintu AI baru melewati lapis distress yang tayang sebelum model dipanggil. Fungsi baru lahir dengan bendera mati dan hanya dinyalakan Raihan. Tinjauan manusia adalah prasyarat tayang | jawaban Chief 12.23 dan 14.08 | V31, U4 |
 | B6 | Tulisan bebas pengguna di bawah 18 disimpan hanya di perangkatnya, tidak ke server, tidak ke AI | putusan Chief Sulu | V42, V30 |
+
+Cakupan B6: isian baru yang dibawa sambungan ini. Kode tayang hari ini berjalan berbeda dan tidak diubah oleh dokumen ini. Di `broaden-roles`, teks kemampuan dan nilai pengguna di bawah 18 sampai ke fungsi tepi, dibaca lapis distress, lalu dikosongkan sebelum model dipanggil. `generate-reflection` menyebut refleksi pengguna di bawah 18 tersimpan. Menyamakan isian tayang dengan B6 adalah butir R11.
+
+Arti "di bawah 18" di dokumen ini mengikuti kode tayang (`supabase/functions/_shared/usia.ts`): semua pemanggil selain akun yang bertanda dewasa, termasuk tamu, akun tanpa tanda usia, dan pembacaan yang gagal. Pengosongan masukan hanya berjalan bila saklar mode (c) hidup (`modeCHidup`, `_shared/ai.ts`). Akibatnya: set uji gerbang E memuat tamu dan akun tanpa tanda usia, dan gerbang Q memeriksa keadaan saklar itu sebelum tiap uji.
 
 ### 2.2 Putusan Chief Sulu (bukan putusan Raihan)
 
@@ -121,7 +125,7 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 | S8 | Setoran Proposal Diri | Ringkasan | Tiga baris dari kata pengguna sendiri: medan, kebutuhan bersumber, langkah. Catatan sepanjang jalan dicocokkan ke kebutuhan daerah (U15). Setoran bisa dibicarakan dengan orang tua, dengan persetujuan (V47). Tanpa label atau skor. Temuan pencarian tidak masuk sebagai fakta (B4) | S13 (pembaca "catatan sepanjang jalan"); S6 | U15, V47 |
 | S9 | Fakta upah dan biaya hidup bersumber | Insight | Mengikuti prinsip 10. Tayang hanya bila Raihan setuju. Angka Insight lain tetap | persetujuan Raihan (R5); gerbang A; L18 | U28 |
 | S10 | Keselamatan | Semua pintu AI | Lapis distress, saklar mati, dan tinjauan manusia. Ketiganya prasyarat tayang S3 dan S4 | lajur Chief; gerbang Q | V31 |
-| S11 | "Titikmu" | Penutup lapis provinsi | Sesudah dunia, nasional, dan daerah, tampil titik pengguna (V9). Kalimat arahnya menunjuk U13. Pertemuan bekal, minat, dan nilai dengan satu kebutuhan hanya tampil bila punya dasar tertulis (V12, V17). Isu Insight yang sudah dibaca dipanggil kembali (V11). Tanpa model | S1 terbit; S12; L11 | U13, V9, V11, V12, V17 |
+| S11 | "Titikmu" | Penutup lapis provinsi | Sesudah dunia, nasional, dan daerah, tampil titik pengguna (V9). Kalimat arahnya mengajak menjadi pemimpin lokal yang membumi, bukan mengejar mercusuar di Jakarta (U13). Pertemuan bekal, minat, dan nilai dengan satu kebutuhan hanya tampil bila punya dasar tertulis (V12, V17). Isu Insight yang sudah dibaca dipanggil kembali (V11). Tanpa model | S1 terbit; S12; L11 | U13, V9, V11, V12, V17 |
 | S12 | Sumber bekal | Kenali Dirimu, Kenali Kompetensimu | Jawaban yang sudah ada dipanen (U8). Inventori bekal diisi lewat klik, tanpa pengukuran (U27). Tanpa penilaian AI. Formulir orang terdekat (U26) ditunda dan bukan bagian tonggak 2b (2.2 butir 3) | prasyarat bagi S4, S5, S11, S14 | U8, U26, U27 |
 | S13 | Pembaca bernama | Lintas | Data pilihan pengguna hanya disimpan bila ada pembacanya. Temuan pencarian tidak disimpan. Daftarnya ada di 4.3 | prasyarat bagi S3, S4, S7, S8 | U15, V11, V30 |
 | S14 | Prompt siap pakai | Di samping S3 | Prompt disusun dari wilayah, kebutuhan, dan bekal, untuk dipakai pengguna di model yang lebih kuat (U5, U21). Penyusunannya tanpa model, di perangkat pengguna, dan tanpa biaya penyedia. S14 juga jalan keluar saat pencarian nol atau topik di luar daftar (V38). Untuk di bawah 18: bawaannya tidak ditawarkan (R2) | S12; L14; putusan Raihan atas R2 | U5, U21, V38 |
@@ -134,8 +138,8 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 2. Aturan "jabatan nyata" ditambah jalur cipta. Tiap keluaran berstatus ok memuat paling sedikit satu jalur cipta (U12).
 3. Masukan untuk dewasa: medan, siapa, provinsi, kartu, minat, nilai, dan kemampuan yang disamarkan (U8, V12, V30).
 4. Masukan untuk di bawah 18 mengikuti kode tayang: medan, siapa, provinsi, dan kartu. Bekal, minat, dan nilai mereka dipakai di luar model, dari pilihan terstruktur (U8, V30).
-5. Skema keluaran: dasar pencocokan tiap jalur (V17), bekal yang belum ada beserta jalan keluarnya lewat belajar atau kolaborasi (V14), dan data bersumber tentang kemampuan yang dituntut peran (V46).
-6. Contoh peran terikat bekal jurusan (U20). Data keterampilan yang kurang dan yang berlebih pasokan menjadi bahan, bersumber (V2).
+5. Skema keluaran: dasar pencocokan tiap jalur (V17), bekal yang belum ada beserta jalan keluarnya lewat belajar atau kolaborasi (V14), dan data bersumber tentang kemampuan yang dituntut peran (V46). Untuk di bawah 18, bekal yang belum ada dihasilkan di baris "S4, pencocokan bekal" di luar model, bukan oleh model.
+6. Contoh peran terikat bekal jurusan (U20). Data keterampilan yang kurang dan yang berlebih pasokan menjadi bahan, bersumber (V2). Untuk di bawah 18, keterikatan jurusan juga dikerjakan di luar model. Jurusan belum ada di daftar masukan mana pun: asalnya dicari dulu di jawaban yang sudah ada (prinsip 3), dan bila tidak ada ia diajukan sebagai pengecualian di 9.2.
 7. Pengguna yang sudah memilih jurusan diperkaya pilihannya, tidak diganti (V13).
 8. Saringan peran: peran contoh dan jalur cipta yang tidak islami tidak tampil (V16).
 9. Keluaran tidak membeo keinginan pengguna (V15) dan tidak menutup pilihan siswa terlalu dini (V32).
@@ -150,11 +154,11 @@ Pemeriksa (Fable, bukan penulis) membaca sumber 91 dari 91 niat dan menjalankan 
 |---|---|---|---|---|---|
 | S1 | tanpa model | provinsi | provinsi | kartu bersumber | provinsi: profil bagi yang login |
 | S3(a) hal untuk dicek | tanpa model | kartu wilayah | kartu wilayah; pilihan gejala terstruktur dari kartu | butir bertanda kurasi, dengan cara mengecek | tidak ada |
-| S3(b) pencarian | fungsi tepi baru | wilayah, topik dari daftar kurasi, paling banyak tiga kata kunci huruf saja | wilayah dan topik pilihan saja | temuan bertanda "dari pencarian, perlu kamu cek" | temuan tidak disimpan |
+| S3(b) pencarian | fungsi tepi baru; tahap pertama tanpa model bahasa, hanya memanggil layanan pencarian | wilayah, topik dari daftar tertutup hasil kurasi, paling banyak tiga kata kunci huruf saja | wilayah dan topik pilihan saja | temuan bertanda "dari pencarian, perlu kamu cek" | temuan tidak disimpan |
 | S4 | ya | medan, siapa, provinsi, kartu, minat, nilai, kemampuan (disamarkan) | medan, siapa, provinsi, kartu | jalur bertanda "dibuat AI" | mengikuti S13 |
 | S4, pencocokan bekal | tanpa model | tidak dipakai | bekal, minat, nilai dari pilihan terstruktur | hasil pencocokan di sisi aplikasi | mengikuti S13 |
 | S7 | tanpa model | medan, kebutuhan, jalur, riwayat isu Insight | sama | titik temu | mengikuti S13 |
-| S8 | tanpa model | kata pengguna, catatan sepanjang jalan | sama | tiga baris setoran | mengikuti S13 |
+| S8 | tanpa model | kata pengguna, catatan sepanjang jalan | sama; tulisan bebasnya hanya di perangkat (B6) | tiga baris setoran | mengikuti S13 |
 | S11 | tanpa model | bekal, minat, nilai, satu kebutuhan | sama, dari pilihan terstruktur | kalimat penutup | tidak ada |
 | S14 | tanpa model | wilayah, kebutuhan, bekal | bawaan: tidak ditawarkan. Bila Raihan memutuskan ditawarkan (R2), isi prompt hanya wilayah dan kebutuhan pilihan, tanpa bekal, nilai, dan teks bebas | teks prompt untuk disalin | tidak ada |
 
@@ -164,7 +168,7 @@ Niat yang dijaga tabel ini: V30, V17, V49, U34, U8.
 
 1. Tulisan bebas pengguna di bawah 18 disimpan hanya di perangkatnya, tidak ke server, tidak ke AI (V42, V30).
 2. Kalimat bebas pengguna tidak pernah masuk kueri pencarian, pada usia berapa pun (U35).
-3. Tidak ada tulisan pengguna yang dikirim ke model di S3.
+3. Tidak ada tulisan pengguna yang dikirim ke model di S3. Isian gejala dewasa hanya menjadi catatan pengguna sendiri untuk dibawa mengecek ke lapangan; ia tidak mengubah butir S3(a).
 4. Tiap teks dewasa yang dikirim ke model disamarkan otomatis sebelum model dipanggil (V30). Hari ini hal itu berlaku di S4.
 
 ### 4.3 Daftar data dan pembaca bernama (S13)
@@ -173,14 +177,15 @@ Niat yang dijaga tabel ini: V30, V17, V49, U34, U8.
 |---|---|---|---|---|
 | Provinsi | S1 | profil bagi yang login | aplikasi (S1, S3, S4) | V26 |
 | Hasil klik inventori bekal | S12 | sudah ada di aplikasi | S4, S5, S11, S14 | U27 |
+| Kata kunci pencarian dewasa | S3(b) | tidak disimpan | fungsi pencarian, sekali pakai | U35 |
 | Riwayat isu Insight yang dibaca | S7 | ditetapkan Chief Sulu | S7 dan S11 | V11 |
-| Catatan sepanjang jalan | S8 | ditetapkan Chief Sulu | pengguna; S8 | U15 |
+| Catatan sepanjang jalan | S8 | dewasa: ditetapkan Chief Sulu; di bawah 18: hanya di perangkat (B6) | pengguna; S8 | U15 |
 | Tulisan bebas pengguna di bawah 18 | S3 | perangkat pengguna saja | hanya pengguna | V42 |
 | Isian gejala setempat (dewasa) | S3 | tidak disimpan | hanya pengguna | U35 |
 | Temuan pencarian | S3(b) | tidak disimpan | tidak ada | U3 |
 | Topik yang nol temuan atau di luar daftar | S3(b), S14 | catatan kurasi, hanya topik dan wilayah, tanpa identitas pengguna | kurator sesi mesin | V38 |
 | Jawaban formulir orang terdekat | S12 | ditunda (2.2 butir 3) | pengguna, bila kelak dibuka | U26 |
-| Setoran yang dibagikan ke orang tua | S8 | mengikuti persetujuan pengguna | orang tua | V47 |
+| Setoran yang dibagikan ke orang tua | S8 | mengikuti persetujuan pengguna; untuk di bawah 18 cara berbagi tanpa server belum ditetapkan (R12) | orang tua | V47 |
 
 ## 5. Pagar pencarian
 
@@ -197,7 +202,7 @@ Niat yang dijaga: U3, U35, U4, U11, V33, V38, V43.
 
 ### 5.2 Pagar kueri (`mesin/sambung/pencarian.py`)
 
-1. Kueri hanya disusun dari nama wilayah resmi, kata topik dari daftar kurasi, dan paling banyak tiga kata kunci pengguna (huruf saja).
+1. Kueri hanya disusun dari nama wilayah resmi, kata topik dari daftar tertutup hasil kurasi, dan paling banyak tiga kata kunci pengguna (huruf saja).
 2. Kalimat bebas pengguna tidak pernah masuk kueri.
 3. Untuk pengguna di bawah 18, kata kunci pengguna ditolak. Pencarian tetap jalan dari wilayah dan kebutuhan yang ia pilih.
 4. Profil pengguna tidak masuk kueri. Pencocokan ke profil dikerjakan sesudah pencarian, di sisi aplikasi.
@@ -226,17 +231,17 @@ Pemanggilan pencarian dan pembacaan tanggal di sisi aplikasi (lajur Chief). Biay
 
 ## 6. Gerbang A–S
 
-Ambang yang belum berangka ditetapkan sebelum uji dijalankan. Alat ukur dibuat dengan urutan: C, K, L, O, Q lebih dulu (U23), lalu sisanya.
+Ambang yang belum berangka ditetapkan sebelum uji dijalankan. Penetapnya: sesi mesin mengusulkan dan mencatatnya sebelum uji, pemeriksa terpisah menilai kewajarannya, dan gerbang G dikalibrasi ke Raihan. Alat ukur dibuat dengan urutan: C, K, L, O, Q lebih dulu (U23), lalu sisanya.
 
 | Gerbang | Niat yang dijaga | Ambang lulus | Alat ukur dan yang masih kurang | Status alat hari ini |
 |---|---|---|---|---|
 | A. Bersumber | U32, V19, V6 | 100% angka yang tampil punya sumber, tahun, atribusi penerbit, dan catatan relevansi. Sumber berjenis layak dan bertahun terbaru yang tersedia. Cakupan termasuk angka di bagian peluang Insight yang diperkaya | `mesin/sambung/uji_s1.py`. Kurang: bidang penerbit, catatan relevansi, jenis sumber, aturan tahun terbaru | ada untuk data saja |
 | B. Hal untuk dicek | U34, U35, V49 | 100% butir S3(a) bertanda, punya cara mengecek, dan bersumber | `mesin/sambung/uji_penjelajah.py`. Kurang: bidang sumber per butir. Bank butir sekarang berstatus sementara | ada, belum mengukur klaimnya |
-| C. Tanpa vonis | U12, V13, V15, V16, V32 | 0 vonis. Paling sedikit 1 jalur cipta pada keluaran berstatus ok. Tidak membeo. Tidak menutup pilihan siswa terlalu dini. 0 peran yang lolos saringan peran padahal harus ditahan | Kurang: rubrik, set uji (profil siswa, kasus peran tidak islami, kasus membeo), definisi "membeo" dan "menutup terlalu dini". Lapis 1 yang ada hanya memeriksa butir S3 | belum ada |
+| C. Tanpa vonis | U12, V13, V15, V16, V32 | Cakupan: keluaran S4, S5, S7, S11. 0 vonis. Paling sedikit 1 jalur cipta pada keluaran berstatus ok. Tidak membeo. Tidak menutup pilihan siswa terlalu dini. 0 peran yang lolos saringan peran padahal harus ditahan | Kurang: rubrik, set uji (profil siswa, kasus peran tidak islami, kasus membeo), definisi "membeo" dan "menutup terlalu dini". Lapis 1 yang ada hanya memeriksa butir S3 | belum ada |
 | D. Isi tayang utuh | U33, V10 | Tidak ada rute, halaman, fungsi tepi, pemanggilan, bidang, berkas isi, ekspor, komponen, atau render yang hilang. Teks yang berkurang tercetak dan butuh persetujuan Raihan. Potret kosong ditolak | `mesin/sambung/garis_dasar.py`. Kurang: hitungan komponen dan render; angka bidang provinsi 5 | ada sebagian |
 | E. Siapa pun | U37, V43, V48 | Set uji memuat siswa, mahasiswa, dewasa 40–50, umum, kabupaten 3T, serta Guru BK dan orang tua sebagai pembaca | Kurang: set uji, jumlah per kelompok, ambang, arti "sebagai pembaca" | belum ada |
 | F. Dua pertanyaan dan dapat dikerjakan | U9, U16, V48 | Tiap bagian mengisi Proposal Diri atau menyambungkan ke manusia, dan berujung tindakan | Kurang: daftar bagian dan cara menilai "berujung tindakan" | belum ada |
-| G. Penilai | V23, V24, V25, U38 | Penilai dikalibrasi ke Raihan sebelum dipercaya. Butir rubrik: nada sesuai prinsip 8 (ceria, lembut, memicu tafāʾul); tidak melemahkan, termasuk pada S2 dan S3; "terasa hidup dan lokal" | Kurang: jumlah contoh, ambang kesepakatan, definisi butir rubrik | belum ada |
+| G. Penilai | V23, V24, V25, U38 | Penilai dikalibrasi ke Raihan sebelum dipercaya. Butir rubrik: nada sesuai prinsip 8 (ceria, lembut, memicu tafāʾul); tidak melemahkan, termasuk pada S2 dan S3; terasa hidup dan lokal (V25) | Kurang: jumlah contoh, ambang kesepakatan, definisi butir rubrik | belum ada |
 | H. Langkah jelas | U9, U10 | Pengguna uji bisa menyebut langkah yang akan ia ambil | Kurang: protokol dan jumlah pengguna uji | belum ada |
 | I. Bukan bimbingan karier | U29 | 0 klaim itu di teks | Kurang: daftar frasa klaim dan cakupan teks yang dipindai | belum ada |
 | J. Arah milik pengguna | U12, U13, V12 | (1) Tiap sesi simulasi persona muda dan dewasa berakhir dengan rumusan dalam kata pengguna sendiri. (2) Keberagaman gagasan antarpersona dipantau. (3) Raihan menilai sampel sesi utuh. (4) 0 jabatan struktural atau peran berhonor program tampil sebagai tujuan | Asal: `UJI_Setia-Niat_15Nov2026.md` bagian C. Kurang: set persona, ukuran keberagaman, jumlah sampel | belum ada |
@@ -244,10 +249,10 @@ Ambang yang belum berangka ditetapkan sebelum uji dijalankan. Alat ukur dibuat d
 | L. Kekhususan | U30, U8 | Keluaran memuat unsur dari kartu wilayah itu dan dari bekal pengguna itu. Dua profil berbeda tidak mendapat keluaran yang sama. Untuk di bawah 18, unsur bekal diperiksa pada hasil pencocokan di luar model, bukan pada keluaran model | Kurang: ukuran kemiripan dan pemeriksa unsur | belum ada |
 | M. Tampilan dan istilah | U31, V27, V28, V29 | Uji pengguna dan tinjauan tampilan lulus. Istilah dapur tidak tampil. Kata yang dihindari tidak dipakai. Teks kartu paling banyak tiga kalimat | Kurang: daftar istilah dapur beserta padanannya, daftar kata dihindari, protokol uji tampilan, penghitung kalimat | belum ada |
 | N. Pilot | V40 | Ukuran minimum dan daftar klaim yang boleh dan tidak boleh dibuat ditetapkan sebelum pilot | Kurang: ukuran pilot dan daftar klaim | belum ada |
-| O. Tanda keluaran | U22, V37 | 100% keluaran model di S3 dan S4 bertanda "dibuat AI". Isi kurasi bertanda lain | Kurang: pemeriksa tanda pada keluaran S3(b) dan S4 | belum ada |
-| P. Temuan pencarian | U3, U35, V33 | Semua aturan bagian 5.2 dan 5.3 dipenuhi | `mesin/sambung/uji_pencarian.py`. Kurang: kasus tema sensitif (R3) | ada dan lulus |
-| Q. Keselamatan dan privasi | V30, V31, V42 | Lapis distress dijalankan sebelum model. Saklar mati berfungsi. Tinjauan manusia berjalan. Penyamaran berjalan. Aturan 4.2 dipenuhi | Kurang: seluruh alat; bentuk tinjauan manusia ditetapkan Chief | belum ada |
-| R. Larangan | U16, U19 | 0 kerangka maqashid. 0 jualan IOU. 0 pencocokan ke program studi IOU. 0 nama yang dilarang prinsip 13 sebagai sumber | Kurang: daftar frasa dan cakupan teks | belum ada |
+| O. Tanda keluaran | U22, V37 | 100% keluaran model (hari ini hanya S4) bertanda "dibuat AI". 100% temuan S3(b) bertanda "dari pencarian, perlu kamu cek"; bila kelak S3(b) memakai model bahasa, keluarannya juga bertanda "dibuat AI". Isi kurasi bertanda lain | Kurang: pemeriksa tanda pada keluaran S3(b) dan S4; keterangan di `pencarian.py` sudah disamakan bunyinya | belum ada |
+| P. Temuan pencarian | U3, U35, V33 | Semua aturan bagian 5.2 dan 5.3 dipenuhi | `mesin/sambung/uji_pencarian.py`. Kurang: kasus tema sensitif (R3) | ada; lulus untuk 5.2 dan 5.3 butir 2 pada modul mesin. Belum diukur: 5.3 butir 1, 3, 4 dan fungsi tepi yang kelak tayang |
+| Q. Keselamatan dan privasi | V30, V31, V42 | Lapis distress dijalankan sebelum model. Saklar mati berfungsi. Tinjauan manusia berjalan. Penyamaran berjalan. Aturan 4.1 dan 4.2 dipenuhi, termasuk daftar masukan model untuk di bawah 18 | Kurang: seluruh alat; bentuk tinjauan manusia ditetapkan Chief | belum ada |
+| R. Larangan | U16, U19 | 0 kerangka maqashid. 0 jualan IOU. 0 pencocokan ke program studi IOU. `iou_program_relevance` tetap tidak dirender dan tidak masuk `lapis_provinsi.json`. 0 nama yang dilarang prinsip 13 sebagai sumber | Kurang: daftar frasa dan cakupan teks | belum ada |
 | S. Skema provinsi (gerbang keras) | U6, V19, V52 | Slot provinsi Peta Medan menyala hanya bila: (1) tiap bidang `lapis_provinsi.json` punya sumber, tahun, dan aturan isi tertulis; (2) gerbang A dan K lulus untuk isinya; (3) pesan [1303] sudah dibaca dan dipetakan ke skema; (4) provinsi tanpa kartu terbit tampil sebagai "belum ada data bersumber"; (5) Chief Sulu menerima skemanya lewat PR | Kurang: pemeriksa skema | belum ada |
 
 ## 7. Pemetaan ke kontrak
@@ -263,11 +268,13 @@ Tabel versi 1 (dicek ke skema `jalur-jelajah/1` pada 15 Nov 12.33) dipulihkan. K
 | S5 bekal | muat untuk jalur data saja | `skill[].simpul_skillmap` | tidak berubah |
 | S6 langkah dari cara cek | di luar kontrak | turunan S3; `langkah_pertama` kontrak tidak punya bidang payung | tidak berubah |
 | S7, S8 | di luar kontrak | kata pengguna sendiri | tidak berubah |
+| S9 fakta upah | di luar kontrak | isi Insight dan satu kalimat aturan di prompt S4 | Baru di pemetaan |
+| S10 keselamatan | di luar kontrak | modul bersama fungsi tepi (distress, saklar, usia) | Baru di pemetaan |
 | S11 "Titikmu" | belum dipetakan | calon: dirangkai di sisi aplikasi | Baru di pemetaan. Butuh dasar tertulis per pertemuan (L11) |
 | S12 sumber bekal | belum dipetakan | data peta bekal pengguna di aplikasi | Baru di pemetaan |
 | S13 pembaca bernama | di luar kontrak | aturan simpan di aplikasi | Baru di pemetaan |
 | S14 prompt siap pakai | di luar kontrak | disusun di perangkat pengguna | Baru di pemetaan |
-| S15 tanda keluaran | belum dipetakan | calon: bidang tanda pada keluaran S3(b) dan S4 | Baru di pemetaan |
+| S15 tanda keluaran | belum dipetakan | calon: bidang tanda pada keluaran S4 ("dibuat AI") dan temuan S3(b) ("dari pencarian, perlu kamu cek") | Baru di pemetaan |
 | S16 halaman metode | di luar kontrak | halaman baru | Baru di pemetaan |
 
 K5 (versi 1): S5 belum muat untuk jalur cipta. Bidang bekal hanya ada pada jalur data. Jalur cipta dan jalan lain tidak punya. Kesimpulan "tidak perlu kontrak versi 2" ditarik dan hal ini diajukan ke Chief Sulu.
@@ -311,15 +318,18 @@ Untuk 73 kartu provinsi ada dua syarat tambahan sebelum T1–T5: publikasi kedua
 | L13 | Saringan peran: aturan tertulis dan kasus ujinya | sesi mesin; putusan isi oleh Raihan | V16 | S4, gerbang C |
 | L14 | Daftar variabel yang masuk prompt S3, S4, dan S14 beserta asalnya; diuji silang sebelum dikunci | sesi mesin | V18 | S3, S4, S14 |
 | L15 | Set uji tetap "kemampuan model memberi konteks lokal" per provinsi. Jumlah butir per provinsi dan ambang lulus ditetapkan sebelum uji | sesi mesin; ambang disetujui Raihan | U18 | S3, S4 |
-| L16 | Uji pencarian untuk kabupaten 3T | sesi mesin | V43 | S3(b), gerbang E dan P |
+| L16 | Uji pencarian untuk kabupaten 3T. Sebelum penyedia diputus (R8) uji memakai `uji_pencarian.py` dengan fixture 3T; uji atas hasil nyata menunggu R8 | sesi mesin | V43 | S3(b), gerbang E dan P |
 | L17 | Alat ukur gerbang: C, K, L, O, Q lebih dulu; lalu A, B, D (pelengkap), E, F, G, H, I, J, M, N, R, S | sesi mesin; kalibrasi G dan penilaian J oleh Raihan | U23 | bagian 6 |
 | L18 | Cek angka kepala desa ke sumber asli. Dokumen lama menulis 56,4%, yang tayang 57,54%. Keduanya belum dicek | sesi mesin | U32 | S9, gerbang A |
-| L19 | Prasyarat lintas: S10 (keselamatan), S12 (sumber bekal), S13 (pembaca bernama), S15 (tanda keluaran). Keempatnya selesai sebelum S3 dan S4 tayang | S10 dan S13: Chief Sulu. S12 dan S15: sesi mesin untuk isi, Chief Sulu untuk pemasangan | V31, U8, V11, U22 | S3, S4, S7, S8 |
+| L19 | Prasyarat lintas: S10 (keselamatan), S12 (sumber bekal), S13 (pembaca bernama), S15 (tanda keluaran). Isi S12 dan S15 disiapkan sebelum L21. Pemasangan S10, S13, S15 pada pintu baru dikerjakan di dalam PR L21 dan menjadi syarat tayang, bukan syarat mulai | S10 dan S13: Chief Sulu. S12 dan S15: sesi mesin untuk isi, Chief Sulu untuk pemasangan | V31, U8, V11, U22 | S3, S4, S7, S8 |
 | L20 | Kerja di `mesin/`: jenis kartu tambahan (S1), tanda S2, isi S3(a), penyusun S14, penunjuk bekal dan cara berlatih (S5), usulan langkah (S6) | sesi mesin | U1, U5, U14, U9 | S1, S2, S3, S5, S6, S14 |
 | L21 | Usulan PR untuk Chief: perubahan S4 (3.1), fungsi tepi baru S3(b), S7, S8, S9, S11, S16 | usulan sesi mesin; PR Chief Sulu | U12, V11, V44 | S3, S4, S7, S8, S9, S11, S16 |
+| L21a | Jalankan semua gerbang pada hasil L20 dan L21 sebelum bendera mana pun dinyalakan | sesi mesin; pemeriksa terpisah | U23 | semua gerbang |
+| L21b | Sumber tentang pelaku untuk S2: dicari dan dikurasi; sampai ada, tanda S2 kosong | sesi mesin | V24 | S2 |
+| L21c | Isi halaman metode (S16): konstruk kartu, sumber, batas | sesi mesin; pemasangan Chief Sulu | V44 | S16 |
 | L22 | Pilot: ukuran minimum dan daftar klaim | sesi mesin; putusan Raihan | V40 | gerbang N |
 
-Urutannya: L1 dan L2 berjalan lebih dulu. L3 sampai L16 mendahului kode. L17 mendahului klaim lulus gerbang mana pun. L19 mendahului L21. L20 dan L21 baru berjalan sesudah itu.
+Urutannya: L1 dan L2 berjalan lebih dulu. L3 sampai L16 mendahului kode. L17 mendahului klaim lulus gerbang mana pun. Isi L19 mendahului L21, dan pemasangannya ada di dalam L21. S5 di L20 memakai skema jalur S4 yang ditetapkan L3, bukan menunggu L21. L21a mendahului penyalaan bendera. L20 dan L21 baru berjalan sesudah itu.
 
 ### 8.3 Tempat tiap S di urutan kerja
 
@@ -358,6 +368,11 @@ Urutannya: L1 dan L2 berjalan lebih dulu. L3 sampai L16 mendahului kode. L17 men
 | R8 | Penyalaan bendera pencarian S3(b), berikut penyedia, akun, dan biayanya | bendera mati | U4, V35, V36 |
 | R9 | Persetujuan atas teks tayang yang berkurang (gerbang D), kalibrasi penilai (gerbang G), dan penilaian sesi utuh (gerbang J) | tidak ada klaim lulus | V25 |
 | R10 | Isi saringan peran (L13) dan ambang set uji konteks lokal (L15) | S4 tidak diajukan sebagai PR | V16, U18 |
+| R11 | Apakah isian tayang pengguna di bawah 18 (teks kemampuan dan nilai di `broaden-roles`, refleksi di `generate-reflection`) disamakan dengan B6 | kode tayang tidak diubah | V42, V30 |
+| R12 | Cara pengguna di bawah 18 berbagi setoran ke orang tua bila tulisannya hanya ada di perangkat | belum ada fitur berbagi untuk di bawah 18 | V47 |
+| R13 | Lapis distress untuk tulisan pengguna di bawah 18 yang hanya ada di perangkat: tulisan itu tidak melewati lapis distress server | rujukan bantuan statis selalu tampil di layar tempat menulis | V31, V42 |
+
+Butir R1 sampai R13 belum diuji balik ke riwayat chat. Sebelum satu pun diajukan ke Raihan, tiap butir diuji dengan dua pola kata di register, pencarian chat lampau, dan Ledger.
 
 ### 9.2 Pengecualian yang diajukan (prinsip 3)
 
@@ -365,8 +380,9 @@ Urutannya: L1 dan L2 berjalan lebih dulu. L3 sampai L16 mendahului kode. L17 men
 |---|---|---|---|
 | Isian gejala setempat (S3), dewasa | teks pendek | hanya pengguna; tidak disimpan; tidak dikirim ke model; tidak masuk kueri | boleh dilewati; jawaban yang ada dipanen dulu; Raihan memutuskan di akhir tonggak |
 | Tulisan untuk diri sendiri bagi di bawah 18 (S3) | teks bebas | hanya pengguna | disimpan hanya di perangkatnya, tidak ke server, tidak ke AI (B6) |
+| Kata kunci pencarian (S3(b)), dewasa | paling banyak tiga kata, huruf saja | fungsi pencarian; tidak disimpan | isian baru; tidak ditawarkan kepada di bawah 18 |
 | Minta provinsi di tempat (S1) | provinsi | aplikasi | sudah ada di profil bagi yang login |
-| Formulir orang terdekat (S12) | jawaban pihak ketiga | pengguna | data pihak ketiga; ditunda sampai kajian data pribadi ditandatangani; lajur Chief |
+| Formulir orang terdekat (S12) | jawaban pihak ketiga | pengguna | data pihak ketiga; butuh pembaca bernama dan persetujuan orang itu; ditunda sampai kajian data pribadi ditandatangani; lajur Chief |
 | Prompt siap pakai (S14) | tidak ada | tidak ada | disusun di perangkat pengguna; untuk di bawah 18 lihat R2 |
 | "Titikmu" (S11) | tidak ada | tidak ada | kalimat penutup |
 | Berbagi dengan orang tua (S8) | tidak ada data baru | orang tua | dengan persetujuan |
@@ -481,3 +497,9 @@ Keduanya tetap terbuka. Tiga permintaan lain di versi 1 sudah dijawab: kontrak (
 | R161 | "`iou_program_relevance` hanya ada di deklarasi tipe" | fakta diperbaiki (W25) |
 | R176 | "7 berkas memuat nama itu pada cabang utama @96be475" | fakta diperbaiki (W25) |
 | R178 | "penjelajah lokal dibuat sebagai fungsi baru, bukan memakai fungsi lama" | ditulis ulang lebih tepat sebagai 2.2 butir 1 dan 2 |
+
+### Suntingan sesudah pemeriksa ketiga (15 Nov 2026)
+
+Pemeriksa ketiga (Fable, bukan penulis) memvonis v3 LULUS BERSYARAT: W1–W26 tertutup 23, sebagian 3, belum 0; tidak ada pasangan aturan yang berlawanan; 17 suntingan diminta. Ketujuh belasnya diterapkan di berkas ini: (1) catatan dan setoran di bawah 18 tunduk B6, cara berbagi menjadi R12; (2) keluaran bekal dan jurusan dipisah per usia; (3) cakupan B6 dan perilaku kode tayang, R11; (4) S3(b) tahap pertama tanpa model bahasa, gerbang O dan baris S15 disesuaikan; (5) gerbang Q mencakup 4.1; (6) arti "di bawah 18" dan saklar mode (c); (7) status gerbang P; (8) kata kunci pencarian dewasa sebagai pengecualian dan baris data, guna isian gejala dewasa; (9) "daftar tertutup hasil kurasi"; (10) asal W1–W26; (11) L19 dipecah, L21a, L21b, L21c, alat L16; (12) penetap ambang dan cakupan gerbang C; (13) tiga kalimat v2.1 dipulihkan; (14) frasa gerbang G tidak lagi bertanda kutip; (15) `iou_program_relevance` di gerbang R; (16) R13; (17) baris S9 dan S10 di pemetaan kontrak.
+
+Belum diperiksa ulang sesudah 17 suntingan ini.
