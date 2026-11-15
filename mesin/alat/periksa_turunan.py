@@ -28,8 +28,9 @@ for s in berkas[1:]:
     for baris in open(s, encoding="utf-8"):
         m = rx_id.match(baris)
         if not m: continue
-        kol = m.group(2).split("|")[0]
-        kut = [n(q) for q in re.findall(r'"([^"]{15,})"|«([^»]{15,})»', kol) for q in q if q]
+        # kutipan hanya diambil dari sel yang membawa rujukan pesan, mis. [788]
+        sel = [c for c in m.group(2).split("|") if re.search(r"\[\d+\]", c)]
+        kut = [n(q) for c in sel for q in re.findall(r'"([^"]{15,})"|«([^»]{15,})»', c) for q in q if q]
         butir.setdefault(m.group(1), []).extend(kut)
 hasil = {"HILANG": [], "RINGKASAN": [], "UTUH": []}
 for k, kut in butir.items():
@@ -40,6 +41,8 @@ for k, kut in butir.items():
     else:
         hasil["RINGKASAN"].append(k)
 print(f"butir sumber: {len(butir)}; turunan: {berkas[0]}")
+tanpa = [k for k, q in butir.items() if not q]
+if tanpa: print(f"PERINGATAN: {len(tanpa)} butir sumber tanpa kutipan terbaca (uji tidak sah untuk butir ini): {', '.join(tanpa)}")
 for s in ("HILANG", "RINGKASAN", "UTUH"):
     print(f"{s} {len(hasil[s])}: {', '.join(hasil[s])}")
 sys.exit(1 if hasil["HILANG"] else 0)
