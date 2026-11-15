@@ -57,3 +57,31 @@ Dibaca bersama: `UJI_Setia-Niat`, `REGISTER-NIAT_Raihan`, `INVENTARIS_Pengalaman
 ## 6. Batas
 
 Belum diperiksa pemeriksa terpisah. Saya belum membaca RENCANA v3.2, Buku bab 1, 3, 4, 6, 7, 9, 10, dan sekitar 85 berkas arsip lain. Rumusan "tiga keadaan kebutuhan" hanya saya temukan di ucapan 15 Nov 10.28, belum di arsip lama yang dibaca.
+
+## 7. Tambahan sesudah jawaban Chief Sulu (15 Nov 12.23) · ditulis 12.35 WIB · SINTESIS
+
+Jawaban chief diuji sesi ini (sidik RENCANA v3.4 cocok; kode `main` @6dea505). Batas yang kini mengikat:
+
+1. Kode tayang (`src/`) hanya lewat PR Chief. Mesin menulis isi dan data di `mesin/`.
+2. Mesin tidak menulis `province_contexts`. Isi lapis provinsi keluar sebagai berkas `mesin/sambung/keluaran/lapis_provinsi.json` untuk dipasang chief.
+3. S3 punya dua bentuk: isian bebas untuk dewasa; pilihan gejala terstruktur dari kartu untuk pengguna di bawah 18 (teks bebas mereka tidak dikirim ke AI).
+4. Korpus S3 hanya bukti berstatus Live.
+5. Tiap pintu AI baru melewati lapis distress yang tayang sebelum model dipanggil.
+
+### Pemetaan ke kontrak `jalur-jelajah/1` (dicek ke skema, 15 Nov 12.33)
+
+| Sambungan | Muat? | Di mana |
+|---|---|---|
+| S1 kartu | di luar kontrak | skema kartu; `kebutuhan.kartu_id` dan `angka_kunci` di jalur menunjuk kartu |
+| S2 tiga keadaan | belum bisa diisi | butuh sumber tentang pelaku (siapa sudah mengerjakan, cukup atau tidak). Angka `jarak` kartu hanya menyatakan seberapa jauh dari pembanding, bukan ada-tidaknya pelaku. Sampai ada sumbernya, nilainya kosong, bukan tebakan |
+| S3 hipotesis | di luar kontrak | isi refleksi; dirangkai di sisi aplikasi |
+| S4 jalur cipta dan peran contoh | muat | kontrak sudah mewajibkan satu jalur `cipta` dan satu `jalan_lain`; `peran_contoh.jenis` punya nilai `belum_bernama` |
+| S5 bekal | muat | `skill[].simpul_skillmap` |
+| S6 langkah dari cara cek | di luar kontrak | turunan S3; `langkah_pertama` kontrak tidak punya bidang payung, dan tidak perlu |
+| S7, S8 | di luar kontrak | kata pengguna sendiri |
+
+Kesimpulan: tidak perlu kontrak versi 2.
+
+### Keadaan S1 hari ini (hasil jalan `s1_lapis_provinsi.py` dan `uji_s1.py`)
+
+38 provinsi punya kartu; 265 butir angka, 265 bersumber dan bertahun (gerbang A lulus untuk data). **0 butir boleh tampil**, sebab tidak ada kartu berstatus terbit: 900 kartu kabupaten/kota berstatus siap tinjau, 73 kartu provinsi berstatus draf, dan teks kartu masih kosong. Jalur kritis S1 karena itu bukan kode, melainkan teks kartu (dua varian, dipilih Raihan) dan status bukti Live.
