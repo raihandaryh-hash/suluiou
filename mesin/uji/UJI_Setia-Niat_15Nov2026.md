@@ -78,3 +78,12 @@ Akibat pada bagian B dan C (SINTESIS):
 - S7 (kartu) tidak cukup untuk N16: perlu penjelajah AI di atas kartu. Buku b.135 mencatat urutan skema → statis → AI; mesin baru sampai statis.
 - Lembar fakta (butir 117) bergeser dari "fakta per profesi" ke "peta baru": apa yang berubah dibanding zaman orang tua, per bidang dan wilayah, bersumber.
 - Gerbang C ditambah: sesi berakhir dengan langkah awal yang jelas dan satu cara berpenghasilan yang realistis dalam jangka dekat, tanpa janji.
+
+## F. Tambahan · hasil baca putaran 1 (SINTESIS)
+Rincian dan cakupan: `mesin/uji/CATATAN-BACA_Buku-Sulu_15Nov2026.md`. Raihan menegaskan 15 Nov 10.28 bahwa bagian E bukan keputusan baru ("Bukan hal yang baru saya putuskan sekarang."); Buku membenarkannya: penjelajah lokal tiga lapis (R031), Titikmu (R030), Jalan yang Belum Bernama (R032), skill-map yang menyala dari profil (R020), inventaris aset (K053) semuanya rancangan Juni–Juli yang tidak dibangun.
+
+Perubahan usul di bagian C: mesin diperlakukan sebagai sambungan antarhalaman yang sudah tayang (Kenali Diri → Insight dan kartu → skill-map → Jalan Bakti → Sintesis → Rencana Aksi → Proposal Diri), dengan kerangka yang sudah diputus 29 Jun (person-environment fit + Stanford Life Design + doa Sulaiman). Tidak ada rancangan baru ditulis sebelum putaran 2 selesai.
+
+Pertanyaan tambahan untuk Chief Sulu:
+5. R031 tercatat "di-ACC" 12 Jun (item 374). Adakah kutipan Raihan untuk desain tiga lapis itu, dan apakah province_contexts 38 entri masih dipakai?
+6. Peta Medan riset v2.2 (12 klaster, DRAF di Notion) dan Evidence DB: mana yang boleh menjadi korpus penjelajah?
