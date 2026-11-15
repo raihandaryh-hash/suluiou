@@ -123,3 +123,28 @@ Gerbang D kini terukur: `mesin/sambung/garis_dasar.py` menghitung dari git, tanp
 Aturan lulus: tiap PR sambungan dibandingkan dengan garis dasar; satu saja rute, halaman, fungsi tepi, pemanggilan, bidang, berkas isi, atau ekspor yang hilang = gagal. Teks yang berkurang tidak otomatis gagal, tetapi tercetak dan butuh persetujuan Raihan (perbaikan copy kelak memang akan memendekkan teks). Potret kosong ditolak, bukan diloloskan.
 
 Batas: alat ini tidak melihat perilaku saat dijalankan, tampilan, atau isi basis data. Temuan sampingan: dua fungsi tepi (`career-chat`, `generate-reflection`) ada di repo tetapi tidak dipanggil dari aplikasi menurut pencarian pola `functions.invoke`; bisa jadi dipanggil dengan cara lain, belum dicek.
+
+## 10. Lapis pencarian untuk penjelajah lokal (15 Nov 14.02 WIB) · KEPUTUSAN Raihan + SINTESIS
+
+KEPUTUSAN Raihan 15 Nov 2026 14.01: "Ya, paham juga kan maksud saya selokal mungkin itu bisa juga dengan search? Yakni, setelah mereka memasukkan data-data, AI akan search news dst. untuk melengkapi gitu?"
+
+Koreksi atas kerja sesi ini:
+- TEMUAN §3 menulis rancangan lama "AI mencari data lokal langsung di web" sebagai usang dan jangan dihidupkan. Itu keliru. Pencarian memang arah Raihan; yang berlaku dari rancangan Juli hanyalah pagarnya.
+- §7 butir 4 ("korpus S3 hanya bukti berstatus Live", dari jawaban chief) kini dipersempit: aturan itu berlaku untuk **bukti** (angka kartu, klaim yang ditulis Sulu). **Temuan pencarian** adalah jalur kedua yang terpisah dan tidak pernah menjadi bukti. Diajukan ke Chief Sulu.
+
+Dua jalur, tidak dicampur:
+
+| | Bukti | Temuan pencarian |
+|---|---|---|
+| Isi | angka kartu bersumber dan bertahun | berita dan laman resmi tentang kebutuhan itu di wilayah pengguna |
+| Syarat tampil | kartu terbit, bukti Live | https, penerbit, tanggal terbit, umur paling lama 24 bulan, bertanda "dari pencarian, perlu kamu cek" |
+| Yang ditulis Sulu | teks kartu varian A | tidak ada ringkasan isi; hanya judul asli, penerbit, tanggal, tautan, dan satu pertanyaan cek |
+| Urutan | — | laman pemerintah, lalu media besar, lalu lainnya; paling banyak lima |
+
+Pagar kueri (`mesin/sambung/pencarian.py`): kueri hanya dari nama wilayah resmi, kata topik kebutuhan dari daftar tertutup, dan paling banyak tiga kata kunci pengguna (huruf saja). Kalimat bebas pengguna tidak pernah masuk kueri. Untuk pengguna di bawah 18, kata kunci pengguna ditolak; pencarian tetap jalan dari wilayah dan kebutuhan yang ia pilih.
+
+Uji coba nyata sesi ini (dua pencarian, 15 Nov 14.02):
+- Kueri tanpa kata "berita" ("stunting Kabupaten Garut posyandu kader 2026"): 16 dari 17 hasil adalah berkas jurnal, 1 berita. Tidak layak.
+- Kueri berbentuk "berita stunting Garut November 2026": 15 dari 19 hasil adalah berita atau laman pemerintah (jabarprov.go.id, Antara Jabar, RRI Bandung, detik, medcom), 4 jurnal. Sebagian jelas berita lama (judul menyebut 2024). Tanggal terbit tidak ada di hasil pencarian, jadi halaman harus dibuka dulu untuk mengambil tanggal sebelum temuan boleh tampil.
+
+Yang belum ada: pemanggilan pencarian dan pembacaan tanggal di sisi aplikasi (lajur chief); biaya per pencarian; uji pada kabupaten kecil di luar Jawa, tempat berita lokal mungkin tipis; penanganan berita yang menyebut nama orang pribadi.
