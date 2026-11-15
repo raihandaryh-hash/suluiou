@@ -85,3 +85,22 @@ Kesimpulan: tidak perlu kontrak versi 2.
 ### Keadaan S1 hari ini (hasil jalan `s1_lapis_provinsi.py` dan `uji_s1.py`)
 
 38 provinsi punya kartu; 265 butir angka, 265 bersumber dan bertahun (gerbang A lulus untuk data). **0 butir boleh tampil**, sebab tidak ada kartu berstatus terbit: 900 kartu kabupaten/kota berstatus siap tinjau, 73 kartu provinsi berstatus draf, dan teks kartu masih kosong. Jalur kritis S1 karena itu bukan kode, melainkan teks kartu (dua varian, dipilih Raihan) dan status bukti Live.
+
+## 8. Koreksi sesudah pemeriksa terpisah (15 Nov 12.37 WIB) · SINTESIS
+
+Pemeriksa bukan penulis (Fable, tidak membaca transkrip sesi ini). Vonis: LAYAK DENGAN PERBAIKAN. Cakupannya: 12 dari 12 klaim kode dan data, ditambah T1; kutipan arsip laptop, isi RENCANA chief, dan T2–T16 tidak diperiksa. Bagian 1–7 dibiarkan sebagai riwayat; bila berbeda, bagian ini yang berlaku.
+
+| # | Koreksi | Asal |
+|---|---|---|
+| K1 | **S1 berubah dari "diganti" menjadi "ditambah di samping".** "Gambaran arah daerahmu" kini menampilkan empat unsur: pembuka cerita, sektor ekonomi, peluang 2030, dan kebutuhan yang belum terisi (pilot Jawa Barat). Kartu hanya memuat empat indikator dan bukan padanannya. Keempat unsur tetap tayang; nasib tiap unsur diputuskan Raihan, bukan mesin. Letaknya di langkah Pahami, bukan Dengar. Skema kartu sekarang hanya provinsi dan kabupaten/kota. | temuan berat 1, ringan 10 |
+| K2 | **Urutan "jarak terbesar" diperbaiki di kode.** Sebelumnya wilayah yang jauh lebih baik dari target ikut masuk. Kini hanya wilayah yang melewati pembanding ke arah buruk; jenis kebutuhan baru wajib mendaftarkan arahnya. Uji ditambah: arah, urutan, 973 kartu dibaca, 0 ditolak. | temuan berat 2, sedang 6–7 |
+| K3 | **S3 adalah satu pengecualian yang dinyatakan terang** atas prinsip "tidak ada pertanyaan baru": satu isian pilihan (boleh dilewati) tentang gejala setempat. Dasarnya arahan Raihan 15 Nov 10.28 bahwa pengguna memasukkan gejala di tempatnya (baris KEPUTUSAN di Ledger). Sebelum isian itu ditambahkan, jawaban yang sudah ada (medan, siapa yang ingin ditolong, provinsi) dipanen lebih dulu. Raihan memutuskan di akhir tonggak apakah isian ini tayang. | temuan berat 3 |
+| K4 | **S2 di tabel §3 salah tulis**: bukan "berdasar angka kartu". Yang berlaku §7: kosong sampai ada sumber tentang pelaku. | ringan 10 |
+| K5 | **S5 belum muat untuk jalur cipta.** Bidang bekal hanya ada pada jalur data; jalur cipta dan jalan lain tidak punya. Kesimpulan "tidak perlu kontrak versi 2" ditarik: untuk jalur cipta, bekal harus dirangkai di sisi aplikasi atau kontrak naik versi. Diajukan ke Chief Sulu. | sedang 4 |
+| K6 | **Gerbang C diperjelas**: kontrak mewajibkan jalur cipta hanya saat status ok; saat tanpa kartu atau ditahan rujukan tidak. Gerbang C berlaku pada keluaran berstatus ok. | sedang 5 |
+| K7 | **Baris yang hilang ditambahkan**: S11 "Titikmu" (kalimat penutup lapis provinsi yang mempertemukan bekal dan satu kebutuhan); S12 sumber bekal (dipanen dari jawaban Kenali Dirimu dan Kenali Kompetensimu yang sudah ada, tanpa penilaian AI); S13 pembaca bernama untuk tiap data pilihan pengguna sebelum disimpan, atau data itu tidak disimpan. | sedang 8 |
+| K8 | **Gerbang tambahan**: H kejelasan langkah awal (pengguna uji bisa menyebut satu langkah yang akan ia ambil); I tidak mengaku bimbingan karier; J tiga gerbang dari UJI Setia Niat bagian C (rumusan dengan kata pengguna, keberagaman gagasan, Raihan menilai sesi utuh). | sedang 8 |
+| K9 | **Gerbang yang belum terukur mekanis** dan apa yang kurang: B butuh skema keluaran S3; C butuh rubrik vonis dan set uji; D butuh inventaris fungsi dan isi tayang pada commit 6dea505; E butuh ambang; F butuh daftar bagian; G butuh jumlah contoh dan ambang kesepakatan. Ini pekerjaan sebelum gerbang itu boleh diklaim. | sedang 9 |
+| K10 | Angka kepala desa: dokumen lama menulis 56,4%, yang tayang 57,54%. Keduanya belum dicek ke sumber asli. | ringan 10 |
+
+Belum dikerjakan dari laporan pemeriksa: beda daftar nilai keandalan antara skema kartu dan kontrak; keandalan "hati-hati" pada semua 973 kartu belum punya cara tampil.

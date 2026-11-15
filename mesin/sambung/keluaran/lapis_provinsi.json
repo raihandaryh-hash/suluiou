@@ -1,5 +1,5 @@
 {
- "catatan": "provinsi yang tidak ada di sini = tanpa_kartu",
+ "catatan": "provinsi yang tidak ada di sini = tanpa kartu; butir dengan boleh_tampil=false hanya untuk ditinjau, jangan dipasang; semua angka berkeandalan seperti tertulis di bidang keandalan",
  "provinsi": {
   "11": {
    "kebutuhan": {
@@ -21,6 +21,7 @@
        "jarak": 12.07,
        "kartu_id": "kemiskinan-kabkota.1102",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -46,6 +47,7 @@
        "jarak": 11.77,
        "kartu_id": "kemiskinan-kabkota.1113",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -71,6 +73,7 @@
        "jarak": 11.46,
        "kartu_id": "kemiskinan-kabkota.1109",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -109,6 +112,7 @@
       "jarak": 20.36,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.11",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -137,6 +141,7 @@
        "jarak": 3.53,
        "kartu_id": "pengangguran-terbuka-kabkota.1174",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -162,6 +167,7 @@
        "jarak": 3.15,
        "kartu_id": "pengangguran-terbuka-kabkota.1108",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -187,6 +193,7 @@
        "jarak": 3.03,
        "kartu_id": "pengangguran-terbuka-kabkota.1105",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -225,6 +232,7 @@
       "jarak": 6.5,
       "kartu_id": "stunting-balita.11",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -237,6 +245,7 @@
     }
    },
    "nama": "Aceh",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "12": {
@@ -259,6 +268,7 @@
        "jarak": 17.47,
        "kartu_id": "kemiskinan-kabkota.1225",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -284,6 +294,7 @@
        "jarak": 15.79,
        "kartu_id": "kemiskinan-kabkota.1224",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -309,6 +320,7 @@
        "jarak": 11.16,
        "kartu_id": "kemiskinan-kabkota.1214",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -347,6 +359,7 @@
       "jarak": 9.13,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.12",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -358,83 +371,7 @@
      }
     },
     "pengangguran-terbuka-kabkota": {
-     "kabkota_jarak_terbesar": [
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.1,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.9,
-       "kartu_id": "pengangguran-terbuka-kabkota.1205",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1205",
-       "wilayah_nama": "Kab. Tapanuli Utara"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.21,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.79,
-       "kartu_id": "pengangguran-terbuka-kabkota.1210",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1210",
-       "wilayah_nama": "Kab. Dairi"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.08,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.92,
-       "kartu_id": "pengangguran-terbuka-kabkota.1201",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1201",
-       "wilayah_nama": "Kab. Nias"
-      }
-     ],
+     "kabkota_jarak_terbesar": [],
      "kabkota_jumlah": 3,
      "kabkota_melewati_pembanding": 0,
      "keadaan": null,
@@ -463,6 +400,7 @@
       "jarak": 0.1,
       "kartu_id": "stunting-balita.12",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -475,6 +413,7 @@
     }
    },
    "nama": "Sumatera Utara",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "13": {
@@ -497,6 +436,7 @@
        "jarak": 8.22,
        "kartu_id": "kemiskinan-kabkota.1301",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -510,51 +450,53 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 2.72,
+        "nilai": 6.52,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.78,
-       "kartu_id": "kemiskinan-kabkota.1373",
+       "jarak": 1.52,
+       "kartu_id": "kemiskinan-kabkota.1302",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1373",
-       "wilayah_nama": "Kota Sawahlunto"
+       "wilayah_kode": "1302",
+       "wilayah_nama": "Kab. Pesisir Selatan"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 2.91,
+        "nilai": 6.52,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.59,
-       "kartu_id": "kemiskinan-kabkota.1372",
+       "jarak": 1.52,
+       "kartu_id": "kemiskinan-kabkota.1303",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1372",
-       "wilayah_nama": "Kota Solok"
+       "wilayah_kode": "1303",
+       "wilayah_nama": "Kab. Solok"
       }
      ],
      "kabkota_jumlah": 19,
@@ -585,6 +527,7 @@
       "jarak": 0.37,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.13",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -613,6 +556,7 @@
        "jarak": 4.99,
        "kartu_id": "pengangguran-terbuka-kabkota.1371",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -626,51 +570,53 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.53,
+        "nilai": 6.48,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.47,
-       "kartu_id": "pengangguran-terbuka-kabkota.1301",
+       "jarak": 1.77,
+       "kartu_id": "pengangguran-terbuka-kabkota.1306",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1301",
-       "wilayah_nama": "Kab. Kepulauan Mentawai"
+       "wilayah_kode": "1306",
+       "wilayah_nama": "Kab. Padang Pariaman"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.13,
+        "nilai": 5.95,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.87,
-       "kartu_id": "pengangguran-terbuka-kabkota.1310",
+       "jarak": 1.24,
+       "kartu_id": "pengangguran-terbuka-kabkota.1312",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1310",
-       "wilayah_nama": "Kab. Solok Selatan"
+       "wilayah_kode": "1312",
+       "wilayah_nama": "Kab. Pasaman Barat"
       }
      ],
      "kabkota_jumlah": 19,
@@ -701,6 +647,7 @@
       "jarak": 2.8,
       "kartu_id": "stunting-balita.13",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -713,6 +660,7 @@
     }
    },
    "nama": "Sumatera Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "14": {
@@ -735,6 +683,7 @@
        "jarak": 15.51,
        "kartu_id": "kemiskinan-kabkota.1410",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -760,6 +709,7 @@
        "jarak": 3.71,
        "kartu_id": "kemiskinan-kabkota.1407",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -785,6 +735,7 @@
        "jarak": 2.24,
        "kartu_id": "kemiskinan-kabkota.1404",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -823,6 +774,7 @@
       "jarak": 4.52,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.14",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -839,76 +791,79 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.42,
+        "nilai": 5.43,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.58,
-       "kartu_id": "pengangguran-terbuka-kabkota.1404",
+       "jarak": 0.72,
+       "kartu_id": "pengangguran-terbuka-kabkota.1410",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1404",
-       "wilayah_nama": "Kab. Pelalawan"
+       "wilayah_kode": "1410",
+       "wilayah_nama": "Kab. Kepulauan Meranti"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.59,
+        "nilai": 5.32,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.41,
-       "kartu_id": "pengangguran-terbuka-kabkota.1402",
+       "jarak": 0.61,
+       "kartu_id": "pengangguran-terbuka-kabkota.1408",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1402",
-       "wilayah_nama": "Kab. Indragiri Hulu"
+       "wilayah_kode": "1408",
+       "wilayah_nama": "Kab. Bengkalis"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.84,
+        "nilai": 5.3,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.16,
-       "kartu_id": "pengangguran-terbuka-kabkota.1401",
+       "jarak": 0.59,
+       "kartu_id": "pengangguran-terbuka-kabkota.1405",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1401",
-       "wilayah_nama": "Kab. Kuantan Singingi"
+       "wilayah_kode": "1405",
+       "wilayah_nama": "Kab. S I A K"
       }
      ],
      "kabkota_jumlah": 12,
@@ -939,6 +894,7 @@
       "jarak": 2.0,
       "kartu_id": "stunting-balita.14",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -951,6 +907,7 @@
     }
    },
    "nama": "Riau",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "15": {
@@ -973,6 +930,7 @@
        "jarak": 4.96,
        "kartu_id": "kemiskinan-kabkota.1506",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -998,6 +956,7 @@
        "jarak": 4.67,
        "kartu_id": "kemiskinan-kabkota.1507",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1023,6 +982,7 @@
        "jarak": 3.74,
        "kartu_id": "kemiskinan-kabkota.1503",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1061,6 +1021,7 @@
       "jarak": 16.78,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.15",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1089,6 +1050,7 @@
        "jarak": 2.37,
        "kartu_id": "pengangguran-terbuka-kabkota.1571",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1102,51 +1064,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.0,
+        "nilai": 5.02,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.0,
-       "kartu_id": "pengangguran-terbuka-kabkota.1506",
+       "jarak": 0.31,
+       "kartu_id": "pengangguran-terbuka-kabkota.1505",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1506",
-       "wilayah_nama": "Kab. Tanjung Jabung Timur"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.21,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.79,
-       "kartu_id": "pengangguran-terbuka-kabkota.1508",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1508",
-       "wilayah_nama": "Kab. Tebo"
+       "wilayah_kode": "1505",
+       "wilayah_nama": "Kab. Muaro Jambi"
       }
      ],
      "kabkota_jumlah": 11,
@@ -1177,6 +1115,7 @@
       "jarak": 5.0,
       "kartu_id": "stunting-balita.15",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1189,6 +1128,7 @@
     }
    },
    "nama": "Jambi",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "16": {
@@ -1211,6 +1151,7 @@
        "jarak": 10.25,
        "kartu_id": "kemiskinan-kabkota.1613",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1236,6 +1177,7 @@
        "jarak": 8.69,
        "kartu_id": "kemiskinan-kabkota.1604",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1261,6 +1203,7 @@
        "jarak": 7.67,
        "kartu_id": "kemiskinan-kabkota.1605",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1299,6 +1242,7 @@
       "jarak": 4.49,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.16",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1315,31 +1259,6 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.74,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.26,
-       "kartu_id": "pengangguran-terbuka-kabkota.1605",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1605",
-       "wilayah_nama": "Kab. Musi Rawas"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
         "nilai": 6.81,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
@@ -1352,6 +1271,7 @@
        "jarak": 2.1,
        "kartu_id": "pengangguran-terbuka-kabkota.1671",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1365,26 +1285,53 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.92,
+        "nilai": 5.01,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.08,
-       "kartu_id": "pengangguran-terbuka-kabkota.1608",
+       "jarak": 0.3,
+       "kartu_id": "pengangguran-terbuka-kabkota.1674",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1608",
-       "wilayah_nama": "Kab. Ogan Komering Ulu Selatan"
+       "wilayah_kode": "1674",
+       "wilayah_nama": "Kota Lubuklinggau"
+      },
+      {
+       "angka": {
+        "keandalan": "hati_hati",
+        "kode": "tingkat_pengangguran_terbuka",
+        "nilai": 4.78,
+        "satuan": "persen",
+        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
+        "sumber_id": "sakernas-agustus",
+        "tahun_data": 2025,
+        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
+       },
+       "arah": "di_atas",
+       "boleh_tampil": false,
+       "jarak": 0.07,
+       "kartu_id": "pengangguran-terbuka-kabkota.1613",
+       "kartu_versi": "2026.1",
+       "melewati": true,
+       "pembanding": {
+        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
+        "jenis": "target_resmi",
+        "sumber_id": "perpres-12-2025-lampiran-i"
+       },
+       "status": "siap_tinjau",
+       "wilayah_kode": "1613",
+       "wilayah_nama": "Kab. Musi Rawas Utara"
       }
      ],
      "kabkota_jumlah": 17,
@@ -1415,6 +1362,7 @@
       "jarak": 6.2,
       "kartu_id": "stunting-balita.16",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1427,6 +1375,7 @@
     }
    },
    "nama": "Sumatera Selatan",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "17": {
@@ -1449,6 +1398,7 @@
        "jarak": 10.98,
        "kartu_id": "kemiskinan-kabkota.1705",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1474,6 +1424,7 @@
        "jarak": 10.82,
        "kartu_id": "kemiskinan-kabkota.1704",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1499,6 +1450,7 @@
        "jarak": 10.72,
        "kartu_id": "kemiskinan-kabkota.1701",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1537,6 +1489,7 @@
       "jarak": 1.62,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.17",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1548,58 +1501,7 @@
      }
     },
     "pengangguran-terbuka-kabkota": {
-     "kabkota_jarak_terbesar": [
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.16,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.84,
-       "kartu_id": "pengangguran-terbuka-kabkota.1707",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1707",
-       "wilayah_nama": "Kab. Lebong"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.88,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.12,
-       "kartu_id": "pengangguran-terbuka-kabkota.1704",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1704",
-       "wilayah_nama": "Kab. Kaur"
-      }
-     ],
+     "kabkota_jarak_terbesar": [],
      "kabkota_jumlah": 2,
      "kabkota_melewati_pembanding": 0,
      "keadaan": null,
@@ -1628,6 +1530,7 @@
       "jarak": 3.3,
       "kartu_id": "stunting-balita.17",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1640,6 +1543,7 @@
     }
    },
    "nama": "Bengkulu",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "18": {
@@ -1662,6 +1566,7 @@
        "jarak": 10.78,
        "kartu_id": "kemiskinan-kabkota.1806",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1687,6 +1592,7 @@
        "jarak": 7.15,
        "kartu_id": "kemiskinan-kabkota.1804",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1712,6 +1618,7 @@
        "jarak": 7.13,
        "kartu_id": "kemiskinan-kabkota.1813",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1750,6 +1657,7 @@
       "jarak": 5.92,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.18",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1778,6 +1686,7 @@
        "jarak": 2.82,
        "kartu_id": "pengangguran-terbuka-kabkota.1871",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1791,51 +1700,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.11,
+        "nilai": 5.78,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.89,
-       "kartu_id": "pengangguran-terbuka-kabkota.1801",
+       "jarak": 1.07,
+       "kartu_id": "pengangguran-terbuka-kabkota.1806",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1801",
-       "wilayah_nama": "Kab. Lampung Barat"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.68,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.32,
-       "kartu_id": "pengangguran-terbuka-kabkota.1811",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1811",
-       "wilayah_nama": "Kab. Mesuji"
+       "wilayah_kode": "1806",
+       "wilayah_nama": "Kab. Lampung Utara"
       }
      ],
      "kabkota_jumlah": 15,
@@ -1866,6 +1751,7 @@
       "jarak": 6.2,
       "kartu_id": "stunting-balita.18",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -1878,6 +1764,7 @@
     }
    },
    "nama": "Lampung",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "19": {
@@ -1900,6 +1787,7 @@
        "jarak": 1.7,
        "kartu_id": "kemiskinan-kabkota.1904",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1925,6 +1813,7 @@
        "jarak": 1.69,
        "kartu_id": "kemiskinan-kabkota.1906",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -1938,26 +1827,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 2.92,
+        "nilai": 6.44,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.58,
-       "kartu_id": "kemiskinan-kabkota.1903",
+       "jarak": 1.44,
+       "kartu_id": "kemiskinan-kabkota.1902",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1903",
-       "wilayah_nama": "Kab. Bangka Barat"
+       "wilayah_kode": "1902",
+       "wilayah_nama": "Kab. Belitung"
       }
      ],
      "kabkota_jumlah": 7,
@@ -1988,6 +1878,7 @@
       "jarak": 6.29,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.19",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2016,6 +1907,7 @@
        "jarak": 1.02,
        "kartu_id": "pengangguran-terbuka-kabkota.1971",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2029,51 +1921,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.05,
+        "nilai": 4.75,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 0.95,
-       "kartu_id": "pengangguran-terbuka-kabkota.1906",
+       "jarak": 0.04,
+       "kartu_id": "pengangguran-terbuka-kabkota.1901",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "1906",
-       "wilayah_nama": "Kab. Belitung Timur"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.64,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.36,
-       "kartu_id": "pengangguran-terbuka-kabkota.1902",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "1902",
-       "wilayah_nama": "Kab. Belitung"
+       "wilayah_kode": "1901",
+       "wilayah_nama": "Kab. Bangka"
       }
      ],
      "kabkota_jumlah": 7,
@@ -2104,6 +1972,7 @@
       "jarak": 2.0,
       "kartu_id": "stunting-balita.19",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2116,6 +1985,7 @@
     }
    },
    "nama": "Kep. Bangka Belitung",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "21": {
@@ -2138,6 +2008,7 @@
        "jarak": 1.35,
        "kartu_id": "kemiskinan-kabkota.2105",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2146,56 +2017,6 @@
        "status": "siap_tinjau",
        "wilayah_kode": "2105",
        "wilayah_nama": "Kab. Kepulauan Anambas"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 3.81,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.69,
-       "kartu_id": "kemiskinan-kabkota.2171",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "2171",
-       "wilayah_nama": "Kota Batam"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 4.81,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_dalam",
-       "boleh_tampil": false,
-       "jarak": 0.0,
-       "kartu_id": "kemiskinan-kabkota.2103",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "2103",
-       "wilayah_nama": "Kab. Natuna"
       }
      ],
      "kabkota_jumlah": 3,
@@ -2226,6 +2047,7 @@
       "jarak": 2.18,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.21",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2258,6 +2080,7 @@
       "jarak": 7.1,
       "kartu_id": "stunting-balita.21",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2270,6 +2093,7 @@
     }
    },
    "nama": "Kep. Riau",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "31": {
@@ -2292,6 +2116,7 @@
        "jarak": 7.37,
        "kartu_id": "kemiskinan-kabkota.3101",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2317,6 +2142,7 @@
        "jarak": 1.33,
        "kartu_id": "kemiskinan-kabkota.3175",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2325,31 +2151,6 @@
        "status": "siap_tinjau",
        "wilayah_kode": "3175",
        "wilayah_nama": "Kota Jakarta Utara"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 3.23,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.27,
-       "kartu_id": "kemiskinan-kabkota.3171",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "3171",
-       "wilayah_nama": "Kota Jakarta Selatan"
       }
      ],
      "kabkota_jumlah": 6,
@@ -2380,6 +2181,7 @@
       "jarak": 13.87,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.31",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2412,6 +2214,7 @@
       "jarak": 4.8,
       "kartu_id": "stunting-balita.31",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2424,6 +2227,7 @@
     }
    },
    "nama": "DKI Jakarta",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "32": {
@@ -2446,6 +2250,7 @@
        "jarak": 6.02,
        "kartu_id": "kemiskinan-kabkota.3212",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2471,6 +2276,7 @@
        "jarak": 5.84,
        "kartu_id": "kemiskinan-kabkota.3278",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2496,6 +2302,7 @@
        "jarak": 5.74,
        "kartu_id": "kemiskinan-kabkota.3208",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2534,6 +2341,7 @@
       "jarak": 7.2,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.32",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2562,6 +2370,7 @@
        "jarak": 4.07,
        "kartu_id": "pengangguran-terbuka-kabkota.3216",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2587,6 +2396,7 @@
        "jarak": 4.04,
        "kartu_id": "pengangguran-terbuka-kabkota.3277",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2612,6 +2422,7 @@
        "jarak": 3.48,
        "kartu_id": "pengangguran-terbuka-kabkota.3272",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2650,6 +2461,7 @@
       "jarak": 6.2,
       "kartu_id": "stunting-balita.32",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2662,6 +2474,7 @@
     }
    },
    "nama": "Jawa Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "33": {
@@ -2684,6 +2497,7 @@
        "jarak": 9.15,
        "kartu_id": "kemiskinan-kabkota.3329",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2709,6 +2523,7 @@
        "jarak": 8.58,
        "kartu_id": "kemiskinan-kabkota.3305",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2734,6 +2549,7 @@
        "jarak": 8.34,
        "kartu_id": "kemiskinan-kabkota.3307",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2772,6 +2588,7 @@
       "jarak": 4.86,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.33",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2800,6 +2617,7 @@
        "jarak": 3.36,
        "kartu_id": "pengangguran-terbuka-kabkota.3329",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2825,6 +2643,7 @@
        "jarak": 2.9,
        "kartu_id": "pengangguran-terbuka-kabkota.3328",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2850,6 +2669,7 @@
        "jarak": 2.69,
        "kartu_id": "pengangguran-terbuka-kabkota.3301",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2888,6 +2708,7 @@
       "jarak": 5.0,
       "kartu_id": "stunting-balita.33",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -2900,6 +2721,7 @@
     }
    },
    "nama": "Jawa Tengah",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "34": {
@@ -2922,6 +2744,7 @@
        "jarak": 9.53,
        "kartu_id": "kemiskinan-kabkota.3401",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2947,6 +2770,7 @@
        "jarak": 9.15,
        "kartu_id": "kemiskinan-kabkota.3403",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -2972,6 +2796,7 @@
        "jarak": 6.54,
        "kartu_id": "kemiskinan-kabkota.3402",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3010,6 +2835,7 @@
       "jarak": 11.45,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.34",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3026,56 +2852,6 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.14,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.86,
-       "kartu_id": "pengangguran-terbuka-kabkota.3401",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "3401",
-       "wilayah_nama": "Kab. Kulon Progo"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.15,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.85,
-       "kartu_id": "pengangguran-terbuka-kabkota.3403",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "3403",
-       "wilayah_nama": "Kab. Gunung Kidul"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
         "nilai": 5.72,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
@@ -3088,6 +2864,7 @@
        "jarak": 1.01,
        "kartu_id": "pengangguran-terbuka-kabkota.3471",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3126,6 +2903,7 @@
       "jarak": 4.7,
       "kartu_id": "stunting-balita.34",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3138,6 +2916,7 @@
     }
    },
    "nama": "DI Yogyakarta",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "35": {
@@ -3160,6 +2939,7 @@
        "jarak": 15.61,
        "kartu_id": "kemiskinan-kabkota.3527",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3185,6 +2965,7 @@
        "jarak": 13.25,
        "kartu_id": "kemiskinan-kabkota.3526",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3210,6 +2991,7 @@
        "jarak": 12.02,
        "kartu_id": "kemiskinan-kabkota.3529",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3248,6 +3030,7 @@
       "jarak": 3.96,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.35",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3264,76 +3047,79 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.33,
+        "nilai": 5.75,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.67,
-       "kartu_id": "pengangguran-terbuka-kabkota.3528",
+       "jarak": 1.04,
+       "kartu_id": "pengangguran-terbuka-kabkota.3515",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "3528",
-       "wilayah_nama": "Kab. Pamekasan"
+       "wilayah_kode": "3515",
+       "wilayah_nama": "Kab. Sidoarjo"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.4,
+        "nilai": 5.69,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.6,
-       "kartu_id": "pengangguran-terbuka-kabkota.3501",
+       "jarak": 0.98,
+       "kartu_id": "pengangguran-terbuka-kabkota.3573",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "3501",
-       "wilayah_nama": "Kab. Pacitan"
+       "wilayah_kode": "3573",
+       "wilayah_nama": "Kota Malang"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.64,
+        "nilai": 5.47,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.36,
-       "kartu_id": "pengangguran-terbuka-kabkota.3529",
+       "jarak": 0.76,
+       "kartu_id": "pengangguran-terbuka-kabkota.3525",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "3529",
-       "wilayah_nama": "Kab. Sumenep"
+       "wilayah_kode": "3525",
+       "wilayah_nama": "Kab. Gresik"
       }
      ],
      "kabkota_jumlah": 38,
@@ -3364,6 +3150,7 @@
       "jarak": 7.4,
       "kartu_id": "stunting-balita.35",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3376,6 +3163,7 @@
     }
    },
    "nama": "Jawa Timur",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "36": {
@@ -3398,6 +3186,7 @@
        "jarak": 3.51,
        "kartu_id": "kemiskinan-kabkota.3601",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3423,6 +3212,7 @@
        "jarak": 3.03,
        "kartu_id": "kemiskinan-kabkota.3602",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3436,26 +3226,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 2.39,
+        "nilai": 6.42,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.11,
-       "kartu_id": "kemiskinan-kabkota.3674",
+       "jarak": 1.42,
+       "kartu_id": "kemiskinan-kabkota.3603",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "3674",
-       "wilayah_nama": "Kota Tangerang    Selatan"
+       "wilayah_kode": "3603",
+       "wilayah_nama": "Kab. Tangerang"
       }
      ],
      "kabkota_jumlah": 8,
@@ -3486,6 +3277,7 @@
       "jarak": 3.33,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.36",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3514,6 +3306,7 @@
        "jarak": 4.09,
        "kartu_id": "pengangguran-terbuka-kabkota.3601",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3539,6 +3332,7 @@
        "jarak": 4.02,
        "kartu_id": "pengangguran-terbuka-kabkota.3604",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3564,6 +3358,7 @@
        "jarak": 2.7,
        "kartu_id": "pengangguran-terbuka-kabkota.3672",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3602,6 +3397,7 @@
       "jarak": 1.0,
       "kartu_id": "stunting-balita.36",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3614,62 +3410,13 @@
     }
    },
    "nama": "Banten",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "51": {
    "kebutuhan": {
     "kemiskinan-kabkota": {
      "kabkota_jarak_terbesar": [
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 1.9,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.6,
-       "kartu_id": "kemiskinan-kabkota.5103",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5103",
-       "wilayah_nama": "Kab. Badung"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 2.16,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.34,
-       "kartu_id": "kemiskinan-kabkota.5171",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5171",
-       "wilayah_nama": "Kota Denpasar"
-      },
       {
        "angka": {
         "keandalan": "hati_hati",
@@ -3686,6 +3433,7 @@
        "jarak": 1.4,
        "kartu_id": "kemiskinan-kabkota.5107",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3694,6 +3442,58 @@
        "status": "siap_tinjau",
        "wilayah_kode": "5107",
        "wilayah_nama": "Kab. Karangasem"
+      },
+      {
+       "angka": {
+        "keandalan": "hati_hati",
+        "kode": "persentase_penduduk_miskin",
+        "nilai": 5.2,
+        "satuan": "persen",
+        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
+        "sumber_id": "kemiskinan-kabkota-2025",
+        "tahun_data": 2025,
+        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+       },
+       "arah": "di_atas",
+       "boleh_tampil": false,
+       "jarak": 0.2,
+       "kartu_id": "kemiskinan-kabkota.5108",
+       "kartu_versi": "2026.1",
+       "melewati": true,
+       "pembanding": {
+        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
+        "jenis": "target_resmi",
+        "sumber_id": "perpres-12-2025-lampiran-i"
+       },
+       "status": "siap_tinjau",
+       "wilayah_kode": "5108",
+       "wilayah_nama": "Kab. Buleleng"
+      },
+      {
+       "angka": {
+        "keandalan": "hati_hati",
+        "kode": "persentase_penduduk_miskin",
+        "nilai": 5.18,
+        "satuan": "persen",
+        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
+        "sumber_id": "kemiskinan-kabkota-2025",
+        "tahun_data": 2025,
+        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+       },
+       "arah": "di_atas",
+       "boleh_tampil": false,
+       "jarak": 0.18,
+       "kartu_id": "kemiskinan-kabkota.5105",
+       "kartu_versi": "2026.1",
+       "melewati": true,
+       "pembanding": {
+        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
+        "jenis": "target_resmi",
+        "sumber_id": "perpres-12-2025-lampiran-i"
+       },
+       "status": "siap_tinjau",
+       "wilayah_kode": "5105",
+       "wilayah_nama": "Kab. Klungkung"
       }
      ],
      "kabkota_jumlah": 9,
@@ -3724,6 +3524,7 @@
       "jarak": 11.33,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.51",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3735,58 +3536,7 @@
      }
     },
     "pengangguran-terbuka-kabkota": {
-     "kabkota_jarak_terbesar": [
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.41,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.59,
-       "kartu_id": "pengangguran-terbuka-kabkota.5171",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5171",
-       "wilayah_nama": "Kota Denpasar"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.64,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.36,
-       "kartu_id": "pengangguran-terbuka-kabkota.5101",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5101",
-       "wilayah_nama": "Kab. Jembrana"
-      }
-     ],
+     "kabkota_jarak_terbesar": [],
      "kabkota_jumlah": 2,
      "kabkota_melewati_pembanding": 0,
      "keadaan": null,
@@ -3815,6 +3565,7 @@
       "jarak": 13.4,
       "kartu_id": "stunting-balita.51",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3827,6 +3578,7 @@
     }
    },
    "nama": "Bali",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "52": {
@@ -3849,6 +3601,7 @@
        "jarak": 15.74,
        "kartu_id": "kemiskinan-kabkota.5208",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3874,6 +3627,7 @@
        "jarak": 8.53,
        "kartu_id": "kemiskinan-kabkota.5203",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3899,6 +3653,7 @@
        "jarak": 7.59,
        "kartu_id": "kemiskinan-kabkota.5206",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -3937,6 +3692,7 @@
       "jarak": 6.09,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.52",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -3953,76 +3709,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.13,
+        "nilai": 4.8,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.87,
-       "kartu_id": "pengangguran-terbuka-kabkota.5206",
+       "jarak": 0.09,
+       "kartu_id": "pengangguran-terbuka-kabkota.5271",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "5206",
-       "wilayah_nama": "Kab. Bima"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.6,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.4,
-       "kartu_id": "pengangguran-terbuka-kabkota.5204",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5204",
-       "wilayah_nama": "Kab. Sumbawa"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.68,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.32,
-       "kartu_id": "pengangguran-terbuka-kabkota.5208",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "5208",
-       "wilayah_nama": "Kab. Lombok Utara"
+       "wilayah_kode": "5271",
+       "wilayah_nama": "Kota Mataram"
       }
      ],
      "kabkota_jumlah": 10,
@@ -4053,6 +3760,7 @@
       "jarak": 7.7,
       "kartu_id": "stunting-balita.52",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4065,6 +3773,7 @@
     }
    },
    "nama": "Nusa Tenggara Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "53": {
@@ -4087,6 +3796,7 @@
        "jarak": 24.23,
        "kartu_id": "kemiskinan-kabkota.5316",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4112,6 +3822,7 @@
        "jarak": 22.18,
        "kartu_id": "kemiskinan-kabkota.5320",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4137,6 +3848,7 @@
        "jarak": 21.47,
        "kartu_id": "kemiskinan-kabkota.5301",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4175,6 +3887,7 @@
       "jarak": 0.37,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.53",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4203,6 +3916,7 @@
        "jarak": 3.9,
        "kartu_id": "pengangguran-terbuka-kabkota.5371",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4216,51 +3930,53 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.24,
+        "nilai": 6.36,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.76,
-       "kartu_id": "pengangguran-terbuka-kabkota.5319",
+       "jarak": 1.65,
+       "kartu_id": "pengangguran-terbuka-kabkota.5309",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "5319",
-       "wilayah_nama": "Kab. Manggarai Timur"
+       "wilayah_kode": "5309",
+       "wilayah_nama": "Kab. Flores Timur"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.31,
+        "nilai": 5.2,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.69,
-       "kartu_id": "pengangguran-terbuka-kabkota.5318",
+       "jarak": 0.49,
+       "kartu_id": "pengangguran-terbuka-kabkota.5306",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "5318",
-       "wilayah_nama": "Kab. Nagekeo"
+       "wilayah_kode": "5306",
+       "wilayah_nama": "Kab. Belu"
       }
      ],
      "kabkota_jumlah": 22,
@@ -4291,6 +4007,7 @@
       "jarak": 14.9,
       "kartu_id": "stunting-balita.53",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4303,6 +4020,7 @@
     }
    },
    "nama": "Nusa Tenggara Timur",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "61": {
@@ -4325,6 +4043,7 @@
        "jarak": 5.51,
        "kartu_id": "kemiskinan-kabkota.6110",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4350,6 +4069,7 @@
        "jarak": 3.9,
        "kartu_id": "kemiskinan-kabkota.6103",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4375,6 +4095,7 @@
        "jarak": 3.75,
        "kartu_id": "kemiskinan-kabkota.6111",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4413,6 +4134,7 @@
       "jarak": 8.9,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.61",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4441,6 +4163,7 @@
        "jarak": 3.2,
        "kartu_id": "pengangguran-terbuka-kabkota.6171",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4466,6 +4189,7 @@
        "jarak": 2.71,
        "kartu_id": "pengangguran-terbuka-kabkota.6172",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4491,6 +4215,7 @@
        "jarak": 2.15,
        "kartu_id": "pengangguran-terbuka-kabkota.6112",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4529,6 +4254,7 @@
       "jarak": 4.7,
       "kartu_id": "stunting-balita.61",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4541,6 +4267,7 @@
     }
    },
    "nama": "Kalimantan Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "62": {
@@ -4563,6 +4290,7 @@
        "jarak": 1.72,
        "kartu_id": "kemiskinan-kabkota.6208",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4588,6 +4316,7 @@
        "jarak": 1.19,
        "kartu_id": "kemiskinan-kabkota.6213",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4601,26 +4330,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 3.33,
+        "nilai": 6.1,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.17,
-       "kartu_id": "kemiskinan-kabkota.6207",
+       "jarak": 1.1,
+       "kartu_id": "kemiskinan-kabkota.6212",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6207",
-       "wilayah_nama": "Kab. Lamandau"
+       "wilayah_kode": "6212",
+       "wilayah_nama": "Kab. Barito Timur"
       }
      ],
      "kabkota_jumlah": 14,
@@ -4651,6 +4381,7 @@
       "jarak": 9.93,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.62",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4667,76 +4398,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.23,
+        "nilai": 5.23,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.77,
-       "kartu_id": "pengangguran-terbuka-kabkota.6210",
+       "jarak": 0.52,
+       "kartu_id": "pengangguran-terbuka-kabkota.6271",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6210",
-       "wilayah_nama": "Kab. Pulang Pisau"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.52,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.48,
-       "kartu_id": "pengangguran-terbuka-kabkota.6213",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6213",
-       "wilayah_nama": "Kab. Murung Raya"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.07,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.93,
-       "kartu_id": "pengangguran-terbuka-kabkota.6207",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6207",
-       "wilayah_nama": "Kab. Lamandau"
+       "wilayah_kode": "6271",
+       "wilayah_nama": "Kota Palangka Raya"
       }
      ],
      "kabkota_jumlah": 14,
@@ -4767,6 +4449,7 @@
       "jarak": 0.0,
       "kartu_id": "stunting-balita.62",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4779,6 +4462,7 @@
     }
    },
    "nama": "Kalimantan Tengah",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "63": {
@@ -4789,76 +4473,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "persentase_penduduk_miskin",
-        "nilai": 2.74,
+        "nilai": 5.03,
         "satuan": "persen",
         "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
         "sumber_id": "kemiskinan-kabkota-2025",
         "tahun_data": 2025,
         "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.76,
-       "kartu_id": "kemiskinan-kabkota.6303",
+       "jarak": 0.03,
+       "kartu_id": "kemiskinan-kabkota.6307",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6303",
-       "wilayah_nama": "Kab. Banjar"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 2.91,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.59,
-       "kartu_id": "kemiskinan-kabkota.6305",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6305",
-       "wilayah_nama": "Kab. Tapin"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "persentase_penduduk_miskin",
-        "nilai": 3.0,
-        "satuan": "persen",
-        "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
-        "sumber_id": "kemiskinan-kabkota-2025",
-        "tahun_data": 2025,
-        "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.5,
-       "kartu_id": "kemiskinan-kabkota.6301",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6301",
-       "wilayah_nama": "Kab. Tanah Laut"
+       "wilayah_kode": "6307",
+       "wilayah_nama": "Kab. Hulu Sungai Tengah"
       }
      ],
      "kabkota_jumlah": 13,
@@ -4889,6 +4524,7 @@
       "jarak": 3.5,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.63",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -4917,6 +4553,7 @@
        "jarak": 1.34,
        "kartu_id": "pengangguran-terbuka-kabkota.6310",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -4930,51 +4567,53 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.74,
+        "nilai": 5.93,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.26,
-       "kartu_id": "pengangguran-terbuka-kabkota.6311",
+       "jarak": 1.22,
+       "kartu_id": "pengangguran-terbuka-kabkota.6302",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6311",
-       "wilayah_nama": "Kab. Balangan"
+       "wilayah_kode": "6302",
+       "wilayah_nama": "Kota Baru"
       },
       {
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.76,
+        "nilai": 4.75,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.24,
-       "kartu_id": "pengangguran-terbuka-kabkota.6303",
+       "jarak": 0.04,
+       "kartu_id": "pengangguran-terbuka-kabkota.6372",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6303",
-       "wilayah_nama": "Kab. Banjar"
+       "wilayah_kode": "6372",
+       "wilayah_nama": "Kota Banjar Baru"
       }
      ],
      "kabkota_jumlah": 9,
@@ -5005,6 +4644,7 @@
       "jarak": 0.8,
       "kartu_id": "stunting-balita.63",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5017,6 +4657,7 @@
     }
    },
    "nama": "Kalimantan Selatan",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "64": {
@@ -5039,6 +4680,7 @@
        "jarak": 5.09,
        "kartu_id": "kemiskinan-kabkota.6411",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5064,6 +4706,7 @@
        "jarak": 3.72,
        "kartu_id": "kemiskinan-kabkota.6402",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5089,6 +4732,7 @@
        "jarak": 3.13,
        "kartu_id": "kemiskinan-kabkota.6401",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5127,6 +4771,7 @@
       "jarak": 5.18,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.64",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5155,6 +4800,7 @@
        "jarak": 1.65,
        "kartu_id": "pengangguran-terbuka-kabkota.6474",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5180,6 +4826,7 @@
        "jarak": 1.49,
        "kartu_id": "pengangguran-terbuka-kabkota.6404",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5193,26 +4840,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.84,
+        "nilai": 5.84,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.16,
-       "kartu_id": "pengangguran-terbuka-kabkota.6411",
+       "jarak": 1.13,
+       "kartu_id": "pengangguran-terbuka-kabkota.6471",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "6411",
-       "wilayah_nama": "Kab. Mahakam Ulu"
+       "wilayah_kode": "6471",
+       "wilayah_nama": "Kota Balikpapan"
       }
      ],
      "kabkota_jumlah": 10,
@@ -5223,6 +4871,7 @@
     }
    },
    "nama": "Kalimantan Timur",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "65": {
@@ -5245,6 +4894,7 @@
        "jarak": 2.26,
        "kartu_id": "kemiskinan-kabkota.6502",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5270,6 +4920,7 @@
        "jarak": 0.56,
        "kartu_id": "kemiskinan-kabkota.6501",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5295,6 +4946,7 @@
        "jarak": 0.27,
        "kartu_id": "kemiskinan-kabkota.6504",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5333,6 +4985,7 @@
       "jarak": 10.58,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.65",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5349,56 +5002,6 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.61,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.39,
-       "kartu_id": "pengangguran-terbuka-kabkota.6504",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6504",
-       "wilayah_nama": "Kab. Nunukan"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.42,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.58,
-       "kartu_id": "pengangguran-terbuka-kabkota.6501",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "6501",
-       "wilayah_nama": "Kab. Malinau"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
         "nilai": 5.06,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
@@ -5411,6 +5014,7 @@
        "jarak": 0.35,
        "kartu_id": "pengangguran-terbuka-kabkota.6571",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5449,6 +5053,7 @@
       "jarak": 4.5,
       "kartu_id": "stunting-balita.65",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5461,6 +5066,7 @@
     }
    },
    "nama": "Kalimantan Utara",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "71": {
@@ -5483,6 +5089,7 @@
        "jarak": 5.91,
        "kartu_id": "kemiskinan-kabkota.7103",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5508,6 +5115,7 @@
        "jarak": 5.52,
        "kartu_id": "kemiskinan-kabkota.7110",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5533,6 +5141,7 @@
        "jarak": 5.31,
        "kartu_id": "kemiskinan-kabkota.7109",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5571,6 +5180,7 @@
       "jarak": 5.64,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.71",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5599,6 +5209,7 @@
        "jarak": 3.8,
        "kartu_id": "pengangguran-terbuka-kabkota.7171",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5624,6 +5235,7 @@
        "jarak": 3.09,
        "kartu_id": "pengangguran-terbuka-kabkota.7173",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5649,6 +5261,7 @@
        "jarak": 3.03,
        "kartu_id": "pengangguran-terbuka-kabkota.7102",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5687,6 +5300,7 @@
       "jarak": 1.3,
       "kartu_id": "stunting-balita.71",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5699,6 +5313,7 @@
     }
    },
    "nama": "Sulawesi Utara",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "72": {
@@ -5721,6 +5336,7 @@
        "jarak": 9.67,
        "kartu_id": "kemiskinan-kabkota.7209",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5746,6 +5362,7 @@
        "jarak": 9.66,
        "kartu_id": "kemiskinan-kabkota.7205",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5771,6 +5388,7 @@
        "jarak": 8.51,
        "kartu_id": "kemiskinan-kabkota.7208",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5809,6 +5427,7 @@
       "jarak": 3.04,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.72",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5825,76 +5444,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.67,
+        "nilai": 5.59,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.33,
-       "kartu_id": "pengangguran-terbuka-kabkota.7201",
+       "jarak": 0.88,
+       "kartu_id": "pengangguran-terbuka-kabkota.7271",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "7201",
-       "wilayah_nama": "Kab. Banggai Kepulauan"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.76,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.24,
-       "kartu_id": "pengangguran-terbuka-kabkota.7204",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7204",
-       "wilayah_nama": "Kab. Poso"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.1,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.9,
-       "kartu_id": "pengangguran-terbuka-kabkota.7208",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7208",
-       "wilayah_nama": "Kab. Parigi Moutong"
+       "wilayah_kode": "7271",
+       "wilayah_nama": "Kota Palu"
       }
      ],
      "kabkota_jumlah": 13,
@@ -5925,6 +5495,7 @@
       "jarak": 4.0,
       "kartu_id": "stunting-balita.72",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -5937,6 +5508,7 @@
     }
    },
    "nama": "Sulawesi Tengah",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "73": {
@@ -5959,6 +5531,7 @@
        "jarak": 6.6,
        "kartu_id": "kemiskinan-kabkota.7309",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -5984,6 +5557,7 @@
        "jarak": 6.42,
        "kartu_id": "kemiskinan-kabkota.7304",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6009,6 +5583,7 @@
        "jarak": 5.97,
        "kartu_id": "kemiskinan-kabkota.7317",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6047,6 +5622,7 @@
       "jarak": 8.74,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.73",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6075,6 +5651,7 @@
        "jarak": 4.89,
        "kartu_id": "pengangguran-terbuka-kabkota.7371",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6100,6 +5677,7 @@
        "jarak": 2.82,
        "kartu_id": "pengangguran-terbuka-kabkota.7373",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6113,26 +5691,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.78,
+        "nilai": 5.07,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.22,
-       "kartu_id": "pengangguran-terbuka-kabkota.7316",
+       "jarak": 0.36,
+       "kartu_id": "pengangguran-terbuka-kabkota.7310",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "7316",
-       "wilayah_nama": "Kab. Enrekang"
+       "wilayah_kode": "7310",
+       "wilayah_nama": "Kab. Barru"
       }
      ],
      "kabkota_jumlah": 24,
@@ -6163,6 +5742,7 @@
       "jarak": 1.2,
       "kartu_id": "stunting-balita.73",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6175,6 +5755,7 @@
     }
    },
    "nama": "Sulawesi Selatan",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "74": {
@@ -6197,6 +5778,7 @@
        "jarak": 9.42,
        "kartu_id": "kemiskinan-kabkota.7412",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6222,6 +5804,7 @@
        "jarak": 8.64,
        "kartu_id": "kemiskinan-kabkota.7415",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6247,6 +5830,7 @@
        "jarak": 8.46,
        "kartu_id": "kemiskinan-kabkota.7401",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6285,6 +5869,7 @@
       "jarak": 6.37,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.74",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6301,76 +5886,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.52,
+        "nilai": 5.94,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.48,
-       "kartu_id": "pengangguran-terbuka-kabkota.7412",
+       "jarak": 1.23,
+       "kartu_id": "pengangguran-terbuka-kabkota.7471",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "7412",
-       "wilayah_nama": "Kab. Konawe Kepulauan"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.62,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.38,
-       "kartu_id": "pengangguran-terbuka-kabkota.7408",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7408",
-       "wilayah_nama": "Kab. Kolaka Utara"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.98,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.02,
-       "kartu_id": "pengangguran-terbuka-kabkota.7409",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7409",
-       "wilayah_nama": "Kab. Buton Utara"
+       "wilayah_kode": "7471",
+       "wilayah_nama": "Kota Kendari"
       }
      ],
      "kabkota_jumlah": 17,
@@ -6401,6 +5937,7 @@
       "jarak": 4.0,
       "kartu_id": "stunting-balita.74",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6413,6 +5950,7 @@
     }
    },
    "nama": "Sulawesi Tenggara",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "75": {
@@ -6435,6 +5973,7 @@
        "jarak": 11.37,
        "kartu_id": "kemiskinan-kabkota.7501",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6460,6 +5999,7 @@
        "jarak": 10.89,
        "kartu_id": "kemiskinan-kabkota.7505",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6485,6 +6025,7 @@
        "jarak": 10.24,
        "kartu_id": "kemiskinan-kabkota.7503",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6523,6 +6064,7 @@
       "jarak": 9.39,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.75",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6555,6 +6097,7 @@
       "jarak": 1.7,
       "kartu_id": "stunting-balita.75",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6567,6 +6110,7 @@
     }
    },
    "nama": "Gorontalo",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "76": {
@@ -6589,6 +6133,7 @@
        "jarak": 9.02,
        "kartu_id": "kemiskinan-kabkota.7602",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6614,6 +6159,7 @@
        "jarak": 7.98,
        "kartu_id": "kemiskinan-kabkota.7601",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6639,6 +6185,7 @@
        "jarak": 1.99,
        "kartu_id": "kemiskinan-kabkota.7604",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6677,6 +6224,7 @@
       "jarak": 11.5,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.76",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6688,83 +6236,7 @@
      }
     },
     "pengangguran-terbuka-kabkota": {
-     "kabkota_jarak_terbesar": [
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.58,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.42,
-       "kartu_id": "pengangguran-terbuka-kabkota.7606",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7606",
-       "wilayah_nama": "Kab. Mamuju Tengah"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.69,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 2.31,
-       "kartu_id": "pengangguran-terbuka-kabkota.7605",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7605",
-       "wilayah_nama": "Kab. Pasangkayu"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.91,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 1.09,
-       "kartu_id": "pengangguran-terbuka-kabkota.7603",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "7603",
-       "wilayah_nama": "Kab. Mamasa"
-      }
-     ],
+     "kabkota_jarak_terbesar": [],
      "kabkota_jumlah": 6,
      "kabkota_melewati_pembanding": 0,
      "keadaan": null,
@@ -6793,6 +6265,7 @@
       "jarak": 13.3,
       "kartu_id": "stunting-balita.76",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6805,6 +6278,7 @@
     }
    },
    "nama": "Sulawesi Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "81": {
@@ -6827,6 +6301,7 @@
        "jarak": 22.65,
        "kartu_id": "kemiskinan-kabkota.8108",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6852,6 +6327,7 @@
        "jarak": 18.38,
        "kartu_id": "kemiskinan-kabkota.8101",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6877,6 +6353,7 @@
        "jarak": 18.1,
        "kartu_id": "kemiskinan-kabkota.8105",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6915,6 +6392,7 @@
       "jarak": 12.29,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.81",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -6943,6 +6421,7 @@
        "jarak": 6.66,
        "kartu_id": "pengangguran-terbuka-kabkota.8171",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6968,6 +6447,7 @@
        "jarak": 4.25,
        "kartu_id": "pengangguran-terbuka-kabkota.8172",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -6981,26 +6461,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 1.29,
+        "nilai": 6.93,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 2.71,
-       "kartu_id": "pengangguran-terbuka-kabkota.8109",
+       "jarak": 2.22,
+       "kartu_id": "pengangguran-terbuka-kabkota.8103",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "8109",
-       "wilayah_nama": "Kab. Buru Selatan"
+       "wilayah_kode": "8103",
+       "wilayah_nama": "Kab. Maluku Tengah"
       }
      ],
      "kabkota_jumlah": 11,
@@ -7031,6 +6512,7 @@
       "jarak": 6.3,
       "kartu_id": "stunting-balita.81",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7043,6 +6525,7 @@
     }
    },
    "nama": "Maluku",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "82": {
@@ -7065,6 +6548,7 @@
        "jarak": 5.54,
        "kartu_id": "kemiskinan-kabkota.8206",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7090,6 +6574,7 @@
        "jarak": 4.16,
        "kartu_id": "kemiskinan-kabkota.8202",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7115,6 +6600,7 @@
        "jarak": 2.9,
        "kartu_id": "kemiskinan-kabkota.8201",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7153,6 +6639,7 @@
       "jarak": 4.41,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.82",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7181,6 +6668,7 @@
        "jarak": 2.21,
        "kartu_id": "pengangguran-terbuka-kabkota.8271",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7206,6 +6694,7 @@
        "jarak": 1.99,
        "kartu_id": "pengangguran-terbuka-kabkota.8205",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7219,26 +6708,27 @@
        "angka": {
         "keandalan": "hati_hati",
         "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 2.55,
+        "nilai": 4.85,
         "satuan": "persen",
         "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
         "sumber_id": "sakernas-agustus",
         "tahun_data": 2025,
         "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
        },
-       "arah": "di_bawah",
+       "arah": "di_atas",
        "boleh_tampil": false,
-       "jarak": 1.45,
-       "kartu_id": "pengangguran-terbuka-kabkota.8204",
+       "jarak": 0.14,
+       "kartu_id": "pengangguran-terbuka-kabkota.8206",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
-       "wilayah_kode": "8204",
-       "wilayah_nama": "Kab. Halmahera Selatan"
+       "wilayah_kode": "8206",
+       "wilayah_nama": "Kab. Halmahera Timur"
       }
      ],
      "kabkota_jumlah": 10,
@@ -7269,6 +6759,7 @@
       "jarak": 1.1,
       "kartu_id": "stunting-balita.82",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7281,6 +6772,7 @@
     }
    },
    "nama": "Maluku Utara",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "91": {
@@ -7303,6 +6795,7 @@
        "jarak": 25.88,
        "kartu_id": "kemiskinan-kabkota.9112",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7328,6 +6821,7 @@
        "jarak": 24.0,
        "kartu_id": "kemiskinan-kabkota.9110",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7353,6 +6847,7 @@
        "jarak": 23.94,
        "kartu_id": "kemiskinan-kabkota.9109",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7391,6 +6886,7 @@
       "jarak": 1.08,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.91",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7419,6 +6915,7 @@
        "jarak": 1.69,
        "kartu_id": "pengangguran-terbuka-kabkota.9101",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7427,31 +6924,6 @@
        "status": "siap_tinjau",
        "wilayah_kode": "9101",
        "wilayah_nama": "Kab. Fakfak"
-      },
-      {
-       "angka": {
-        "keandalan": "hati_hati",
-        "kode": "tingkat_pengangguran_terbuka",
-        "nilai": 3.37,
-        "satuan": "persen",
-        "sha256": "8688b81a6d2744541960efd5154e0d3e7e57bd103e172394afda4bd985da0e27",
-        "sumber_id": "sakernas-agustus",
-        "tahun_data": 2025,
-        "url": "https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
-       },
-       "arah": "di_bawah",
-       "boleh_tampil": false,
-       "jarak": 0.63,
-       "kartu_id": "pengangguran-terbuka-kabkota.9103",
-       "kartu_versi": "2026.1",
-       "pembanding": {
-        "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
-        "jenis": "target_resmi",
-        "sumber_id": "perpres-12-2025-lampiran-i"
-       },
-       "status": "siap_tinjau",
-       "wilayah_kode": "9103",
-       "wilayah_nama": "Kab. Teluk Wondama"
       }
      ],
      "kabkota_jumlah": 2,
@@ -7462,6 +6934,7 @@
     }
    },
    "nama": "Papua Barat",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "92": {
@@ -7488,6 +6961,7 @@
       "jarak": 6.31,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.92",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7520,6 +6994,7 @@
       "jarak": 8.4,
       "kartu_id": "stunting-balita.92",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7532,6 +7007,7 @@
     }
    },
    "nama": "Papua Barat Daya",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "94": {
@@ -7554,6 +7030,7 @@
        "jarak": 37.56,
        "kartu_id": "kemiskinan-kabkota.9427",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7579,6 +7056,7 @@
        "jarak": 30.09,
        "kartu_id": "kemiskinan-kabkota.9428",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7604,6 +7082,7 @@
        "jarak": 27.6,
        "kartu_id": "kemiskinan-kabkota.9426",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat kemiskinan (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7642,6 +7121,7 @@
       "jarak": 2.08,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.94",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7670,6 +7150,7 @@
        "jarak": 2.97,
        "kartu_id": "pengangguran-terbuka-kabkota.9471",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7695,6 +7176,7 @@
        "jarak": 2.61,
        "kartu_id": "pengangguran-terbuka-kabkota.9427",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7720,6 +7202,7 @@
        "jarak": 0.9,
        "kartu_id": "pengangguran-terbuka-kabkota.9414",
        "kartu_versi": "2026.1",
+       "melewati": true,
        "pembanding": {
         "catatan": "target nasional Tingkat Pengangguran Terbuka (%) tahun 2029 (RPJMN 2025-2029); dibandingkan dengan nilai kabupaten/kota",
         "jenis": "target_resmi",
@@ -7738,6 +7221,7 @@
     }
    },
    "nama": "Papua",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "95": {
@@ -7764,6 +7248,7 @@
       "jarak": 14.37,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.95",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7796,6 +7281,7 @@
       "jarak": 3.7,
       "kartu_id": "stunting-balita.95",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7808,6 +7294,7 @@
     }
    },
    "nama": "Papua Selatan",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "96": {
@@ -7834,6 +7321,7 @@
       "jarak": 6.99,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.96",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7866,6 +7354,7 @@
       "jarak": 10.4,
       "kartu_id": "stunting-balita.96",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7878,6 +7367,7 @@
     }
    },
    "nama": "Papua Tengah",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   },
   "97": {
@@ -7904,6 +7394,7 @@
       "jarak": 18.49,
       "kartu_id": "penduduk-tanpa-jaminan-kesehatan.97",
       "kartu_versi": "2026.1",
+      "melewati": false,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7936,6 +7427,7 @@
       "jarak": 17.9,
       "kartu_id": "stunting-balita.97",
       "kartu_versi": "2026.1",
+      "melewati": true,
       "pembanding": {
        "catatan": "nilai tengah antar-provinsi di tabel terbit; bukan target resmi",
        "jenis": "median_nasional",
@@ -7948,6 +7440,7 @@
     }
    },
    "nama": "Papua Pegunungan",
+   "nama_dari_kartu": true,
    "status": "kartu_belum_terbit"
   }
  },
