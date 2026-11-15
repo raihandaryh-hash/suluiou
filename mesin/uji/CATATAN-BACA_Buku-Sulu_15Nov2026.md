@@ -80,3 +80,28 @@ Sumber: laptop `Audit-Nov2026\BUKU\BUKU_Pengetahuan-Sulu_v1.4.md` (4.596 baris).
 
 ## 5. Putaran 2 (urutan)
 Teks asli dua memo suara 27 Jul → Bab 3 (AI dan keselamatan) dan Bab 9 → Bab 12 sisa → Bab 5 bagian 4–9, Bab 8 tabel klaim → Bab 1, 4, 6, 7, 10, 11, Lampiran → isi skill-map dan Peta Medan riset.
+
+## 6. Putaran 2a · teks asli dua memo suara 27 Jul (dibaca utuh 10.39 WIB)
+Sumber: laptop `MESIN\mentah\riwayat\p1b\lampiran\2026-07-27_0f280913_g7_Raihan_s_Feedback_Voice_Typing.txt` (15.243 bita) dan `…g9_…Voice_Typing_2.txt` (3.828 bita), diekstrak dari `P1\P1b_lengkap_7Nov2026.tgz`. Ejaan mengikuti transkrip suara.
+
+Semua yang Raihan katakan 15 Nov sudah ada di memo ini. Kutipan (KEPUTUSAN, ucapan Raihan 27 Jul):
+| Pokok 15 Nov | Kalimat 27 Jul |
+|---|---|
+| Karier bukan peran kecil | "kalaupun ada mungkin saya merasa hanya seperti sebuah gear kecil di mesin yang besar dan tidak bisa memberikan impact" |
+| Dua sisi disatukan | "bagaimana mereka bisa mengambil pilihan pilihan karir atau apapun itu yang akhirnya membuat mereka bisa memaksimalkan potensi dan itu di match dengan masalah yang ada di masyarakat sehingga mereka bisa memberikan manfaat yang full" |
+| Manfaat menjamin bertahan | "ketika mereka bermanfaat mereka akan bertahan gitu kan jadi bahwasanya apa yang mereka lakukan itu tidak sia sia" |
+| Peta lama, jurusan populer | "semua orang sekarang masuk manajemen semua orang masuk psikologi semua orang masuk jurusan-jurusan populer tapi ya hanya untuk cari kerja cari gelar gitu yang akhirnya itu enggak match dengan values mereka" |
+| Pasar kerja menyempit | "lapangan pekerjaan semakin menipis sektor formal semakin menutup diri … bukan hanya ke sektor informal tapi juga menuju gigi ekonomi yang ini semua sangat riskan untuk dimasuki oleh anak-anak yang tidak tahu apa-apa" |
+| Tidak harus ke kota | "dia nggak tahu kalau sebenarnya dia bisa berkembang lewat tanpa harus ke kota besar" |
+| Matchmaker dan isi jalur | "apa sih yang masyarakat butuhkan sekarang dan where can they fit in that gap apa yang bisa mereka lakukan kemudian apa yang harus mereka isi di diri mereka sendiri … skill-skill apa yang harus dipelajari ya harus bertanya ke siapa, harus mencari di mana, kalau mau googling keywordnya apa" |
+| Selokal mungkin, AI lokal | "Mereka harus tahu as local as possible itulah kenapa ada fitur ya AI yang Hyperlocal itu fungsinya itu untuk mereka mencari tahu apa yang ada di sekitar mereka masalah real" |
+| Desa berbeda, solusi berbeda | "walaupun subjeknya sama desa gitu kan tapi desa yang berbeda itu punya masalah yang berbeda dan punya arsitektur solusi yang berbeda" (agroforestri, agro pariwisata, hasil hutan bukan kayu) |
+| Kepala desa | "ada yang misalnya masuk apa namanya sosial politik untuk misalnya belajar jadi kepala desa yang baik" |
+| Cerita sendiri | "carve their story, bisa menemukan cerita mereka sendiri yang mana cerita itu akan jadi narasi yang dipegang kuat dalam diri mereka" |
+| Mendata kelebihan lewat syukur | "break the impostor syndrome nya dulu … mendata apa yang sudah mereka punya" |
+| Kerangka Indonesia | "Indonesia juga butuh framework-nya sendiri … Yang bukan kategori weird" |
+| Peta medan berlapis | "peta medan dari mulai internasional dengan OECD dan lain-lain. Kemudian Indonesia dengan diktinya … Kemudian masuk ke masalah lokal mereka" |
+| Platform harus kaya untuk jalur sendiri | "suluh itu harus benar-benar rich harus benar-benar luar biasa" |
+| Jiwa jangan hilang | "Dari chat-chat saya dan Anda yang dari berbulan-bulan lalu, itu banyak sekali hidden gems … jiwa dari Sulu itu sendiri. Dan semua ini jangan sampai hilang." |
+
+Alasan pribadi Raihan (memo 1): pengalaman hijrah dan sulitnya mencari "where do I fit in this world" sambil menjaga nilai; ia ingin orang lain sampai ke titik yang sama tanpa proses sepanjang itu. Ini sumber ukuran "this is me".
