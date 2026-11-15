@@ -28,6 +28,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Aceh Singkil yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 17,1 persen penduduk Kab. Aceh Singkil tercatat sebagai penduduk miskin. Angka itu 12,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1102",
        "wilayah_nama": "Kab. Aceh Singkil"
       },
@@ -54,6 +59,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Gayo Lues yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 16,8 persen penduduk Kab. Gayo Lues tercatat sebagai penduduk miskin. Angka itu 11,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1113",
        "wilayah_nama": "Kab. Gayo Lues"
       },
@@ -80,6 +90,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pidie yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 16,5 persen penduduk Kab. Pidie tercatat sebagai penduduk miskin. Angka itu 11,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1109",
        "wilayah_nama": "Kab. Pidie"
       }
@@ -119,6 +134,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Aceh yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 1,8 persen penduduk Aceh tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 20,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "11",
       "wilayah_nama": "Aceh"
      }
@@ -148,6 +168,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Lhokseumawe yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Lhokseumawe tercatat 8,2 persen dari angkatan kerja. Angka itu 3,5 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1174",
        "wilayah_nama": "Kota Lhokseumawe"
       },
@@ -174,6 +199,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Aceh Besar yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Besar tercatat 7,9 persen dari angkatan kerja. Angka itu 3,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1108",
        "wilayah_nama": "Kab. Aceh Besar"
       },
@@ -200,6 +230,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Aceh Timur yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Timur tercatat 7,7 persen dari angkatan kerja. Angka itu 3,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1105",
        "wilayah_nama": "Kab. Aceh Timur"
       }
@@ -239,6 +274,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Aceh yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 28,6 persen balita di Aceh tercatat mengalami stunting. Angka itu 6,5 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "11",
       "wilayah_nama": "Aceh"
      }
@@ -275,6 +315,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Nias Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 22,5 persen penduduk Kab. Nias Barat tercatat sebagai penduduk miskin. Angka itu 17,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1225",
        "wilayah_nama": "Kab. Nias Barat"
       },
@@ -301,6 +346,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Nias Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 20,8 persen penduduk Kab. Nias Utara tercatat sebagai penduduk miskin. Angka itu 15,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1224",
        "wilayah_nama": "Kab. Nias Utara"
       },
@@ -327,6 +377,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Nias Selatan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 16,2 persen penduduk Kab. Nias Selatan tercatat sebagai penduduk miskin. Angka itu 11,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1214",
        "wilayah_nama": "Kab. Nias Selatan"
       }
@@ -366,6 +421,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sumatera Utara yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 31,3 persen penduduk Sumatera Utara tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 9,1 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "12",
       "wilayah_nama": "Sumatera Utara"
      }
@@ -407,6 +467,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sumatera Utara yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 22,0 persen balita di Sumatera Utara tercatat mengalami stunting. Angka itu 0,1 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "12",
       "wilayah_nama": "Sumatera Utara"
      }
@@ -443,6 +508,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Mentawai yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Kepulauan Mentawai tercatat sebagai penduduk miskin. Angka itu 8,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1301",
        "wilayah_nama": "Kab. Kepulauan Mentawai"
       },
@@ -469,6 +539,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pesisir Selatan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,5 persen penduduk Kab. Pesisir Selatan tercatat sebagai penduduk miskin. Angka itu 1,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1302",
        "wilayah_nama": "Kab. Pesisir Selatan"
       },
@@ -495,6 +570,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Solok yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,5 persen penduduk Kab. Solok tercatat sebagai penduduk miskin. Angka itu 1,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1303",
        "wilayah_nama": "Kab. Solok"
       }
@@ -534,6 +614,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sumatera Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 21,8 persen penduduk Sumatera Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 0,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "13",
       "wilayah_nama": "Sumatera Barat"
      }
@@ -563,6 +648,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Padang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Padang tercatat 9,7 persen dari angkatan kerja. Angka itu 5,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1371",
        "wilayah_nama": "Kota Padang"
       },
@@ -589,6 +679,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Padang Pariaman yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Padang Pariaman tercatat 6,5 persen dari angkatan kerja. Angka itu 1,8 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1306",
        "wilayah_nama": "Kab. Padang Pariaman"
       },
@@ -615,6 +710,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Pasaman Barat yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pasaman Barat tercatat 6,0 persen dari angkatan kerja. Angka itu 1,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1312",
        "wilayah_nama": "Kab. Pasaman Barat"
       }
@@ -654,6 +754,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sumatera Barat yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 24,9 persen balita di Sumatera Barat tercatat mengalami stunting. Angka itu 2,8 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "13",
       "wilayah_nama": "Sumatera Barat"
      }
@@ -690,6 +795,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Meranti yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 20,5 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin. Angka itu 15,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1410",
        "wilayah_nama": "Kab. Kepulauan Meranti"
       },
@@ -716,6 +826,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Rokan Hulu yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin. Angka itu 3,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1407",
        "wilayah_nama": "Kab. Rokan Hulu"
       },
@@ -742,6 +857,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pelalawan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin. Angka itu 2,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1404",
        "wilayah_nama": "Kab. Pelalawan"
       }
@@ -781,6 +901,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Riau yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 26,7 persen penduduk Riau tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 4,5 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "14",
       "wilayah_nama": "Riau"
      }
@@ -810,6 +935,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Kepulauan Meranti yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Meranti tercatat 5,4 persen dari angkatan kerja. Angka itu 0,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1410",
        "wilayah_nama": "Kab. Kepulauan Meranti"
       },
@@ -836,6 +966,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Bengkalis yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bengkalis tercatat 5,3 persen dari angkatan kerja. Angka itu 0,6 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1408",
        "wilayah_nama": "Kab. Bengkalis"
       },
@@ -862,6 +997,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. S I A K yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. S I A K tercatat 5,3 persen dari angkatan kerja. Angka itu 0,6 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1405",
        "wilayah_nama": "Kab. S I A K"
       }
@@ -901,6 +1041,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Riau yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 20,1 persen balita di Riau tercatat mengalami stunting. Angka itu 2,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "14",
       "wilayah_nama": "Riau"
      }
@@ -937,6 +1082,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Tanjung Jabung    Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,0 persen penduduk Kab. Tanjung Jabung    Timur tercatat sebagai penduduk miskin. Angka itu 5,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1506",
        "wilayah_nama": "Kab. Tanjung Jabung    Timur"
       },
@@ -963,6 +1113,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Tanjung Jabung Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 9,7 persen penduduk Kab. Tanjung Jabung Barat tercatat sebagai penduduk miskin. Angka itu 4,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1507",
        "wilayah_nama": "Kab. Tanjung Jabung Barat"
       },
@@ -989,6 +1144,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sarolangun yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Sarolangun tercatat sebagai penduduk miskin. Angka itu 3,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1503",
        "wilayah_nama": "Kab. Sarolangun"
       }
@@ -1028,6 +1188,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Jambi yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 39,0 persen penduduk Jambi tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 16,8 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "15",
       "wilayah_nama": "Jambi"
      }
@@ -1057,6 +1222,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Jambi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Jambi tercatat 7,1 persen dari angkatan kerja. Angka itu 2,4 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1571",
        "wilayah_nama": "Kota Jambi"
       },
@@ -1083,6 +1253,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Muaro Jambi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Muaro Jambi tercatat 5,0 persen dari angkatan kerja. Angka itu 0,3 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1505",
        "wilayah_nama": "Kab. Muaro Jambi"
       }
@@ -1122,6 +1297,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Jambi yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 17,1 persen balita di Jambi tercatat mengalami stunting. Angka itu 5,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "15",
       "wilayah_nama": "Jambi"
      }
@@ -1158,6 +1338,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Musi Rawas Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Musi Rawas Utara tercatat sebagai penduduk miskin. Angka itu 10,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1613",
        "wilayah_nama": "Kab. Musi Rawas Utara"
       },
@@ -1184,6 +1369,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lahat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,7 persen penduduk Kab. Lahat tercatat sebagai penduduk miskin. Angka itu 8,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1604",
        "wilayah_nama": "Kab. Lahat"
       },
@@ -1210,6 +1400,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Musi Rawas yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Musi Rawas tercatat sebagai penduduk miskin. Angka itu 7,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1605",
        "wilayah_nama": "Kab. Musi Rawas"
       }
@@ -1249,6 +1444,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sumatera Selatan yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 26,7 persen penduduk Sumatera Selatan tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 4,5 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "16",
       "wilayah_nama": "Sumatera Selatan"
      }
@@ -1278,6 +1478,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Palembang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palembang tercatat 6,8 persen dari angkatan kerja. Angka itu 2,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1671",
        "wilayah_nama": "Kota Palembang"
       },
@@ -1304,6 +1509,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Lubuklinggau yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Lubuklinggau tercatat 5,0 persen dari angkatan kerja. Angka itu 0,3 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1674",
        "wilayah_nama": "Kota Lubuklinggau"
       },
@@ -1330,6 +1540,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Musi Rawas Utara yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Rawas Utara tercatat 4,8 persen dari angkatan kerja. Angka itu 0,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1613",
        "wilayah_nama": "Kab. Musi Rawas Utara"
       }
@@ -1369,6 +1584,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sumatera Selatan yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 15,9 persen balita di Sumatera Selatan tercatat mengalami stunting. Angka itu 6,2 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "16",
       "wilayah_nama": "Sumatera Selatan"
      }
@@ -1405,6 +1625,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Seluma yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 16,0 persen penduduk Kab. Seluma tercatat sebagai penduduk miskin. Angka itu 11,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1705",
        "wilayah_nama": "Kab. Seluma"
       },
@@ -1431,6 +1656,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kaur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,8 persen penduduk Kab. Kaur tercatat sebagai penduduk miskin. Angka itu 10,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1704",
        "wilayah_nama": "Kab. Kaur"
       },
@@ -1457,6 +1687,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bengkulu Selatan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,7 persen penduduk Kab. Bengkulu Selatan tercatat sebagai penduduk miskin. Angka itu 10,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1701",
        "wilayah_nama": "Kab. Bengkulu Selatan"
       }
@@ -1496,6 +1731,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Bengkulu yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 23,8 persen penduduk Bengkulu tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 1,6 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "17",
       "wilayah_nama": "Bengkulu"
      }
@@ -1537,6 +1777,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Bengkulu yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 18,8 persen balita di Bengkulu tercatat mengalami stunting. Angka itu 3,3 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "17",
       "wilayah_nama": "Bengkulu"
      }
@@ -1573,6 +1818,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lampung Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,8 persen penduduk Kab. Lampung Utara tercatat sebagai penduduk miskin. Angka itu 10,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1806",
        "wilayah_nama": "Kab. Lampung Utara"
       },
@@ -1599,6 +1849,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lampung Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Lampung Timur tercatat sebagai penduduk miskin. Angka itu 7,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1804",
        "wilayah_nama": "Kab. Lampung Timur"
       },
@@ -1625,6 +1880,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pesisir Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 12,1 persen penduduk Kab. Pesisir Barat tercatat sebagai penduduk miskin. Angka itu 7,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1813",
        "wilayah_nama": "Kab. Pesisir Barat"
       }
@@ -1664,6 +1924,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Lampung yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 28,1 persen penduduk Lampung tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 5,9 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "18",
       "wilayah_nama": "Lampung"
      }
@@ -1693,6 +1958,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Bandar Lampung yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bandar Lampung tercatat 7,5 persen dari angkatan kerja. Angka itu 2,8 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1871",
        "wilayah_nama": "Kota Bandar Lampung"
       },
@@ -1719,6 +1989,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Lampung Utara yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Utara tercatat 5,8 persen dari angkatan kerja. Angka itu 1,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1806",
        "wilayah_nama": "Kab. Lampung Utara"
       }
@@ -1758,6 +2033,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Lampung yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 15,9 persen balita di Lampung tercatat mengalami stunting. Angka itu 6,2 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "18",
       "wilayah_nama": "Lampung"
      }
@@ -1794,6 +2074,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bangka Tengah yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Bangka Tengah tercatat sebagai penduduk miskin. Angka itu 1,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1904",
        "wilayah_nama": "Kab. Bangka Tengah"
       },
@@ -1820,6 +2105,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Belitung Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Belitung Timur tercatat sebagai penduduk miskin. Angka itu 1,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1906",
        "wilayah_nama": "Kab. Belitung Timur"
       },
@@ -1846,6 +2136,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Belitung yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Belitung tercatat sebagai penduduk miskin. Angka itu 1,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1902",
        "wilayah_nama": "Kab. Belitung"
       }
@@ -1885,6 +2180,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kep. Bangka Belitung yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 15,9 persen penduduk Kep. Bangka Belitung tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 6,3 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "19",
       "wilayah_nama": "Kep. Bangka Belitung"
      }
@@ -1914,6 +2214,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Pangkal Pinang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pangkal Pinang tercatat 5,7 persen dari angkatan kerja. Angka itu 1,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1971",
        "wilayah_nama": "Kota Pangkal Pinang"
       },
@@ -1940,6 +2245,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Bangka yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bangka tercatat 4,8 persen dari angkatan kerja. Angka itu 0,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "1901",
        "wilayah_nama": "Kab. Bangka"
       }
@@ -1979,6 +2289,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kep. Bangka Belitung yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 20,1 persen balita di Kep. Bangka Belitung tercatat mengalami stunting. Angka itu 2,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "19",
       "wilayah_nama": "Kep. Bangka Belitung"
      }
@@ -2015,6 +2330,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Anambas yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Kepulauan Anambas tercatat sebagai penduduk miskin. Angka itu 1,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "2105",
        "wilayah_nama": "Kab. Kepulauan Anambas"
       }
@@ -2054,6 +2374,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kep. Riau yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 20,0 persen penduduk Kep. Riau tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 2,2 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "21",
       "wilayah_nama": "Kep. Riau"
      }
@@ -2087,6 +2412,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kep. Riau yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 15,0 persen balita di Kep. Riau tercatat mengalami stunting. Angka itu 7,1 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "21",
       "wilayah_nama": "Kep. Riau"
      }
@@ -2123,6 +2453,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Seribu yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 12,4 persen penduduk Kab. Kepulauan Seribu tercatat sebagai penduduk miskin. Angka itu 7,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3101",
        "wilayah_nama": "Kab. Kepulauan Seribu"
       },
@@ -2149,6 +2484,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kota Jakarta Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,3 persen penduduk Kota Jakarta Utara tercatat sebagai penduduk miskin. Angka itu 1,3 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3175",
        "wilayah_nama": "Kota Jakarta Utara"
       }
@@ -2188,6 +2528,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga DKI Jakarta yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 8,3 persen penduduk DKI Jakarta tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 13,9 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "31",
       "wilayah_nama": "DKI Jakarta"
      }
@@ -2221,6 +2566,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di DKI Jakarta yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 17,3 persen balita di DKI Jakarta tercatat mengalami stunting. Angka itu 4,8 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "31",
       "wilayah_nama": "DKI Jakarta"
      }
@@ -2257,6 +2607,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Indramayu yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Indramayu tercatat sebagai penduduk miskin. Angka itu 6,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3212",
        "wilayah_nama": "Kab. Indramayu"
       },
@@ -2283,6 +2638,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kota Tasikmalaya yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,8 persen penduduk Kota Tasikmalaya tercatat sebagai penduduk miskin. Angka itu 5,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3278",
        "wilayah_nama": "Kota Tasikmalaya"
       },
@@ -2309,6 +2669,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kuningan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,7 persen penduduk Kab. Kuningan tercatat sebagai penduduk miskin. Angka itu 5,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3208",
        "wilayah_nama": "Kab. Kuningan"
       }
@@ -2348,6 +2713,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Jawa Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 29,4 persen penduduk Jawa Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 7,2 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "32",
       "wilayah_nama": "Jawa Barat"
      }
@@ -2377,6 +2747,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Bekasi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bekasi tercatat 8,8 persen dari angkatan kerja. Angka itu 4,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3216",
        "wilayah_nama": "Kab. Bekasi"
       },
@@ -2403,6 +2778,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Cimahi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Cimahi tercatat 8,8 persen dari angkatan kerja. Angka itu 4,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3277",
        "wilayah_nama": "Kota Cimahi"
       },
@@ -2429,6 +2809,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Sukabumi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Sukabumi tercatat 8,2 persen dari angkatan kerja. Angka itu 3,5 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3272",
        "wilayah_nama": "Kota Sukabumi"
       }
@@ -2468,6 +2853,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Jawa Barat yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 15,9 persen balita di Jawa Barat tercatat mengalami stunting. Angka itu 6,2 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "32",
       "wilayah_nama": "Jawa Barat"
      }
@@ -2504,6 +2894,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Brebes yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Brebes tercatat sebagai penduduk miskin. Angka itu 9,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3329",
        "wilayah_nama": "Kab. Brebes"
       },
@@ -2530,6 +2925,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kebumen yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,6 persen penduduk Kab. Kebumen tercatat sebagai penduduk miskin. Angka itu 8,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3305",
        "wilayah_nama": "Kab. Kebumen"
       },
@@ -2556,6 +2956,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Wonosobo yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Wonosobo tercatat sebagai penduduk miskin. Angka itu 8,3 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3307",
        "wilayah_nama": "Kab. Wonosobo"
       }
@@ -2595,6 +3000,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Jawa Tengah yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 27,0 persen penduduk Jawa Tengah tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 4,9 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "33",
       "wilayah_nama": "Jawa Tengah"
      }
@@ -2624,6 +3034,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Brebes yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Brebes tercatat 8,1 persen dari angkatan kerja. Angka itu 3,4 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3329",
        "wilayah_nama": "Kab. Brebes"
       },
@@ -2650,6 +3065,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Tegal yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tegal tercatat 7,6 persen dari angkatan kerja. Angka itu 2,9 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3328",
        "wilayah_nama": "Kab. Tegal"
       },
@@ -2676,6 +3096,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Cilacap yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Cilacap tercatat 7,4 persen dari angkatan kerja. Angka itu 2,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3301",
        "wilayah_nama": "Kab. Cilacap"
       }
@@ -2715,6 +3140,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Jawa Tengah yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 17,1 persen balita di Jawa Tengah tercatat mengalami stunting. Angka itu 5,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "33",
       "wilayah_nama": "Jawa Tengah"
      }
@@ -2751,6 +3181,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kulon Progo yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,5 persen penduduk Kab. Kulon Progo tercatat sebagai penduduk miskin. Angka itu 9,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3401",
        "wilayah_nama": "Kab. Kulon Progo"
       },
@@ -2777,6 +3212,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Gunungkidul yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Gunungkidul tercatat sebagai penduduk miskin. Angka itu 9,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3403",
        "wilayah_nama": "Kab. Gunungkidul"
       },
@@ -2803,6 +3243,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bantul yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Bantul tercatat sebagai penduduk miskin. Angka itu 6,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3402",
        "wilayah_nama": "Kab. Bantul"
       }
@@ -2842,6 +3287,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga DI Yogyakarta yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 10,7 persen penduduk DI Yogyakarta tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 11,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "34",
       "wilayah_nama": "DI Yogyakarta"
      }
@@ -2871,6 +3321,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Yogyakarta yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Yogyakarta tercatat 5,7 persen dari angkatan kerja. Angka itu 1,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3471",
        "wilayah_nama": "Kota Yogyakarta"
       }
@@ -2910,6 +3365,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di DI Yogyakarta yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 17,4 persen balita di DI Yogyakarta tercatat mengalami stunting. Angka itu 4,7 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "34",
       "wilayah_nama": "DI Yogyakarta"
      }
@@ -2946,6 +3406,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sampang yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 20,6 persen penduduk Kab. Sampang tercatat sebagai penduduk miskin. Angka itu 15,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3527",
        "wilayah_nama": "Kab. Sampang"
       },
@@ -2972,6 +3437,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bangkalan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 18,2 persen penduduk Kab. Bangkalan tercatat sebagai penduduk miskin. Angka itu 13,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3526",
        "wilayah_nama": "Kab. Bangkalan"
       },
@@ -2998,6 +3468,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sumenep yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 17,0 persen penduduk Kab. Sumenep tercatat sebagai penduduk miskin. Angka itu 12,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3529",
        "wilayah_nama": "Kab. Sumenep"
       }
@@ -3037,6 +3512,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Jawa Timur yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 26,1 persen penduduk Jawa Timur tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 4,0 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "35",
       "wilayah_nama": "Jawa Timur"
      }
@@ -3066,6 +3546,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Sidoarjo yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sidoarjo tercatat 5,8 persen dari angkatan kerja. Angka itu 1,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3515",
        "wilayah_nama": "Kab. Sidoarjo"
       },
@@ -3092,6 +3577,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Malang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Malang tercatat 5,7 persen dari angkatan kerja. Angka itu 1,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3573",
        "wilayah_nama": "Kota Malang"
       },
@@ -3118,6 +3608,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Gresik yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gresik tercatat 5,5 persen dari angkatan kerja. Angka itu 0,8 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3525",
        "wilayah_nama": "Kab. Gresik"
       }
@@ -3157,6 +3652,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Jawa Timur yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 14,7 persen balita di Jawa Timur tercatat mengalami stunting. Angka itu 7,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "35",
       "wilayah_nama": "Jawa Timur"
      }
@@ -3193,6 +3693,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pandeglang yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Pandeglang tercatat sebagai penduduk miskin. Angka itu 3,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3601",
        "wilayah_nama": "Kab. Pandeglang"
       },
@@ -3219,6 +3724,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lebak yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,0 persen penduduk Kab. Lebak tercatat sebagai penduduk miskin. Angka itu 3,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3602",
        "wilayah_nama": "Kab. Lebak"
       },
@@ -3245,6 +3755,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Tangerang yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Tangerang tercatat sebagai penduduk miskin. Angka itu 1,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3603",
        "wilayah_nama": "Kab. Tangerang"
       }
@@ -3284,6 +3799,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Banten yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 25,5 persen penduduk Banten tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 3,3 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "36",
       "wilayah_nama": "Banten"
      }
@@ -3313,6 +3833,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Pandeglang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pandeglang tercatat 8,8 persen dari angkatan kerja. Angka itu 4,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3601",
        "wilayah_nama": "Kab. Pandeglang"
       },
@@ -3339,6 +3864,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Serang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Serang tercatat 8,7 persen dari angkatan kerja. Angka itu 4,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3604",
        "wilayah_nama": "Kab. Serang"
       },
@@ -3365,6 +3895,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Cilegon yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Cilegon tercatat 7,4 persen dari angkatan kerja. Angka itu 2,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "3672",
        "wilayah_nama": "Kota Cilegon"
       }
@@ -3404,6 +3939,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Banten yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 21,1 persen balita di Banten tercatat mengalami stunting. Angka itu 1,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "36",
       "wilayah_nama": "Banten"
      }
@@ -3440,6 +3980,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Karangasem yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Karangasem tercatat sebagai penduduk miskin. Angka itu 1,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5107",
        "wilayah_nama": "Kab. Karangasem"
       },
@@ -3466,6 +4011,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Buleleng yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Buleleng tercatat sebagai penduduk miskin. Angka itu 0,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5108",
        "wilayah_nama": "Kab. Buleleng"
       },
@@ -3492,6 +4042,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Klungkung yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Klungkung tercatat sebagai penduduk miskin. Angka itu 0,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5105",
        "wilayah_nama": "Kab. Klungkung"
       }
@@ -3531,6 +4086,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Bali yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 10,8 persen penduduk Bali tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 11,3 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "51",
       "wilayah_nama": "Bali"
      }
@@ -3572,6 +4132,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Bali yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 8,7 persen balita di Bali tercatat mengalami stunting. Angka itu 13,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "51",
       "wilayah_nama": "Bali"
      }
@@ -3608,6 +4173,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lombok Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 20,7 persen penduduk Kab. Lombok Utara tercatat sebagai penduduk miskin. Angka itu 15,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5208",
        "wilayah_nama": "Kab. Lombok Utara"
       },
@@ -3634,6 +4204,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Lombok Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Lombok Timur tercatat sebagai penduduk miskin. Angka itu 8,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5203",
        "wilayah_nama": "Kab. Lombok Timur"
       },
@@ -3660,6 +4235,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bima yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 12,6 persen penduduk Kab. Bima tercatat sebagai penduduk miskin. Angka itu 7,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5206",
        "wilayah_nama": "Kab. Bima"
       }
@@ -3699,6 +4279,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Nusa Tenggara Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 28,3 persen penduduk Nusa Tenggara Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 6,1 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "52",
       "wilayah_nama": "Nusa Tenggara Barat"
      }
@@ -3728,6 +4313,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Mataram yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Mataram tercatat 4,8 persen dari angkatan kerja. Angka itu 0,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5271",
        "wilayah_nama": "Kota Mataram"
       }
@@ -3767,6 +4357,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Nusa Tenggara Barat yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 29,8 persen balita di Nusa Tenggara Barat tercatat mengalami stunting. Angka itu 7,7 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "52",
       "wilayah_nama": "Nusa Tenggara Barat"
      }
@@ -3803,6 +4398,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sumba Tengah yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 29,2 persen penduduk Kab. Sumba Tengah tercatat sebagai penduduk miskin. Angka itu 24,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5316",
        "wilayah_nama": "Kab. Sumba Tengah"
       },
@@ -3829,6 +4429,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sabu Raijua yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 27,2 persen penduduk Kab. Sabu Raijua tercatat sebagai penduduk miskin. Angka itu 22,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5320",
        "wilayah_nama": "Kab. Sabu Raijua"
       },
@@ -3855,6 +4460,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Sumba Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 26,5 persen penduduk Kab. Sumba Barat tercatat sebagai penduduk miskin. Angka itu 21,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5301",
        "wilayah_nama": "Kab. Sumba Barat"
       }
@@ -3894,6 +4504,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Nusa Tenggara Timur yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 22,6 persen penduduk Nusa Tenggara Timur tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 0,4 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "53",
       "wilayah_nama": "Nusa Tenggara Timur"
      }
@@ -3923,6 +4538,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Kupang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kupang tercatat 8,6 persen dari angkatan kerja. Angka itu 3,9 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5371",
        "wilayah_nama": "Kota Kupang"
       },
@@ -3949,6 +4569,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Flores Timur yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Flores Timur tercatat 6,4 persen dari angkatan kerja. Angka itu 1,6 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5309",
        "wilayah_nama": "Kab. Flores Timur"
       },
@@ -3975,6 +4600,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Belu yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Belu tercatat 5,2 persen dari angkatan kerja. Angka itu 0,5 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "5306",
        "wilayah_nama": "Kab. Belu"
       }
@@ -4014,6 +4644,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Nusa Tenggara Timur yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 37,0 persen balita di Nusa Tenggara Timur tercatat mengalami stunting. Angka itu 14,9 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "53",
       "wilayah_nama": "Nusa Tenggara Timur"
      }
@@ -4050,6 +4685,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Melawi yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Melawi tercatat sebagai penduduk miskin. Angka itu 5,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6110",
        "wilayah_nama": "Kab. Melawi"
       },
@@ -4076,6 +4716,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Landak yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Landak tercatat sebagai penduduk miskin. Angka itu 3,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6103",
        "wilayah_nama": "Kab. Landak"
       },
@@ -4102,6 +4747,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kayong Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,8 persen penduduk Kab. Kayong Utara tercatat sebagai penduduk miskin. Angka itu 3,8 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6111",
        "wilayah_nama": "Kab. Kayong Utara"
       }
@@ -4141,6 +4791,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kalimantan Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 31,1 persen penduduk Kalimantan Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 8,9 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "61",
       "wilayah_nama": "Kalimantan Barat"
      }
@@ -4170,6 +4825,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Pontianak yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pontianak tercatat 7,9 persen dari angkatan kerja. Angka itu 3,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6171",
        "wilayah_nama": "Kota Pontianak"
       },
@@ -4196,6 +4856,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Singkawang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Singkawang tercatat 7,4 persen dari angkatan kerja. Angka itu 2,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6172",
        "wilayah_nama": "Kota Singkawang"
       },
@@ -4222,6 +4887,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Kubu Raya yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kubu Raya tercatat 6,9 persen dari angkatan kerja. Angka itu 2,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6112",
        "wilayah_nama": "Kab. Kubu Raya"
       }
@@ -4261,6 +4931,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kalimantan Barat yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 26,8 persen balita di Kalimantan Barat tercatat mengalami stunting. Angka itu 4,7 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "61",
       "wilayah_nama": "Kalimantan Barat"
      }
@@ -4297,6 +4972,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Seruyan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Seruyan tercatat sebagai penduduk miskin. Angka itu 1,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6208",
        "wilayah_nama": "Kab. Seruyan"
       },
@@ -4323,6 +5003,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Murung Raya yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Murung Raya tercatat sebagai penduduk miskin. Angka itu 1,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6213",
        "wilayah_nama": "Kab. Murung Raya"
       },
@@ -4349,6 +5034,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Barito Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Barito Timur tercatat sebagai penduduk miskin. Angka itu 1,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6212",
        "wilayah_nama": "Kab. Barito Timur"
       }
@@ -4388,6 +5078,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kalimantan Tengah yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 32,1 persen penduduk Kalimantan Tengah tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 9,9 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "62",
       "wilayah_nama": "Kalimantan Tengah"
      }
@@ -4417,6 +5112,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Palangka Raya yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palangka Raya tercatat 5,2 persen dari angkatan kerja. Angka itu 0,5 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6271",
        "wilayah_nama": "Kota Palangka Raya"
       }
@@ -4456,6 +5156,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kalimantan Tengah yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 22,1 persen balita di Kalimantan Tengah tercatat mengalami stunting. Angka itu 0,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "62",
       "wilayah_nama": "Kalimantan Tengah"
      }
@@ -4492,6 +5197,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Hulu Sungai Tengah yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 5,0 persen penduduk Kab. Hulu Sungai Tengah tercatat sebagai penduduk miskin. Angka itu 0,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6307",
        "wilayah_nama": "Kab. Hulu Sungai Tengah"
       }
@@ -4531,6 +5241,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kalimantan Selatan yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 25,7 persen penduduk Kalimantan Selatan tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 3,5 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "63",
       "wilayah_nama": "Kalimantan Selatan"
      }
@@ -4560,6 +5275,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Tanah Bumbu yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tanah Bumbu tercatat 6,0 persen dari angkatan kerja. Angka itu 1,3 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6310",
        "wilayah_nama": "Kab. Tanah Bumbu"
       },
@@ -4586,6 +5306,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Baru yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Baru tercatat 5,9 persen dari angkatan kerja. Angka itu 1,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6302",
        "wilayah_nama": "Kota Baru"
       },
@@ -4612,6 +5337,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Banjar Baru yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Banjar Baru tercatat 4,8 persen dari angkatan kerja. Angka itu 0,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6372",
        "wilayah_nama": "Kota Banjar Baru"
       }
@@ -4651,6 +5381,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kalimantan Selatan yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 22,9 persen balita di Kalimantan Selatan tercatat mengalami stunting. Angka itu 0,8 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "63",
       "wilayah_nama": "Kalimantan Selatan"
      }
@@ -4687,6 +5422,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Mahakam Ulu yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Mahakam Ulu tercatat sebagai penduduk miskin. Angka itu 5,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6411",
        "wilayah_nama": "Kab. Mahakam Ulu"
       },
@@ -4713,6 +5453,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kutai Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Kutai Barat tercatat sebagai penduduk miskin. Angka itu 3,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6402",
        "wilayah_nama": "Kab. Kutai Barat"
       },
@@ -4739,6 +5484,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Paser yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 8,1 persen penduduk Kab. Paser tercatat sebagai penduduk miskin. Angka itu 3,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6401",
        "wilayah_nama": "Kab. Paser"
       }
@@ -4778,6 +5528,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kalimantan Timur yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 17,0 persen penduduk Kalimantan Timur tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 5,2 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "64",
       "wilayah_nama": "Kalimantan Timur"
      }
@@ -4807,6 +5562,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Bontang yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bontang tercatat 6,4 persen dari angkatan kerja. Angka itu 1,6 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6474",
        "wilayah_nama": "Kota Bontang"
       },
@@ -4833,6 +5593,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Kutai Timur yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kutai Timur tercatat 6,2 persen dari angkatan kerja. Angka itu 1,5 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6404",
        "wilayah_nama": "Kab. Kutai Timur"
       },
@@ -4859,6 +5624,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Balikpapan yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Balikpapan tercatat 5,8 persen dari angkatan kerja. Angka itu 1,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6471",
        "wilayah_nama": "Kota Balikpapan"
       }
@@ -4901,6 +5671,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bulungan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 7,3 persen penduduk Kab. Bulungan tercatat sebagai penduduk miskin. Angka itu 2,3 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6502",
        "wilayah_nama": "Kab. Bulungan"
       },
@@ -4927,6 +5702,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Malinau yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 5,6 persen penduduk Kab. Malinau tercatat sebagai penduduk miskin. Angka itu 0,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6501",
        "wilayah_nama": "Kab. Malinau"
       },
@@ -4953,6 +5733,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Nunukan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 5,3 persen penduduk Kab. Nunukan tercatat sebagai penduduk miskin. Angka itu 0,3 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6504",
        "wilayah_nama": "Kab. Nunukan"
       }
@@ -4992,6 +5777,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Kalimantan Utara yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 11,6 persen penduduk Kalimantan Utara tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 10,6 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "65",
       "wilayah_nama": "Kalimantan Utara"
      }
@@ -5021,6 +5811,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Tarakan yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tarakan tercatat 5,1 persen dari angkatan kerja. Angka itu 0,3 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "6571",
        "wilayah_nama": "Kota Tarakan"
       }
@@ -5060,6 +5855,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Kalimantan Utara yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 17,6 persen balita di Kalimantan Utara tercatat mengalami stunting. Angka itu 4,5 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "65",
       "wilayah_nama": "Kalimantan Utara"
      }
@@ -5096,6 +5896,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Sangihe yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Kepulauan Sangihe tercatat sebagai penduduk miskin. Angka itu 5,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7103",
        "wilayah_nama": "Kab. Kepulauan Sangihe"
       },
@@ -5122,6 +5927,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Bolaang Mongondow Selatan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Bolaang Mongondow Selatan tercatat sebagai penduduk miskin. Angka itu 5,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7110",
        "wilayah_nama": "Kab. Bolaang Mongondow Selatan"
       },
@@ -5148,6 +5958,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Minahasa Tenggara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Minahasa Tenggara tercatat sebagai penduduk miskin. Angka itu 5,3 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7109",
        "wilayah_nama": "Kab. Minahasa Tenggara"
       }
@@ -5187,6 +6002,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sulawesi Utara yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 16,5 persen penduduk Sulawesi Utara tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 5,6 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "71",
       "wilayah_nama": "Sulawesi Utara"
      }
@@ -5216,6 +6036,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Manado yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Manado tercatat 8,5 persen dari angkatan kerja. Angka itu 3,8 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7171",
        "wilayah_nama": "Kota Manado"
       },
@@ -5242,6 +6067,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Tomohon yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tomohon tercatat 7,8 persen dari angkatan kerja. Angka itu 3,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7173",
        "wilayah_nama": "Kota Tomohon"
       },
@@ -5268,6 +6098,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Minahasa yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Minahasa tercatat 7,7 persen dari angkatan kerja. Angka itu 3,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7102",
        "wilayah_nama": "Kab. Minahasa"
       }
@@ -5307,6 +6142,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sulawesi Utara yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 20,8 persen balita di Sulawesi Utara tercatat mengalami stunting. Angka itu 1,3 poin di bawah nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "71",
       "wilayah_nama": "Sulawesi Utara"
      }
@@ -5343,6 +6183,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Tojo Una-Una yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Tojo Una-Una tercatat sebagai penduduk miskin. Angka itu 9,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7209",
        "wilayah_nama": "Kab. Tojo Una-Una"
       },
@@ -5369,6 +6214,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Donggala yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Donggala tercatat sebagai penduduk miskin. Angka itu 9,7 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7205",
        "wilayah_nama": "Kab. Donggala"
       },
@@ -5395,6 +6245,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Parigi Moutong yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Parigi Moutong tercatat sebagai penduduk miskin. Angka itu 8,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7208",
        "wilayah_nama": "Kab. Parigi Moutong"
       }
@@ -5434,6 +6289,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sulawesi Tengah yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 19,1 persen penduduk Sulawesi Tengah tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 3,0 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "72",
       "wilayah_nama": "Sulawesi Tengah"
      }
@@ -5463,6 +6323,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Palu yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palu tercatat 5,6 persen dari angkatan kerja. Angka itu 0,9 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7271",
        "wilayah_nama": "Kota Palu"
       }
@@ -5502,6 +6367,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sulawesi Tengah yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 26,1 persen balita di Sulawesi Tengah tercatat mengalami stunting. Angka itu 4,0 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "72",
       "wilayah_nama": "Sulawesi Tengah"
      }
@@ -5538,6 +6408,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pangkajene Dan Kepulauan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 11,6 persen penduduk Kab. Pangkajene Dan Kepulauan tercatat sebagai penduduk miskin. Angka itu 6,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7309",
        "wilayah_nama": "Kab. Pangkajene Dan Kepulauan"
       },
@@ -5564,6 +6439,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Jeneponto yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 11,4 persen penduduk Kab. Jeneponto tercatat sebagai penduduk miskin. Angka itu 6,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7304",
        "wilayah_nama": "Kab. Jeneponto"
       },
@@ -5590,6 +6470,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Luwu yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Luwu tercatat sebagai penduduk miskin. Angka itu 6,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7317",
        "wilayah_nama": "Kab. Luwu"
       }
@@ -5629,6 +6514,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sulawesi Selatan yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 13,4 persen penduduk Sulawesi Selatan tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 8,7 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "73",
       "wilayah_nama": "Sulawesi Selatan"
      }
@@ -5658,6 +6548,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Makassar yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Makassar tercatat 9,6 persen dari angkatan kerja. Angka itu 4,9 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7371",
        "wilayah_nama": "Kota Makassar"
       },
@@ -5684,6 +6579,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Palopo yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palopo tercatat 7,5 persen dari angkatan kerja. Angka itu 2,8 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7373",
        "wilayah_nama": "Kota Palopo"
       },
@@ -5710,6 +6610,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Barru yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Barru tercatat 5,1 persen dari angkatan kerja. Angka itu 0,4 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7310",
        "wilayah_nama": "Kab. Barru"
       }
@@ -5749,6 +6654,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sulawesi Selatan yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 23,3 persen balita di Sulawesi Selatan tercatat mengalami stunting. Angka itu 1,2 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "73",
       "wilayah_nama": "Sulawesi Selatan"
      }
@@ -5785,6 +6695,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Konawe Kepulauan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,4 persen penduduk Kab. Konawe Kepulauan tercatat sebagai penduduk miskin. Angka itu 9,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7412",
        "wilayah_nama": "Kab. Konawe Kepulauan"
       },
@@ -5811,6 +6726,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Buton Selatan yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,6 persen penduduk Kab. Buton Selatan tercatat sebagai penduduk miskin. Angka itu 8,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7415",
        "wilayah_nama": "Kab. Buton Selatan"
       },
@@ -5837,6 +6757,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Buton yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Buton tercatat sebagai penduduk miskin. Angka itu 8,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7401",
        "wilayah_nama": "Kab. Buton"
       }
@@ -5876,6 +6801,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sulawesi Tenggara yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 15,8 persen penduduk Sulawesi Tenggara tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 6,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "74",
       "wilayah_nama": "Sulawesi Tenggara"
      }
@@ -5905,6 +6835,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Kendari yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kendari tercatat 5,9 persen dari angkatan kerja. Angka itu 1,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7471",
        "wilayah_nama": "Kota Kendari"
       }
@@ -5944,6 +6879,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sulawesi Tenggara yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 26,1 persen balita di Sulawesi Tenggara tercatat mengalami stunting. Angka itu 4,0 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "74",
       "wilayah_nama": "Sulawesi Tenggara"
      }
@@ -5980,6 +6920,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Boalemo yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 16,4 persen penduduk Kab. Boalemo tercatat sebagai penduduk miskin. Angka itu 11,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7501",
        "wilayah_nama": "Kab. Boalemo"
       },
@@ -6006,6 +6951,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Gorontalo Utara yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,9 persen penduduk Kab. Gorontalo Utara tercatat sebagai penduduk miskin. Angka itu 10,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7505",
        "wilayah_nama": "Kab. Gorontalo Utara"
       },
@@ -6032,6 +6982,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pohuwato yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Pohuwato tercatat sebagai penduduk miskin. Angka itu 10,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7503",
        "wilayah_nama": "Kab. Pohuwato"
       }
@@ -6071,6 +7026,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Gorontalo yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 12,8 persen penduduk Gorontalo tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 9,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "75",
       "wilayah_nama": "Gorontalo"
      }
@@ -6104,6 +7064,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Gorontalo yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 23,8 persen balita di Gorontalo tercatat mengalami stunting. Angka itu 1,7 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "75",
       "wilayah_nama": "Gorontalo"
      }
@@ -6140,6 +7105,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Polewali Mandar yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 14,0 persen penduduk Kab. Polewali Mandar tercatat sebagai penduduk miskin. Angka itu 9,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7602",
        "wilayah_nama": "Kab. Polewali Mandar"
       },
@@ -6166,6 +7136,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Majene yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Majene tercatat sebagai penduduk miskin. Angka itu 8,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7601",
        "wilayah_nama": "Kab. Majene"
       },
@@ -6192,6 +7167,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Mamuju yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Mamuju tercatat sebagai penduduk miskin. Angka itu 2,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "7604",
        "wilayah_nama": "Kab. Mamuju"
       }
@@ -6231,6 +7211,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Sulawesi Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 10,7 persen penduduk Sulawesi Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 11,5 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "76",
       "wilayah_nama": "Sulawesi Barat"
      }
@@ -6272,6 +7257,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Sulawesi Barat yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 35,4 persen balita di Sulawesi Barat tercatat mengalami stunting. Angka itu 13,3 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "76",
       "wilayah_nama": "Sulawesi Barat"
      }
@@ -6308,6 +7298,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Maluku Barat Daya yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 27,6 persen penduduk Kab. Maluku Barat Daya tercatat sebagai penduduk miskin. Angka itu 22,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8108",
        "wilayah_nama": "Kab. Maluku Barat Daya"
       },
@@ -6334,6 +7329,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Tanimbar yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 23,4 persen penduduk Kab. Kepulauan Tanimbar tercatat sebagai penduduk miskin. Angka itu 18,4 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8101",
        "wilayah_nama": "Kab. Kepulauan Tanimbar"
       },
@@ -6360,6 +7360,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Kepulauan Aru yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 23,1 persen penduduk Kab. Kepulauan Aru tercatat sebagai penduduk miskin. Angka itu 18,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8105",
        "wilayah_nama": "Kab. Kepulauan Aru"
       }
@@ -6399,6 +7404,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Maluku yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 34,5 persen penduduk Maluku tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 12,3 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "81",
       "wilayah_nama": "Maluku"
      }
@@ -6428,6 +7438,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Ambon yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Ambon tercatat 11,4 persen dari angkatan kerja. Angka itu 6,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8171",
        "wilayah_nama": "Kota Ambon"
       },
@@ -6454,6 +7469,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Tual yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tual tercatat 9,0 persen dari angkatan kerja. Angka itu 4,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8172",
        "wilayah_nama": "Kota Tual"
       },
@@ -6480,6 +7500,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Maluku Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tengah tercatat 6,9 persen dari angkatan kerja. Angka itu 2,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8103",
        "wilayah_nama": "Kab. Maluku Tengah"
       }
@@ -6519,6 +7544,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Maluku yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 28,4 persen balita di Maluku tercatat mengalami stunting. Angka itu 6,3 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "81",
       "wilayah_nama": "Maluku"
      }
@@ -6555,6 +7585,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Halmahera Timur yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Halmahera Timur tercatat sebagai penduduk miskin. Angka itu 5,5 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8206",
        "wilayah_nama": "Kab. Halmahera Timur"
       },
@@ -6581,6 +7616,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Halmahera Tengah yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 9,2 persen penduduk Kab. Halmahera Tengah tercatat sebagai penduduk miskin. Angka itu 4,2 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8202",
        "wilayah_nama": "Kab. Halmahera Tengah"
       },
@@ -6607,6 +7647,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Halmahera Barat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 7,9 persen penduduk Kab. Halmahera Barat tercatat sebagai penduduk miskin. Angka itu 2,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8201",
        "wilayah_nama": "Kab. Halmahera Barat"
       }
@@ -6646,6 +7691,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Maluku Utara yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 26,6 persen penduduk Maluku Utara tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 4,4 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "82",
       "wilayah_nama": "Maluku Utara"
      }
@@ -6675,6 +7725,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Ternate yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Ternate tercatat 6,9 persen dari angkatan kerja. Angka itu 2,2 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8271",
        "wilayah_nama": "Kota Ternate"
       },
@@ -6701,6 +7756,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Halmahera Utara yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Halmahera Utara tercatat 6,7 persen dari angkatan kerja. Angka itu 2,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8205",
        "wilayah_nama": "Kab. Halmahera Utara"
       },
@@ -6727,6 +7787,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Halmahera Timur yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Halmahera Timur tercatat 4,8 persen dari angkatan kerja. Angka itu 0,1 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "8206",
        "wilayah_nama": "Kab. Halmahera Timur"
       }
@@ -6766,6 +7831,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Maluku Utara yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 23,2 persen balita di Maluku Utara tercatat mengalami stunting. Angka itu 1,1 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "82",
       "wilayah_nama": "Maluku Utara"
      }
@@ -6802,6 +7872,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Pegunungan Arfak yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 30,9 persen penduduk Kab. Pegunungan Arfak tercatat sebagai penduduk miskin. Angka itu 25,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9112",
        "wilayah_nama": "Kab. Pegunungan Arfak"
       },
@@ -6828,6 +7903,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Maybrat yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 29,0 persen penduduk Kab. Maybrat tercatat sebagai penduduk miskin. Angka itu 24,0 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9110",
        "wilayah_nama": "Kab. Maybrat"
       },
@@ -6854,6 +7934,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Tambrauw yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 28,9 persen penduduk Kab. Tambrauw tercatat sebagai penduduk miskin. Angka itu 23,9 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9109",
        "wilayah_nama": "Kab. Tambrauw"
       }
@@ -6893,6 +7978,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua Barat yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 23,3 persen penduduk Papua Barat tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 1,1 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "91",
       "wilayah_nama": "Papua Barat"
      }
@@ -6922,6 +8012,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Fakfak yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Fakfak tercatat 6,4 persen dari angkatan kerja. Angka itu 1,7 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9101",
        "wilayah_nama": "Kab. Fakfak"
       }
@@ -6968,6 +8063,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua Barat Daya yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 15,9 persen penduduk Papua Barat Daya tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 6,3 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "92",
       "wilayah_nama": "Papua Barat Daya"
      }
@@ -7001,6 +8101,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Papua Barat Daya yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 30,5 persen balita di Papua Barat Daya tercatat mengalami stunting. Angka itu 8,4 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "92",
       "wilayah_nama": "Papua Barat Daya"
      }
@@ -7037,6 +8142,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Supiori yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 42,6 persen penduduk Kab. Supiori tercatat sebagai penduduk miskin. Angka itu 37,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9427",
        "wilayah_nama": "Kab. Supiori"
       },
@@ -7063,6 +8173,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Mamberamo Raya yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 35,1 persen penduduk Kab. Mamberamo Raya tercatat sebagai penduduk miskin. Angka itu 30,1 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9428",
        "wilayah_nama": "Kab. Mamberamo Raya"
       },
@@ -7089,6 +8204,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan.",
+        "judul": "Ada warga Kab. Waropen yang masih hidup di bawah garis kemiskinan",
+        "ringkasan": "Pada 2025, 32,6 persen penduduk Kab. Waropen tercatat sebagai penduduk miskin. Angka itu 27,6 poin di atas target nasional pemerintah, yaitu 4,5–5,0 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9426",
        "wilayah_nama": "Kab. Waropen"
       }
@@ -7128,6 +8248,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 20,1 persen penduduk Papua tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 2,1 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "94",
       "wilayah_nama": "Papua"
      }
@@ -7157,6 +8282,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kota Jayapura yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Jayapura tercatat 7,7 persen dari angkatan kerja. Angka itu 3,0 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9471",
        "wilayah_nama": "Kota Jayapura"
       },
@@ -7183,6 +8313,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Supiori yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Supiori tercatat 7,3 persen dari angkatan kerja. Angka itu 2,6 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9427",
        "wilayah_nama": "Kab. Supiori"
       },
@@ -7209,6 +8344,11 @@
         "sumber_id": "perpres-12-2025-lampiran-i"
        },
        "status": "siap_tinjau",
+       "teks": {
+        "harapan": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan.",
+        "judul": "Ada warga Kab. Mappi yang ingin bekerja dan belum mendapat pekerjaan",
+        "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Mappi tercatat 5,6 persen dari angkatan kerja. Angka itu 0,9 poin di atas target nasional pemerintah, yaitu 4,0–4,7 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+       },
        "wilayah_kode": "9414",
        "wilayah_nama": "Kab. Mappi"
       }
@@ -7255,6 +8395,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua Selatan yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 7,8 persen penduduk Papua Selatan tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 14,4 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "95",
       "wilayah_nama": "Papua Selatan"
      }
@@ -7288,6 +8433,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Papua Selatan yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 25,8 persen balita di Papua Selatan tercatat mengalami stunting. Angka itu 3,7 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "95",
       "wilayah_nama": "Papua Selatan"
      }
@@ -7328,6 +8478,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua Tengah yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 29,2 persen penduduk Papua Tengah tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 7,0 poin di atas nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "96",
       "wilayah_nama": "Papua Tengah"
      }
@@ -7361,6 +8516,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Papua Tengah yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 32,5 persen balita di Papua Tengah tercatat mengalami stunting. Angka itu 10,4 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "96",
       "wilayah_nama": "Papua Tengah"
      }
@@ -7401,6 +8561,11 @@
        "sumber_id": "bps-var-2279"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar.",
+       "judul": "Ada warga Papua Pegunungan yang belum punya jaminan kesehatan dari program pemerintah",
+       "ringkasan": "Pada 2025, 3,7 persen penduduk Papua Pegunungan tercatat belum memiliki jaminan kesehatan dari program pemerintah. Angka itu 18,5 poin di bawah nilai tengah antarprovinsi, yaitu 22,2 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "97",
       "wilayah_nama": "Papua Pegunungan"
      }
@@ -7434,6 +8599,11 @@
        "sumber_id": "ssgi-2024"
       },
       "status": "draf",
+      "teks": {
+       "harapan": "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan.",
+       "judul": "Ada balita di Papua Pegunungan yang tumbuh lebih pendek dari seharusnya",
+       "ringkasan": "Pada 2024, 40,0 persen balita di Papua Pegunungan tercatat mengalami stunting. Angka itu 17,9 poin di atas nilai tengah antarprovinsi, yaitu 22,1 persen. Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+      },
       "wilayah_kode": "97",
       "wilayah_nama": "Papua Pegunungan"
      }

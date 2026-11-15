@@ -21,6 +21,7 @@ for kode, p in a.items():
                 assert bt["angka"][w] not in (None, ""), (bt["kartu_id"], w)
             assert bt["angka"]["url"].startswith("https://") and bt["angka"]["tahun_data"] >= 2000
             assert bt["boleh_tampil"] == (bt["status"] == "terbit")
+            assert all(bt["teks"][x] and "{" not in bt["teks"][x] for x in ("judul", "ringkasan", "harapan")) and bt["wilayah_nama"] in bt["teks"]["judul"]
             tampil += bt["boleh_tampil"]
 assert sum(v["kabkota_jumlah"] + bool(v["provinsi"]) for p in a.values() for v in p["kebutuhan"].values()) == len(semua)
 print(f"LULUS gerbang A (data): {len(semua)} kartu dibaca, 0 ditolak; keluaran {n} butir, {n} bersumber dan bertahun, {tampil} boleh tampil, {len(a)} provinsi berkartu")

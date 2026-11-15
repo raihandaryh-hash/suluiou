@@ -11,6 +11,8 @@ Aturan:
 - keadaan (belum ada / belum cukup / belum efektif) = null sampai ada sumber tentang pelaku; angka jarak tidak cukup untuk itu.
 """
 import json, sys, glob, os, collections
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "kartu"))
+import isi_teks, kartu as PUSTAKA_KARTU
 SINI = os.path.dirname(os.path.abspath(__file__))
 KARTU = sorted(glob.glob(os.path.join(SINI, "..", "kartu", "keluaran", "*.jsonl")))
 # arah jarak yang berarti keadaan lebih buruk dari pembanding, per jenis kebutuhan
@@ -32,6 +34,12 @@ def angka(k):
         return None
     return {w: i[w] for w in WAJIB} | {"kode": i["kode"], "keandalan": i["keandalan"]}
 
+def teks(k):
+    k2 = isi_teks.isi(k, isi_teks.T["terpilih"])
+    if PUSTAKA_KARTU.periksa_teks(k2):
+        raise ValueError(f"teks kartu {k['id']} tidak lolos pemeriksa")
+    return {b: x.replace(isi_teks.TANDA, k["wilayah"]["nama"]) for b, x in PUSTAKA_KARTU.render(k2).items()}
+
 def butir(k):
     a = angka(k)
     if a is None:
@@ -39,7 +47,7 @@ def butir(k):
     return {"kartu_id": k["id"], "kartu_versi": k["versi"], "wilayah_kode": k["wilayah"]["kode_bps"],
             "wilayah_nama": k["wilayah"]["nama"], "angka": a, "jarak": k["jarak"]["nilai"], "arah": k["jarak"]["arah"],
             "pembanding": {x: k["pembanding"].get(x) for x in ("jenis", "sumber_id", "catatan")},
-            "status": k["status"], "boleh_tampil": k["status"] == "terbit"}
+            "teks": teks(k), "status": k["status"], "boleh_tampil": k["status"] == "terbit"}
 
 def susun():
     prov = collections.defaultdict(lambda: {"nama": None, "kebutuhan": collections.defaultdict(lambda: {"provinsi": None, "kabkota": []})})

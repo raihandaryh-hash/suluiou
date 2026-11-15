@@ -1,6 +1,9 @@
-# Templat teks kartu kebutuhan, versi 1 (15 Nov 2026). SINTESIS, menunggu pilihan varian oleh Raihan.
+# Templat teks kartu kebutuhan, versi 1 (15 Nov 2026).
+# KEPUTUSAN Raihan 15 Nov 2026 13.49: varian A dipakai. "Varian A, lugas is better, \"kehangatan\" justru mengaburkan data."
+# Varian B disimpan sebagai riwayat, tidak dipakai. Kehangatan pindah ke tahap pengguna merancang Proposal Diri.
 # Deterministik: tanpa model. Angka hanya lewat placeholder. Tidak menyebut sebab, tidak menilai wilayah.
 # Varian A = lugas. Varian B = lebih hangat. Kalimat pembanding dan kalimat hati-hati dipakai bersama.
+terpilih: A
 bersama:
   banding:
     median_nasional:
