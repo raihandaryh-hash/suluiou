@@ -1,0 +1,50 @@
+# Templat teks kartu kebutuhan, versi 1 (15 Nov 2026). SINTESIS, menunggu pilihan varian oleh Raihan.
+# Deterministik: tanpa model. Angka hanya lewat placeholder. Tidak menyebut sebab, tidak menilai wilayah.
+# Varian A = lugas. Varian B = lebih hangat. Kalimat pembanding dan kalimat hati-hati dipakai bersama.
+bersama:
+  banding:
+    median_nasional:
+      di_atas: "Angka itu {jarak} di atas nilai tengah antarprovinsi, yaitu {pembanding}."
+      di_bawah: "Angka itu {jarak} di bawah nilai tengah antarprovinsi, yaitu {pembanding}."
+    target_resmi:
+      di_atas: "Angka itu {jarak} di atas target nasional pemerintah, yaitu {pembanding}."
+      di_bawah: "Angka itu {jarak} di bawah target nasional pemerintah, yaitu {pembanding}."
+      di_dalam: "Angka itu berada di dalam rentang target nasional pemerintah, yaitu {pembanding}."
+  hati_hati: "Angka ini perkiraan dari survei. Bacalah dengan hati-hati."
+jenis:
+  kemiskinan-kabkota:
+    A:
+      judul: "Ada warga {wilayah} yang masih hidup di bawah garis kemiskinan"
+      nilai: "Pada {tahun_data}, {persentase_penduduk_miskin} penduduk {wilayah} tercatat sebagai penduduk miskin."
+      harapan: "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+    B:
+      judul: "Di {wilayah}, masih ada tetangga yang berjuang memenuhi kebutuhan pokoknya"
+      nilai: "Data {tahun_data} mencatat {persentase_penduduk_miskin} penduduk {wilayah} sebagai penduduk miskin."
+      harapan: "Orang yang mau hadir, mendengar, dan membantu dengan apa yang ia bisa selalu punya tempat di sini."
+  pengangguran-terbuka-kabkota:
+    A:
+      judul: "Ada warga {wilayah} yang ingin bekerja dan belum mendapat pekerjaan"
+      nilai: "Pada {tahun_data}, tingkat pengangguran terbuka di {wilayah} tercatat {tingkat_pengangguran_terbuka} dari angkatan kerja."
+      harapan: "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+    B:
+      judul: "Di {wilayah}, ada orang yang siap bekerja dan masih mencari pintunya"
+      nilai: "Data {tahun_data} mencatat tingkat pengangguran terbuka di {wilayah} sebesar {tingkat_pengangguran_terbuka} dari angkatan kerja."
+      harapan: "Orang yang membuka usaha, melatih keterampilan, atau menghubungkan pencari kerja dengan pemberi kerja ikut membuka pintu itu."
+  stunting-balita:
+    A:
+      judul: "Ada balita di {wilayah} yang tumbuh lebih pendek dari seharusnya"
+      nilai: "Pada {tahun_data}, {prevalensi_stunting} balita di {wilayah} tercatat mengalami stunting."
+      harapan: "Kamu bisa mulai dengan datang ke posyandu terdekat dan menanyakan bantuan apa yang kader perlukan."
+    B:
+      judul: "Di {wilayah}, ada balita yang membutuhkan perhatian lebih untuk tumbuh"
+      nilai: "Data {tahun_data} mencatat {prevalensi_stunting} balita di {wilayah} mengalami stunting."
+      harapan: "Kader posyandu, tenaga gizi, dan siapa pun yang mau mendampingi ibu dan balita ikut menjaga tumbuh kembang mereka."
+  penduduk-tanpa-jaminan-kesehatan:
+    A:
+      judul: "Ada warga {wilayah} yang belum punya jaminan kesehatan dari program pemerintah"
+      nilai: "Pada {tahun_data}, {persen_tanpa_jaminan_kesehatan} penduduk {wilayah} tercatat belum memiliki jaminan kesehatan dari program pemerintah."
+      harapan: "Kamu bisa mulai dengan menanyakan di puskesmas atau kantor desa cara mendaftar, lalu membantu satu orang yang belum terdaftar."
+    B:
+      judul: "Di {wilayah}, ada warga yang berobat tanpa jaminan kesehatan dari program pemerintah"
+      nilai: "Data {tahun_data} mencatat {persen_tanpa_jaminan_kesehatan} penduduk {wilayah} belum memiliki jaminan kesehatan dari program pemerintah."
+      harapan: "Orang yang paham cara mendaftar dan mau menemani tetangganya mengurus sampai selesai sangat menolong."
