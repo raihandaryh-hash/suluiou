@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "31",
   "nama": "DKI Jakarta"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Seribu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,4 persen penduduk Kab. Kepulauan Seribu tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,4 persen penduduk Kab. Kepulauan Seribu tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.3171",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jakarta Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Jakarta Selatan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Jakarta Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.3172",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jakarta Timur yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Jakarta Timur tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Jakarta Timur tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.3173",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jakarta Pusat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,7 persen penduduk Kota Jakarta Pusat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,7 persen penduduk Kota Jakarta Pusat tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.3174",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jakarta Barat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Jakarta Barat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Jakarta Barat tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.3175",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jakarta Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,3 persen penduduk Kota Jakarta Utara tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,3 persen penduduk Kota Jakarta Utara tercatat sebagai penduduk miskin."
   }
  ]
 }

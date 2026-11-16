@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "34",
   "nama": "DI Yogyakarta"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kulon Progo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,5 persen penduduk Kab. Kulon Progo tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,5 persen penduduk Kab. Kulon Progo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3401",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kulon Progo yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kulon Progo tercatat 2,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kulon Progo tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3402",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bantul yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Bantul tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Bantul tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3402",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bantul yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bantul tercatat 3,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bantul tercatat 3,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3403",
@@ -97,14 +93,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Gunungkidul yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Gunungkidul tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Gunungkidul tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3403",
    "wilayah": {
     "kode_bps": "3403",
-    "nama": "Kab. Gunung Kidul",
+    "nama": "Kab. Gunungkidul",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -115,9 +110,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Gunung Kidul yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gunung Kidul tercatat 2,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kab. Gunungkidul yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gunungkidul tercatat 2,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3404",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Sleman yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Sleman tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Sleman tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3404",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Sleman yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sleman tercatat 4,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sleman tercatat 4,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3471",
@@ -173,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Yogyakarta yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kota Yogyakarta tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,1 persen penduduk Kota Yogyakarta tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3471",
@@ -192,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Yogyakarta yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Yogyakarta tercatat 5,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Yogyakarta tercatat 5,7 persen dari angkatan kerja."
   }
  ]
 }

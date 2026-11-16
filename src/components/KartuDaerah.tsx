@@ -15,13 +15,12 @@ type Kartu = {
   hati_hati: boolean;
   judul: string;
   ringkasan: string;
-  langkah_awal: string;
 };
 type Indeks = {
   tanda_hati_hati: string;
   sumber: Record<string, Sumber>;
   jenis_kebutuhan: string[];
-  provinsi: Record<string, { nama: string; berkas: string; belum_punya_kartu: Record<string, { kode_bps: string; nama: string }[]> }>;
+  provinsi: Record<string, { nama: string; berkas: string | null; belum_punya_kartu: Record<string, { kode_bps: string; nama: string }[]> }>;
 };
 
 // Nama dari berkas sumber kadang berjarak ("S I A K") atau berspasi ganda.
@@ -53,7 +52,7 @@ export default function KartuDaerah({ province }: { province: string }) {
         if (!aktif) return;
         if (!indeks) setIndeks(ix);
         const prov = Object.values(ix.provinsi).find((p) => p.nama === province);
-        if (!prov) {
+        if (!prov || !prov.berkas) {
           setKartu([]);
           return;
         }
@@ -147,6 +146,9 @@ export default function KartuDaerah({ province }: { province: string }) {
                     </span>
                     <h3 className="font-heading text-base font-semibold text-foreground leading-snug">{k.judul}</h3>
                     <p className="text-sm leading-relaxed text-foreground/90">{k.ringkasan}</p>
+                    {T.artiAngka[k.jenis_kebutuhan] && (
+                      <p className="text-sm leading-relaxed text-foreground/75">{T.artiAngka[k.jenis_kebutuhan]}</p>
+                    )}
                     {s && (
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         {T.labelSumber}: {s.penerbit}, {s.judul} ({s.periode_survei}).{" "}
@@ -163,7 +165,7 @@ export default function KartuDaerah({ province }: { province: string }) {
                       </p>
                     )}
                     {k.hati_hati && (
-                      <p className="text-xs text-muted-foreground italic leading-relaxed">{indeks.tanda_hati_hati}</p>
+                      <p className="text-xs text-muted-foreground italic leading-relaxed">{T.hatiHati[k.jenis_kebutuhan] ?? T.hatiHatiUmum}</p>
                     )}
                   </article>
                 );

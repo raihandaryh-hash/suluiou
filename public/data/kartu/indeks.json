@@ -1,5 +1,6 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
+ "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota",
  "tanda_hati_hati": "Angka survei BPS untuk tingkat kabupaten/kota. BPS tidak menerbitkan besar galatnya, jadi baca sebagai gambaran, bukan angka pasti.",
  "sumber": {
   "kemiskinan-kabkota-2025": {
@@ -39,91 +40,91 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "1202",
-      "nama": "Mandailing Natal"
+      "nama": "Kab. Mandailing Natal"
      },
      {
       "kode_bps": "1203",
-      "nama": "Tapanuli Selatan"
+      "nama": "Kab. Tapanuli Selatan"
      },
      {
       "kode_bps": "1204",
-      "nama": "Tapanuli Tengah"
+      "nama": "Kab. Tapanuli Tengah"
      },
      {
       "kode_bps": "1206",
-      "nama": "Toba"
+      "nama": "Kab. Toba"
      },
      {
       "kode_bps": "1207",
-      "nama": "Labuhan Batu"
+      "nama": "Kab. Labuhan Batu"
      },
      {
       "kode_bps": "1208",
-      "nama": "Asahan"
+      "nama": "Kab. Asahan"
      },
      {
       "kode_bps": "1209",
-      "nama": "Simalungun"
+      "nama": "Kab. Simalungun"
      },
      {
       "kode_bps": "1211",
-      "nama": "Karo"
+      "nama": "Kab. Karo"
      },
      {
       "kode_bps": "1212",
-      "nama": "Deli Serdang"
+      "nama": "Kab. Deli Serdang"
      },
      {
       "kode_bps": "1213",
-      "nama": "Langkat"
+      "nama": "Kab. Langkat"
      },
      {
       "kode_bps": "1214",
-      "nama": "Nias Selatan"
+      "nama": "Kab. Nias Selatan"
      },
      {
       "kode_bps": "1215",
-      "nama": "Humbang Hasundutan"
+      "nama": "Kab. Humbang Hasundutan"
      },
      {
       "kode_bps": "1216",
-      "nama": "Pakpak Bharat"
+      "nama": "Kab. Pakpak Bharat"
      },
      {
       "kode_bps": "1217",
-      "nama": "Samosir"
+      "nama": "Kab. Samosir"
      },
      {
       "kode_bps": "1218",
-      "nama": "Serdang Bedagai"
+      "nama": "Kab. Serdang Bedagai"
      },
      {
       "kode_bps": "1219",
-      "nama": "Batu Bara"
+      "nama": "Kab. Batu Bara"
      },
      {
       "kode_bps": "1220",
-      "nama": "Padang Lawas Utara"
+      "nama": "Kab. Padang Lawas Utara"
      },
      {
       "kode_bps": "1221",
-      "nama": "Padang Lawas"
+      "nama": "Kab. Padang Lawas"
      },
      {
       "kode_bps": "1222",
-      "nama": "Labuhanbatu Selatan"
+      "nama": "Kab. Labuhanbatu Selatan"
      },
      {
       "kode_bps": "1223",
-      "nama": "Labuhanbatu Utara"
+      "nama": "Kab. Labuhanbatu Utara"
      },
      {
       "kode_bps": "1224",
-      "nama": "Nias Utara"
+      "nama": "Kab. Nias Utara"
      },
      {
       "kode_bps": "1225",
-      "nama": "Nias Barat"
+      "nama": "Kab. Nias Barat"
      },
      {
       "kode_bps": "1271",
@@ -205,31 +206,31 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "1701",
-      "nama": "Bengkulu Selatan"
+      "nama": "Kab. Bengkulu Selatan"
      },
      {
       "kode_bps": "1702",
-      "nama": "Rejang Lebong"
+      "nama": "Kab. Rejang Lebong"
      },
      {
       "kode_bps": "1703",
-      "nama": "Bengkulu Utara"
+      "nama": "Kab. Bengkulu Utara"
      },
      {
       "kode_bps": "1705",
-      "nama": "Seluma"
+      "nama": "Kab. Seluma"
      },
      {
       "kode_bps": "1706",
-      "nama": "Mukomuko"
+      "nama": "Kab. Mukomuko"
      },
      {
       "kode_bps": "1708",
-      "nama": "Kepahiang"
+      "nama": "Kab. Kepahiang"
      },
      {
       "kode_bps": "1709",
-      "nama": "Bengkulu Tengah"
+      "nama": "Kab. Bengkulu Tengah"
      },
      {
       "kode_bps": "1771",
@@ -264,15 +265,15 @@
     "kemiskinan-kabkota": [
      {
       "kode_bps": "2101",
-      "nama": "Karimun"
+      "nama": "Kab. Karimun"
      },
      {
       "kode_bps": "2102",
-      "nama": "Bintan"
+      "nama": "Kab. Bintan"
      },
      {
       "kode_bps": "2104",
-      "nama": "Lingga"
+      "nama": "Kab. Lingga"
      },
      {
       "kode_bps": "2172",
@@ -282,23 +283,23 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "2101",
-      "nama": "Karimun"
+      "nama": "Kab. Karimun"
      },
      {
       "kode_bps": "2102",
-      "nama": "Bintan"
+      "nama": "Kab. Bintan"
      },
      {
       "kode_bps": "2103",
-      "nama": "Natuna"
+      "nama": "Kab. Natuna"
      },
      {
       "kode_bps": "2104",
-      "nama": "Lingga"
+      "nama": "Kab. Lingga"
      },
      {
       "kode_bps": "2105",
-      "nama": "Kepulauan Anambas"
+      "nama": "Kab. Kepulauan Anambas"
      },
      {
       "kode_bps": "2171",
@@ -320,7 +321,7 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "3101",
-      "nama": "Kepulauan Seribu"
+      "nama": "Kab. Kepulauan Seribu"
      },
      {
       "kode_bps": "3171",
@@ -399,31 +400,31 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "5102",
-      "nama": "Tabanan"
+      "nama": "Kab. Tabanan"
      },
      {
       "kode_bps": "5103",
-      "nama": "Badung"
+      "nama": "Kab. Badung"
      },
      {
       "kode_bps": "5104",
-      "nama": "Gianyar"
+      "nama": "Kab. Gianyar"
      },
      {
       "kode_bps": "5105",
-      "nama": "Klungkung"
+      "nama": "Kab. Klungkung"
      },
      {
       "kode_bps": "5106",
-      "nama": "Bangli"
+      "nama": "Kab. Bangli"
      },
      {
       "kode_bps": "5107",
-      "nama": "Karangasem"
+      "nama": "Kab. Karangasem"
      },
      {
       "kode_bps": "5108",
-      "nama": "Buleleng"
+      "nama": "Kab. Buleleng"
      }
     ]
    }
@@ -473,15 +474,15 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "6301",
-      "nama": "Tanah Laut"
+      "nama": "Kab. Tanah Laut"
      },
      {
       "kode_bps": "6304",
-      "nama": "Barito Kuala"
+      "nama": "Kab. Barito Kuala"
      },
      {
       "kode_bps": "6306",
-      "nama": "Hulu Sungai Selatan"
+      "nama": "Kab. Hulu Sungai Selatan"
      },
      {
       "kode_bps": "6371",
@@ -517,7 +518,7 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "7108",
-      "nama": "Kepulauan Sitaro"
+      "nama": "Kab. Kepulauan Sitaro"
      }
     ]
    }
@@ -558,23 +559,23 @@
     "pengangguran-terbuka-kabkota": [
      {
       "kode_bps": "7501",
-      "nama": "Boalemo"
+      "nama": "Kab. Boalemo"
      },
      {
       "kode_bps": "7502",
-      "nama": "Gorontalo"
+      "nama": "Kab. Gorontalo"
      },
      {
       "kode_bps": "7503",
-      "nama": "Pohuwato"
+      "nama": "Kab. Pohuwato"
      },
      {
       "kode_bps": "7504",
-      "nama": "Bone Bolango"
+      "nama": "Kab. Bone Bolango"
      },
      {
       "kode_bps": "7505",
-      "nama": "Gorontalo Utara"
+      "nama": "Kab. Gorontalo Utara"
      },
      {
       "kode_bps": "7571",
@@ -591,15 +592,15 @@
     "kemiskinan-kabkota": [
      {
       "kode_bps": "7603",
-      "nama": "Mamasa"
+      "nama": "Kab. Mamasa"
      },
      {
       "kode_bps": "7605",
-      "nama": "Pasangkayu"
+      "nama": "Kab. Pasangkayu"
      },
      {
       "kode_bps": "7606",
-      "nama": "Mamuju Tengah"
+      "nama": "Kab. Mamuju Tengah"
      }
     ],
     "pengangguran-terbuka-kabkota": []
@@ -622,8 +623,277 @@
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": []
    }
+  },
+  "91": {
+   "nama": "Papua Barat",
+   "berkas": "prov_91.json",
+   "jumlah_kartu": 9,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9102",
+      "nama": "Kab. Kaimana"
+     },
+     {
+      "kode_bps": "9104",
+      "nama": "Kab. Teluk Bintuni"
+     },
+     {
+      "kode_bps": "9105",
+      "nama": "Kab. Manokwari"
+     },
+     {
+      "kode_bps": "9111",
+      "nama": "Kab. Manokwari Selatan"
+     },
+     {
+      "kode_bps": "9112",
+      "nama": "Kab. Pegunungan Arfak"
+     }
+    ]
+   }
+  },
+  "92": {
+   "nama": "Papua Barat Daya",
+   "berkas": "prov_92.json",
+   "jumlah_kartu": 6,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9201",
+      "nama": "Kab. Raja Ampat"
+     },
+     {
+      "kode_bps": "9202",
+      "nama": "Kab. Sorong"
+     },
+     {
+      "kode_bps": "9203",
+      "nama": "Kab. Sorong Selatan"
+     },
+     {
+      "kode_bps": "9204",
+      "nama": "Kab. Maybrat"
+     },
+     {
+      "kode_bps": "9205",
+      "nama": "Kab. Tambrauw"
+     },
+     {
+      "kode_bps": "9271",
+      "nama": "Kota Sorong"
+     }
+    ]
+   }
+  },
+  "94": {
+   "nama": "Papua",
+   "berkas": "prov_94.json",
+   "jumlah_kartu": 11,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9403",
+      "nama": "Kab. Jayapura"
+     },
+     {
+      "kode_bps": "9408",
+      "nama": "Kab. Kepulauan Yapen"
+     },
+     {
+      "kode_bps": "9409",
+      "nama": "Kab. Biak Numfor"
+     },
+     {
+      "kode_bps": "9419",
+      "nama": "Kab. Sarmi"
+     },
+     {
+      "kode_bps": "9420",
+      "nama": "Kab. Keerom"
+     },
+     {
+      "kode_bps": "9426",
+      "nama": "Kab. Waropen"
+     },
+     {
+      "kode_bps": "9428",
+      "nama": "Kab. Mamberamo Raya"
+     }
+    ]
+   }
+  },
+  "95": {
+   "nama": "Papua Selatan",
+   "berkas": "prov_95.json",
+   "jumlah_kartu": 6,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9504",
+      "nama": "Kab. Asmat"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9504",
+      "nama": "Kab. Asmat"
+     }
+    ]
+   }
+  },
+  "96": {
+   "nama": "Papua Tengah",
+   "berkas": null,
+   "jumlah_kartu": 0,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9601",
+      "nama": "Kab. Mimika"
+     },
+     {
+      "kode_bps": "9602",
+      "nama": "Kab. Dogiyai"
+     },
+     {
+      "kode_bps": "9603",
+      "nama": "Kab. Deiyai"
+     },
+     {
+      "kode_bps": "9604",
+      "nama": "Kab. Nabire"
+     },
+     {
+      "kode_bps": "9605",
+      "nama": "Kab. Paniai"
+     },
+     {
+      "kode_bps": "9606",
+      "nama": "Kab. Intan Jaya"
+     },
+     {
+      "kode_bps": "9607",
+      "nama": "Kab. Puncak"
+     },
+     {
+      "kode_bps": "9608",
+      "nama": "Kab. Puncak Jaya"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9601",
+      "nama": "Kab. Mimika"
+     },
+     {
+      "kode_bps": "9602",
+      "nama": "Kab. Dogiyai"
+     },
+     {
+      "kode_bps": "9603",
+      "nama": "Kab. Deiyai"
+     },
+     {
+      "kode_bps": "9604",
+      "nama": "Kab. Nabire"
+     },
+     {
+      "kode_bps": "9605",
+      "nama": "Kab. Paniai"
+     },
+     {
+      "kode_bps": "9606",
+      "nama": "Kab. Intan Jaya"
+     },
+     {
+      "kode_bps": "9607",
+      "nama": "Kab. Puncak"
+     },
+     {
+      "kode_bps": "9608",
+      "nama": "Kab. Puncak Jaya"
+     }
+    ]
+   }
+  },
+  "97": {
+   "nama": "Papua Pegunungan",
+   "berkas": null,
+   "jumlah_kartu": 0,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9701",
+      "nama": "Kab. Nduga"
+     },
+     {
+      "kode_bps": "9702",
+      "nama": "Kab. Jayawijaya"
+     },
+     {
+      "kode_bps": "9703",
+      "nama": "Kab. Lanny Jaya"
+     },
+     {
+      "kode_bps": "9704",
+      "nama": "Kab. Tolikara"
+     },
+     {
+      "kode_bps": "9705",
+      "nama": "Kab. Mamberamo Tengah"
+     },
+     {
+      "kode_bps": "9706",
+      "nama": "Kab. Yalimo"
+     },
+     {
+      "kode_bps": "9707",
+      "nama": "Kab. Yahukimo"
+     },
+     {
+      "kode_bps": "9708",
+      "nama": "Kab. Pegunungan Bintang"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9701",
+      "nama": "Kab. Nduga"
+     },
+     {
+      "kode_bps": "9702",
+      "nama": "Kab. Jayawijaya"
+     },
+     {
+      "kode_bps": "9703",
+      "nama": "Kab. Lanny Jaya"
+     },
+     {
+      "kode_bps": "9704",
+      "nama": "Kab. Tolikara"
+     },
+     {
+      "kode_bps": "9705",
+      "nama": "Kab. Mamberamo Tengah"
+     },
+     {
+      "kode_bps": "9706",
+      "nama": "Kab. Yalimo"
+     },
+     {
+      "kode_bps": "9707",
+      "nama": "Kab. Yahukimo"
+     },
+     {
+      "kode_bps": "9708",
+      "nama": "Kab. Pegunungan Bintang"
+     }
+    ]
+   }
   }
- },
- "catatan_pasang": "Dipasang Chief Sulu dari cabang mesin-me1-fondasi @02ea534. Enam provinsi Papua belum ikut: pengelompokan kode provinsinya di berkas sumber belum benar.",
- "jumlah_kartu": 868
+ }
 }

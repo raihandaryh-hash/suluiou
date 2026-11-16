@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "75",
   "nama": "Gorontalo"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Boalemo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,4 persen penduduk Kab. Boalemo tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 16,4 persen penduduk Kab. Boalemo tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7502",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Gorontalo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,9 persen penduduk Kab. Gorontalo tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,9 persen penduduk Kab. Gorontalo tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7503",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Pohuwato yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Pohuwato tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Pohuwato tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7504",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bone Bolango yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Bone Bolango tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Bone Bolango tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7505",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Gorontalo Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,9 persen penduduk Kab. Gorontalo Utara tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 15,9 persen penduduk Kab. Gorontalo Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7571",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Gorontalo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,3 persen penduduk Kota Gorontalo tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,3 persen penduduk Kota Gorontalo tercatat sebagai penduduk miskin."
   }
  ]
 }
