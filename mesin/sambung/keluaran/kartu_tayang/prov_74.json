@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "74",
   "nama": "Sulawesi Tenggara"
@@ -20,6 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Buton tercatat sebagai penduduk miskin."
   },
@@ -38,6 +40,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buton tercatat 3,3 persen dari angkatan kerja."
   },
@@ -56,6 +60,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Muna yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,4 persen penduduk Kab. Muna tercatat sebagai penduduk miskin."
   },
@@ -74,6 +80,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Muna yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Muna tercatat 4,1 persen dari angkatan kerja."
   },
@@ -92,6 +100,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,8 persen penduduk Kab. Konawe tercatat sebagai penduduk miskin."
   },
@@ -110,6 +120,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Konawe tercatat 2,8 persen dari angkatan kerja."
   },
@@ -128,6 +140,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,2 persen penduduk Kab. Kolaka tercatat sebagai penduduk miskin."
   },
@@ -146,6 +160,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kolaka tercatat 2,3 persen dari angkatan kerja."
   },
@@ -164,6 +180,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Selatan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Konawe Selatan tercatat sebagai penduduk miskin."
   },
@@ -182,6 +200,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Selatan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Konawe Selatan tercatat 3,2 persen dari angkatan kerja."
   },
@@ -200,6 +220,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bombana yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Bombana tercatat sebagai penduduk miskin."
   },
@@ -218,6 +240,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bombana yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bombana tercatat 2,5 persen dari angkatan kerja."
   },
@@ -236,6 +260,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Wakatobi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,4 persen penduduk Kab. Wakatobi tercatat sebagai penduduk miskin."
   },
@@ -254,6 +280,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Wakatobi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Wakatobi tercatat 3,8 persen dari angkatan kerja."
   },
@@ -272,6 +300,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka Utara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,9 persen penduduk Kab. Kolaka Utara tercatat sebagai penduduk miskin."
   },
@@ -290,6 +320,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka Utara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kolaka Utara tercatat 1,6 persen dari angkatan kerja."
   },
@@ -308,6 +340,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Utara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Buton Utara tercatat sebagai penduduk miskin."
   },
@@ -326,6 +360,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Utara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buton Utara tercatat 2,0 persen dari angkatan kerja."
   },
@@ -344,6 +380,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Utara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,9 persen penduduk Kab. Konawe Utara tercatat sebagai penduduk miskin."
   },
@@ -362,6 +400,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Utara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Konawe Utara tercatat 4,0 persen dari angkatan kerja."
   },
@@ -380,6 +420,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka Timur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,6 persen penduduk Kab. Kolaka Timur tercatat sebagai penduduk miskin."
   },
@@ -398,6 +440,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kolaka Timur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kolaka Timur tercatat 2,2 persen dari angkatan kerja."
   },
@@ -416,6 +460,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Kepulauan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 14,4 persen penduduk Kab. Konawe Kepulauan tercatat sebagai penduduk miskin."
   },
@@ -434,6 +480,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Konawe Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Konawe Kepulauan tercatat 1,5 persen dari angkatan kerja."
   },
@@ -452,6 +500,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Muna Barat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,8 persen penduduk Kab. Muna Barat tercatat sebagai penduduk miskin."
   },
@@ -470,6 +520,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Muna Barat yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Muna Barat tercatat 2,8 persen dari angkatan kerja."
   },
@@ -488,6 +540,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Tengah yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,4 persen penduduk Kab. Buton Tengah tercatat sebagai penduduk miskin."
   },
@@ -506,6 +560,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Tengah yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buton Tengah tercatat 3,2 persen dari angkatan kerja."
   },
@@ -524,6 +580,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Selatan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,6 persen penduduk Kab. Buton Selatan tercatat sebagai penduduk miskin."
   },
@@ -542,6 +600,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Buton Selatan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buton Selatan tercatat 2,9 persen dari angkatan kerja."
   },
@@ -560,6 +620,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Kendari yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 4,2 persen penduduk Kota Kendari tercatat sebagai penduduk miskin."
   },
@@ -578,6 +640,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Kendari yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kendari tercatat 5,9 persen dari angkatan kerja."
   },
@@ -596,6 +660,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Baubau yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 6,8 persen penduduk Kota Baubau tercatat sebagai penduduk miskin."
   },
@@ -614,6 +680,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Baubau yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Baubau tercatat 4,0 persen dari angkatan kerja."
   }

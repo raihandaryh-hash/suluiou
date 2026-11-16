@@ -15,14 +15,26 @@ from decimal import Decimal, ROUND_HALF_UP
 AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(AKAR, "kartu"))
 import kartu as K, isi_teks
-HATI = "Angka survei BPS untuk tingkat kabupaten/kota. BPS tidak menerbitkan besar galatnya, jadi baca sebagai gambaran, bukan angka pasti."
+# Paket titipan 5 (16 Nov 2026 23.10): medan tunggal tanda_hati_hati dicabut (kalimat lama keliru untuk TPT dan
+# berpola "X, bukan Y"). Gantinya teks per jenis (sama dengan kartuDaerahContent.ts di main 77c7f86) dan catatan
+# per kartu untuk kab/kota yang BPS tandai RSE (dari tpt_catatan_bps.json). Raihan 16 Nov 23.21: "gunakan yang terbaik saja".
+HATI_PER_JENIS = {
+ "kemiskinan-kabkota": "Angka survei BPS untuk tingkat kabupaten/kota. Ketelitiannya terbatas. Baca sebagai gambaran.",
+ "pengangguran-terbuka-kabkota": "Angka survei BPS untuk tingkat kabupaten/kota. Ketelitiannya terbatas, dan untuk sebagian kabupaten BPS sendiri menandai angkanya kurang teliti. Baca sebagai gambaran.",
+}
+CATATAN_RSE = "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen."
+CATATAN_TPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "keluaran", "tpt_catatan_bps.json")
 SUMBER = {
  "kemiskinan-kabkota-2025": {"penerbit": "Badan Pusat Statistik", "judul": "Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025", "periode_survei": "Susenas Maret 2025",
    "tautan_baca": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"},
  "sakernas-agustus": {"penerbit": "Badan Pusat Statistik", "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota", "periode_survei": "Sakernas Agustus 2025",
-   "tautan_baca": None, "catatan": "halaman tabel BPS yang bisa dibaca orang belum dipastikan; alamat data: https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"},
+   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "catatan": "tabel nasional var 2824; judul halaman dicek 16 Nov 2026. Tabel provinsi per kode provinsi ada di indeks provinsi.<kode>.tautan_baca_tpt"},
 }
 def bangun():
+    tpt = json.load(open(CATATAN_TPT, encoding="utf-8"))
+    rse = {x["kode_bps"]: x for x in tpt["kab_ditandai_rse"] if x["kode_bps"]}
+    tautan_prov = {p["domain"][:2]: (p["tautan_baca"], p["tautan_jenis"]) for p in tpt["per_provinsi"]}
     kart = [json.loads(l) for l in open(os.path.join(AKAR, "kartu", "keluaran", "kartu_me2.jsonl"), encoding="utf-8") if l.strip()]
     induk = {}
     for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "masukan_kartu", "dikk2025_tabel21.csv"), encoding="utf-8")):
@@ -53,10 +65,14 @@ def bangun():
             "id": k["id"], "wilayah": wil, "jenis_kebutuhan": k["jenis_kebutuhan"],
             "angka": {"nilai": ind["nilai"], "satuan": ind["satuan"], "tahun_data": ind["tahun_data"], "sumber_id": ind["sumber_id"]},
             "hati_hati": ind["keandalan"] == "hati_hati",
+            "catatan_bps": (CATATAN_RSE if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and lama in rse else None),
+            "catatan_bps_tautan": (rse[lama]["tautan_tabel"] if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and lama in rse else None),
             "judul": r["judul"], "ringkasan": r["ringkasan"]})
     keluar = os.path.join(AKAR, "sambung", "keluaran", "kartu_tayang"); os.makedirs(keluar, exist_ok=True)
     jenis = sorted({k["jenis_kebutuhan"] for k in kart})
-    idx = {"skema": "kartu-tayang/2", "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota", "tanda_hati_hati": HATI, "sumber": SUMBER, "jenis_kebutuhan": jenis, "provinsi": {}}
+    idx = {"skema": "kartu-tayang/3", "perubahan_dari_2": "tanda_hati_hati (satu kalimat) dicabut, diganti hati_hati_per_jenis; kartu TPT kab/kota yang BPS tandai RSE membawa catatan_bps + catatan_bps_tautan; sakernas-agustus punya tautan_baca; tiap provinsi membawa tautan_baca_tpt (tabel BPS provinsi, cadangan tabel nasional)",
+           "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota",
+           "hati_hati_per_jenis": HATI_PER_JENIS, "sumber": SUMBER, "jenis_kebutuhan": jenis, "provinsi": {}}
     induk = {kode_baru(c): v for c, v in induk.items()}
     for kode in sorted({c[:2] for c in induk}):
         ks = sorted(prov.get(kode, []), key=lambda x: (x["wilayah"]["kode_bps"], x["jenis_kebutuhan"]))
@@ -66,9 +82,11 @@ def bangun():
         nama2 = {induk[c][0] for c in semua}
         assert len(nama2) == 1, (kode, nama2)
         nama_prov = induk[semua[0]][0]
+        tb = tautan_prov.get(kode, (SUMBER["sakernas-agustus"]["tautan_baca"], "tabel nasional (provinsi baru tanpa domain WebAPI)"))
         idx["provinsi"][kode] = {"nama": nama_prov, "berkas": f"prov_{kode}.json" if ks else None, "jumlah_kartu": len(ks),
+            "tautan_baca_tpt": tb[0], "tautan_baca_tpt_jenis": tb[1],
             "belum_punya_kartu": {j: [{"kode_bps": c, "nama": induk[c][1]} for c in semua if c not in punya[j]] for j in jenis}}
-        if ks: json.dump({"skema": "kartu-tayang/2", "provinsi": {"kode": kode, "nama": nama_prov}, "kartu": ks},
+        if ks: json.dump({"skema": "kartu-tayang/3", "provinsi": {"kode": kode, "nama": nama_prov}, "kartu": ks},
                          open(os.path.join(keluar, f"prov_{kode}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(idx, open(os.path.join(keluar, "indeks.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return idx, prov, len(induk)
@@ -90,6 +108,11 @@ if __name__ == "__main__":
       "kode kab/kota berawalan kode provinsinya": all(x["wilayah"]["kode_bps"].startswith(k) for k, v in prov.items() for x in v),
       "38 provinsi": len(idx["provinsi"]) == 38,
       "pembulatan setengah ke atas": all(setengah_uji(x["angka"]["nilai"]) + " persen" in x["ringkasan"] for x in semua),
+      "teks hati-hati untuk tiap jenis": set(idx["hati_hati_per_jenis"]) == set(idx["jenis_kebutuhan"]),
+      "medan tunggal tanda_hati_hati tidak ada": "tanda_hati_hati" not in idx,
+      "catatan RSE hanya di kartu TPT yang BPS tandai": all((x["catatan_bps"] is not None) == (x["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and x["wilayah"].get("kode_bps_lama", x["wilayah"]["kode_bps"]) in {r["kode_bps"] for r in json.load(open(CATATAN_TPT, encoding="utf-8"))["kab_ditandai_rse"]}) for x in semua),
+      "tiap provinsi bertautan baca TPT": all(p["tautan_baca_tpt"].startswith("https://") for p in idx["provinsi"].values()),
+      "teks hati-hati tanpa pola X, bukan Y dan tanpa tanda pisah": not any(re.search(r", bukan |\u2014", t) for t in list(idx["hati_hati_per_jenis"].values()) + [CATATAN_RSE]),
     }
     tot = {j: (sum(1 for x in semua if x["jenis_kebutuhan"] == j), sum(len(p["belum_punya_kartu"][j]) for p in idx["provinsi"].values())) for j in idx["jenis_kebutuhan"]}
     uji["punya + belum = jumlah kab/kota"] = all(a + b == n_kab for a, b in tot.values())

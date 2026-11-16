@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "11",
   "nama": "Aceh"
@@ -20,6 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Simeulue yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 15,5 persen penduduk Kab. Simeulue tercatat sebagai penduduk miskin."
   },
@@ -38,6 +40,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Simeulue yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Simeulue tercatat 5,3 persen dari angkatan kerja."
   },
@@ -56,6 +60,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Singkil yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 17,1 persen penduduk Kab. Aceh Singkil tercatat sebagai penduduk miskin."
   },
@@ -74,6 +80,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Singkil yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Singkil tercatat 6,6 persen dari angkatan kerja."
   },
@@ -92,6 +100,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Selatan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,9 persen penduduk Kab. Aceh Selatan tercatat sebagai penduduk miskin."
   },
@@ -110,6 +120,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Selatan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Selatan tercatat 4,4 persen dari angkatan kerja."
   },
@@ -128,6 +140,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tenggara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,8 persen penduduk Kab. Aceh Tenggara tercatat sebagai penduduk miskin."
   },
@@ -146,6 +160,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tenggara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Tenggara tercatat 4,7 persen dari angkatan kerja."
   },
@@ -164,6 +180,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Timur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Aceh Timur tercatat sebagai penduduk miskin."
   },
@@ -182,6 +200,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Timur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Timur tercatat 7,7 persen dari angkatan kerja."
   },
@@ -200,6 +220,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tengah yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,3 persen penduduk Kab. Aceh Tengah tercatat sebagai penduduk miskin."
   },
@@ -218,6 +240,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tengah yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Tengah tercatat 4,0 persen dari angkatan kerja."
   },
@@ -236,6 +260,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 15,5 persen penduduk Kab. Aceh Barat tercatat sebagai penduduk miskin."
   },
@@ -254,6 +280,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Barat tercatat 5,5 persen dari angkatan kerja."
   },
@@ -272,6 +300,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Besar yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,1 persen penduduk Kab. Aceh Besar tercatat sebagai penduduk miskin."
   },
@@ -290,6 +320,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Besar yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Besar tercatat 7,9 persen dari angkatan kerja."
   },
@@ -308,6 +340,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,5 persen penduduk Kab. Pidie tercatat sebagai penduduk miskin."
   },
@@ -326,6 +360,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pidie tercatat 5,7 persen dari angkatan kerja."
   },
@@ -344,6 +380,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bireuen yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Bireuen tercatat sebagai penduduk miskin."
   },
@@ -362,6 +400,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bireuen yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bireuen tercatat 3,8 persen dari angkatan kerja."
   },
@@ -380,6 +420,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Utara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 14,3 persen penduduk Kab. Aceh Utara tercatat sebagai penduduk miskin."
   },
@@ -398,6 +440,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Utara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Utara tercatat 6,9 persen dari angkatan kerja."
   },
@@ -416,6 +460,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat Daya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Aceh Barat Daya tercatat sebagai penduduk miskin."
   },
@@ -434,6 +480,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat Daya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Barat Daya tercatat 3,7 persen dari angkatan kerja."
   },
@@ -452,6 +500,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gayo Lues yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,8 persen penduduk Kab. Gayo Lues tercatat sebagai penduduk miskin."
   },
@@ -470,6 +520,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gayo Lues yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gayo Lues tercatat 2,2 persen dari angkatan kerja."
   },
@@ -488,6 +540,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tamiang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,8 persen penduduk Kab. Aceh Tamiang tercatat sebagai penduduk miskin."
   },
@@ -506,6 +560,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tamiang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Tamiang tercatat 6,8 persen dari angkatan kerja."
   },
@@ -524,6 +580,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Nagan Raya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 15,4 persen penduduk Kab. Nagan Raya tercatat sebagai penduduk miskin."
   },
@@ -542,6 +600,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Nagan Raya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Nagan Raya tercatat 5,1 persen dari angkatan kerja."
   },
@@ -560,6 +620,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Jaya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Aceh Jaya tercatat sebagai penduduk miskin."
   },
@@ -578,6 +640,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Jaya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Aceh Jaya tercatat 2,6 persen dari angkatan kerja."
   },
@@ -596,6 +660,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bener Meriah yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,2 persen penduduk Kab. Bener Meriah tercatat sebagai penduduk miskin."
   },
@@ -614,6 +680,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bener Meriah yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bener Meriah tercatat 2,1 persen dari angkatan kerja."
   },
@@ -632,6 +700,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie Jaya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,1 persen penduduk Kab. Pidie Jaya tercatat sebagai penduduk miskin."
   },
@@ -650,6 +720,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie Jaya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pidie Jaya tercatat 3,7 persen dari angkatan kerja."
   },
@@ -668,6 +740,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Banda Aceh yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 5,5 persen penduduk Kota Banda Aceh tercatat sebagai penduduk miskin."
   },
@@ -686,6 +760,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Banda Aceh yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Banda Aceh tercatat 7,3 persen dari angkatan kerja."
   },
@@ -704,6 +780,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sabang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,8 persen penduduk Kota Sabang tercatat sebagai penduduk miskin."
   },
@@ -722,6 +800,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sabang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Sabang tercatat 2,7 persen dari angkatan kerja."
   },
@@ -740,6 +820,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Langsa yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 8,6 persen penduduk Kota Langsa tercatat sebagai penduduk miskin."
   },
@@ -758,6 +840,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Langsa yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Langsa tercatat 7,3 persen dari angkatan kerja."
   },
@@ -776,6 +860,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Lhokseumawe yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,0 persen penduduk Kota Lhokseumawe tercatat sebagai penduduk miskin."
   },
@@ -794,6 +880,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Lhokseumawe yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Lhokseumawe tercatat 8,2 persen dari angkatan kerja."
   },
@@ -812,6 +900,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Subulussalam yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,9 persen penduduk Kota Subulussalam tercatat sebagai penduduk miskin."
   },
@@ -830,6 +920,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Subulussalam yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Subulussalam tercatat 4,9 persen dari angkatan kerja."
   }

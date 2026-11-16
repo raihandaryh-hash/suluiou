@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "32",
   "nama": "Jawa Barat"
@@ -20,6 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bogor yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Bogor tercatat sebagai penduduk miskin."
   },
@@ -38,6 +40,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bogor yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bogor tercatat 7,7 persen dari angkatan kerja."
   },
@@ -56,6 +60,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sukabumi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Sukabumi tercatat sebagai penduduk miskin."
   },
@@ -74,6 +80,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sukabumi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sukabumi tercatat 7,2 persen dari angkatan kerja."
   },
@@ -92,6 +100,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Cianjur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,8 persen penduduk Kab. Cianjur tercatat sebagai penduduk miskin."
   },
@@ -110,6 +120,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Cianjur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Cianjur tercatat 6,2 persen dari angkatan kerja."
   },
@@ -128,6 +140,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bandung yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 6,0 persen penduduk Kab. Bandung tercatat sebagai penduduk miskin."
   },
@@ -146,6 +160,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bandung yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bandung tercatat 6,7 persen dari angkatan kerja."
   },
@@ -164,6 +180,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Garut yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,4 persen penduduk Kab. Garut tercatat sebagai penduduk miskin."
   },
@@ -182,6 +200,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Garut yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Garut tercatat 6,5 persen dari angkatan kerja."
   },
@@ -200,6 +220,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tasikmalaya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,2 persen penduduk Kab. Tasikmalaya tercatat sebagai penduduk miskin."
   },
@@ -218,6 +240,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tasikmalaya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tasikmalaya tercatat 3,7 persen dari angkatan kerja."
   },
@@ -236,6 +260,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ciamis yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Ciamis tercatat sebagai penduduk miskin."
   },
@@ -254,6 +280,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ciamis yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ciamis tercatat 4,1 persen dari angkatan kerja."
   },
@@ -272,6 +300,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kuningan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,7 persen penduduk Kab. Kuningan tercatat sebagai penduduk miskin."
   },
@@ -290,6 +320,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kuningan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kuningan tercatat 7,6 persen dari angkatan kerja."
   },
@@ -308,6 +340,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Cirebon yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,2 persen penduduk Kab. Cirebon tercatat sebagai penduduk miskin."
   },
@@ -326,6 +360,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Cirebon yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Cirebon tercatat 6,4 persen dari angkatan kerja."
   },
@@ -344,6 +380,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Majalengka yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Majalengka tercatat sebagai penduduk miskin."
   },
@@ -362,6 +400,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Majalengka yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Majalengka tercatat 3,6 persen dari angkatan kerja."
   },
@@ -380,6 +420,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumedang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 8,8 persen penduduk Kab. Sumedang tercatat sebagai penduduk miskin."
   },
@@ -398,6 +440,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumedang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumedang tercatat 6,1 persen dari angkatan kerja."
   },
@@ -416,6 +460,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Indramayu yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Indramayu tercatat sebagai penduduk miskin."
   },
@@ -434,6 +480,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Indramayu yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indramayu tercatat 6,5 persen dari angkatan kerja."
   },
@@ -452,6 +500,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Subang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,2 persen penduduk Kab. Subang tercatat sebagai penduduk miskin."
   },
@@ -470,6 +520,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Subang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Subang tercatat 6,8 persen dari angkatan kerja."
   },
@@ -488,6 +540,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Purwakarta yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 7,9 persen penduduk Kab. Purwakarta tercatat sebagai penduduk miskin."
   },
@@ -506,6 +560,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Purwakarta yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Purwakarta tercatat 7,5 persen dari angkatan kerja."
   },
@@ -524,6 +580,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Karawang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 7,1 persen penduduk Kab. Karawang tercatat sebagai penduduk miskin."
   },
@@ -542,6 +600,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Karawang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Karawang tercatat 8,0 persen dari angkatan kerja."
   },
@@ -560,6 +620,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bekasi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Bekasi tercatat sebagai penduduk miskin."
   },
@@ -578,6 +640,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bekasi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bekasi tercatat 8,8 persen dari angkatan kerja."
   },
@@ -596,6 +660,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bandung Barat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 9,9 persen penduduk Kab. Bandung Barat tercatat sebagai penduduk miskin."
   },
@@ -614,6 +680,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bandung Barat yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bandung Barat tercatat 6,6 persen dari angkatan kerja."
   },
@@ -632,6 +700,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pangandaran yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 8,0 persen penduduk Kab. Pangandaran tercatat sebagai penduduk miskin."
   },
@@ -650,6 +720,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pangandaran yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pangandaran tercatat 1,9 persen dari angkatan kerja."
   },
@@ -668,6 +740,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bogor yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 5,9 persen penduduk Kota Bogor tercatat sebagai penduduk miskin."
   },
@@ -686,6 +760,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bogor yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bogor tercatat 8,0 persen dari angkatan kerja."
   },
@@ -704,6 +780,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sukabumi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 6,9 persen penduduk Kota Sukabumi tercatat sebagai penduduk miskin."
   },
@@ -722,6 +800,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sukabumi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Sukabumi tercatat 8,2 persen dari angkatan kerja."
   },
@@ -740,6 +820,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bandung yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 3,8 persen penduduk Kota Bandung tercatat sebagai penduduk miskin."
   },
@@ -758,6 +840,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bandung yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bandung tercatat 7,2 persen dari angkatan kerja."
   },
@@ -776,6 +860,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cirebon yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 8,7 persen penduduk Kota Cirebon tercatat sebagai penduduk miskin."
   },
@@ -794,6 +880,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cirebon yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Cirebon tercatat 6,4 persen dari angkatan kerja."
   },
@@ -812,6 +900,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bekasi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 4,0 persen penduduk Kota Bekasi tercatat sebagai penduduk miskin."
   },
@@ -830,6 +920,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bekasi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bekasi tercatat 7,3 persen dari angkatan kerja."
   },
@@ -848,6 +940,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Depok yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 2,3 persen penduduk Kota Depok tercatat sebagai penduduk miskin."
   },
@@ -866,6 +960,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Depok yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Depok tercatat 6,5 persen dari angkatan kerja."
   },
@@ -884,6 +980,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cimahi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 4,2 persen penduduk Kota Cimahi tercatat sebagai penduduk miskin."
   },
@@ -902,6 +1000,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cimahi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Cimahi tercatat 8,8 persen dari angkatan kerja."
   },
@@ -920,6 +1020,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tasikmalaya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,8 persen penduduk Kota Tasikmalaya tercatat sebagai penduduk miskin."
   },
@@ -938,6 +1040,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tasikmalaya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tasikmalaya tercatat 6,4 persen dari angkatan kerja."
   },
@@ -956,6 +1060,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Banjar yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 5,7 persen penduduk Kota Banjar tercatat sebagai penduduk miskin."
   },
@@ -974,6 +1080,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Banjar yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Banjar tercatat 5,3 persen dari angkatan kerja."
   }

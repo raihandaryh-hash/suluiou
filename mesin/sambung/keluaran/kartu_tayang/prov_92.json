@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "92",
   "nama": "Papua Barat Daya"
@@ -21,6 +21,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Raja Ampat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,6 persen penduduk Kab. Raja Ampat tercatat sebagai penduduk miskin."
   },
@@ -40,6 +42,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sorong yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 25,1 persen penduduk Kab. Sorong tercatat sebagai penduduk miskin."
   },
@@ -59,6 +63,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sorong Selatan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 17,7 persen penduduk Kab. Sorong Selatan tercatat sebagai penduduk miskin."
   },
@@ -78,6 +84,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Maybrat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 29,0 persen penduduk Kab. Maybrat tercatat sebagai penduduk miskin."
   },
@@ -97,6 +105,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tambrauw yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 28,9 persen penduduk Kab. Tambrauw tercatat sebagai penduduk miskin."
   },
@@ -116,6 +126,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sorong yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,6 persen penduduk Kota Sorong tercatat sebagai penduduk miskin."
   }

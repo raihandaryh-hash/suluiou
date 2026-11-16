@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "94",
   "nama": "Papua"
@@ -20,6 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Jayapura yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Jayapura tercatat sebagai penduduk miskin."
   },
@@ -38,6 +40,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kepulauan Yapen yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 28,0 persen penduduk Kab. Kepulauan Yapen tercatat sebagai penduduk miskin."
   },
@@ -56,6 +60,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Biak Numfor yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 25,7 persen penduduk Kab. Biak Numfor tercatat sebagai penduduk miskin."
   },
@@ -74,6 +80,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sarmi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Sarmi tercatat sebagai penduduk miskin."
   },
@@ -92,6 +100,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Keerom yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 17,8 persen penduduk Kab. Keerom tercatat sebagai penduduk miskin."
   },
@@ -110,6 +120,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Waropen yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 32,6 persen penduduk Kab. Waropen tercatat sebagai penduduk miskin."
   },
@@ -128,6 +140,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Supiori yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 42,6 persen penduduk Kab. Supiori tercatat sebagai penduduk miskin."
   },
@@ -146,6 +160,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Supiori yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Supiori tercatat 7,3 persen dari angkatan kerja."
   },
@@ -164,6 +180,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Mamberamo Raya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 35,1 persen penduduk Kab. Mamberamo Raya tercatat sebagai penduduk miskin."
   },
@@ -182,6 +200,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Jayapura yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,0 persen penduduk Kota Jayapura tercatat sebagai penduduk miskin."
   },
@@ -200,6 +220,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Jayapura yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Jayapura tercatat 7,7 persen dari angkatan kerja."
   }

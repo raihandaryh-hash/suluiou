@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "53",
   "nama": "Nusa Tenggara Timur"
@@ -20,6 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Barat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 26,5 persen penduduk Kab. Sumba Barat tercatat sebagai penduduk miskin."
   },
@@ -38,6 +40,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Barat yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Barat tercatat 3,3 persen dari angkatan kerja."
   },
@@ -56,6 +60,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Timur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 25,6 persen penduduk Kab. Sumba Timur tercatat sebagai penduduk miskin."
   },
@@ -74,6 +80,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Timur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Timur tercatat 3,4 persen dari angkatan kerja."
   },
@@ -92,6 +100,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kupang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 20,3 persen penduduk Kab. Kupang tercatat sebagai penduduk miskin."
   },
@@ -110,6 +120,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kupang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kupang tercatat 3,5 persen dari angkatan kerja."
   },
@@ -128,6 +140,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Timor Tengah Selatan yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 24,5 persen penduduk Kab. Timor Tengah Selatan tercatat sebagai penduduk miskin."
   },
@@ -146,6 +160,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Timor Tengah Selatan yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Timor Tengah Selatan tercatat 3,6 persen dari angkatan kerja."
   },
@@ -164,6 +180,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Timor Tengah Utara yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 20,2 persen penduduk Kab. Timor Tengah Utara tercatat sebagai penduduk miskin."
   },
@@ -182,6 +200,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Timor Tengah Utara yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Timor Tengah Utara tercatat 2,5 persen dari angkatan kerja."
   },
@@ -200,6 +220,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Belu yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,8 persen penduduk Kab. Belu tercatat sebagai penduduk miskin."
   },
@@ -218,6 +240,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Belu yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Belu tercatat 5,2 persen dari angkatan kerja."
   },
@@ -236,6 +260,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Alor yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 18,3 persen penduduk Kab. Alor tercatat sebagai penduduk miskin."
   },
@@ -254,6 +280,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Alor yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Alor tercatat 2,1 persen dari angkatan kerja."
   },
@@ -272,6 +300,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lembata yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 23,3 persen penduduk Kab. Lembata tercatat sebagai penduduk miskin."
   },
@@ -290,6 +320,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Lembata yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lembata tercatat 1,4 persen dari angkatan kerja."
   },
@@ -308,6 +340,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Flores Timur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Flores Timur tercatat sebagai penduduk miskin."
   },
@@ -326,6 +360,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Flores Timur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Flores Timur tercatat 6,4 persen dari angkatan kerja."
   },
@@ -344,6 +380,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sikka yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,3 persen penduduk Kab. Sikka tercatat sebagai penduduk miskin."
   },
@@ -362,6 +400,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sikka yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sikka tercatat 2,6 persen dari angkatan kerja."
   },
@@ -380,6 +420,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ende yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 21,3 persen penduduk Kab. Ende tercatat sebagai penduduk miskin."
   },
@@ -398,6 +440,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Ende yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ende tercatat 3,0 persen dari angkatan kerja."
   },
@@ -416,6 +460,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ngada yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Ngada tercatat sebagai penduduk miskin."
   },
@@ -434,6 +480,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ngada yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ngada tercatat 2,6 persen dari angkatan kerja."
   },
@@ -452,6 +500,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Manggarai yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 18,1 persen penduduk Kab. Manggarai tercatat sebagai penduduk miskin."
   },
@@ -470,6 +520,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Manggarai yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai tercatat 1,6 persen dari angkatan kerja."
   },
@@ -488,6 +540,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Rote Ndao yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 24,4 persen penduduk Kab. Rote Ndao tercatat sebagai penduduk miskin."
   },
@@ -506,6 +560,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Rote Ndao yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rote Ndao tercatat 2,2 persen dari angkatan kerja."
   },
@@ -524,6 +580,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Manggarai Barat yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 16,1 persen penduduk Kab. Manggarai Barat tercatat sebagai penduduk miskin."
   },
@@ -542,6 +600,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Manggarai Barat yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai Barat tercatat 3,3 persen dari angkatan kerja."
   },
@@ -560,6 +620,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Tengah yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 29,2 persen penduduk Kab. Sumba Tengah tercatat sebagai penduduk miskin."
   },
@@ -578,6 +640,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Sumba Tengah yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Tengah tercatat 2,5 persen dari angkatan kerja."
   },
@@ -596,6 +660,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumba Barat Daya yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 25,7 persen penduduk Kab. Sumba Barat Daya tercatat sebagai penduduk miskin."
   },
@@ -614,6 +680,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Sumba Barat Daya yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Barat Daya tercatat 1,7 persen dari angkatan kerja."
   },
@@ -632,6 +700,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Nagekeo yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Nagekeo tercatat sebagai penduduk miskin."
   },
@@ -650,6 +720,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Nagekeo yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Nagekeo tercatat 1,3 persen dari angkatan kerja."
   },
@@ -668,6 +740,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Manggarai Timur yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 23,5 persen penduduk Kab. Manggarai Timur tercatat sebagai penduduk miskin."
   },
@@ -686,6 +760,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Manggarai Timur yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai Timur tercatat 1,2 persen dari angkatan kerja."
   },
@@ -704,6 +780,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sabu Raijua yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 27,2 persen penduduk Kab. Sabu Raijua tercatat sebagai penduduk miskin."
   },
@@ -722,6 +800,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sabu Raijua yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sabu Raijua tercatat 3,1 persen dari angkatan kerja."
   },
@@ -740,6 +820,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Malaka yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Malaka tercatat sebagai penduduk miskin."
   },
@@ -758,6 +840,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 sampai 50 persen.",
+   "catatan_bps_tautan": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "judul": "Ada warga Kab. Malaka yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Malaka tercatat 2,1 persen dari angkatan kerja."
   },
@@ -776,6 +860,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Kupang yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 7,6 persen penduduk Kota Kupang tercatat sebagai penduduk miskin."
   },
@@ -794,6 +880,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Kupang yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kupang tercatat 8,6 persen dari angkatan kerja."
   }
