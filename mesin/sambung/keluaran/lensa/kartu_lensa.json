@@ -1,0 +1,160 @@
+{
+ "skema": "kartu-lensa/1",
+ "dibuat": "16 Nov 2026, sesi mesin Sulu (paket titipan 7)",
+ "label": "SINTESIS. Isi kerangka dirujuk ke sumber; teks untuk pengguna = usulan dua varian, dipilih Chief/Raihan",
+ "aturan_pakai_umum": "Lensa adalah kartu di pustaka, dipanggil satu per waktu saat cocok (Raihan 16 Nov 18.34: \"Ostrom dst. itu kan jadi kartu atau template gitu, bukan berarti semuanya diaplikasikan di satu waktu\"). Tidak ada lensa yang tampil tanpa baris Evidence DB berstatus Live untuk sumbernya.",
+ "kartu": [
+  {
+   "id": "lensa-rt-pkk-posyandu",
+   "nama": "Lingkar terdekat: RT, RW, PKK, Posyandu, Karang Taruna",
+   "tahap": [
+    "Lapangan",
+    "Pihak",
+    "Uji kecil"
+   ],
+   "kapan_dipanggil": "selalu tersedia; lensa pertama di tahap Pihak karena paling dekat dan paling murah dijangkau",
+   "kapan_tidak": "masalah yang menyangkut keselamatan anak atau kekerasan: arahkan ke Guru BK atau orang dewasa tepercaya dulu (Buku 11.2)",
+   "pertanyaan_pemandu": [
+    "Siapa ketua RT atau RW di tempat kamu mengamati?",
+    "Apakah ada kader Posyandu atau PKK yang tahu soal ini?",
+    "Kalau kamu bertanya ke mereka, apa satu hal yang paling ingin kamu tahu?"
+   ],
+   "isi": "Posyandu adalah bagian dari lembaga kemasyarakatan desa/kelurahan, wadah partisipasi masyarakat yang menjadi mitra pemerintah desa/kelurahan dalam perencanaan, pelaksanaan, dan pengawasan pembangunan; tugasnya mengikuti standar pelayanan minimal di enam bidang: pendidikan, kesehatan, pekerjaan umum, perumahan rakyat, ketenteraman dan perlindungan masyarakat, sosial.",
+   "sumber": [
+    {
+     "judul": "Permendagri Nomor 13 Tahun 2024 tentang Pos Pelayanan Terpadu, Pasal 1 dan 2",
+     "url": "https://peraturan.bpk.go.id/Download/364723/Permendagri%20No%2013%20Tahun%202024.pdf",
+     "dibaca": "16 Nov 2026, cuplikan Pasal 1-2"
+    },
+    {
+     "judul": "Permendagri Nomor 18 Tahun 2018 tentang Lembaga Kemasyarakatan Desa dan Lembaga Adat Desa (jenis LKD: RT, RW, PKK, Karang Taruna, Posyandu, LPM)",
+     "url": null,
+     "status": "BELUM DIVERIFIKASI: dirujuk di konsiderans Permendagri 13/2024; daftar jenis LKD belum dibaca dari naskah"
+    }
+   ],
+   "syarat_tayang": [
+    "baris Evidence DB Live untuk Permendagri 13/2024",
+    "daftar jenis LKD dicek ke naskah Permendagri 18/2018"
+   ],
+   "teks_pengguna": {
+    "A": "Mulai dari yang paling dekat: RT, kader Posyandu, ibu-ibu PKK.",
+    "B": "Orang yang paling tahu biasanya tinggal di dekat masalah itu. Tanyakan ke RT, kader Posyandu, atau PKK."
+   }
+  },
+  {
+   "id": "lensa-pentahelix",
+   "nama": "Pentahelix: lima unsur",
+   "tahap": [
+    "Pihak"
+   ],
+   "kapan_dipanggil": "sesudah lingkar terdekat, bila masalahnya lebih besar dari satu RT atau butuh pihak di luar warga",
+   "kapan_tidak": "masalah yang masih dirumuskan (tahap Perjelas belum selesai); lensa ini daftar periksa pihak, tidak menentukan masalah",
+   "pertanyaan_pemandu": [
+    "Pemerintah: dinas atau desa mana yang mengurus ini?",
+    "Akademisi: kampus atau guru mana yang pernah meneliti atau mengajar soal ini?",
+    "Usaha: siapa yang mencari nafkah di sekitar masalah ini?",
+    "Komunitas: kelompok warga, organisasi, atau tempat ibadah mana yang sudah bergerak?",
+    "Media: siapa yang memberitakannya, termasuk akun lokal?"
+   ],
+   "isi": "Lima unsur: pemerintah, akademisi, dunia usaha, komunitas, media. Dipakai di Indonesia sejak pedoman pariwisata 2016; asal gagasannya model triple helix (universitas, industri, pemerintah) yang diperluas.",
+   "sumber": [
+    {
+     "judul": "Permenpar Nomor 14 Tahun 2016 tentang Pedoman Destinasi Pariwisata Berkelanjutan",
+     "url": "https://pasal.id/peraturan/permen/permenpar-no-14-tahun-2016",
+     "dibaca": "16 Nov 2026",
+     "catatan": "berstatus DICABUT menurut pasal.id; jadi bukan dasar hukum yang berlaku. Isi lima unsur di naskahnya belum dibaca"
+    },
+    {
+     "judul": "asal triple helix (Etzkowitz dan Leydesdorff) dan quintuple helix (Carayannis)",
+     "url": null,
+     "status": "TIDAK DITEMUKAN sumber primer pada putaran ini"
+    }
+   ],
+   "syarat_tayang": [
+    "sumber primer kerangka (bukan regulasi yang sudah dicabut) masuk Evidence DB",
+    "teks tidak menyebut pentahelix sebagai kewajiban hukum"
+   ],
+   "teks_pengguna": {
+    "A": "Lihat lima pihak: pemerintah, kampus, usaha, komunitas, media. Tandai yang sudah kamu kenal.",
+    "B": "Masalah besar jarang selesai oleh satu pihak. Siapa dari pemerintah, kampus, usaha, komunitas, dan media yang ada di sekitarnya?"
+   }
+  },
+  {
+   "id": "lensa-ostrom",
+   "nama": "Ostrom: mengurus sumber daya bersama",
+   "tahap": [
+    "Rancang"
+   ],
+   "kapan_dipanggil": "HANYA bila masalahnya soal sumber daya yang dipakai bersama: air, irigasi, sampah, hutan desa, lahan, ruang publik (ARAH v0.5 bantahan 4)",
+   "kapan_tidak": "masalah lain (pengangguran, putus sekolah, kesepian). Dipaksakan di sana = salah lensa",
+   "pertanyaan_pemandu": [
+    "Siapa yang berhak memakai sumber daya ini, dan batasnya di mana?",
+    "Aturan pakainya cocok dengan keadaan setempat?",
+    "Apakah pemakai ikut mengubah aturannya?",
+    "Siapa yang mengawasi, dan apa yang terjadi bila ada yang melanggar?",
+    "Kalau berselisih, ke mana mereka menyelesaikannya?"
+   ],
+   "isi": "Delapan prinsip rancangan lembaga pengelola sumber daya bersama yang bertahan lama: (1) batas pemakai dan sumber daya jelas; (2) aturan pakai dan sumbangan sesuai keadaan setempat; (3) yang terdampak aturan ikut mengubah aturan; (4) pengawasan oleh pemakai atau yang bertanggung jawab kepada mereka; (5) sanksi bertingkat; (6) cara murah menyelesaikan sengketa; (7) hak berorganisasi diakui pihak luar; (8) untuk sistem besar, lembaga bersarang berlapis.",
+   "sumber": [
+    {
+     "judul": "Ostrom, E. Design Principles and Threats to Sustainable Organizations that Manage Commons (Digital Library of the Commons)",
+     "url": "https://dlc.dlib.indiana.edu/dlcrest/api/core/bitstreams/b741af75-4871-479e-8d68-e5ebba6d44ae/content",
+     "dibaca": "16 Nov 2026, cuplikan prinsip 1-3",
+     "catatan": "prinsip 4-8 dari dokumen yang sama tetapi di luar cuplikan; BELUM DIVERIFIKASI kata per kata"
+    },
+    {
+     "judul": "Ostrom, E. (1990). Governing the Commons. Cambridge University Press",
+     "url": null,
+     "status": "buku; tidak dibaca di sesi ini"
+    }
+   ],
+   "syarat_tayang": [
+    "prinsip 4-8 dicek ke naskah",
+    "baris Evidence DB Live",
+    "pertanyaan pemandu hanya tampil untuk jenis kebutuhan bertanda sumber daya bersama"
+   ],
+   "teks_pengguna": {
+    "A": "Masalahmu menyangkut milik bersama. Coba lima pertanyaan ini dari Elinor Ostrom, peraih Nobel ekonomi 2009.",
+    "B": "Air, sampah, lahan: milik bersama sering rusak karena aturannya tidak cocok dengan keadaan setempat. Lima pertanyaan ini membantu melihatnya."
+   },
+   "catatan_teks": "varian A menyebut Nobel ekonomi 2009: perlu sumber (nobelprize.org) sebelum tayang"
+  },
+  {
+   "id": "lensa-oecd-tiga-kompetensi",
+   "nama": "OECD: tiga kompetensi transformatif",
+   "tahap": [
+    "Arah",
+    "Rancang",
+    "Uji kecil"
+   ],
+   "kapan_dipanggil": "untuk menamai apa yang sedang dilatih pengguna, bukan untuk menilai dirinya",
+   "kapan_tidak": "sebagai skor atau label kepribadian (bertentangan dengan anti-foreclosure dan AI sebagai cermin)",
+   "pertanyaan_pemandu": [
+    "Menciptakan nilai baru: apa yang ingin kamu tambahkan yang belum ada?",
+    "Mendamaikan ketegangan dan dilema: kepentingan siapa yang bertabrakan di masalah ini?",
+    "Mengambil tanggung jawab: langkah apa yang memang bagianmu?"
+   ],
+   "isi": "OECD Learning Compass 2030 menamai tiga kompetensi transformatif: menciptakan nilai baru, mendamaikan ketegangan dan dilema, mengambil tanggung jawab. Di sekitarnya: student agency (kemampuan menetapkan tujuan, merefleksi, bertindak bertanggung jawab untuk perubahan) dan co-agency bersama teman, guru, orang tua, komunitas.",
+   "sumber": [
+    {
+     "judul": "OECD Learning Compass 2030 Concept Note Series",
+     "url": "https://www.oecd.org/content/dam/oecd/en/about/projects/edu/education-2040/1-1-learning-compass/OECD_Learning_Compass_2030_Concept_Note_Series.pdf",
+     "dibaca": "16 Nov 2026, cuplikan bagian 2 dan 3"
+    },
+    {
+     "judul": "OECD Student Agency for 2030 concept note",
+     "url": "https://www.oecd.org/content/dam/oecd/en/about/projects/edu/education-2040/concept-notes/Student_Agency_for_2030_concept_note.pdf",
+     "dibaca": "16 Nov 2026"
+    }
+   ],
+   "syarat_tayang": [
+    "blok ATRIBUSI SUMBER OECD di Claude Index diikuti (skill sulu-build-discipline 5)",
+    "tanpa logo OECD"
+   ],
+   "teks_pengguna": {
+    "A": "Yang sedang kamu latih: menciptakan nilai baru, mendamaikan kepentingan yang bertabrakan, mengambil bagianmu.",
+    "B": "OECD menyebut tiga kemampuan yang membuat orang bisa mengubah keadaan. Lihat mana yang sedang kamu pakai."
+   }
+  }
+ ]
+}
