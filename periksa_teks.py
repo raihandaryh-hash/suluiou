@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Periksa pola teks yang ditolak di copy Sulu (aturan Raihan dan lantai penulisan).
 Pakai: python3 periksa_teks.py <berkas atau folder> [...]. Keluar 1 bila ada temuan.
-Pola: antitesis "X, bukan Y" dan kerabatnya, tanda pisah panjang, kalimat berawalan Dan/Atau."""
+Pola: antitesis "X, bukan Y" dan kerabatnya, kalimat berawalan Dan/Atau.
+Tanda pisah panjang hanya dihitung dan dilaporkan (Raihan 16 Nov 2026 21.37: tidak mutlak terlarang)."""
 import json, os, re, sys
 POLA = [
     (r",\s*bukan\b", "antitesis ', bukan'"),
     (r"\bbukan (sekadar|hanya|cuma)\b", "antitesis 'bukan sekadar/hanya'"),
     (r"\btidak (hanya|sekadar)\b", "antitesis 'tidak hanya'"),
-    (r"\u2014|\u2013", "tanda pisah panjang"),
     (r"(^|[.!?]\s+)(Dan|Atau)\b", "kalimat berawalan Dan/Atau"),
 ]
 def teks(path):
@@ -32,10 +32,12 @@ def berkas(args):
                     if f.endswith((".json", ".ts", ".tsx")): yield os.path.join(d, f)
         else: yield a
 n = 0
+pisah = 0
 for f in berkas(sys.argv[1:]):
     for t in teks(f):
+        pisah += len(re.findall(r"\u2014", t))
         for p, nama in POLA:
             if re.search(p, t):
                 n += 1; print(f"{f}: {nama}: {t[:110]}")
-print(f"temuan {n}")
+print(f"temuan {n} · tanda pisah panjang {pisah} (laporan saja)")
 sys.exit(1 if n else 0)
