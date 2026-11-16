@@ -1,0 +1,629 @@
+{
+ "skema": "kartu-tayang/1",
+ "tanda_hati_hati": "Angka survei BPS untuk tingkat kabupaten/kota. BPS tidak menerbitkan besar galatnya, jadi baca sebagai gambaran, bukan angka pasti.",
+ "sumber": {
+  "kemiskinan-kabkota-2025": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025",
+   "periode_survei": "Susenas Maret 2025",
+   "tautan_baca": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+  },
+  "sakernas-agustus": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota",
+   "periode_survei": "Sakernas Agustus 2025",
+   "tautan_baca": null,
+   "catatan": "halaman tabel BPS yang bisa dibaca orang belum dipastikan; alamat data: https://webapi.bps.go.id/v1/api/list/model/data/lang/ind/domain/0000/var/2824"
+  }
+ },
+ "jenis_kebutuhan": [
+  "kemiskinan-kabkota",
+  "pengangguran-terbuka-kabkota"
+ ],
+ "provinsi": {
+  "11": {
+   "nama": "Aceh",
+   "berkas": "prov_11.json",
+   "jumlah_kartu": 46,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "12": {
+   "nama": "Sumatera Utara",
+   "berkas": "prov_12.json",
+   "jumlah_kartu": 36,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "1202",
+      "nama": "Mandailing Natal"
+     },
+     {
+      "kode_bps": "1203",
+      "nama": "Tapanuli Selatan"
+     },
+     {
+      "kode_bps": "1204",
+      "nama": "Tapanuli Tengah"
+     },
+     {
+      "kode_bps": "1206",
+      "nama": "Toba"
+     },
+     {
+      "kode_bps": "1207",
+      "nama": "Labuhan Batu"
+     },
+     {
+      "kode_bps": "1208",
+      "nama": "Asahan"
+     },
+     {
+      "kode_bps": "1209",
+      "nama": "Simalungun"
+     },
+     {
+      "kode_bps": "1211",
+      "nama": "Karo"
+     },
+     {
+      "kode_bps": "1212",
+      "nama": "Deli Serdang"
+     },
+     {
+      "kode_bps": "1213",
+      "nama": "Langkat"
+     },
+     {
+      "kode_bps": "1214",
+      "nama": "Nias Selatan"
+     },
+     {
+      "kode_bps": "1215",
+      "nama": "Humbang Hasundutan"
+     },
+     {
+      "kode_bps": "1216",
+      "nama": "Pakpak Bharat"
+     },
+     {
+      "kode_bps": "1217",
+      "nama": "Samosir"
+     },
+     {
+      "kode_bps": "1218",
+      "nama": "Serdang Bedagai"
+     },
+     {
+      "kode_bps": "1219",
+      "nama": "Batu Bara"
+     },
+     {
+      "kode_bps": "1220",
+      "nama": "Padang Lawas Utara"
+     },
+     {
+      "kode_bps": "1221",
+      "nama": "Padang Lawas"
+     },
+     {
+      "kode_bps": "1222",
+      "nama": "Labuhanbatu Selatan"
+     },
+     {
+      "kode_bps": "1223",
+      "nama": "Labuhanbatu Utara"
+     },
+     {
+      "kode_bps": "1224",
+      "nama": "Nias Utara"
+     },
+     {
+      "kode_bps": "1225",
+      "nama": "Nias Barat"
+     },
+     {
+      "kode_bps": "1271",
+      "nama": "Kota Sibolga"
+     },
+     {
+      "kode_bps": "1272",
+      "nama": "Kota Tanjungbalai"
+     },
+     {
+      "kode_bps": "1273",
+      "nama": "Kota Pematangsiantar"
+     },
+     {
+      "kode_bps": "1274",
+      "nama": "Kota Tebing Tinggi"
+     },
+     {
+      "kode_bps": "1275",
+      "nama": "Kota Medan"
+     },
+     {
+      "kode_bps": "1276",
+      "nama": "Kota Binjai"
+     },
+     {
+      "kode_bps": "1277",
+      "nama": "Kota Padangsidimpuan"
+     },
+     {
+      "kode_bps": "1278",
+      "nama": "Kota Gunungsitoli"
+     }
+    ]
+   }
+  },
+  "13": {
+   "nama": "Sumatera Barat",
+   "berkas": "prov_13.json",
+   "jumlah_kartu": 38,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "14": {
+   "nama": "Riau",
+   "berkas": "prov_14.json",
+   "jumlah_kartu": 24,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "15": {
+   "nama": "Jambi",
+   "berkas": "prov_15.json",
+   "jumlah_kartu": 22,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "16": {
+   "nama": "Sumatera Selatan",
+   "berkas": "prov_16.json",
+   "jumlah_kartu": 34,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "17": {
+   "nama": "Bengkulu",
+   "berkas": "prov_17.json",
+   "jumlah_kartu": 12,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "1701",
+      "nama": "Bengkulu Selatan"
+     },
+     {
+      "kode_bps": "1702",
+      "nama": "Rejang Lebong"
+     },
+     {
+      "kode_bps": "1703",
+      "nama": "Bengkulu Utara"
+     },
+     {
+      "kode_bps": "1705",
+      "nama": "Seluma"
+     },
+     {
+      "kode_bps": "1706",
+      "nama": "Mukomuko"
+     },
+     {
+      "kode_bps": "1708",
+      "nama": "Kepahiang"
+     },
+     {
+      "kode_bps": "1709",
+      "nama": "Bengkulu Tengah"
+     },
+     {
+      "kode_bps": "1771",
+      "nama": "Kota Bengkulu"
+     }
+    ]
+   }
+  },
+  "18": {
+   "nama": "Lampung",
+   "berkas": "prov_18.json",
+   "jumlah_kartu": 30,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "19": {
+   "nama": "Bangka Belitung",
+   "berkas": "prov_19.json",
+   "jumlah_kartu": 14,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "21": {
+   "nama": "Kepulauan Riau",
+   "berkas": "prov_21.json",
+   "jumlah_kartu": 3,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "2101",
+      "nama": "Karimun"
+     },
+     {
+      "kode_bps": "2102",
+      "nama": "Bintan"
+     },
+     {
+      "kode_bps": "2104",
+      "nama": "Lingga"
+     },
+     {
+      "kode_bps": "2172",
+      "nama": "Kota Tanjungpinang"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "2101",
+      "nama": "Karimun"
+     },
+     {
+      "kode_bps": "2102",
+      "nama": "Bintan"
+     },
+     {
+      "kode_bps": "2103",
+      "nama": "Natuna"
+     },
+     {
+      "kode_bps": "2104",
+      "nama": "Lingga"
+     },
+     {
+      "kode_bps": "2105",
+      "nama": "Kepulauan Anambas"
+     },
+     {
+      "kode_bps": "2171",
+      "nama": "Kota Batam"
+     },
+     {
+      "kode_bps": "2172",
+      "nama": "Kota Tanjungpinang"
+     }
+    ]
+   }
+  },
+  "31": {
+   "nama": "DKI Jakarta",
+   "berkas": "prov_31.json",
+   "jumlah_kartu": 6,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "3101",
+      "nama": "Kepulauan Seribu"
+     },
+     {
+      "kode_bps": "3171",
+      "nama": "Kota Jakarta Selatan"
+     },
+     {
+      "kode_bps": "3172",
+      "nama": "Kota Jakarta Timur"
+     },
+     {
+      "kode_bps": "3173",
+      "nama": "Kota Jakarta Pusat"
+     },
+     {
+      "kode_bps": "3174",
+      "nama": "Kota Jakarta Barat"
+     },
+     {
+      "kode_bps": "3175",
+      "nama": "Kota Jakarta Utara"
+     }
+    ]
+   }
+  },
+  "32": {
+   "nama": "Jawa Barat",
+   "berkas": "prov_32.json",
+   "jumlah_kartu": 54,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "33": {
+   "nama": "Jawa Tengah",
+   "berkas": "prov_33.json",
+   "jumlah_kartu": 70,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "34": {
+   "nama": "DI Yogyakarta",
+   "berkas": "prov_34.json",
+   "jumlah_kartu": 10,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "35": {
+   "nama": "Jawa Timur",
+   "berkas": "prov_35.json",
+   "jumlah_kartu": 76,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "36": {
+   "nama": "Banten",
+   "berkas": "prov_36.json",
+   "jumlah_kartu": 16,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "51": {
+   "nama": "Bali",
+   "berkas": "prov_51.json",
+   "jumlah_kartu": 11,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "5102",
+      "nama": "Tabanan"
+     },
+     {
+      "kode_bps": "5103",
+      "nama": "Badung"
+     },
+     {
+      "kode_bps": "5104",
+      "nama": "Gianyar"
+     },
+     {
+      "kode_bps": "5105",
+      "nama": "Klungkung"
+     },
+     {
+      "kode_bps": "5106",
+      "nama": "Bangli"
+     },
+     {
+      "kode_bps": "5107",
+      "nama": "Karangasem"
+     },
+     {
+      "kode_bps": "5108",
+      "nama": "Buleleng"
+     }
+    ]
+   }
+  },
+  "52": {
+   "nama": "Nusa Tenggara Barat",
+   "berkas": "prov_52.json",
+   "jumlah_kartu": 20,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "53": {
+   "nama": "Nusa Tenggara Timur",
+   "berkas": "prov_53.json",
+   "jumlah_kartu": 44,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "61": {
+   "nama": "Kalimantan Barat",
+   "berkas": "prov_61.json",
+   "jumlah_kartu": 28,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "62": {
+   "nama": "Kalimantan Tengah",
+   "berkas": "prov_62.json",
+   "jumlah_kartu": 28,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "63": {
+   "nama": "Kalimantan Selatan",
+   "berkas": "prov_63.json",
+   "jumlah_kartu": 22,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "6301",
+      "nama": "Tanah Laut"
+     },
+     {
+      "kode_bps": "6304",
+      "nama": "Barito Kuala"
+     },
+     {
+      "kode_bps": "6306",
+      "nama": "Hulu Sungai Selatan"
+     },
+     {
+      "kode_bps": "6371",
+      "nama": "Kota Banjarmasin"
+     }
+    ]
+   }
+  },
+  "64": {
+   "nama": "Kalimantan Timur",
+   "berkas": "prov_64.json",
+   "jumlah_kartu": 20,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "65": {
+   "nama": "Kalimantan Utara",
+   "berkas": "prov_65.json",
+   "jumlah_kartu": 10,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "71": {
+   "nama": "Sulawesi Utara",
+   "berkas": "prov_71.json",
+   "jumlah_kartu": 29,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "7108",
+      "nama": "Kepulauan Sitaro"
+     }
+    ]
+   }
+  },
+  "72": {
+   "nama": "Sulawesi Tengah",
+   "berkas": "prov_72.json",
+   "jumlah_kartu": 26,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "73": {
+   "nama": "Sulawesi Selatan",
+   "berkas": "prov_73.json",
+   "jumlah_kartu": 48,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "74": {
+   "nama": "Sulawesi Tenggara",
+   "berkas": "prov_74.json",
+   "jumlah_kartu": 34,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "75": {
+   "nama": "Gorontalo",
+   "berkas": "prov_75.json",
+   "jumlah_kartu": 6,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "7501",
+      "nama": "Boalemo"
+     },
+     {
+      "kode_bps": "7502",
+      "nama": "Gorontalo"
+     },
+     {
+      "kode_bps": "7503",
+      "nama": "Pohuwato"
+     },
+     {
+      "kode_bps": "7504",
+      "nama": "Bone Bolango"
+     },
+     {
+      "kode_bps": "7505",
+      "nama": "Gorontalo Utara"
+     },
+     {
+      "kode_bps": "7571",
+      "nama": "Kota Gorontalo"
+     }
+    ]
+   }
+  },
+  "76": {
+   "nama": "Sulawesi Barat",
+   "berkas": "prov_76.json",
+   "jumlah_kartu": 9,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "7603",
+      "nama": "Mamasa"
+     },
+     {
+      "kode_bps": "7605",
+      "nama": "Pasangkayu"
+     },
+     {
+      "kode_bps": "7606",
+      "nama": "Mamuju Tengah"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "81": {
+   "nama": "Maluku",
+   "berkas": "prov_81.json",
+   "jumlah_kartu": 22,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "82": {
+   "nama": "Maluku Utara",
+   "berkas": "prov_82.json",
+   "jumlah_kartu": 20,
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  }
+ },
+ "catatan_pasang": "Dipasang Chief Sulu dari cabang mesin-me1-fondasi @02ea534. Enam provinsi Papua belum ikut: pengelompokan kode provinsinya di berkas sumber belum benar.",
+ "jumlah_kartu": 868
+}

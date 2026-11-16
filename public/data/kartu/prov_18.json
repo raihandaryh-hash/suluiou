@@ -1,0 +1,579 @@
+{
+ "skema": "kartu-tayang/1",
+ "provinsi": {
+  "kode": "18",
+  "nama": "Lampung"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.1801",
+   "wilayah": {
+    "kode_bps": "1801",
+    "nama": "Kab. Lampung Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.93,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,9 persen penduduk Kab. Lampung Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1801",
+   "wilayah": {
+    "kode_bps": "1801",
+    "nama": "Kab. Lampung Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.11,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Barat tercatat 2,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1802",
+   "wilayah": {
+    "kode_bps": "1802",
+    "nama": "Kab. Tanggamus",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.1,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tanggamus yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Tanggamus tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1802",
+   "wilayah": {
+    "kode_bps": "1802",
+    "nama": "Kab. Tanggamus",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tanggamus yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tanggamus tercatat 3,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1803",
+   "wilayah": {
+    "kode_bps": "1803",
+    "nama": "Kab. Lampung Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.05,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,1 persen penduduk Kab. Lampung Selatan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1803",
+   "wilayah": {
+    "kode_bps": "1803",
+    "nama": "Kab. Lampung Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.67,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Selatan tercatat 4,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1804",
+   "wilayah": {
+    "kode_bps": "1804",
+    "nama": "Kab. Lampung Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Lampung Timur tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1804",
+   "wilayah": {
+    "kode_bps": "1804",
+    "nama": "Kab. Lampung Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Timur tercatat 3,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1805",
+   "wilayah": {
+    "kode_bps": "1805",
+    "nama": "Kab. Lampung Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,6 persen penduduk Kab. Lampung Tengah tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1805",
+   "wilayah": {
+    "kode_bps": "1805",
+    "nama": "Kab. Lampung Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.27,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Tengah tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1806",
+   "wilayah": {
+    "kode_bps": "1806",
+    "nama": "Kab. Lampung Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.78,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 15,8 persen penduduk Kab. Lampung Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1806",
+   "wilayah": {
+    "kode_bps": "1806",
+    "nama": "Kab. Lampung Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.78,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lampung Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lampung Utara tercatat 5,8 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1807",
+   "wilayah": {
+    "kode_bps": "1807",
+    "nama": "Kab. Way Kanan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.36,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Way Kanan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,4 persen penduduk Kab. Way Kanan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1807",
+   "wilayah": {
+    "kode_bps": "1807",
+    "nama": "Kab. Way Kanan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Way Kanan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Way Kanan tercatat 3,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1808",
+   "wilayah": {
+    "kode_bps": "1808",
+    "nama": "Kab. Tulang Bawang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.54,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tulang Bawang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,5 persen penduduk Kab. Tulang Bawang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1808",
+   "wilayah": {
+    "kode_bps": "1808",
+    "nama": "Kab. Tulangbawang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.19,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tulangbawang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tulangbawang tercatat 3,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1809",
+   "wilayah": {
+    "kode_bps": "1809",
+    "nama": "Kab. Pesawaran",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.93,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pesawaran yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Pesawaran tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1809",
+   "wilayah": {
+    "kode_bps": "1809",
+    "nama": "Kab. Pesawaran",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.17,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pesawaran yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pesawaran tercatat 4,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1810",
+   "wilayah": {
+    "kode_bps": "1810",
+    "nama": "Kab. Pringsewu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.6,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pringsewu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,6 persen penduduk Kab. Pringsewu tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1810",
+   "wilayah": {
+    "kode_bps": "1810",
+    "nama": "Kab. Pringsewu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.65,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pringsewu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pringsewu tercatat 4,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1811",
+   "wilayah": {
+    "kode_bps": "1811",
+    "nama": "Kab. Mesuji",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.92,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Mesuji yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,9 persen penduduk Kab. Mesuji tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1811",
+   "wilayah": {
+    "kode_bps": "1811",
+    "nama": "Kab. Mesuji",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.68,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Mesuji yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Mesuji tercatat 2,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1812",
+   "wilayah": {
+    "kode_bps": "1812",
+    "nama": "Kab. Tulang Bawang Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.72,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tulang Bawang Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Tulang Bawang Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1812",
+   "wilayah": {
+    "kode_bps": "1812",
+    "nama": "Kab. Tulang Bawang Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tulang Bawang Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tulang Bawang Barat tercatat 3,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1813",
+   "wilayah": {
+    "kode_bps": "1813",
+    "nama": "Kab. Pesisir Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.13,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pesisir Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,1 persen penduduk Kab. Pesisir Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1813",
+   "wilayah": {
+    "kode_bps": "1813",
+    "nama": "Kab. Pesisir Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.27,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pesisir Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pesisir Barat tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1871",
+   "wilayah": {
+    "kode_bps": "1871",
+    "nama": "Kota Bandar Lampung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.95,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Bandar Lampung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,0 persen penduduk Kota Bandar Lampung tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1871",
+   "wilayah": {
+    "kode_bps": "1871",
+    "nama": "Kota Bandar Lampung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.53,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Bandar Lampung yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bandar Lampung tercatat 7,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1872",
+   "wilayah": {
+    "kode_bps": "1872",
+    "nama": "Kota Metro",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Metro yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,4 persen penduduk Kota Metro tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1872",
+   "wilayah": {
+    "kode_bps": "1872",
+    "nama": "Kota Metro",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.54,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Metro yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Metro tercatat 3,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  }
+ ]
+}

@@ -1,0 +1,1339 @@
+{
+ "skema": "kartu-tayang/1",
+ "provinsi": {
+  "kode": "33",
+  "nama": "Jawa Tengah"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.3301",
+   "wilayah": {
+    "kode_bps": "3301",
+    "nama": "Kab. Cilacap",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.41,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Cilacap yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,4 persen penduduk Kab. Cilacap tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3301",
+   "wilayah": {
+    "kode_bps": "3301",
+    "nama": "Kab. Cilacap",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Cilacap yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Cilacap tercatat 7,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3302",
+   "wilayah": {
+    "kode_bps": "3302",
+    "nama": "Kab. Banyumas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Banyumas yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Banyumas tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3302",
+   "wilayah": {
+    "kode_bps": "3302",
+    "nama": "Kab. Banyumas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.26,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Banyumas yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banyumas tercatat 6,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3303",
+   "wilayah": {
+    "kode_bps": "3303",
+    "nama": "Kab. Purbalingga",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.55,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Purbalingga yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,6 persen penduduk Kab. Purbalingga tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3303",
+   "wilayah": {
+    "kode_bps": "3303",
+    "nama": "Kab. Purbalingga",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.83,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Purbalingga yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Purbalingga tercatat 4,8 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3304",
+   "wilayah": {
+    "kode_bps": "3304",
+    "nama": "Kab. Banjarnegara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Banjarnegara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Banjarnegara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3304",
+   "wilayah": {
+    "kode_bps": "3304",
+    "nama": "Kab. Banjarnegara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.39,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Banjarnegara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banjarnegara tercatat 5,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3305",
+   "wilayah": {
+    "kode_bps": "3305",
+    "nama": "Kab. Kebumen",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.58,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kebumen yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,6 persen penduduk Kab. Kebumen tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3305",
+   "wilayah": {
+    "kode_bps": "3305",
+    "nama": "Kab. Kebumen",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.95,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kebumen yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kebumen tercatat 5,0 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3306",
+   "wilayah": {
+    "kode_bps": "3306",
+    "nama": "Kab. Purworejo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.06,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Purworejo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Purworejo tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3306",
+   "wilayah": {
+    "kode_bps": "3306",
+    "nama": "Kab. Purworejo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.72,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Purworejo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Purworejo tercatat 3,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3307",
+   "wilayah": {
+    "kode_bps": "3307",
+    "nama": "Kab. Wonosobo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.34,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Wonosobo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Wonosobo tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3307",
+   "wilayah": {
+    "kode_bps": "3307",
+    "nama": "Kab. Wonosobo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.99,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Wonosobo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Wonosobo tercatat 4,0 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3308",
+   "wilayah": {
+    "kode_bps": "3308",
+    "nama": "Kab. Magelang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.9,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Magelang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,9 persen penduduk Kab. Magelang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3308",
+   "wilayah": {
+    "kode_bps": "3308",
+    "nama": "Kab. Magelang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.52,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Magelang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Magelang tercatat 3,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3309",
+   "wilayah": {
+    "kode_bps": "3309",
+    "nama": "Kab. Boyolali",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Boyolali yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Boyolali tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3309",
+   "wilayah": {
+    "kode_bps": "3309",
+    "nama": "Kab. Boyolali",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.97,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Boyolali yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Boyolali tercatat 3,0 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3310",
+   "wilayah": {
+    "kode_bps": "3310",
+    "nama": "Kab. Klaten",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.0,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Klaten yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Klaten tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3310",
+   "wilayah": {
+    "kode_bps": "3310",
+    "nama": "Kab. Klaten",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.88,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Klaten yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Klaten tercatat 3,9 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3311",
+   "wilayah": {
+    "kode_bps": "3311",
+    "nama": "Kab. Sukoharjo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.83,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sukoharjo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,8 persen penduduk Kab. Sukoharjo tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3311",
+   "wilayah": {
+    "kode_bps": "3311",
+    "nama": "Kab. Sukoharjo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sukoharjo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sukoharjo tercatat 4,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3312",
+   "wilayah": {
+    "kode_bps": "3312",
+    "nama": "Kab. Wonogiri",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Wonogiri yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,6 persen penduduk Kab. Wonogiri tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3312",
+   "wilayah": {
+    "kode_bps": "3312",
+    "nama": "Kab. Wonogiri",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.16,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Wonogiri yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Wonogiri tercatat 2,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3313",
+   "wilayah": {
+    "kode_bps": "3313",
+    "nama": "Kab. Karanganyar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.48,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Karanganyar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Karanganyar tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3313",
+   "wilayah": {
+    "kode_bps": "3313",
+    "nama": "Kab. Karanganyar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.26,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Karanganyar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Karanganyar tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3314",
+   "wilayah": {
+    "kode_bps": "3314",
+    "nama": "Kab. Sragen",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.22,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sragen yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Sragen tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3314",
+   "wilayah": {
+    "kode_bps": "3314",
+    "nama": "Kab. Sragen",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.49,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sragen yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sragen tercatat 3,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3315",
+   "wilayah": {
+    "kode_bps": "3315",
+    "nama": "Kab. Grobogan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.63,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Grobogan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,6 persen penduduk Kab. Grobogan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3315",
+   "wilayah": {
+    "kode_bps": "3315",
+    "nama": "Kab. Grobogan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.12,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Grobogan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Grobogan tercatat 3,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3316",
+   "wilayah": {
+    "kode_bps": "3316",
+    "nama": "Kab. Blora",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.58,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Blora yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,6 persen penduduk Kab. Blora tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3316",
+   "wilayah": {
+    "kode_bps": "3316",
+    "nama": "Kab. Blora",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Blora yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Blora tercatat 3,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3317",
+   "wilayah": {
+    "kode_bps": "3317",
+    "nama": "Kab. Rembang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.01,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Rembang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Rembang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3317",
+   "wilayah": {
+    "kode_bps": "3317",
+    "nama": "Kab. Rembang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.9,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Rembang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rembang tercatat 2,9 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3318",
+   "wilayah": {
+    "kode_bps": "3318",
+    "nama": "Kab. Pati",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.24,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pati yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,2 persen penduduk Kab. Pati tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3318",
+   "wilayah": {
+    "kode_bps": "3318",
+    "nama": "Kab. Pati",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pati yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pati tercatat 3,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3319",
+   "wilayah": {
+    "kode_bps": "3319",
+    "nama": "Kab. Kudus",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kudus yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,6 persen penduduk Kab. Kudus tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3319",
+   "wilayah": {
+    "kode_bps": "3319",
+    "nama": "Kab. Kudus",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.23,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kudus yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kudus tercatat 3,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3320",
+   "wilayah": {
+    "kode_bps": "3320",
+    "nama": "Kab. Jepara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Jepara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Jepara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3320",
+   "wilayah": {
+    "kode_bps": "3320",
+    "nama": "Kab. Jepara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.3,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Jepara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Jepara tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3321",
+   "wilayah": {
+    "kode_bps": "3321",
+    "nama": "Kab. Demak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.87,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Demak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Demak tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3321",
+   "wilayah": {
+    "kode_bps": "3321",
+    "nama": "Kab. Demak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.58,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Demak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Demak tercatat 4,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3322",
+   "wilayah": {
+    "kode_bps": "3322",
+    "nama": "Kab. Semarang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.3,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Semarang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Semarang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3322",
+   "wilayah": {
+    "kode_bps": "3322",
+    "nama": "Kab. Semarang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.63,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Semarang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Semarang tercatat 3,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3323",
+   "wilayah": {
+    "kode_bps": "3323",
+    "nama": "Kab. Temanggung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.78,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Temanggung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,8 persen penduduk Kab. Temanggung tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3323",
+   "wilayah": {
+    "kode_bps": "3323",
+    "nama": "Kab. Temanggung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Temanggung yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Temanggung tercatat 2,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3324",
+   "wilayah": {
+    "kode_bps": "3324",
+    "nama": "Kab. Kendal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kendal yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Kendal tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3324",
+   "wilayah": {
+    "kode_bps": "3324",
+    "nama": "Kab. Kendal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.6,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kendal yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kendal tercatat 4,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3325",
+   "wilayah": {
+    "kode_bps": "3325",
+    "nama": "Kab. Batang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Batang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,8 persen penduduk Kab. Batang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3325",
+   "wilayah": {
+    "kode_bps": "3325",
+    "nama": "Kab. Batang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Batang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Batang tercatat 5,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3326",
+   "wilayah": {
+    "kode_bps": "3326",
+    "nama": "Kab. Pekalongan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.05,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pekalongan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,1 persen penduduk Kab. Pekalongan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3326",
+   "wilayah": {
+    "kode_bps": "3326",
+    "nama": "Kab. Pekalongan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.24,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pekalongan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pekalongan tercatat 3,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3327",
+   "wilayah": {
+    "kode_bps": "3327",
+    "nama": "Kab. Pemalang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pemalang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Pemalang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3327",
+   "wilayah": {
+    "kode_bps": "3327",
+    "nama": "Kab. Pemalang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pemalang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pemalang tercatat 6,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3328",
+   "wilayah": {
+    "kode_bps": "3328",
+    "nama": "Kab. Tegal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.16,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tegal yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Tegal tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3328",
+   "wilayah": {
+    "kode_bps": "3328",
+    "nama": "Kab. Tegal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tegal yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tegal tercatat 7,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3329",
+   "wilayah": {
+    "kode_bps": "3329",
+    "nama": "Kab. Brebes",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 14.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Brebes yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Brebes tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3329",
+   "wilayah": {
+    "kode_bps": "3329",
+    "nama": "Kab. Brebes",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 8.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Brebes yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Brebes tercatat 8,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3371",
+   "wilayah": {
+    "kode_bps": "3371",
+    "nama": "Kota Magelang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.68,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Magelang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,7 persen penduduk Kota Magelang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3371",
+   "wilayah": {
+    "kode_bps": "3371",
+    "nama": "Kota Magelang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Magelang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Magelang tercatat 4,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3372",
+   "wilayah": {
+    "kode_bps": "3372",
+    "nama": "Kota Surakarta",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.69,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Surakarta yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,7 persen penduduk Kota Surakarta tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3372",
+   "wilayah": {
+    "kode_bps": "3372",
+    "nama": "Kota Surakarta",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.5,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Surakarta yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Surakarta tercatat 4,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3373",
+   "wilayah": {
+    "kode_bps": "3373",
+    "nama": "Kota Salatiga",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.2,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Salatiga yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,2 persen penduduk Kota Salatiga tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3373",
+   "wilayah": {
+    "kode_bps": "3373",
+    "nama": "Kota Salatiga",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.67,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Salatiga yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Salatiga tercatat 3,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3374",
+   "wilayah": {
+    "kode_bps": "3374",
+    "nama": "Kota Semarang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Semarang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 3,8 persen penduduk Kota Semarang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3374",
+   "wilayah": {
+    "kode_bps": "3374",
+    "nama": "Kota Semarang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.65,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Semarang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Semarang tercatat 5,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3375",
+   "wilayah": {
+    "kode_bps": "3375",
+    "nama": "Kota Pekalongan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.14,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Pekalongan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,1 persen penduduk Kota Pekalongan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3375",
+   "wilayah": {
+    "kode_bps": "3375",
+    "nama": "Kota Pekalongan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.83,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Pekalongan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pekalongan tercatat 4,8 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.3376",
+   "wilayah": {
+    "kode_bps": "3376",
+    "nama": "Kota Tegal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Tegal yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,3 persen penduduk Kota Tegal tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.3376",
+   "wilayah": {
+    "kode_bps": "3376",
+    "nama": "Kota Tegal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.82,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Tegal yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tegal tercatat 5,8 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  }
+ ]
+}

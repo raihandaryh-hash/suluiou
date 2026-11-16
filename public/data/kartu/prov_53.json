@@ -1,0 +1,845 @@
+{
+ "skema": "kartu-tayang/1",
+ "provinsi": {
+  "kode": "53",
+  "nama": "Nusa Tenggara Timur"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.5301",
+   "wilayah": {
+    "kode_bps": "5301",
+    "nama": "Kab. Sumba Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 26.47,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 26,5 persen penduduk Kab. Sumba Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5301",
+   "wilayah": {
+    "kode_bps": "5301",
+    "nama": "Kab. Sumba Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.27,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Barat tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5302",
+   "wilayah": {
+    "kode_bps": "5302",
+    "nama": "Kab. Sumba Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 25.64,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 25,6 persen penduduk Kab. Sumba Timur tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5302",
+   "wilayah": {
+    "kode_bps": "5302",
+    "nama": "Kab. Sumba Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.36,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Timur tercatat 3,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5303",
+   "wilayah": {
+    "kode_bps": "5303",
+    "nama": "Kab. Kupang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 20.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kupang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 20,3 persen penduduk Kab. Kupang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5303",
+   "wilayah": {
+    "kode_bps": "5303",
+    "nama": "Kab. Kupang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.53,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Kupang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kupang tercatat 3,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5304",
+   "wilayah": {
+    "kode_bps": "5304",
+    "nama": "Kab. Timor Tengah Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 24.5,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Timor Tengah Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 24,5 persen penduduk Kab. Timor Tengah Selatan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5304",
+   "wilayah": {
+    "kode_bps": "5304",
+    "nama": "Kab. Timor Tengah Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.57,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Timor Tengah Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Timor Tengah Selatan tercatat 3,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5305",
+   "wilayah": {
+    "kode_bps": "5305",
+    "nama": "Kab. Timor Tengah Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 20.17,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Timor Tengah Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 20,2 persen penduduk Kab. Timor Tengah Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5305",
+   "wilayah": {
+    "kode_bps": "5305",
+    "nama": "Kab. Timor Tengah Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.54,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Timor Tengah Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Timor Tengah Utara tercatat 2,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5306",
+   "wilayah": {
+    "kode_bps": "5306",
+    "nama": "Kab. Belu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Belu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,8 persen penduduk Kab. Belu tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5306",
+   "wilayah": {
+    "kode_bps": "5306",
+    "nama": "Kab. Belu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.2,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Belu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Belu tercatat 5,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5307",
+   "wilayah": {
+    "kode_bps": "5307",
+    "nama": "Kab. Alor",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 18.29,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Alor yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 18,3 persen penduduk Kab. Alor tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5307",
+   "wilayah": {
+    "kode_bps": "5307",
+    "nama": "Kab. Alor",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.08,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Alor yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Alor tercatat 2,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5308",
+   "wilayah": {
+    "kode_bps": "5308",
+    "nama": "Kab. Lembata",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 23.27,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lembata yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 23,3 persen penduduk Kab. Lembata tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5308",
+   "wilayah": {
+    "kode_bps": "5308",
+    "nama": "Kab. Lembata",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.37,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Lembata yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lembata tercatat 1,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5309",
+   "wilayah": {
+    "kode_bps": "5309",
+    "nama": "Kab. Flores Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.88,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Flores Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Flores Timur tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5309",
+   "wilayah": {
+    "kode_bps": "5309",
+    "nama": "Kab. Flores Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.36,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Flores Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Flores Timur tercatat 6,4 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5310",
+   "wilayah": {
+    "kode_bps": "5310",
+    "nama": "Kab. Sikka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.25,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sikka yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Sikka tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5310",
+   "wilayah": {
+    "kode_bps": "5310",
+    "nama": "Kab. Sikka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.62,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sikka yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sikka tercatat 2,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5311",
+   "wilayah": {
+    "kode_bps": "5311",
+    "nama": "Kab. Ende",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 21.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Ende yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 21,3 persen penduduk Kab. Ende tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5311",
+   "wilayah": {
+    "kode_bps": "5311",
+    "nama": "Kab. Ende",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.95,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Ende yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ende tercatat 3,0 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5312",
+   "wilayah": {
+    "kode_bps": "5312",
+    "nama": "Kab. Ngada",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.22,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Ngada yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Ngada tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5312",
+   "wilayah": {
+    "kode_bps": "5312",
+    "nama": "Kab. Ngada",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.6,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Ngada yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ngada tercatat 2,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5313",
+   "wilayah": {
+    "kode_bps": "5313",
+    "nama": "Kab. Manggarai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 18.1,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 18,1 persen penduduk Kab. Manggarai tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5313",
+   "wilayah": {
+    "kode_bps": "5313",
+    "nama": "Kab. Manggarai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.56,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai tercatat 1,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5314",
+   "wilayah": {
+    "kode_bps": "5314",
+    "nama": "Kab. Rote Ndao",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 24.37,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Rote Ndao yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 24,4 persen penduduk Kab. Rote Ndao tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5314",
+   "wilayah": {
+    "kode_bps": "5314",
+    "nama": "Kab. Rote Ndao",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Rote Ndao yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rote Ndao tercatat 2,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5315",
+   "wilayah": {
+    "kode_bps": "5315",
+    "nama": "Kab. Manggarai Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 16.09,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 16,1 persen penduduk Kab. Manggarai Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5315",
+   "wilayah": {
+    "kode_bps": "5315",
+    "nama": "Kab. Manggarai Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai Barat tercatat 3,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5316",
+   "wilayah": {
+    "kode_bps": "5316",
+    "nama": "Kab. Sumba Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 29.23,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 29,2 persen penduduk Kab. Sumba Tengah tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5316",
+   "wilayah": {
+    "kode_bps": "5316",
+    "nama": "Kab. Sumba Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.49,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Tengah tercatat 2,5 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5317",
+   "wilayah": {
+    "kode_bps": "5317",
+    "nama": "Kab. Sumba Barat Daya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 25.66,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Barat Daya yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 25,7 persen penduduk Kab. Sumba Barat Daya tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5317",
+   "wilayah": {
+    "kode_bps": "5317",
+    "nama": "Kab. Sumba Barat Daya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.7,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sumba Barat Daya yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumba Barat Daya tercatat 1,7 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5318",
+   "wilayah": {
+    "kode_bps": "5318",
+    "nama": "Kab. Nagekeo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nagekeo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Nagekeo tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5318",
+   "wilayah": {
+    "kode_bps": "5318",
+    "nama": "Kab. Nagekeo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nagekeo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Nagekeo tercatat 1,3 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5319",
+   "wilayah": {
+    "kode_bps": "5319",
+    "nama": "Kab. Manggarai Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 23.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 23,5 persen penduduk Kab. Manggarai Timur tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5319",
+   "wilayah": {
+    "kode_bps": "5319",
+    "nama": "Kab. Manggarai Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.24,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Manggarai Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Manggarai Timur tercatat 1,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5320",
+   "wilayah": {
+    "kode_bps": "5320",
+    "nama": "Kab. Sabu Raijua",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 27.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sabu Raijua yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 27,2 persen penduduk Kab. Sabu Raijua tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5320",
+   "wilayah": {
+    "kode_bps": "5320",
+    "nama": "Kab. Sabu Raijua",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.12,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Sabu Raijua yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sabu Raijua tercatat 3,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5321",
+   "wilayah": {
+    "kode_bps": "5321",
+    "nama": "Kab. Malaka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.52,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Malaka yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Malaka tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5321",
+   "wilayah": {
+    "kode_bps": "5321",
+    "nama": "Kab. Malaka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Malaka yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Malaka tercatat 2,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.5371",
+   "wilayah": {
+    "kode_bps": "5371",
+    "nama": "Kota Kupang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.57,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Kupang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,6 persen penduduk Kota Kupang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5371",
+   "wilayah": {
+    "kode_bps": "5371",
+    "nama": "Kota Kupang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 8.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Kupang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kupang tercatat 8,6 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  }
+ ]
+}
