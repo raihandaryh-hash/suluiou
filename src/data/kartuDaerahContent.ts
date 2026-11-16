@@ -12,14 +12,23 @@ export const kartuDaerahContent = {
   belumAdaProvinsi: 'Belum ada data bersumber untuk provinsi ini.',
   belumAdaKabkota: 'Belum ada data bersumber untuk daerah ini pada bagian ini:',
   gagalMuat: 'Data daerah belum bisa dimuat. Coba lagi nanti.',
-  labelLangkah: 'Satu cara mulai',
-  // Arahan Raihan 16 Nov 2026 18.14: langkah awal cukup mengamati dan mendengar
-  // di sekitar, bukan mendatangi orang. Varian A terpasang; varian B menunggu
-  // pilihan Raihan: 'Angka ini baru pembuka. Wujudnya di lingkunganmu hanya kamu
-  // yang bisa melihat. Amati dulu, lalu catat satu hal yang paling sering kamu
-  // temui soal ini.' Kolom langkah_awal di berkas kartu tidak ditampilkan.
-  langkahAmati:
-    'Sepekan ini, buka mata dan telinga di sekitarmu. Catat satu hal yang kamu lihat atau dengar sendiri terkait angka ini: di mana, siapa yang terdampak, dan siapa yang sudah menanganinya.',
+  // Arahan Raihan 16 Nov 2026 18.34: ajakan turun ke lapangan, satu pertanyaan
+  // per baris, tanpa menyebut "angka ini". Lima pertanyaan memakai kata-kata
+  // Raihan. Kalimat penutup dan baris "ajak teman" usulan Chief, menunggu ACC.
+  // Blok tampil sekali di bawah kartu, juga untuk daerah yang belum punya kartu.
+  lapangan: {
+    judul: 'Sekarang, turun ke lapangan',
+    pengantar: 'Kartu tadi baru pembuka. Cari tahu sendiri ada masalah apa di sekitarmu.',
+    pertanyaan: [
+      'Siapa saja yang butuh bantuan?',
+      'Masalahnya apa?',
+      'Sudah ada pihak yang menanganinya?',
+      'Bantuan apa yang bisa diberikan untuk mereka?',
+      'Menurutmu, apa yang kurang dari solusi yang sudah ada?',
+    ],
+    penutup: 'Catat jawabanmu. Dari semua yang kamu temukan, mana yang paling mengusikmu?',
+    temani: 'Ajak teman atau orang rumah. Jangan turun sendirian.',
+  },
   labelSumber: 'Sumber',
   bukaSumber: 'Buka sumber',
   tandaKurasi: 'Data BPS, disusun Sulu',

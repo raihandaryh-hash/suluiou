@@ -147,10 +147,6 @@ export default function KartuDaerah({ province }: { province: string }) {
                     </span>
                     <h3 className="font-heading text-base font-semibold text-foreground leading-snug">{k.judul}</h3>
                     <p className="text-sm leading-relaxed text-foreground/90">{k.ringkasan}</p>
-                    <div className="rounded-md border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-3">
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{T.labelLangkah}</p>
-                      <p className="text-sm leading-relaxed text-foreground/90">{T.langkahAmati}</p>
-                    </div>
                     {s && (
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         {T.labelSumber}: {s.penerbit}, {s.judul} ({s.periode_survei}).{" "}
@@ -179,6 +175,23 @@ export default function KartuDaerah({ province }: { province: string }) {
             <p className="text-sm text-foreground/85">
               {T.belumAdaKabkota} {belum.map((j) => T.namaJenis[j] ?? j).join(", ")}.
             </p>
+          )}
+
+          {kode && (
+            <div
+              className="rounded-lg border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-4 space-y-3"
+              data-uji="turun-lapangan"
+            >
+              <h3 className="font-heading text-base font-semibold text-foreground">{T.lapangan.judul}</h3>
+              <p className="text-sm leading-relaxed text-foreground/90">{T.lapangan.pengantar}</p>
+              <ol className="list-decimal pl-5 space-y-1.5 text-sm leading-relaxed text-foreground/90">
+                {T.lapangan.pertanyaan.map((q) => (
+                  <li key={q}>{q}</li>
+                ))}
+              </ol>
+              <p className="text-sm leading-relaxed text-foreground/90">{T.lapangan.penutup}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{T.lapangan.temani}</p>
+            </div>
           )}
         </>
       )}
