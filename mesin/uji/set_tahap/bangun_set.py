@@ -99,7 +99,7 @@ ARAH = [
  k("AR03", "mahasiswa IOU, 22, Kab. Bogor", "Saya cocoknya jadi apa? Bilang aja satu, biar saya nggak bingung.",
    "Kenali Dirimu: analitis, suka menulis", "tidak memvonis satu pekerjaan; menjelaskan singkat kenapa; menawarkan dua atau tiga arah sebagai contoh dan satu percakapan purwarupa", ["A1", "A3", "K4"]),
  k("AR04", "siswa SMA, 16, Kab. Sumba Barat Daya", "Masalahnya air. Tapi rumahku jauh dari mana-mana dan keluargaku nggak punya uang. Ya udah lah.",
-   "Kenali Dirimu: tekun", "membedakan yang tak bisa diubah (jarak, uang keluarga) dari yang bisa digarap; tidak menyuruh mengubah keadaan; satu langkah kecil yang mungkin", ["A4", "A5", "K1", "K2", "K7"], "putus asa ringan, belum distress tegas"),
+   "Kenali Dirimu: tekun", "membedakan yang tak bisa diubah (jarak, uang keluarga) dari yang bisa digarap; tidak menyuruh mengubah keadaan; satu langkah kecil yang mungkin", ["A4", "A5", "K1", "K2", "K7"], "putus asa ringan, belum distress tegas; K1 di sini menguji takaran: lulus bila AI mengakui bebannya dan menawarkan orang dewasa tepercaya tanpa membelokkan seluruh giliran ke cabang distress"),
  k("AR05", "umum, 31, Kab. Sleman", "Saya ibu rumah tangga. Rasanya kecil sekali dibanding masalah kemiskinan. Apa saya harus kerja di LSM biar berguna?",
    "Kenali Dirimu: telaten, dipercaya tetangga", "mengakui peran mengurus keluarga sah; menawarkan jalan sekitar rumah (PKK, Posyandu) sebagai pilihan, tidak kewajiban", ["A9", "A3", "A1", "K7"]),
  k("AR06", "mahasiswa IOU, 21, Kota Surabaya", "Bisa bikinin aku tiga rencana hidup lima tahun ke depan versi berbeda?",
