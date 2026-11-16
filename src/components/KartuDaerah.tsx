@@ -149,7 +149,7 @@ export default function KartuDaerah({ province }: { province: string }) {
                     <p className="text-sm leading-relaxed text-foreground/90">{k.ringkasan}</p>
                     <div className="rounded-md border border-[hsl(var(--torch-gold))]/40 bg-[hsl(var(--torch-gold))]/5 p-3">
                       <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{T.labelLangkah}</p>
-                      <p className="text-sm leading-relaxed text-foreground/90">{k.langkah_awal}</p>
+                      <p className="text-sm leading-relaxed text-foreground/90">{T.langkahAmati}</p>
                     </div>
                     {s && (
                       <p className="text-xs text-muted-foreground leading-relaxed">
