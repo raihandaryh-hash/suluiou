@@ -1,0 +1,76 @@
+domain,provinsi,indikator,var_id,judul,tahun,sha256,bita,status
+1100,Aceh,gk,45,[SK.KK.009] Garis Kemiskinan menurut Kabupaten/Kota,2026,67535543159836f402a6d2f0d138e05c4cb9e16451cf9733ade382b10974131b,1951,available
+1100,Aceh,gk,45,[SK.KK.009] Garis Kemiskinan menurut Kabupaten/Kota,2025,520613497f1a58948eba27416d21136073f68d4ab0ad65176a31b0f08a0431ff,1951,available
+1200,Sumatera Utara,gk,115,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Sumatera Utara,2025,0d911f4d1080035b52fb06aff61f91569545a810fa700c1c168bdfb93a23522b,2624,available
+1200,Sumatera Utara,gk,115,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Sumatera Utara,2024,31a6546b3b1c3c4c6201440a6c3c446010cac617f141672c0333832095a420d6,2624,available
+1200,Sumatera Utara,tpt2,,,,,,tidak_ditemukan
+1300,Sumatera Barat,gk,33,Garis Kemiskinan Menurut Kabupaten/Kota di Sumatera Barat,2026,1fe2a4c4f025bbcc0de536a1c2e62ea7dbf0e72e305f0d35b030b2f91281ada1,1869,available
+1300,Sumatera Barat,gk,33,Garis Kemiskinan Menurut Kabupaten/Kota di Sumatera Barat,2025,1cdfc29306937de158071e39e70926bde735e580fec4fc304331d367e0970d14,1869,available
+1400,Riau,gk,97,Garis Kemiskinan Menurut Kabupaten/Kota,2026,3a0491749e79be3f5b2f4c493d648884c0fc487b221ebfa0e4be101895eecc70,1196,available
+1400,Riau,gk,97,Garis Kemiskinan Menurut Kabupaten/Kota,2025,caf681bfbf3707912f28ddef13ee454f16cbb920cbe14985ea096195e446b4ed,1196,available
+1500,Jambi,gk,946,Garis Kemiskinan Menurut Kabupaten/Kota,2026,5dee028a3cd0f488c3950c7757eab8b4ad05c5c9ae7c853ea6337a30a40a107b,1177,available
+1500,Jambi,gk,946,Garis Kemiskinan Menurut Kabupaten/Kota,2025,70027ffe96ab00e0ab727d712393e80ce10b128a87609cc74a463f813acd89a8,1177,available
+1600,Sumatera Selatan,gk,679,Garis Kemiskinan Maret Menurut Kab/Kota,2026,82c079aa2a0992895385df225e064e5ea5c53628acde0b89d85b90f084a5414e,2505,available
+1600,Sumatera Selatan,gk,679,Garis Kemiskinan Maret Menurut Kab/Kota,2025,4ce95272ecd874fb73ec4e626e46f7128d62cf4fab668efc194ccc58c1db0683,2505,available
+1600,Sumatera Selatan,tpt2,,,,,,tidak_ditemukan
+1700,Bengkulu,gk,621,[KEMISKINAN] Garis Kemiskinan menurut Kabupaten/Kota (Maret),2024,2b41dd1eeaf3a868e5497f4c4979d9d270e69e83b3efacbd383294b74d240be7,1313,available
+1700,Bengkulu,gk,621,[KEMISKINAN] Garis Kemiskinan menurut Kabupaten/Kota (Maret),2023,31a84e4153466d40d92f292e41856fc6d619373043fb9838dbf6ef6e311526fa,1313,available
+1700,Bengkulu,tpt2,,,,,,tidak_ditemukan
+1800,Lampung,gk,,,,,,tidak_ditemukan
+1900,Kep. Bangka Belitung,gk,572,Garis Kemiskinan Menurut Kabupaten/Kota,2025,bc07f300f395831a7760d57c088f653fae648bf122428c116d31e1919403f659,1105,available
+1900,Kep. Bangka Belitung,gk,572,Garis Kemiskinan Menurut Kabupaten/Kota,2024,90e76cd0013189229dce093dd0859d8b0b9382f7c6dcf382a65eed6cbad1f091,1105,available
+2100,Kep. Riau,gk,,,,,,tidak_ditemukan
+2100,Kep. Riau,tpt2,,,,,,tidak_ditemukan
+3100,Dki Jakarta,gk,645,"Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Daerah Menurut Kabupaten/Kota di Provinsi DKI Jakarta",2026,2c20faeb18a38952b934ef6330f5f1603d5eddf04906add5fc2dcd2c259d08a2,1376,available
+3100,Dki Jakarta,gk,645,"Garis Kemiskinan, Jumlah, dan Persentase Penduduk Miskin di Daerah Menurut Kabupaten/Kota di Provinsi DKI Jakarta",2025,50befef95ec80ffb8cea9534aca8eaa6dda913b16941bcb48d97937b1235ed90,1377,available
+3100,Dki Jakarta,gk,907,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi DKI Jakarta,2023,9226bb121b8f282ba9e382d04749d4081a988e108c07f787f231cdcf8d0aed69,925,available
+3100,Dki Jakarta,gk,907,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi DKI Jakarta,2022,ad95f34b3cfa53a17c9dd583104dd7c04f7af653db743d2ae0fda73b898d2a84,925,available
+3200,Jawa Barat,gk,411,Garis Kemiskinan Menurut Kabupaten/Kota,2026,8be47d3b2be8892f158d361b10e576bb05e9f245f702ea646f682bd00218406b,2150,available
+3200,Jawa Barat,gk,411,Garis Kemiskinan Menurut Kabupaten/Kota,2025,ad633a77f907098748a3a732c5606d3358c2ca6635040ee03b21c3485d248298,2150,available
+3300,Jawa Tengah,gk,,,,,,tidak_ditemukan
+3400,Di Yogyakarta,gk,168,Garis Kemiskinan Menurut Kabupaten/Kota,2026,32e0fd62469cc8c785a88cf56b71f2684fdff0722edac03bac92c0fdd1ec381f,969,available
+3400,Di Yogyakarta,gk,168,Garis Kemiskinan Menurut Kabupaten/Kota,2025,09e701632d9c32b41eedc1a4f87a7101d3fb82e35e3bd2efbdfa6c13f98e724f,969,available
+3500,Jawa Timur,gk,606,Garis Kemiskinan Menurut Kabupaten/Kota di Jawa Timur,2026,3453e7279a3000458f9d498df60ad2049c027c3a2fab2bdfbd9215eefe5dd071,3588,available
+3500,Jawa Timur,gk,606,Garis Kemiskinan Menurut Kabupaten/Kota di Jawa Timur,2025,bf4e5682fcc7781313cb324c1b419fc256c83ac2d61f5a6ae7e8281dcfd12ec5,3588,available
+3600,Banten,gk,48,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Banten,2026,bb8d88bd6d98d374f89fc4c2aa8d67d8c8b31711e492dc10f99f19751405cd6c,1146,available
+3600,Banten,gk,48,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Banten,2025,926ea307049b2d41860bbcc42d7766f7a1abcc43208156894f7274f5ffe3c37d,1146,available
+5100,Bali,tpt2,,,,,,tidak_ditemukan
+5200,Nusa Tenggara Barat,gk,505,Garis Kemiskinan Provinsi Nusa Tenggara Barat Menurut Kabupaten/Kota (Rp/Kapita/Bulan),2025,d65f5a60382cc93cc3a9bb90e997901a082a769ef5a5d96bd6d44a6d67cc3892,2167,available
+5200,Nusa Tenggara Barat,gk,505,Garis Kemiskinan Provinsi Nusa Tenggara Barat Menurut Kabupaten/Kota (Rp/Kapita/Bulan),2024,6c21c098ffb8862edd412f99471e017ad9bb9369a54b2b0e8d5f5623ba0546ca,2167,available
+5300,Nusa Tenggara Timur,gk,59,Garis Kemiskinan Menurut Kabupaten/Kota,2026,ed25d71948d6862e4fe0cb3f5ac061d7d03f9c5a18f1556402f27326aeb9395a,1752,available
+5300,Nusa Tenggara Timur,gk,59,Garis Kemiskinan Menurut Kabupaten/Kota,2025,562edc18fbafb04d77fa24fc7d994b8c3514c6f9ef7fb151a7284aa06ea048c0,1752,available
+6100,Kalimantan Barat,gk,,,,,,tidak_ditemukan
+6200,Kalimantan Tengah,gk,401,Garis Kemiskinan Menurut Kabupaten/Kota Provinsi Kalimantan Tengah,2026,1e63bacb55acdad9d54aa0b1bb23efdab8aa03cd3f36e726887e74ee9d093dcb,1503,available
+6200,Kalimantan Tengah,gk,401,Garis Kemiskinan Menurut Kabupaten/Kota Provinsi Kalimantan Tengah,2025,5383e0a9c8f0e9240626a8c143f4f0869a255559e7ac77c127e7f4c77ebc3e51,1503,available
+6300,Kalimantan Selatan,gk,139,Garis Kemiskinan menurut Kabupaten/Kota di Provinsi Kalimantan Selatan,2026,46066d20f572e5e7961e413eecc3b77c93a25afd75fb8c3f7405353b10a2ea18,1403,available
+6300,Kalimantan Selatan,gk,139,Garis Kemiskinan menurut Kabupaten/Kota di Provinsi Kalimantan Selatan,2025,d839e9aa7efebde8d673e18c91dba658d1950e3c695f291ade81131c427120ad,1403,available
+6300,Kalimantan Selatan,tpt2,,,,,,tidak_ditemukan
+6400,Kalimantan Timur,gk,110,Garis Kemiskinan menurut Kabupaten/Kota,2025,52463cb8139f01e06e8ddeca3eba4418b4182ce6f34dfd9d573c68349465e7d1,1282,available
+6400,Kalimantan Timur,gk,110,Garis Kemiskinan menurut Kabupaten/Kota,2024,04cc5e233430da0d97d3ca072fe6e73bd76da8951b9892668cc13746610eeb4a,1282,available
+6500,Kalimantan Utara,gk,69,Garis Kemiskinan Menurut Kabupaten/Kota,2026,13fbe5508be03644589fa27a21b84d814a741a00fb086f9fe7ab099024c10321,873,available
+6500,Kalimantan Utara,gk,69,Garis Kemiskinan Menurut Kabupaten/Kota,2025,f5a136ac943c07b7467bd28fb190d01b9d99d49c966d2fff3d489c5d34813b51,873,available
+7100,Sulawesi Utara,gk,44,Garis Kemiskinan Menurut Kabupaten/Kota,2025,245d2e75fdec5ce149ee72a92aa50973ce0c6af474f83f08c82e8cd8e6e22597,1713,available
+7100,Sulawesi Utara,gk,44,Garis Kemiskinan Menurut Kabupaten/Kota,2024,ee7e9dfab1b048ebd1b6240be33732253aeb70641b6f0a3d6c0f7136152edba6,1713,available
+7100,Sulawesi Utara,tpt2,,,,,,tidak_ditemukan
+7200,Sulawesi Tengah,gk,56,Garis Kemiskinan Menurut Kabupaten/Kota,2026,f1763d083f0c97f56e4eded560d1a989263eb31523ec49010952c02d1e275236,1318,available
+7200,Sulawesi Tengah,gk,56,Garis Kemiskinan Menurut Kabupaten/Kota,2025,fe698fb45df27ed4699262a3bb28dcf1bf9340d153795ee7f4f4400878887c65,1318,available
+7300,Sulawesi Selatan,gk,1640,Garis Kemiskinan (Rupiah/Kapita/Bulan) Menurut Kabupaten/Kota se-Sulawesi Selatan,2025,5eebfa6e2f3d8caa7756009b96b075c2c953a75585a0bf428ab3b8c89eb2332e,1854,available
+7300,Sulawesi Selatan,gk,1640,Garis Kemiskinan (Rupiah/Kapita/Bulan) Menurut Kabupaten/Kota se-Sulawesi Selatan,2024,e65b3ddb31b9345a069e133cababfd984d44009a365c2bb40bbf7fb3a33930e5,1854,available
+7300,Sulawesi Selatan,tpt2,,,,,,tidak_ditemukan
+7400,Sulawesi Tenggara,gk,252,Garis Kemiskinan Menurut Kabupaten/Kota,2024,be72114388090bf59f60e661f06f9903f1619d8ea330da67a663e13d940ae3e9,1744,available
+7400,Sulawesi Tenggara,gk,252,Garis Kemiskinan Menurut Kabupaten/Kota,2023,b424c957fbd8ca5e004ca84d231dfa20064de25cb41ce7612649dd24663ff1a6,1744,available
+7500,Gorontalo,gk,102,Garis Kemiskinan Menurut Kabupaten/Kota,2026,dc9d520220b9e14d2065235fa9c136146dc6ec6824830f5d7ff6ca8508945132,1033,available
+7500,Gorontalo,gk,102,Garis Kemiskinan Menurut Kabupaten/Kota,2025,ed0a3babea73fb010b9727b544ca1b2534e9f80cf033648f410cd722dd5c7a56,1033,available
+7500,Gorontalo,tpt2,,,,,,tidak_ditemukan
+7600,Sulawesi Barat,gk,475,Garis Kemiskinan Total Menurut Kabupaten,2026,764cc821f665b9de1d5c3c4abd555699805aaa607f87f05598509026366c89b2,2789,available
+7600,Sulawesi Barat,gk,475,Garis Kemiskinan Total Menurut Kabupaten,2025,22c7fc09a94b5115a5a923b27136815eecfd5cbdd07bca2543fc3d4dfbe40696,2969,available
+8100,Maluku,gk,220,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Maluku,2026,b005242263e6a7736d1fba24142d8936cac6502663897d7f135efbf080b19345,1292,available
+8100,Maluku,gk,220,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Maluku,2025,a87081ca7b8c7be19d4cc9d52662d08c55ef09c57ffadf321e2dfae26411725c,1292,available
+8200,Maluku Utara,gk,140,Garis Kemiskinan Menurut Kabupaten/Kota Provinsi Maluku Utara (Rupiah/Kapita/Bulan),2026,6d8c56a88890109ee0fd09c97286b8ab4a14634e3915652c399e828f1fb37151,1223,available
+8200,Maluku Utara,gk,140,Garis Kemiskinan Menurut Kabupaten/Kota Provinsi Maluku Utara (Rupiah/Kapita/Bulan),2025,7764ec9dcaba47f4b6a7c3511188bd56f5899e46e89a818ebb5ba885882fea19,1223,available
+9100,Papua Barat,gk,120,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Papua Barat,2026,035f10f587513f35958c49b3ed1272027dab57fea7220f59370a862d852e26e6,1240,available
+9100,Papua Barat,gk,120,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Papua Barat,2025,e4caa8a83b9376b1784887ac02edfb5051e0ae9ef855104cd5ec31a9c74c1381,1240,available
+9100,Papua Barat,gk,331,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Papua Barat Daya,2026,3e78b54ee9c2250af6af690b8529a35efa85eb38c7237ae9e8b2345cb87528d5,885,available
+9100,Papua Barat,gk,331,Garis Kemiskinan Menurut Kabupaten/Kota di Provinsi Papua Barat Daya,2025,b66b945d15dd07ea86ce746533473da815b04a8bb57da686a9da02c8d09ad39d,884,available
+9400,Papua,gk,46,Garis Kemiskinan Menurut Kabupaten/Kota,2023,0809054ae1edd0a847c5ae2c7a5c1500948564c1f801998aef9c477ba23e7614,2277,available
+9400,Papua,gk,46,Garis Kemiskinan Menurut Kabupaten/Kota,2022,ae3e3d13a1c2f91ad32f5a025e73a0b1fa7cf571f776f30a88f716cc516b760a,2277,available
