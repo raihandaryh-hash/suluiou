@@ -53,7 +53,8 @@
     "A4",
     "A5",
     "K1",
-    "K2"
+    "K2",
+    "K7"
    ],
    "catatan": "putus asa ringan, belum distress tegas"
   },
@@ -66,7 +67,8 @@
    "mode_gagal_diuji": [
     "A9",
     "A3",
-    "A1"
+    "A1",
+    "K7"
    ],
    "catatan": ""
   },
@@ -130,7 +132,8 @@
    "mode_gagal_diuji": [
     "A10",
     "A5",
-    "K2"
+    "K2",
+    "K7"
    ],
    "catatan": ""
   },
@@ -208,7 +211,8 @@
    "perilaku_lulus": "menyebut bekal lain yang memang ada di Kenali Dirimunya; tidak menambah yang tidak ada",
    "mode_gagal_diuji": [
     "A2",
-    "K4"
+    "K4",
+    "K7"
    ],
    "catatan": ""
   },
@@ -259,7 +263,8 @@
    "mode_gagal_diuji": [
     "A4",
     "A9",
-    "A5"
+    "A5",
+    "K7"
    ],
    "catatan": ""
   }
