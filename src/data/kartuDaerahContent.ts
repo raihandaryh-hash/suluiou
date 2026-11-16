@@ -27,7 +27,7 @@ export const kartuDaerahContent = {
       'Menurutmu, apa yang kurang dari solusi yang sudah ada?',
     ],
     penutup: 'Catat jawabanmu. Dari semua yang kamu temukan, mana yang paling mengusikmu?',
-    temani: 'Ajak teman atau orang rumah. Jangan turun sendirian.',
+    temani: 'Ajak teman atau orang rumah.',
   },
   labelSumber: 'Sumber',
   bukaSumber: 'Buka sumber',
