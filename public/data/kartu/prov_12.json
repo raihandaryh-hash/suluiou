@@ -1,0 +1,693 @@
+{
+ "skema": "kartu-tayang/1",
+ "provinsi": {
+  "kode": "12",
+  "nama": "Sumatera Utara"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.1201",
+   "wilayah": {
+    "kode_bps": "1201",
+    "nama": "Kab. Nias",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 14.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nias yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 14,5 persen penduduk Kab. Nias tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1201",
+   "wilayah": {
+    "kode_bps": "1201",
+    "nama": "Kab. Nias",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.08,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nias yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Nias tercatat 2,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1202",
+   "wilayah": {
+    "kode_bps": "1202",
+    "nama": "Kab. Mandailing Natal",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Mandailing Natal yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,9 persen penduduk Kab. Mandailing Natal tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1203",
+   "wilayah": {
+    "kode_bps": "1203",
+    "nama": "Kab. Tapanuli Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.16,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tapanuli Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Tapanuli Selatan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1204",
+   "wilayah": {
+    "kode_bps": "1204",
+    "nama": "Kab. Tapanuli Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.03,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tapanuli Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Tapanuli Tengah tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1205",
+   "wilayah": {
+    "kode_bps": "1205",
+    "nama": "Kab. Tapanuli Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.47,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tapanuli Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,5 persen penduduk Kab. Tapanuli Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1205",
+   "wilayah": {
+    "kode_bps": "1205",
+    "nama": "Kab. Tapanuli Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.1,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Tapanuli Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tapanuli Utara tercatat 1,1 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1206",
+   "wilayah": {
+    "kode_bps": "1206",
+    "nama": "Kab. Toba",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.21,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Toba yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Toba tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1207",
+   "wilayah": {
+    "kode_bps": "1207",
+    "nama": "Kab. Labuhan Batu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.37,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Labuhan Batu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,4 persen penduduk Kab. Labuhan Batu tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1208",
+   "wilayah": {
+    "kode_bps": "1208",
+    "nama": "Kab. Asahan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Asahan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Asahan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1209",
+   "wilayah": {
+    "kode_bps": "1209",
+    "nama": "Kab. Simalungun",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Simalungun yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,9 persen penduduk Kab. Simalungun tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1210",
+   "wilayah": {
+    "kode_bps": "1210",
+    "nama": "Kab. Dairi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.98,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Dairi yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Dairi tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1210",
+   "wilayah": {
+    "kode_bps": "1210",
+    "nama": "Kab. Dairi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.21,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Dairi yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Dairi tercatat 1,2 persen dari angkatan kerja.",
+   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1211",
+   "wilayah": {
+    "kode_bps": "1211",
+    "nama": "Kab. Karo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.66,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Karo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Karo tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1212",
+   "wilayah": {
+    "kode_bps": "1212",
+    "nama": "Kab. Deli Serdang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.11,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Deli Serdang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 3,1 persen penduduk Kab. Deli Serdang tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1213",
+   "wilayah": {
+    "kode_bps": "1213",
+    "nama": "Kab. Langkat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.42,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Langkat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Langkat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1214",
+   "wilayah": {
+    "kode_bps": "1214",
+    "nama": "Kab. Nias Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 16.16,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nias Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 16,2 persen penduduk Kab. Nias Selatan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1215",
+   "wilayah": {
+    "kode_bps": "1215",
+    "nama": "Kab. Humbang Hasundutan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Humbang Hasundutan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,8 persen penduduk Kab. Humbang Hasundutan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1216",
+   "wilayah": {
+    "kode_bps": "1216",
+    "nama": "Kab. Pakpak Bharat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Pakpak Bharat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Pakpak Bharat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1217",
+   "wilayah": {
+    "kode_bps": "1217",
+    "nama": "Kab. Samosir",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Samosir yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,8 persen penduduk Kab. Samosir tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1218",
+   "wilayah": {
+    "kode_bps": "1218",
+    "nama": "Kab. Serdang Bedagai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Serdang Bedagai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Serdang Bedagai tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1219",
+   "wilayah": {
+    "kode_bps": "1219",
+    "nama": "Kab. Batu Bara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.1,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Batu Bara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Batu Bara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1220",
+   "wilayah": {
+    "kode_bps": "1220",
+    "nama": "Kab. Padang Lawas Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.04,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Padang Lawas Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,0 persen penduduk Kab. Padang Lawas Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1221",
+   "wilayah": {
+    "kode_bps": "1221",
+    "nama": "Kab. Padang Lawas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Padang Lawas yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,3 persen penduduk Kab. Padang Lawas tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1222",
+   "wilayah": {
+    "kode_bps": "1222",
+    "nama": "Kab. Labuhanbatu Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Labuhanbatu Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,8 persen penduduk Kab. Labuhanbatu Selatan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1223",
+   "wilayah": {
+    "kode_bps": "1223",
+    "nama": "Kab. Labuhanbatu Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.42,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Labuhanbatu Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Labuhanbatu Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1224",
+   "wilayah": {
+    "kode_bps": "1224",
+    "nama": "Kab. Nias Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 20.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nias Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 20,8 persen penduduk Kab. Nias Utara tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1225",
+   "wilayah": {
+    "kode_bps": "1225",
+    "nama": "Kab. Nias Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 22.47,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kab. Nias Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 22,5 persen penduduk Kab. Nias Barat tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1271",
+   "wilayah": {
+    "kode_bps": "1271",
+    "nama": "Kota Sibolga",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Sibolga yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,3 persen penduduk Kota Sibolga tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1272",
+   "wilayah": {
+    "kode_bps": "1272",
+    "nama": "Kota Tanjungbalai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.67,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Tanjungbalai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,7 persen penduduk Kota Tanjungbalai tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1273",
+   "wilayah": {
+    "kode_bps": "1273",
+    "nama": "Kota Pematangsiantar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.24,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Pematangsiantar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,2 persen penduduk Kota Pematangsiantar tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1274",
+   "wilayah": {
+    "kode_bps": "1274",
+    "nama": "Kota Tebing Tinggi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.74,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Tebing Tinggi yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,7 persen penduduk Kota Tebing Tinggi tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1275",
+   "wilayah": {
+    "kode_bps": "1275",
+    "nama": "Kota Medan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.25,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Medan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kota Medan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1276",
+   "wilayah": {
+    "kode_bps": "1276",
+    "nama": "Kota Binjai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Binjai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,7 persen penduduk Kota Binjai tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1277",
+   "wilayah": {
+    "kode_bps": "1277",
+    "nama": "Kota Padangsidimpuan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Padangsidimpuan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,6 persen penduduk Kota Padangsidimpuan tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  },
+  {
+   "id": "kemiskinan-kabkota.1278",
+   "wilayah": {
+    "kode_bps": "1278",
+    "nama": "Kota Gunungsitoli",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.85,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "judul": "Ada warga Kota Gunungsitoli yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,8 persen penduduk Kota Gunungsitoli tercatat sebagai penduduk miskin.",
+   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+  }
+ ]
+}

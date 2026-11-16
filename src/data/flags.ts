@@ -20,3 +20,6 @@ export const DALIL_ANFAL_60_TERBUKA = false;
 
 /** E17: tombol "Bagikan ke Orang Tua (WA)" di /ringkasan. Tersembunyi (PAD 11.3); diganti tautan Proposal Diri di Tonggak 2. */
 export const BAGIKAN_ORANG_TUA_TERBUKA = false;
+
+/** Tonggak 2b A1: kartu kebutuhan daerah bersumber di Jalan Bakti. Dipasang atas perintah Raihan 16 Nov 2026 17.46. Mati = blok kartu tidak tampil; isi lain tidak berubah. */
+export const KARTU_DAERAH_TERBUKA = true;
