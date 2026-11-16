@@ -21,8 +21,12 @@ type Indeks = {
   tanda_hati_hati: string;
   sumber: Record<string, Sumber>;
   jenis_kebutuhan: string[];
-  provinsi: Record<string, { nama: string; berkas: string; belum_punya_kartu: Record<string, string[]> }>;
+  provinsi: Record<string, { nama: string; berkas: string; belum_punya_kartu: Record<string, { kode_bps: string; nama: string }[]> }>;
 };
+
+// Nama dari berkas sumber kadang berjarak ("S I A K") atau berspasi ganda.
+const rapi = (nama: string) => nama.replace(/\s+/g, " ").trim();
+const berjarak = (nama: string) => /(^| )\S \S( |$)/.test(nama);
 
 const DASAR = `${import.meta.env.BASE_URL}data/kartu/`;
 
@@ -72,17 +76,28 @@ export default function KartuDaerah({ province }: { province: string }) {
 
   const wilayah = useMemo(() => {
     const peta = new Map<string, string>();
-    (kartu ?? []).forEach((k) => peta.set(k.wilayah.kode_bps, k.wilayah.nama));
+    (kartu ?? []).forEach((k) => {
+      const nama = rapi(k.wilayah.nama);
+      const lama = peta.get(k.wilayah.kode_bps);
+      if (!lama || (berjarak(lama) && !berjarak(nama))) peta.set(k.wilayah.kode_bps, nama);
+    });
+    // Kabupaten/kota yang tercatat tetapi belum punya kartu tetap bisa dipilih.
+    Object.values(prov?.belum_punya_kartu ?? {}).forEach((daftar) =>
+      daftar.forEach((w) => {
+        if (peta.has(w.kode_bps)) return;
+        const nama = rapi(w.nama);
+        peta.set(w.kode_bps, /^(Kab\.|Kabupaten|Kota) /.test(nama) ? nama : `Kab. ${nama}`);
+      }),
+    );
     return Array.from(peta, ([kodeBps, nama]) => ({ kodeBps, nama })).sort((a, b) =>
       a.kodeBps.localeCompare(b.kodeBps),
     );
-  }, [kartu]);
+  }, [kartu, prov]);
 
   const terpilih = useMemo(() => (kartu ?? []).filter((k) => k.wilayah.kode_bps === kode), [kartu, kode]);
-  const namaTerpilih = wilayah.find((w) => w.kodeBps === kode)?.nama ?? "";
   const belum =
-    prov && indeks && namaTerpilih
-      ? indeks.jenis_kebutuhan.filter((j) => (prov.belum_punya_kartu[j] ?? []).includes(namaTerpilih))
+    prov && indeks && kode
+      ? indeks.jenis_kebutuhan.filter((j) => (prov.belum_punya_kartu[j] ?? []).some((w) => w.kode_bps === kode))
       : [];
 
   if (gagal) {
