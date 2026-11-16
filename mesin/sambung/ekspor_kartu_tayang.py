@@ -11,6 +11,7 @@ Teks dari templat varian A (KEPUTUSAN Raihan 15 Nov 13.49), tanpa model. Kalimat
 pilihan Raihan 16 Nov 00.27. Tidak mengubah berkas kartu sumber dan tidak mengubah statusnya.
 """
 import json, os, sys, csv, collections, re
+from decimal import Decimal, ROUND_HALF_UP
 AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(AKAR, "kartu"))
 import kartu as K, isi_teks
@@ -25,7 +26,13 @@ def bangun():
     kart = [json.loads(l) for l in open(os.path.join(AKAR, "kartu", "keluaran", "kartu_me2.jsonl"), encoding="utf-8") if l.strip()]
     induk = {}
     for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "masukan_kartu", "dikk2025_tabel21.csv"), encoding="utf-8")):
-        if r["tingkat"] == "kabkota": induk[r["kode_bps"]] = (r["provinsi"], r["nama"])
+        if r["tingkat"] == "kabkota":
+            nama = " ".join(r["nama"].split())
+            induk[r["kode_bps"]] = (r["provinsi"], nama if nama.startswith("Kota ") else "Kab. " + nama)
+    # Papua: kode kab/kota lama (34 provinsi) dipetakan ke kode baru (38 provinsi)
+    baru = {r["kode_bps_lama"]: r["kode_bps_baru"] for r in csv.DictReader(open(os.path.join(AKAR, "sumber", "wilayah", "kode_baru_papua.csv"), encoding="utf-8"))}
+    kode_baru = lambda c: baru.get(c, c)
+    setengah = lambda x: str(Decimal(str(x)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)).replace(".", ",")
     prov = collections.defaultdict(list)
     for k in kart:
         k2 = isi_teks.isi(k, "A")
@@ -33,40 +40,56 @@ def bangun():
         k2["teks"]["ringkasan"] = t["nilai"].replace("{wilayah}", isi_teks.TANDA)
         galat = K.periksa_teks(k2)
         if galat: raise SystemExit(f"teks ditolak {k['id']}: {galat}")
-        r = {b: x.replace(isi_teks.TANDA, k["wilayah"]["nama"]) for b, x in K.render(k2).items()}
+        lama = k["wilayah"]["kode_bps"]; nama = induk[lama][1]   # satu ejaan per kode: nama publikasi kemiskinan 2025
+        r = {b: x.replace(isi_teks.TANDA, nama) for b, x in K.render(k2).items()}
         ind = k["indikator"][0]
-        prov[k["wilayah"]["kode_bps"][:2]].append({
-            "id": k["id"], "wilayah": k["wilayah"], "jenis_kebutuhan": k["jenis_kebutuhan"],
+        a, b_ = f"{ind['nilai']:.1f}".replace(".", ","), setengah(ind["nilai"])
+        if a != b_:
+            assert r["ringkasan"].count(a + " persen") == 1, (k["id"], a)
+            r["ringkasan"] = r["ringkasan"].replace(a + " persen", b_ + " persen")
+        wil = {"kode_bps": kode_baru(lama), "nama": nama, "tingkat": k["wilayah"]["tingkat"]}
+        if kode_baru(lama) != lama: wil["kode_bps_lama"] = lama
+        prov[kode_baru(lama)[:2]].append({
+            "id": k["id"], "wilayah": wil, "jenis_kebutuhan": k["jenis_kebutuhan"],
             "angka": {"nilai": ind["nilai"], "satuan": ind["satuan"], "tahun_data": ind["tahun_data"], "sumber_id": ind["sumber_id"]},
             "hati_hati": ind["keandalan"] == "hati_hati",
-            "judul": r["judul"], "ringkasan": r["ringkasan"], "langkah_awal": r["harapan"]})
+            "judul": r["judul"], "ringkasan": r["ringkasan"]})
     keluar = os.path.join(AKAR, "sambung", "keluaran", "kartu_tayang"); os.makedirs(keluar, exist_ok=True)
     jenis = sorted({k["jenis_kebutuhan"] for k in kart})
-    idx = {"skema": "kartu-tayang/1", "tanda_hati_hati": HATI, "sumber": SUMBER, "jenis_kebutuhan": jenis, "provinsi": {}}
+    idx = {"skema": "kartu-tayang/2", "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota", "tanda_hati_hati": HATI, "sumber": SUMBER, "jenis_kebutuhan": jenis, "provinsi": {}}
+    induk = {kode_baru(c): v for c, v in induk.items()}
     for kode in sorted({c[:2] for c in induk}):
         ks = sorted(prov.get(kode, []), key=lambda x: (x["wilayah"]["kode_bps"], x["jenis_kebutuhan"]))
         punya = collections.defaultdict(set)
         for x in ks: punya[x["jenis_kebutuhan"]].add(x["wilayah"]["kode_bps"])
         semua = sorted(c for c in induk if c[:2] == kode)
+        nama2 = {induk[c][0] for c in semua}
+        assert len(nama2) == 1, (kode, nama2)
         nama_prov = induk[semua[0]][0]
         idx["provinsi"][kode] = {"nama": nama_prov, "berkas": f"prov_{kode}.json" if ks else None, "jumlah_kartu": len(ks),
             "belum_punya_kartu": {j: [{"kode_bps": c, "nama": induk[c][1]} for c in semua if c not in punya[j]] for j in jenis}}
-        if ks: json.dump({"skema": "kartu-tayang/1", "provinsi": {"kode": kode, "nama": nama_prov}, "kartu": ks},
+        if ks: json.dump({"skema": "kartu-tayang/2", "provinsi": {"kode": kode, "nama": nama_prov}, "kartu": ks},
                          open(os.path.join(keluar, f"prov_{kode}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(idx, open(os.path.join(keluar, "indeks.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return idx, prov, len(induk)
+setengah_uji = lambda x: str(Decimal(str(x)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)).replace(".", ",")
 if __name__ == "__main__":
     idx, prov, n_kab = bangun()
     semua = [x for v in prov.values() for x in v]
     kal = lambda s: len([p for p in re.split(r"(?<=[.!?])\s+", s.strip()) if p])
     uji = {
       "jumlah kartu 900": len(semua) == 900,
-      "tiap kartu berjudul dan beringkasan": all(x["judul"] and x["ringkasan"] and x["langkah_awal"] for x in semua),
+      "tiap kartu berjudul dan beringkasan": all(x["judul"] and x["ringkasan"] for x in semua),
       "ringkasan paling banyak tiga kalimat": all(kal(x["ringkasan"]) <= 3 for x in semua),
-      "tanpa pembanding dan jarak": not any(re.search(r"target|jarak|nilai tengah|poin di (atas|bawah)", x["judul"] + x["ringkasan"] + x["langkah_awal"]) for x in semua) and not any("pembanding" in x or "jarak" in x for x in semua),
-      "tanpa placeholder tersisa": not any(re.search(r"[{}⟦⟧]", x["judul"] + x["ringkasan"] + x["langkah_awal"]) for x in semua),
+      "tanpa pembanding dan jarak": not any(re.search(r"target|jarak|nilai tengah|poin di (atas|bawah)", x["judul"] + x["ringkasan"]) for x in semua) and not any("pembanding" in x or "jarak" in x for x in semua),
+      "tanpa placeholder tersisa": not any(re.search(r"[{}⟦⟧]", x["judul"] + x["ringkasan"]) for x in semua),
       "tiap angka bersumber dan bertahun": all(x["angka"]["sumber_id"] in idx["sumber"] and x["angka"]["tahun_data"] for x in semua),
       "id unik": len({x["id"] for x in semua}) == len(semua),
+      "satu ejaan nama per kode_bps": all(len(v) == 1 for v in collections.defaultdict(set, {c: {y["wilayah"]["nama"] for y in semua if y["wilayah"]["kode_bps"] == c} for c in {x["wilayah"]["kode_bps"] for x in semua}}).values()),
+      "tanpa spasi ganda atau huruf berjarak di nama": not any(re.search(r"  |(^| )\S \S \S( |$)", x["wilayah"]["nama"] + " " + x["judul"]) for x in semua),
+      "kode kab/kota berawalan kode provinsinya": all(x["wilayah"]["kode_bps"].startswith(k) for k, v in prov.items() for x in v),
+      "38 provinsi": len(idx["provinsi"]) == 38,
+      "pembulatan setengah ke atas": all(setengah_uji(x["angka"]["nilai"]) + " persen" in x["ringkasan"] for x in semua),
     }
     tot = {j: (sum(1 for x in semua if x["jenis_kebutuhan"] == j), sum(len(p["belum_punya_kartu"][j]) for p in idx["provinsi"].values())) for j in idx["jenis_kebutuhan"]}
     uji["punya + belum = jumlah kab/kota"] = all(a + b == n_kab for a, b in tot.values())

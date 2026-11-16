@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "91",
   "nama": "Papua Barat"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Fakfak yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 19,9 persen penduduk Kab. Fakfak tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 19,9 persen penduduk Kab. Fakfak tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.9101",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Fakfak yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Fakfak tercatat 6,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Fakfak tercatat 6,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.9102",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kaimana yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,8 persen penduduk Kab. Kaimana tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 13,8 persen penduduk Kab. Kaimana tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9103",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Teluk Wondama yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 27,6 persen penduduk Kab. Teluk Wondama tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 27,6 persen penduduk Kab. Teluk Wondama tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.9103",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Teluk Wondama yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Teluk Wondama tercatat 3,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Teluk Wondama tercatat 3,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.9104",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Teluk Bintuni yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 25,3 persen penduduk Kab. Teluk Bintuni tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 25,3 persen penduduk Kab. Teluk Bintuni tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9105",
@@ -135,103 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Manokwari yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 17,4 persen penduduk Kab. Manokwari tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9106",
-   "wilayah": {
-    "kode_bps": "9106",
-    "nama": "Kab. Sorong Selatan",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 17.66,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Sorong Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 17,7 persen penduduk Kab. Sorong Selatan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9107",
-   "wilayah": {
-    "kode_bps": "9107",
-    "nama": "Kab. Sorong",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 25.1,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Sorong yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 25,1 persen penduduk Kab. Sorong tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9108",
-   "wilayah": {
-    "kode_bps": "9108",
-    "nama": "Kab. Raja Ampat",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 16.57,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Raja Ampat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,6 persen penduduk Kab. Raja Ampat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9109",
-   "wilayah": {
-    "kode_bps": "9109",
-    "nama": "Kab. Tambrauw",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 28.94,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Tambrauw yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 28,9 persen penduduk Kab. Tambrauw tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9110",
-   "wilayah": {
-    "kode_bps": "9110",
-    "nama": "Kab. Maybrat",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 29.0,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Maybrat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 29,0 persen penduduk Kab. Maybrat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 17,4 persen penduduk Kab. Manokwari tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9111",
@@ -249,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Manokwari Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 26,5 persen penduduk Kab. Manokwari Selatan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 26,5 persen penduduk Kab. Manokwari Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9112",
@@ -268,27 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Pegunungan Arfak yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 30,9 persen penduduk Kab. Pegunungan Arfak tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9171",
-   "wilayah": {
-    "kode_bps": "9171",
-    "nama": "Kota Sorong",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 13.55,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kota Sorong yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,6 persen penduduk Kota Sorong tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 30,9 persen penduduk Kab. Pegunungan Arfak tercatat sebagai penduduk miskin."
   }
  ]
 }

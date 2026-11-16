@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "14",
   "nama": "Riau"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kuantan Singingi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Kuantan Singingi tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Kuantan Singingi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1401",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kuantan Singingi yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kuantan Singingi tercatat 2,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kuantan Singingi tercatat 2,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1402",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Indragiri Hulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Indragiri Hulu tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Indragiri Hulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1402",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Indragiri Hulu yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hulu tercatat 2,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hulu tercatat 2,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1403",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Indragiri Hilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,0 persen penduduk Kab. Indragiri Hilir tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,0 persen penduduk Kab. Indragiri Hilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1403",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Indragiri Hilir yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hilir tercatat 3,0 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hilir tercatat 3,0 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1404",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Pelalawan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1404",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Pelalawan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pelalawan tercatat 2,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pelalawan tercatat 2,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1405",
@@ -173,14 +165,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Siak yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Siak tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Siak tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1405",
    "wilayah": {
     "kode_bps": "1405",
-    "nama": "Kab. S I A K",
+    "nama": "Kab. Siak",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -191,9 +182,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. S I A K yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. S I A K tercatat 5,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kab. Siak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Siak tercatat 5,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1406",
@@ -211,8 +201,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kampar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Kampar tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Kampar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1406",
@@ -230,8 +219,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kampar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kampar tercatat 4,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kampar tercatat 4,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1407",
@@ -249,8 +237,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Rokan Hulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1407",
@@ -268,8 +255,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Rokan Hulu yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hulu tercatat 3,2 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hulu tercatat 3,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1408",
@@ -287,8 +273,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bengkalis yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Bengkalis tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Bengkalis tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1408",
@@ -306,8 +291,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bengkalis yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bengkalis tercatat 5,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bengkalis tercatat 5,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1409",
@@ -325,8 +309,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Rokan Hilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Rokan Hilir tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Rokan Hilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1409",
@@ -344,8 +327,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Rokan Hilir yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hilir tercatat 4,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hilir tercatat 4,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1410",
@@ -363,8 +345,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Meranti yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 20,5 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 20,5 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1410",
@@ -382,8 +363,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Meranti yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Meranti tercatat 5,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Meranti tercatat 5,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1471",
@@ -401,8 +381,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Pekanbaru yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Pekanbaru tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Pekanbaru tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1471",
@@ -420,8 +399,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Pekanbaru yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pekanbaru tercatat 5,2 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pekanbaru tercatat 5,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1473",
@@ -439,14 +417,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Dumai yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,1 persen penduduk Kota Dumai tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,1 persen penduduk Kota Dumai tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1473",
    "wilayah": {
     "kode_bps": "1473",
-    "nama": "Kota D U M A I",
+    "nama": "Kota Dumai",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -457,9 +434,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kota D U M A I yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota D U M A I tercatat 4,5 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kota Dumai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Dumai tercatat 4,5 persen dari angkatan kerja."
   }
  ]
 }

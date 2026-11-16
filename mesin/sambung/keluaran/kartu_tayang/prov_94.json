@@ -1,48 +1,10 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "94",
-  "nama": "Papua Selatan"
+  "nama": "Papua"
  },
  "kartu": [
-  {
-   "id": "kemiskinan-kabkota.9401",
-   "wilayah": {
-    "kode_bps": "9401",
-    "nama": "Kab. Merauke",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 11.31,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Merauke yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,3 persen penduduk Kab. Merauke tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "pengangguran-terbuka-kabkota.9401",
-   "wilayah": {
-    "kode_bps": "9401",
-    "nama": "Kab. Merauke",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
-   "angka": {
-    "nilai": 4.35,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "sakernas-agustus"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Merauke yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Merauke tercatat 4,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
-  },
   {
    "id": "kemiskinan-kabkota.9403",
    "wilayah": {
@@ -59,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Jayapura yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Jayapura tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Jayapura tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9408",
@@ -78,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Yapen yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 28,0 persen penduduk Kab. Kepulauan Yapen tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 28,0 persen penduduk Kab. Kepulauan Yapen tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9409",
@@ -97,84 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Biak Numfor yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 25,7 persen penduduk Kab. Biak Numfor tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9413",
-   "wilayah": {
-    "kode_bps": "9413",
-    "nama": "Kab. Boven Digoel",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 21.96,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Boven Digoel yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 22,0 persen penduduk Kab. Boven Digoel tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "pengangguran-terbuka-kabkota.9413",
-   "wilayah": {
-    "kode_bps": "9413",
-    "nama": "Kab. Boven Digoel",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
-   "angka": {
-    "nilai": 3.66,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "sakernas-agustus"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Boven Digoel yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Boven Digoel tercatat 3,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
-  },
-  {
-   "id": "kemiskinan-kabkota.9414",
-   "wilayah": {
-    "kode_bps": "9414",
-    "nama": "Kab. Mappi",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "kemiskinan-kabkota",
-   "angka": {
-    "nilai": 28.46,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "kemiskinan-kabkota-2025"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Mappi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 28,5 persen penduduk Kab. Mappi tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
-  },
-  {
-   "id": "pengangguran-terbuka-kabkota.9414",
-   "wilayah": {
-    "kode_bps": "9414",
-    "nama": "Kab. Mappi",
-    "tingkat": "kabkota"
-   },
-   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
-   "angka": {
-    "nilai": 5.61,
-    "satuan": "persen",
-    "tahun_data": 2025,
-    "sumber_id": "sakernas-agustus"
-   },
-   "hati_hati": true,
-   "judul": "Ada warga Kab. Mappi yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Mappi tercatat 5,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, 25,7 persen penduduk Kab. Biak Numfor tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9419",
@@ -192,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Sarmi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Sarmi tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Sarmi tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9420",
@@ -211,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Keerom yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 17,8 persen penduduk Kab. Keerom tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 17,8 persen penduduk Kab. Keerom tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9426",
@@ -230,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Waropen yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 32,6 persen penduduk Kab. Waropen tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 32,6 persen penduduk Kab. Waropen tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9427",
@@ -249,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Supiori yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 42,6 persen penduduk Kab. Supiori tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 42,6 persen penduduk Kab. Supiori tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.9427",
@@ -268,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Supiori yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Supiori tercatat 7,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Supiori tercatat 7,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.9428",
@@ -287,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Mamberamo Raya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 35,1 persen penduduk Kab. Mamberamo Raya tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 35,1 persen penduduk Kab. Mamberamo Raya tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.9471",
@@ -306,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jayapura yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,0 persen penduduk Kota Jayapura tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,0 persen penduduk Kota Jayapura tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.9471",
@@ -325,8 +201,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Jayapura yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Jayapura tercatat 7,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Jayapura tercatat 7,7 persen dari angkatan kerja."
   }
  ]
 }
