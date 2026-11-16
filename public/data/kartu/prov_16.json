@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "16",
   "nama": "Sumatera Selatan"
@@ -9,7 +9,7 @@
    "id": "kemiskinan-kabkota.1601",
    "wilayah": {
     "kode_bps": "1601",
-    "nama": "Kab. Ogan Komering     Ulu",
+    "nama": "Kab. Ogan Komering Ulu",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
@@ -20,9 +20,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Ogan Komering     Ulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Ogan Komering     Ulu tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "judul": "Ada warga Kab. Ogan Komering Ulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Ogan Komering Ulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1601",
@@ -40,14 +39,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Komering Ulu yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu tercatat 3,9 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu tercatat 3,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1602",
    "wilayah": {
     "kode_bps": "1602",
-    "nama": "Kab. Ogan Komering     Ilir",
+    "nama": "Kab. Ogan Komering Ilir",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
@@ -58,9 +56,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Ogan Komering     Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,8 persen penduduk Kab. Ogan Komering     Ilir tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "judul": "Ada warga Kab. Ogan Komering Ilir yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,8 persen penduduk Kab. Ogan Komering Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1602",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Komering Ilir yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ilir tercatat 3,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ilir tercatat 3,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1603",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Muara Enim yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,4 persen penduduk Kab. Muara Enim tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 9,5 persen penduduk Kab. Muara Enim tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1603",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Muara Enim yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Muara Enim tercatat 4,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Muara Enim tercatat 4,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1604",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Lahat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,7 persen penduduk Kab. Lahat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 13,7 persen penduduk Kab. Lahat tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1604",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Lahat yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lahat tercatat 2,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lahat tercatat 2,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1605",
@@ -173,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Rawas yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Musi Rawas tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Musi Rawas tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1605",
@@ -192,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Rawas yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Rawas tercatat 1,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Rawas tercatat 1,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1606",
@@ -211,8 +201,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Banyuasin yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,0 persen penduduk Kab. Musi Banyuasin tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,0 persen penduduk Kab. Musi Banyuasin tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1606",
@@ -230,8 +219,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Banyuasin yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Banyuasin tercatat 2,0 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Banyuasin tercatat 2,0 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1607",
@@ -249,14 +237,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banyuasin yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Banyuasin tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Banyuasin tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1607",
    "wilayah": {
     "kode_bps": "1607",
-    "nama": "Kab. Banyu Asin",
+    "nama": "Kab. Banyuasin",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -267,15 +254,14 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Banyu Asin yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banyu Asin tercatat 2,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kab. Banyuasin yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banyuasin tercatat 2,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1608",
    "wilayah": {
     "kode_bps": "1608",
-    "nama": "Kab. Ogan Komering     Ulu Selatan",
+    "nama": "Kab. Ogan Komering Ulu Selatan",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
@@ -286,9 +272,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Ogan Komering     Ulu Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,2 persen penduduk Kab. Ogan Komering     Ulu Selatan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "judul": "Ada warga Kab. Ogan Komering Ulu Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,2 persen penduduk Kab. Ogan Komering Ulu Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1608",
@@ -306,8 +291,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Komering Ulu Selatan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu Selatan tercatat 1,9 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu Selatan tercatat 1,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1609",
@@ -325,8 +309,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Komering Ulu Timur yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Ogan Komering Ulu Timur tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Ogan Komering Ulu Timur tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1609",
@@ -344,8 +327,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Komering Ulu Timur yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu Timur tercatat 3,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Komering Ulu Timur tercatat 3,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1610",
@@ -363,8 +345,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,7 persen penduduk Kab. Ogan Ilir tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 11,7 persen penduduk Kab. Ogan Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1610",
@@ -382,8 +363,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Ogan Ilir yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Ilir tercatat 2,9 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Ogan Ilir tercatat 2,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1611",
@@ -401,8 +381,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Empat Lawang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Empat Lawang tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Empat Lawang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1611",
@@ -420,8 +399,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Empat Lawang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Empat Lawang tercatat 2,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Empat Lawang tercatat 2,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1612",
@@ -439,8 +417,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Penukal Abab Lematang Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,3 persen penduduk Kab. Penukal Abab Lematang Ilir tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 9,3 persen penduduk Kab. Penukal Abab Lematang Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1612",
@@ -458,8 +435,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Penukal Abab Lematang Ilir yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Penukal Abab Lematang Ilir tercatat 3,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Penukal Abab Lematang Ilir tercatat 3,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1613",
@@ -477,8 +453,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Rawas Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Musi Rawas Utara tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 15,3 persen penduduk Kab. Musi Rawas Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1613",
@@ -496,8 +471,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Musi Rawas Utara yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Rawas Utara tercatat 4,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Musi Rawas Utara tercatat 4,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1671",
@@ -515,8 +489,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Palembang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,0 persen penduduk Kota Palembang tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 9,0 persen penduduk Kota Palembang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1671",
@@ -534,8 +507,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Palembang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palembang tercatat 6,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palembang tercatat 6,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1672",
@@ -553,8 +525,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Prabumulih yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,8 persen penduduk Kota Prabumulih tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 9,8 persen penduduk Kota Prabumulih tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1672",
@@ -572,8 +543,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Prabumulih yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Prabumulih tercatat 4,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Prabumulih tercatat 4,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1673",
@@ -591,8 +561,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Pagar Alam yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,7 persen penduduk Kota Pagar Alam tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 7,7 persen penduduk Kota Pagar Alam tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1673",
@@ -610,8 +579,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Pagar Alam yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pagar Alam tercatat 2,2 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pagar Alam tercatat 2,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1674",
@@ -629,14 +597,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Lubuk Linggau yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,5 persen penduduk Kota Lubuk Linggau tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kota Lubuk Linggau tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1674",
    "wilayah": {
     "kode_bps": "1674",
-    "nama": "Kota Lubuklinggau",
+    "nama": "Kota Lubuk Linggau",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -647,9 +614,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kota Lubuklinggau yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Lubuklinggau tercatat 5,0 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kota Lubuk Linggau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Lubuk Linggau tercatat 5,0 persen dari angkatan kerja."
   }
  ]
 }

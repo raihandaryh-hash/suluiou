@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "81",
   "nama": "Maluku"
@@ -21,14 +21,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Tanimbar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 23,4 persen penduduk Kab. Kepulauan Tanimbar tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 23,4 persen penduduk Kab. Kepulauan Tanimbar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8101",
    "wilayah": {
     "kode_bps": "8101",
-    "nama": "Kab. Maluku Tenggara Barat",
+    "nama": "Kab. Kepulauan Tanimbar",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -39,9 +38,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Maluku Tenggara Barat yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tenggara Barat tercatat 4,2 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kab. Kepulauan Tanimbar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Tanimbar tercatat 4,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8102",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Tenggara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 21,2 persen penduduk Kab. Maluku Tenggara tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 21,2 persen penduduk Kab. Maluku Tenggara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8102",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Tenggara yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tenggara tercatat 6,0 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tenggara tercatat 6,0 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8103",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Tengah yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,7 persen penduduk Kab. Maluku Tengah tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 16,7 persen penduduk Kab. Maluku Tengah tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8103",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Tengah yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tengah tercatat 6,9 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Tengah tercatat 6,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8104",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buru yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,1 persen penduduk Kab. Buru tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 15,1 persen penduduk Kab. Buru tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8104",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buru yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buru tercatat 4,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buru tercatat 4,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8105",
@@ -173,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Aru yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 23,1 persen penduduk Kab. Kepulauan Aru tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 23,1 persen penduduk Kab. Kepulauan Aru tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8105",
@@ -192,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Kepulauan Aru yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Aru tercatat 2,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Aru tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8106",
@@ -211,8 +201,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Seram Bagian Barat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 21,9 persen penduduk Kab. Seram Bagian Barat tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 21,9 persen penduduk Kab. Seram Bagian Barat tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8106",
@@ -230,8 +219,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Seram Bagian Barat yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Seram Bagian Barat tercatat 4,9 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Seram Bagian Barat tercatat 4,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8107",
@@ -249,8 +237,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Seram Bagian Timur yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 20,9 persen penduduk Kab. Seram Bagian Timur tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 20,9 persen penduduk Kab. Seram Bagian Timur tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8107",
@@ -268,8 +255,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Seram Bagian Timur yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Seram Bagian Timur tercatat 3,2 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Seram Bagian Timur tercatat 3,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8108",
@@ -287,8 +273,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Barat Daya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 27,6 persen penduduk Kab. Maluku Barat Daya tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 27,7 persen penduduk Kab. Maluku Barat Daya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8108",
@@ -306,8 +291,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Maluku Barat Daya yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Barat Daya tercatat 2,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maluku Barat Daya tercatat 2,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8109",
@@ -325,8 +309,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buru Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,8 persen penduduk Kab. Buru Selatan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,8 persen penduduk Kab. Buru Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8109",
@@ -344,8 +327,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buru Selatan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buru Selatan tercatat 1,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buru Selatan tercatat 1,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8171",
@@ -363,8 +345,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Ambon yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,3 persen penduduk Kota Ambon tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,3 persen penduduk Kota Ambon tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8171",
@@ -382,8 +363,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Ambon yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Ambon tercatat 11,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Ambon tercatat 11,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.8172",
@@ -401,8 +381,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Tual yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 19,4 persen penduduk Kota Tual tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 19,4 persen penduduk Kota Tual tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.8172",
@@ -420,8 +399,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Tual yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tual tercatat 9,0 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tual tercatat 9,0 persen dari angkatan kerja."
   }
  ]
 }

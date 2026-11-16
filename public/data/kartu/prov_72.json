@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "72",
   "nama": "Sulawesi Tengah"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai Kepulauan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Banggai Kepulauan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Banggai Kepulauan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7201",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai Kepulauan tercatat 1,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai Kepulauan tercatat 1,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7202",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Banggai tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,2 persen penduduk Kab. Banggai tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7202",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai tercatat 3,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai tercatat 3,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7203",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Morowali yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Morowali tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Morowali tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7203",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Morowali yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Morowali tercatat 2,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Morowali tercatat 2,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7204",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Poso yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,9 persen penduduk Kab. Poso tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,9 persen penduduk Kab. Poso tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7204",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Poso yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Poso tercatat 1,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Poso tercatat 1,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7205",
@@ -173,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Donggala yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Donggala tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Donggala tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7205",
@@ -192,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Donggala yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Donggala tercatat 2,8 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Donggala tercatat 2,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7206",
@@ -211,14 +201,13 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Tolitoli yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Tolitoli tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Tolitoli tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7206",
    "wilayah": {
     "kode_bps": "7206",
-    "nama": "Kab. Toli-Toli",
+    "nama": "Kab. Tolitoli",
     "tingkat": "kabkota"
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
@@ -229,9 +218,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
-   "judul": "Ada warga Kab. Toli-Toli yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Toli-Toli tercatat 3,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "judul": "Ada warga Kab. Tolitoli yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tolitoli tercatat 3,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7207",
@@ -249,8 +237,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buol yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,5 persen penduduk Kab. Buol tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,5 persen penduduk Kab. Buol tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7207",
@@ -268,8 +255,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buol yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buol tercatat 3,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Buol tercatat 3,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7208",
@@ -287,8 +273,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Parigi Moutong yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Parigi Moutong tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Parigi Moutong tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7208",
@@ -306,8 +291,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Parigi Moutong yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Parigi Moutong tercatat 2,1 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Parigi Moutong tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7209",
@@ -325,8 +309,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Tojo Una-Una yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Tojo Una-Una tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 14,7 persen penduduk Kab. Tojo Una-Una tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7209",
@@ -344,8 +327,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Tojo Una-Una yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tojo Una-Una tercatat 2,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tojo Una-Una tercatat 2,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7210",
@@ -363,8 +345,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Sigi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Sigi tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Sigi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7210",
@@ -382,8 +363,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Sigi yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sigi tercatat 2,3 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sigi tercatat 2,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7211",
@@ -401,8 +381,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai Laut yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Banggai Laut tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Banggai Laut tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7211",
@@ -420,8 +399,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Banggai Laut yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai Laut tercatat 3,7 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Banggai Laut tercatat 3,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7212",
@@ -439,8 +417,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Morowali Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Morowali Utara tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Morowali Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7212",
@@ -458,8 +435,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Morowali Utara yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Morowali Utara tercatat 2,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Morowali Utara tercatat 2,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7271",
@@ -477,8 +453,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Palu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,3 persen penduduk Kota Palu tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,3 persen penduduk Kota Palu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.7271",
@@ -496,8 +471,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Palu yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palu tercatat 5,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palu tercatat 5,6 persen dari angkatan kerja."
   }
  ]
 }

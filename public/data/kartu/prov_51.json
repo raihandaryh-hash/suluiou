@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/1",
+ "skema": "kartu-tayang/2",
  "provinsi": {
   "kode": "51",
   "nama": "Bali"
@@ -21,8 +21,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Jembrana yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,3 persen penduduk Kab. Jembrana tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,3 persen penduduk Kab. Jembrana tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.5101",
@@ -40,8 +39,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Jembrana yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Jembrana tercatat 1,6 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Jembrana tercatat 1,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.5102",
@@ -59,8 +57,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Tabanan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,2 persen penduduk Kab. Tabanan tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,2 persen penduduk Kab. Tabanan tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5103",
@@ -78,8 +75,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Badung yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 1,9 persen penduduk Kab. Badung tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 1,9 persen penduduk Kab. Badung tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5104",
@@ -97,8 +93,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Gianyar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,7 persen penduduk Kab. Gianyar tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 3,7 persen penduduk Kab. Gianyar tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5105",
@@ -116,8 +111,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Klungkung yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Klungkung tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Klungkung tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5106",
@@ -135,8 +129,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Bangli yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,8 persen penduduk Kab. Bangli tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 4,8 persen penduduk Kab. Bangli tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5107",
@@ -154,8 +147,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Karangasem yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Karangasem tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Karangasem tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5108",
@@ -173,8 +165,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kab. Buleleng yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Buleleng tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Buleleng tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.5171",
@@ -192,8 +183,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Denpasar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 2,2 persen penduduk Kota Denpasar tercatat sebagai penduduk miskin.",
-   "langkah_awal": "Kamu bisa mulai dengan mengenal satu keluarga atau satu usaha kecil di dekatmu dan menanyakan bantuan apa yang paling mereka perlukan."
+   "ringkasan": "Pada 2025, 2,2 persen penduduk Kota Denpasar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.5171",
@@ -211,8 +201,7 @@
    },
    "hati_hati": true,
    "judul": "Ada warga Kota Denpasar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Denpasar tercatat 1,4 persen dari angkatan kerja.",
-   "langkah_awal": "Kamu bisa mulai dengan menanyakan kepada satu pemilik usaha di dekatmu keterampilan apa yang paling sulit ia temukan."
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Denpasar tercatat 1,4 persen dari angkatan kerja."
   }
  ]
 }
