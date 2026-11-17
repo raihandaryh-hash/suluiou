@@ -1,0 +1,16 @@
+[
+ {"id": "ok-L0", "teks": "Kerangka heksaheliks", "lapis": "L0", "tanda": "rujukan", "rujukan": "Perpres 37/2026"},
+ {"id": "ok-L1", "teks": "8,47 persen penduduk miskin", "lapis": "L1", "tanda": "BPS · 2025 · arti angka", "sumber": "BPS", "tahun": 2025, "arti_angka": "Angka ini menghitung ..."},
+ {"id": "ok-L2", "teks": "Banjir di Garut", "lapis": "L2", "tanda": "Dari pencarian AI · 3 sumber · 12 Nov 2026 · perlu kamu cek", "n_sumber": 3, "tanggal": "12 Nov 2026", "tautan": ["https://a.example", "https://b.example", "https://c.example"]},
+ {"id": "ok-L2-satu", "teks": "Keluhan jalan", "lapis": "L2", "tanda": "Dari pencarian AI · satu sumber · 10 Nov 2026 · perlu kamu cek", "n_sumber": 1, "tanggal": "10 Nov 2026", "tautan": ["https://a.example"]},
+ {"id": "ok-L3", "teks": "Pasar sepi tiap Senin", "lapis": "L3", "tanda": "amatanmu"},
+ {"id": "ok-L4", "teks": "Ringkasan isu", "lapis": "L4", "tanda": "Ini tulisan AI. Bisa keliru.", "lapis_dipakai": ["L1", "L2"]},
+ {"id": "ok-K", "teks": "Contoh program", "lapis": "K", "tanda": "kurasi", "sumber": "situs resmi"},
+ {"id": "gagal-tanpa-lapis", "teks": "Teks tanpa lapis", "tanda": "x"},
+ {"id": "gagal-L1-tahun", "teks": "Angka", "lapis": "L1", "tanda": "BPS · 2024 · arti angka", "sumber": "BPS", "tahun": 2025, "arti_angka": "..."},
+ {"id": "gagal-L1-arti", "teks": "Angka", "lapis": "L1", "tanda": "BPS · 2025", "sumber": "BPS", "tahun": 2025},
+ {"id": "gagal-L2-satu", "teks": "Kabar", "lapis": "L2", "tanda": "Dari pencarian AI · 1 sumber · 1 Nov 2026 · perlu kamu cek", "n_sumber": 1, "tanggal": "1 Nov 2026", "tautan": ["https://a.example"]},
+ {"id": "gagal-L2-tautan", "teks": "Kabar", "lapis": "L2", "tanda": "Dari pencarian AI · 2 sumber · 1 Nov 2026 · perlu kamu cek", "n_sumber": 2, "tanggal": "1 Nov 2026", "tautan": ["https://a.example"]},
+ {"id": "gagal-L4-tanda-lama", "teks": "Saran", "lapis": "L4", "tanda": "Dibuat AI", "lapis_dipakai": ["L1"]},
+ {"id": "gagal-L4-tanpa-lapis-dipakai", "teks": "Saran", "lapis": "L4", "tanda": "Ini tulisan AI. Bisa keliru."}
+]
