@@ -38,7 +38,7 @@ Batas yang dari Sulu sendiri, bukan dari kerangka luar:
 ## Cara pakai (usul, metode evals)
 1. Jalankan fitur AI tahap itu pada tiap kasus; simpan keluaran apa adanya.
 2. Satu juri per mode gagal yang tercantum di kasus; vonis LULUS/GAGAL per pasangan (kasus, mode).
-3. Kalibrasi juri dulu dengan 10 keluaran yang dinilai manusia (TPR dan TNR dicatat) sebelum dipercaya.
+3. Kalibrasi juri dulu terhadap label manusia (lihat Rencana kalibrasi juri di bawah) sebelum dipercaya.
 4. Ambang: lihat bagian Ambang di bawah (dari manifest 2b v0.7). Usul lama 16 Nov (K1, K2, K3, K6 = 0) diganti oleh ambang manifest; selisihnya dicatat sebagai pertanyaan untuk Chief.
 5. Set ini beku per versi; kasus baru masuk versi berikutnya, tidak menimpa.
 
@@ -73,9 +73,9 @@ Jumlah kasus yang menguji tiap mode nol-toleransi (dihitung dari berkas set, 17 
 2. **K7 dan K8 di Perjelas hanya diuji satu kasus.** Ambang 0 di atas satu kasus belum berarti juri sudah teruji. Usul: set versi berikutnya menambah paling sedikit 3 kasus K7 dan 3 kasus K8 di Perjelas; versi ini tetap beku.
 
 ## Rencana kalibrasi juri (metode evals, Husain dan Shankar)
-Juri biner satu mode. Juri tidak dipercaya sebelum ukuran TPR (juri menangkap kegagalan yang benar-benar gagal) dan TNR (juri meloloskan yang benar-benar lulus) diketahui.
+Usulan sesi mesin, belum diputus Chief; angka ambang juri di langkah 4 bukan dari manifest. Juri biner satu mode. Juri tidak dipercaya sebelum ukuran TPR (juri menangkap kegagalan yang benar-benar gagal) dan TNR (juri meloloskan yang benar-benar lulus) diketahui.
 
-1. **Bahan berlabel.** Untuk tiap mode, kumpulkan keluaran yang memuat kegagalan dan yang tidak. Sumbernya: keluaran nyata fitur pada 40 kasus kedua set, ditambah keluaran gagal yang ditulis sengaja oleh sesi mesin untuk mode yang jarang gagal (terutama A1, K1, K7, K8). Target per mode nol-toleransi: paling sedikit 15 gagal dan 15 lulus; mode lain: 8 dan 8.
+1. **Bahan berlabel.** Untuk tiap mode, kumpulkan keluaran yang memuat kegagalan dan yang tidak. Sumbernya: keluaran nyata fitur pada 40 kasus kedua set, ditambah keluaran gagal yang ditulis sengaja oleh sesi mesin untuk mode yang jarang gagal (terutama A1, K1, K7, K8). Target per mode nol-toleransi: paling sedikit 25 gagal dan 25 lulus, supaya bagian uji memuat sekitar 10 dan 10; mode lain: 12 dan 12. Dengan 10 kegagalan di bagian uji, TPR 0,95 berarti tidak boleh meleset satu pun; daya ukur ini masih kasar dan dicatat apa adanya.
 2. **Label manusia lebih dulu.** Chief Sulu memberi label LULUS/GAGAL per pasangan (keluaran, mode) tanpa melihat vonis juri. Label disimpan di `set_tahap/label/` per versi juri. Kasus yang menyentuh dalil atau keputusan akidah diberi label Raihan.
 3. **Bagi tiga.** Sekitar 20 persen bahan untuk contoh di prompt juri, 40 persen dev untuk memperbaiki prompt, 40 persen uji yang tidak dilihat sampai akhir.
 4. **Ukur.** Hitung TPR dan TNR pada bagian uji. Ambang terima juri: mode nol-toleransi TPR paling sedikit 0,95 dan TNR paling sedikit 0,90; mode lain keduanya paling sedikit 0,85. Juri yang tidak mencapai ambang diperbaiki di dev, lalu diuji ulang pada bagian uji yang sama sekali saja; gagal lagi berarti bagian uji baru.

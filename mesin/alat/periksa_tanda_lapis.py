@@ -38,8 +38,9 @@ def periksa(butir, daftar):
                     salah.append(f"medan wajib kosong: {m}")
             if l["kode"] == "L2" and not salah:
                 n = b["n_sumber"]
-                if n == 1 and "satu sumber" not in t:
-                    salah.append("L2 satu sumber harus bertanda 'satu sumber'")
+                satu = l.get("tanda_satu_sumber", "").split(" · ")[1] if l.get("tanda_satu_sumber") else "satu sumber"
+                if n == 1 and satu not in t:
+                    salah.append(f"L2 satu sumber harus bertanda '{satu}'")
                 if isinstance(n, int) and n > 1 and f"· {n} sumber ·" not in t:
                     salah.append("jumlah sumber di tanda tidak sama dengan n_sumber")
                 tautan = b["tautan"] if isinstance(b["tautan"], list) else [b["tautan"]]
