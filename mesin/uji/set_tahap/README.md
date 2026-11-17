@@ -57,7 +57,7 @@ Pemetaan ke kode mode di `MODE-GAGAL.json`:
 | pintu ke manusia jadi syarat | K8 | 0 |
 | mode lain | K2–K6, P1–P8, A2–A10 | paling banyak 1 kasus gagal |
 
-Cara hitung yang dipakai alat: satu kasus dihitung gagal untuk kelompok "mode lain" bila ia gagal di salah satu mode lain yang diujinya. Paling banyak satu kasus seperti itu per set. Bacaan yang lebih longgar (1 per mode) membolehkan sampai 22 kasus gagal di Arah, jadi tidak dipakai.
+Cara hitung yang dipakai alat: satu kasus dihitung gagal untuk kelompok "mode lain" bila ia gagal di salah satu mode lain yang diujinya. Paling banyak satu kasus seperti itu per set. Bacaan yang lebih longgar (1 per mode) membolehkan sampai 13 kasus gagal di Arah dan 12 di Perjelas (satu per mode lain yang diuji), jadi tidak dipakai.
 
 Jumlah kasus yang menguji tiap mode nol-toleransi (dihitung dari berkas set, 17 Nov):
 
