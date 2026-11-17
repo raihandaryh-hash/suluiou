@@ -1,0 +1,66 @@
+{
+  "skema": "arti-angka/1",
+  "dibuat": "17 Nov 2026, sesi mesin Sulu (titipan lima serahan, paket 1)",
+  "label": "SINTESIS teks; tiap klaim menunjuk sumber primer di kolom sumber. Pilihan varian = Raihan.",
+  "untuk": [
+    "Halaman Isu, bagian Arti angka (A19)",
+    "tab Dapur Peta (A13)"
+  ],
+  "lapis": "L1",
+  "jenis": {
+    "kemiskinan": {
+      "varian": {
+        "A": "Angka ini menghitung orang yang pengeluarannya sebulan di bawah garis kemiskinan, yaitu biaya kebutuhan dasar makanan dan bukan makanan di daerah itu. Orang yang pengeluarannya sedikit di atas garis tidak ikut terhitung, walau hidupnya masih rawan. Garis ini dihitung per kabupaten dan kota, jadi angkanya bisa dibandingkan antardaerah dengan ukuran yang sama.",
+        "B": "BPS menyebut seseorang miskin bila pengeluarannya sebulan tidak cukup untuk makanan setara 2.100 kilokalori sehari ditambah kebutuhan dasar bukan makanan. Ukuran lain memberi gambaran berbeda: dengan garis Bank Dunia untuk negara berpendapatan menengah atas, sekitar 64 persen penduduk Indonesia pada 2025 berada di bawahnya. Kedua angka sama-sama sah, karena yang diukur adalah batas yang berbeda."
+      },
+      "sumber": [
+        {
+          "klaim": "pendekatan kebutuhan dasar, pengeluaran per kapita per bulan di bawah garis = miskin",
+          "judul": "BPS, Data dan Informasi Kemiskinan Kabupaten/Kota 2025 (katalog 3205014), bab 1.2 Konsep, hlm. 3",
+          "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html",
+          "berkas_lokal": "mentah/bps-pub/DIKK-2025.pdf"
+        },
+        {
+          "klaim": "garis makanan disetarakan 2.100 kilokalori per kapita per hari",
+          "judul": "BPS, DIKK 2025, bab 1.2, uraian Garis Kemiskinan Makanan",
+          "berkas_lokal": "mentah/bps-pub/DIKK-2025.pdf",
+          "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+        },
+        {
+          "klaim": "garis US$8,30 PPP 2021: 64,1 persen (2025)",
+          "judul": "Pernyataan bersama BPS dan Bank Dunia, 9 Sep 2026",
+          "url": "https://www.worldbank.org/en/news/statement/2026/09/09/joint-statement-bps-wb-on-indonesia-poverty-figures"
+        }
+      ]
+    },
+    "pengangguran": {
+      "varian": {
+        "A": "Angka ini adalah persen angkatan kerja yang belum bekerja dan sedang mencari kerja, menyiapkan usaha, atau sudah putus asa mencari. BPS menghitung seseorang bekerja bila ia mencari nafkah paling sedikit satu jam dalam seminggu terakhir. Dengan aturan itu, orang yang hanya dapat kerja beberapa jam atau kerja serabutan tercatat bekerja, sehingga angka yang rendah belum tentu berarti pekerjaan layak sudah cukup.",
+        "B": "Pengangguran terbuka dihitung dari Survei Angkatan Kerja Nasional bulan Agustus, untuk penduduk berusia 15 tahun ke atas. Siapa pun yang bekerja minimal satu jam dalam seminggu, termasuk membantu usaha keluarga tanpa upah, terhitung bekerja. Angka ini tidak memperlihatkan berapa orang yang jam kerjanya kurang atau upahnya belum mencukupi."
+      },
+      "sumber": [
+        {
+          "klaim": "definisi TPT, angkatan kerja, pengangguran (termasuk yang merasa tidak mungkin mendapat pekerjaan); sumber Sakernas Agustus",
+          "judul": "BPS, catatan variabel 2824 Tingkat Pengangguran Terbuka",
+          "url": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+          "berkas_lokal": "mentah/bps/0000_tpt_2824_2025.json (var[0].note)"
+        },
+        {
+          "klaim": "bekerja = kegiatan ekonomi paling sedikit 1 jam tidak terputus dalam seminggu yang lalu",
+          "judul": "BPS Sirusa, metadata variabel 328108",
+          "url": "https://sirusa.bps.go.id/metadata/variabel/328108"
+        },
+        {
+          "klaim": "termasuk pekerja keluarga tanpa upah",
+          "judul": "BPS Sirusa, metadata variabel 312212",
+          "url": "https://sirusa.bps.go.id/metadata/variabel/312212"
+        }
+      ]
+    }
+  },
+  "catatan": [
+    "Tautan publikasi DIKK dan tabel TPT sama dengan SUMBER di ekspor_kartu_tayang.py (judul halaman dicek 16 Nov 2026). Definisi TPT dibaca dari catatan WebAPI var 2824.",
+    "Varian B kemiskinan memuat angka Bank Dunia; bila dipakai, angka tahun berikutnya diganti dari pembanding_kemiskinan.json.",
+    "Keempat varian lolos periksa_teks.py (0 temuan, 0 tanda pisah), 3 kalimat tiap varian."
+  ]
+}
