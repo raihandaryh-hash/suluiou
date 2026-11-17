@@ -1,0 +1,29 @@
+{
+  "skema": "jejak-angka/1",
+  "dibuat": "17 Nov 2026, sesi mesin Sulu (titipan lima serahan, paket 3)",
+  "label": "SINTESIS retrieval; tiap angka ditelusuri ke teks utuh laporan, halaman = nomor halaman PDF",
+  "rilis": {"tanggal": "18 Nov 2025", "penerbit": "UNICEF Indonesia, bersama Bappenas, BPS, SMERU",
+            "url": "https://www.unicef.org/indonesia/social-policy/press-releases/landmark-report-reveals-more-comprehensive-scope-child-poverty-indonesia"},
+  "laporan": [
+    {"id": "moneter", "judul": "Child Poverty in Indonesia", "sitasi": "SMERU, BAPPENAS, BPS and UNICEF (2025)",
+     "url": "https://www.unicef.org/indonesia/media/25346/file/child-poverty-indonesia.pdf", "halaman_pdf": 24, "sha256_awal": "7eef278e19b06674"},
+    {"id": "multidimensi", "judul": "Multidimensional Child Rights Deprivation in Indonesia", "sitasi": "SMERU, BAPPENAS, BPS and UNICEF (2025)",
+     "url": "https://www.unicef.org/indonesia/media/25356/file/multidimensional-child-rights-deprivation-analyis-indonesia.pdf", "halaman_pdf": 40, "sha256_awal": "2e6ab0e5246fb898"}
+  ],
+  "angka": [
+    {"rilis": "11,8 persen anak hidup di bawah garis kemiskinan nasional", "teks_utuh": "11,80 persen (P0); P1 2,01; P2 0,51; garis kerentanan 2x garis: 58,87 persen",
+     "laporan": "moneter", "halaman": 9, "data": "Susenas Maret 2022, garis kemiskinan BPS 2022", "status": "COCOK",
+     "catatan": "rilis tidak menyebut tahun data. Ringkasan eksekutif (hlm. 6) menulis 'Susenas March 2020', sedangkan bab metode dan judul Tabel 1 (hlm. 9) menulis Maret 2022. Dua sumber dalam satu laporan bertentangan; dipakai 2022 karena metode dan tabel. Ini bukan angka 2025."},
+    {"rilis": "37,4 persen anak (29,8 juta) mengalami deprivasi multidimensi", "teks_utuh": "37,38 persen, 29,8 juta", "laporan": "multidimensi", "halaman": 6, "data": "Susenas Maret 2023", "status": "COCOK"},
+    {"rilis": "46,1 persen anak desa vs 30,8 persen anak kota", "teks_utuh": "46,10 dan 30,81 persen", "laporan": "multidimensi", "halaman": 7, "data": "Susenas Maret 2023", "status": "COCOK"},
+    {"rilis": "di Maluku dan Papua delapan dari sepuluh anak", "teks_utuh": "eight-in-10 children being multidimensionally deprived; Jawa terendah 33,3 persen, tetapi jumlah absolut Jawa 2,9 juta", "laporan": "multidimensi", "halaman": 7, "data": "Susenas Maret 2023", "status": "COCOK"},
+    {"rilis": "hampir 40 persen anak mengalami deprivasi kesehatan", "teks_utuh": "39,6 persen anak 0 sampai 17 tahun; 61,7 persen anak 0 sampai 4 tahun", "laporan": "multidimensi", "halaman": 7, "data": "2023", "status": "COCOK"},
+    {"rilis": "hampir sepertiga anak tinggal di rumah tanpa toilet layak, air aman, atau bahan bakar memasak", "teks_utuh": "30,34 persen terdeprivasi di dimensi fasilitas, terutama sanitasi dan bahan bakar memasak padat; kurang dari satu dari sepuluh anak tanpa sumber air minum layak", "laporan": "multidimensi", "halaman": 7, "data": "2023", "status": "SEBAGIAN",
+     "catatan": "rilis menggabungkan air ke dalam sepertiga; menurut laporan, air minum kurang dari 10 persen. Angka sepertiga adalah dimensi fasilitas secara keseluruhan."},
+    {"rilis": "hampir 40 persen anak 5 sampai 6 tahun tidak ikut PAUD", "teks_utuh": "39,8 persen anak 5 sampai 6 tahun dan 86,3 persen anak 3 sampai 4 tahun tidak ikut PAUD", "laporan": "multidimensi", "halaman": 7, "data": "2023", "status": "COCOK"}
+  ],
+  "untuk_pemakai": [
+    "Angka 11,8 persen adalah data 2022 dan 37,4 persen adalah data 2023. Keduanya tidak boleh ditampilkan sebagai keadaan 2025.",
+    "Kemiskinan moneter anak (11,8) dan deprivasi multidimensi (37,4) mengukur hal berbeda; laporan multidimensi menyebut banyak anak yang tidak miskin secara moneter tetap terdeprivasi."
+  ]
+}

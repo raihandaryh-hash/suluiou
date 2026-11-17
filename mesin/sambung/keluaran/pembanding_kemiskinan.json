@@ -83,7 +83,7 @@
   {
    "lembaga": "Bappenas",
    "dicari": "ukuran kemiskinan atau indeks multidimensi resmi Bappenas dengan angka nasional terbaru",
-   "hasil": "TIDAK DITEMUKAN di dua pencarian 16 Nov 2026; yang ada laporan kemiskinan anak Bappenas-BPS-SMERU-UNICEF (18 Nov 2025) tanpa angka kepala yang terambil"
+   "hasil": "TIDAK DITEMUKAN di dua pencarian 16 Nov 2026; yang ada laporan kemiskinan anak Bappenas-BPS-SMERU-UNICEF (18 Nov 2025) tanpa angka kepala yang terambil · KOREKSI 17 Nov 2026: lihat kemiskinan_anak_2025.json"
   },
   {
    "lembaga": "TNP2K",
@@ -93,7 +93,7 @@
   {
    "lembaga": "SMERU",
    "dicari": "angka kemiskinan anak multidimensi (MODA) nasional",
-   "hasil": "laporan ada (https://www.unicef.org/indonesia/social-policy/press-releases/landmark-report-reveals-more-comprehensive-scope-child-poverty-indonesia); angka kepala TIDAK DITEMUKAN di cuplikan"
+   "hasil": "laporan ada (https://www.unicef.org/indonesia/social-policy/press-releases/landmark-report-reveals-more-comprehensive-scope-child-poverty-indonesia); angka kepala TIDAK DITEMUKAN di cuplikan · KOREKSI 17 Nov 2026: angka ditelusuri ke teks utuh, lihat kemiskinan_anak_2025.json (11,80 persen data 2022; 37,38 persen data 2023)"
   }
  ],
  "cara_baca_untuk_grafik": "Batang BPS, US$3,00, US$4,20, US$8,30 untuk tahun 2025, tiap batang dengan rupiah per hari dan tautan. Ukuran berbeda tujuan: BPS untuk memantau kebijakan dalam negeri, garis Bank Dunia untuk banding antarnegara (pernyataan bersama 9 Sep 2026). LPEM dan MPI dipasang sebagai lapis tafsir, berlabel tahun data."
