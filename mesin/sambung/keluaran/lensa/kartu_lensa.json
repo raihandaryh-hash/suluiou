@@ -43,7 +43,7 @@
   },
   {
    "id": "lensa-pentahelix",
-   "nama": "Pentahelix: lima unsur",
+   "nama": "Pentahelix dan heksaheliks: lima atau enam unsur",
    "tahap": [
     "Pihak"
    ],
@@ -54,28 +54,38 @@
     "Akademisi: kampus atau guru mana yang pernah meneliti atau mengajar soal ini?",
     "Usaha: siapa yang mencari nafkah di sekitar masalah ini?",
     "Komunitas: kelompok warga, organisasi, atau tempat ibadah mana yang sudah bergerak?",
-    "Media: siapa yang memberitakannya, termasuk akun lokal?"
+    "Media: siapa yang memberitakannya, termasuk akun lokal?",
+    "Lembaga keuangan: koperasi, CU, atau bank mana yang dekat dengan masalah ini?"
    ],
-   "isi": "Lima unsur: pemerintah, akademisi, dunia usaha, komunitas, media. Dipakai di Indonesia sejak pedoman pariwisata 2016; asal gagasannya model triple helix (universitas, industri, pemerintah) yang diperluas.",
+   "isi": "Lima unsur pentahelix: pemerintah, akademisi, dunia usaha, komunitas, media. Peraturan ekonomi kreatif yang berlaku memperluasnya menjadi heksaheliks dengan unsur keenam, lembaga keuangan. Asal gagasannya model triple helix (universitas, industri, pemerintah) yang diperluas.",
    "sumber": [
     {
-     "judul": "Permenpar Nomor 14 Tahun 2016 tentang Pedoman Destinasi Pariwisata Berkelanjutan",
-     "url": "https://pasal.id/peraturan/permen/permenpar-no-14-tahun-2016",
-     "dibaca": "16 Nov 2026",
-     "catatan": "berstatus DICABUT menurut pasal.id; jadi bukan dasar hukum yang berlaku. Isi lima unsur di naskahnya belum dibaca"
+     "judul": "Permenekraf 8/2025 (Renstra Kementerian Ekonomi Kreatif): sinergi heksaheliks",
+     "url": "https://peraturan.bpk.go.id/Download/396573/permenekraf-no-8-tahun-2025.pdf",
+     "dibaca": "17 Nov 2026, cuplikan"
     },
     {
-     "judul": "asal triple helix (Etzkowitz dan Leydesdorff) dan quintuple helix (Carayannis)",
-     "url": null,
-     "status": "TIDAK DITEMUKAN sumber primer pada putaran ini"
+     "judul": "Perpres 37/2026 (Rencana Induk Ekonomi Kreatif): heksaheliks mengacu RPJPN 2025-2045",
+     "url": "https://peraturan.bpk.go.id/Download/415303/Perpres%20No.%2037%20Tahun%202026.pdf",
+     "dibaca": "17 Nov 2026, cuplikan"
+    },
+    {
+     "judul": "Permenparekraf 11/2022: kerja sama multipihak (pentahelix), desa kreatif",
+     "url": "https://peraturan.bpk.go.id/Download/304862/Permenparekraf%20Nomor%2011%20Tahun%202022.pdf",
+     "dibaca": "17 Nov 2026, cuplikan"
+    },
+    {
+     "judul": "Permenpar 14/2016 dicabut oleh Permenparekraf 9/2021 Pasal 7 (revisi pedoman destinasi berkelanjutan sesuai GSTC), bukan penolakan pentahelix",
+     "url": "https://peraturan.bpk.go.id/Download/330515/2021PMParekraf009.pdf",
+     "dibaca": "17 Nov 2026"
     }
    ],
    "syarat_tayang": [
-    "sumber primer kerangka (bukan regulasi yang sudah dicabut) masuk Evidence DB",
-    "teks tidak menyebut pentahelix sebagai kewajiban hukum"
+    "baris Evidence DB Live untuk Permenekraf 8/2025 atau Perpres 37/2026",
+    "teks tidak menyebut pentahelix sebagai kewajiban hukum; ia kerangka kolaborasi yang dipakai peraturan"
    ],
    "teks_pengguna": {
-    "A": "Lihat lima pihak: pemerintah, kampus, usaha, komunitas, media. Tandai yang sudah kamu kenal.",
+    "A": "Lihat enam pihak: pemerintah, kampus, usaha, komunitas, media, lembaga keuangan. Tandai yang sudah kamu kenal.",
     "B": "Masalah besar jarang selesai oleh satu pihak. Siapa dari pemerintah, kampus, usaha, komunitas, dan media yang ada di sekitarnya?"
    }
   },

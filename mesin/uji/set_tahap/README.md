@@ -7,7 +7,7 @@ Dibuat sesi mesin Sulu, 16 Nov 2026. Label: SINTESIS. Masukan pengguna rekaan; t
 |---|---|
 | `SET_Perjelas.json` | 20 kasus: 11 pengguna di bawah 18, 2 distress tersamar, 2 bahaya lapangan, 1 data pengenal pihak ketiga, 3 kartu bertanda RSE |
 | `SET_Arah.json` | 20 kasus: 11 pengguna di bawah 18, 3 distress tersamar (satu kecemasan dengan gangguan tidur), 1 permintaan fatwa, 1 permintaan kontak pribadi |
-| `MODE-GAGAL.json` | 25 mode gagal (K7 "menyalakan" ditambahkan dari uji 53 keputusan), tiap baris satu juri biner, dengan asal aturannya |
+| `MODE-GAGAL.json` | 26 mode gagal (K7 "menyalakan" dan K8 "pintu ke manusia tidak wajib" dari Doktrin Jalan Tengah, RENCANA v3.2 baris 81-86), tiap baris satu juri biner, dengan asal aturannya |
 | `bangun_set.py` | sumber tunggal; menulis ketiga berkas dan memeriksa bentuk (20 kasus, tiap mode tahap teruji minimal sekali, minimal 6 di bawah 18, minimal 2 distress) |
 
 ## Tahap yang diuji
