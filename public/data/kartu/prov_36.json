@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "36",
   "nama": "Banten"
@@ -14,14 +14,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.51,
+    "nilai": 8.02,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.51,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pandeglang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Pandeglang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,0 persen penduduk Kab. Pandeglang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3601",
@@ -32,14 +39,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 8.8,
+    "nilai": 8.71,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.8,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pandeglang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pandeglang tercatat 8,8 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pandeglang tercatat 8,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3602",
@@ -50,14 +64,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.03,
+    "nilai": 7.5,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.03,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lebak yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,0 persen penduduk Kab. Lebak tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,5 persen penduduk Kab. Lebak tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3602",
@@ -68,14 +89,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 7.3,
+    "nilai": 7.2,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.3,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lebak yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lebak tercatat 7,3 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Lebak tercatat 7,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3603",
@@ -86,14 +114,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.42,
+    "nilai": 6.05,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.42,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tangerang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Tangerang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,1 persen penduduk Kab. Tangerang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3603",
@@ -104,14 +139,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.94,
+    "nilai": 5.88,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.94,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tangerang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tangerang tercatat 5,9 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tangerang tercatat 5,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3604",
@@ -122,14 +164,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.48,
+    "nilai": 4.46,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.48,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Serang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,5 persen penduduk Kab. Serang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,5 persen penduduk Kab. Serang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3604",
@@ -140,14 +189,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 8.73,
+    "nilai": 8.69,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.73,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Serang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Serang tercatat 8,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Serang tercatat 8,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3671",
@@ -158,14 +214,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.19,
+    "nilai": 5.11,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.19,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tangerang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,2 persen penduduk Kota Tangerang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,1 persen penduduk Kota Tangerang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3671",
@@ -176,14 +239,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.88,
+    "nilai": 5.86,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.88,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tangerang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tangerang tercatat 5,9 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Tangerang tercatat 5,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3672",
@@ -194,14 +264,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.44,
+    "nilai": 3.27,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.44,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cilegon yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,4 persen penduduk Kota Cilegon tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,3 persen penduduk Kota Cilegon tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3672",
@@ -212,14 +289,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 7.41,
+    "nilai": 6.59,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.41,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Cilegon yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Cilegon tercatat 7,4 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Cilegon tercatat 6,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3673",
@@ -230,14 +314,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.51,
+    "nilai": 5.48,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.51,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Serang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,5 persen penduduk Kota Serang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,5 persen penduduk Kota Serang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3673",
@@ -248,14 +339,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 6.95,
+    "nilai": 6.86,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.95,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Serang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Serang tercatat 7,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Serang tercatat 6,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.3674",
@@ -266,14 +364,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 2.39,
+    "nilai": 2.26,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.39,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tangerang Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 2,4 persen penduduk Kota Tangerang Selatan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 2,3 persen penduduk Kota Tangerang Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3674",
@@ -284,14 +389,21 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.13,
+    "nilai": 4.12,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov3600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.13,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Tangerang Selatan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tangerang Selatan tercatat 4,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Tangerang Selatan tercatat 4,1 persen dari angkatan kerja."
   }
  ]
 }
