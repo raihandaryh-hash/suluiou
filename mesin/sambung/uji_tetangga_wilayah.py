@@ -13,7 +13,12 @@ u("tak bertetangga dengan diri sendiri", all(t["kode_bps"] != k for k, v in W.it
 u("Garut: Bandung, Cianjur, Sumedang, Tasikmalaya", {t["nama"] for t in W["3205"]["tetangga"]} == {"Bandung", "Cianjur", "Sumedang", "Tasikmalaya"})
 u("Kepulauan Seribu tanpa tetangga darat", W["3101"]["tanpa_tetangga_darat"])
 u("Manggarai: Manggarai Barat, Manggarai Timur", {t["nama"] for t in W["5313"]["tetangga"]} == {"Manggarai Barat", "Manggarai Timur"})
-u("kecocokan BIG >= 99 persen", d["ringkas"]["pembanding_big"]["cocok"] / d["ringkas"]["pembanding_big"]["sisi_utama_yang_dapat_dibanding"] >= 0.99)
+sb = d["ringkas"]["selisih_dengan_pembanding"]
+u("kecocokan dengan pembanding >= 99 persen", sb["cocok"] / sb["sisi_utama_dibanding"] >= 0.99)
+u("sumber utama BIG, pembanding Alf-Anas", "BIG" in d["sumber_batas"]["utama"]["asal_data"] and "Alf-Anas" in d["sumber_batas"]["pembanding"]["nama"])
+u("tiap wilayah tanpa geometri utama ditandai dan sisinya ber-asal pembanding",
+  all(W[c.split()[0]]["geometri_dari"] == "pembanding" and all(t["asal"] == "pembanding" for t in W[c.split()[0]]["tetangga"]) for c in d["ringkas"]["utama_tanpa_geometri"]))
+u("Kota Magelang: Magelang", {t["nama"] for t in W["3371"]["tetangga"]} == {"Magelang"})
 u("sumber batas tertulis", d["sumber_batas"]["utama"]["url"].startswith("https://github.com/"))
 for n, ok in uji: print("LULUS" if ok else "GAGAL", n)
 print(f"{sum(o for _, o in uji)}/{len(uji)} lulus")
