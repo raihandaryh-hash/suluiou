@@ -69,7 +69,7 @@ export const TEKS_PINTU: Record<VarianTeks, TeksPintu> = {
     lanjut: 'Lanjut',
     judulKonfirmasi: 'Cek sekali lagi, ya',
     ringkasan: (p, d) => `Kamu memilih: ${p}, ${d ? '18 tahun atau lebih' : 'di bawah 18 tahun'}.`,
-    akibatAnak: 'Untuk di bawah 18 tahun, obrolan bebas dengan Sulu terkunci dan hasilmu hanya tersimpan di perangkat ini, sampai orang tua atau wali memberi izin lewat sekolah.',
+    akibatAnak: 'Untuk di bawah 18 tahun, hasilmu hanya tersimpan di perangkat ini sampai orang tua atau wali memberi izin lewat sekolah.',
     akibatDewasa: 'Untuk 18 tahun ke atas, semua fitur terbuka dan hasilmu bisa tersimpan di akunmu.',
     peringatanKunci: 'Pilihan umur bisa kamu ubah sendiri selama 15 menit. Sesudah itu terkunci, dan perubahannya perlu bantuan admin.',
     yaBenar: 'Ya, sudah benar',
