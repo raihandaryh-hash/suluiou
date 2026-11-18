@@ -9,6 +9,14 @@ hasil = periksa(contoh, daftar)
 benar = [h["lulus"] == h["id"].startswith("ok-") for h in hasil]
 for h, b in zip(hasil, benar):
     print("LULUS" if b else "SALAH", h["id"], h["salah"])
+import copy
+d2 = copy.deepcopy(daftar)
+for l in d2["lapis"]:
+    if l["kode"] == "K": l["tanda"] = "BELUM DITETAPKAN"; l["pola_tanda"] = "\\S"
+h2 = periksa([{"id": "K-saat-belum", "teks": "x", "lapis": "K", "tanda": "apa saja", "sumber": "s"}], d2)[0]
+ok_belum = not h2["lulus"]
+print("lapis bertanda BELUM DITETAPKAN selalu gagal:", ok_belum)
+benar.append(ok_belum)
 kode = [l["kode"] for l in daftar["lapis"]]
 ok_lapis = kode[:5] == ["L0", "L1", "L2", "L3", "L4"]
 print("daftar memuat L0-L4 berurutan:", ok_lapis)

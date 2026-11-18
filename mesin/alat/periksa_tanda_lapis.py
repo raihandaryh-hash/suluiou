@@ -29,9 +29,11 @@ def periksa(butir, daftar):
             salah.append("teks kosong")
         if l is None:
             salah.append(f"lapis tidak dikenal: {b.get('lapis')!r}")
+        elif l["tanda"] == "BELUM DITETAPKAN":
+            salah.append(f"tanda lapis {l['kode']} belum ditetapkan; butir ini tidak bisa lulus")
         else:
             t = b.get("tanda") or ""
-            if not re.search(l["pola_tanda"], t):
+            if t.strip() == "BELUM DITETAPKAN" or not re.search(l["pola_tanda"], t):
                 salah.append(f"tanda tidak sesuai {l['kode']}: {t!r}")
             for m in l["medan_wajib"]:
                 if kosong(b.get(m)):
@@ -54,7 +56,7 @@ def periksa(butir, daftar):
                 if asing:
                     salah.append(f"lapis_dipakai tidak dikenal: {asing}")
         hasil.append({"id": b.get("id"), "lapis": b.get("lapis"), "lulus": not salah, "salah": salah,
-                      "peringatan": ["tanda kurasi belum ditetapkan"] if b.get("lapis") == "K" else []})
+                      "peringatan": []})
     return hasil
 
 
