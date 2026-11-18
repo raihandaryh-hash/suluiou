@@ -13,7 +13,11 @@ uji.append(("aturan menyala hanya di seperempat terberat", all((x["nilai"] <= am
 uji.append(("tanpa placeholder tersisa kecuali {bekal_pengguna}", all(not re.search(r"\{(?!bekal_pengguna\})", x["tampil"] + x["jelajah_prompt_dewasa"] + x["jelajah_prompt_bawah_18"]) for _, x in semua)))
 uji.append(("prompt di bawah 18 tanpa bekal", all("{bekal_pengguna}" not in x["jelajah_prompt_bawah_18"] and "Kekuatan yang saya punya" not in x["jelajah_prompt_bawah_18"] for _, x in semua)))
 uji.append(("bekal = simpul peta keterampilan tayang", all(set(a["bekal"]) <= SIMPUL for a in d["aturan"])))
-uji.append(("arah peran berjamak (minimal 3)", all(len(a["arah_peran"]) >= 3 for a in d["aturan"])))
+uji.append(("tujuan profesi berjamak (minimal 4)", all(len(a["tujuan_profesi_contoh"]) >= 4 for a in d["aturan"])))
+TOLAK = re.compile(r"(?i)kepala |camat|lurah|bupati|wali ?kota|anggota dewan|kader|relawan|honor|pengurus|ketua |pendamping desa")
+uji.append(("penolak mekanis: tujuan tanpa jabatan struktural, kader, relawan, honor", all(not TOLAK.search(x) for a in d["aturan"] for x in a["tujuan_profesi_contoh"])))
+MEDAN = {"k1","k2","k3","k4","k5","k6","k7"}
+uji.append(("medan memakai id Jalan Bakti tayang", all(a["medan"] in MEDAN and all(st.startswith(a["medan"]) for st in a["sub_tantangan"]) for a in d["aturan"])))
 uji.append(("Garut: P1 dan P2", [x["aturan"] for x in d["wilayah"]["3205"]] == ["P1", "P2"]))
 for n, ok in uji: print("LULUS" if ok else "GAGAL", n)
 print(f"{sum(o for _, o in uji)}/{len(uji)} lulus"); sys.exit(0 if all(o for _, o in uji) else 1)
