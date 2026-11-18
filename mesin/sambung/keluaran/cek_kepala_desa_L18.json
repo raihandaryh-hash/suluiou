@@ -1,0 +1,17 @@
+{
+ "skema": "jejak-angka/1",
+ "dibuat": "18 Nov 2026, sesi mesin Sulu (L18, prasyarat A3)",
+ "label": "SINTESIS retrieval; angka dicek ke teks utuh publikasi BPS",
+ "angka_tayang": {"berkas": "src/data/insightContent.ts", "id": "kepemimpinan", "statNumber": "57,54%",
+   "statLabel": "kepala desa berpendidikan terakhir SMA, hampir 3 dari 4 berhenti di SMA ke bawah",
+   "source": "BPS, Statistik Keuangan Pemerintah Desa 2021", "main_sha": "4a35da30c545"},
+ "sumber_primer": {"judul": "Statistik Keuangan Pemerintah Desa 2021", "penerbit": "BPS", "katalog": "7203001", "rilis": "14 Feb 2022",
+   "url": "https://www.bps.go.id/id/publication/2022/02/14/41fe670547b1fb350d729e31", "halaman_pdf": 27, "sha256_awal": "f55f8bd2de7d98ca"},
+ "temuan": {
+   "SMA": "57,54 persen (COCOK)", "di_bawah_SMA": "17,01 persen", "S1": "23,62 persen", "S2_S3": "1,83 persen",
+   "SMA_ke_bawah": "74,55 persen (17,01 + 57,54); 'hampir 3 dari 4' COCOK",
+   "minimal_SMA": "82,99 persen menurut teks BPS",
+   "angka_lama_56_4": "TIDAK DITEMUKAN di publikasi ini; angka di dokumen lama keliru atau dari sumber lain"},
+ "kesegaran": "data 2021, umur 5 tahun (gerbang K: usang). Edisi Statistik Keuangan Pemerintah Desa 2024 dan 2025 (rilis 31 Des 2025) dicek: tidak memuat profil pendidikan kepala desa. Edisi 2021 tetap yang terbaru yang memuat angka ini.",
+ "putusan_mesin": "PUTUSAN ATAS DELEGASI 18 Nov 2026 (dapat dibalik): angka boleh tetap tayang dengan tahun data 2021 tertulis di samping angka (sudah ada di medan source); 0 perubahan angka. Statement 'mayoritas kepala desa berhenti di bangku SMA' cocok dengan 57,54 persen."
+}
