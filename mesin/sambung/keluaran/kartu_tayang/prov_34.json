@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 14.53,
+    "nilai": 13.41,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.53,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kulon Progo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,5 persen penduduk Kab. Kulon Progo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,4 persen penduduk Kab. Kulon Progo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3401",
@@ -54,8 +59,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.54,
+    "nilai": 10.98,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.54,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +73,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bantul yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Bantul tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,0 persen penduduk Kab. Bantul tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3402",
@@ -94,8 +104,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 14.15,
+    "nilai": 13.27,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.15,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +118,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gunungkidul yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,2 persen penduduk Kab. Gunungkidul tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,3 persen penduduk Kab. Gunungkidul tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3403",
@@ -134,8 +149,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.71,
+    "nilai": 6.55,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.71,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +163,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sleman yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Sleman tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,6 persen penduduk Kab. Sleman tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3404",
@@ -174,8 +194,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.14,
+    "nilai": 5.86,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.14,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +208,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Yogyakarta yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kota Yogyakarta tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,9 persen penduduk Kota Yogyakarta tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3471",

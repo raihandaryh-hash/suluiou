@@ -155,7 +155,7 @@
    "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MTM5IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "catatan_bps": "Catatan: 2011-2017: menggunakan penimbang hasil proyeksi penduduk tahun 2010-2035. Tahun 2016, Data tenaga kerja per Kabupaten/Kota tidak tersedia karena sampel tidak mencukupi. 2018-2021 menggunakan estimasi dari hasil proyeksi SUPAS 2015 Sumber: Survei Angkatan Kerja Nasional (Sakernas)",
-   "catatan_rse": "ADA: ",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
    "kab_ditandai": []
   },
   {
@@ -263,7 +263,7 @@
    "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/NzMjMg==/tingkat-pengangguran-terbuka-kabupaten-kota.html",
    "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "catatan_bps": "Catatan: Sakernas Agustus 2018-2021 menggunakan penimbang hasil SUPAS 2015. TPT (Tingkat Pengangguran Terbuka) adalah persentase jumlah pengangguran terhadap jumlah angkatan kerja. Sumber: BPS, Sakernas Agustus",
-   "catatan_rse": "ADA: ",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
    "kab_ditandai": []
   },
   {
@@ -305,7 +305,7 @@
    "tautan_baca": "https://jatim.bps.go.id/id/statistics-table/2/NTQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
    "tautan_jenis": "tabel provinsi, dicocokkan web",
    "catatan_bps": "Persentase jumlah pengangguran terhadap jumlah angkatan kerja. Mengindikasikan besarnya persentase angkatan kerja yang termasuk dalam pengangguran. TPT yang tinggi menunjukkan bahwa terdapat banyak angkatan kerja yang tidak terserap pada pasar kerja. - Indikator dihasilkan dari Survei Angkatan Kerja Nasional (SAKERNAS) Agustus - Tahun 2016 Tidak cukup sampel untuk melakukan estimasi sampai level Kabupaten/Kota",
-   "catatan_rse": "ADA: ",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
    "kab_ditandai": []
   },
   {
@@ -341,7 +341,7 @@
    "tautan_baca": "https://ntb.bps.go.id/id/statistics-table/2/NDE1IzI=/tingkat-pengangguran-terbuka-tpt-provinsi-ntb-menurut-kabupaten-kota.html",
    "tautan_jenis": "tabel provinsi, dicocokkan web",
    "catatan_bps": "- Data ketenagakerjaan kabupaten/kota 2016 tidak rilis dikarenakan keterbatasan jumlah sampel. - Data Ketenagakerjaan Kabupaten Lombok Utara Tahun 2018 tidak rilis dikarenakan ada bencana alam gempa bumi - Data ketenagakerjaan Kabupaten Lombok Utara mulai tahun 2010 baru tersedia bertepatan dengan terbentuk BPS Kabupaten Lombok Utara - Sumber: Survei Angkatan Kerja Nasional (Sakernas) - Agustus.",
-   "catatan_rse": "ADA: ",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
    "kab_ditandai": []
   },
   {
@@ -530,7 +530,7 @@
    "tautan_baca": "https://sulbar.bps.go.id/id/statistics-table/2/NTIwIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten.html",
    "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "catatan_bps": "Deskripsi : Tingkat Pengangguran Terbuka (TPT) Konsep Definisi : Persentase jumlah pengangguran terhadap jumlah angkatan kerja Cara Hitung : TPT = Jumlah Pengangguran x 100% / Jumlah Angkatan Kerja Interpretasi : TPT yang tinggi menunjukkan bahwa terdapat banyak angkatan kerja yang tidak terserap pada pasar kerja. Misal : TPT sebesar 6 persen, artinya dari 100 penduduk usia 15 tahun ke atas yang tersedia untuk memproduksi barang dan jasa (angkatan kerja) sebanyak 6 orang merupakan pengangguran. Kegunaan : Mengindikasikan besarnya persentase angkatan kerja yang termasuk dalam pengangguran. Cata",
-   "catatan_rse": "ADA: ",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
    "kab_ditandai": []
   },
   {

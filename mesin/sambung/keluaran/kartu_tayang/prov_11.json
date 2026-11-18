@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.52,
+    "nilai": 15.12,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.52,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Simeulue yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,5 persen penduduk Kab. Simeulue tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,1 persen penduduk Kab. Simeulue tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1101",
@@ -54,8 +59,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 17.07,
+    "nilai": 16.8,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 17.07,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +73,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Singkil yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 17,1 persen penduduk Kab. Aceh Singkil tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 16,8 persen penduduk Kab. Aceh Singkil tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1102",
@@ -94,8 +104,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.89,
+    "nilai": 9.63,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.89,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +118,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,9 persen penduduk Kab. Aceh Selatan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,6 persen penduduk Kab. Aceh Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1103",
@@ -134,8 +149,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.78,
+    "nilai": 9.71,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.78,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +163,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tenggara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,8 persen penduduk Kab. Aceh Tenggara tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,7 persen penduduk Kab. Aceh Tenggara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1104",
@@ -174,8 +194,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.24,
+    "nilai": 11.66,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.24,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +208,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Timur yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Aceh Timur tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,7 persen penduduk Kab. Aceh Timur tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1105",
@@ -214,8 +239,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.29,
+    "nilai": 12.5,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.29,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -223,7 +253,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tengah yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,3 persen penduduk Kab. Aceh Tengah tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,5 persen penduduk Kab. Aceh Tengah tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1106",
@@ -254,8 +284,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.5,
+    "nilai": 15.33,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.5,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -263,7 +298,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,5 persen penduduk Kab. Aceh Barat tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,3 persen penduduk Kab. Aceh Barat tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1107",
@@ -294,8 +329,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.05,
+    "nilai": 10.92,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.05,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -303,7 +343,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Besar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,1 persen penduduk Kab. Aceh Besar tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,9 persen penduduk Kab. Aceh Besar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1108",
@@ -334,8 +374,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.46,
+    "nilai": 16.45,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.46,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -343,7 +388,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,5 persen penduduk Kab. Pidie tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 16,5 persen penduduk Kab. Pidie tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1109",
@@ -374,8 +419,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.3,
+    "nilai": 10.41,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.3,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -383,7 +433,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bireuen yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Bireuen tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,4 persen penduduk Kab. Bireuen tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1110",
@@ -414,8 +464,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 14.27,
+    "nilai": 14.45,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.27,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -423,7 +478,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,3 persen penduduk Kab. Aceh Utara tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 14,5 persen penduduk Kab. Aceh Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1111",
@@ -454,8 +509,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.3,
+    "nilai": 12.95,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.3,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -463,7 +523,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Barat Daya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,3 persen penduduk Kab. Aceh Barat Daya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,0 persen penduduk Kab. Aceh Barat Daya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1112",
@@ -494,8 +554,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.77,
+    "nilai": 17.03,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.77,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -503,7 +568,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gayo Lues yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,8 persen penduduk Kab. Gayo Lues tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 17,0 persen penduduk Kab. Gayo Lues tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1113",
@@ -534,8 +599,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.84,
+    "nilai": 11.19,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.84,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -543,7 +613,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Tamiang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,8 persen penduduk Kab. Aceh Tamiang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,2 persen penduduk Kab. Aceh Tamiang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1114",
@@ -574,8 +644,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.42,
+    "nilai": 15.48,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.42,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -583,7 +658,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Nagan Raya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,4 persen penduduk Kab. Nagan Raya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,5 persen penduduk Kab. Nagan Raya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1115",
@@ -614,8 +689,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.37,
+    "nilai": 10.16,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.37,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -623,7 +703,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Aceh Jaya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Aceh Jaya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,2 persen penduduk Kab. Aceh Jaya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1116",
@@ -654,8 +734,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.2,
+    "nilai": 16.41,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.2,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -663,7 +748,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bener Meriah yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,2 persen penduduk Kab. Bener Meriah tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 16,4 persen penduduk Kab. Bener Meriah tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1117",
@@ -694,8 +779,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.12,
+    "nilai": 16.45,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.12,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -703,7 +793,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pidie Jaya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,1 persen penduduk Kab. Pidie Jaya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 16,5 persen penduduk Kab. Pidie Jaya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1118",
@@ -734,8 +824,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.45,
+    "nilai": 5.26,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.45,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -743,7 +838,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Banda Aceh yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,5 persen penduduk Kota Banda Aceh tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,3 persen penduduk Kota Banda Aceh tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1171",
@@ -774,8 +869,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.75,
+    "nilai": 12.62,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.75,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -783,7 +883,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sabang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,8 persen penduduk Kota Sabang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,6 persen penduduk Kota Sabang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1172",
@@ -814,8 +914,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.59,
+    "nilai": 7.9,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.59,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -823,7 +928,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Langsa yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,6 persen penduduk Kota Langsa tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,9 persen penduduk Kota Langsa tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1173",
@@ -854,8 +959,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.01,
+    "nilai": 8.85,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.01,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -863,7 +973,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Lhokseumawe yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,0 persen penduduk Kota Lhokseumawe tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,9 persen penduduk Kota Lhokseumawe tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1174",
@@ -894,8 +1004,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.88,
+    "nilai": 13.69,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.88,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -903,7 +1018,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Subulussalam yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,9 persen penduduk Kota Subulussalam tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,7 persen penduduk Kota Subulussalam tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1175",

@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.97,
+    "nilai": 12.55,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.97,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pacitan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,0 persen penduduk Kab. Pacitan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,6 persen penduduk Kab. Pacitan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3501",
@@ -54,8 +59,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.86,
+    "nilai": 8.57,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.86,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +73,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ponorogo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Ponorogo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,6 persen penduduk Kab. Ponorogo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3502",
@@ -94,8 +104,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.29,
+    "nilai": 9.62,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.29,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +118,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Trenggalek yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Trenggalek tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,6 persen penduduk Kab. Trenggalek tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3503",
@@ -134,8 +149,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.96,
+    "nilai": 5.73,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.96,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +163,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tulungagung yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,0 persen penduduk Kab. Tulungagung tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,7 persen penduduk Kab. Tulungagung tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3504",
@@ -174,8 +194,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 7.57,
+    "nilai": 7.19,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.57,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +208,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Blitar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,6 persen penduduk Kab. Blitar tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,2 persen penduduk Kab. Blitar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3505",
@@ -214,8 +239,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.81,
+    "nilai": 9.58,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.81,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -223,7 +253,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kediri yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,8 persen penduduk Kab. Kediri tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,6 persen penduduk Kab. Kediri tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3506",
@@ -254,8 +284,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.78,
+    "nilai": 8.67,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.78,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -263,7 +298,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Malang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,8 persen penduduk Kab. Malang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,7 persen penduduk Kab. Malang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3507",
@@ -294,8 +329,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.6,
+    "nilai": 8.33,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.6,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -303,7 +343,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lumajang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,6 persen penduduk Kab. Lumajang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,3 persen penduduk Kab. Lumajang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3508",
@@ -334,8 +374,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.67,
+    "nilai": 8.0,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.67,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -343,7 +388,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Jember yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Jember tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,0 persen penduduk Kab. Jember tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3509",
@@ -374,8 +419,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.13,
+    "nilai": 5.6,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.13,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -383,7 +433,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Banyuwangi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Banyuwangi tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,6 persen penduduk Kab. Banyuwangi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3510",
@@ -414,8 +464,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.2,
+    "nilai": 11.84,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.2,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -423,7 +478,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bondowoso yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,2 persen penduduk Kab. Bondowoso tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,8 persen penduduk Kab. Bondowoso tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3511",
@@ -454,8 +509,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.17,
+    "nilai": 10.83,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.17,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -463,7 +523,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Situbondo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Situbondo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,8 persen penduduk Kab. Situbondo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3512",
@@ -494,8 +554,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.31,
+    "nilai": 15.51,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.31,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -503,7 +568,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Probolinggo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,3 persen penduduk Kab. Probolinggo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,5 persen penduduk Kab. Probolinggo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3513",
@@ -534,8 +599,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.21,
+    "nilai": 7.44,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.21,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -543,7 +613,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pasuruan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,2 persen penduduk Kab. Pasuruan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,4 persen penduduk Kab. Pasuruan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3514",
@@ -574,8 +644,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.4,
+    "nilai": 4.38,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.4,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -583,7 +658,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sidoarjo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Sidoarjo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,4 persen penduduk Kab. Sidoarjo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3515",
@@ -614,8 +689,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.79,
+    "nilai": 8.34,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.79,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -623,7 +703,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Mojokerto yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,8 persen penduduk Kab. Mojokerto tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,3 persen penduduk Kab. Mojokerto tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3516",
@@ -654,8 +734,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.36,
+    "nilai": 8.19,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.36,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -663,7 +748,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Jombang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Jombang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,2 persen penduduk Kab. Jombang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3517",
@@ -694,8 +779,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.06,
+    "nilai": 9.7,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.06,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -703,7 +793,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Nganjuk yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Nganjuk tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,7 persen penduduk Kab. Nganjuk tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3518",
@@ -734,8 +824,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.4,
+    "nilai": 10.13,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.4,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -743,7 +838,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Madiun yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Madiun tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,1 persen penduduk Kab. Madiun tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3519",
@@ -774,8 +869,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.14,
+    "nilai": 8.97,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.14,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -783,7 +883,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Magetan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,1 persen penduduk Kab. Magetan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,0 persen penduduk Kab. Magetan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3520",
@@ -814,8 +914,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.62,
+    "nilai": 13.27,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.62,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -823,7 +928,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ngawi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,6 persen penduduk Kab. Ngawi tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,3 persen penduduk Kab. Ngawi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3521",
@@ -854,8 +959,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.49,
+    "nilai": 10.69,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.49,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -863,7 +973,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bojonegoro yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,5 persen penduduk Kab. Bojonegoro tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,7 persen penduduk Kab. Bojonegoro tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3522",
@@ -894,8 +1004,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 14.13,
+    "nilai": 12.92,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.13,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -903,7 +1018,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tuban yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,1 persen penduduk Kab. Tuban tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,9 persen penduduk Kab. Tuban tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3523",
@@ -934,8 +1049,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.03,
+    "nilai": 11.74,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.03,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -943,7 +1063,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lamongan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,0 persen penduduk Kab. Lamongan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,7 persen penduduk Kab. Lamongan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3524",
@@ -974,8 +1094,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.95,
+    "nilai": 9.8,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.95,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -983,7 +1108,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gresik yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,0 persen penduduk Kab. Gresik tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,8 persen penduduk Kab. Gresik tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3525",
@@ -1014,8 +1139,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 18.25,
+    "nilai": 17.24,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 18.25,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1023,7 +1153,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bangkalan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 18,3 persen penduduk Kab. Bangkalan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 17,2 persen penduduk Kab. Bangkalan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3526",
@@ -1054,8 +1184,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 20.61,
+    "nilai": 19.33,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 20.61,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1063,7 +1198,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sampang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 20,6 persen penduduk Kab. Sampang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 19,3 persen penduduk Kab. Sampang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3527",
@@ -1094,8 +1229,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.77,
+    "nilai": 12.05,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.77,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1103,7 +1243,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pamekasan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,8 persen penduduk Kab. Pamekasan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,1 persen penduduk Kab. Pamekasan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3528",
@@ -1134,8 +1274,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 17.02,
+    "nilai": 16.42,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 17.02,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1143,7 +1288,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sumenep yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 17,0 persen penduduk Kab. Sumenep tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 16,4 persen penduduk Kab. Sumenep tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3529",
@@ -1174,8 +1319,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.04,
+    "nilai": 5.75,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.04,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1183,7 +1333,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Kediri yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,0 persen penduduk Kota Kediri tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,8 persen penduduk Kota Kediri tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3571",
@@ -1214,8 +1364,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.6,
+    "nilai": 6.06,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.6,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1223,7 +1378,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Blitar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,6 persen penduduk Kota Blitar tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,1 persen penduduk Kota Blitar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3572",
@@ -1254,8 +1409,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.85,
+    "nilai": 3.68,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.85,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1263,7 +1423,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Malang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Malang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,7 persen penduduk Kota Malang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3573",
@@ -1294,8 +1454,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.69,
+    "nilai": 5.01,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.69,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1303,7 +1468,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Probolinggo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,7 persen penduduk Kota Probolinggo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,0 persen penduduk Kota Probolinggo tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3574",
@@ -1334,8 +1499,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.18,
+    "nilai": 5.96,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.18,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1343,7 +1513,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Pasuruan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,2 persen penduduk Kota Pasuruan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,0 persen penduduk Kota Pasuruan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3575",
@@ -1374,8 +1544,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.05,
+    "nilai": 4.91,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.05,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1383,7 +1558,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Mojokerto yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,1 persen penduduk Kota Mojokerto tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,9 persen penduduk Kota Mojokerto tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3576",
@@ -1414,8 +1589,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.89,
+    "nilai": 2.92,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.89,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1423,7 +1603,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Madiun yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,9 persen penduduk Kota Madiun tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 2,9 persen penduduk Kota Madiun tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3577",
@@ -1454,8 +1634,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.56,
+    "nilai": 3.32,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.56,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1463,7 +1648,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Surabaya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,6 persen penduduk Kota Surabaya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,3 persen penduduk Kota Surabaya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3578",
@@ -1494,8 +1679,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 2.86,
+    "nilai": 2.84,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov3500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.86,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -1503,7 +1693,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Batu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 2,9 persen penduduk Kota Batu tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 2,8 persen penduduk Kota Batu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.3579",

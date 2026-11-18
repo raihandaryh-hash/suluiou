@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.99,
+    "nilai": 6.66,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.99,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kuantan Singingi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Kuantan Singingi tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,7 persen penduduk Kab. Kuantan Singingi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1401",
@@ -54,8 +59,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.83,
+    "nilai": 5.58,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.83,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +73,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Indragiri Hulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Indragiri Hulu tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,6 persen penduduk Kab. Indragiri Hulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1402",
@@ -94,8 +104,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.95,
+    "nilai": 5.16,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.95,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +118,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Indragiri Hilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,0 persen penduduk Kab. Indragiri Hilir tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Indragiri Hilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1403",
@@ -134,8 +149,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 7.24,
+    "nilai": 7.42,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.24,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +163,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pelalawan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,4 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1404",
@@ -174,8 +194,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.4,
+    "nilai": 4.52,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.4,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +208,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Siak yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Siak tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,5 persen penduduk Kab. Siak tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1405",
@@ -214,8 +239,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.29,
+    "nilai": 6.52,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.29,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -223,7 +253,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kampar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Kampar tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,5 persen penduduk Kab. Kampar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1406",
@@ -254,8 +284,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.71,
+    "nilai": 8.3,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.71,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -263,7 +298,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Rokan Hulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,3 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1407",
@@ -294,8 +329,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.08,
+    "nilai": 6.45,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.08,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -303,7 +343,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bengkalis yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Bengkalis tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,5 persen penduduk Kab. Bengkalis tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1408",
@@ -334,8 +374,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 7.16,
+    "nilai": 7.26,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.16,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -343,7 +388,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Rokan Hilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Rokan Hilir tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,3 persen penduduk Kab. Rokan Hilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1409",
@@ -374,8 +419,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 20.51,
+    "nilai": 21.57,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 20.51,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -383,7 +433,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kepulauan Meranti yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 20,5 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 21,6 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1410",
@@ -414,8 +464,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.19,
+    "nilai": 2.96,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.19,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -423,7 +478,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Pekanbaru yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Pekanbaru tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,0 persen penduduk Kota Pekanbaru tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1471",
@@ -454,8 +509,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.08,
+    "nilai": 3.19,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.08,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -463,7 +523,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Dumai yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,1 persen penduduk Kota Dumai tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,2 persen penduduk Kota Dumai tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1473",

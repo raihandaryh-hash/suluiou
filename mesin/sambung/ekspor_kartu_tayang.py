@@ -15,6 +15,7 @@ from decimal import Decimal, ROUND_HALF_UP
 AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(AKAR, "kartu"))
 import kartu as K, isi_teks
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import tpt_catatan_bps
 # Paket titipan 5 (16 Nov 2026 23.10): medan tunggal tanda_hati_hati dicabut (kalimat lama keliru untuk TPT dan
 # berpola "X, bukan Y"). Gantinya teks per jenis (sama dengan kartuDaerahContent.ts di main 77c7f86) dan catatan
 # per kartu untuk kab/kota yang BPS tandai RSE (dari tpt_catatan_bps.json). Raihan 16 Nov 23.21: "gunakan yang terbaik saja".
@@ -33,6 +34,18 @@ SUMBER = {
    "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
    "catatan": "tabel nasional var 2824; judul halaman dicek 16 Nov 2026. Tabel provinsi per kode provinsi ada di indeks provinsi.<kode>.tautan_baca_tpt"},
 }
+IND_DERET = {"kemiskinan-kabkota": "p0", "pengangguran-terbuka-kabkota": "tpt"}
+JUDUL_TABEL = {"kemiskinan-kabkota": "Persentase Penduduk Miskin menurut Kabupaten/Kota", "pengangguran-terbuka-kabkota": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota"}
+def _terbaru():
+    import csv as _c
+    out = {}
+    for r in _c.DictReader(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "keluaran", "deret_kemiskinan_tpt.csv"), encoding="utf-8")):
+        if r["tingkat"] != "kabkota" or not r["sumber"].startswith("tabel provinsi var "): continue
+        m = re.match(r"tabel provinsi var (\d+) \((\d{4})_", r["sumber"]); th = int(r["tahun"])
+        key = (r["kode_bps"], r["indikator"])
+        if m and (key not in out or th > out[key][0]): out[key] = (th, float(r["nilai"]), int(m.group(1)), m.group(2))
+    return out
+TERBARU = _terbaru()
 def bangun():
     tpt = json.load(open(CATATAN_TPT, encoding="utf-8"))
     rse = {x["kode_bps"]: x for x in tpt["kab_ditandai_rse"] if x["kode_bps"]}
@@ -63,16 +76,33 @@ def bangun():
             r["ringkasan"] = r["ringkasan"].replace(a + " persen", b_ + " persen")
         wil = {"kode_bps": kode_baru(lama), "nama": nama, "tingkat": k["wilayah"]["tingkat"]}
         if kode_baru(lama) != lama: wil["kode_bps_lama"] = lama
+        angka = {"nilai": ind["nilai"], "satuan": ind["satuan"], "tahun_data": ind["tahun_data"], "sumber_id": ind["sumber_id"]}
+        catatan, catatan_t = ((CATATAN_RSE, rse[lama]["tautan_tabel"]) if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and lama in rse else (None, None))
+        sebelumnya = None
+        br = TERBARU.get((kode_baru(lama), IND_DERET[k["jenis_kebutuhan"]]))
+        if br and br[0] > int(ind["tahun_data"]):   # KEPUTUSAN Raihan 18 Nov 2026 13.56: "Soal angka 2026, saya putuskan tampil."
+            th, nilai, var, dom = br
+            lama_s, baru_s = setengah(ind["nilai"]) + " persen", setengah(nilai) + " persen"
+            assert r["ringkasan"].count(lama_s) == 1 and r["ringkasan"].count(str(ind["tahun_data"])) == 1, (k["id"], r["ringkasan"])
+            r["ringkasan"] = r["ringkasan"].replace(lama_s, baru_s).replace(str(ind["tahun_data"]), str(th))
+            sid = f"{IND_DERET[k['jenis_kebutuhan']]}-{th}-prov{dom}"
+            SUMBER.setdefault(sid, {"penerbit": "Badan Pusat Statistik", "judul": JUDUL_TABEL[k["jenis_kebutuhan"]] + f" (tabel BPS provinsi, var {var})",
+                "periode_survei": ("Susenas Maret " if IND_DERET[k["jenis_kebutuhan"]] == "p0" else "Sakernas Agustus ") + str(th),
+                "tautan_baca": tpt_catatan_bps.tautan(dom, var, JUDUL_TABEL[k["jenis_kebutuhan"]]) if dom in tpt_catatan_bps.SUB else SUMBER[ind["sumber_id"]]["tautan_baca"],
+                "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+                "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"})
+            sebelumnya = {"nilai": ind["nilai"], "tahun_data": ind["tahun_data"], "sumber_id": ind["sumber_id"]}
+            angka = {"nilai": nilai, "satuan": ind["satuan"], "tahun_data": th, "sumber_id": sid}
+            if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota": catatan, catatan_t = None, None  # tabel 2026 tanpa catatan RSE
         prov[kode_baru(lama)[:2]].append({
             "id": k["id"], "wilayah": wil, "jenis_kebutuhan": k["jenis_kebutuhan"],
-            "angka": {"nilai": ind["nilai"], "satuan": ind["satuan"], "tahun_data": ind["tahun_data"], "sumber_id": ind["sumber_id"]},
+            "angka": angka, **({"angka_sebelumnya": sebelumnya} if sebelumnya else {}),
             "hati_hati": ind["keandalan"] == "hati_hati",
-            "catatan_bps": (CATATAN_RSE if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and lama in rse else None),
-            "catatan_bps_tautan": (rse[lama]["tautan_tabel"] if k["jenis_kebutuhan"] == "pengangguran-terbuka-kabkota" and lama in rse else None),
+            "catatan_bps": catatan, "catatan_bps_tautan": catatan_t,
             "judul": r["judul"], "ringkasan": r["ringkasan"]})
     keluar = os.path.join(AKAR, "sambung", "keluaran", "kartu_tayang"); os.makedirs(keluar, exist_ok=True)
     jenis = sorted({k["jenis_kebutuhan"] for k in kart})
-    idx = {"skema": "kartu-tayang/3", "perubahan_dari_2": "tanda_hati_hati (satu kalimat) dicabut, diganti hati_hati_per_jenis; kartu TPT kab/kota yang BPS tandai RSE membawa catatan_bps + catatan_bps_tautan; sakernas-agustus punya tautan_baca; tiap provinsi membawa tautan_baca_tpt (tabel BPS provinsi, cadangan tabel nasional)",
+    idx = {"skema": "kartu-tayang/3", "perubahan_3_1": "angka BPS 2026 (tabel provinsi) tampil bila tersedia, KEPUTUSAN Raihan 18 Nov 2026 13.56; angka 2025 di angka_sebelumnya; sumber per provinsi", "perubahan_dari_2": "tanda_hati_hati (satu kalimat) dicabut, diganti hati_hati_per_jenis; kartu TPT kab/kota yang BPS tandai RSE membawa catatan_bps + catatan_bps_tautan; sakernas-agustus punya tautan_baca; tiap provinsi membawa tautan_baca_tpt (tabel BPS provinsi, cadangan tabel nasional)",
            "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota",
            "hati_hati_per_jenis": HATI_PER_JENIS, "sumber": SUMBER, "jenis_kebutuhan": jenis, "provinsi": {}}
     induk = {kode_baru(c): v for c, v in induk.items()}

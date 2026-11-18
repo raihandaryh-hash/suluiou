@@ -1,5 +1,6 @@
 {
  "skema": "kartu-tayang/3",
+ "perubahan_3_1": "angka BPS 2026 (tabel provinsi) tampil bila tersedia, KEPUTUSAN Raihan 18 Nov 2026 13.56; angka 2025 di angka_sebelumnya; sumber per provinsi",
  "perubahan_dari_2": "tanda_hati_hati (satu kalimat) dicabut, diganti hati_hati_per_jenis; kartu TPT kab/kota yang BPS tandai RSE membawa catatan_bps + catatan_bps_tautan; sakernas-agustus punya tautan_baca; tiap provinsi membawa tautan_baca_tpt (tabel BPS provinsi, cadangan tabel nasional)",
  "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota",
  "hati_hati_per_jenis": {
@@ -21,6 +22,222 @@
    "relevansi": "ukuran resmi pengangguran terbuka tingkat kab/kota; sebagian kab/kota bertanda kurang teliti oleh BPS (catatan_bps di kartu)",
    "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
    "catatan": "tabel nasional var 2824; judul halaman dicek 16 Nov 2026. Tabel provinsi per kode provinsi ada di indeks provinsi.<kode>.tautan_baca_tpt"
+  },
+  "p0-2026-prov1100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 42)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://aceh.bps.go.id/id/statistics-table/2/NDIjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 34)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MzQjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1400": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 43)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://riau.bps.go.id/id/statistics-table/2/NDMjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 943)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jambi.bps.go.id/id/statistics-table/2/OTQzIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 604)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sumsel.bps.go.id/id/statistics-table/2/NjA0IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 919)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/OTE5IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3400": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 142)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jogja.bps.go.id/id/statistics-table/2/MTQyIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 497)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jatim.bps.go.id/id/statistics-table/2/NDk3IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 78)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://banten.bps.go.id/id/statistics-table/2/NzgjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov5100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 125)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/MTI1IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov5300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 584)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://ntt.bps.go.id/id/statistics-table/2/NTg0IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 69)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kalteng.bps.go.id/id/statistics-table/2/NjkjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 103)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MTAzIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 71)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kaltara.bps.go.id/id/statistics-table/2/NzEjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov7200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 90)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTAjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov7500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 37)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://gorontalo.bps.go.id/id/statistics-table/2/MzcjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov8100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 118)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://maluku.bps.go.id/id/statistics-table/2/MTE4IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov8200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 295)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://malut.bps.go.id/id/statistics-table/2/Mjk1IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov9100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 179)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://papuabarat.bps.go.id/id/statistics-table/2/MTc5IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov1300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 139)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MTM5IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov1900": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 95)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://babel.bps.go.id/id/statistics-table/2/OTUjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov3200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 73)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/NzMjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov3600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 157)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://banten.bps.go.id/id/statistics-table/2/MTU3IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 51)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kalbar.bps.go.id/id/statistics-table/2/NTEjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 115)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kaltara.bps.go.id/id/statistics-table/2/MTE1IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov7200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 92)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTIjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov8200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 250)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://malut.bps.go.id/id/statistics-table/2/MjUwIzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
   }
  },
  "jenis_kebutuhan": [

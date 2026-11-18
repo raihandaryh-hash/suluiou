@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.08,
+    "nilai": 9.48,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.08,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ogan Komering Ulu yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Ogan Komering Ulu tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,5 persen penduduk Kab. Ogan Komering Ulu tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1601",
@@ -54,8 +59,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.84,
+    "nilai": 11.48,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.84,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +73,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ogan Komering Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,8 persen penduduk Kab. Ogan Komering Ilir tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,5 persen penduduk Kab. Ogan Komering Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1602",
@@ -94,8 +104,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.45,
+    "nilai": 8.98,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.45,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +118,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Muara Enim yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,5 persen penduduk Kab. Muara Enim tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,0 persen penduduk Kab. Muara Enim tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1603",
@@ -134,8 +149,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.69,
+    "nilai": 11.04,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.69,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +163,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lahat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,7 persen penduduk Kab. Lahat tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,0 persen penduduk Kab. Lahat tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1604",
@@ -174,8 +194,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 12.67,
+    "nilai": 12.59,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.67,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +208,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Musi Rawas yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 12,7 persen penduduk Kab. Musi Rawas tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,6 persen penduduk Kab. Musi Rawas tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1605",
@@ -214,8 +239,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.97,
+    "nilai": 9.07,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.97,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -223,7 +253,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Musi Banyuasin yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,0 persen penduduk Kab. Musi Banyuasin tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,1 persen penduduk Kab. Musi Banyuasin tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1606",
@@ -254,8 +284,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.48,
+    "nilai": 8.28,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.48,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -263,7 +298,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Banyuasin yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,5 persen penduduk Kab. Banyuasin tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,3 persen penduduk Kab. Banyuasin tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1607",
@@ -294,8 +329,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.17,
+    "nilai": 8.89,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.17,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -303,7 +343,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ogan Komering Ulu Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,2 persen penduduk Kab. Ogan Komering Ulu Selatan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,9 persen penduduk Kab. Ogan Komering Ulu Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1608",
@@ -334,8 +374,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 8.86,
+    "nilai": 8.55,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.86,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -343,7 +388,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ogan Komering Ulu Timur yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Ogan Komering Ulu Timur tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,6 persen penduduk Kab. Ogan Komering Ulu Timur tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1609",
@@ -374,8 +419,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 11.69,
+    "nilai": 11.01,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.69,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -383,7 +433,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Ogan Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 11,7 persen penduduk Kab. Ogan Ilir tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,0 persen penduduk Kab. Ogan Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1610",
@@ -414,8 +464,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.48,
+    "nilai": 10.29,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.48,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -423,7 +478,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Empat Lawang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Empat Lawang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,3 persen penduduk Kab. Empat Lawang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1611",
@@ -454,8 +509,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.27,
+    "nilai": 8.86,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.27,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -463,7 +523,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Penukal Abab Lematang Ilir yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,3 persen penduduk Kab. Penukal Abab Lematang Ilir tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,9 persen penduduk Kab. Penukal Abab Lematang Ilir tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1612",
@@ -494,8 +554,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.25,
+    "nilai": 11.7,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.25,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -503,7 +568,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Musi Rawas Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,3 persen penduduk Kab. Musi Rawas Utara tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 11,7 persen penduduk Kab. Musi Rawas Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1613",
@@ -534,8 +599,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.04,
+    "nilai": 8.35,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.04,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -543,7 +613,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Palembang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,0 persen penduduk Kota Palembang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 8,4 persen penduduk Kota Palembang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1671",
@@ -574,8 +644,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 9.75,
+    "nilai": 9.37,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.75,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -583,7 +658,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Prabumulih yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 9,8 persen penduduk Kota Prabumulih tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 9,4 persen penduduk Kota Prabumulih tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1672",
@@ -614,8 +689,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 7.7,
+    "nilai": 7.12,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.7,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -623,7 +703,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Pagar Alam yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 7,7 persen penduduk Kota Pagar Alam tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 7,1 persen penduduk Kota Pagar Alam tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1673",
@@ -654,8 +734,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 10.49,
+    "nilai": 10.08,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1600"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.49,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -663,7 +748,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Lubuk Linggau yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 10,5 persen penduduk Kota Lubuk Linggau tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 10,1 persen penduduk Kota Lubuk Linggau tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1674",

@@ -24,7 +24,8 @@ TERCEK = {("5300", 522), ("3500", 54), ("6500", 115), ("3300", 64), ("3600", 157
 NASIONAL = {"judul": "Tingkat Pengangguran Terbuka menurut Jenis Kelamin dan Kabupaten/Kota",
             "tautan": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
             "dicek": "16 Nov 2026, judul halaman cocok (pengambil halaman Parallel)"}
-POLA_RSE = re.compile(r"RSE|relative standard error|kurang teliti|hati-hati dalam menginterpretasi", re.I)
+# "RSE" peka huruf: dengan re.I ia cocok di dalam kata "persentase" (salah tangkap di 5 provinsi, diperbaiki 18 Nov 2026)
+POLA_RSE = re.compile(r"\bRSE\b|(?i:relative standard error|kurang teliti|hati-hati dalam menginterpretasi)")
 
 def teks(v):
     t = re.sub(r"<[^>]+>", " ", (v.get("def") or "") + " " + (v.get("note") or ""))
@@ -80,7 +81,7 @@ def utama(folder, keluar):
         for n in nama:
             k = kode.get(dom[:2], {}).get(nama_kunci(n))
             cocok.append({"nama": n, "kode_bps": k})
-            ditandai.append({"kode_bps": k, "nama": n, "provinsi_domain": dom, "tahun": 2025,
+            ditandai.append({"kode_bps": k, "nama": n, "provinsi_domain": dom, "tahun": int(th),
                              "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
                              "tautan_tabel": tautan(dom, var, v["label"])})
         prov.append({"domain": dom, "tabel_provinsi": {"var": var, "judul": v["label"], "tahun_tabel_terbaru": th,

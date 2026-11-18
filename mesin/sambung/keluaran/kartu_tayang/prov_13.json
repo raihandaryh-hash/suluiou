@@ -14,8 +14,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.22,
+    "nilai": 13.16,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.22,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -23,7 +28,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kepulauan Mentawai yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Kepulauan Mentawai tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,2 persen penduduk Kab. Kepulauan Mentawai tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1301",
@@ -34,8 +39,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 1.53,
+    "nilai": 1.65,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.53,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -43,7 +53,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kepulauan Mentawai yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Mentawai tercatat 1,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kepulauan Mentawai tercatat 1,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1302",
@@ -54,8 +64,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.52,
+    "nilai": 6.39,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.52,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -63,7 +78,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pesisir Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,5 persen penduduk Kab. Pesisir Selatan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,4 persen penduduk Kab. Pesisir Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1302",
@@ -74,8 +89,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.1,
+    "nilai": 5.3,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.1,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -83,7 +103,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pesisir Selatan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pesisir Selatan tercatat 5,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pesisir Selatan tercatat 5,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1303",
@@ -94,8 +114,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.52,
+    "nilai": 6.33,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.52,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -103,7 +128,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Solok yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,5 persen penduduk Kab. Solok tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,3 persen penduduk Kab. Solok tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1303",
@@ -114,8 +139,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.7,
+    "nilai": 4.58,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.7,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -123,7 +153,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Solok yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Solok tercatat 4,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Solok tercatat 4,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1304",
@@ -134,8 +164,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.15,
+    "nilai": 5.21,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.15,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -143,7 +178,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sijunjung yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,2 persen penduduk Kab. Sijunjung tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Sijunjung tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1304",
@@ -154,8 +189,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.59,
+    "nilai": 4.52,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.59,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -163,7 +203,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sijunjung yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sijunjung tercatat 4,6 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sijunjung tercatat 4,5 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1305",
@@ -174,8 +214,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.59,
+    "nilai": 3.44,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.59,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -183,7 +228,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tanah Datar yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,6 persen penduduk Kab. Tanah Datar tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,4 persen penduduk Kab. Tanah Datar tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1305",
@@ -194,8 +239,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.26,
+    "nilai": 4.85,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.26,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -203,7 +253,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tanah Datar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tanah Datar tercatat 5,3 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tanah Datar tercatat 4,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1306",
@@ -214,8 +264,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.86,
+    "nilai": 5.56,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.86,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -223,7 +278,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Padang Pariaman yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,9 persen penduduk Kab. Padang Pariaman tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,6 persen penduduk Kab. Padang Pariaman tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1306",
@@ -234,8 +289,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 6.48,
+    "nilai": 6.43,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.48,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -243,7 +303,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Padang Pariaman yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Padang Pariaman tercatat 6,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Padang Pariaman tercatat 6,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1307",
@@ -254,8 +314,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.97,
+    "nilai": 6.07,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.97,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -263,7 +328,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Agam yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,0 persen penduduk Kab. Agam tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,1 persen penduduk Kab. Agam tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1307",
@@ -274,8 +339,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.71,
+    "nilai": 4.75,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.71,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -283,7 +353,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Agam yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Agam tercatat 4,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Agam tercatat 4,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1308",
@@ -294,8 +364,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.1,
+    "nilai": 5.86,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.1,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -303,7 +378,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lima Puluh Kota yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Lima Puluh Kota tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,9 persen penduduk Kab. Lima Puluh Kota tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1308",
@@ -314,8 +389,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.78,
+    "nilai": 3.71,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.78,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -323,7 +403,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Lima Puluh Kota yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lima Puluh Kota tercatat 3,8 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Lima Puluh Kota tercatat 3,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1309",
@@ -334,8 +414,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.02,
+    "nilai": 5.84,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.02,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -343,7 +428,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pasaman yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,0 persen penduduk Kab. Pasaman tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,8 persen penduduk Kab. Pasaman tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1309",
@@ -354,8 +439,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.29,
+    "nilai": 5.23,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.29,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -363,7 +453,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pasaman yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pasaman tercatat 5,3 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pasaman tercatat 5,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1310",
@@ -374,8 +464,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.0,
+    "nilai": 5.87,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.0,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -383,7 +478,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Solok Selatan yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,0 persen penduduk Kab. Solok Selatan tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,9 persen penduduk Kab. Solok Selatan tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1310",
@@ -394,8 +489,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.13,
+    "nilai": 2.18,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.13,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -403,7 +503,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Solok Selatan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Solok Selatan tercatat 2,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Solok Selatan tercatat 2,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1311",
@@ -414,8 +514,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.61,
+    "nilai": 4.35,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.61,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -423,7 +528,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Dharmasraya yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 4,6 persen penduduk Kab. Dharmasraya tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,4 persen penduduk Kab. Dharmasraya tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1311",
@@ -434,8 +539,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.51,
+    "nilai": 5.15,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.51,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -443,7 +553,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Dharmasraya yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Dharmasraya tercatat 5,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Dharmasraya tercatat 5,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1312",
@@ -454,8 +564,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 6.3,
+    "nilai": 6.1,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.3,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -463,7 +578,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pasaman Barat yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 6,3 persen penduduk Kab. Pasaman Barat tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 6,1 persen penduduk Kab. Pasaman Barat tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1312",
@@ -474,8 +589,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.95,
+    "nilai": 5.93,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.95,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -483,7 +603,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pasaman Barat yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pasaman Barat tercatat 6,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pasaman Barat tercatat 5,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1371",
@@ -494,8 +614,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.63,
+    "nilai": 3.75,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.63,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -503,7 +628,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Padang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,6 persen penduduk Kota Padang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,8 persen penduduk Kota Padang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1371",
@@ -514,8 +639,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 9.7,
+    "nilai": 9.62,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.7,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -523,7 +653,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Padang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Padang tercatat 9,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Padang tercatat 9,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1372",
@@ -534,8 +664,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 2.91,
+    "nilai": 3.53,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.91,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -543,7 +678,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Solok yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 2,9 persen penduduk Kota Solok tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,5 persen penduduk Kota Solok tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1372",
@@ -554,8 +689,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.87,
+    "nilai": 3.83,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.87,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -563,7 +703,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Solok yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Solok tercatat 3,9 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Solok tercatat 3,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1373",
@@ -574,8 +714,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 2.72,
+    "nilai": 2.71,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.72,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -583,7 +728,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sawahlunto yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 2,7 persen penduduk Kota Sawahlunto tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 2,7 persen penduduk Kota Sawahlunto tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1373",
@@ -594,8 +739,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.64,
+    "nilai": 4.63,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.64,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -603,7 +753,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Sawahlunto yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Sawahlunto tercatat 4,6 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Sawahlunto tercatat 4,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1374",
@@ -614,8 +764,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.97,
+    "nilai": 5.11,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.97,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -623,7 +778,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Padang Panjang yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,0 persen penduduk Kota Padang Panjang tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 5,1 persen penduduk Kota Padang Panjang tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1374",
@@ -634,8 +789,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.07,
+    "nilai": 4.82,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.07,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -643,7 +803,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Padang Panjang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Padang Panjang tercatat 5,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Padang Panjang tercatat 4,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1375",
@@ -654,8 +814,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.78,
+    "nilai": 3.61,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.78,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -663,7 +828,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bukittinggi yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,8 persen penduduk Kota Bukittinggi tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,6 persen penduduk Kota Bukittinggi tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1375",
@@ -674,8 +839,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.41,
+    "nilai": 4.35,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.41,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -683,7 +853,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Bukittinggi yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bukittinggi tercatat 4,4 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Bukittinggi tercatat 4,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1376",
@@ -694,8 +864,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 4.95,
+    "nilai": 4.84,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.95,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -703,7 +878,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Payakumbuh yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,0 persen penduduk Kota Payakumbuh tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,8 persen penduduk Kota Payakumbuh tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1376",
@@ -714,8 +889,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.96,
+    "nilai": 4.88,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.96,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -723,7 +903,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Payakumbuh yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Payakumbuh tercatat 5,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Payakumbuh tercatat 4,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.1377",
@@ -734,8 +914,13 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 3.83,
+    "nilai": 3.61,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.83,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
@@ -743,7 +928,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Pariaman yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 3,8 persen penduduk Kota Pariaman tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 3,6 persen penduduk Kota Pariaman tercatat sebagai penduduk miskin."
   },
   {
    "id": "pengangguran-terbuka-kabkota.1377",
@@ -754,8 +939,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.16,
+    "nilai": 5.13,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.16,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -763,7 +953,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Pariaman yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pariaman tercatat 5,2 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Pariaman tercatat 5,1 persen dari angkatan kerja."
   }
  ]
 }
