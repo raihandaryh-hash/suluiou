@@ -4,16 +4,10 @@
  "cara": "medan def dan note tabel TPT kab/kota provinsi (BPS WebAPI, berkas mentah laptop MESIN\\mentah\\bps, panen 12-13 Nov 2026) dipindai pola RSE; nama kab dicocokkan ke kode BPS lewat DIKK 2025 Tabel 2.1",
  "cakupan": {
   "provinsi_lama_34": 34,
-  "punya_tabel_provinsi": 25,
+  "punya_tabel_provinsi": 31,
   "belum_diperiksa": [
-   "1200",
-   "1600",
    "1700",
-   "2100",
-   "5100",
-   "6300",
    "7100",
-   "7300",
    "7500"
   ],
   "empat_provinsi_papua_baru": "tidak punya domain di daftar WebAPI; angka kartu dari tabel nasional (tanpa catatan RSE)"
@@ -138,11 +132,17 @@
   },
   {
    "domain": "1200",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
-   "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "tabel_provinsi": {
+    "var": 44,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Penduduk Umur 15 Tahun Keatas Manurut Kab/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-13 11:32:40"
+   },
+   "tautan_baca": "https://sumut.bps.go.id/id/statistics-table/2/NDQjMg==/tingkat-pengangguran-terbuka-tpt-penduduk-umur-15-tahun-keatas-manurut-kab-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber: BPS, Survei Angkatan Kerja Nasional (Sakernas) Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "1300",
@@ -188,11 +188,17 @@
   },
   {
    "domain": "1600",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
-   "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "tabel_provinsi": {
+    "var": 334,
+    "judul": "Tingkat Pengangguran",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2024-11-06 13:07:31"
+   },
+   "tautan_baca": "https://sumsel.bps.go.id/id/statistics-table/2/MzM0IzI=/tingkat-pengangguran.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber:Survei Angkatan Kerja Nasional Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "1700",
@@ -232,11 +238,17 @@
   },
   {
    "domain": "2100",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
+   "tabel_provinsi": {
+    "var": 224,
+    "judul": "Tingkat Pengangguran Terbuka",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 15:23:43"
+   },
+   "tautan_baca": "https://kepri.bps.go.id/id/statistics-table/2/MjI0IzI=/tingkat-pengangguran-terbuka.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "3100",
@@ -324,11 +336,17 @@
   },
   {
    "domain": "5100",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
-   "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "tabel_provinsi": {
+    "var": 288,
+    "judul": "Persentase Pengangguran Provinsi Bali Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 13:57:42"
+   },
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/persentase-pengangguran-provinsi-bali-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Data ketenagakerjaan kabupaten/kota 2016 tidak rilis dikarenakan keterbatasan jumlah sampel. Sumber: Survei Angkatan Kerja Nasional (Sakernas) - Agustus.",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "5200",
@@ -433,11 +451,17 @@
   },
   {
    "domain": "6300",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
-   "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "tabel_provinsi": {
+    "var": 37,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Provinsi Kalimantan Selatan",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 13:02:39"
+   },
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-kalimantan-selatan.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Untuk tahun 2016, angka estimasi hanya sampai level Provinsi saja.",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "6400",
@@ -491,11 +515,17 @@
   },
   {
    "domain": "7300",
-   "tabel_provinsi": null,
-   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_jenis": "tabel nasional (cadangan)",
-   "catatan_bps": null,
-   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+   "tabel_provinsi": {
+    "var": 466,
+    "judul": "Tingkat Pengangguran Terbuka (Agustus)",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-10 13:38:14"
+   },
+   "tautan_baca": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-agustus.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Badan Pusat Statistika Provinsi Sulawesi Selatan",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
   },
   {
    "domain": "7400",

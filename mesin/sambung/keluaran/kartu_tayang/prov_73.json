@@ -34,8 +34,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.48,
+    "nilai": 2.62,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.48,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -43,7 +48,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Kepulauan Selayar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Selayar tercatat 2,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kepulauan Selayar tercatat 2,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7302",
@@ -76,6 +81,11 @@
    "angka": {
     "nilai": 2.12,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.12,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -83,7 +93,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bulukumba yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bulukumba tercatat 2,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bulukumba tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7303",
@@ -114,8 +124,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.74,
+    "nilai": 3.64,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.74,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -123,7 +138,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bantaeng yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bantaeng tercatat 3,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bantaeng tercatat 3,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7304",
@@ -154,8 +169,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 1.88,
+    "nilai": 1.96,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.88,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -163,7 +183,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Jeneponto yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Jeneponto tercatat 1,9 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Jeneponto tercatat 2,0 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7305",
@@ -194,8 +214,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.76,
+    "nilai": 3.83,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.76,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -203,7 +228,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Takalar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Takalar tercatat 3,8 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Takalar tercatat 3,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7306",
@@ -234,8 +259,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.25,
+    "nilai": 4.83,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.25,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -243,7 +273,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gowa yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gowa tercatat 4,3 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Gowa tercatat 4,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7307",
@@ -274,8 +304,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.1,
+    "nilai": 2.11,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.1,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -283,7 +318,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sinjai yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sinjai tercatat 2,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sinjai tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7308",
@@ -314,8 +349,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.13,
+    "nilai": 4.47,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.13,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -323,7 +363,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Maros yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Maros tercatat 4,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Maros tercatat 4,5 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7309",
@@ -354,8 +394,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.9,
+    "nilai": 3.92,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.9,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -363,7 +408,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pangkajene Dan Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pangkajene Dan Kepulauan tercatat 3,9 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pangkajene Dan Kepulauan tercatat 3,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7310",
@@ -394,8 +439,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 5.07,
+    "nilai": 4.63,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.07,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -403,7 +453,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Barru yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Barru tercatat 5,1 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Barru tercatat 4,6 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7311",
@@ -434,8 +484,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.75,
+    "nilai": 2.4,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.75,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -443,7 +498,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bone yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bone tercatat 2,8 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bone tercatat 2,4 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7312",
@@ -474,8 +529,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.01,
+    "nilai": 3.93,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.01,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -483,7 +543,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Soppeng yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Soppeng tercatat 4,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Soppeng tercatat 3,9 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7313",
@@ -514,8 +574,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.47,
+    "nilai": 3.15,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.47,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -523,7 +588,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Wajo yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Wajo tercatat 3,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Wajo tercatat 3,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7314",
@@ -554,8 +619,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.36,
+    "nilai": 3.51,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.36,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -563,7 +633,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Sidenreng Rappang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sidenreng Rappang tercatat 3,4 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sidenreng Rappang tercatat 3,5 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7315",
@@ -594,8 +664,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.65,
+    "nilai": 3.66,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.65,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -603,7 +678,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pinrang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pinrang tercatat 3,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pinrang tercatat 3,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7316",
@@ -634,8 +709,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 1.78,
+    "nilai": 1.7,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.78,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -643,7 +723,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Enrekang yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Enrekang tercatat 1,8 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Enrekang tercatat 1,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7317",
@@ -674,8 +754,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.71,
+    "nilai": 3.17,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.71,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -683,7 +768,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Luwu yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Luwu tercatat 3,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu tercatat 3,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7318",
@@ -714,8 +799,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.44,
+    "nilai": 3.84,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.44,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -723,7 +813,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Tana Toraja yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Tana Toraja tercatat 3,4 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tana Toraja tercatat 3,8 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7322",
@@ -754,8 +844,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.24,
+    "nilai": 2.28,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.24,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -763,7 +858,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Luwu Utara yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Luwu Utara tercatat 2,2 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu Utara tercatat 2,3 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7325",
@@ -794,8 +889,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 3.7,
+    "nilai": 3.22,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.7,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -803,7 +903,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Luwu Timur yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Luwu Timur tercatat 3,7 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu Timur tercatat 3,2 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7326",
@@ -834,8 +934,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 2.01,
+    "nilai": 2.12,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.01,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -843,7 +948,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Toraja Utara yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Toraja Utara tercatat 2,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Toraja Utara tercatat 2,1 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7371",
@@ -874,8 +979,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 9.6,
+    "nilai": 9.67,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.6,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -883,7 +993,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Makassar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Makassar tercatat 9,6 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Makassar tercatat 9,7 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7372",
@@ -914,8 +1024,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 4.98,
+    "nilai": 5.01,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.98,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -923,7 +1038,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Parepare yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Parepare tercatat 5,0 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Parepare tercatat 5,0 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.7373",
@@ -954,8 +1069,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 7.53,
+    "nilai": 7.51,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.53,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -963,7 +1083,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Palopo yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palopo tercatat 7,5 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Palopo tercatat 7,5 persen dari angkatan kerja."
   }
  ]
 }

@@ -39,8 +39,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 1.64,
+    "nilai": 1.54,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.64,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -48,7 +53,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Jembrana yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Jembrana tercatat 1,6 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Jembrana tercatat 1,5 persen dari angkatan kerja."
   },
   {
    "id": "kemiskinan-kabkota.5102",
@@ -259,8 +264,13 @@
    },
    "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
    "angka": {
-    "nilai": 1.41,
+    "nilai": 1.34,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.41,
     "tahun_data": 2025,
     "sumber_id": "sakernas-agustus"
    },
@@ -268,7 +278,7 @@
    "catatan_bps": null,
    "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Denpasar yang ingin bekerja dan belum mendapat pekerjaan",
-   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Denpasar tercatat 1,4 persen dari angkatan kerja."
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Denpasar tercatat 1,3 persen dari angkatan kerja."
   }
  ]
 }

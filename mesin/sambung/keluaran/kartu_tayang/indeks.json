@@ -207,11 +207,27 @@
    "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
    "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
   },
+  "tpt-2026-prov5100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 288)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
   "tpt-2026-prov6100": {
    "penerbit": "Badan Pusat Statistik",
    "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 51)",
    "periode_survei": "Sakernas Agustus 2026",
    "tautan_baca": "https://kalbar.bps.go.id/id/statistics-table/2/NTEjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 37)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
    "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
    "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
   },
@@ -228,6 +244,14 @@
    "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 92)",
    "periode_survei": "Sakernas Agustus 2026",
    "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTIjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov7300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 466)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
    "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
    "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
   },
@@ -260,8 +284,8 @@
    "nama": "Sumatera Utara",
    "berkas": "prov_12.json",
    "jumlah_kartu": 36,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://sumut.bps.go.id/id/statistics-table/2/NDQjMg==/tingkat-pengangguran-terbuka-tpt-penduduk-umur-15-tahun-keatas-manurut-kab-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": [
@@ -425,8 +449,8 @@
    "nama": "Sumatera Selatan",
    "berkas": "prov_16.json",
    "jumlah_kartu": 34,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://sumsel.bps.go.id/id/statistics-table/2/MzM0IzI=/tingkat-pengangguran.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": []
@@ -502,8 +526,8 @@
    "nama": "Kepulauan Riau",
    "berkas": "prov_21.json",
    "jumlah_kartu": 3,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://kepri.bps.go.id/id/statistics-table/2/MjI0IzI=/tingkat-pengangguran-terbuka.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [
      {
@@ -650,8 +674,8 @@
    "nama": "Bali",
    "berkas": "prov_51.json",
    "jumlah_kartu": 11,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/persentase-pengangguran-provinsi-bali-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": [
@@ -734,8 +758,8 @@
    "nama": "Kalimantan Selatan",
    "berkas": "prov_63.json",
    "jumlah_kartu": 22,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-kalimantan-selatan.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": [
@@ -811,8 +835,8 @@
    "nama": "Sulawesi Selatan",
    "berkas": "prov_73.json",
    "jumlah_kartu": 48,
-   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
-   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "tautan_baca_tpt": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-agustus.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
    "belum_punya_kartu": {
     "kemiskinan-kabkota": [],
     "pengangguran-terbuka-kabkota": []
