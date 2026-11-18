@@ -124,6 +124,23 @@ if os.path.exists(kp):
     rc = subprocess.run([sys.executable, os.path.join(AKAR, "cipta/uji_cipta.py")], capture_output=True, text=True)
     print("ME3 cipta:", [l for l in rc.stdout.splitlines() if l.startswith("G3b")])
     if rc.returncode != 0: gagal.append("G3b: alur cipta atau bank pemantik gagal (cipta/uji_cipta.py)")
+# Penolak peran (INSIDEN 18 Nov 14.29; KEPUTUSAN 15 Nov 09.16): tiap daftar tujuan profesi di keluaran sambung
+# tidak boleh memuat jabatan struktural, kader, relawan, pengurus, atau peran berhonor.
+import glob as _g, json as _j, re as _re
+_TOLAK = _re.compile(r"(?i)kepala |camat|lurah|bupati|wali ?kota|anggota dewan|kader|relawan|honor|pengurus|ketua |pendamping desa")
+def _cari(o, jalur=""):
+    if isinstance(o, dict):
+        for k, v in o.items():
+            if k.startswith("tujuan") and isinstance(v, list):
+                for x in v:
+                    if isinstance(x, str) and _TOLAK.search(x): yield (jalur + "/" + k, x)
+            else: yield from _cari(v, jalur + "/" + k)
+    elif isinstance(o, list):
+        for i, v in enumerate(o): yield from _cari(v, jalur)
+for _p in _g.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "sambung", "keluaran", "**", "*.json"), recursive=True):
+    try: _bad = list(_cari(_j.load(open(_p, encoding="utf-8"))))
+    except Exception: continue
+    if _bad: gagal.append(f"PENOLAK PERAN: {os.path.basename(_p)} memuat {_bad[0][1]!r} sebagai tujuan")
 print(f"bank {len(bank)} kandidat {dict(sorted(per.items()))}; kontrak: {akhir}")
 if gagal:
     print("GAGAL:\n- " + "\n- ".join(gagal)); sys.exit(1)

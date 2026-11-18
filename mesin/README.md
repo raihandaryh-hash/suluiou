@@ -19,3 +19,9 @@ Pencari kebutuhan nyata per bidang × wilayah dari data resmi, yang menawarkan b
 | `alat/` | Gerbang deterministik untuk CI | ME1 |
 
 Tidak ada bagian folder ini yang menyentuh produksi, database, atau data pengguna.
+
+## Disiplin per langkah (sejak 18 Nov 2026, INSIDEN 14.29)
+1. Sebelum mulai satu serahan, sebelum menyebut fitur Sulu "belum ada" atau "sudah ada", dan sebelum menulis daftar peran, teks untuk siswa, atau aturan pencocokan: jalankan `python3 -I mesin/alat/cek_niat.py "<kata kunci>"` atas `main` yang segar, lalu notion-search Ledger KEPUTUSAN Stream Sulu dengan kata kunci yang sama.
+2. Tempel blok "Kartu niat" keluaran skrip di baris JAWAB atau LOG-SESI serahan itu: KEPUTUSAN yang mengikat, kode tayang yang sudah melakukan hal serupa, niat U/V yang dijaga.
+3. Bila kode tayang sudah melakukannya, serahan memperkaya yang tayang (KEPUTUSAN 15 Nov 09.16: "enhance, bukan break"); tidak membuat jalur tandingan.
+4. Gerbang deterministik (`commit_aman.py`) menolak keluaran yang memuat jabatan struktural, kader, relawan, pengurus, atau peran berhonor sebagai tujuan.
