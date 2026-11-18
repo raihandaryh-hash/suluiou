@@ -26,8 +26,10 @@ CATATAN_RSE = "BPS menandai angka daerah ini kurang teliti: galat relatifnya 25 
 CATATAN_TPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "keluaran", "tpt_catatan_bps.json")
 SUMBER = {
  "kemiskinan-kabkota-2025": {"penerbit": "Badan Pusat Statistik", "judul": "Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025", "periode_survei": "Susenas Maret 2025",
+   "relevansi": "ukuran resmi kemiskinan moneter tingkat kab/kota; satu publikasi, satu tahun untuk 514 wilayah sehingga antarwilayah sebanding",
    "tautan_baca": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"},
  "sakernas-agustus": {"penerbit": "Badan Pusat Statistik", "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota", "periode_survei": "Sakernas Agustus 2025",
+   "relevansi": "ukuran resmi pengangguran terbuka tingkat kab/kota; sebagian kab/kota bertanda kurang teliti oleh BPS (catatan_bps di kartu)",
    "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
    "catatan": "tabel nasional var 2824; judul halaman dicek 16 Nov 2026. Tabel provinsi per kode provinsi ada di indeks provinsi.<kode>.tautan_baca_tpt"},
 }
