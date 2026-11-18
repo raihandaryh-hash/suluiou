@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "75",
   "nama": "Gorontalo"
@@ -14,14 +14,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 16.37,
+    "nilai": 14.95,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.37,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Boalemo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 16,4 persen penduduk Kab. Boalemo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,0 persen penduduk Kab. Boalemo tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7502",
@@ -32,14 +39,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 14.89,
+    "nilai": 13.56,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.89,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gorontalo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 14,9 persen penduduk Kab. Gorontalo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,6 persen penduduk Kab. Gorontalo tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7503",
@@ -50,14 +64,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.24,
+    "nilai": 13.35,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.24,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Pohuwato yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,2 persen penduduk Kab. Pohuwato tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 13,4 persen penduduk Kab. Pohuwato tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7504",
@@ -68,14 +89,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 13.16,
+    "nilai": 12.87,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.16,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Bone Bolango yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 13,2 persen penduduk Kab. Bone Bolango tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 12,9 persen penduduk Kab. Bone Bolango tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7505",
@@ -86,14 +114,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 15.89,
+    "nilai": 15.41,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 15.89,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Gorontalo Utara yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 15,9 persen penduduk Kab. Gorontalo Utara tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 15,4 persen penduduk Kab. Gorontalo Utara tercatat sebagai penduduk miskin."
   },
   {
    "id": "kemiskinan-kabkota.7571",
@@ -104,14 +139,21 @@
    },
    "jenis_kebutuhan": "kemiskinan-kabkota",
    "angka": {
-    "nilai": 5.31,
+    "nilai": 4.69,
     "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.31,
     "tahun_data": 2025,
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kota Gorontalo yang masih hidup di bawah garis kemiskinan",
-   "ringkasan": "Pada 2025, 5,3 persen penduduk Kota Gorontalo tercatat sebagai penduduk miskin."
+   "ringkasan": "Pada 2026, 4,7 persen penduduk Kota Gorontalo tercatat sebagai penduduk miskin."
   }
  ]
 }

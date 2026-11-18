@@ -1,5 +1,5 @@
 {
- "skema": "kartu-tayang/2",
+ "skema": "kartu-tayang/3",
  "provinsi": {
   "kode": "95",
   "nama": "Papua Selatan"
@@ -21,6 +21,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Merauke yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 11,3 persen penduduk Kab. Merauke tercatat sebagai penduduk miskin."
   },
@@ -40,6 +42,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Merauke yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Merauke tercatat 4,4 persen dari angkatan kerja."
   },
@@ -59,6 +63,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Boven Digoel yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 22,0 persen penduduk Kab. Boven Digoel tercatat sebagai penduduk miskin."
   },
@@ -78,6 +84,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Boven Digoel yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Boven Digoel tercatat 3,7 persen dari angkatan kerja."
   },
@@ -97,6 +105,8 @@
     "sumber_id": "kemiskinan-kabkota-2025"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Mappi yang masih hidup di bawah garis kemiskinan",
    "ringkasan": "Pada 2025, 28,5 persen penduduk Kab. Mappi tercatat sebagai penduduk miskin."
   },
@@ -116,6 +126,8 @@
     "sumber_id": "sakernas-agustus"
    },
    "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
    "judul": "Ada warga Kab. Mappi yang ingin bekerja dan belum mendapat pekerjaan",
    "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Mappi tercatat 5,6 persen dari angkatan kerja."
   }
