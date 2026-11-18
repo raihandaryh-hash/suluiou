@@ -148,7 +148,7 @@ def main():
         "sisi": len(sisi), "sisi_dari_pembanding": sum(1 for x in sisi if asal[x] == "pembanding"),
         "tanpa_tetangga_darat": sum(v["tanpa_tetangga_darat"] for v in wilayah.values()),
         "singgung_pendek": sum(1 for x in sisi if adj[min(x)][max(x)] < 1.0),
-        "utama_tanpa_geometri": nm(hilang), "area_sengketa_utama_diabaikan": sengketa_big, "fitur_utama_kosong": nm(sorted(set(kosong_big))),
+        "utama_tanpa_geometri": nm(hilang), "catatan_fitur_kosong": "fitur_utama_kosong = fitur BIG tanpa geometri; wilayah yang masih punya fitur lain bergeometri (mis. 7503 Pohuwato, ejaan BIG 'Pahuwato') tetap memakai geometri utama", "area_sengketa_utama_diabaikan": sengketa_big, "fitur_utama_kosong": nm(sorted(set(kosong_big))),
         "selisih_dengan_pembanding": {"sisi_utama_dibanding": len(banding), "cocok": len(banding) - len(hanya_utama),
                                        "hanya_di_utama": [nm(x) for x in hanya_utama],
                                        "hanya_di_pembanding": [nm(x) for x in hanya_alf]},
@@ -171,8 +171,8 @@ def main():
                       "tetangga_laut": "tidak dihitung", "pencocokan_kode": "nama dalam provinsi ke DIKK 2025 tabel 2.1",
                       "wilayah_tanpa_geometri_utama": "tetangga diambil dari pembanding dan ditandai asal = pembanding"},
            "syarat_tayang": ["Halaman menulis: batas wilayah dari data BIG, bersifat petunjuk; tetangga laut tidak dihitung.",
-                             "Pasangan ber-asal pembanding tayang dengan tanda yang sama, atau ditahan sampai layanan resmi BIG bisa diunduh (putusan Chief)."],
-           "ringkas": ringkas, "catatan_pencocokan": catatan, "wilayah": wilayah}
+                             "Pasangan ber-asal pembanding tidak memakai tanda BIG. Pilihannya: tayang dengan tanda sendiri (mis. 'Batas dari data pembanding yang asal datanya tidak dinyatakan'), atau ditahan sampai layanan resmi BIG bisa diunduh (putusan Chief)."],
+           "ringkas": ringkas, "catatan_pencocokan": sorted(set(catatan)), "wilayah": wilayah}
     json.dump(out, open(keluar, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps(ringkas, ensure_ascii=False))
 

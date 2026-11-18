@@ -31,7 +31,7 @@
  },
  "syarat_tayang": [
   "Halaman menulis: batas wilayah dari data BIG, bersifat petunjuk; tetangga laut tidak dihitung.",
-  "Pasangan ber-asal pembanding tayang dengan tanda yang sama, atau ditahan sampai layanan resmi BIG bisa diunduh (putusan Chief)."
+  "Pasangan ber-asal pembanding tidak memakai tanda BIG. Pilihannya: tayang dengan tanda sendiri (mis. 'Batas dari data pembanding yang asal datanya tidak dinyatakan'), atau ditahan sampai layanan resmi BIG bisa diunduh (putusan Chief)."
  ],
  "ringkas": {
   "wilayah": 514,
@@ -49,6 +49,7 @@
    "3371 Kota Magelang",
    "3576 Kota Mojokerto"
   ],
+  "catatan_fitur_kosong": "fitur_utama_kosong = fitur BIG tanpa geometri; wilayah yang masih punya fitur lain bergeometri (mis. 7503 Pohuwato, ejaan BIG 'Pahuwato') tetap memakai geometri utama",
   "area_sengketa_utama_diabaikan": [
    "Sumbawa/Sumbawa Barat (Nusa Tenggara Barat)",
    "Minahasa Selatan/Bolaang Mongondwo Timur (Sulawesi Utara)"
@@ -107,8 +108,6 @@
  "catatan_pencocokan": [
   "nama dicocokkan longgar: Kota Padang Sidempuan (Sumatera Utara) -> kotapadangsidimpuan",
   "nama dicocokkan longgar: Pahuwato (Gorontalo) -> pohuwato",
-  "nama dicocokkan longgar: Pangkajene Kepulauan (Sulawesi Selatan) -> pangkajenedankepulauan",
-  "nama dicocokkan longgar: Kota Padang Sidempuan (Sumatera Utara) -> kotapadangsidimpuan",
   "nama dicocokkan longgar: Pangkajene Kepulauan (Sulawesi Selatan) -> pangkajenedankepulauan"
  ],
  "wilayah": {
