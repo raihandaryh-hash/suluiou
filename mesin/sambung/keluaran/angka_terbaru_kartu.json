@@ -1,0 +1,3427 @@
+{
+ "skema": "angka-terbaru-kartu/1",
+ "dibuat": "18 Nov 2026, sesi mesin Sulu",
+ "label": "SINTESIS mekanis dari deret_kemiskinan_tpt.csv; nilai dari tabel BPS provinsi, belum dicek ke rilis BRS per provinsi",
+ "jumlah": 379,
+ "per_tahun": {
+  "2026": 379
+ },
+ "per_jenis": {
+  "kemiskinan-kabkota": 276,
+  "pengangguran-terbuka-kabkota": 103
+ },
+ "catatan_rse": "catatan BPS 'kurang teliti' di kartu TPT berasal dari tabel 2025; untuk angka 2026 catatan itu belum dipanen",
+ "kartu": {
+  "kemiskinan-kabkota.1101": {
+   "tahun_data": 2026,
+   "nilai": 15.12,
+   "nilai_kartu": 15.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.4,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1102": {
+   "tahun_data": 2026,
+   "nilai": 16.8,
+   "nilai_kartu": 17.07,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1103": {
+   "tahun_data": 2026,
+   "nilai": 9.63,
+   "nilai_kartu": 9.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1104": {
+   "tahun_data": 2026,
+   "nilai": 9.71,
+   "nilai_kartu": 9.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1105": {
+   "tahun_data": 2026,
+   "nilai": 11.66,
+   "nilai_kartu": 11.24,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.42,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1106": {
+   "tahun_data": 2026,
+   "nilai": 12.5,
+   "nilai_kartu": 12.29,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1107": {
+   "tahun_data": 2026,
+   "nilai": 15.33,
+   "nilai_kartu": 15.5,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1108": {
+   "tahun_data": 2026,
+   "nilai": 10.92,
+   "nilai_kartu": 11.05,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1109": {
+   "tahun_data": 2026,
+   "nilai": 16.45,
+   "nilai_kartu": 16.46,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1110": {
+   "tahun_data": 2026,
+   "nilai": 10.41,
+   "nilai_kartu": 10.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1111": {
+   "tahun_data": 2026,
+   "nilai": 14.45,
+   "nilai_kartu": 14.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1112": {
+   "tahun_data": 2026,
+   "nilai": 12.95,
+   "nilai_kartu": 13.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.35,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1113": {
+   "tahun_data": 2026,
+   "nilai": 17.03,
+   "nilai_kartu": 16.77,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1114": {
+   "tahun_data": 2026,
+   "nilai": 11.19,
+   "nilai_kartu": 10.84,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.35,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1115": {
+   "tahun_data": 2026,
+   "nilai": 15.48,
+   "nilai_kartu": 15.42,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1116": {
+   "tahun_data": 2026,
+   "nilai": 10.16,
+   "nilai_kartu": 10.37,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1117": {
+   "tahun_data": 2026,
+   "nilai": 16.41,
+   "nilai_kartu": 16.2,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1118": {
+   "tahun_data": 2026,
+   "nilai": 16.45,
+   "nilai_kartu": 16.12,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.33,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1171": {
+   "tahun_data": 2026,
+   "nilai": 5.26,
+   "nilai_kartu": 5.45,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1172": {
+   "tahun_data": 2026,
+   "nilai": 12.62,
+   "nilai_kartu": 12.75,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1173": {
+   "tahun_data": 2026,
+   "nilai": 7.9,
+   "nilai_kartu": 8.59,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.69,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1174": {
+   "tahun_data": 2026,
+   "nilai": 8.85,
+   "nilai_kartu": 9.01,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.16,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1175": {
+   "tahun_data": 2026,
+   "nilai": 13.69,
+   "nilai_kartu": 13.88,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 42 (1100_p0_42_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1301": {
+   "tahun_data": 2026,
+   "nilai": 13.16,
+   "nilai_kartu": 13.22,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1301": {
+   "tahun_data": 2026,
+   "nilai": 1.65,
+   "nilai_kartu": 1.53,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1302": {
+   "tahun_data": 2026,
+   "nilai": 6.39,
+   "nilai_kartu": 6.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1302": {
+   "tahun_data": 2026,
+   "nilai": 5.3,
+   "nilai_kartu": 5.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.2,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1303": {
+   "tahun_data": 2026,
+   "nilai": 6.33,
+   "nilai_kartu": 6.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1303": {
+   "tahun_data": 2026,
+   "nilai": 4.58,
+   "nilai_kartu": 4.7,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1304": {
+   "tahun_data": 2026,
+   "nilai": 5.21,
+   "nilai_kartu": 5.15,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1304": {
+   "tahun_data": 2026,
+   "nilai": 4.52,
+   "nilai_kartu": 4.59,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1305": {
+   "tahun_data": 2026,
+   "nilai": 3.44,
+   "nilai_kartu": 3.59,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1305": {
+   "tahun_data": 2026,
+   "nilai": 4.85,
+   "nilai_kartu": 5.26,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.41,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1306": {
+   "tahun_data": 2026,
+   "nilai": 5.56,
+   "nilai_kartu": 5.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.3,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1306": {
+   "tahun_data": 2026,
+   "nilai": 6.43,
+   "nilai_kartu": 6.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1307": {
+   "tahun_data": 2026,
+   "nilai": 6.07,
+   "nilai_kartu": 5.97,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1307": {
+   "tahun_data": 2026,
+   "nilai": 4.75,
+   "nilai_kartu": 4.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1308": {
+   "tahun_data": 2026,
+   "nilai": 5.86,
+   "nilai_kartu": 6.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.24,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1308": {
+   "tahun_data": 2026,
+   "nilai": 3.71,
+   "nilai_kartu": 3.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1309": {
+   "tahun_data": 2026,
+   "nilai": 5.84,
+   "nilai_kartu": 6.02,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1309": {
+   "tahun_data": 2026,
+   "nilai": 5.23,
+   "nilai_kartu": 5.29,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1310": {
+   "tahun_data": 2026,
+   "nilai": 5.87,
+   "nilai_kartu": 6.0,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1310": {
+   "tahun_data": 2026,
+   "nilai": 2.18,
+   "nilai_kartu": 2.13,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1311": {
+   "tahun_data": 2026,
+   "nilai": 4.35,
+   "nilai_kartu": 4.61,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1311": {
+   "tahun_data": 2026,
+   "nilai": 5.15,
+   "nilai_kartu": 5.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1312": {
+   "tahun_data": 2026,
+   "nilai": 6.1,
+   "nilai_kartu": 6.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.2,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1312": {
+   "tahun_data": 2026,
+   "nilai": 5.93,
+   "nilai_kartu": 5.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1371": {
+   "tahun_data": 2026,
+   "nilai": 3.75,
+   "nilai_kartu": 3.63,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1371": {
+   "tahun_data": 2026,
+   "nilai": 9.62,
+   "nilai_kartu": 9.7,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1372": {
+   "tahun_data": 2026,
+   "nilai": 3.53,
+   "nilai_kartu": 2.91,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.62,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1372": {
+   "tahun_data": 2026,
+   "nilai": 3.83,
+   "nilai_kartu": 3.87,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1373": {
+   "tahun_data": 2026,
+   "nilai": 2.71,
+   "nilai_kartu": 2.72,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1373": {
+   "tahun_data": 2026,
+   "nilai": 4.63,
+   "nilai_kartu": 4.64,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1374": {
+   "tahun_data": 2026,
+   "nilai": 5.11,
+   "nilai_kartu": 4.97,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1374": {
+   "tahun_data": 2026,
+   "nilai": 4.82,
+   "nilai_kartu": 5.07,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1375": {
+   "tahun_data": 2026,
+   "nilai": 3.61,
+   "nilai_kartu": 3.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1375": {
+   "tahun_data": 2026,
+   "nilai": 4.35,
+   "nilai_kartu": 4.41,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1376": {
+   "tahun_data": 2026,
+   "nilai": 4.84,
+   "nilai_kartu": 4.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1376": {
+   "tahun_data": 2026,
+   "nilai": 4.88,
+   "nilai_kartu": 4.96,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1377": {
+   "tahun_data": 2026,
+   "nilai": 3.61,
+   "nilai_kartu": 3.83,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 34 (1300_p0_34_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1377": {
+   "tahun_data": 2026,
+   "nilai": 5.13,
+   "nilai_kartu": 5.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 139 (1300_tpt_139_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.1401": {
+   "tahun_data": 2026,
+   "nilai": 6.66,
+   "nilai_kartu": 6.99,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.33,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1402": {
+   "tahun_data": 2026,
+   "nilai": 5.58,
+   "nilai_kartu": 5.83,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1403": {
+   "tahun_data": 2026,
+   "nilai": 5.16,
+   "nilai_kartu": 4.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1404": {
+   "tahun_data": 2026,
+   "nilai": 7.42,
+   "nilai_kartu": 7.24,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1405": {
+   "tahun_data": 2026,
+   "nilai": 4.52,
+   "nilai_kartu": 4.4,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1406": {
+   "tahun_data": 2026,
+   "nilai": 6.52,
+   "nilai_kartu": 6.29,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.23,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1407": {
+   "tahun_data": 2026,
+   "nilai": 8.3,
+   "nilai_kartu": 8.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.41,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1408": {
+   "tahun_data": 2026,
+   "nilai": 6.45,
+   "nilai_kartu": 6.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.37,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1409": {
+   "tahun_data": 2026,
+   "nilai": 7.26,
+   "nilai_kartu": 7.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1410": {
+   "tahun_data": 2026,
+   "nilai": 21.57,
+   "nilai_kartu": 20.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": 1.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1471": {
+   "tahun_data": 2026,
+   "nilai": 2.96,
+   "nilai_kartu": 3.19,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.23,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1473": {
+   "tahun_data": 2026,
+   "nilai": 3.19,
+   "nilai_kartu": 3.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 43 (1400_p0_43_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1501": {
+   "tahun_data": 2026,
+   "nilai": 6.9,
+   "nilai_kartu": 7.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.58,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1502": {
+   "tahun_data": 2026,
+   "nilai": 7.53,
+   "nilai_kartu": 8.07,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.54,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1503": {
+   "tahun_data": 2026,
+   "nilai": 8.35,
+   "nilai_kartu": 8.74,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.39,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1504": {
+   "tahun_data": 2026,
+   "nilai": 7.94,
+   "nilai_kartu": 8.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.33,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1505": {
+   "tahun_data": 2026,
+   "nilai": 4.05,
+   "nilai_kartu": 4.32,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1506": {
+   "tahun_data": 2026,
+   "nilai": 9.46,
+   "nilai_kartu": 9.96,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.5,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1507": {
+   "tahun_data": 2026,
+   "nilai": 9.03,
+   "nilai_kartu": 9.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.64,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1508": {
+   "tahun_data": 2026,
+   "nilai": 5.18,
+   "nilai_kartu": 5.97,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.79,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1509": {
+   "tahun_data": 2026,
+   "nilai": 4.9,
+   "nilai_kartu": 5.17,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1571": {
+   "tahun_data": 2026,
+   "nilai": 6.94,
+   "nilai_kartu": 7.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.75,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1572": {
+   "tahun_data": 2026,
+   "nilai": 3.05,
+   "nilai_kartu": 3.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 943 (1500_p0_943_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1601": {
+   "tahun_data": 2026,
+   "nilai": 9.48,
+   "nilai_kartu": 10.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.6,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1602": {
+   "tahun_data": 2026,
+   "nilai": 11.48,
+   "nilai_kartu": 11.84,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1603": {
+   "tahun_data": 2026,
+   "nilai": 8.98,
+   "nilai_kartu": 9.45,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.47,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1604": {
+   "tahun_data": 2026,
+   "nilai": 11.04,
+   "nilai_kartu": 13.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -2.65,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1605": {
+   "tahun_data": 2026,
+   "nilai": 12.59,
+   "nilai_kartu": 12.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1606": {
+   "tahun_data": 2026,
+   "nilai": 9.07,
+   "nilai_kartu": 9.97,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.9,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1607": {
+   "tahun_data": 2026,
+   "nilai": 8.28,
+   "nilai_kartu": 8.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.2,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1608": {
+   "tahun_data": 2026,
+   "nilai": 8.89,
+   "nilai_kartu": 9.17,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1609": {
+   "tahun_data": 2026,
+   "nilai": 8.55,
+   "nilai_kartu": 8.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.31,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1610": {
+   "tahun_data": 2026,
+   "nilai": 11.01,
+   "nilai_kartu": 11.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.68,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1611": {
+   "tahun_data": 2026,
+   "nilai": 10.29,
+   "nilai_kartu": 10.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1612": {
+   "tahun_data": 2026,
+   "nilai": 8.86,
+   "nilai_kartu": 9.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.41,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1613": {
+   "tahun_data": 2026,
+   "nilai": 11.7,
+   "nilai_kartu": 15.25,
+   "tahun_kartu": 2025,
+   "selisih_poin": -3.55,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1671": {
+   "tahun_data": 2026,
+   "nilai": 8.35,
+   "nilai_kartu": 9.04,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.69,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1672": {
+   "tahun_data": 2026,
+   "nilai": 9.37,
+   "nilai_kartu": 9.75,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.38,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1673": {
+   "tahun_data": 2026,
+   "nilai": 7.12,
+   "nilai_kartu": 7.7,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.58,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.1674": {
+   "tahun_data": 2026,
+   "nilai": 10.08,
+   "nilai_kartu": 10.49,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.41,
+   "sumber": "BPS WebAPI, tabel provinsi var 604 (1600_p0_604_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.1901": {
+   "tahun_data": 2026,
+   "nilai": 4.62,
+   "nilai_kartu": 4.75,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1902": {
+   "tahun_data": 2026,
+   "nilai": 3.62,
+   "nilai_kartu": 3.64,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1903": {
+   "tahun_data": 2026,
+   "nilai": 4.35,
+   "nilai_kartu": 4.49,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1904": {
+   "tahun_data": 2026,
+   "nilai": 4.31,
+   "nilai_kartu": 4.21,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1905": {
+   "tahun_data": 2026,
+   "nilai": 4.37,
+   "nilai_kartu": 4.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1906": {
+   "tahun_data": 2026,
+   "nilai": 3.15,
+   "nilai_kartu": 3.05,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.1971": {
+   "tahun_data": 2026,
+   "nilai": 5.68,
+   "nilai_kartu": 5.73,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 95 (1900_tpt_95_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3201": {
+   "tahun_data": 2026,
+   "nilai": 5.77,
+   "nilai_kartu": 6.26,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.49,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3201": {
+   "tahun_data": 2026,
+   "nilai": 7.6,
+   "nilai_kartu": 7.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3202": {
+   "tahun_data": 2026,
+   "nilai": 5.8,
+   "nilai_kartu": 6.41,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.61,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3202": {
+   "tahun_data": 2026,
+   "nilai": 7.11,
+   "nilai_kartu": 7.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3203": {
+   "tahun_data": 2026,
+   "nilai": 9.12,
+   "nilai_kartu": 9.82,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.7,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3203": {
+   "tahun_data": 2026,
+   "nilai": 6.0,
+   "nilai_kartu": 6.17,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3204": {
+   "tahun_data": 2026,
+   "nilai": 5.67,
+   "nilai_kartu": 6.04,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.37,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3204": {
+   "tahun_data": 2026,
+   "nilai": 6.53,
+   "nilai_kartu": 6.68,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3205": {
+   "tahun_data": 2026,
+   "nilai": 8.77,
+   "nilai_kartu": 9.39,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.62,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3205": {
+   "tahun_data": 2026,
+   "nilai": 6.35,
+   "nilai_kartu": 6.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3206": {
+   "tahun_data": 2026,
+   "nilai": 9.26,
+   "nilai_kartu": 10.15,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.89,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3206": {
+   "tahun_data": 2026,
+   "nilai": 3.67,
+   "nilai_kartu": 3.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3207": {
+   "tahun_data": 2026,
+   "nilai": 7.02,
+   "nilai_kartu": 7.19,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3207": {
+   "tahun_data": 2026,
+   "nilai": 3.95,
+   "nilai_kartu": 4.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3208": {
+   "tahun_data": 2026,
+   "nilai": 10.07,
+   "nilai_kartu": 10.74,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.67,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3208": {
+   "tahun_data": 2026,
+   "nilai": 7.56,
+   "nilai_kartu": 7.59,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3209": {
+   "tahun_data": 2026,
+   "nilai": 9.22,
+   "nilai_kartu": 10.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3209": {
+   "tahun_data": 2026,
+   "nilai": 6.28,
+   "nilai_kartu": 6.42,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3210": {
+   "tahun_data": 2026,
+   "nilai": 9.7,
+   "nilai_kartu": 10.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.61,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3210": {
+   "tahun_data": 2026,
+   "nilai": 3.57,
+   "nilai_kartu": 3.62,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3211": {
+   "tahun_data": 2026,
+   "nilai": 8.16,
+   "nilai_kartu": 8.81,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.65,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3211": {
+   "tahun_data": 2026,
+   "nilai": 6.05,
+   "nilai_kartu": 6.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3212": {
+   "tahun_data": 2026,
+   "nilai": 10.65,
+   "nilai_kartu": 11.02,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.37,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3212": {
+   "tahun_data": 2026,
+   "nilai": 6.38,
+   "nilai_kartu": 6.47,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3213": {
+   "tahun_data": 2026,
+   "nilai": 8.7,
+   "nilai_kartu": 9.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.53,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3213": {
+   "tahun_data": 2026,
+   "nilai": 6.77,
+   "nilai_kartu": 6.8,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3214": {
+   "tahun_data": 2026,
+   "nilai": 7.51,
+   "nilai_kartu": 7.87,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3214": {
+   "tahun_data": 2026,
+   "nilai": 7.47,
+   "nilai_kartu": 7.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3215": {
+   "tahun_data": 2026,
+   "nilai": 6.79,
+   "nilai_kartu": 7.08,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3215": {
+   "tahun_data": 2026,
+   "nilai": 7.88,
+   "nilai_kartu": 7.99,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3216": {
+   "tahun_data": 2026,
+   "nilai": 4.12,
+   "nilai_kartu": 4.36,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.24,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3216": {
+   "tahun_data": 2026,
+   "nilai": 8.71,
+   "nilai_kartu": 8.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3217": {
+   "tahun_data": 2026,
+   "nilai": 9.18,
+   "nilai_kartu": 9.87,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.69,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3217": {
+   "tahun_data": 2026,
+   "nilai": 6.45,
+   "nilai_kartu": 6.6,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3218": {
+   "tahun_data": 2026,
+   "nilai": 7.76,
+   "nilai_kartu": 8.03,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3218": {
+   "tahun_data": 2026,
+   "nilai": 1.76,
+   "nilai_kartu": 1.91,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3271": {
+   "tahun_data": 2026,
+   "nilai": 5.41,
+   "nilai_kartu": 5.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.48,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3271": {
+   "tahun_data": 2026,
+   "nilai": 7.9,
+   "nilai_kartu": 7.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3272": {
+   "tahun_data": 2026,
+   "nilai": 6.78,
+   "nilai_kartu": 6.9,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3272": {
+   "tahun_data": 2026,
+   "nilai": 8.02,
+   "nilai_kartu": 8.19,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3273": {
+   "tahun_data": 2026,
+   "nilai": 3.67,
+   "nilai_kartu": 3.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3273": {
+   "tahun_data": 2026,
+   "nilai": 7.16,
+   "nilai_kartu": 7.22,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3274": {
+   "tahun_data": 2026,
+   "nilai": 7.79,
+   "nilai_kartu": 8.66,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.87,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3274": {
+   "tahun_data": 2026,
+   "nilai": 6.2,
+   "nilai_kartu": 6.41,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3275": {
+   "tahun_data": 2026,
+   "nilai": 3.77,
+   "nilai_kartu": 3.96,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3275": {
+   "tahun_data": 2026,
+   "nilai": 7.12,
+   "nilai_kartu": 7.33,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3276": {
+   "tahun_data": 2026,
+   "nilai": 2.01,
+   "nilai_kartu": 2.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.3,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3276": {
+   "tahun_data": 2026,
+   "nilai": 6.48,
+   "nilai_kartu": 6.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3277": {
+   "tahun_data": 2026,
+   "nilai": 4.1,
+   "nilai_kartu": 4.2,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3277": {
+   "tahun_data": 2026,
+   "nilai": 8.65,
+   "nilai_kartu": 8.75,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3278": {
+   "tahun_data": 2026,
+   "nilai": 9.34,
+   "nilai_kartu": 10.84,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.5,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3278": {
+   "tahun_data": 2026,
+   "nilai": 6.29,
+   "nilai_kartu": 6.43,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3279": {
+   "tahun_data": 2026,
+   "nilai": 5.43,
+   "nilai_kartu": 5.73,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.3,
+   "sumber": "BPS WebAPI, tabel provinsi var 919 (3200_p0_919_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3279": {
+   "tahun_data": 2026,
+   "nilai": 5.13,
+   "nilai_kartu": 5.26,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 73 (3200_tpt_73_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3401": {
+   "tahun_data": 2026,
+   "nilai": 13.41,
+   "nilai_kartu": 14.53,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 142 (3400_p0_142_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3402": {
+   "tahun_data": 2026,
+   "nilai": 10.98,
+   "nilai_kartu": 11.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.56,
+   "sumber": "BPS WebAPI, tabel provinsi var 142 (3400_p0_142_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3403": {
+   "tahun_data": 2026,
+   "nilai": 13.27,
+   "nilai_kartu": 14.15,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.88,
+   "sumber": "BPS WebAPI, tabel provinsi var 142 (3400_p0_142_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3404": {
+   "tahun_data": 2026,
+   "nilai": 6.55,
+   "nilai_kartu": 6.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.16,
+   "sumber": "BPS WebAPI, tabel provinsi var 142 (3400_p0_142_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3471": {
+   "tahun_data": 2026,
+   "nilai": 5.86,
+   "nilai_kartu": 6.14,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 142 (3400_p0_142_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3501": {
+   "tahun_data": 2026,
+   "nilai": 12.55,
+   "nilai_kartu": 12.97,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.42,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3502": {
+   "tahun_data": 2026,
+   "nilai": 8.57,
+   "nilai_kartu": 8.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3503": {
+   "tahun_data": 2026,
+   "nilai": 9.62,
+   "nilai_kartu": 10.29,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.67,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3504": {
+   "tahun_data": 2026,
+   "nilai": 5.73,
+   "nilai_kartu": 5.96,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.23,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3505": {
+   "tahun_data": 2026,
+   "nilai": 7.19,
+   "nilai_kartu": 7.57,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.38,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3506": {
+   "tahun_data": 2026,
+   "nilai": 9.58,
+   "nilai_kartu": 9.81,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.23,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3507": {
+   "tahun_data": 2026,
+   "nilai": 8.67,
+   "nilai_kartu": 8.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3508": {
+   "tahun_data": 2026,
+   "nilai": 8.33,
+   "nilai_kartu": 8.6,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3509": {
+   "tahun_data": 2026,
+   "nilai": 8.0,
+   "nilai_kartu": 8.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.67,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3510": {
+   "tahun_data": 2026,
+   "nilai": 5.6,
+   "nilai_kartu": 6.13,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.53,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3511": {
+   "tahun_data": 2026,
+   "nilai": 11.84,
+   "nilai_kartu": 12.2,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3512": {
+   "tahun_data": 2026,
+   "nilai": 10.83,
+   "nilai_kartu": 11.17,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.34,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3513": {
+   "tahun_data": 2026,
+   "nilai": 15.51,
+   "nilai_kartu": 16.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.8,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3514": {
+   "tahun_data": 2026,
+   "nilai": 7.44,
+   "nilai_kartu": 8.21,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.77,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3515": {
+   "tahun_data": 2026,
+   "nilai": 4.38,
+   "nilai_kartu": 4.4,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3516": {
+   "tahun_data": 2026,
+   "nilai": 8.34,
+   "nilai_kartu": 8.79,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.45,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3517": {
+   "tahun_data": 2026,
+   "nilai": 8.19,
+   "nilai_kartu": 8.36,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3518": {
+   "tahun_data": 2026,
+   "nilai": 9.7,
+   "nilai_kartu": 10.06,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3519": {
+   "tahun_data": 2026,
+   "nilai": 10.13,
+   "nilai_kartu": 10.4,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3520": {
+   "tahun_data": 2026,
+   "nilai": 8.97,
+   "nilai_kartu": 9.14,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3521": {
+   "tahun_data": 2026,
+   "nilai": 13.27,
+   "nilai_kartu": 13.62,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.35,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3522": {
+   "tahun_data": 2026,
+   "nilai": 10.69,
+   "nilai_kartu": 11.49,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.8,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3523": {
+   "tahun_data": 2026,
+   "nilai": 12.92,
+   "nilai_kartu": 14.13,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3524": {
+   "tahun_data": 2026,
+   "nilai": 11.74,
+   "nilai_kartu": 12.03,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3525": {
+   "tahun_data": 2026,
+   "nilai": 9.8,
+   "nilai_kartu": 9.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3526": {
+   "tahun_data": 2026,
+   "nilai": 17.24,
+   "nilai_kartu": 18.25,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3527": {
+   "tahun_data": 2026,
+   "nilai": 19.33,
+   "nilai_kartu": 20.61,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3528": {
+   "tahun_data": 2026,
+   "nilai": 12.05,
+   "nilai_kartu": 12.77,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.72,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3529": {
+   "tahun_data": 2026,
+   "nilai": 16.42,
+   "nilai_kartu": 17.02,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.6,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3571": {
+   "tahun_data": 2026,
+   "nilai": 5.75,
+   "nilai_kartu": 6.04,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3572": {
+   "tahun_data": 2026,
+   "nilai": 6.06,
+   "nilai_kartu": 6.6,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.54,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3573": {
+   "tahun_data": 2026,
+   "nilai": 3.68,
+   "nilai_kartu": 3.85,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3574": {
+   "tahun_data": 2026,
+   "nilai": 5.01,
+   "nilai_kartu": 5.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.68,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3575": {
+   "tahun_data": 2026,
+   "nilai": 5.96,
+   "nilai_kartu": 6.18,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3576": {
+   "tahun_data": 2026,
+   "nilai": 4.91,
+   "nilai_kartu": 5.05,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3577": {
+   "tahun_data": 2026,
+   "nilai": 2.92,
+   "nilai_kartu": 3.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.97,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3578": {
+   "tahun_data": 2026,
+   "nilai": 3.32,
+   "nilai_kartu": 3.56,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.24,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3579": {
+   "tahun_data": 2026,
+   "nilai": 2.84,
+   "nilai_kartu": 2.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 497 (3500_p0_497_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.3601": {
+   "tahun_data": 2026,
+   "nilai": 8.02,
+   "nilai_kartu": 8.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.49,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3601": {
+   "tahun_data": 2026,
+   "nilai": 8.71,
+   "nilai_kartu": 8.8,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3602": {
+   "tahun_data": 2026,
+   "nilai": 7.5,
+   "nilai_kartu": 8.03,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.53,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3602": {
+   "tahun_data": 2026,
+   "nilai": 7.2,
+   "nilai_kartu": 7.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3603": {
+   "tahun_data": 2026,
+   "nilai": 6.05,
+   "nilai_kartu": 6.42,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.37,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3603": {
+   "tahun_data": 2026,
+   "nilai": 5.88,
+   "nilai_kartu": 5.94,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3604": {
+   "tahun_data": 2026,
+   "nilai": 4.46,
+   "nilai_kartu": 4.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3604": {
+   "tahun_data": 2026,
+   "nilai": 8.69,
+   "nilai_kartu": 8.73,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3671": {
+   "tahun_data": 2026,
+   "nilai": 5.11,
+   "nilai_kartu": 5.19,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3671": {
+   "tahun_data": 2026,
+   "nilai": 5.86,
+   "nilai_kartu": 5.88,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3672": {
+   "tahun_data": 2026,
+   "nilai": 3.27,
+   "nilai_kartu": 3.44,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3672": {
+   "tahun_data": 2026,
+   "nilai": 6.59,
+   "nilai_kartu": 7.41,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.82,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3673": {
+   "tahun_data": 2026,
+   "nilai": 5.48,
+   "nilai_kartu": 5.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3673": {
+   "tahun_data": 2026,
+   "nilai": 6.86,
+   "nilai_kartu": 6.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.3674": {
+   "tahun_data": 2026,
+   "nilai": 2.26,
+   "nilai_kartu": 2.39,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 78 (3600_p0_78_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.3674": {
+   "tahun_data": 2026,
+   "nilai": 4.12,
+   "nilai_kartu": 4.13,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 157 (3600_tpt_157_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.5101": {
+   "tahun_data": 2026,
+   "nilai": 4.3,
+   "nilai_kartu": 4.33,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5102": {
+   "tahun_data": 2026,
+   "nilai": 3.95,
+   "nilai_kartu": 4.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5103": {
+   "tahun_data": 2026,
+   "nilai": 1.75,
+   "nilai_kartu": 1.9,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5104": {
+   "tahun_data": 2026,
+   "nilai": 3.62,
+   "nilai_kartu": 3.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5105": {
+   "tahun_data": 2026,
+   "nilai": 4.76,
+   "nilai_kartu": 5.18,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.42,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5106": {
+   "tahun_data": 2026,
+   "nilai": 4.37,
+   "nilai_kartu": 4.83,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.46,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5107": {
+   "tahun_data": 2026,
+   "nilai": 6.13,
+   "nilai_kartu": 6.4,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5108": {
+   "tahun_data": 2026,
+   "nilai": 4.92,
+   "nilai_kartu": 5.2,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5171": {
+   "tahun_data": 2026,
+   "nilai": 1.73,
+   "nilai_kartu": 2.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.43,
+   "sumber": "BPS WebAPI, tabel provinsi var 125 (5100_p0_125_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5301": {
+   "tahun_data": 2026,
+   "nilai": 24.79,
+   "nilai_kartu": 26.47,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.68,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5302": {
+   "tahun_data": 2026,
+   "nilai": 24.53,
+   "nilai_kartu": 25.64,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5303": {
+   "tahun_data": 2026,
+   "nilai": 18.44,
+   "nilai_kartu": 20.32,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.88,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5304": {
+   "tahun_data": 2026,
+   "nilai": 23.28,
+   "nilai_kartu": 24.5,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5305": {
+   "tahun_data": 2026,
+   "nilai": 19.36,
+   "nilai_kartu": 20.17,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.81,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5306": {
+   "tahun_data": 2026,
+   "nilai": 12.01,
+   "nilai_kartu": 12.79,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.78,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5307": {
+   "tahun_data": 2026,
+   "nilai": 17.47,
+   "nilai_kartu": 18.29,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.82,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5308": {
+   "tahun_data": 2026,
+   "nilai": 21.41,
+   "nilai_kartu": 23.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.86,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5309": {
+   "tahun_data": 2026,
+   "nilai": 10.48,
+   "nilai_kartu": 10.88,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.4,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5310": {
+   "tahun_data": 2026,
+   "nilai": 10.72,
+   "nilai_kartu": 11.25,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.53,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5311": {
+   "tahun_data": 2026,
+   "nilai": 20.56,
+   "nilai_kartu": 21.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.75,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5312": {
+   "tahun_data": 2026,
+   "nilai": 10.36,
+   "nilai_kartu": 11.22,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.86,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5313": {
+   "tahun_data": 2026,
+   "nilai": 17.09,
+   "nilai_kartu": 18.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5314": {
+   "tahun_data": 2026,
+   "nilai": 23.12,
+   "nilai_kartu": 24.37,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5315": {
+   "tahun_data": 2026,
+   "nilai": 15.11,
+   "nilai_kartu": 16.09,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.98,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5316": {
+   "tahun_data": 2026,
+   "nilai": 27.49,
+   "nilai_kartu": 29.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.74,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5317": {
+   "tahun_data": 2026,
+   "nilai": 23.74,
+   "nilai_kartu": 25.66,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.92,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5318": {
+   "tahun_data": 2026,
+   "nilai": 11.52,
+   "nilai_kartu": 12.18,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.66,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5319": {
+   "tahun_data": 2026,
+   "nilai": 22.01,
+   "nilai_kartu": 23.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.5,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5320": {
+   "tahun_data": 2026,
+   "nilai": 25.65,
+   "nilai_kartu": 27.18,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.53,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5321": {
+   "tahun_data": 2026,
+   "nilai": 12.42,
+   "nilai_kartu": 13.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.5371": {
+   "tahun_data": 2026,
+   "nilai": 7.3,
+   "nilai_kartu": 7.57,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 584 (5300_p0_584_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6101": {
+   "tahun_data": 2026,
+   "nilai": 5.02,
+   "nilai_kartu": 4.91,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6102": {
+   "tahun_data": 2026,
+   "nilai": 2.73,
+   "nilai_kartu": 2.95,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6103": {
+   "tahun_data": 2026,
+   "nilai": 3.21,
+   "nilai_kartu": 2.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.52,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6104": {
+   "tahun_data": 2026,
+   "nilai": 4.3,
+   "nilai_kartu": 4.74,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.44,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6105": {
+   "tahun_data": 2026,
+   "nilai": 3.59,
+   "nilai_kartu": 3.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.3,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6106": {
+   "tahun_data": 2026,
+   "nilai": 6.55,
+   "nilai_kartu": 6.75,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.2,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6107": {
+   "tahun_data": 2026,
+   "nilai": 3.1,
+   "nilai_kartu": 2.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.32,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6108": {
+   "tahun_data": 2026,
+   "nilai": 2.22,
+   "nilai_kartu": 2.09,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6109": {
+   "tahun_data": 2026,
+   "nilai": 2.67,
+   "nilai_kartu": 2.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6110": {
+   "tahun_data": 2026,
+   "nilai": 3.5,
+   "nilai_kartu": 2.94,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.56,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6111": {
+   "tahun_data": 2026,
+   "nilai": 3.51,
+   "nilai_kartu": 3.77,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6112": {
+   "tahun_data": 2026,
+   "nilai": 6.94,
+   "nilai_kartu": 6.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6171": {
+   "tahun_data": 2026,
+   "nilai": 8.17,
+   "nilai_kartu": 7.91,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "pengangguran-terbuka-kabkota.6172": {
+   "tahun_data": 2026,
+   "nilai": 7.24,
+   "nilai_kartu": 7.42,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 51 (6100_tpt_51_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.6201": {
+   "tahun_data": 2026,
+   "nilai": 4.49,
+   "nilai_kartu": 4.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6202": {
+   "tahun_data": 2026,
+   "nilai": 5.91,
+   "nilai_kartu": 5.83,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6203": {
+   "tahun_data": 2026,
+   "nilai": 5.39,
+   "nilai_kartu": 5.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6204": {
+   "tahun_data": 2026,
+   "nilai": 4.81,
+   "nilai_kartu": 4.94,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6205": {
+   "tahun_data": 2026,
+   "nilai": 5.16,
+   "nilai_kartu": 5.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.36,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6206": {
+   "tahun_data": 2026,
+   "nilai": 4.1,
+   "nilai_kartu": 4.02,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6207": {
+   "tahun_data": 2026,
+   "nilai": 3.34,
+   "nilai_kartu": 3.33,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.01,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6208": {
+   "tahun_data": 2026,
+   "nilai": 6.66,
+   "nilai_kartu": 6.72,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6209": {
+   "tahun_data": 2026,
+   "nilai": 5.15,
+   "nilai_kartu": 5.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6210": {
+   "tahun_data": 2026,
+   "nilai": 4.76,
+   "nilai_kartu": 4.79,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6211": {
+   "tahun_data": 2026,
+   "nilai": 4.62,
+   "nilai_kartu": 5.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.86,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6212": {
+   "tahun_data": 2026,
+   "nilai": 5.63,
+   "nilai_kartu": 6.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.47,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6213": {
+   "tahun_data": 2026,
+   "nilai": 6.62,
+   "nilai_kartu": 6.19,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.43,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6271": {
+   "tahun_data": 2026,
+   "nilai": 3.13,
+   "nilai_kartu": 3.62,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.49,
+   "sumber": "BPS WebAPI, tabel provinsi var 69 (6200_p0_69_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6301": {
+   "tahun_data": 2026,
+   "nilai": 3.0,
+   "nilai_kartu": 3.0,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6302": {
+   "tahun_data": 2026,
+   "nilai": 4.13,
+   "nilai_kartu": 4.39,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6303": {
+   "tahun_data": 2026,
+   "nilai": 2.4,
+   "nilai_kartu": 2.74,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.34,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6304": {
+   "tahun_data": 2026,
+   "nilai": 4.27,
+   "nilai_kartu": 4.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6305": {
+   "tahun_data": 2026,
+   "nilai": 2.66,
+   "nilai_kartu": 2.91,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6306": {
+   "tahun_data": 2026,
+   "nilai": 3.12,
+   "nilai_kartu": 3.12,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6307": {
+   "tahun_data": 2026,
+   "nilai": 4.93,
+   "nilai_kartu": 5.03,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6308": {
+   "tahun_data": 2026,
+   "nilai": 4.52,
+   "nilai_kartu": 4.81,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6309": {
+   "tahun_data": 2026,
+   "nilai": 4.49,
+   "nilai_kartu": 4.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6310": {
+   "tahun_data": 2026,
+   "nilai": 2.98,
+   "nilai_kartu": 3.13,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6311": {
+   "tahun_data": 2026,
+   "nilai": 4.38,
+   "nilai_kartu": 4.64,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6371": {
+   "tahun_data": 2026,
+   "nilai": 4.25,
+   "nilai_kartu": 4.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6372": {
+   "tahun_data": 2026,
+   "nilai": 3.19,
+   "nilai_kartu": 3.44,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 103 (6300_p0_103_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.6501": {
+   "tahun_data": 2026,
+   "nilai": 4.92,
+   "nilai_kartu": 5.56,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.64,
+   "sumber": "BPS WebAPI, tabel provinsi var 71 (6500_p0_71_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6501": {
+   "tahun_data": 2026,
+   "nilai": 3.31,
+   "nilai_kartu": 3.42,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 115 (6500_tpt_115_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.6502": {
+   "tahun_data": 2026,
+   "nilai": 6.19,
+   "nilai_kartu": 7.26,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 71 (6500_p0_71_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6502": {
+   "tahun_data": 2026,
+   "nilai": 4.11,
+   "nilai_kartu": 4.14,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 115 (6500_tpt_115_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.6503": {
+   "tahun_data": 2026,
+   "nilai": 3.82,
+   "nilai_kartu": 4.56,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.74,
+   "sumber": "BPS WebAPI, tabel provinsi var 71 (6500_p0_71_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6503": {
+   "tahun_data": 2026,
+   "nilai": 3.54,
+   "nilai_kartu": 3.68,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 115 (6500_tpt_115_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.6504": {
+   "tahun_data": 2026,
+   "nilai": 5.23,
+   "nilai_kartu": 5.27,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 71 (6500_p0_71_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6504": {
+   "tahun_data": 2026,
+   "nilai": 2.52,
+   "nilai_kartu": 2.61,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 115 (6500_tpt_115_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.6571": {
+   "tahun_data": 2026,
+   "nilai": 4.93,
+   "nilai_kartu": 5.03,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 71 (6500_p0_71_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.6571": {
+   "tahun_data": 2026,
+   "nilai": 4.94,
+   "nilai_kartu": 5.06,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 115 (6500_tpt_115_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7201": {
+   "tahun_data": 2026,
+   "nilai": 10.65,
+   "nilai_kartu": 11.49,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.84,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7201": {
+   "tahun_data": 2026,
+   "nilai": 1.63,
+   "nilai_kartu": 1.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7202": {
+   "tahun_data": 2026,
+   "nilai": 5.74,
+   "nilai_kartu": 6.23,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.49,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7202": {
+   "tahun_data": 2026,
+   "nilai": 3.1,
+   "nilai_kartu": 3.07,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7203": {
+   "tahun_data": 2026,
+   "nilai": 10.08,
+   "nilai_kartu": 10.38,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.3,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7203": {
+   "tahun_data": 2026,
+   "nilai": 2.78,
+   "nilai_kartu": 2.81,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7204": {
+   "tahun_data": 2026,
+   "nilai": 11.69,
+   "nilai_kartu": 12.9,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.21,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7204": {
+   "tahun_data": 2026,
+   "nilai": 1.76,
+   "nilai_kartu": 1.76,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7205": {
+   "tahun_data": 2026,
+   "nilai": 14.47,
+   "nilai_kartu": 14.66,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7205": {
+   "tahun_data": 2026,
+   "nilai": 2.78,
+   "nilai_kartu": 2.78,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7206": {
+   "tahun_data": 2026,
+   "nilai": 12.08,
+   "nilai_kartu": 12.2,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7206": {
+   "tahun_data": 2026,
+   "nilai": 3.28,
+   "nilai_kartu": 3.09,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.19,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7207": {
+   "tahun_data": 2026,
+   "nilai": 12.34,
+   "nilai_kartu": 12.48,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7207": {
+   "tahun_data": 2026,
+   "nilai": 3.2,
+   "nilai_kartu": 3.11,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7208": {
+   "tahun_data": 2026,
+   "nilai": 13.38,
+   "nilai_kartu": 13.51,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7208": {
+   "tahun_data": 2026,
+   "nilai": 2.26,
+   "nilai_kartu": 2.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.16,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7209": {
+   "tahun_data": 2026,
+   "nilai": 13.42,
+   "nilai_kartu": 14.67,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.25,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7209": {
+   "tahun_data": 2026,
+   "nilai": 2.68,
+   "nilai_kartu": 2.73,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.05,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7210": {
+   "tahun_data": 2026,
+   "nilai": 9.76,
+   "nilai_kartu": 10.47,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.71,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7210": {
+   "tahun_data": 2026,
+   "nilai": 2.3,
+   "nilai_kartu": 2.3,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7211": {
+   "tahun_data": 2026,
+   "nilai": 12.38,
+   "nilai_kartu": 12.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.33,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7211": {
+   "tahun_data": 2026,
+   "nilai": 3.76,
+   "nilai_kartu": 3.69,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7212": {
+   "tahun_data": 2026,
+   "nilai": 10.3,
+   "nilai_kartu": 10.38,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7212": {
+   "tahun_data": 2026,
+   "nilai": 2.4,
+   "nilai_kartu": 2.38,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.02,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7271": {
+   "tahun_data": 2026,
+   "nilai": 4.75,
+   "nilai_kartu": 5.26,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.51,
+   "sumber": "BPS WebAPI, tabel provinsi var 90 (7200_p0_90_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.7271": {
+   "tahun_data": 2026,
+   "nilai": 5.48,
+   "nilai_kartu": 5.59,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 92 (7200_tpt_92_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.7501": {
+   "tahun_data": 2026,
+   "nilai": 14.95,
+   "nilai_kartu": 16.37,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.42,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.7502": {
+   "tahun_data": 2026,
+   "nilai": 13.56,
+   "nilai_kartu": 14.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.33,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.7503": {
+   "tahun_data": 2026,
+   "nilai": 13.35,
+   "nilai_kartu": 15.24,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.89,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.7504": {
+   "tahun_data": 2026,
+   "nilai": 12.87,
+   "nilai_kartu": 13.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.29,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.7505": {
+   "tahun_data": 2026,
+   "nilai": 15.41,
+   "nilai_kartu": 15.89,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.48,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.7571": {
+   "tahun_data": 2026,
+   "nilai": 4.69,
+   "nilai_kartu": 5.31,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.62,
+   "sumber": "BPS WebAPI, tabel provinsi var 37 (7500_p0_37_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8101": {
+   "tahun_data": 2026,
+   "nilai": 22.97,
+   "nilai_kartu": 23.38,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.41,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8102": {
+   "tahun_data": 2026,
+   "nilai": 20.35,
+   "nilai_kartu": 21.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.81,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8103": {
+   "tahun_data": 2026,
+   "nilai": 16.19,
+   "nilai_kartu": 16.71,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.52,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8104": {
+   "tahun_data": 2026,
+   "nilai": 14.49,
+   "nilai_kartu": 15.11,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.62,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8105": {
+   "tahun_data": 2026,
+   "nilai": 22.82,
+   "nilai_kartu": 23.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.28,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8106": {
+   "tahun_data": 2026,
+   "nilai": 21.27,
+   "nilai_kartu": 21.85,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.58,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8107": {
+   "tahun_data": 2026,
+   "nilai": 20.58,
+   "nilai_kartu": 20.9,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.32,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8108": {
+   "tahun_data": 2026,
+   "nilai": 27.49,
+   "nilai_kartu": 27.65,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.16,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8109": {
+   "tahun_data": 2026,
+   "nilai": 14.57,
+   "nilai_kartu": 14.84,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.27,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8171": {
+   "tahun_data": 2026,
+   "nilai": 4.12,
+   "nilai_kartu": 4.34,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.22,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8172": {
+   "tahun_data": 2026,
+   "nilai": 18.74,
+   "nilai_kartu": 19.39,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.65,
+   "sumber": "BPS WebAPI, tabel provinsi var 118 (8100_p0_118_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.8201": {
+   "tahun_data": 2026,
+   "nilai": 7.59,
+   "nilai_kartu": 7.9,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.31,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8201": {
+   "tahun_data": 2026,
+   "nilai": 3.95,
+   "nilai_kartu": 4.06,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.11,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8202": {
+   "tahun_data": 2026,
+   "nilai": 8.77,
+   "nilai_kartu": 9.16,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.39,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8202": {
+   "tahun_data": 2026,
+   "nilai": 3.92,
+   "nilai_kartu": 3.96,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8203": {
+   "tahun_data": 2026,
+   "nilai": 7.33,
+   "nilai_kartu": 7.65,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.32,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8203": {
+   "tahun_data": 2026,
+   "nilai": 3.28,
+   "nilai_kartu": 3.11,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8204": {
+   "tahun_data": 2026,
+   "nilai": 4.96,
+   "nilai_kartu": 4.81,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8204": {
+   "tahun_data": 2026,
+   "nilai": 2.59,
+   "nilai_kartu": 2.55,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.04,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8205": {
+   "tahun_data": 2026,
+   "nilai": 4.48,
+   "nilai_kartu": 4.35,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.13,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8205": {
+   "tahun_data": 2026,
+   "nilai": 6.79,
+   "nilai_kartu": 6.7,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.09,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8206": {
+   "tahun_data": 2026,
+   "nilai": 10.72,
+   "nilai_kartu": 10.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.18,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8206": {
+   "tahun_data": 2026,
+   "nilai": 4.99,
+   "nilai_kartu": 4.85,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.14,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8207": {
+   "tahun_data": 2026,
+   "nilai": 4.64,
+   "nilai_kartu": 4.49,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8207": {
+   "tahun_data": 2026,
+   "nilai": 4.91,
+   "nilai_kartu": 4.74,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.17,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8208": {
+   "tahun_data": 2026,
+   "nilai": 6.78,
+   "nilai_kartu": 6.63,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.15,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8208": {
+   "tahun_data": 2026,
+   "nilai": 3.52,
+   "nilai_kartu": 3.4,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.12,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8271": {
+   "tahun_data": 2026,
+   "nilai": 3.31,
+   "nilai_kartu": 3.34,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8271": {
+   "tahun_data": 2026,
+   "nilai": 6.95,
+   "nilai_kartu": 6.92,
+   "tahun_kartu": 2025,
+   "selisih_poin": 0.03,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.8272": {
+   "tahun_data": 2026,
+   "nilai": 6.23,
+   "nilai_kartu": 6.54,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.31,
+   "sumber": "BPS WebAPI, tabel provinsi var 295 (8200_p0_295_2026.json)",
+   "periode": "Maret"
+  },
+  "pengangguran-terbuka-kabkota.8272": {
+   "tahun_data": 2026,
+   "nilai": 3.94,
+   "nilai_kartu": 4.02,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.08,
+   "sumber": "BPS WebAPI, tabel provinsi var 250 (8200_tpt_250_2026.json)",
+   "periode": "Agustus"
+  },
+  "kemiskinan-kabkota.9101": {
+   "tahun_data": 2026,
+   "nilai": 18.08,
+   "nilai_kartu": 19.86,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.78,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9102": {
+   "tahun_data": 2026,
+   "nilai": 13.35,
+   "nilai_kartu": 13.83,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.48,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9103": {
+   "tahun_data": 2026,
+   "nilai": 25.64,
+   "nilai_kartu": 27.57,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.93,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9104": {
+   "tahun_data": 2026,
+   "nilai": 22.43,
+   "nilai_kartu": 25.34,
+   "tahun_kartu": 2025,
+   "selisih_poin": -2.91,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9105": {
+   "tahun_data": 2026,
+   "nilai": 15.31,
+   "nilai_kartu": 17.38,
+   "tahun_kartu": 2025,
+   "selisih_poin": -2.07,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9111": {
+   "tahun_data": 2026,
+   "nilai": 23.42,
+   "nilai_kartu": 26.52,
+   "tahun_kartu": 2025,
+   "selisih_poin": -3.1,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9112": {
+   "tahun_data": 2026,
+   "nilai": 28.44,
+   "nilai_kartu": 30.88,
+   "tahun_kartu": 2025,
+   "selisih_poin": -2.44,
+   "sumber": "BPS WebAPI, tabel provinsi var 179 (9100_p0_179_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9108": {
+   "tahun_data": 2026,
+   "nilai": 15.51,
+   "nilai_kartu": 16.57,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.06,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9107": {
+   "tahun_data": 2026,
+   "nilai": 23.1,
+   "nilai_kartu": 25.1,
+   "tahun_kartu": 2025,
+   "selisih_poin": -2.0,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9106": {
+   "tahun_data": 2026,
+   "nilai": 17.4,
+   "nilai_kartu": 17.66,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.26,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9110": {
+   "tahun_data": 2026,
+   "nilai": 28.28,
+   "nilai_kartu": 29.0,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.72,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9109": {
+   "tahun_data": 2026,
+   "nilai": 28.43,
+   "nilai_kartu": 28.94,
+   "tahun_kartu": 2025,
+   "selisih_poin": -0.51,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  },
+  "kemiskinan-kabkota.9171": {
+   "tahun_data": 2026,
+   "nilai": 11.85,
+   "nilai_kartu": 13.55,
+   "tahun_kartu": 2025,
+   "selisih_poin": -1.7,
+   "sumber": "BPS WebAPI, tabel provinsi var 374 (9100_p0_374_2026.json)",
+   "periode": "Maret"
+  }
+ }
+}
