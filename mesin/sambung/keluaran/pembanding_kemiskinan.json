@@ -10,9 +10,13 @@
    "nama": "Garis kemiskinan nasional",
    "nilai_persen": 8.47,
    "periode": "Maret 2025",
-   "garis": "garis per provinsi, kota dan desa dipisah; garis rata-rata nasional Maret 2025 belum dicek ke rilis BPS (BELUM DIVERIFIKASI)",
-   "url": "https://www.worldbank.org/en/news/statement/2026/09/09/joint-statement-bps-wb-on-indonesia-poverty-figures",
-   "catatan": "angka Maret 2026: 8,07 persen, garis Rp669.235/kapita/bulan (https://www.bps.go.id/id/pressrelease/2026/08/05/2594/persentase-penduduk-miskin-maret-2026-turun-menjadi-8-07-persen-.html). Angka 8,47 diambil dari pernyataan bersama yang ditandatangani BPS; rilis BPS Maret 2025 belum dibuka"
+   "garis": "Rp609.160 per kapita per bulan, rata-rata nasional Maret 2025",
+   "url": "https://www.bps.go.id/id/pressrelease/2025/07/25/2518/persentase-penduduk-miskin-maret-2025",
+   "catatan": "angka Maret 2026: 8,07 persen, garis Rp669.235/kapita/bulan (https://www.bps.go.id/id/pressrelease/2026/08/05/2594/persentase-penduduk-miskin-maret-2026-turun-menjadi-8-07-persen-.html). Angka 8,47 diambil dari pernyataan bersama yang ditandatangani BPS; rilis BPS Maret 2025 belum dibuka · 18 Nov 2026: URL utama diganti rilis BPS 25 Jul 2025 atas penilaian chat induk Sintesis; garis Maret 2025 diisi",
+   "konfirmasi": [
+    "https://www.bps.go.id/id/news/2025/07/25/731/tingkat-kemiskinan-kembali-menurun.html (berita BPS: 8,47 persen; Rp609.160)",
+    "https://www.worldbank.org/en/news/statement/2026/09/09/joint-statement-bps-wb-on-indonesia-poverty-figures (8,47 persen)"
+   ]
   },
   {
    "id": "wb-300",
@@ -25,7 +29,9 @@
    "konfirmasi": [
     "https://pip.worldbank.org/country-profiles/IDN (3,69 persen, 2025)",
     "https://thedocs.worldbank.org/en/doc/77351105a334213c64122e44c2efe523-0500072021/related/mpo-am26.pdf (MPO Okt 2026: 3,7)"
-   ]
+   ],
+   "url_basis_ppp2021": "https://blogs.worldbank.org/en/opendata/june-2025-global-poverty-update-from-the-world-bank--2021-ppps-a",
+   "basis_ppp": "PPP 2021; garis direvisi Bank Dunia 5 Jun 2025 (US$2,15 menjadi 3,00; 3,65 menjadi 4,20; 6,85 menjadi 8,30)"
   },
   {
    "id": "wb-420",
@@ -38,7 +44,9 @@
    "konfirmasi": [
     "https://thedocs.worldbank.org/en/doc/77351105a334213c64122e44c2efe523-0500072021/related/mpo-am26.pdf (MPO Okt 2026: 15,5)"
    ],
-   "revisi": "MPO April 2026 menulis 16,4 untuk 2025 (https://thedocs.worldbank.org/en/doc/77351105a334213c64122e44c2efe523-0500072021/related/mpo-sm26.pdf); MPO Oktober 2026 merevisi menjadi 15,5"
+   "revisi": "MPO April 2026 menulis 16,4 untuk 2025 (https://thedocs.worldbank.org/en/doc/77351105a334213c64122e44c2efe523-0500072021/related/mpo-sm26.pdf); MPO Oktober 2026 merevisi menjadi 15,5",
+   "url_basis_ppp2021": "https://blogs.worldbank.org/en/opendata/june-2025-global-poverty-update-from-the-world-bank--2021-ppps-a",
+   "basis_ppp": "PPP 2021; garis direvisi Bank Dunia 5 Jun 2025 (US$2,15 menjadi 3,00; 3,65 menjadi 4,20; 6,85 menjadi 8,30)"
   },
   {
    "id": "wb-830",
@@ -48,7 +56,9 @@
    "periode": "2025",
    "garis": "Rp51.087 per orang per hari",
    "url": "https://www.worldbank.org/en/news/statement/2026/09/09/joint-statement-bps-wb-on-indonesia-poverty-figures",
-   "revisi": "MPO April 2026: 65,2; MPO Oktober 2026: 64,1"
+   "revisi": "MPO April 2026: 65,2; MPO Oktober 2026: 64,1",
+   "url_basis_ppp2021": "https://blogs.worldbank.org/en/opendata/june-2025-global-poverty-update-from-the-world-bank--2021-ppps-a",
+   "basis_ppp": "PPP 2021; garis direvisi Bank Dunia 5 Jun 2025 (US$2,15 menjadi 3,00; 3,65 menjadi 4,20; 6,85 menjadi 8,30)"
   },
   {
    "id": "wb-multidimensi",
@@ -57,7 +67,8 @@
    "nilai_persen": 4.3,
    "periode": "2025",
    "url": "https://pip.worldbank.org/country-profiles/IDN",
-   "catatan": "definisi komponen belum dibaca; hanya angka kepala"
+   "catatan": "definisi komponen belum dibaca; hanya angka kepala",
+   "status_bukti": "TAHAN (penilaian chat induk Sintesis 17 Nov: definisi komponen belum dibaca)"
   },
   {
    "id": "undp-ophi-mpi",
@@ -66,7 +77,9 @@
    "nilai_persen": 3.6,
    "periode": "data DHS 2017",
    "url": "https://ophi.org.uk/media/46985/download",
-   "catatan": "data survei terbaru yang dipakai berumur 2017; jangan disandingkan sebagai angka 2025 tanpa label tahun"
+   "catatan": "data survei terbaru yang dipakai berumur 2017; jangan disandingkan sebagai angka 2025 tanpa label tahun",
+   "label_batang": "data 2017",
+   "syarat_tayang": "lapis tafsir saja; label \"data 2017\" di batangnya; tidak sejajar dengan batang 2025 (penilaian chat induk Sintesis 17 Nov)"
   },
   {
    "id": "lpem-ui",
@@ -76,7 +89,8 @@
    "periode": "Maret 2024, skenario S3 (perkiraan terbaik penulis)",
    "rentang": "7,9 sampai 37,2 persen (S1 sampai S2)",
    "url": "https://lpem.org/wp-content/uploads/2026/10/WP-LPEM-097_Why_Does_Indonesia_Look_Poorer_than_Vietnam.pdf",
-   "catatan": "kertas kerja, belum telaah sejawat; menilai angka 65 persen Bank Dunia sebagian besar artefak pengukuran. Ini bantahan, berguna sebagai lapis kritis"
+   "catatan": "kertas kerja, belum telaah sejawat; menilai angka 65 persen Bank Dunia sebagian besar artefak pengukuran. Ini bantahan, berguna sebagai lapis kritis",
+   "status_bukti": "TAHAN (penilaian chat induk Sintesis 17 Nov: PDF belum terbuka, kertas kerja belum telaah sejawat)"
   }
  ],
  "tidak_ditemukan": [
@@ -96,5 +110,8 @@
    "hasil": "laporan ada (https://www.unicef.org/indonesia/social-policy/press-releases/landmark-report-reveals-more-comprehensive-scope-child-poverty-indonesia); angka kepala TIDAK DITEMUKAN di cuplikan · KOREKSI 17 Nov 2026: angka ditelusuri ke teks utuh, lihat kemiskinan_anak_2025.json (11,80 persen data 2022; 37,38 persen data 2023)"
   }
  ],
- "cara_baca_untuk_grafik": "Batang BPS, US$3,00, US$4,20, US$8,30 untuk tahun 2025, tiap batang dengan rupiah per hari dan tautan. Ukuran berbeda tujuan: BPS untuk memantau kebijakan dalam negeri, garis Bank Dunia untuk banding antarnegara (pernyataan bersama 9 Sep 2026). LPEM dan MPI dipasang sebagai lapis tafsir, berlabel tahun data."
+ "cara_baca_untuk_grafik": {
+  "dewasa": "Batang BPS, US$3,00, US$4,20, US$8,30 untuk tahun 2025, tiap batang dengan rupiah per hari dan tautan. Ukuran berbeda tujuan: BPS untuk memantau kebijakan dalam negeri, garis Bank Dunia untuk banding antarnegara (pernyataan bersama 9 Sep 2026). LPEM dan MPI dipasang sebagai lapis tafsir, berlabel tahun data.",
+  "kemiskinan_anak": "Dua ukuran terpisah, tidak dijumlah dan tidak dibandingkan sebagai satu batang: kemiskinan moneter anak 11,8 persen (Susenas Maret 2022, garis kemiskinan BPS) dan deprivasi multidimensi anak 37,4 persen atau 29,8 juta anak (Susenas Maret 2023). Keduanya berlabel tahun data dan tidak ditampilkan sebagai keadaan 2025. Rincian dan halaman sumber: kemiskinan_anak_2025.json."
+ }
 }
