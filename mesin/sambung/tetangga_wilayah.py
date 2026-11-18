@@ -171,7 +171,7 @@ def main():
                       "tetangga_laut": "tidak dihitung", "pencocokan_kode": "nama dalam provinsi ke DIKK 2025 tabel 2.1",
                       "wilayah_tanpa_geometri_utama": "tetangga diambil dari pembanding dan ditandai asal = pembanding"},
            "syarat_tayang": ["Halaman menulis: batas wilayah dari data BIG, bersifat petunjuk; tetangga laut tidak dihitung.",
-                             "Pasangan ber-asal pembanding tidak memakai tanda BIG. Pilihannya: tayang dengan tanda sendiri (mis. 'Batas dari data pembanding yang asal datanya tidak dinyatakan'), atau ditahan sampai layanan resmi BIG bisa diunduh (putusan Chief)."],
+                             "Pasangan ber-asal pembanding tayang dengan tanda sendiri: 'Batas dari data pembanding yang asal datanya tidak dinyatakan.' PUTUSAN ATAS DELEGASI sesi mesin 18 Nov 2026 (dapat dibalik Chief atau Raihan): ketujuh kota itu dikelilingi satu kabupaten induknya, jadi tetangganya tidak diperdebatkan; menahannya membuat tujuh Halaman Isu kosong di bagian Daerah lain."],
            "ringkas": ringkas, "catatan_pencocokan": sorted(set(catatan)), "wilayah": wilayah}
     json.dump(out, open(keluar, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps(ringkas, ensure_ascii=False))
