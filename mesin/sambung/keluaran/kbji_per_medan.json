@@ -1,0 +1,4404 @@
+{
+ "skema": "kbji-per-medan/1",
+ "dibuat": "18 Nov 2026, sesi mesin Sulu (butir 262)",
+ "sumber": "KBJI 2026, Peraturan BPS 7/2026, https://www.bps.go.id/en/publication/2026/09/18/037999e06c01ccb8acd2e7af/klasifikasi-baku-jabatan-indonesia--kbji--2026.html; terurai 2.179 dari 2.380 jabatan",
+ "label": "SINTESIS pemilihan kata kunci; kandidat sebelum gerbang G3.6",
+ "medan": {
+  "k1": {
+   "nama": "Kesehatan & Kesejahteraan",
+   "jumlah_kelompok": 48,
+   "jumlah_jabatan": 180,
+   "per_golongan": {
+    "Manajer": 3,
+    "Profesional": 18,
+    "Teknisi dan asisten profesional": 18,
+    "Tenaga usaha jasa dan penjualan": 7,
+    "Operator dan perakit mesin": 2
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1311",
+     "judul_unit": "Manajer produksi pertanian dan kehutanan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1311.06",
+       "judul": "Kepala departemen kesehatan hewan (animal health)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1342",
+     "judul_unit": "Manajer jasa kesehatan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1342.01",
+       "judul": "Direktur klinis"
+      },
+      {
+       "kode_kbji": "1342.02",
+       "judul": "Koordinator kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "1342.03",
+       "judul": "Direktur keperawatan"
+      },
+      {
+       "kode_kbji": "1342.04",
+       "judul": "Kepala bidang pelayanan kesehatan"
+      },
+      {
+       "kode_kbji": "1342.05",
+       "judul": "Administrator kesehatan"
+      },
+      {
+       "kode_kbji": "1342.06",
+       "judul": "Manajer kasus perawatan"
+      },
+      {
+       "kode_kbji": "1342.99",
+       "judul": "Manajer jasa kesehatan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1343",
+     "judul_unit": "Manajer jasa perawatan lanjut usia",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1343.01",
+       "judul": "Direktur rumah perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.02",
+       "judul": "Koordinator komunitas perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.03",
+       "judul": "Direktur rumah perawatan intensif lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.04",
+       "judul": "Koordinator perkampungan pensiun"
+      },
+      {
+       "kode_kbji": "1343.05",
+       "judul": "Koordinator perawatan residensial"
+      },
+      {
+       "kode_kbji": "1343.06",
+       "judul": "Supervisor perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.07",
+       "judul": "Manajer perawatan jangka panjang"
+      },
+      {
+       "kode_kbji": "1343.99",
+       "judul": "Manajer jasa perawatan lanjut usia lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2111",
+     "judul_unit": "Ahli fisika dan astronomi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2111.09",
+       "judul": "Ahli fisika medis"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2131",
+     "judul_unit": "Ahli biologi, botani, zoologi, dan ybdi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2131.11",
+       "judul": "Ahli patologis medis"
+      },
+      {
+       "kode_kbji": "2131.14",
+       "judul": "Ahli epidemiologi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2143",
+     "judul_unit": "Ahli teknik lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2143.03",
+       "judul": "Spesialis rehabilitasi lingkungan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2149",
+     "judul_unit": "Ahli teknik lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2149.06",
+       "judul": "Ahli teknik biomedis"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2212",
+     "judul_unit": "Praktisi dokter spesialis",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2212.21",
+       "judul": "Dokter spesialis medis olahraga"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2221",
+     "judul_unit": "Profesional keperawatan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2221.01",
+       "judul": "Perawat ahli"
+      },
+      {
+       "kode_kbji": "2221.02",
+       "judul": "Perawat spesialis"
+      },
+      {
+       "kode_kbji": "2221.03",
+       "judul": "Perawat kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2221.04",
+       "judul": "Perawat kesehatan kerja"
+      },
+      {
+       "kode_kbji": "2221.05",
+       "judul": "Perawat"
+      },
+      {
+       "kode_kbji": "2221.06",
+       "judul": "Perawat anestesi"
+      },
+      {
+       "kode_kbji": "2221.07",
+       "judul": "Spesialis perawat geriatri"
+      },
+      {
+       "kode_kbji": "2221.08",
+       "judul": "Supervisor perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "2221.09",
+       "judul": "Supervisor pengasuh daycare"
+      },
+      {
+       "kode_kbji": "2221.99",
+       "judul": "Profesional keperawatan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2222",
+     "judul_unit": "Profesional kebidanan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2222.01",
+       "judul": "Bidan"
+      },
+      {
+       "kode_kbji": "2222.99",
+       "judul": "Profesional kebidanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2240",
+     "judul_unit": "Praktisi paramedis",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2240.01",
+       "judul": "Asisten medik"
+      },
+      {
+       "kode_kbji": "2240.02",
+       "judul": "Paramedis"
+      },
+      {
+       "kode_kbji": "2240.03",
+       "judul": "Teknisi bedah"
+      },
+      {
+       "kode_kbji": "2240.04",
+       "judul": "Teknisi forensik"
+      },
+      {
+       "kode_kbji": "2240.99",
+       "judul": "Praktisi paramedis lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2250",
+     "judul_unit": "Dokter hewan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2250.02",
+       "judul": "Dokter hewan kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2250.05",
+       "judul": "Ahli epidemiologi hewan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2261",
+     "judul_unit": "Dokter gigi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2261.02",
+       "judul": "Dokter gigi kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2261.04",
+       "judul": "Ahli kesehatan gigi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2263",
+     "judul_unit": "Ahli kesehatan dan kebersihan lingkungan kerja",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2263.01",
+       "judul": "Petugas kesehatan lingkungan"
+      },
+      {
+       "kode_kbji": "2263.02",
+       "judul": "Penasihat kesehatan dan keselamatan kerja"
+      },
+      {
+       "kode_kbji": "2263.03",
+       "judul": "Ahli proteksi radiasi"
+      },
+      {
+       "kode_kbji": "2263.04",
+       "judul": "Penasihat kebijakan pengasuhan (caregiving)"
+      },
+      {
+       "kode_kbji": "2263.05",
+       "judul": "Penasihat kebijakan anak dan paud"
+      },
+      {
+       "kode_kbji": "2263.06",
+       "judul": "Penasihat kebijakan geriatri"
+      },
+      {
+       "kode_kbji": "2263.99",
+       "judul": "Ahli kesehatan dan kebersihan lingkungan kerja lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2264",
+     "judul_unit": "Ahli fisioterapi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2264.02",
+       "judul": "Ahli terapi rehabilitasi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2265",
+     "judul_unit": "Ahli diet dan gizi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2265.01",
+       "judul": "Ahli diet klinis"
+      },
+      {
+       "kode_kbji": "2265.02",
+       "judul": "Ahli gizi klinis"
+      },
+      {
+       "kode_kbji": "2265.03",
+       "judul": "Ahli gizi layanan makanan"
+      },
+      {
+       "kode_kbji": "2265.04",
+       "judul": "Ahli gizi kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2265.05",
+       "judul": "Ahli gizi olahraga"
+      },
+      {
+       "kode_kbji": "2265.06",
+       "judul": "Ahli nutrisi satwa"
+      },
+      {
+       "kode_kbji": "2265.99",
+       "judul": "Ahli diet dan gizi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2269",
+     "judul_unit": "Ahli kesehatan ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2269.01",
+       "judul": "Terapis seni"
+      },
+      {
+       "kode_kbji": "2269.02",
+       "judul": "Terapis tari dan gerakan"
+      },
+      {
+       "kode_kbji": "2269.03",
+       "judul": "Okupasi terapis"
+      },
+      {
+       "kode_kbji": "2269.04",
+       "judul": "Ahli podiatri (penyakit kaki)"
+      },
+      {
+       "kode_kbji": "2269.99",
+       "judul": "Ahli kesehatan ytdl lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2310",
+     "judul_unit": "Dosen universitas dan pendidikan tinggi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2310.13",
+       "judul": "Dosen ilmu kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2310.14",
+       "judul": "Dosen ilmu terapi kesehatan, kebidanan, dan yang sejenis"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2359",
+     "judul_unit": "Profesional bidang pendidikan lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2359.01",
+       "judul": "Edukator museum"
+      },
+      {
+       "kode_kbji": "2359.99",
+       "judul": "Profesional bidang pendidikan lainnya ytdl"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2433",
+     "judul_unit": "Profesional penjualan produk teknik dan medis (selain tik)",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2433.01",
+       "judul": "Perwakilan penjualan (produk industri)"
+      },
+      {
+       "kode_kbji": "2433.02",
+       "judul": "Perwakilan penjualan (produk medis dan farmasi)"
+      },
+      {
+       "kode_kbji": "2433.03",
+       "judul": "Perwakilan penjualan produk teknik"
+      },
+      {
+       "kode_kbji": "2433.99",
+       "judul": "Profesional penjualan produk teknik dan medis (selain tik)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2634",
+     "judul_unit": "Psikolog",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2634.01",
+       "judul": "Psikolog klinis"
+      },
+      {
+       "kode_kbji": "2634.02",
+       "judul": "Psikolog pendidikan"
+      },
+      {
+       "kode_kbji": "2634.03",
+       "judul": "Psikolog organisasi"
+      },
+      {
+       "kode_kbji": "2634.04",
+       "judul": "Psikoterapis"
+      },
+      {
+       "kode_kbji": "2634.05",
+       "judul": "Psikolog olahraga"
+      },
+      {
+       "kode_kbji": "2634.99",
+       "judul": "Psikolog lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3211",
+     "judul_unit": "Teknisi peralatan perekam medis dan terapeutik",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3211.01",
+       "judul": "Ahli diagnostik radiografi medis"
+      },
+      {
+       "kode_kbji": "3211.02",
+       "judul": "Teknisi mamografi"
+      },
+      {
+       "kode_kbji": "3211.03",
+       "judul": "Teknisi terapi radiasi"
+      },
+      {
+       "kode_kbji": "3211.04",
+       "judul": "Teknisi medis nuklir"
+      },
+      {
+       "kode_kbji": "3211.05",
+       "judul": "Sonografer"
+      },
+      {
+       "kode_kbji": "3211.06",
+       "judul": "Radiografer"
+      },
+      {
+       "kode_kbji": "3211.99",
+       "judul": "Teknisi peralatan perekam medis dan terapeutik lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3212",
+     "judul_unit": "Teknisi laboratorium medis dan patologi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3212.01",
+       "judul": "Teknisi laboratorium medis"
+      },
+      {
+       "kode_kbji": "3212.02",
+       "judul": "Teknisi patologi"
+      },
+      {
+       "kode_kbji": "3212.03",
+       "judul": "Teknisi sitologi"
+      },
+      {
+       "kode_kbji": "3212.04",
+       "judul": "Teknisi bank darah"
+      },
+      {
+       "kode_kbji": "3212.99",
+       "judul": "Teknisi laboratorium medis dan patologi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3213",
+     "judul_unit": "Teknisi farmasi dan asisten apoteker",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3213.01",
+       "judul": "Teknisi farmasi"
+      },
+      {
+       "kode_kbji": "3213.02",
+       "judul": "Asisten apoteker"
+      },
+      {
+       "kode_kbji": "3213.99",
+       "judul": "Teknisi farmasi dan asisten apoteker lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3214",
+     "judul_unit": "Teknisi prostetik medis dan gigi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3214.01",
+       "judul": "Teknisi kesehatan gigi"
+      },
+      {
+       "kode_kbji": "3214.02",
+       "judul": "Denturis"
+      },
+      {
+       "kode_kbji": "3214.03",
+       "judul": "Orthotis"
+      },
+      {
+       "kode_kbji": "3214.04",
+       "judul": "Prostetis"
+      },
+      {
+       "kode_kbji": "3214.99",
+       "judul": "Teknisi prostetik medis dan gigi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3221",
+     "judul_unit": "Asisten profesional keperawatan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3221.01",
+       "judul": "Asisten profesional pendamping keperawatan"
+      },
+      {
+       "kode_kbji": "3221.02",
+       "judul": "Asisten perawat"
+      },
+      {
+       "kode_kbji": "3221.03",
+       "judul": "Perawat bagian pendaftaran pasien"
+      },
+      {
+       "kode_kbji": "3221.04",
+       "judul": "Perawat praktik"
+      },
+      {
+       "kode_kbji": "3221.05",
+       "judul": "Asisten dokter jiwa (pembantu psikiater)"
+      },
+      {
+       "kode_kbji": "3221.99",
+       "judul": "Asisten profesional keperawatan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3222",
+     "judul_unit": "Asisten profesional kebidanan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3222.01",
+       "judul": "Asisten bidan"
+      },
+      {
+       "kode_kbji": "3222.02",
+       "judul": "Bidan tradisional"
+      },
+      {
+       "kode_kbji": "3222.99",
+       "judul": "Asisten profesional kebidanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3240",
+     "judul_unit": "Teknisi dan asisten kedokteran hewan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3240.03",
+       "judul": "Perawat veteriner"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3251",
+     "judul_unit": "Asisten dan terapis gigi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3251.01",
+       "judul": "Asisten kesehatan gigi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3252",
+     "judul_unit": "Teknisi informasi kesehatan dan rekam medis",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3252.01",
+       "judul": "Petugas kode klinik"
+      },
+      {
+       "kode_kbji": "3252.02",
+       "judul": "Petugas rekam medis"
+      },
+      {
+       "kode_kbji": "3252.99",
+       "judul": "Teknisi informasi kesehatan dan rekam medis lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3253",
+     "judul_unit": "Pekerja kesehatan masyarakat",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3253.01",
+       "judul": "Petugas bantuan kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "3253.02",
+       "judul": "Pekerja kesehatan masyarakat desa"
+      },
+      {
+       "kode_kbji": "3253.99",
+       "judul": "Pekerja kesehatan masyarakat lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3255",
+     "judul_unit": "Teknisi dan asisten fisioterapi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3255.06",
+       "judul": "Terapis rehabilitasi fisik"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3256",
+     "judul_unit": "Asisten medis",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3256.01",
+       "judul": "Asisten klinik"
+      },
+      {
+       "kode_kbji": "3256.02",
+       "judul": "Asisten dokter"
+      },
+      {
+       "kode_kbji": "3256.03",
+       "judul": "Asisten dokter mata"
+      },
+      {
+       "kode_kbji": "3256.99",
+       "judul": "Asisten medis lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3257",
+     "judul_unit": "Asisten dan pengawas kesehatan lingkungan dan pekerjaan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3257.01",
+       "judul": "Pengawas kesehatan dan keselamatan kerja"
+      },
+      {
+       "kode_kbji": "3257.02",
+       "judul": "Sanitarian"
+      },
+      {
+       "kode_kbji": "3257.03",
+       "judul": "Pengawas sanitasi"
+      },
+      {
+       "kode_kbji": "3257.99",
+       "judul": "Asisten dan pengawas kesehatan lingkungan dan pekerjaan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3258",
+     "judul_unit": "Pekerja ambulans",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3258.02",
+       "judul": "Paramedis ambulans"
+      },
+      {
+       "kode_kbji": "3258.03",
+       "judul": "Teknisi medis darurat"
+      },
+      {
+       "kode_kbji": "3258.04",
+       "judul": "Paramedis darurat"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3259",
+     "judul_unit": "Asisten profesional kesehatan ytdl",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3259.01",
+       "judul": "Chiropractor"
+      },
+      {
+       "kode_kbji": "3259.02",
+       "judul": "Osteopath"
+      },
+      {
+       "kode_kbji": "3259.03",
+       "judul": "Dosimetris medis"
+      },
+      {
+       "kode_kbji": "3259.04",
+       "judul": "Teknisi dietetik"
+      },
+      {
+       "kode_kbji": "3259.99",
+       "judul": "Asisten profesional kesehatan ytdl lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3344",
+     "judul_unit": "Sekretaris medis",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3344.01",
+       "judul": "Asisten administrasi medis"
+      },
+      {
+       "kode_kbji": "3344.02",
+       "judul": "Manajer praktik kesehatan"
+      },
+      {
+       "kode_kbji": "3344.03",
+       "judul": "Asisten administrasi kantor medis"
+      },
+      {
+       "kode_kbji": "3344.04",
+       "judul": "Medis asuransi"
+      },
+      {
+       "kode_kbji": "3344.05",
+       "judul": "Transkripsionis medis"
+      },
+      {
+       "kode_kbji": "3344.99",
+       "judul": "Sekretaris medis lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3353",
+     "judul_unit": "Pegawai pemerintah bidang jaminan sosial",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3353.01",
+       "judul": "Petugas jaminan pensiun"
+      },
+      {
+       "kode_kbji": "3353.02",
+       "judul": "Petugas jaminan sosial"
+      },
+      {
+       "kode_kbji": "3353.03",
+       "judul": "Petugas klaim jaminan sosial"
+      },
+      {
+       "kode_kbji": "3353.99",
+       "judul": "Pegawai pemerintah bidang jaminan sosial lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3354",
+     "judul_unit": "Pegawai pemerintah bidang perizinan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3354.01",
+       "judul": "Petugas penerbit paspor"
+      },
+      {
+       "kode_kbji": "3354.02",
+       "judul": "Petugas perizinan pendirian bangunan"
+      },
+      {
+       "kode_kbji": "3354.03",
+       "judul": "Petugas perizinan usaha"
+      },
+      {
+       "kode_kbji": "3354.99",
+       "judul": "Pegawai pemerintah bidang perizinan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5141",
+     "judul_unit": "Penata rambut",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5141.03",
+       "judul": "Spesialis perawatan rambut"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5142",
+     "judul_unit": "Perawat kecantikan/beautician dan ybdi",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5142.01",
+       "judul": "Ahli kecantikan/beautician"
+      },
+      {
+       "kode_kbji": "5142.02",
+       "judul": "Pedikuris"
+      },
+      {
+       "kode_kbji": "5142.03",
+       "judul": "Manikuris"
+      },
+      {
+       "kode_kbji": "5142.04",
+       "judul": "Penata rias"
+      },
+      {
+       "kode_kbji": "5142.05",
+       "judul": "Konsultan pelangsing tubuh"
+      },
+      {
+       "kode_kbji": "5142.99",
+       "judul": "Perawat kecantikan/beautician dan ybdi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5164",
+     "judul_unit": "Pelatih dan pekerja perawatan hewan",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5164.01",
+       "judul": "Pelatih anjing"
+      },
+      {
+       "kode_kbji": "5164.02",
+       "judul": "Pembantu dokter hewan"
+      },
+      {
+       "kode_kbji": "5164.03",
+       "judul": "Pemelihara kebun binatang dan tempat sejenis"
+      },
+      {
+       "kode_kbji": "5164.04",
+       "judul": "Penjinak kuda"
+      },
+      {
+       "kode_kbji": "5164.05",
+       "judul": "Mahout"
+      },
+      {
+       "kode_kbji": "5164.99",
+       "judul": "Pelatih dan pekerja perawatan hewan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5311",
+     "judul_unit": "Pekerja perawatan anak",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5311.01",
+       "judul": "Baby sitter"
+      },
+      {
+       "kode_kbji": "5311.02",
+       "judul": "Pekerja penitipan anak"
+      },
+      {
+       "kode_kbji": "5311.03",
+       "judul": "Pengasuh anak"
+      },
+      {
+       "kode_kbji": "5311.99",
+       "judul": "Pekerja perawatan anak lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5321",
+     "judul_unit": "Asisten perawatan kesehatan",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5321.01",
+       "judul": "Asisten kelahiran (klinik atau rumah sakit)"
+      },
+      {
+       "kode_kbji": "5321.02",
+       "judul": "Asisten perawatan (klinik atau rumah sakit)"
+      },
+      {
+       "kode_kbji": "5321.99",
+       "judul": "Asisten perawatan kesehatan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5322",
+     "judul_unit": "Pekerja perawatan pribadi di rumah",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5322.01",
+       "judul": "Asisten perawatan di rumah"
+      },
+      {
+       "kode_kbji": "5322.02",
+       "judul": "Asisten persalinan di rumah"
+      },
+      {
+       "kode_kbji": "5322.03",
+       "judul": "Pekerja pengasuhan dan pendampingan"
+      },
+      {
+       "kode_kbji": "5322.04",
+       "judul": "Pekerja perawatan dan dukungan"
+      },
+      {
+       "kode_kbji": "5322.99",
+       "judul": "Pekerja perawatan pribadi di rumah lainnya ytdl"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5329",
+     "judul_unit": "Pekerja perawatan pribadi dalam jasa kesehatan ytdl",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5329.01",
+       "judul": "Asisten dokter gigi"
+      },
+      {
+       "kode_kbji": "5329.02",
+       "judul": "Petugas pertolongan pertama"
+      },
+      {
+       "kode_kbji": "5329.03",
+       "judul": "Petugas rumah sakit"
+      },
+      {
+       "kode_kbji": "5329.04",
+       "judul": "Asisten rontgen medik"
+      },
+      {
+       "kode_kbji": "5329.05",
+       "judul": "Pembantu apoteker"
+      },
+      {
+       "kode_kbji": "5329.06",
+       "judul": "Phlebotomist"
+      },
+      {
+       "kode_kbji": "5329.07",
+       "judul": "Asisten sterilisasi"
+      },
+      {
+       "kode_kbji": "5329.99",
+       "judul": "Pekerja perawatan pribadi dalam jasa kesehatan ytdl lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "8113",
+     "judul_unit": "Pekerja pengeboran dan penggalian sumur ybdi",
+     "golongan_pokok": "Operator dan perakit mesin",
+     "jabatan": [
+      {
+       "kode_kbji": "8113.04",
+       "judul": "Operator perawatan sumur"
+      }
+     ]
+    },
+    {
+     "kode_unit": "8131",
+     "judul_unit": "Operator mesin pengolahan bahan kimia",
+     "golongan_pokok": "Operator dan perakit mesin",
+     "jabatan": [
+      {
+       "kode_kbji": "8131.04",
+       "judul": "Operator mesin farmasi dan keperluan kebersihan pribadi"
+      }
+     ]
+    }
+   ]
+  },
+  "k2": {
+   "nama": "Pendidikan & Ilmu",
+   "jumlah_kelompok": 31,
+   "jumlah_jabatan": 126,
+   "per_golongan": {
+    "Manajer": 3,
+    "Profesional": 16,
+    "Teknisi dan asisten profesional": 4,
+    "Tenaga tata usaha": 2,
+    "Tenaga usaha jasa dan penjualan": 6
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1223",
+     "judul_unit": "Manajer penelitian dan pengembangan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1223.01",
+       "judul": "Manajer penelitian"
+      },
+      {
+       "kode_kbji": "1223.02",
+       "judul": "Manajer pengembangan produk"
+      },
+      {
+       "kode_kbji": "1223.03",
+       "judul": "Koordinator penelitian klinis"
+      },
+      {
+       "kode_kbji": "1223.04",
+       "judul": "Manajer pengembangan bisnis"
+      },
+      {
+       "kode_kbji": "1223.05",
+       "judul": "Manajer teknologi dan pengembangan produk biofuel/biodiesel"
+      },
+      {
+       "kode_kbji": "1223.06",
+       "judul": "Manajer ilmu pengetahuan alam"
+      },
+      {
+       "kode_kbji": "1223.99",
+       "judul": "Manajer penelitian dan pengembangan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1345",
+     "judul_unit": "Manajer pendidikan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1345.01",
+       "judul": "Rektor"
+      },
+      {
+       "kode_kbji": "1345.02",
+       "judul": "Dekan"
+      },
+      {
+       "kode_kbji": "1345.03",
+       "judul": "Kepala sekolah menengah atas dan sederajat"
+      },
+      {
+       "kode_kbji": "1345.04",
+       "judul": "Kepala sekolah menengah pertama dan sederajat"
+      },
+      {
+       "kode_kbji": "1345.05",
+       "judul": "Kepala sekolah dasar dan sederajat"
+      },
+      {
+       "kode_kbji": "1345.06",
+       "judul": "Kepala sekolah taman kanak-kanak dan sederajat"
+      },
+      {
+       "kode_kbji": "1345.07",
+       "judul": "Kepala sekolah kelompok bermain/pendidikan anak usia dini"
+      },
+      {
+       "kode_kbji": "1345.08",
+       "judul": "Manajer lembaga bimbingan belajar"
+      },
+      {
+       "kode_kbji": "1345.09",
+       "judul": "Manajer lembaga pendidikan bahasa"
+      },
+      {
+       "kode_kbji": "1345.10",
+       "judul": "Manajer lembaga pendidikan matematika"
+      },
+      {
+       "kode_kbji": "1345.11",
+       "judul": "Manajer lembaga pendidikan komputer"
+      },
+      {
+       "kode_kbji": "1345.12",
+       "judul": "Manajer lembaga pendidikan manajemen dan perbankan"
+      },
+      {
+       "kode_kbji": "1345.13",
+       "judul": "Manajer lembaga pendidikan budaya"
+      },
+      {
+       "kode_kbji": "1345.14",
+       "judul": "Ketua jurusan/program studi"
+      },
+      {
+       "kode_kbji": "1345.99",
+       "judul": "Manajer pendidikan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1349",
+     "judul_unit": "Manajer jasa profesional lainnya",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1349.03",
+       "judul": "Manajer perpustakaan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2113",
+     "judul_unit": "Ahli kimia",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2113.06",
+       "judul": "Ilmuwan material"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2132",
+     "judul_unit": "Penasihat pertanian, kehutanan, dan perikanan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2132.03",
+       "judul": "Ahli penelitian tanah"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2133",
+     "judul_unit": "Ahli perlindungan lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2133.05",
+       "judul": "Ilmuwan lingkungan"
+      },
+      {
+       "kode_kbji": "2133.12",
+       "judul": "Ilmuwan riset ekonomi sirkular"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2310",
+     "judul_unit": "Dosen universitas dan pendidikan tinggi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2310.01",
+       "judul": "Dosen ilmu fisika"
+      },
+      {
+       "kode_kbji": "2310.02",
+       "judul": "Dosen ilmu teknik dan arsitektur"
+      },
+      {
+       "kode_kbji": "2310.03",
+       "judul": "Dosen ilmu kedokteran dan ilmu hayati"
+      },
+      {
+       "kode_kbji": "2310.04",
+       "judul": "Dosen ilmu matematika"
+      },
+      {
+       "kode_kbji": "2310.05",
+       "judul": "Dosen ilmu statistika"
+      },
+      {
+       "kode_kbji": "2310.06",
+       "judul": "Dosen ilmu ekonomi dan administrasi niaga"
+      },
+      {
+       "kode_kbji": "2310.07",
+       "judul": "Dosen ilmu hukum"
+      },
+      {
+       "kode_kbji": "2310.08",
+       "judul": "Dosen ilmu pendidikan"
+      },
+      {
+       "kode_kbji": "2310.09",
+       "judul": "Dosen ilmu pertanian"
+      },
+      {
+       "kode_kbji": "2310.10",
+       "judul": "Dosen ilmu sosial dan politik"
+      },
+      {
+       "kode_kbji": "2310.11",
+       "judul": "Dosen ilmu bahasa, sastra, budaya, dan sejarah"
+      },
+      {
+       "kode_kbji": "2310.12",
+       "judul": "Dosen ilmu keagamaan"
+      },
+      {
+       "kode_kbji": "2310.13",
+       "judul": "Dosen ilmu kesehatan masyarakat"
+      },
+      {
+       "kode_kbji": "2310.14",
+       "judul": "Dosen ilmu terapi kesehatan, kebidanan, dan yang sejenis"
+      },
+      {
+       "kode_kbji": "2310.15",
+       "judul": "Dosen ilmu olahraga"
+      },
+      {
+       "kode_kbji": "2310.16",
+       "judul": "Dosen ilmu teknologi industri"
+      },
+      {
+       "kode_kbji": "2310.17",
+       "judul": "Dosen ilmu komputer"
+      },
+      {
+       "kode_kbji": "2310.18",
+       "judul": "Dosen ilmu pariwisata"
+      },
+      {
+       "kode_kbji": "2310.19",
+       "judul": "Dosen seni rupa"
+      },
+      {
+       "kode_kbji": "2310.99",
+       "judul": "Dosen universitas dan pendidikan tinggi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2320",
+     "judul_unit": "Pengajar pendidikan kejuruan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2320.01",
+       "judul": "Instruktur teknik otomotif"
+      },
+      {
+       "kode_kbji": "2320.02",
+       "judul": "Instruktur tata rias"
+      },
+      {
+       "kode_kbji": "2320.03",
+       "judul": "Guru pendidikan kejuruan menengah pertama"
+      },
+      {
+       "kode_kbji": "2320.04",
+       "judul": "Guru pendidikan kejuruan menengah atas"
+      },
+      {
+       "kode_kbji": "2320.99",
+       "judul": "Pengajar pendidikan kejuruan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2330",
+     "judul_unit": "Guru pendidikan menengah",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2330.01",
+       "judul": "Guru pendidikan menengah pertama"
+      },
+      {
+       "kode_kbji": "2330.02",
+       "judul": "Guru pendidikan menengah atas"
+      },
+      {
+       "kode_kbji": "2330.99",
+       "judul": "Guru pendidikan menengah lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2341",
+     "judul_unit": "Guru sekolah dasar",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2341.01",
+       "judul": "Guru sekolah dasar"
+      },
+      {
+       "kode_kbji": "2341.99",
+       "judul": "Guru sekolah dasar lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2342",
+     "judul_unit": "Guru anak usia dini",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2342.01",
+       "judul": "Guru taman kanak-kanak"
+      },
+      {
+       "kode_kbji": "2342.02",
+       "judul": "Guru pendidikan anak usia dini"
+      },
+      {
+       "kode_kbji": "2342.03",
+       "judul": "Fasilitator pengasuh anak usia dini"
+      },
+      {
+       "kode_kbji": "2342.04",
+       "judul": "Instruktur pendidikan anak usia dini (paud)"
+      },
+      {
+       "kode_kbji": "2342.99",
+       "judul": "Guru anak usia dini lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2351",
+     "judul_unit": "Spesialis metode pendidikan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2351.01",
+       "judul": "Koordinator kurikulum"
+      },
+      {
+       "kode_kbji": "2351.02",
+       "judul": "Pengembang metode pendidikan"
+      },
+      {
+       "kode_kbji": "2351.03",
+       "judul": "Pengawas sekolah"
+      },
+      {
+       "kode_kbji": "2351.04",
+       "judul": "Penilik"
+      },
+      {
+       "kode_kbji": "2351.99",
+       "judul": "Spesialis metode pendidikan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2352",
+     "judul_unit": "Guru siswa berkebutuhan khusus",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2352.01",
+       "judul": "Guru tunadaksa"
+      },
+      {
+       "kode_kbji": "2352.02",
+       "judul": "Guru tunarungu"
+      },
+      {
+       "kode_kbji": "2352.03",
+       "judul": "Guru tunanetra"
+      },
+      {
+       "kode_kbji": "2352.99",
+       "judul": "Guru siswa berkebutuhan khusus lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2353",
+     "judul_unit": "Guru kursus bahasa",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2353.00",
+       "judul": "Guru kursus bahasa"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2354",
+     "judul_unit": "Guru kursus musik",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2354.01",
+       "judul": "Guru gitar"
+      },
+      {
+       "kode_kbji": "2354.02",
+       "judul": "Guru piano"
+      },
+      {
+       "kode_kbji": "2354.03",
+       "judul": "Guru vokal"
+      },
+      {
+       "kode_kbji": "2354.04",
+       "judul": "Guru biola"
+      },
+      {
+       "kode_kbji": "2354.99",
+       "judul": "Guru kursus musik lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2355",
+     "judul_unit": "Guru kursus seni",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2355.01",
+       "judul": "Guru tari"
+      },
+      {
+       "kode_kbji": "2355.02",
+       "judul": "Guru teater/drama"
+      },
+      {
+       "kode_kbji": "2355.03",
+       "judul": "Guru lukis"
+      },
+      {
+       "kode_kbji": "2355.04",
+       "judul": "Guru pahat/ukir"
+      },
+      {
+       "kode_kbji": "2355.99",
+       "judul": "Guru kursus seni lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2356",
+     "judul_unit": "Pengajar teknologi informasi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2356.01",
+       "judul": "Pengajar komputer"
+      },
+      {
+       "kode_kbji": "2356.02",
+       "judul": "Pengajar perangkat lunak"
+      },
+      {
+       "kode_kbji": "2356.99",
+       "judul": "Pengajar teknologi informasi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2359",
+     "judul_unit": "Profesional bidang pendidikan lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2359.01",
+       "judul": "Edukator museum"
+      },
+      {
+       "kode_kbji": "2359.99",
+       "judul": "Profesional bidang pendidikan lainnya ytdl"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2634",
+     "judul_unit": "Psikolog",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2634.02",
+       "judul": "Psikolog pendidikan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3153",
+     "judul_unit": "Pilot dan profesional ybdi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3153.02",
+       "judul": "Instruktur penerbangan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3422",
+     "judul_unit": "Pelatih, instruktur, dan kru olahraga",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3422.01",
+       "judul": "Pelatih olahraga"
+      },
+      {
+       "kode_kbji": "3422.02",
+       "judul": "Wasit atau juri"
+      },
+      {
+       "kode_kbji": "3422.03",
+       "judul": "Pemandu bakat"
+      },
+      {
+       "kode_kbji": "3422.04",
+       "judul": "Penyuluh olahraga"
+      },
+      {
+       "kode_kbji": "3422.05",
+       "judul": "Pendamping atlet disabilitas dan classifier"
+      },
+      {
+       "kode_kbji": "3422.06",
+       "judul": "Marshal"
+      },
+      {
+       "kode_kbji": "3422.07",
+       "judul": "Pendamping olahraga"
+      },
+      {
+       "kode_kbji": "3422.99",
+       "judul": "Pelatih, instruktur, dan kru olahraga lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3423",
+     "judul_unit": "Instruktur dan pelatih program kebugaran dan rekreasi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3423.01",
+       "judul": "Instruktur kebugaran"
+      },
+      {
+       "kode_kbji": "3423.02",
+       "judul": "Instruktur berkuda"
+      },
+      {
+       "kode_kbji": "3423.03",
+       "judul": "Instruktur selam"
+      },
+      {
+       "kode_kbji": "3423.04",
+       "judul": "Instruktur panjat tebing"
+      },
+      {
+       "kode_kbji": "3423.99",
+       "judul": "Instruktur dan pelatih program kebugaran dan rekreasi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3433",
+     "judul_unit": "Teknisi galeri, museum, dan perpustakaan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3433.01",
+       "judul": "Teknisi galeri"
+      },
+      {
+       "kode_kbji": "3433.02",
+       "judul": "Teknisi perpustakaan"
+      },
+      {
+       "kode_kbji": "3433.03",
+       "judul": "Teknisi museum"
+      },
+      {
+       "kode_kbji": "3433.04",
+       "judul": "Register museum"
+      },
+      {
+       "kode_kbji": "3433.99",
+       "judul": "Teknisi galeri, museum, dan perpustakaan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4227",
+     "judul_unit": "Pewawancara survei dan penelitian pasar",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4227.01",
+       "judul": "Pewawancara penelitian pasar"
+      },
+      {
+       "kode_kbji": "4227.02",
+       "judul": "Pewawancara opini publik"
+      },
+      {
+       "kode_kbji": "4227.03",
+       "judul": "Pewawancara survei"
+      },
+      {
+       "kode_kbji": "4227.99",
+       "judul": "Pewawancara survei dan penelitian pasar lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4411",
+     "judul_unit": "Juru tata usaha perpustakaan",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4411.01",
+       "judul": "Tenaga tata usaha perpustakaan"
+      },
+      {
+       "kode_kbji": "4411.02",
+       "judul": "Tenaga pengarsip perpustakaan"
+      },
+      {
+       "kode_kbji": "4411.99",
+       "judul": "Juru tata usaha perpustakaan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5151",
+     "judul_unit": "Pengawas kebersihan dan kerumahtanggaan di kantor, hotel,",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5151.01",
+       "judul": "Pengurus kerumahtanggaan/housekeeping hotel"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5152",
+     "judul_unit": "Pengurus kerumahtanggaan",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5152.01",
+       "judul": "Pengurus rumah tangga"
+      },
+      {
+       "kode_kbji": "5152.02",
+       "judul": "Kepala pelayan"
+      },
+      {
+       "kode_kbji": "5152.99",
+       "judul": "Pengurus kerumahtanggaan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5153",
+     "judul_unit": "Pengelola gedung",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5153.04",
+       "judul": "Pengurus rumah ibadah"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5163",
+     "judul_unit": "Pengurus pembalseman dan pemakaman jenazah",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5163.01",
+       "judul": "Pengurus pembalseman jenazah"
+      },
+      {
+       "kode_kbji": "5163.02",
+       "judul": "Pengurus pemakaman jenazah"
+      },
+      {
+       "kode_kbji": "5163.99",
+       "judul": "Pengurus pembalseman dan pemakaman jenazah lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5165",
+     "judul_unit": "Instruktur mengemudi",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5165.00",
+       "judul": "Instruktur mengemudi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5312",
+     "judul_unit": "Asisten pengajar",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5312.01",
+       "judul": "Guru pendamping prasekolah"
+      },
+      {
+       "kode_kbji": "5312.02",
+       "judul": "Guru pendamping sekolah dasar"
+      },
+      {
+       "kode_kbji": "5312.99",
+       "judul": "Asisten pengajar lainnya"
+      }
+     ]
+    }
+   ]
+  },
+  "k3": {
+   "nama": "Keluarga, Anak & Kelompok Rentan",
+   "jumlah_kelompok": 16,
+   "jumlah_jabatan": 52,
+   "per_golongan": {
+    "Manajer": 2,
+    "Profesional": 9,
+    "Teknisi dan asisten profesional": 3,
+    "Tenaga usaha jasa dan penjualan": 2
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1343",
+     "judul_unit": "Manajer jasa perawatan lanjut usia",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1343.01",
+       "judul": "Direktur rumah perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.02",
+       "judul": "Koordinator komunitas perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.03",
+       "judul": "Direktur rumah perawatan intensif lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.04",
+       "judul": "Koordinator perkampungan pensiun"
+      },
+      {
+       "kode_kbji": "1343.05",
+       "judul": "Koordinator perawatan residensial"
+      },
+      {
+       "kode_kbji": "1343.06",
+       "judul": "Supervisor perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "1343.07",
+       "judul": "Manajer perawatan jangka panjang"
+      },
+      {
+       "kode_kbji": "1343.99",
+       "judul": "Manajer jasa perawatan lanjut usia lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1344",
+     "judul_unit": "Manajer kesejahteraan sosial",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1344.01",
+       "judul": "Manajer pusat komunitas masyarakat"
+      },
+      {
+       "kode_kbji": "1344.02",
+       "judul": "Manajer pelayanan keluarga"
+      },
+      {
+       "kode_kbji": "1344.03",
+       "judul": "Manajer jasa perumahan"
+      },
+      {
+       "kode_kbji": "1344.04",
+       "judul": "Manajer pusat kesejahteraan"
+      },
+      {
+       "kode_kbji": "1344.99",
+       "judul": "Manajer kesejahteraan sosial lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2143",
+     "judul_unit": "Ahli teknik lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2143.03",
+       "judul": "Spesialis rehabilitasi lingkungan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2221",
+     "judul_unit": "Profesional keperawatan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2221.08",
+       "judul": "Supervisor perawatan lanjut usia"
+      },
+      {
+       "kode_kbji": "2221.09",
+       "judul": "Supervisor pengasuh daycare"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2263",
+     "judul_unit": "Ahli kesehatan dan kebersihan lingkungan kerja",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2263.04",
+       "judul": "Penasihat kebijakan pengasuhan (caregiving)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2264",
+     "judul_unit": "Ahli fisioterapi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2264.01",
+       "judul": "Fisioterapis"
+      },
+      {
+       "kode_kbji": "2264.02",
+       "judul": "Ahli terapi rehabilitasi"
+      },
+      {
+       "kode_kbji": "2264.03",
+       "judul": "Terapis geriatri (terapis lansia)"
+      },
+      {
+       "kode_kbji": "2264.04",
+       "judul": "Terapis pediatri (terapis anak)"
+      },
+      {
+       "kode_kbji": "2264.05",
+       "judul": "Terapis ortopedi (terapis alat gerak)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2269",
+     "judul_unit": "Ahli kesehatan ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2269.01",
+       "judul": "Terapis seni"
+      },
+      {
+       "kode_kbji": "2269.02",
+       "judul": "Terapis tari dan gerakan"
+      },
+      {
+       "kode_kbji": "2269.03",
+       "judul": "Okupasi terapis"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2342",
+     "judul_unit": "Guru anak usia dini",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2342.03",
+       "judul": "Fasilitator pengasuh anak usia dini"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2423",
+     "judul_unit": "Profesional personalia dan karier",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2423.04",
+       "judul": "Konselor bimbingan kejuruan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2634",
+     "judul_unit": "Psikolog",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2634.04",
+       "judul": "Psikoterapis"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2635",
+     "judul_unit": "Profesional konseling dan pekerja sosial",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2635.01",
+       "judul": "Konselor kecanduan/adiksi"
+      },
+      {
+       "kode_kbji": "2635.02",
+       "judul": "Konselor dukacita"
+      },
+      {
+       "kode_kbji": "2635.03",
+       "judul": "Konselor anak dan remaja"
+      },
+      {
+       "kode_kbji": "2635.04",
+       "judul": "Konselor keluarga"
+      },
+      {
+       "kode_kbji": "2635.05",
+       "judul": "Konselor pernikahan"
+      },
+      {
+       "kode_kbji": "2635.06",
+       "judul": "Petugas parole (pembebasan bersyarat)"
+      },
+      {
+       "kode_kbji": "2635.07",
+       "judul": "Petugas masa percobaan"
+      },
+      {
+       "kode_kbji": "2635.08",
+       "judul": "Pekerja sosial"
+      },
+      {
+       "kode_kbji": "2635.09",
+       "judul": "Organisator kesejahteraan perempuan"
+      },
+      {
+       "kode_kbji": "2635.99",
+       "judul": "Profesional konseling dan pekerja sosial lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3251",
+     "judul_unit": "Asisten dan terapis gigi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3251.01",
+       "judul": "Asisten kesehatan gigi"
+      },
+      {
+       "kode_kbji": "3251.02",
+       "judul": "Ahli kebersihan gigi"
+      },
+      {
+       "kode_kbji": "3251.03",
+       "judul": "Ahli terapi gigi"
+      },
+      {
+       "kode_kbji": "3251.99",
+       "judul": "Asisten dan terapis gigi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3255",
+     "judul_unit": "Teknisi dan asisten fisioterapi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3255.01",
+       "judul": "Terapis akupresur"
+      },
+      {
+       "kode_kbji": "3255.02",
+       "judul": "Terapis elektro"
+      },
+      {
+       "kode_kbji": "3255.03",
+       "judul": "Terapis hidro"
+      },
+      {
+       "kode_kbji": "3255.04",
+       "judul": "Terapis pijat"
+      },
+      {
+       "kode_kbji": "3255.06",
+       "judul": "Terapis rehabilitasi fisik"
+      },
+      {
+       "kode_kbji": "3255.07",
+       "judul": "Terapis shiatsu"
+      },
+      {
+       "kode_kbji": "3255.08",
+       "judul": "Terapis spa"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3422",
+     "judul_unit": "Pelatih, instruktur, dan kru olahraga",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3422.05",
+       "judul": "Pendamping atlet disabilitas dan classifier"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5311",
+     "judul_unit": "Pekerja perawatan anak",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5311.03",
+       "judul": "Pengasuh anak"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5322",
+     "judul_unit": "Pekerja perawatan pribadi di rumah",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5322.03",
+       "judul": "Pekerja pengasuhan dan pendampingan"
+      }
+     ]
+    }
+   ]
+  },
+  "k4": {
+   "nama": "Bumi & Lingkungan",
+   "jumlah_kelompok": 22,
+   "jumlah_jabatan": 115,
+   "per_golongan": {
+    "Manajer": 1,
+    "Profesional": 9,
+    "Teknisi dan asisten profesional": 7,
+    "Tenaga usaha jasa dan penjualan": 1,
+    "Pekerja terampil pertanian, kehutanan, dan perikanan": 1,
+    "Pekerja pengolahan, kerajinan, dan yang berhubungan": 1,
+    "Operator dan perakit mesin": 2
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1311",
+     "judul_unit": "Manajer produksi pertanian dan kehutanan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1311.01",
+       "judul": "Manajer pertanian tanaman pangan"
+      },
+      {
+       "kode_kbji": "1311.02",
+       "judul": "Manajer pertanian hortikultura"
+      },
+      {
+       "kode_kbji": "1311.03",
+       "judul": "Manajer perkebunan"
+      },
+      {
+       "kode_kbji": "1311.04",
+       "judul": "Manajer peternakan"
+      },
+      {
+       "kode_kbji": "1311.05",
+       "judul": "Manajer kehutanan"
+      },
+      {
+       "kode_kbji": "1311.06",
+       "judul": "Kepala departemen kesehatan hewan (animal health)"
+      },
+      {
+       "kode_kbji": "1311.07",
+       "judul": "Manajer penangkaran tumbuhan"
+      },
+      {
+       "kode_kbji": "1311.08",
+       "judul": "Kepala departemen kesejahteraan hewan (animal welfare)"
+      },
+      {
+       "kode_kbji": "1311.09",
+       "judul": "Manajer penangkaran biota air"
+      },
+      {
+       "kode_kbji": "1311.10",
+       "judul": "Manajer penangkaran burung"
+      },
+      {
+       "kode_kbji": "1311.11",
+       "judul": "Manajer penangkaran mamalia"
+      },
+      {
+       "kode_kbji": "1311.12",
+       "judul": "Manajer penangkaran satwa liar"
+      },
+      {
+       "kode_kbji": "1311.13",
+       "judul": "Manajer penangkaran serangga"
+      },
+      {
+       "kode_kbji": "1311.14",
+       "judul": "Manajer pengelolaan konservasi air"
+      },
+      {
+       "kode_kbji": "1311.15",
+       "judul": "Manajer pengendalian dan penanggulangan kebakaran hutan"
+      },
+      {
+       "kode_kbji": "1311.16",
+       "judul": "Manajer penangkaran reptil"
+      },
+      {
+       "kode_kbji": "1311.99",
+       "judul": "Manajer produksi pertanian dan kehutanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2112",
+     "judul_unit": "Ahli meteorologi dan klimatologi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2112.01",
+       "judul": "Ahli meteorologi (umum)"
+      },
+      {
+       "kode_kbji": "2112.02",
+       "judul": "Ahli klimatologi"
+      },
+      {
+       "kode_kbji": "2112.03",
+       "judul": "Ahli prakiraan cuaca"
+      },
+      {
+       "kode_kbji": "2112.04",
+       "judul": "Ahli hidrometeorologi"
+      },
+      {
+       "kode_kbji": "2112.99",
+       "judul": "Ahli meteorologi dan klimatologi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2114",
+     "judul_unit": "Ahli geologi dan geofisika",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2114.01",
+       "judul": "Ahli geologi (umum)"
+      },
+      {
+       "kode_kbji": "2114.02",
+       "judul": "Ahli geologi kelautan"
+      },
+      {
+       "kode_kbji": "2114.03",
+       "judul": "Ahli geologi pertambangan"
+      },
+      {
+       "kode_kbji": "2114.04",
+       "judul": "Ahli geofisika (umum)"
+      },
+      {
+       "kode_kbji": "2114.05",
+       "judul": "Ahli geofisika kelautan"
+      },
+      {
+       "kode_kbji": "2114.06",
+       "judul": "Ahli hidrologi"
+      },
+      {
+       "kode_kbji": "2114.07",
+       "judul": "Ahli panas bumi"
+      },
+      {
+       "kode_kbji": "2114.99",
+       "judul": "Ahli geologi dan geofisika lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2132",
+     "judul_unit": "Penasihat pertanian, kehutanan, dan perikanan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2132.01",
+       "judul": "Ahli agronomi"
+      },
+      {
+       "kode_kbji": "2132.02",
+       "judul": "Ahli kehutanan"
+      },
+      {
+       "kode_kbji": "2132.03",
+       "judul": "Ahli penelitian tanah"
+      },
+      {
+       "kode_kbji": "2132.04",
+       "judul": "Ahli hortikultura"
+      },
+      {
+       "kode_kbji": "2132.05",
+       "judul": "Konsultan pertanian dan perikanan"
+      },
+      {
+       "kode_kbji": "2132.06",
+       "judul": "Konsultan kehutanan"
+      },
+      {
+       "kode_kbji": "2132.07",
+       "judul": "Ahli kebakaran hutan dan lahan"
+      },
+      {
+       "kode_kbji": "2132.08",
+       "judul": "Asesor konflik"
+      },
+      {
+       "kode_kbji": "2132.09",
+       "judul": "Ahli valuasi ekonomi dampak kebakaran hutan dan lahan"
+      },
+      {
+       "kode_kbji": "2132.10",
+       "judul": "Mediator konflik"
+      },
+      {
+       "kode_kbji": "2132.99",
+       "judul": "Penasihat pertanian, kehutanan dan perikanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2133",
+     "judul_unit": "Ahli perlindungan lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2133.01",
+       "judul": "Ahli ekologi"
+      },
+      {
+       "kode_kbji": "2133.02",
+       "judul": "Analis polusi udara"
+      },
+      {
+       "kode_kbji": "2133.03",
+       "judul": "Ahli konservasi"
+      },
+      {
+       "kode_kbji": "2133.04",
+       "judul": "Auditor lingkungan"
+      },
+      {
+       "kode_kbji": "2133.05",
+       "judul": "Ilmuwan lingkungan"
+      },
+      {
+       "kode_kbji": "2133.06",
+       "judul": "Analis mutu air"
+      },
+      {
+       "kode_kbji": "2133.07",
+       "judul": "Konsultan lingkungan"
+      },
+      {
+       "kode_kbji": "2133.08",
+       "judul": "Analis keberlanjutan"
+      },
+      {
+       "kode_kbji": "2133.09",
+       "judul": "Spesialis penilaian siklus hidup"
+      },
+      {
+       "kode_kbji": "2133.10",
+       "judul": "Spesialis restorasi lingkungan"
+      },
+      {
+       "kode_kbji": "2133.11",
+       "judul": "Auditor kehutanan"
+      },
+      {
+       "kode_kbji": "2133.12",
+       "judul": "Ilmuwan riset ekonomi sirkular"
+      },
+      {
+       "kode_kbji": "2133.13",
+       "judul": "Konsultan ekonomi sirkular"
+      },
+      {
+       "kode_kbji": "2133.99",
+       "judul": "Ahli perlindungan lingkungan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2142",
+     "judul_unit": "Ahli teknik sipil",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2142.07",
+       "judul": "Ahli teknik penyehatan lingkungan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2143",
+     "judul_unit": "Ahli teknik lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2143.01",
+       "judul": "Perekayasa lingkungan"
+      },
+      {
+       "kode_kbji": "2143.02",
+       "judul": "Analis lingkungan"
+      },
+      {
+       "kode_kbji": "2143.03",
+       "judul": "Spesialis rehabilitasi lingkungan"
+      },
+      {
+       "kode_kbji": "2143.99",
+       "judul": "Ahli teknik lingkungan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2149",
+     "judul_unit": "Ahli teknik lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2149.11",
+       "judul": "Ahli energi"
+      },
+      {
+       "kode_kbji": "2149.15",
+       "judul": "Ahli teknik sistem energi surya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2250",
+     "judul_unit": "Dokter hewan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2250.07",
+       "judul": "Tenaga ahli pelayanan medik konservasi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2263",
+     "judul_unit": "Ahli kesehatan dan kebersihan lingkungan kerja",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2263.01",
+       "judul": "Petugas kesehatan lingkungan"
+      },
+      {
+       "kode_kbji": "2263.02",
+       "judul": "Penasihat kesehatan dan keselamatan kerja"
+      },
+      {
+       "kode_kbji": "2263.03",
+       "judul": "Ahli proteksi radiasi"
+      },
+      {
+       "kode_kbji": "2263.04",
+       "judul": "Penasihat kebijakan pengasuhan (caregiving)"
+      },
+      {
+       "kode_kbji": "2263.05",
+       "judul": "Penasihat kebijakan anak dan paud"
+      },
+      {
+       "kode_kbji": "2263.06",
+       "judul": "Penasihat kebijakan geriatri"
+      },
+      {
+       "kode_kbji": "2263.99",
+       "judul": "Ahli kesehatan dan kebersihan lingkungan kerja lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3111",
+     "judul_unit": "Teknisi ilmu kimia dan fisika",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3111.02",
+       "judul": "Teknisi geologi"
+      },
+      {
+       "kode_kbji": "3111.03",
+       "judul": "Teknisi meteorologi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3113",
+     "judul_unit": "Ahli teknik listrik",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3113.04",
+       "judul": "Teknisi surya termal"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3131",
+     "judul_unit": "Operator mesin produksi tenaga listrik",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3131.03",
+       "judul": "Operator pembangkit listrik tenaga surya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3132",
+     "judul_unit": "Operator bangunan pembakaran sampah (insinerator) dan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3132.01",
+       "judul": "Operator bangunan pembakaran sampah (insinerator)"
+      },
+      {
+       "kode_kbji": "3132.02",
+       "judul": "Operator stasiun pompa"
+      },
+      {
+       "kode_kbji": "3132.03",
+       "judul": "Operator mesin pengolahan limbah cair"
+      },
+      {
+       "kode_kbji": "3132.04",
+       "judul": "Operator mesin pengolahan limbah padat"
+      },
+      {
+       "kode_kbji": "3132.05",
+       "judul": "Operator mesin pengolahan air limbah"
+      },
+      {
+       "kode_kbji": "3132.06",
+       "judul": "Operator mesin pengolahan air"
+      },
+      {
+       "kode_kbji": "3132.07",
+       "judul": "Operator pres material daur ulang"
+      },
+      {
+       "kode_kbji": "3132.08",
+       "judul": "Operator pengolahan rdf (refuse-derived fuel)"
+      },
+      {
+       "kode_kbji": "3132.09",
+       "judul": "Operator mesin pellet"
+      },
+      {
+       "kode_kbji": "3132.10",
+       "judul": "Operator pengolah limbah organik"
+      },
+      {
+       "kode_kbji": "3132.11",
+       "judul": "Teknisi daur ulang limbah"
+      },
+      {
+       "kode_kbji": "3132.12",
+       "judul": "Kepala fasilitas pengelolaan sampah"
+      },
+      {
+       "kode_kbji": "3132.13",
+       "judul": "Perencana pengelolaan sampah"
+      },
+      {
+       "kode_kbji": "3132.14",
+       "judul": "Operator instalasi pengolahan lumpur tinja (iplt)"
+      },
+      {
+       "kode_kbji": "3132.99",
+       "judul": "Operator bangunan pembakaran sampah (insinerator) dan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3143",
+     "judul_unit": "Teknisi kehutanan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3143.01",
+       "judul": "Teknisi pengelolaan hutan"
+      },
+      {
+       "kode_kbji": "3143.02",
+       "judul": "Analis data kehutanan"
+      },
+      {
+       "kode_kbji": "3143.03",
+       "judul": "Analis cadangan biomassa karbon"
+      },
+      {
+       "kode_kbji": "3143.04",
+       "judul": "Surveyor sumber daya"
+      },
+      {
+       "kode_kbji": "3143.99",
+       "judul": "Teknisi kehutanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3257",
+     "judul_unit": "Asisten dan pengawas kesehatan lingkungan dan pekerjaan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3257.01",
+       "judul": "Pengawas kesehatan dan keselamatan kerja"
+      },
+      {
+       "kode_kbji": "3257.02",
+       "judul": "Sanitarian"
+      },
+      {
+       "kode_kbji": "3257.03",
+       "judul": "Pengawas sanitasi"
+      },
+      {
+       "kode_kbji": "3257.99",
+       "judul": "Asisten dan pengawas kesehatan lingkungan dan pekerjaan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3359",
+     "judul_unit": "Profesional pemerintahan ytdl",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3359.03",
+       "judul": "Pengawas kehutanan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "5414",
+     "judul_unit": "Penjaga keamanan",
+     "golongan_pokok": "Tenaga usaha jasa dan penjualan",
+     "jabatan": [
+      {
+       "kode_kbji": "5414.05",
+       "judul": "Polisi kehutanan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6210",
+     "judul_unit": "Pekerja kehutanan dan ybdi",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6210.01",
+       "judul": "Pembuat arang"
+      },
+      {
+       "kode_kbji": "6210.02",
+       "judul": "Tukang tebang kayu"
+      },
+      {
+       "kode_kbji": "6210.03",
+       "judul": "Penebang pendaki"
+      },
+      {
+       "kode_kbji": "6210.04",
+       "judul": "Pekerja terampil kehutanan"
+      },
+      {
+       "kode_kbji": "6210.05",
+       "judul": "Pencari kayu"
+      },
+      {
+       "kode_kbji": "6210.06",
+       "judul": "Penebang pohon dengan alat perkakas"
+      },
+      {
+       "kode_kbji": "6210.99",
+       "judul": "Pekerja kehutanan dan ybdi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "7311",
+     "judul_unit": "Pembuat dan tukang reparasi peralatan presisi",
+     "golongan_pokok": "Pekerja pengolahan, kerajinan, dan yang berhubungan",
+     "jabatan": [
+      {
+       "kode_kbji": "7311.01",
+       "judul": "Pembuat dan tukang reparasi alat meteorologi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "8131",
+     "judul_unit": "Operator mesin pengolahan bahan kimia",
+     "golongan_pokok": "Operator dan perakit mesin",
+     "jabatan": [
+      {
+       "kode_kbji": "8131.07",
+       "judul": "Operator mesin spinner pengolahan sampah"
+      }
+     ]
+    },
+    {
+     "kode_unit": "8341",
+     "judul_unit": "Operator mesin bergerak pertanian dan kehutanan",
+     "golongan_pokok": "Operator dan perakit mesin",
+     "jabatan": [
+      {
+       "kode_kbji": "8341.01",
+       "judul": "Operator mesin pemanen"
+      },
+      {
+       "kode_kbji": "8341.02",
+       "judul": "Operator mesin pemotong kayu"
+      },
+      {
+       "kode_kbji": "8341.03",
+       "judul": "Operator pengangkut hasil hutan kayu"
+      },
+      {
+       "kode_kbji": "8341.04",
+       "judul": "Operator traktor"
+      },
+      {
+       "kode_kbji": "8341.05",
+       "judul": "Operator mesin penebang pohon"
+      },
+      {
+       "kode_kbji": "8341.99",
+       "judul": "Operator mesin bergerak pertanian dan kehutanan lainnya"
+      }
+     ]
+    }
+   ]
+  },
+  "k5": {
+   "nama": "Ekonomi Adil & Keuangan",
+   "jumlah_kelompok": 24,
+   "jumlah_jabatan": 80,
+   "per_golongan": {
+    "Manajer": 5,
+    "Profesional": 9,
+    "Teknisi dan asisten profesional": 7,
+    "Tenaga tata usaha": 3
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1211",
+     "judul_unit": "Manajer keuangan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1211.01",
+       "judul": "Manajer administrasi"
+      },
+      {
+       "kode_kbji": "1211.02",
+       "judul": "Sekretaris perusahaan"
+      },
+      {
+       "kode_kbji": "1211.03",
+       "judul": "Manajer administrasi keuangan"
+      },
+      {
+       "kode_kbji": "1211.99",
+       "judul": "Manajer keuangan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1221",
+     "judul_unit": "Manajer penjualan dan pemasaran",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1221.01",
+       "judul": "Manajer penjualan"
+      },
+      {
+       "kode_kbji": "1221.02",
+       "judul": "Manajer pemasaran (umum)"
+      },
+      {
+       "kode_kbji": "1221.03",
+       "judul": "Manajer pemasaran digital (digital marketing)"
+      },
+      {
+       "kode_kbji": "1221.04",
+       "judul": "Manajer pengalaman pelanggan (customer experience)"
+      },
+      {
+       "kode_kbji": "1221.99",
+       "judul": "Manajer penjualan dan pemasaran lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1321",
+     "judul_unit": "Manajer manufaktur",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1321.04",
+       "judul": "Manajer proyek ekonomi sirkular"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1345",
+     "judul_unit": "Manajer pendidikan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1345.12",
+       "judul": "Manajer lembaga pendidikan manajemen dan perbankan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1346",
+     "judul_unit": "Manajer jasa keuangan dan asuransi",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1346.01",
+       "judul": "Manajer bank"
+      },
+      {
+       "kode_kbji": "1346.02",
+       "judul": "Manajer lembaga perkreditan"
+      },
+      {
+       "kode_kbji": "1346.03",
+       "judul": "Manajer koperasi"
+      },
+      {
+       "kode_kbji": "1346.04",
+       "judul": "Manajer investasi"
+      },
+      {
+       "kode_kbji": "1346.05",
+       "judul": "Manajer lembaga asuransi"
+      },
+      {
+       "kode_kbji": "1346.06",
+       "judul": "Manajer dana pensiun"
+      },
+      {
+       "kode_kbji": "1346.07",
+       "judul": "Manajer pegadaian"
+      },
+      {
+       "kode_kbji": "1346.99",
+       "judul": "Manajer jasa keuangan dan asuransi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2132",
+     "judul_unit": "Penasihat pertanian, kehutanan, dan perikanan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2132.09",
+       "judul": "Ahli valuasi ekonomi dampak kebakaran hutan dan lahan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2133",
+     "judul_unit": "Ahli perlindungan lingkungan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2133.12",
+       "judul": "Ilmuwan riset ekonomi sirkular"
+      },
+      {
+       "kode_kbji": "2133.13",
+       "judul": "Konsultan ekonomi sirkular"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2310",
+     "judul_unit": "Dosen universitas dan pendidikan tinggi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2310.06",
+       "judul": "Dosen ilmu ekonomi dan administrasi niaga"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2411",
+     "judul_unit": "Akuntan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2411.01",
+       "judul": "Akuntan keuangan"
+      },
+      {
+       "kode_kbji": "2411.02",
+       "judul": "Auditor"
+      },
+      {
+       "kode_kbji": "2411.03",
+       "judul": "Pengawas keuangan"
+      },
+      {
+       "kode_kbji": "2411.04",
+       "judul": "Akuntan manajemen"
+      },
+      {
+       "kode_kbji": "2411.05",
+       "judul": "Akuntan pajak"
+      },
+      {
+       "kode_kbji": "2411.99",
+       "judul": "Akuntan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2412",
+     "judul_unit": "Konsultan keuangan dan investasi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2412.01",
+       "judul": "Perencana estate/investasi fisik"
+      },
+      {
+       "kode_kbji": "2412.02",
+       "judul": "Perencana keuangan"
+      },
+      {
+       "kode_kbji": "2412.99",
+       "judul": "Konsultan keuangan dan investasi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2413",
+     "judul_unit": "Analis keuangan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2413.01",
+       "judul": "Analis obligasi"
+      },
+      {
+       "kode_kbji": "2413.02",
+       "judul": "Konsultan investasi"
+      },
+      {
+       "kode_kbji": "2413.99",
+       "judul": "Analis keuangan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2424",
+     "judul_unit": "Profesional pelatihan dan pengembangan staf",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2424.03",
+       "judul": "Konsultan pendamping usaha mikro kecil menengah (umkm)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2431",
+     "judul_unit": "Profesional periklanan dan pemasaran",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2431.01",
+       "judul": "Spesialis periklanan"
+      },
+      {
+       "kode_kbji": "2431.02",
+       "judul": "Analis riset pasar"
+      },
+      {
+       "kode_kbji": "2431.03",
+       "judul": "Spesialis pemasaran"
+      },
+      {
+       "kode_kbji": "2431.04",
+       "judul": "Spesialis pemasaran digital"
+      },
+      {
+       "kode_kbji": "2431.99",
+       "judul": "Profesional periklanan dan pemasaran lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2631",
+     "judul_unit": "Ahli ekonomi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2631.01",
+       "judul": "Ekonom"
+      },
+      {
+       "kode_kbji": "2631.02",
+       "judul": "Ahli ekonometrik"
+      },
+      {
+       "kode_kbji": "2631.03",
+       "judul": "Penasihat ekonomi"
+      },
+      {
+       "kode_kbji": "2631.04",
+       "judul": "Analis ekonomi"
+      },
+      {
+       "kode_kbji": "2631.05",
+       "judul": "Ahli ekonomi perburuhan"
+      },
+      {
+       "kode_kbji": "2631.99",
+       "judul": "Ahli ekonomi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3311",
+     "judul_unit": "Dealer dan pialang sekuritas dan keuangan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3311.01",
+       "judul": "Pialang valuta asing"
+      },
+      {
+       "kode_kbji": "3311.02",
+       "judul": "Pialang sekuritas"
+      },
+      {
+       "kode_kbji": "3311.03",
+       "judul": "Pialang efek"
+      },
+      {
+       "kode_kbji": "3311.04",
+       "judul": "Pialang saham"
+      },
+      {
+       "kode_kbji": "3311.99",
+       "judul": "Dealer dan pialang sekuritas dan keuangan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3312",
+     "judul_unit": "Petugas kredit dan pinjaman",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3312.01",
+       "judul": "Petugas pinjaman"
+      },
+      {
+       "kode_kbji": "3312.02",
+       "judul": "Petugas hipotek"
+      },
+      {
+       "kode_kbji": "3312.99",
+       "judul": "Petugas kredit dan pinjaman lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3313",
+     "judul_unit": "Asisten profesional akuntansi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3313.01",
+       "judul": "Petugas pembukuan"
+      },
+      {
+       "kode_kbji": "3313.99",
+       "judul": "Asisten profesional akuntansi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3321",
+     "judul_unit": "Perwakilan asuransi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3321.01",
+       "judul": "Agen asuransi"
+      },
+      {
+       "kode_kbji": "3321.02",
+       "judul": "Pialang asuransi"
+      },
+      {
+       "kode_kbji": "3321.03",
+       "judul": "Penjamin asuransi"
+      },
+      {
+       "kode_kbji": "3321.99",
+       "judul": "Perwakilan asuransi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3322",
+     "judul_unit": "Perwakilan penjualan komersial",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3322.05",
+       "judul": "Tenaga pemasaran perbankan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3344",
+     "judul_unit": "Sekretaris medis",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3344.04",
+       "judul": "Medis asuransi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3352",
+     "judul_unit": "Petugas pajak dan retribusi pemerintah",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3352.01",
+       "judul": "Petugas pajak"
+      },
+      {
+       "kode_kbji": "3352.02",
+       "judul": "Pengawas perpajakan"
+      },
+      {
+       "kode_kbji": "3352.99",
+       "judul": "Petugas pajak dan retribusi pemerintah lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4212",
+     "judul_unit": "Juru gadai dan pemberi pinjaman uang",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4212.01",
+       "judul": "Juru gadai"
+      },
+      {
+       "kode_kbji": "4212.02",
+       "judul": "Pemberi pinjaman uang"
+      },
+      {
+       "kode_kbji": "4212.99",
+       "judul": "Juru gadai dan pemberi pinjaman uang lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4311",
+     "judul_unit": "Juru tata usaha akuntansi dan pembukuan",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4311.01",
+       "judul": "Juru tata usaha akuntansi"
+      },
+      {
+       "kode_kbji": "4311.02",
+       "judul": "Juru tata usaha pembukuan"
+      },
+      {
+       "kode_kbji": "4311.99",
+       "judul": "Juru tata usaha akuntansi dan pembukuan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4312",
+     "judul_unit": "Juru tata usaha statistik, keuangan, dan asuransi",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4312.01",
+       "judul": "Juru tata usaha aktuaria"
+      },
+      {
+       "kode_kbji": "4312.02",
+       "judul": "Juru tata usaha pialang"
+      },
+      {
+       "kode_kbji": "4312.03",
+       "judul": "Juru tata usaha keuangan"
+      },
+      {
+       "kode_kbji": "4312.04",
+       "judul": "Juru tata usaha asuransi"
+      },
+      {
+       "kode_kbji": "4312.05",
+       "judul": "Juru tata usaha bursa efek"
+      },
+      {
+       "kode_kbji": "4312.06",
+       "judul": "Juru tata usaha statistik"
+      },
+      {
+       "kode_kbji": "4312.07",
+       "judul": "Juru tata usaha pajak"
+      },
+      {
+       "kode_kbji": "4312.99",
+       "judul": "Juru tata usaha statistik, keuangan, dan asuransi lainnya"
+      }
+     ]
+    }
+   ]
+  },
+  "k6": {
+   "nama": "Pangan, Air & Keberlanjutan",
+   "jumlah_kelompok": 24,
+   "jumlah_jabatan": 125,
+   "per_golongan": {
+    "Manajer": 1,
+    "Profesional": 3,
+    "Teknisi dan asisten profesional": 5,
+    "Pekerja terampil pertanian, kehutanan, dan perikanan": 12,
+    "Pekerja pengolahan, kerajinan, dan yang berhubungan": 2,
+    "Operator dan perakit mesin": 1
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1311",
+     "judul_unit": "Manajer produksi pertanian dan kehutanan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1311.01",
+       "judul": "Manajer pertanian tanaman pangan"
+      },
+      {
+       "kode_kbji": "1311.02",
+       "judul": "Manajer pertanian hortikultura"
+      },
+      {
+       "kode_kbji": "1311.03",
+       "judul": "Manajer perkebunan"
+      },
+      {
+       "kode_kbji": "1311.04",
+       "judul": "Manajer peternakan"
+      },
+      {
+       "kode_kbji": "1311.05",
+       "judul": "Manajer kehutanan"
+      },
+      {
+       "kode_kbji": "1311.06",
+       "judul": "Kepala departemen kesehatan hewan (animal health)"
+      },
+      {
+       "kode_kbji": "1311.07",
+       "judul": "Manajer penangkaran tumbuhan"
+      },
+      {
+       "kode_kbji": "1311.08",
+       "judul": "Kepala departemen kesejahteraan hewan (animal welfare)"
+      },
+      {
+       "kode_kbji": "1311.09",
+       "judul": "Manajer penangkaran biota air"
+      },
+      {
+       "kode_kbji": "1311.10",
+       "judul": "Manajer penangkaran burung"
+      },
+      {
+       "kode_kbji": "1311.11",
+       "judul": "Manajer penangkaran mamalia"
+      },
+      {
+       "kode_kbji": "1311.12",
+       "judul": "Manajer penangkaran satwa liar"
+      },
+      {
+       "kode_kbji": "1311.13",
+       "judul": "Manajer penangkaran serangga"
+      },
+      {
+       "kode_kbji": "1311.14",
+       "judul": "Manajer pengelolaan konservasi air"
+      },
+      {
+       "kode_kbji": "1311.15",
+       "judul": "Manajer pengendalian dan penanggulangan kebakaran hutan"
+      },
+      {
+       "kode_kbji": "1311.16",
+       "judul": "Manajer penangkaran reptil"
+      },
+      {
+       "kode_kbji": "1311.99",
+       "judul": "Manajer produksi pertanian dan kehutanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2132",
+     "judul_unit": "Penasihat pertanian, kehutanan, dan perikanan",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2132.01",
+       "judul": "Ahli agronomi"
+      },
+      {
+       "kode_kbji": "2132.02",
+       "judul": "Ahli kehutanan"
+      },
+      {
+       "kode_kbji": "2132.03",
+       "judul": "Ahli penelitian tanah"
+      },
+      {
+       "kode_kbji": "2132.04",
+       "judul": "Ahli hortikultura"
+      },
+      {
+       "kode_kbji": "2132.05",
+       "judul": "Konsultan pertanian dan perikanan"
+      },
+      {
+       "kode_kbji": "2132.06",
+       "judul": "Konsultan kehutanan"
+      },
+      {
+       "kode_kbji": "2132.07",
+       "judul": "Ahli kebakaran hutan dan lahan"
+      },
+      {
+       "kode_kbji": "2132.08",
+       "judul": "Asesor konflik"
+      },
+      {
+       "kode_kbji": "2132.09",
+       "judul": "Ahli valuasi ekonomi dampak kebakaran hutan dan lahan"
+      },
+      {
+       "kode_kbji": "2132.10",
+       "judul": "Mediator konflik"
+      },
+      {
+       "kode_kbji": "2132.99",
+       "judul": "Penasihat pertanian, kehutanan dan perikanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2149",
+     "judul_unit": "Ahli teknik lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2149.02",
+       "judul": "Ahli teknik pertanian"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2310",
+     "judul_unit": "Dosen universitas dan pendidikan tinggi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2310.09",
+       "judul": "Dosen ilmu pertanian"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3131",
+     "judul_unit": "Operator mesin produksi tenaga listrik",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3131.06",
+       "judul": "Operator lapangan uap dan pembangkit listrik tenaga panas bumi"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3132",
+     "judul_unit": "Operator bangunan pembakaran sampah (insinerator) dan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3132.05",
+       "judul": "Operator mesin pengolahan air limbah"
+      },
+      {
+       "kode_kbji": "3132.06",
+       "judul": "Operator mesin pengolahan air"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3142",
+     "judul_unit": "Teknisi pertanian",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3142.01",
+       "judul": "Teknisi produksi susu"
+      },
+      {
+       "kode_kbji": "3142.02",
+       "judul": "Teknisi pertanian tanaman pangan"
+      },
+      {
+       "kode_kbji": "3142.03",
+       "judul": "Herd tester"
+      },
+      {
+       "kode_kbji": "3142.04",
+       "judul": "Teknisi pertanian hortikultura"
+      },
+      {
+       "kode_kbji": "3142.05",
+       "judul": "Teknisi perkebunan"
+      },
+      {
+       "kode_kbji": "3142.06",
+       "judul": "Teknisi peternakan"
+      },
+      {
+       "kode_kbji": "3142.07",
+       "judul": "Teknisi perikanan"
+      },
+      {
+       "kode_kbji": "3142.08",
+       "judul": "Teknisi insersi tiram mutiara"
+      },
+      {
+       "kode_kbji": "3142.09",
+       "judul": "Teknisi pertanian presisi"
+      },
+      {
+       "kode_kbji": "3142.99",
+       "judul": "Teknisi pertanian lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3359",
+     "judul_unit": "Profesional pemerintahan ytdl",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3359.01",
+       "judul": "Pengawas pertanian"
+      },
+      {
+       "kode_kbji": "3359.02",
+       "judul": "Pengawas perikanan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3435",
+     "judul_unit": "Asisten profesional kesenian dan budaya lainnya",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3435.02",
+       "judul": "Manajer lapangan (penyiaran)"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6111",
+     "judul_unit": "Pekerja pertanian tanaman pangan dan tanaman semusim",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6111.01",
+       "judul": "Petani padi"
+      },
+      {
+       "kode_kbji": "6111.02",
+       "judul": "Petani serealia selain padi"
+      },
+      {
+       "kode_kbji": "6111.03",
+       "judul": "Petani kapas"
+      },
+      {
+       "kode_kbji": "6111.04",
+       "judul": "Petani tebu"
+      },
+      {
+       "kode_kbji": "6111.05",
+       "judul": "Petani sayuran semusim"
+      },
+      {
+       "kode_kbji": "6111.06",
+       "judul": "Petani buah semusim"
+      },
+      {
+       "kode_kbji": "6111.99",
+       "judul": "Pekerja pertanian tanaman pangan dan tanaman semusim"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6112",
+     "judul_unit": "Pekerja pertanian tanaman tahunan dan tanaman semak",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6112.01",
+       "judul": "Petani karet"
+      },
+      {
+       "kode_kbji": "6112.02",
+       "judul": "Penyadap karet"
+      },
+      {
+       "kode_kbji": "6112.03",
+       "judul": "Petani teh"
+      },
+      {
+       "kode_kbji": "6112.04",
+       "judul": "Petani anggur"
+      },
+      {
+       "kode_kbji": "6112.05",
+       "judul": "Petani buah tahunan selain anggur"
+      },
+      {
+       "kode_kbji": "6112.06",
+       "judul": "Petani sayuran tahunan"
+      },
+      {
+       "kode_kbji": "6112.07",
+       "judul": "Penyadap pinus"
+      },
+      {
+       "kode_kbji": "6112.08",
+       "judul": "Petani rotan jernang"
+      },
+      {
+       "kode_kbji": "6112.09",
+       "judul": "Petani kelapa sawit"
+      },
+      {
+       "kode_kbji": "6112.10",
+       "judul": "Petani kopi"
+      },
+      {
+       "kode_kbji": "6112.99",
+       "judul": "Petani tanaman tahunan dan tanaman semak lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6113",
+     "judul_unit": "Pekerja pertanian tanaman kebun bibit dan tanaman taman",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6113.01",
+       "judul": "Petani kebun bibit"
+      },
+      {
+       "kode_kbji": "6113.02",
+       "judul": "Petani tanaman taman"
+      },
+      {
+       "kode_kbji": "6113.03",
+       "judul": "Pembudidaya jamur"
+      },
+      {
+       "kode_kbji": "6113.99",
+       "judul": "Pekerja pertanian tanaman kebun bibit dan tanaman taman"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6114",
+     "judul_unit": "Pekerja pertanian tanaman campuran (tumpang sari)",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6114.01",
+       "judul": "Petani tanaman campuran (tumpang sari)"
+      },
+      {
+       "kode_kbji": "6114.02",
+       "judul": "Pekerja terampil tanaman campuran (tumpang sari)"
+      },
+      {
+       "kode_kbji": "6114.99",
+       "judul": "Pekerja pertanian tanaman campuran (tumpang sari) lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6121",
+     "judul_unit": "Pekerja peternakan hewan besar dan kecil serta penghasil susu",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6121.01",
+       "judul": "Peternak sapi potong"
+      },
+      {
+       "kode_kbji": "6121.02",
+       "judul": "Peternak kerbau"
+      },
+      {
+       "kode_kbji": "6121.03",
+       "judul": "Peternak kuda"
+      },
+      {
+       "kode_kbji": "6121.04",
+       "judul": "Peternak kambing"
+      },
+      {
+       "kode_kbji": "6121.05",
+       "judul": "Peternak domba"
+      },
+      {
+       "kode_kbji": "6121.06",
+       "judul": "Peternak babi"
+      },
+      {
+       "kode_kbji": "6121.07",
+       "judul": "Peternak penghasil susu"
+      },
+      {
+       "kode_kbji": "6121.08",
+       "judul": "Pembiak anjing"
+      },
+      {
+       "kode_kbji": "6121.09",
+       "judul": "Penggiring ternak"
+      },
+      {
+       "kode_kbji": "6121.10",
+       "judul": "Shearer (petugas pemangkas bulu ternak)"
+      },
+      {
+       "kode_kbji": "6121.99",
+       "judul": "Pekerja peternakan hewan besar dan kecil serta penghasil susu"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6122",
+     "judul_unit": "Pekerja peternakan unggas",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6122.01",
+       "judul": "Pembiak unggas"
+      },
+      {
+       "kode_kbji": "6122.02",
+       "judul": "Peternak unggas"
+      },
+      {
+       "kode_kbji": "6122.99",
+       "judul": "Pekerja peternakan unggas lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6123",
+     "judul_unit": "Pekerja peternakan lebah dan ulat sutra",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6123.01",
+       "judul": "Peternak lebah"
+      },
+      {
+       "kode_kbji": "6123.02",
+       "judul": "Peternak ulat sutra"
+      },
+      {
+       "kode_kbji": "6123.99",
+       "judul": "Pekerja peternakan lebah dan ulat sutra lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6129",
+     "judul_unit": "Pekerja peternakan ytdl",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6129.01",
+       "judul": "Peternak bulu hewan (non-hewan piaraan)"
+      },
+      {
+       "kode_kbji": "6129.02",
+       "judul": "Peternak burung hias"
+      },
+      {
+       "kode_kbji": "6129.03",
+       "judul": "Peternak burung unta"
+      },
+      {
+       "kode_kbji": "6129.99",
+       "judul": "Pekerja peternakan ytdl lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6130",
+     "judul_unit": "Pekerja campuran pertanian dan peternakan",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6130.01",
+       "judul": "Petani campuran (pertanian dan peternakan)"
+      },
+      {
+       "kode_kbji": "6130.02",
+       "judul": "Pekerja terampil pertanian campuran (pertanian dan peternakan)"
+      },
+      {
+       "kode_kbji": "6130.99",
+       "judul": "Pekerja campuran pertanian dan peternakan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6221",
+     "judul_unit": "Pekerja budidaya perikanan",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6221.01",
+       "judul": "Petani budidaya ganggang"
+      },
+      {
+       "kode_kbji": "6221.02",
+       "judul": "Petani budidaya ikan"
+      },
+      {
+       "kode_kbji": "6221.03",
+       "judul": "Petani budidaya tiram"
+      },
+      {
+       "kode_kbji": "6221.04",
+       "judul": "Petani budidaya mutiara"
+      },
+      {
+       "kode_kbji": "6221.05",
+       "judul": "Petani budidaya seafood"
+      },
+      {
+       "kode_kbji": "6221.06",
+       "judul": "Pekerja terampil budidaya perikanan"
+      },
+      {
+       "kode_kbji": "6221.07",
+       "judul": "Pekerja terampil budidaya ikan laut"
+      },
+      {
+       "kode_kbji": "6221.08",
+       "judul": "Pekerja budidaya buaya"
+      },
+      {
+       "kode_kbji": "6221.09",
+       "judul": "Pekerja budidaya siput"
+      },
+      {
+       "kode_kbji": "6221.99",
+       "judul": "Pekerja budidaya perikanan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6222",
+     "judul_unit": "Pekerja perikanan tangkap di perairan umum dan pesisir",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6222.01",
+       "judul": "Kapten kapal nelayan"
+      },
+      {
+       "kode_kbji": "6222.02",
+       "judul": "Nelayan (perairan pesisir)"
+      },
+      {
+       "kode_kbji": "6222.03",
+       "judul": "Nelayan (perairan umum)"
+      },
+      {
+       "kode_kbji": "6222.99",
+       "judul": "Pekerja perikanan tangkap di perairan umum dan pesisir lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "6223",
+     "judul_unit": "Pekerja perikanan tangkap di laut dalam",
+     "golongan_pokok": "Pekerja terampil pertanian, kehutanan, dan perikanan",
+     "jabatan": [
+      {
+       "kode_kbji": "6223.01",
+       "judul": "Nelayan laut dalam"
+      },
+      {
+       "kode_kbji": "6223.02",
+       "judul": "Kapten kapal pukat"
+      },
+      {
+       "kode_kbji": "6223.99",
+       "judul": "Pekerja perikanan tangkap di laut dalam lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "7233",
+     "judul_unit": "Mekanik dan tukang reparasi mesin pertanian dan industri",
+     "golongan_pokok": "Pekerja pengolahan, kerajinan, dan yang berhubungan",
+     "jabatan": [
+      {
+       "kode_kbji": "7233.01",
+       "judul": "Mekanik dan tukang reparasi mesin konstruksi"
+      },
+      {
+       "kode_kbji": "7233.02",
+       "judul": "Mekanik dan tukang reparasi mesin industri"
+      },
+      {
+       "kode_kbji": "7233.03",
+       "judul": "Mekanik dan tukang reparasi mesin pertanian"
+      },
+      {
+       "kode_kbji": "7233.04",
+       "judul": "Mekanik dan tukang reparasi mesin pertambangan"
+      },
+      {
+       "kode_kbji": "7233.05",
+       "judul": "Mekanik dan tukang reparasi mesin kereta api"
+      },
+      {
+       "kode_kbji": "7233.99",
+       "judul": "Mekanik dan tukang reparasi mesin pertanian dan industri"
+      }
+     ]
+    },
+    {
+     "kode_unit": "7541",
+     "judul_unit": "Pekerja bawah air",
+     "golongan_pokok": "Pekerja pengolahan, kerajinan, dan yang berhubungan",
+     "jabatan": [
+      {
+       "kode_kbji": "7541.05",
+       "judul": "Pekerja bawah air perikanan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "8341",
+     "judul_unit": "Operator mesin bergerak pertanian dan kehutanan",
+     "golongan_pokok": "Operator dan perakit mesin",
+     "jabatan": [
+      {
+       "kode_kbji": "8341.01",
+       "judul": "Operator mesin pemanen"
+      },
+      {
+       "kode_kbji": "8341.02",
+       "judul": "Operator mesin pemotong kayu"
+      },
+      {
+       "kode_kbji": "8341.03",
+       "judul": "Operator pengangkut hasil hutan kayu"
+      },
+      {
+       "kode_kbji": "8341.04",
+       "judul": "Operator traktor"
+      },
+      {
+       "kode_kbji": "8341.05",
+       "judul": "Operator mesin penebang pohon"
+      },
+      {
+       "kode_kbji": "8341.99",
+       "judul": "Operator mesin bergerak pertanian dan kehutanan lainnya"
+      }
+     ]
+    }
+   ]
+  },
+  "k7": {
+   "nama": "Kepemimpinan & Tata Kelola",
+   "jumlah_kelompok": 21,
+   "jumlah_jabatan": 71,
+   "per_golongan": {
+    "Manajer": 3,
+    "Profesional": 10,
+    "Teknisi dan asisten profesional": 6,
+    "Tenaga tata usaha": 2
+   },
+   "kelompok": [
+    {
+     "kode_unit": "1213",
+     "judul_unit": "Manajer perencanaan dan kebijakan",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1213.01",
+       "judul": "Manajer kebijakan"
+      },
+      {
+       "kode_kbji": "1213.02",
+       "judul": "Manajer perencanaan strategis"
+      },
+      {
+       "kode_kbji": "1213.03",
+       "judul": "Manajer perencanaan korporasi"
+      },
+      {
+       "kode_kbji": "1213.04",
+       "judul": "Manajer mutu"
+      },
+      {
+       "kode_kbji": "1213.99",
+       "judul": "Manajer kebijakan dan perencanaan lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1222",
+     "judul_unit": "Manajer periklanan dan hubungan masyarakat",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1222.01",
+       "judul": "Manajer periklanan"
+      },
+      {
+       "kode_kbji": "1222.02",
+       "judul": "Manajer hubungan masyarakat"
+      },
+      {
+       "kode_kbji": "1222.99",
+       "judul": "Manajer periklanan dan hubungan masyarakat lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "1349",
+     "judul_unit": "Manajer jasa profesional lainnya",
+     "golongan_pokok": "Manajer",
+     "jabatan": [
+      {
+       "kode_kbji": "1349.05",
+       "judul": "Manajer layanan hukum"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2120",
+     "judul_unit": "Ahli matematika, aktuaria, dan statistika",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2120.01",
+       "judul": "Ahli matematika murni"
+      },
+      {
+       "kode_kbji": "2120.02",
+       "judul": "Ahli matematika terapan"
+      },
+      {
+       "kode_kbji": "2120.03",
+       "judul": "Ahli analisis riset operasi (quality control management)"
+      },
+      {
+       "kode_kbji": "2120.04",
+       "judul": "Aktuaris"
+      },
+      {
+       "kode_kbji": "2120.05",
+       "judul": "Ahli statistika (umum)"
+      },
+      {
+       "kode_kbji": "2120.06",
+       "judul": "Ahli statistika matematika"
+      },
+      {
+       "kode_kbji": "2120.07",
+       "judul": "Ahli statistika (terapan)"
+      },
+      {
+       "kode_kbji": "2120.99",
+       "judul": "Ahli matematika, aktuaria, dan statistika lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2149",
+     "judul_unit": "Ahli teknik lainnya ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2149.05",
+       "judul": "Ahli teknik perencanaan sistem lalu lintas"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2164",
+     "judul_unit": "Perencana tata kota dan lalu lintas",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2164.01",
+       "judul": "Perencana lahan"
+      },
+      {
+       "kode_kbji": "2164.02",
+       "judul": "Perencana tata kota"
+      },
+      {
+       "kode_kbji": "2164.03",
+       "judul": "Perencana lalu lintas"
+      },
+      {
+       "kode_kbji": "2164.04",
+       "judul": "Ahli cagar budaya"
+      },
+      {
+       "kode_kbji": "2164.05",
+       "judul": "Perencana pengelolaan hutan"
+      },
+      {
+       "kode_kbji": "2164.99",
+       "judul": "Perencana tata kota dan lalu lintas lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2263",
+     "judul_unit": "Ahli kesehatan dan kebersihan lingkungan kerja",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2263.04",
+       "judul": "Penasihat kebijakan pengasuhan (caregiving)"
+      },
+      {
+       "kode_kbji": "2263.05",
+       "judul": "Penasihat kebijakan anak dan paud"
+      },
+      {
+       "kode_kbji": "2263.06",
+       "judul": "Penasihat kebijakan geriatri"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2310",
+     "judul_unit": "Dosen universitas dan pendidikan tinggi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2310.05",
+       "judul": "Dosen ilmu statistika"
+      },
+      {
+       "kode_kbji": "2310.07",
+       "judul": "Dosen ilmu hukum"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2412",
+     "judul_unit": "Konsultan keuangan dan investasi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2412.01",
+       "judul": "Perencana estate/investasi fisik"
+      },
+      {
+       "kode_kbji": "2412.02",
+       "judul": "Perencana keuangan"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2422",
+     "judul_unit": "Profesional kebijakan administrasi",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2422.01",
+       "judul": "Analis kebijakan"
+      },
+      {
+       "kode_kbji": "2422.99",
+       "judul": "Profesional kebijakan administrasi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2432",
+     "judul_unit": "Profesional hubungan masyarakat",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2432.00",
+       "judul": "Profesional hubungan masyarakat"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2611",
+     "judul_unit": "Pengacara",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2611.01",
+       "judul": "Advokat"
+      },
+      {
+       "kode_kbji": "2611.04",
+       "judul": "Penasihat hukum"
+      }
+     ]
+    },
+    {
+     "kode_unit": "2619",
+     "judul_unit": "Profesional hukum ytdl",
+     "golongan_pokok": "Profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "2619.01",
+       "judul": "Ahli hukum (selain pengacara atau hakim)"
+      },
+      {
+       "kode_kbji": "2619.02",
+       "judul": "Notaris"
+      },
+      {
+       "kode_kbji": "2619.03",
+       "judul": "Spesialis hak kekayaan intelektual"
+      },
+      {
+       "kode_kbji": "2619.99",
+       "judul": "Profesional hukum ytdl lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3132",
+     "judul_unit": "Operator bangunan pembakaran sampah (insinerator) dan",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3132.13",
+       "judul": "Perencana pengelolaan sampah"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3314",
+     "judul_unit": "Asisten profesional statistika, matematika, dan ybdi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3314.01",
+       "judul": "Asisten statistika"
+      },
+      {
+       "kode_kbji": "3314.02",
+       "judul": "Asisten aktuaria"
+      },
+      {
+       "kode_kbji": "3314.03",
+       "judul": "Asisten matematika"
+      },
+      {
+       "kode_kbji": "3314.99",
+       "judul": "Asisten profesional statistika, matematika, dan ybdi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3332",
+     "judul_unit": "Perencana konferensi dan acara",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3332.01",
+       "judul": "Penyelenggara acara (event organizer) dan konferensi"
+      },
+      {
+       "kode_kbji": "3332.02",
+       "judul": "Perencana konferensi"
+      },
+      {
+       "kode_kbji": "3332.03",
+       "judul": "Perencana acara pernikahan (wedding planner)"
+      },
+      {
+       "kode_kbji": "3332.04",
+       "judul": "Promotor"
+      },
+      {
+       "kode_kbji": "3332.99",
+       "judul": "Perencana konferensi dan acara lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3342",
+     "judul_unit": "Sekretaris hukum",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3342.01",
+       "judul": "Asisten administrasi hukum"
+      },
+      {
+       "kode_kbji": "3342.02",
+       "judul": "Manajer praktisi hukum"
+      },
+      {
+       "kode_kbji": "3342.99",
+       "judul": "Sekretaris hukum lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3411",
+     "judul_unit": "Asisten profesional hukum dan ybdi",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3411.01",
+       "judul": "Juru sita"
+      },
+      {
+       "kode_kbji": "3411.02",
+       "judul": "Panitera pengadilan"
+      },
+      {
+       "kode_kbji": "3411.03",
+       "judul": "Paralegal"
+      },
+      {
+       "kode_kbji": "3411.04",
+       "judul": "Asisten pengacara"
+      },
+      {
+       "kode_kbji": "3411.05",
+       "judul": "Detektif swasta"
+      },
+      {
+       "kode_kbji": "3411.06",
+       "judul": "Asisten notaris"
+      },
+      {
+       "kode_kbji": "3411.07",
+       "judul": "Petugas administrasi hukum"
+      },
+      {
+       "kode_kbji": "3411.99",
+       "judul": "Asisten profesional hukum dan ybdi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "3412",
+     "judul_unit": "Asisten profesional pekerjaan sosial",
+     "golongan_pokok": "Teknisi dan asisten profesional",
+     "jabatan": [
+      {
+       "kode_kbji": "3412.01",
+       "judul": "Pekerja pengembangan masyarakat"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4312",
+     "judul_unit": "Juru tata usaha statistik, keuangan, dan asuransi",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4312.01",
+       "judul": "Juru tata usaha aktuaria"
+      },
+      {
+       "kode_kbji": "4312.02",
+       "judul": "Juru tata usaha pialang"
+      },
+      {
+       "kode_kbji": "4312.03",
+       "judul": "Juru tata usaha keuangan"
+      },
+      {
+       "kode_kbji": "4312.04",
+       "judul": "Juru tata usaha asuransi"
+      },
+      {
+       "kode_kbji": "4312.05",
+       "judul": "Juru tata usaha bursa efek"
+      },
+      {
+       "kode_kbji": "4312.06",
+       "judul": "Juru tata usaha statistik"
+      },
+      {
+       "kode_kbji": "4312.07",
+       "judul": "Juru tata usaha pajak"
+      },
+      {
+       "kode_kbji": "4312.99",
+       "judul": "Juru tata usaha statistik, keuangan, dan asuransi lainnya"
+      }
+     ]
+    },
+    {
+     "kode_unit": "4322",
+     "judul_unit": "Juru tata usaha produksi",
+     "golongan_pokok": "Tenaga tata usaha",
+     "jabatan": [
+      {
+       "kode_kbji": "4322.01",
+       "judul": "Petugas perencanaan produksi"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
