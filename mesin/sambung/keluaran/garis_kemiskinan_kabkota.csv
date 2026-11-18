@@ -511,14 +511,14 @@ kode_bps,nama,tingkat,provinsi,gk_2025_dikk,gk_2025_webapi,selisih_2025,gk_2026_
 9105,Manokwari,kabkota,Papua Barat,849546.0,849546.0,0.0,933104.0,tabel provinsi var 120 (9100_gk_120_2026.json)
 9111,Manokwari Selatan,kabkota,Papua Barat,771161.0,771161.0,0.0,846320.0,tabel provinsi var 120 (9100_gk_120_2026.json)
 9112,Pegunungan Arfak,kabkota,Papua Barat,785149.0,785149.0,0.0,861685.0,tabel provinsi var 120 (9100_gk_120_2026.json)
+9200,Papua Barat Daya,provinsi,Papua Barat Daya,812630.0,,,,
 9201,Raja Ampat,kabkota,Papua Barat Daya,658931.0,658931.0,0.0,697762.0,tabel provinsi var 331 (9100_gk_331_2026.json)
 9202,Sorong,kabkota,Papua Barat Daya,661253.0,661253.0,0.0,711265.0,tabel provinsi var 331 (9100_gk_331_2026.json)
 9203,Sorong Selatan,kabkota,Papua Barat Daya,606474.0,606474.0,0.0,631281.0,tabel provinsi var 331 (9100_gk_331_2026.json)
 9204,Maybrat,kabkota,Papua Barat Daya,591993.0,591993.0,0.0,622220.0,tabel provinsi var 331 (9100_gk_331_2026.json)
 9205,Tambrauw,kabkota,Papua Barat Daya,606660.0,606660.0,0.0,631997.0,tabel provinsi var 331 (9100_gk_331_2026.json)
 9271,Kota Sorong,kabkota,Papua Barat Daya,985416.0,985416.0,0.0,1057634.0,tabel provinsi var 331 (9100_gk_331_2026.json)
-9300,Papua Selatan,provinsi,Papua Selatan,566052.0,,,,
-9400,Papua Tengah,provinsi,Papua Tengah,817834.0,,,,
+9400,Papua,provinsi,Papua,714365.0,,,,
 9403,Jayapura,kabkota,Papua,766257.0,,,,
 9408,Kepulauan Yapen,kabkota,Papua,821782.0,,,,
 9409,Biak Numfor,kabkota,Papua,712459.0,,,,
@@ -528,12 +528,12 @@ kode_bps,nama,tingkat,provinsi,gk_2025_dikk,gk_2025_webapi,selisih_2025,gk_2026_
 9427,Supiori,kabkota,Papua,618030.0,,,,
 9428,Mamberamo Raya,kabkota,Papua,905387.0,,,,
 9471,Kota Jayapura,kabkota,Papua,1253343.0,,,,
-9500,Papua Pegunungan,provinsi,Papua Pegunungan,1132178.0,,,,
+9500,Papua Selatan,provinsi,Papua Selatan,566052.0,,,,
 9501,Merauke,kabkota,Papua Selatan,517764.0,,,,
 9502,Boven Digoel,kabkota,Papua Selatan,665009.0,,,,
 9503,Mappi,kabkota,Papua Selatan,513706.0,,,,
 9504,Asmat,kabkota,Papua Selatan,520641.0,,,,
-9600,Papua Barat Daya,provinsi,Papua Barat Daya,812630.0,,,,
+9600,Papua Tengah,provinsi,Papua Tengah,817834.0,,,,
 9601,Mimika,kabkota,Papua Tengah,1166466.0,,,,
 9602,Dogiyai,kabkota,Papua Tengah,752603.0,,,,
 9603,Deiyai,kabkota,Papua Tengah,817167.0,,,,
@@ -542,6 +542,7 @@ kode_bps,nama,tingkat,provinsi,gk_2025_dikk,gk_2025_webapi,selisih_2025,gk_2026_
 9606,Intan Jaya,kabkota,Papua Tengah,980000.0,,,,
 9607,Puncak,kabkota,Papua Tengah,943351.0,,,,
 9608,Puncak Jaya,kabkota,Papua Tengah,933545.0,,,,
+9700,Papua Pegunungan,provinsi,Papua Pegunungan,1132178.0,,,,
 9701,Nduga,kabkota,Papua Pegunungan,837239.0,,,,
 9702,Jayawijaya,kabkota,Papua Pegunungan,913719.0,,,,
 9703,Lanny Jaya,kabkota,Papua Pegunungan,1019014.0,,,,

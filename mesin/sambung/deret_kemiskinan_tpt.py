@@ -18,20 +18,27 @@ SINI = os.path.dirname(os.path.abspath(__file__))
 DIKK = os.path.join(SINI, "..", "sumber", "masukan_kartu", "dikk2025_tabel21.csv")
 KEL = os.path.join(SINI, "keluaran")
 PAPUA = os.path.join(SINI, "..", "sumber", "wilayah", "kode_baru_papua.csv")
+# Kode provinsi BPS sesudah pemekaran. CSV DIKK memakai kode lain untuk lima provinsi ini dan kode 9400 ganda
+# (Papua dan Papua Tengah), sehingga Papua hilang dan empat provinsi salah kode. Sumber: WebAPI BPS var 2824
+# (9100 PAPUA BARAT, 9200 PAPUA BARAT DAYA, 9400 PAPUA, 9500 PAPUA SELATAN di L3_tpt.csv) dan indeks kartu (96, 97).
+PROV_PAPUA = {"Papua Barat": "9100", "Papua Barat Daya": "9200", "Papua": "9400", "Papua Selatan": "9500",
+              "Papua Tengah": "9600", "Papua Pegunungan": "9700"}
 
 NASIONAL = {
     "kemiskinan": [
         {"periode": "Maret 2026", "p0_persen": 8.07, "garis_rp_kapita_bulan": 669235,
          "url": "https://www.bps.go.id/id/pressrelease/2026/08/05/2594/persentase-penduduk-miskin-maret-2026-turun-menjadi-8-07-persen-.html",
          "dicek": "Chief Sulu 16 Nov 2026 (rilis BPS)"},
-        {"periode": "Maret 2025", "p0_persen": 8.47, "garis_rp_kapita_bulan": None,
-         "url": "https://www.worldbank.org/en/news/statement/2026/09/09/joint-statement-bps-wb-on-indonesia-poverty-figures",
-         "catatan": "8,47 persen disebut di pernyataan bersama BPS-Bank Dunia; garis nasional Maret 2025 belum dicek ke rilis BPS (BELUM DIVERIFIKASI)"}],
+        {"periode": "Maret 2025", "p0_persen": 8.47, "garis_rp_kapita_bulan": 609160,
+         "url": "https://www.bps.go.id/id/pressrelease/2025/07/25/2518/persentase-penduduk-miskin-maret-2025",
+         "dicek": "18 Nov 2026: halaman rilis gagal dibuka dari sesi mesin (galat situs); 8,47 persen dan Rp609.160 cocok dengan berita BPS https://www.bps.go.id/id/news/2025/07/25/731/tingkat-kemiskinan-kembali-menurun.html dan penilaian chat induk Sintesis 17 Nov"}],
     "tpt": [
         {"periode": "Agustus 2025", "tpt_persen": 4.85, "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/keadaan-ketenagakerjaan-.html", "dicek": "cuplikan halaman rilis BPS 16 Nov 2026"},
         {"periode": "Agustus 2024", "tpt_persen": 4.91, "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/keadaan-ketenagakerjaan-.html", "dicek": "cuplikan halaman rilis BPS (pembanding tahun lalu)"},
-        {"periode": "Agustus 2026", "tpt_persen": 4.75, "url": "https://mediaindonesia.com/ekonomi/952620/bps-tingkat-pengangguran-terbuka-agustus-2026-turun-jadi-475-persen",
-         "catatan": "rilis BPS 5 Nov 2026 belum dibuka; angka dari media (BELUM DIVERIFIKASI ke primer). Tabel kab/kota nasional var 2824 tahun 2026 belum tersedia di WebAPI per 16 Nov 2026 (dicoba, datacontent kosong)"}],
+        {"periode": "Agustus 2026", "tpt_persen": 4.75,
+         "url": "https://www.bps.go.id/id/pressrelease/2026/11/05/169961/tingkat-pengangguran-terbuka--tpt--sebesar-4-75-persen---rata-rata-upah-buruh-sebesar-3-42-juta-rupiah.html",
+         "dicek": "18 Nov 2026: cuplikan halaman rilis BPS 5 Nov 2026 (4,75 persen, turun 0,09 poin dari Agustus 2025)",
+         "catatan": "tabel kab/kota nasional var 2824 tahun 2026 belum tersedia di WebAPI per 16 Nov 2026 (dicoba, datacontent kosong)"}],
 }
 
 def f(x):
@@ -40,7 +47,12 @@ def f(x):
 
 def utama(l3):
     baru = {r["kode_bps_lama"]: r["kode_bps_baru"] for r in csv.DictReader(open(PAPUA, encoding="utf-8"))}
-    dikk = {r["kode_bps"]: r for r in csv.DictReader(open(DIKK, encoding="utf-8"))}
+    dikk = {}
+    for r in csv.DictReader(open(DIKK, encoding="utf-8")):
+        if r["tingkat"] == "provinsi" and r["provinsi"] in PROV_PAPUA:
+            r = dict(r, kode_bps=PROV_PAPUA[r["provinsi"]])
+        assert r["kode_bps"] not in dikk, "kode ganda: " + r["kode_bps"]
+        dikk[r["kode_bps"]] = r
     nama = {k: " ".join(r["nama"].split()) for k, r in dikk.items()}
     nama.update({baru[k]: v for k, v in list(nama.items()) if k in baru})  # kode baru Papua ikut bernama
     dikk = {baru.get(k, k): r for k, r in dikk.items()}
@@ -88,7 +100,7 @@ def utama(l3):
     with open(os.path.join(KEL, "garis_kemiskinan_kabkota.csv"), "w", newline="", encoding="utf-8") as o:
         w = csv.DictWriter(o, fieldnames=list(gk_rows[0])); w.writeheader(); w.writerows(gk_rows)
     json.dump({"skema": "ringkas-nasional/1", "nasional": NASIONAL,
-               "provinsi_2025": {k: {"nama": nama[k], "p0": f(dikk[k]["p0"]), "gk": f(dikk[k]["gk"])} for k in dikk if dikk[k]["tingkat"] == "provinsi"},
+               "provinsi_2025": {k: {"nama": nama[k], "periode": "Maret 2025", "p0": f(dikk[k]["p0"]), "gk": f(dikk[k]["gk"])} for k in dikk if dikk[k]["tingkat"] == "provinsi"},
                "sumber_provinsi_2025": "DIKK 2025 Tabel 2.1, https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"},
               open(os.path.join(KEL, "ringkas_nasional.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     kab = [g for g in gk_rows if g["tingkat"] == "kabkota"]
