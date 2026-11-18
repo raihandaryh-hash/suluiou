@@ -42,12 +42,12 @@ export const kartuDaerahContent = {
     'pengangguran-terbuka-kabkota':
       'Angka survei BPS untuk tingkat kabupaten/kota. Ketelitiannya terbatas, dan untuk sebagian kabupaten BPS sendiri menandai angkanya kurang teliti. Baca sebagai gambaran.',
   } as Record<string, string>,
-  // Arti angka per jenis kebutuhan. Hanya definisi, tanpa angka baru.
+  // Arti angka per jenis kebutuhan (KEPUTUSAN Raihan 17 Nov 21.48: kemiskinan A, pengangguran A). Sumber per klaim: mesin/sambung/keluaran/arti_angka/arti_angka.json @ f6c2699.
   artiAngka: {
     'kemiskinan-kabkota':
-      'Seseorang dihitung miskin bila pengeluarannya di bawah garis kemiskinan BPS. Warga yang sedikit di atas garis itu tidak ikut terhitung, walau hidupnya bisa masih sulit.',
+      'Batas miskin adalah biaya kebutuhan dasar sebulan di tiap daerah. Warga yang belanjanya per orang sedikit di atas batas itu tidak terhitung miskin, walau hidupnya bisa masih sulit.',
     'pengangguran-terbuka-kabkota':
-      'Yang dihitung adalah orang yang tidak bekerja dan sedang mencari kerja atau menyiapkan usaha. Orang yang bekerja walau hanya satu jam dalam sepekan dihitung bekerja.',
+      'Angka ini adalah persen angkatan kerja yang tidak bekerja dan sedang mencari kerja, menyiapkan usaha, atau sudah menyerah mencari. Bekerja satu jam saja dalam seminggu terakhir sudah terhitung bekerja.',
   } as Record<string, string>,
   namaJenis: {
     'kemiskinan-kabkota': 'kemiskinan',
