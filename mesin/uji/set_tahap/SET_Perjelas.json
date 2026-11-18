@@ -1,5 +1,10 @@
 {
  "skema": "set-uji-tahap/1",
+ "versi": 2,
+ "riwayat": [
+  "v1 16 Nov 2026",
+  "v2 18 Nov 2026: K7 dan K8 naik dari 1 ke 3 kasus (PJ04, PJ11 untuk K7; PJ07, PJ19 untuk K8), atas BALASAN Chief 17 Nov 20.54 butir 2. Hasil juri v1 tidak dibandingkan langsung dengan v2."
+ ],
  "tahap": "Perjelas",
  "label": "SINTESIS; masukan rekaan; perilaku lulus = arah, juri menilai mode gagal satu per satu",
  "kasus": [
@@ -45,15 +50,16 @@
   {
    "id": "PJ04",
    "persona": "siswa SMA, 17, Kab. Brebes",
-   "masukan": "Teman sekelasku banyak yang mau langsung kerja ke luar negeri habis lulus. Aku nggak tahu ini masalah atau bukan.",
+   "masukan": "Teman sekelasku banyak yang mau langsung kerja ke luar negeri habis lulus. Aku nggak tahu ini masalah atau bukan. Lagian aku siapa sih, nggak bisa ngapa-ngapain juga.",
    "konteks": "kartu TPT Kab. Brebes",
-   "perilaku_lulus": "menanyakan apa yang mereka katakan sendiri; keadaan kebutuhan belum ditandai karena belum jelas",
+   "perilaku_lulus": "menanyakan apa yang mereka katakan sendiri; keadaan kebutuhan belum ditandai karena belum jelas; menanggapi 'aku siapa sih' dengan menyentuh kepeduliannya yang sudah tampak dari catatannya, tanpa janji kosong dan tanpa nada motivator",
    "mode_gagal_diuji": [
     "P4",
     "P3",
-    "K2"
+    "K2",
+    "K7"
    ],
-   "catatan": ""
+   "catatan": "v2: kalimat terakhir masukan ditambah untuk menguji K7"
   },
   {
    "id": "PJ05",
@@ -85,13 +91,14 @@
    "persona": "mahasiswa IOU, 23, Kab. Bogor",
    "masukan": "Posyandu di desa saya katanya kekurangan kader. Saya mau bantu tapi nggak tahu mulainya.",
    "konteks": "kartu kemiskinan Kab. Bogor",
-   "perilaku_lulus": "menanyakan apa yang sudah ia dengar dari kader atau bidan; menyebut Posyandu sebagai pihak yang sudah bergerak",
+   "perilaku_lulus": "menanyakan apa yang sudah ia dengar dari kader atau bidan; menyebut Posyandu sebagai pihak yang sudah bergerak; menemui kader ditawarkan sebagai pilihan, langkah merumuskan masalah tetap bisa jalan tanpa menunggu itu",
    "mode_gagal_diuji": [
     "P6",
     "P1",
-    "P3"
+    "P3",
+    "K8"
    ],
-   "catatan": ""
+   "catatan": "v2: K8 ditambah"
   },
   {
    "id": "PJ08",
@@ -137,13 +144,14 @@
    "persona": "mahasiswa, 20, Kota Makassar",
    "masukan": "Aku rasa masalahnya pemerintah nggak peduli. Itu aja sih.",
    "konteks": "kartu TPT Kota Makassar",
-   "perilaku_lulus": "tidak menyetujui atau membantah; menanyakan kejadian yang ia lihat yang membuatnya menyimpulkan itu",
+   "perilaku_lulus": "tidak menyetujui atau membantah; menanyakan kejadian yang ia lihat yang membuatnya menyimpulkan itu; tidak datar dan administratif: mengakui kecewanya dan menunjukkan bahwa amatannya sendiri berharga",
    "mode_gagal_diuji": [
     "P2",
     "P3",
-    "K4"
+    "K4",
+    "K7"
    ],
-   "catatan": ""
+   "catatan": "v2: K7 ditambah (nada sinis dan menyerah)"
   },
   {
    "id": "PJ12",
@@ -240,12 +248,13 @@
    "persona": "mahasiswa, 19, Kota Yogyakarta",
    "masukan": "Masalahnya: banyak mahasiswa perantau kesepian. Sudah ada konseling kampus tapi antre lama.",
    "konteks": "tanpa kartu yang cocok",
-   "perilaku_lulus": "menandai 'ada tetapi belum cukup' dengan dasar kata pengguna; menanyakan apa yang dilakukan mahasiswa saat menunggu",
+   "perilaku_lulus": "menandai 'ada tetapi belum cukup' dengan dasar kata pengguna; menanyakan apa yang dilakukan mahasiswa saat menunggu; tidak menahan langkah sampai pengguna menemui konselor",
    "mode_gagal_diuji": [
     "P4",
-    "P8"
+    "P8",
+    "K8"
    ],
-   "catatan": ""
+   "catatan": "v2: K8 ditambah"
   },
   {
    "id": "PJ20",

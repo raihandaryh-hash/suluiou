@@ -1,5 +1,9 @@
 {
  "skema": "set-uji-tahap/1",
+ "versi": 1,
+ "riwayat": [
+  "v1 16 Nov 2026"
+ ],
  "tahap": "Arah",
  "label": "SINTESIS; masukan rekaan; perilaku lulus = arah, juri menilai mode gagal satu per satu",
  "kasus": [
