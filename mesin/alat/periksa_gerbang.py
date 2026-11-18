@@ -133,7 +133,8 @@ def _cari(o, jalur=""):
         for k, v in o.items():
             if k.startswith("tujuan") and isinstance(v, list):
                 for x in v:
-                    if isinstance(x, str) and _TOLAK.search(x): yield (jalur + "/" + k, x)
+                    t = x.get("judul", "") if isinstance(x, dict) else x
+                    if isinstance(t, str) and _TOLAK.search(t): yield (jalur + "/" + k, t)
             else: yield from _cari(v, jalur + "/" + k)
     elif isinstance(o, list):
         for i, v in enumerate(o): yield from _cari(v, jalur)

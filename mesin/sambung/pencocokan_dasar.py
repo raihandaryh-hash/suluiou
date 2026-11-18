@@ -16,13 +16,18 @@ S = os.path.dirname(os.path.abspath(__file__))
 PROFIL = os.path.join(S, "..", "sumber", "masukan_kartu", "dikk2025_profil_miskin.csv")
 DIKK_URL = "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
 
+KBJI = os.path.join(S, "..", "sumber", "kbji", "kbji2026_jabatan.csv")
+_KBJI = {r["kode"]: r for r in csv.DictReader(open(KBJI, encoding="utf-8"))}
+# Profesi tujuan = jabatan KBJI 2026 (Peraturan BPS 7/2026), bukan daftar karangan; judul diambil dari berkas KBJI.
+_KODE = {"P1": ["2330.02", "2424.01", "2423.04", "1345.08"], "P2": ["2330.01", "2635.03", "2635.08", "2634.02"], "P3": ["2132.01", "2132.05", "3142.02", "2149.02", "1311.02"], "P4": ["2424.03", "2411.01", "2431.04", "3312.01", "1346.03"], "P5": ["2424.01", "2423.01", "1212.03", "2320.04"], "P6": ["3257.02", "2142.07", "3132.06", "2133.05", "2143.02"]}
+TUJUAN_KBJI = {k: [{"kode_kbji": c, "judul": _KBJI[c]["judul"], "golongan_pokok": _KBJI[c]["golongan_pokok"]} for c in v] for k, v in _KODE.items()}
 ATURAN = [
  {"id": "P1", "kebutuhan": "kemiskinan-kabkota", "tema": "pendidikan orang dewasa",
   "kolom": "pend_sma_ke_atas", "arah": "rendah", "tabel": "DIKK 2025 Tabel 3.1 (hlm. 31)",
   "tampil": "Di {wilayah}, hanya {nilai} dari 100 penduduk miskin dewasa yang tamat SMA. Angka ini masuk seperempat terendah di antara kabupaten/kota se-Indonesia.",
   "bekal": ["mengajar", "komunikasi-kompleks", "empati", "pendidikan"],
   "medan": "k2", "sub_tantangan": ["k2c"],
-  "tujuan_profesi_contoh": ["guru", "instruktur pelatihan kerja", "pengembang materi dan media belajar", "konselor pendidikan"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P1"],
   "pijakan_pengalaman": ["tutor program kesetaraan (Paket A, B, C)", "relawan di PKBM terdekat"],
   "cari_tahu": ["Di desamu, adakah program kesetaraan atau tempat belajar untuk orang dewasa? Siapa pengelolanya?",
                 "Kalau ada warga yang ingin lanjut belajar, apa yang paling menahan mereka: waktu, biaya, atau jarak?"],
@@ -32,7 +37,7 @@ ATURAN = [
   "tampil": "Di {wilayah}, {nilai} dari 100 anak usia 13 sampai 15 tahun dari keluarga miskin masih bersekolah. Angka ini masuk seperempat terendah di antara kabupaten/kota se-Indonesia.",
   "bekal": ["mengajar", "empati", "kepemimpinan", "pendidikan"],
   "medan": "k2", "sub_tantangan": ["k2c"],
-  "tujuan_profesi_contoh": ["guru", "Guru BK atau konselor sekolah", "pekerja sosial", "psikolog pendidikan"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P2"],
   "pijakan_pengalaman": ["kakak asuh atau mentor sebaya", "penggerak kelompok belajar di masjid, gereja, atau balai desa"],
   "cari_tahu": ["Adakah anak tetangga seumuran SMP yang tidak lagi sekolah? Tanyakan alasannya dengan hormat, tanpa menyebut nama di catatanmu.",
                 "Apa yang sudah dilakukan sekolah atau desa untuk anak yang berhenti sekolah?"],
@@ -42,7 +47,7 @@ ATURAN = [
   "tampil": "Di {wilayah}, {nilai} dari 100 penduduk miskin dewasa bekerja di pertanian. Angka ini masuk seperempat tertinggi di antara kabupaten/kota se-Indonesia.",
   "bekal": ["pertanian-modern", "literasi-teknologi", "kepedulian-lingkungan", "berpikir-sistemik"],
   "medan": "k6", "sub_tantangan": ["k6a", "k6b"],
-  "tujuan_profesi_contoh": ["penyuluh pertanian", "agronom", "teknolog pangan", "wirausaha olahan hasil tani", "pemasar produk pertanian"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P3"],
   "pijakan_pengalaman": ["ikut satu musim bersama kelompok tani", "magang di usaha olahan pangan"],
   "cari_tahu": ["Tanya satu petani di dekatmu: berapa harga jual panen terakhirnya, dan ke mana ia menjualnya?",
                 "Apa masalah terbesar petani di desamu musim ini: air, pupuk, harga, atau tenaga muda?"],
@@ -52,7 +57,7 @@ ATURAN = [
   "tampil": "Di {wilayah}, {nilai} dari 100 penduduk miskin dewasa bekerja di sektor informal, tanpa kontrak tetap. Angka ini masuk seperempat tertinggi di antara kabupaten/kota se-Indonesia.",
   "bekal": ["manajemen-proyek", "literasi-teknologi", "keuangan-syariah", "komunikasi-kompleks"],
   "medan": "k5", "sub_tantangan": ["k5a"],
-  "tujuan_profesi_contoh": ["analis pembiayaan mikro di lembaga keuangan syariah", "akuntan", "konsultan usaha kecil", "pemasar digital", "wirausaha"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P4"],
   "pijakan_pengalaman": ["membantu pembukuan satu warung", "ikut kegiatan koperasi atau BUMDes"],
   "cari_tahu": ["Pilih satu warung atau usaha kecil di dekat rumah. Tanyakan apa yang paling sulit: modal, pembeli, atau pencatatan uang?",
                 "Adakah koperasi atau BUMDes di desamu? Apa yang sudah dan belum berjalan?"],
@@ -62,7 +67,7 @@ ATURAN = [
   "tampil": "Di {wilayah}, {nilai} dari 100 penduduk miskin dewasa tidak bekerja. Angka ini masuk seperempat tertinggi di antara kabupaten/kota se-Indonesia.",
   "bekal": ["komunikasi-kompleks", "literasi-teknologi", "mengajar", "manajemen-proyek"],
   "medan": "k5", "sub_tantangan": ["k5d"],
-  "tujuan_profesi_contoh": ["instruktur pelatihan kerja", "spesialis rekrutmen dan SDM", "konselor karier", "wirausaha yang membuka lapangan kerja"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P5"],
   "pijakan_pengalaman": ["membantu Karang Taruna menyebarkan info lowongan dan pelatihan"],
   "cari_tahu": ["Tanya dua orang dewasa yang sedang mencari kerja: dari mana mereka biasanya tahu ada lowongan?",
                 "Adakah balai latihan kerja atau pelatihan desa yang bisa diikuti warga? Seberapa jauh dan berapa biayanya?"],
@@ -72,7 +77,7 @@ ATURAN = [
   "tampil": "Di {wilayah}, hanya {nilai} dari 100 rumah tangga miskin yang memakai air layak. Angka ini masuk seperempat terendah di antara kabupaten/kota se-Indonesia.",
   "bekal": ["kesehatan", "kepedulian-lingkungan", "berpikir-sistemik", "manajemen-proyek"],
   "medan": "k6", "sub_tantangan": ["k6d"],
-  "tujuan_profesi_contoh": ["sanitarian (tenaga kesehatan lingkungan)", "insinyur teknik lingkungan", "teknisi pengolahan air", "ahli kesehatan masyarakat"],
+  "tujuan_profesi_contoh": TUJUAN_KBJI["P6"],
   "pijakan_pengalaman": ["ikut kegiatan kader kesehatan lingkungan", "membantu pengelola air desa mendata pelanggan"],
   "cari_tahu": ["Dari mana keluarga di sekitarmu mengambil air minum? Berapa jauh dan berapa lama?",
                 "Siapa yang mengurus sarana air bersih di desamu, dan apa kendalanya?"],
