@@ -17,6 +17,18 @@ h2 = periksa([{"id": "K-saat-belum", "teks": "x", "lapis": "K", "tanda": "apa sa
 ok_belum = not h2["lulus"]
 print("lapis bertanda BELUM DITETAPKAN selalu gagal:", ok_belum)
 benar.append(ok_belum)
+# 19 Nov 2026 (Grok, brief/02 tugas 2): daftar K yang menyimpang dari KEPUTUSAN membuat butir K yang benar pun gagal
+from periksa_tanda_lapis import TANDA_K
+d3 = copy.deepcopy(daftar)
+for l in d3["lapis"]:
+    if l["kode"] == "K": l["tanda"] = "Pilihan tim Sulu."; l["pola_tanda"] = "\\S"
+h3 = periksa([{"id": "K-daftar-menyimpang", "teks": "x", "lapis": "K", "tanda": "Pilihan tim Sulu.", "sumber": "https://example.org"}], d3)[0]
+ok_daftar = not h3["lulus"]
+print("daftar K menyimpang dari KEPUTUSAN selalu gagal:", ok_daftar)
+benar.append(ok_daftar)
+ok_tanda = TANDA_K == "Disusun tim Sulu dari sumber yang tercantum." and [l["tanda"] for l in daftar["lapis"] if l["kode"] == "K"] == [TANDA_K]
+print("tanda K di kode dan di daftar = KEPUTUSAN 17 Nov 21.32:", ok_tanda)
+benar.append(ok_tanda)
 kode = [l["kode"] for l in daftar["lapis"]]
 ok_lapis = kode[:5] == ["L0", "L1", "L2", "L3", "L4"]
 print("daftar memuat L0-L4 berurutan:", ok_lapis)

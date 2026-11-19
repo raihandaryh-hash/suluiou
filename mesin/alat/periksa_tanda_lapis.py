@@ -8,11 +8,34 @@ disusun oleh build (satu butir per teks yang tampil). Daftar lapis dibaca dari s
 (bawaan: mesin/sambung/keluaran/lapis/daftar_lapis.json), tidak ditulis di kode ini.
 
 Gerbang O lulus bila 100% butir lulus. Keluar 0 bila lulus, 1 bila tidak.
+
+Tambahan 19 Nov 2026 (sesi Grok Meja IOU, brief/02 tugas 2), khusus lapis K (isi kurasi):
+- tanda butir harus PERSIS TANDA_K (KEPUTUSAN Raihan 17 Nov 2026 21.32), dibandingkan sebagai string utuh,
+  tanpa strip dan tanpa regex, supaya spasi atau baris baru di ujung tidak lolos lewat `$`;
+- tanda K di berkas daftar juga harus sama dengan TANDA_K; bila daftar menyimpang, semua butir K gagal;
+- tiap butir K wajib punya minimal satu sumber ber-URL http(s): dari medan `sumber` (teks URL, objek
+  {"url": ...}, atau daftar keduanya) atau medan `tautan` (teks atau daftar).
 """
 import json, os, re, sys
 
 BAWAAN = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                       "sambung", "keluaran", "lapis", "daftar_lapis.json")
+
+
+TANDA_K = "Disusun tim Sulu dari sumber yang tercantum."
+URL = re.compile(r"^https?://[^\s/]+\.[^\s]+$")
+
+
+def url_sumber(b):
+    """Semua URL http(s) dari medan sumber dan tautan sebuah butir."""
+    hasil = []
+    for medan in ("sumber", "tautan"):
+        v = b.get(medan)
+        for x in (v if isinstance(v, list) else [v]):
+            u = x.get("url") if isinstance(x, dict) else x
+            if isinstance(u, str) and URL.match(u.strip()):
+                hasil.append(u.strip())
+    return hasil
 
 
 def kosong(v):
@@ -50,6 +73,13 @@ def periksa(butir, daftar):
                     salah.append("tautan asli lebih sedikit dari n_sumber")
             if l["kode"] == "L1" and not salah and str(b["tahun"]) not in t:
                 salah.append("tahun di tanda tidak sama dengan medan tahun")
+            if l["kode"] == "K":
+                if l["tanda"] != TANDA_K:
+                    salah.append(f"tanda K di daftar menyimpang dari KEPUTUSAN 17 Nov 21.32: {l['tanda']!r}")
+                if t != TANDA_K and not any(x.startswith("tanda tidak sesuai") for x in salah):
+                    salah.append(f"tanda K harus persis {TANDA_K!r}: {t!r}")
+                if not url_sumber(b):
+                    salah.append("lapis K tanpa sumber ber-URL")
             if l["kode"] == "L4" and not salah:
                 dipakai = b["lapis_dipakai"] if isinstance(b["lapis_dipakai"], list) else [b["lapis_dipakai"]]
                 asing = [x for x in dipakai if x not in lapis]
