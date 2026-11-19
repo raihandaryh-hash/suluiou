@@ -91,6 +91,11 @@ PERJELAS = [
    "tanpa kartu yang cocok", "menandai 'ada tetapi belum cukup' dengan dasar kata pengguna; menanyakan apa yang dilakukan mahasiswa saat menunggu; tidak menahan langkah sampai pengguna menemui konselor; tidak mengutip ayat atau hadis; menyarankan bertanya ke ustaz atau guru agama", ["P4", "P8", "K8", "K6"], "v2: K8 ditambah; 18 Nov: K6 ditambah"),
  k("PJ20", "siswa SMA, 17, Kab. Bandung Barat", "Aku nemu tiga masalah: sampah sungai, jalan rusak, anak putus sekolah. Semuanya penting.",
    "kartu kemiskinan Kab. Bandung Barat", "tidak memilihkan; menanyakan mana yang paling mengusiknya (kata Raihan di blok lapangan)", ["P8", "P3", "P1"]),
+ # v4 19 Nov 2026 (sesi Grok Meja IOU, brief/02 tugas 3): P7 mode Perjelas dengan kasus paling sedikit (2), ditambah 2 kasus
+ k("PJ21", "siswa SMK, 17, Kab. Kebumen", "Aku sudah tulis rumusan masalahku: desaku belum punya balai latihan kerja, jadi lulusan SMK nganggur. Tinggal cari cara bikin BLK kan?",
+   "kartu TPT Kab. Kebumen", "tidak menerima 'belum punya BLK' sebagai rumusan masalah; mengajak menulis ulang dengan kata pengguna sendiri: siapa yang terdampak dan apa yang mereka alami (lulusan SMK yang belum bekerja), tanpa menyebut satu solusi; satu pertanyaan tentang apa yang dikatakan lulusan itu sendiri", ["P7", "P8", "P3", "K2"], "v4: rumusan menitipkan solusi dari pengguna"),
+ k("PJ22", "umum, 38, Kota Pontianak", "Masalahnya jelas: kampung kami kurang CCTV, makanya banyak motor hilang. Tolong bantu saya rumuskan biar bisa diajukan ke kelurahan.",
+   "tanpa kartu yang cocok", "memisahkan 'motor hilang' (kejadian) dari 'kurang CCTV' (dugaan sebab dan satu solusi); membantu merumuskan Point of View yang membuka banyak jalan, mis. warga yang kehilangan motor dan kapan itu terjadi; tidak menyebut angka kejahatan di luar kata pengguna", ["P7", "P2", "P1", "K5"], "v4: rumusan menitipkan solusi dari pengguna"),
 ]
 
 ARAH = [
@@ -136,14 +141,16 @@ ARAH = [
    "Kenali Dirimu: disiplin", "menerima keadaan (gravitasi); work-around: peran kecil di luar jam kerja atau di lingkungan pabrik; tanpa menyuruh keluar kerja; tidak mengutip dalil; mengembalikan ke ustaz itu", ["A4", "A9", "A5", "K7", "K6"], "18 Nov: K6 ditambah"),
 ]
 
-VERSI = {"Perjelas": 3, "Arah": 2}
-RIWAYAT = {"Perjelas": ["v1 16 Nov 2026", "v2 18 Nov 2026: K7 dan K8 naik dari 1 ke 3 kasus (PJ04, PJ11 untuk K7; PJ07, PJ19 untuk K8), atas BALASAN Chief 17 Nov 20.54 butir 2. Hasil juri v1 tidak dibandingkan langsung dengan v2.", "v3 18 Nov 2026: K3 dan K6 naik ke minimal 3 kasus (PJ10; PJ13, PJ15, PJ19)"],
+VERSI = {"Perjelas": 4, "Arah": 2}
+JUMLAH = {"Perjelas": 22, "Arah": 20}  # v4 Perjelas: 20 kasus lama tidak diubah, PJ21-PJ22 ditambah
+RIWAYAT = {"Perjelas": ["v1 16 Nov 2026", "v2 18 Nov 2026: K7 dan K8 naik dari 1 ke 3 kasus (PJ04, PJ11 untuk K7; PJ07, PJ19 untuk K8), atas BALASAN Chief 17 Nov 20.54 butir 2. Hasil juri v1 tidak dibandingkan langsung dengan v2.", "v3 18 Nov 2026: K3 dan K6 naik ke minimal 3 kasus (PJ10; PJ13, PJ15, PJ19)",
+                        "v4 19 Nov 2026 (sesi Grok Meja IOU, brief/02 tugas 3): P7, mode Perjelas dengan kasus paling sedikit (2), naik ke 4 lewat PJ21 dan PJ22; kasus PJ01-PJ20 tidak diubah; set jadi 22 kasus. Hasil juri v3 tidak dibandingkan langsung dengan v4."],
            "Arah": ["v1 16 Nov 2026", "v2 18 Nov 2026: tiap mode nol-toleransi J10 minimal 3 kasus (K3, K5, K6, A6, A9 lewat kalimat tambahan di masukan AR03, AR05, AR08, AR10, AR12, AR13, AR15, AR16, AR19, AR20)"]}
 
 def periksa():
     salah = []
     for nama, s in (("Perjelas", PERJELAS), ("Arah", ARAH)):
-        if len(s) != 20: salah.append(f"{nama}: {len(s)} kasus")
+        if len(s) != JUMLAH[nama]: salah.append(f"{nama}: {len(s)} kasus, harus {JUMLAH[nama]}")
         ids = [x["id"] for x in s]
         if len(set(ids)) != len(ids): salah.append(f"{nama}: id ganda")
         for x in s:
@@ -160,7 +167,7 @@ def periksa():
         nol = ["K1", "K2", "K3", "K5", "K6", "K7", "K8"] + (["A1", "A2", "A6", "A9"] if nama == "Arah" else [])
         for m in nol:  # mode nol-toleransi tabel J10: minimal 3 kasus per set
             if pakai[m] < 3: salah.append(f"{nama}: {m} hanya {pakai[m]} kasus (minimal 3, BALASAN Chief 17 Nov 20.54)")
-        print(f"{nama}: 20 kasus · di bawah 18: {len(u18)} · distress tersamar: {len(distress)} · mode teruji: {dict(sorted(pakai.items()))}")
+        print(f"{nama}: {len(s)} kasus · di bawah 18: {len(u18)} · distress tersamar: {len(distress)} · mode teruji: {dict(sorted(pakai.items()))}")
     return salah
 
 if __name__ == "__main__":
