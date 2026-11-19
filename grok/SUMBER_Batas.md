@@ -1,6 +1,6 @@
 # SUMBER_Batas · tujuh wilayah tanpa geometri BIG
 
-SINTESIS. Retrieval sesi Grok Meja IOU, 19 Nov 2026 17.39–18.00 WIB, brief/02 tugas 1 (Ledger https://app.notion.com/p/41da045d995781d88b01e89f0d4ef5d9). Retrieval only: dokumen ini mencatat sumber, lisensi, dan cakupan; pilihan sumber untuk tayang tetap di tangan Chief atau Raihan. Data batas dipakai sebagai fakta wilayah, bukan klaim sengketa.
+SINTESIS. Retrieval sesi Grok Meja IOU, 19 Nov 2026 17.39–18.00 WIB, brief/02 tugas 1; ditambah penanda konflik dua sumber 19 Nov malam (Q40), nilai lama tetap (Ledger https://app.notion.com/p/41da045d995781d88b01e89f0d4ef5d9). Retrieval only: dokumen ini mencatat sumber, lisensi, dan cakupan; pilihan sumber untuk tayang tetap di tangan Chief atau Raihan. Data batas dipakai sebagai fakta wilayah, bukan klaim sengketa.
 
 SUMBER: mesin/sambung/tetangga_wilayah.py @ a8e0f1e (cabang mesin-me1-fondasi) · curl 2026-11-19 10:40Z
 
@@ -51,6 +51,18 @@ Luas di atas adalah atribut berkas sumber, diteruskan apa adanya, bukan luas res
 | 3576 Kota Mojokerto | 3516 Mojokerto (26,7) | 3516 (28,5) | ya |
 
 Selisih Padang Panjang: di COD-AB, jarak terdekat Padang Panjang ke Padang Pariaman 0,0037 derajat (sekitar 0,41 km), di atas toleransi 0,001 derajat, jadi tidak dihitung bertetangga. Di Alf-Anas keduanya bersinggungan 2,1 km. Mana yang benar di lapangan [BELUM DIVERIFIKASI]; perlu acuan batas resmi (Permendagri penegasan batas daerah atau BIG), dan tidak diputuskan di sini.
+
+### KONFLIK DUA SUMBER · Padang Panjang (1374) dan Padang Pariaman (1306)
+
+Dicatat ulang 19 Nov 2026 malam (Q40). Nilai lama tidak diubah. Tidak ada sumber yang dipilih.
+
+| Sumber | Hubungan yang tercatat | Nilai lama (19 Nov sore) |
+|---|---|---|
+| Alf-Anas (pembanding, tetangga v2) | bersinggungan | 2,1 km |
+| HDX COD-AB (pelengkap, tetangga v3) | tidak bertetangga; ada celah | 0,0037 derajat (sekitar 0,41 km), di atas toleransi 0,001 derajat |
+
+Keluarannya tetap seperti v3: pasangan ini tidak masuk tetangga_wilayah.json; total sisi 1001 → 1000. Acuan batas resmi (Permendagri atau BIG) masih TIDAK DITEMUKAN. Mana yang benar di lapangan [BELUM DIVERIFIKASI].
+
 
 Nama beda pelengkap lawan DIKK 2025 (kode cocok, nama lama di data 2020; dicatat di `catatan_pencocokan`): ID1206 Toba Samosir → Toba; ID6302 Kota Baru → Kotabaru; ID6411 Mahakam Hulu → Mahakam Ulu; ID7108 Siau Tagulandang Biaro → Kepulauan Sitaro; ID7605 Mamuju Utara → Pasangkayu; ID8101 Maluku Tenggara Barat → Kepulauan Tanimbar. Delapan fitur danau, waduk, dan hutan (ID1288, ID1388, ID1688, ID1888, ID3288, ID3388, ID3399, ID7188) tidak berpadanan DIKK dan dilewati.
 
