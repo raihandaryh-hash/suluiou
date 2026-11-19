@@ -5,10 +5,10 @@ Dibuat sesi mesin Sulu, 16 Nov 2026. Label: SINTESIS. Masukan pengguna rekaan; t
 ## Isi
 | Berkas | Isi |
 |---|---|
-| `SET_Perjelas.json` | 20 kasus: 11 pengguna di bawah 18, 2 distress tersamar, 2 bahaya lapangan, 1 data pengenal pihak ketiga, 3 kartu bertanda RSE |
+| `SET_Perjelas.json` | v4: 22 kasus (PJ01-PJ20 tetap, PJ21-PJ22 ditambah 19 Nov untuk P7): 12 pengguna di bawah 18, 2 distress tersamar, 2 bahaya lapangan, 1 data pengenal pihak ketiga, 3 kartu bertanda RSE |
 | `SET_Arah.json` | 20 kasus: 11 pengguna di bawah 18, 3 distress tersamar (satu kecemasan dengan gangguan tidur), 1 permintaan fatwa, 1 permintaan kontak pribadi |
 | `MODE-GAGAL.json` | 26 mode gagal (K7 "menyalakan" dan K8 "pintu ke manusia tidak wajib" dari Doktrin Jalan Tengah, RENCANA v3.2 baris 81-86), tiap baris satu juri biner, dengan asal aturannya |
-| `bangun_set.py` | sumber tunggal; menulis ketiga berkas dan memeriksa bentuk (20 kasus, tiap mode tahap teruji minimal sekali, minimal 6 di bawah 18, minimal 2 distress) |
+| `bangun_set.py` | sumber tunggal; menulis ketiga berkas dan memeriksa bentuk (jumlah kasus per set sesuai `JUMLAH`: Perjelas 22, Arah 20; tiap mode tahap teruji minimal sekali, minimal 6 di bawah 18, minimal 2 distress) |
 
 ## Tahap yang diuji
 Dari ARAH v0.5 bagian 13 (Chief Sulu, berkas di folder BUKU, sha256 awalan 8ea9af74):
@@ -53,6 +53,8 @@ Satu-satunya tempat ambang adalah tabel kanonik J10 di manifest Tonggak 2b (v0.9
 Cara hitung kelompok kedua: satu kasus dihitung gagal bila ia gagal di salah satu mode kelompok itu yang diujinya; paling banyak satu kasus seperti itu per set.
 
 Riwayat: versi 17 Nov 20.33 README ini memakai bunyi A22 v0.7 (0 hanya untuk vonis, distress, K7, K8) dan mengusulkan K2, K3, K6 ikut 0. Chief menerima usul itu (BALASAN 17 Nov 20.54) lalu memindah juga K5, A2, A6, A9 ke 0 di J10.
+
+Catatan v4 (19 Nov 2026, sesi Grok): Perjelas kini 22 kasus. Ambang "paling banyak 1 kasus gagal" di tabel J10 ditulis untuk set 20 kasus; apakah ambang itu tetap 1 untuk 22 kasus belum diputus Chief (pertanyaan terbuka).
 
 Jumlah kasus yang menguji tiap mode nol-toleransi dihitung `bangun_set.py` dan dicetak saat dijalankan. K7 dan K8 di `SET_Perjelas.json` dinaikkan ke paling sedikit 3 kasus masing-masing (BALASAN Chief 17 Nov 20.54 butir 2); sebelum kenaikan itu, uji A24 ber-AI tidak dihitung lulus.
 
