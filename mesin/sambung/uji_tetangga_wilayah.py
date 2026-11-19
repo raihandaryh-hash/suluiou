@@ -16,10 +16,18 @@ u("Manggarai: Manggarai Barat, Manggarai Timur", {t["nama"] for t in W["5313"]["
 sb = d["ringkas"]["selisih_dengan_pembanding"]
 u("kecocokan dengan pembanding >= 99 persen", sb["cocok"] / sb["sisi_utama_dibanding"] >= 0.99)
 u("sumber utama BIG, pembanding Alf-Anas", "BIG" in d["sumber_batas"]["utama"]["asal_data"] and "Alf-Anas" in d["sumber_batas"]["pembanding"]["nama"])
-u("tiap wilayah tanpa geometri utama ditandai dan sisinya ber-asal pembanding",
-  all(W[c.split()[0]]["geometri_dari"] == "pembanding" and all(t["asal"] == "pembanding" for t in W[c.split()[0]]["tetangga"]) for c in d["ringkas"]["utama_tanpa_geometri"]))
+# v3 (19 Nov 2026, Grok): wilayah tanpa geometri utama kini dari pelengkap berlisensi; uji ini memeriksa penandaan apa pun asalnya
+u("tiap wilayah tanpa geometri utama ditandai dan sisinya ber-asal non-utama yang sama",
+  all(W[c.split()[0]]["geometri_dari"] in ("pembanding", "pelengkap") and all(t["asal"] == W[c.split()[0]]["geometri_dari"] for t in W[c.split()[0]]["tetangga"]) for c in d["ringkas"]["utama_tanpa_geometri"]))
 u("Kota Magelang: Magelang", {t["nama"] for t in W["3371"]["tetangga"]} == {"Magelang"})
 u("sumber batas tertulis", d["sumber_batas"]["utama"]["url"].startswith("https://github.com/"))
+if d["skema"] == "tetangga-wilayah/3":
+    pl = d["sumber_batas_pelengkap"]
+    u("v3: pelengkap berlisensi tertulis CC BY-IGO dari BPS lewat HDX",
+      "CC BY-IGO" in pl["lisensi"] and "/licenses/by/3.0/igo/" in pl["lisensi"] and "BPS" in pl["asal_data"] and pl["url"].startswith("https://data.humdata.org/"))
+    u("v3: tidak ada sisi ber-asal pembanding tanpa lisensi", d["ringkas"]["sisi_dari_pembanding"] == 0 and all(t["asal"] != "pembanding" for v in W.values() for t in v["tetangga"]))
+    pb = d["ringkas"]["pelengkap_dibanding_pembanding"]
+    u("v3: tetangga pelengkap tujuh wilayah ada juga di pembanding", len(pb) == 7 and all(set(x["pelengkap"]) <= set(x["pembanding"]) for x in pb.values()))
 for n, ok in uji: print("LULUS" if ok else "GAGAL", n)
 print(f"{sum(o for _, o in uji)}/{len(uji)} lulus")
 raise SystemExit(0 if all(o for _, o in uji) else 1)
