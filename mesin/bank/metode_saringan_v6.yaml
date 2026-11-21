@@ -1,0 +1,14 @@
+# Metode hitung saringan · v6 · ditulis 13 Nov 2026 17.48 WIB (jam sistem) SEBELUM skor v6; v1-v5 tetap beku.
+# Dasar: KEPUTUSAN Raihan 13 Nov 2026 menjawab pilihan aturan skala sesudah v5 dihitung: "Orang + batas 50% (Recommended)".
+# Isi pilihan itu (teks pertanyaan): kembali ke jumlah orang terdampak, ditambah aturan bahwa indikator yang 'terdampak'-nya
+# lebih dari separuh kelompoknya dikeluarkan.
+# Alasan meninggalkan v5: kelebihan di atas median provinsi mengecilkan kebutuhan yang terpusat di provinsi berpenduduk kecil
+# (stunting: nasional 19,8%, median provinsi 22,1%, kelebihan 0,32 juta). Lihat uji/STATUS_ME2.md putaran 3.
+versi: metode-saringan/6
+bobot: bank/bobot_v2.yaml
+dasar: [bank/metode_saringan_v3.yaml, bank/metode_saringan_v4.yaml]
+skala: "sama dengan v3 (bertarget: orang x jarak relatif ke target; tanpa target: log10 orang terdampak)"
+batas_mayoritas: "kandidat yang bagian terdampaknya > 50% dari kelompok populasinya dikeluarkan dari peringkat saringan dan dicatat 'kebutuhan mayoritas, bukan sasaran saringan'; tetap anggota bank dan boleh punya kartu"
+bagian: "bagian = orang terdampak / populasi kelompok, dari publikasi yang sama dengan angka orang atau populasi baku yang dipakai rumusnya; dicatat di bank/bagian_kelompok_v1.yaml. Bila populasi kelompok tidak diambil tetapi batas atas bagian jelas di bawah 50% dari populasi total yang lebih besar, dicatat sebagai batas atas dan kandidat tidak dikeluarkan"
+uji_G2_3: "sama dengan v2; ditambah putaran set longgar dari alat/kepekaan_data.py dengan aturan batas mayoritas yang sama"
+status_ambang_30: "KEPUTUSAN Raihan 13 Nov 2026: 'Lulus terbatas (Recommended)'. G2.3 dinyatakan lulus terbatas bila lulus atas set ketat dan set longgar; target >=30 kandidat ketat dibawa ke tonggak berikut"

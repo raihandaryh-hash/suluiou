@@ -1,0 +1,65 @@
+{
+ "skema": "peta-pihak/1",
+ "dibuat": "16 Nov 2026, sesi mesin Sulu (paket titipan 8)",
+ "label": "SINTESIS retrieval. Hanya lembaga yang ditemukan di sumber ber-URL; nama perorangan sengaja tidak dicatat. Contoh untuk merancang tampilan peta pihak (A18), BUKAN daftar rujukan untuk pengguna sebelum diperiksa ulang",
+ "lensa": "lensa-pentahelix + lensa-rt-pkk-posyandu (kartu_lensa.json)",
+ "kabupaten": [
+  {
+   "kode_bps": "3205", "nama": "Kab. Garut", "provinsi": "Jawa Barat",
+   "isu_contoh": "pengangguran dan kemiskinan",
+   "angka_kartu": "kartu kemiskinan dan TPT Kab. Garut (berkas kartu_tayang, prov_32.json)",
+   "pihak": {
+    "pemerintah": [
+     {"nama": "Bappeda Kabupaten Garut", "peran_di_isu": "perencanaan; artikel penanganan kemiskinan lewat aplikasi SEPAKAT dan artikel ketenagakerjaan", "url": "https://bappeda.garutkab.go.id/"},
+     {"nama": "Dinas Tenaga Kerja dan Transmigrasi Kabupaten Garut", "peran_di_isu": "penempatan dan perlindungan tenaga kerja; menyambut program SMK Go Global (Nov 2026)", "url": "https://www.garutkab.go.id/berita/pemkab-garut-sambut-program-smk-go-global-untuk-perluas-peluang-kerja-luar-negeri"},
+     {"nama": "Dinas Sosial Kabupaten Garut", "peran_di_isu": "penanganan fakir miskin, bantuan sosial", "url": "https://www.garutkab.go.id/berita-skpd/tugas-dan-fungsi-perangkat-daerah-kabupaten-garut"},
+     {"nama": "Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Garut", "peran_di_isu": "perencanaan pembangunan desa, dana desa", "url": "https://www.garutkab.go.id/berita-skpd/tugas-dan-fungsi-perangkat-daerah-kabupaten-garut"},
+     {"nama": "Disperindag ESDM Kabupaten Garut", "peran_di_isu": "direktori IKM binaan daerah", "url": "https://disperindag.garutkab.go.id/"},
+     {"nama": "Polres Garut (program Polisi Peduli Pengangguran)", "peran_di_isu": "rekrutmen kerja bersama Pemkab dan perusahaan, Nov 2026", "url": "https://www.garutkab.go.id/berita/poliran-jadi-upaya-polri-bantu-penyerapan-tenaga-kerja-di-kabupaten-garut"},
+     {"nama": "BPS Kabupaten Garut", "peran_di_isu": "data dan konsultasi statistik", "url": "https://garutkab.bps.go.id/"}
+    ],
+    "akademisi": [{"nama": "TIDAK DITEMUKAN pada putaran ini", "catatan": "kampus di Garut belum dicari dengan sumber ber-URL"}],
+    "usaha": [{"nama": "PT Pratama Abadi Industri (JX2) Garut", "peran_di_isu": "membuka lowongan lewat program Pemkab dan Polres", "url": "https://www.garutkab.go.id/berita/poliran-jadi-upaya-polri-bantu-penyerapan-tenaga-kerja-di-kabupaten-garut"}],
+    "komunitas": [
+     {"nama": "Yayasan Royal Maju Insani / LPK", "peran_di_isu": "pelatihan peserta SMK Go Global (kerja sama KP2MI)", "url": "https://www.garutkab.go.id/berita/pemkab-garut-sambut-program-smk-go-global-untuk-perluas-peluang-kerja-luar-negeri"},
+     {"nama": "RT, RW, PKK, Posyandu, Karang Taruna di desa amatan", "peran_di_isu": "lingkar terdekat", "url": null, "catatan": "jenis lembaga, bukan satuan tertentu"}
+    ],
+    "media": [{"nama": "Portal berita Pemkab Garut", "peran_di_isu": "rilis pemerintah; bukan media independen", "url": "https://www.garutkab.go.id/"}, {"nama": "media lokal independen: TIDAK DITEMUKAN pada putaran ini"}]
+   },
+   "keadaan_kebutuhan_contoh": "ada tetapi belum cukup: Disnakertrans menyebut penyerapan lowongan 2026 baru sekitar 9 ribu hingga September (sumber Pemkab, angka belum dicek ke dokumen Disnakertrans)"
+  },
+  {
+   "kode_bps": "5313", "nama": "Kab. Manggarai", "provinsi": "Nusa Tenggara Timur",
+   "isu_contoh": "pengangguran terbuka (angka kartu bertanda RSE) dan usaha orang muda",
+   "angka_kartu": "kartu TPT Kab. Manggarai, catatan_bps RSE 25-50% (prov_53.json)",
+   "pihak": {
+    "pemerintah": [
+     {"nama": "Pemerintah Kabupaten Manggarai (Diskominfo)", "peran_di_isu": "portal berita dan kegiatan daerah", "url": "https://www.manggaraikab.go.id/"},
+     {"nama": "Bapperida Kabupaten Manggarai", "peran_di_isu": "perencanaan; Forum Data Manggarai 2026", "url": "https://www.manggaraikab.go.id/informasi-daerah"},
+     {"nama": "Dinas Kepemudaan dan Olahraga Provinsi NTT", "peran_di_isu": "pelatihan kreativitas pemuda desa (Desa Lolang, Jul 2026)", "url": "https://www.manggaraikab.go.id/gubernur-ntt-pemberdayaan-ekonomi-desa-usaha-kreatif-pemuda-lolang-manggarai"},
+     {"nama": "BPS Kabupaten Manggarai", "peran_di_isu": "data dan konsultasi statistik", "url": "https://manggaraikab.bps.go.id/en"}
+    ],
+    "akademisi": [
+     {"nama": "Universitas Katolik Indonesia Santu Paulus Ruteng", "peran_di_isu": "kampus di Ruteng; mahasiswanya ada di program wirausaha muda koperasi", "url": "https://unikastpaulus.ac.id/"},
+     {"nama": "STIE Karya Ruteng", "peran_di_isu": "Bizfest UMKM; biro kewirausahaan mendampingi anggota koperasi", "url": "https://www.manggaraikab.go.id/bizfest-iii-stie-karya-ruteng-umkm-manggarai"}
+    ],
+    "usaha": [
+     {"nama": "NTT Mart UBSP Lembu Nai (SMAN 2 Langke Rembong)", "peran_di_isu": "gerai produk UMKM berbasis sekolah", "url": "https://www.manggaraikab.go.id/bupati-manggarai-apresiasi-launching-ntt-mart-ubsp-lembu-nai-di-sma-negeri-2-langke-rembong"},
+     {"nama": "UMKM peserta Bizfest STIE Karya", "peran_di_isu": "pelaku usaha lokal", "url": "https://www.manggaraikab.go.id/bizfest-iii-stie-karya-ruteng-umkm-manggarai"}
+    ],
+    "komunitas": [
+     {"nama": "Kopdit Kopkardios Keuskupan Ruteng", "peran_di_isu": "program wirausaha muda (Mar 2026), menggandeng STIE Karya", "url": "https://florespos.net/2026/03/15/wabup-manggarai-dan-vikjen-keuskupan-ruteng-launching-program-wirausaha-muda-kopkardios/"},
+     {"nama": "Keuskupan Ruteng", "peran_di_isu": "mendukung program koperasi orang muda", "url": "https://florespos.net/2026/03/15/wabup-manggarai-dan-vikjen-keuskupan-ruteng-launching-program-wirausaha-muda-kopkardios/"},
+     {"nama": "RT, RW, PKK, Posyandu, Karang Taruna di desa amatan", "peran_di_isu": "lingkar terdekat", "url": null, "catatan": "jenis lembaga"}
+    ],
+    "media": [
+     {"nama": "FloresPos", "peran_di_isu": "media regional Flores", "url": "https://florespos.net/2026/03/15/wabup-manggarai-dan-vikjen-keuskupan-ruteng-launching-program-wirausaha-muda-kopkardios/"},
+     {"nama": "VIVA NTT", "peran_di_isu": "liputan kritis NTT Mart Ruteng (Apr 2026)", "url": "https://ntt.viva.co.id/news/3284-ntt-mart-di-ruteng-ambisi-besar-realita-kios-sepi"},
+     {"nama": "RRI Ende", "peran_di_isu": "berita ketenagakerjaan wilayah Manggarai Raya", "url": "https://rri.co.id/ende/ekonomi/makro/2479751/pengangguran-di-manggarai-timur-turun-jadi-051-persen"}
+    ]
+   },
+   "keadaan_kebutuhan_contoh": "cukup tetapi belum efektif: VIVA NTT melaporkan gerai NTT Mart di Ruteng sepi dan dijaga guru sekitar dua jam sehari (Apr 2026), sementara Pemkab memberitakannya sebagai etalase produk lokal (Jan 2026). Contoh dua sumber berbeda yang perlu disandingkan di tahap Perjelas"
+  }
+ ],
+ "batas": ["Lembaga di atas adalah contoh yang tercatat di sumber, belum mewakili semua pihak", "Tidak ada nama perorangan, nomor, atau kontak", "Untuk pengguna di bawah 18, peta pihak menampilkan jenis lembaga dan jalur sekolah dulu (Buku 11.2, 11.3)"]
+}

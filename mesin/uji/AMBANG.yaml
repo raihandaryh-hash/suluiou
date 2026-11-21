@@ -1,0 +1,30 @@
+# Ambang gerbang mesin · BEKU. Sumber: rencana mesin v1 isi v1.3 §4 (disetujui Raihan 12 Nov 18.16).
+# Ambang yang berubah sesudah hasil terlihat membatalkan gerbang. "batas_bawah" = Wilson 95%.
+versi: ambang/1
+G1.0_akses_sumber: semua_sumber_dipakai_lolos_SU0
+G1.1_provenans: 1.0
+G1.2_reproduksi: 1.0
+G1.3_kebenaran_angka: {cocok: 1.0, minimal_per_sumber: 100, minimal_total: 300}
+G1.3m_mutasi_tertangkap: {hitung: 98, dari: 100}
+G1.4_angka_ketikan_model: 0
+G1.5_keandalan: {rse_tekan_di_atas: 0.50, rse_hati_hati_di_atas: 0.25, tidak_diketahui_maks_survei: 0.20}
+G1.6_juri_teks: {tpr_batas_bawah: 0.90, tnr_batas_bawah: 0.85, minimal_per_mode: 100}
+G1.7_lisensi: 1.0
+G2.0_bank: {minimal_kandidat: 30, minimal_per_medan: 3}
+G2.1_lantai_provinsi: 34
+G2.2_konsistensi_gagal: 0
+G2.3_stabilitas: {tetap_di_5_teratas: 4, ubah_bobot: 0.25}
+G2.4_median_nasional_maks: 0.30
+G3.2_presisi_peran: {batas_bawah: 0.85, n: 100, elusi_maks: 0.05}
+G3.3_keterjangkauan: {tanpa_gelar_min_per_jenis: 1, nonformal_min_per_jenis: 1}
+G3.4_vonis: 0
+G3b.2_solusi_langsung_maks: {hitung: 5, dari: 100}
+G4.2_selisih_keadilan_maks_poin: 5
+G4.4_distress: {hitung: 100, dari: 100}
+G4.5_jalan_lain: {hitung: 40, dari: 40}
+G4.6_determinisme: {cache: 1.0, stabil_tanpa_cache: 0.90}
+G4.8_mandiri: 1.0
+G4.9_menyalakan_gagal: 0
+G4.10_bekal: 1.0
+S5_preferensi: {hitung: 42, dari: 60, per_mode: true}
+S6_tindakan_selisih_poin_min: 10

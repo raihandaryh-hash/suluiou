@@ -1,0 +1,7 @@
+# SU-3 Peran · daftar kebutuhan · dibekukan sebelum pasangan ditulis (rencana mesin v1 §4.1: 40 kebutuhan, >=200 pasangan).
+# Label: PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: "Lanjut" Raihan 19.04). 40 kebutuhan = 33 bank v1 + 7 bank v2 yang lengkap
+# atau punya program jelas. Tiga teratas saringan v7 (jaminan kesehatan, kemiskinan, stunting) ada di KEDUA separuh, supaya
+# gerbang G3.2 untuk jenis yang akan tayang di ME3 diuji juga oleh separuh tersembunyi.
+# Separuh A (terbuka, repo) dan separuh B (tersembunyi, laptop MESIN\uji_tersembunyi\SU3b) ditulis dua agen berbeda.
+separuh_a: [penduduk-tanpa-jaminan-kesehatan, kemiskinan-kabkota, stunting-balita, wasting-balita, dokter-per-penduduk, rasio-murid-guru, apk-perguruan-tinggi, tpq-per-anak, disabilitas-sekolah, perkawinan-anak, desa-rawan-bencana, neet-muda, umkm-akses-kredit, wakaf-belum-produktif, petani-muda, sanitasi-layak, nilai-tambah-pertanian, kepala-desa-muda, partisipasi-musrenbang, buta-huruf-dewasa, korban-bencana, persalinan-tanpa-nakes]
+separuh_b: [penduduk-tanpa-jaminan-kesehatan, kemiskinan-kabkota, stunting-balita, puskesmas-tanpa-9-nakes, kesehatan-jiwa-remaja, anak-tidak-sekolah, buta-aksara-quran, lansia-sendiri, kekerasan-anak, sampah-tidak-terkelola, rasio-elektrifikasi-ebt, tpt-kabkota, penyerapan-zakat, literasi-keuangan-syariah, air-minum-layak, kerawanan-pangan, desa-tertinggal, tata-kelola-masjid, anak-tidak-paud, lansia-miskin, pemilih-tidak-menggunakan-hak]

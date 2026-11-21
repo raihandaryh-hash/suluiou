@@ -1,0 +1,30 @@
+# Bank pemantik statis jalur cipta (M3b, L5b mode c) · v2 · 14 Nov 2026
+# Tinjauan peninjau independen Fable 5.2 (ditunjuk Raihan 14 Nov 09.10 sebagai peninjau): 3 SETUJU, 11 UBAH, 0 TOLAK, dua usulan butir baru.
+# Semua teks pengganti dan kedua usulan dipakai utuh; pembuka bank kemiskinan diambil dari butir umum (catatan peninjau).
+# Label: PUTUSAN ATAS DELEGASI. v1 tetap tersimpan sebagai riwayat.
+# Mode (c): gagasan anak tidak dikirim ke model; pertanyaan diambil dari bank ini menurut aturan tetap. Jujur disebut generik.
+# Aturan isi (G3b.2 mode c): tiap butir pertanyaan, diakhiri tanda tanya, tanpa solusi, saran tindakan, vonis, angka, kata kuantitas.
+# Urutan pemakaian: butir ke-n untuk putaran ke-n sesudah gagasan pertama ditulis; sesudah butir terakhir, penutup tetap.
+penutup: "Pertanyaan pemantik selesai sampai di sini. Gagasanmu tetap milikmu; kamu bisa menyimpannya atau menceritakannya kepada orang dewasa yang kamu percaya."
+label_generik: "Pertanyaan ini bersifat umum dan tidak disusun dari isi gagasanmu."
+bank:
+  kemiskinan-kabkota:
+  - "Masalah apa yang ingin kamu bantu atasi, dan mengapa masalah itu penting bagimu?"
+  - "Siapa yang merasakan masalah yang ingin kamu bantu atasi, dan apa yang pernah kamu lihat atau dengar tentang pengalaman mereka?"
+  - "Apa yang sudah dimiliki atau sudah dilakukan dengan baik oleh orang-orang yang ingin kamu bantu?"
+  - "Apa yang sudah dicoba orang di sekitarmu, dan bagian mana yang menurutmu belum tersentuh?"
+  - "Bila gagasan ini dimulai dari bagian yang sederhana, bagian mana yang kamu bayangkan?"
+  - "Bagaimana kamu akan tahu bahwa gagasanmu benar-benar menolong orang yang kamu maksud?"
+  - "Suara siapa yang menurutmu penting didengar dalam gagasan ini, dan mengapa?"
+  - "Apa yang mungkin tidak berjalan sesuai harapan, dan siapa yang akan ikut merasakannya?"
+  - "Hal apa yang sudah kamu bisa atau kamu sukai yang dapat dipakai untuk gagasan ini?"
+  - "Apa yang ingin kamu pelajari dari gagasan ini, apa pun hasilnya nanti?"
+  - "Siapa orang dewasa yang kamu percaya yang bisa kamu ajak membicarakan gagasan ini?"
+  umum:
+  - "Masalah apa yang ingin kamu bantu atasi, dan mengapa masalah itu penting bagimu?"
+  - "Siapa yang dekat dengan masalah itu, dan apa yang kamu ketahui tentang kebutuhan mereka?"
+  - "Bila gagasan ini dimulai dari bagian yang sederhana, bagian mana yang kamu bayangkan?"
+  - "Bagaimana kamu akan tahu bahwa gagasanmu benar-benar menolong?"
+  - "Apa yang mungkin tidak berjalan sesuai harapan, dan siapa yang akan ikut merasakannya?"
+  - "Apa yang ingin kamu pelajari dari gagasan ini, apa pun hasilnya nanti?"
+  - "Siapa orang dewasa yang kamu percaya yang bisa kamu ajak membicarakan gagasan ini?"

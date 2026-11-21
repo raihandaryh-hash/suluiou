@@ -1,0 +1,2122 @@
+[
+ {
+  "id": "p000",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_10_11",
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin tahu bidang kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p001",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_10_11",
+   "situasi": "belajar",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin tahu bidang kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p002",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin kuliah sambil membantu ekonomi keluarga"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p003",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin kuliah sambil membantu ekonomi keluarga"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p004",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7",
+    "K3"
+   ],
+   "tujuan": "ingin membangun desa asal"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p005",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7",
+    "K3"
+   ],
+   "tujuan": "ingin membangun desa asal"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p006",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_10_11",
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin tahu bidang kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p007",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_10_11",
+   "situasi": "belajar",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin tahu bidang kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p008",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin kuliah sambil membantu ekonomi keluarga"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p009",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "53",
+   "kode_kabkota": "5317",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Sumba Barat Daya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin kuliah sambil membantu ekonomi keluarga"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p010",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7",
+    "K3"
+   ],
+   "tujuan": "ingin membangun desa asal"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p011",
+  "untuk": {
+   "peran": "siswa",
+   "jenjang": "kelas_12",
+   "situasi": "belajar",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7",
+    "K3"
+   ],
+   "tujuan": "ingin membangun desa asal"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p012",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p013",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p014",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p015",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p016",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p017",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p018",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p019",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p020",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p021",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p022",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p023",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p024",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p025",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p026",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p027",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin mengabdi di bidang gizi"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p028",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p029",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p030",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p031",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "belajar",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mengajar anak-anak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p032",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p033",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p034",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p035",
+  "untuk": {
+   "peran": "mahasiswa",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "mencari kerja yang berdampak"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p036",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin membantu posyandu"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p037",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin membantu posyandu"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p038",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "merawat_keluarga",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mendampingi anak belajar"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p039",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "merawat_keluarga",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mendampingi anak belajar"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p040",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin usaha dari rumah"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p041",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin usaha dari rumah"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p042",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin membantu posyandu"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p043",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin membantu posyandu"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p044",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "merawat_keluarga",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mendampingi anak belajar"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p045",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "merawat_keluarga",
+   "kode_provinsi": "53",
+   "kode_kabkota": "5317",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Sumba Barat Daya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin mendampingi anak belajar"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p046",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin usaha dari rumah"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p047",
+  "untuk": {
+   "peran": "orang_tua",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin usaha dari rumah"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p048",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "mencari jalur untuk siswa bimbingan"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p049",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "mencari jalur untuk siswa bimbingan"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p050",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1",
+    "K5"
+   ],
+   "tujuan": "membantu siswa memilih bidang"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p051",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1",
+    "K5"
+   ],
+   "tujuan": "membantu siswa memilih bidang"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p052",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "mengenalkan pengabdian desa"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p053",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "mengenalkan pengabdian desa"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p054",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "mencari jalur untuk siswa bimbingan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p055",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "mencari jalur untuk siswa bimbingan"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p056",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1",
+    "K5"
+   ],
+   "tujuan": "membantu siswa memilih bidang"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p057",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "53",
+   "kode_kabkota": "5317",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Sumba Barat Daya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1",
+    "K5"
+   ],
+   "tujuan": "membantu siswa memilih bidang"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p058",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "mengenalkan pengabdian desa"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p059",
+  "untuk": {
+   "peran": "guru_bk",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "mengenalkan pengabdian desa"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p060",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin memperluas dampak mengajar"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p061",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin memperluas dampak mengajar"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p062",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K6"
+   ],
+   "tujuan": "ingin mengajak murid peduli lingkungan"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membersihkan lingkungan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p063",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K6"
+   ],
+   "tujuan": "ingin mengajak murid peduli lingkungan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membersihkan lingkungan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p064",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K2"
+   ],
+   "tujuan": "ingin menguatkan pendidikan agama"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat mengajar mengaji, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p065",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K2"
+   ],
+   "tujuan": "ingin menguatkan pendidikan agama"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat mengajar mengaji, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p066",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin memperluas dampak mengajar"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p067",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K3"
+   ],
+   "tujuan": "ingin memperluas dampak mengajar"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat menjelaskan pelajaran ke teman, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p068",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K6"
+   ],
+   "tujuan": "ingin mengajak murid peduli lingkungan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membersihkan lingkungan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p069",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "53",
+   "kode_kabkota": "5317",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Sumba Barat Daya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K6"
+   ],
+   "tujuan": "ingin mengajak murid peduli lingkungan"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membersihkan lingkungan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p070",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K2"
+   ],
+   "tujuan": "ingin menguatkan pendidikan agama"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat mengajar mengaji, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p071",
+  "untuk": {
+   "peran": "guru",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "81",
+   "kode_kabkota": "8105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Kepulauan Aru",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K2"
+   ],
+   "tujuan": "ingin menguatkan pendidikan agama"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat mengajar mengaji, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p072",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p073",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p074",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p075",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p076",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p077",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p078",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p079",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "32",
+   "kode_kabkota": "3273",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Bandung",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p080",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p081",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "31",
+   "kode_kabkota": "3174",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Jakarta Barat",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p082",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": "Saya laki-laki dari keluarga prasejahtera, lulusan pesantren. Saya seorang kristen dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p083",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "35",
+   "kode_kabkota": "3578",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "jawa_kota",
+   "wilayah_nama": "Kota Surabaya",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p084",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p085",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p086",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat berdagang kecil-kecilan, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p087",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "bekerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K5"
+   ],
+   "tujuan": "ingin pindah ke pekerjaan sosial"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p088",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": "Saya laki-laki dari keluarga berkecukupan, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p089",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p090",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat membantu orang sakit, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p091",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "mencari_kerja",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K1"
+   ],
+   "tujuan": "ingin bekerja di layanan kesehatan"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p092",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": "Saya perempuan dari keluarga prasejahtera, lulusan sekolah negeri. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p093",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "94",
+   "kode_kabkota": "9416",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Yahukimo",
+   "latar_sekolah": "negeri",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": null
+ },
+ {
+  "id": "p094",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "dewasa",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": "Saya perempuan dari keluarga berkecukupan, lulusan pesantren. Saya seorang muslim dan tidak memiliki disabilitas. Saya paling bersemangat saat ikut kegiatan kampung, dan ingin pekerjaan yang terasa berguna bagi orang di sekitar saya."
+ },
+ {
+  "id": "p095",
+  "untuk": {
+   "peran": "umum",
+   "jenjang": null,
+   "situasi": "lainnya",
+   "kode_provinsi": "91",
+   "kode_kabkota": "9105",
+   "mode_ai": "c",
+   "tujuan_di_luar_bank": false
+  },
+  "konteks": {
+   "wilayah_kelas": "3t",
+   "wilayah_nama": "Kab. Manokwari",
+   "latar_sekolah": "pesantren",
+   "medan": [
+    "K7"
+   ],
+   "tujuan": "ingin pulang dan membangun kampung"
+  },
+  "refleksi": null
+ }
+]

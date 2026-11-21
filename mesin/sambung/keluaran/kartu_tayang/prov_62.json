@@ -1,0 +1,639 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "62",
+  "nama": "Kalimantan Tengah"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.6201",
+   "wilayah": {
+    "kode_bps": "6201",
+    "nama": "Kab. Kotawaringin Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.49,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.27,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kotawaringin Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,5 persen penduduk Kab. Kotawaringin Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6201",
+   "wilayah": {
+    "kode_bps": "6201",
+    "nama": "Kab. Kotawaringin Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.39,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kotawaringin Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kotawaringin Barat tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6202",
+   "wilayah": {
+    "kode_bps": "6202",
+    "nama": "Kab. Kotawaringin Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.91,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.83,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kotawaringin Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,9 persen penduduk Kab. Kotawaringin Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6202",
+   "wilayah": {
+    "kode_bps": "6202",
+    "nama": "Kab. Kotawaringin Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.56,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kotawaringin Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kotawaringin Timur tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6203",
+   "wilayah": {
+    "kode_bps": "6203",
+    "nama": "Kab. Kapuas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.39,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.48,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kapuas yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,4 persen penduduk Kab. Kapuas tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6203",
+   "wilayah": {
+    "kode_bps": "6203",
+    "nama": "Kab. Kapuas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kapuas yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kapuas tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6204",
+   "wilayah": {
+    "kode_bps": "6204",
+    "nama": "Kab. Barito Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.81,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.94,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,8 persen penduduk Kab. Barito Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6204",
+   "wilayah": {
+    "kode_bps": "6204",
+    "nama": "Kab. Barito Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.3,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Barito Selatan tercatat 4,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6205",
+   "wilayah": {
+    "kode_bps": "6205",
+    "nama": "Kab. Barito Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.16,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.52,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Barito Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6205",
+   "wilayah": {
+    "kode_bps": "6205",
+    "nama": "Kab. Barito Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.54,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Barito Utara tercatat 4,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6206",
+   "wilayah": {
+    "kode_bps": "6206",
+    "nama": "Kab. Sukamara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.1,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.02,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sukamara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,1 persen penduduk Kab. Sukamara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6206",
+   "wilayah": {
+    "kode_bps": "6206",
+    "nama": "Kab. Sukamara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.47,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sukamara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sukamara tercatat 4,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6207",
+   "wilayah": {
+    "kode_bps": "6207",
+    "nama": "Kab. Lamandau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.34,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.33,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lamandau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,3 persen penduduk Kab. Lamandau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6207",
+   "wilayah": {
+    "kode_bps": "6207",
+    "nama": "Kab. Lamandau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lamandau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lamandau tercatat 3,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6208",
+   "wilayah": {
+    "kode_bps": "6208",
+    "nama": "Kab. Seruyan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.66,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.72,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Seruyan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,7 persen penduduk Kab. Seruyan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6208",
+   "wilayah": {
+    "kode_bps": "6208",
+    "nama": "Kab. Seruyan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Seruyan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Seruyan tercatat 3,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6209",
+   "wilayah": {
+    "kode_bps": "6209",
+    "nama": "Kab. Katingan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.15,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.3,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Katingan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Katingan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6209",
+   "wilayah": {
+    "kode_bps": "6209",
+    "nama": "Kab. Katingan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Katingan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Katingan tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6210",
+   "wilayah": {
+    "kode_bps": "6210",
+    "nama": "Kab. Pulang Pisau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.76,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.79,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulang Pisau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,8 persen penduduk Kab. Pulang Pisau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6210",
+   "wilayah": {
+    "kode_bps": "6210",
+    "nama": "Kab. Pulang Pisau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.23,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulang Pisau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pulang Pisau tercatat 2,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6211",
+   "wilayah": {
+    "kode_bps": "6211",
+    "nama": "Kab. Gunung Mas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.48,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Gunung Mas yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,6 persen penduduk Kab. Gunung Mas tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6211",
+   "wilayah": {
+    "kode_bps": "6211",
+    "nama": "Kab. Gunung Mas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Gunung Mas yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Gunung Mas tercatat 3,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6212",
+   "wilayah": {
+    "kode_bps": "6212",
+    "nama": "Kab. Barito Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.63,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.1,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,6 persen penduduk Kab. Barito Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6212",
+   "wilayah": {
+    "kode_bps": "6212",
+    "nama": "Kab. Barito Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barito Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Barito Timur tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6213",
+   "wilayah": {
+    "kode_bps": "6213",
+    "nama": "Kab. Murung Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.19,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Murung Raya yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,6 persen penduduk Kab. Murung Raya tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6213",
+   "wilayah": {
+    "kode_bps": "6213",
+    "nama": "Kab. Murung Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.52,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Murung Raya yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Murung Raya tercatat 2,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6271",
+   "wilayah": {
+    "kode_bps": "6271",
+    "nama": "Kota Palangka Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.13,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.62,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palangka Raya yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,1 persen penduduk Kota Palangka Raya tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6271",
+   "wilayah": {
+    "kode_bps": "6271",
+    "nama": "Kota Palangka Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.23,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palangka Raya yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Palangka Raya tercatat 5,2 persen dari angkatan kerja."
+  }
+ ]
+}

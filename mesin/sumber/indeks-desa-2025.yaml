@@ -1,0 +1,65 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: indeks-desa-2025
+name: Indeks Desa 2025
+version: 0.4.0
+status: draft
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: Kementerian Desa PDT
+  role: pemilik data
+servers:
+- server: sid
+  type: https
+  url: https://sid.kemendesa.go.id/indeks-desa?tahun=2025
+  description: 'Sistem Informasi Desa Kemendesa; titik data JSON publik yang dipakai laman itu: /indeks-desa/data?tahun=T&kode=K
+    dan /indeks-desa/wilayah?tahun=T&induk=K (ditunjukkan Raihan 13 Nov 2026 02.15)'
+customProperties:
+- property: sidik_l3
+  value: 'a083acb7294b (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; laptop, parser/sid_2025.py atas mentah/sid)'
+- property: dipakai_kartu
+  value: 'tidak: G1.3 belum, berselisih dengan Kepmendes 343/2025; aturan G1.3 mewajibkan ditarik (audit ME1 13 Nov)'
+- property: tingkat_wilayah
+  value: desa
+- property: SU-0
+  value: 'LOLOS 13 Nov 2026 02.17: 37 provinsi, 432 kab/kota berdesa, 74.186 desa, tahun final 2025 (2026 sementara).
+    TLS menyala. Catatan riwayat: idm.kemendesa.go.id bersertifikat kedaluwarsa; jalur itu tidak dipakai.'
+- property: kode_wilayah
+  value: kode Kemendagri (Papua 91 = Papua, 92 = Papua Barat, 93-96 provinsi pemekaran); berbeda dengan kode domain
+    BPS untuk wilayah Papua. Wajib lewat daftar wilayah induk.
+- property: syarat_pakai_kutipan
+  value: 'Tidak ada syarat tertulis di laman; kaki laman hanya memuat "Hak Cipta 2025". Dasar pakai: aturan butir
+    1 (publikasi resmi pemerintah, sitasi + UU 28/2014 Pasal 43 huruf b, KEPUTUSAN Raihan 13 Nov 01.48). Risiko
+    ringan: pemberitahuan hak cipta umum bukan larangan pemakaian, dan yang dipakai adalah angka hitungan desa.'
+- property: sitasi
+  value: Kementerian Desa dan Pembangunan Daerah Tertinggal. Indeks Desa 2025, Sistem Informasi Desa. https://sid.kemendesa.go.id/indeks-desa?tahun=2025
+    (diakses 13 Nov 2026)
+- property: pengurai
+  value: mesin/parser/sid_2025.py; panen mesin/alat/sid/sid_panen.py dan sid_panen_kab.py (432 berkas kab/kota,
+    0 gagal, 13 Nov 02.23); tabel L3 sha256 awalan a083acb7294b
+- property: G1.0-G1.3
+  value: 'Uji internal lulus: status desa per kab/kota = jumlah desa; jumlah kab/kota = ringkasan provinsi untuk
+    semua kolom (status, BUMDes, bencana, kajian risiko); kecamatan = kab/kota; provinsi = berkas nasional; total
+    74.186 desa. Mutasi 100/100 tertangkap oleh pemeriksa jumlah provinsi. Publikasi kedua yang independen BELUM
+    ada (uji di atas semuanya dari satu sistem).'
+- property: mutu_data
+  value: Papua Barat Daya memuat Tambrauw dan Maybrat dua kali dengan kode dan jumlah desa berbeda (9604/9609, 9605/9610);
+    Sorong Selatan, Raja Ampat (Papua Barat Daya), Pegunungan Arfak (Papua Barat), Lanny Jaya (Papua Pegunungan)
+    tidak ada; Kaimana hanya 3 desa. Semua kab/kota provinsi 92-96 ditekan sampai dicocokkan dengan publikasi kedua.
+- property: wilayah_induk
+  value: Kode Kemendagri di SID TIDAK searah dengan kode domain BPS (contoh Kemendagri 1101 Aceh Selatan, BPS 1101
+    Simeulue; 178 dari 428 pasangan berbeda kode). Penggabungan antarsumber wajib lewat mesin/parser/wilayah_induk.py
+    (pencocokan nama di dalam provinsi).
+- property: G1.5
+  value: 'Data registrasi desa tanpa galat sampel: keandalan administratif (aturan skema 2). G1.5 tidak berlaku.'
+- property: publikasi_kedua
+  value: 'Keputusan Menteri Desa PDT Nomor 343 Tahun 2025 (27 Agu 2025), dikutip sekunder lewat GoodStats 21 Nov
+    2025 (https://data.goodstats.id/statistic/5-provinsi-dengan-jumlah-desa-mandiri-terbanyak-2025-d4kO5). Desa
+    mandiri 5 provinsi: SID lebih rendah 6-76 desa (Jatim 4.682 vs 4.716; Jabar 2.698 vs 2.774; Jateng 2.182 vs
+    2.208; Kalbar 1.039 vs 1.045; Kalsel 954 vs 960). Dugaan, belum diuji: SID memuat keadaan sesudah Kepmendes,
+    termasuk 2.030 desa berstatus belum dihitung. Teks primer Kepmendes 343/2025 belum ditemukan (2 kueri, jdih.kemendesa).'
+- property: G1.3_status
+  value: 'belum: berselisih dengan publikasi kedua (sekunder), penjelasan belum diuji; kartu wajib menyebut sumber
+    SID dan tanggal aksesnya, bukan status hukum Kepmendes'

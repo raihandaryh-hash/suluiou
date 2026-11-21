@@ -1,0 +1,324 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "19",
+  "nama": "Bangka Belitung"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.1901",
+   "wilayah": {
+    "kode_bps": "1901",
+    "nama": "Kab. Bangka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,7 persen penduduk Kab. Bangka tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1901",
+   "wilayah": {
+    "kode_bps": "1901",
+    "nama": "Kab. Bangka",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.75,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bangka tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1902",
+   "wilayah": {
+    "kode_bps": "1902",
+    "nama": "Kab. Belitung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Belitung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Belitung tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1902",
+   "wilayah": {
+    "kode_bps": "1902",
+    "nama": "Kab. Belitung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.64,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Belitung yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Belitung tercatat 3,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1903",
+   "wilayah": {
+    "kode_bps": "1903",
+    "nama": "Kab. Bangka Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 2.92,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 2,9 persen penduduk Kab. Bangka Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1903",
+   "wilayah": {
+    "kode_bps": "1903",
+    "nama": "Kab. Bangka Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.35,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.49,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bangka Barat tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1904",
+   "wilayah": {
+    "kode_bps": "1904",
+    "nama": "Kab. Bangka Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.7,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Bangka Tengah tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1904",
+   "wilayah": {
+    "kode_bps": "1904",
+    "nama": "Kab. Bangka Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.31,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.21,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bangka Tengah tercatat 4,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1905",
+   "wilayah": {
+    "kode_bps": "1905",
+    "nama": "Kab. Bangka Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.17,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,2 persen penduduk Kab. Bangka Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1905",
+   "wilayah": {
+    "kode_bps": "1905",
+    "nama": "Kab. Bangka Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.37,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.48,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangka Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bangka Selatan tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1906",
+   "wilayah": {
+    "kode_bps": "1906",
+    "nama": "Kab. Belitung Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.69,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Belitung Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Belitung Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1906",
+   "wilayah": {
+    "kode_bps": "1906",
+    "nama": "Kab. Belitung Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.15,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.05,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Belitung Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Belitung Timur tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1971",
+   "wilayah": {
+    "kode_bps": "1971",
+    "nama": "Kota Pangkal Pinang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.5,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pangkal Pinang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,5 persen penduduk Kota Pangkal Pinang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1971",
+   "wilayah": {
+    "kode_bps": "1971",
+    "nama": "Kota Pangkal Pinang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.68,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov1900"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.73,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pangkal Pinang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Pangkal Pinang tercatat 5,7 persen dari angkatan kerja."
+  }
+ ]
+}

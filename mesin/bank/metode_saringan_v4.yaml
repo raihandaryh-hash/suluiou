@@ -1,0 +1,11 @@
+# Metode hitung saringan · v4 · ditulis 13 Nov 2026 15.46 WIB (jam sistem) SEBELUM skor apa pun; melengkapi v1-v3 (tetap beku).
+# Perubahan: aturan menilai bukti keterpecahan, setelah agen riset melaporkan kasus ragu (bukti bersebelahan, hasil nol,
+# pelaksana non-pemerintah). PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: "Lanjut" Raihan 15.40), bisa dibalik.
+versi: metode-saringan/4
+dasar: [bank/metode_saringan_v1.yaml, bank/metode_saringan_v2.yaml, bank/metode_saringan_v3.yaml]
+keterpecahan:
+  skor_1: "evaluasi dengan pembanding (RCT, kuasi-eksperimen, atau evaluasi resmi berdesain pembanding) di Indonesia yang MENGUKUR indikator kandidat itu sendiri dan menemukan efek positif yang bermakna"
+  skor_0_5: "ada program resmi atau evaluasi yang hanya bersebelahan (mengukur indikator lain, mis. Prakerja untuk NEET), atau evaluasi berhasil nol/tidak bermakna, atau desain belum bisa dipastikan karena isi belum dibuka"
+  skor_0: "tidak ada program resmi dan tidak ada evaluasi"
+  pelaksana: "pelaksana non-pemerintah dihitung sama, asalkan di Indonesia dan desainnya berpembanding"
+  hasil_nol: "evaluasi berhasil nol dicatat dan ditampilkan sebagai 'sudah diuji, belum terbukti', bukan disembunyikan"

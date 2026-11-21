@@ -1,0 +1,509 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "82",
+  "nama": "Maluku Utara"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.8201",
+   "wilayah": {
+    "kode_bps": "8201",
+    "nama": "Kab. Halmahera Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.59,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.9,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 7,6 persen penduduk Kab. Halmahera Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8201",
+   "wilayah": {
+    "kode_bps": "8201",
+    "nama": "Kab. Halmahera Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.95,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.06,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Halmahera Barat tercatat 4,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8202",
+   "wilayah": {
+    "kode_bps": "8202",
+    "nama": "Kab. Halmahera Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.77,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.16,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 8,8 persen penduduk Kab. Halmahera Tengah tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8202",
+   "wilayah": {
+    "kode_bps": "8202",
+    "nama": "Kab. Halmahera Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.92,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.96,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Halmahera Tengah tercatat 3,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8203",
+   "wilayah": {
+    "kode_bps": "8203",
+    "nama": "Kab. Kepulauan Sula",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.33,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.65,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Sula yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 7,3 persen penduduk Kab. Kepulauan Sula tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8203",
+   "wilayah": {
+    "kode_bps": "8203",
+    "nama": "Kab. Kepulauan Sula",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.28,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.11,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Sula yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kepulauan Sula tercatat 3,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8204",
+   "wilayah": {
+    "kode_bps": "8204",
+    "nama": "Kab. Halmahera Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.96,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.81,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,0 persen penduduk Kab. Halmahera Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8204",
+   "wilayah": {
+    "kode_bps": "8204",
+    "nama": "Kab. Halmahera Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.59,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.55,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Halmahera Selatan tercatat 2,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8205",
+   "wilayah": {
+    "kode_bps": "8205",
+    "nama": "Kab. Halmahera Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.48,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.35,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,5 persen penduduk Kab. Halmahera Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8205",
+   "wilayah": {
+    "kode_bps": "8205",
+    "nama": "Kab. Halmahera Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.79,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.7,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Halmahera Utara tercatat 6,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8206",
+   "wilayah": {
+    "kode_bps": "8206",
+    "nama": "Kab. Halmahera Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.72,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.54,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 10,7 persen penduduk Kab. Halmahera Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8206",
+   "wilayah": {
+    "kode_bps": "8206",
+    "nama": "Kab. Halmahera Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.99,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.85,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Halmahera Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Halmahera Timur tercatat 5,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8207",
+   "wilayah": {
+    "kode_bps": "8207",
+    "nama": "Kab. Pulau Morotai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.64,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.49,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulau Morotai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,6 persen penduduk Kab. Pulau Morotai tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8207",
+   "wilayah": {
+    "kode_bps": "8207",
+    "nama": "Kab. Pulau Morotai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.91,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.74,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulau Morotai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pulau Morotai tercatat 4,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8208",
+   "wilayah": {
+    "kode_bps": "8208",
+    "nama": "Kab. Pulau Taliabu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.78,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.63,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulau Taliabu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,8 persen penduduk Kab. Pulau Taliabu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8208",
+   "wilayah": {
+    "kode_bps": "8208",
+    "nama": "Kab. Pulau Taliabu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.52,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.4,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pulau Taliabu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pulau Taliabu tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8271",
+   "wilayah": {
+    "kode_bps": "8271",
+    "nama": "Kota Ternate",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.31,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.34,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Ternate yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,3 persen penduduk Kota Ternate tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8271",
+   "wilayah": {
+    "kode_bps": "8271",
+    "nama": "Kota Ternate",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.95,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.92,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Ternate yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Ternate tercatat 7,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.8272",
+   "wilayah": {
+    "kode_bps": "8272",
+    "nama": "Kota Tidore Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.23,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.54,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tidore Kepulauan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,2 persen penduduk Kota Tidore Kepulauan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.8272",
+   "wilayah": {
+    "kode_bps": "8272",
+    "nama": "Kota Tidore Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.94,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov8200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.02,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tidore Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Tidore Kepulauan tercatat 3,9 persen dari angkatan kerja."
+  }
+ ]
+}

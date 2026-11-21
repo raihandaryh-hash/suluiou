@@ -1,0 +1,623 @@
+{
+ "skema": "tpt-catatan-bps/1",
+ "dibuat": "16 Nov 2026, sesi mesin Sulu",
+ "cara": "medan def dan note tabel TPT kab/kota provinsi (BPS WebAPI, berkas mentah laptop MESIN\\mentah\\bps, panen 12-13 Nov 2026) dipindai pola RSE; nama kab dicocokkan ke kode BPS lewat DIKK 2025 Tabel 2.1",
+ "cakupan": {
+  "provinsi_lama_34": 34,
+  "punya_tabel_provinsi": 31,
+  "belum_diperiksa": [
+   "1700",
+   "7100",
+   "7500"
+  ],
+  "empat_provinsi_papua_baru": "tidak punya domain di daftar WebAPI; angka kartu dari tabel nasional (tanpa catatan RSE)"
+ },
+ "tabel_nasional": {
+  "judul": "Tingkat Pengangguran Terbuka menurut Jenis Kelamin dan Kabupaten/Kota",
+  "tautan": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+  "dicek": "16 Nov 2026, judul halaman cocok (pengambil halaman Parallel)"
+ },
+ "kab_ditandai_rse": [
+  {
+   "kode_bps": "5307",
+   "nama": "Alor",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5308",
+   "nama": "Lembata",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5311",
+   "nama": "Ende",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5313",
+   "nama": "Manggarai",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5314",
+   "nama": "Rote Ndao",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5315",
+   "nama": "Manggarai Barat",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5316",
+   "nama": "Sumba Tengah",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5317",
+   "nama": "Sumba Barat Daya",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5318",
+   "nama": "Nagekeo",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5319",
+   "nama": "Manggarai Timur",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  },
+  {
+   "kode_bps": "5321",
+   "nama": "Malaka",
+   "provinsi_domain": "5300",
+   "tahun": 2025,
+   "keterangan_bps": "RSE 25-50%, hati-hati dalam menginterpretasi",
+   "tautan_tabel": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html"
+  }
+ ],
+ "sumber_sekunder_belum_ke_primer": [
+  {
+   "provinsi": "Bali",
+   "isi": "IDN Times 12 Nov 2026 mengutip BRS BPS Bali No. 71/11/51/Th.XX (5 Nov 2026): sebagian besar angka TPT kab/kota Agustus 2025 dan 2026 bertanda (*) RSE di atas 25 persen, kecuali Karangasem dan Gianyar pada 2026",
+   "tautan": "https://bali.idntimes.com/news/bali/pengangguran-di-karangasem-tertinggi-se-bali-00-pfsg1-zqb2r5",
+   "status": "BELUM DIVERIFIKASI ke BRS BPS Bali; tidak dipakai menandai kartu"
+  }
+ ],
+ "per_provinsi": [
+  {
+   "domain": "1100",
+   "tabel_provinsi": {
+    "var": 206,
+    "judul": "[SK.TK.001] Tingkat Pengangguran Terbuka (TPT) menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2026-10-23 16:56:47"
+   },
+   "tautan_baca": "https://aceh.bps.go.id/id/statistics-table/2/MjA2IzI=/sk-tk-001-tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber: Keadaan Angkatan Kerja Provinsi Aceh Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1200",
+   "tabel_provinsi": {
+    "var": 44,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Penduduk Umur 15 Tahun Keatas Manurut Kab/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-13 11:32:40"
+   },
+   "tautan_baca": "https://sumut.bps.go.id/id/statistics-table/2/NDQjMg==/tingkat-pengangguran-terbuka-tpt-penduduk-umur-15-tahun-keatas-manurut-kab-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber: BPS, Survei Angkatan Kerja Nasional (Sakernas) Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1300",
+   "tabel_provinsi": {
+    "var": 139,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 15:01:52"
+   },
+   "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MTM5IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Catatan: 2011-2017: menggunakan penimbang hasil proyeksi penduduk tahun 2010-2035. Tahun 2016, Data tenaga kerja per Kabupaten/Kota tidak tersedia karena sampel tidak mencukupi. 2018-2021 menggunakan estimasi dari hasil proyeksi SUPAS 2015 Sumber: Survei Angkatan Kerja Nasional (Sakernas)",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1400",
+   "tabel_provinsi": {
+    "var": 42,
+    "judul": "Tingkat Pengangguran Terbuka (Tahunan) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2026-10-29 14:30:56"
+   },
+   "tautan_baca": "https://riau.bps.go.id/id/statistics-table/2/NDIjMg==/tingkat-pengangguran-terbuka-tahunan-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Tingkat Pengangguran Terbuka 2018-2021 memakai angka backcasting",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1500",
+   "tabel_provinsi": {
+    "var": 34,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2024",
+    "diperbarui_bps": "2025-10-14 03:24:57"
+   },
+   "tautan_baca": "https://jambi.bps.go.id/id/statistics-table/2/MzQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Pada tahun 2016, estimasi tidak dilakukan sampai level kabupaten/kota",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1600",
+   "tabel_provinsi": {
+    "var": 334,
+    "judul": "Tingkat Pengangguran",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2024-11-06 13:07:31"
+   },
+   "tautan_baca": "https://sumsel.bps.go.id/id/statistics-table/2/MzM0IzI=/tingkat-pengangguran.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber:Survei Angkatan Kerja Nasional Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1700",
+   "tabel_provinsi": null,
+   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_jenis": "tabel nasional (cadangan)",
+   "catatan_bps": null,
+   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+  },
+  {
+   "domain": "1800",
+   "tabel_provinsi": {
+    "var": 47,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-14 09:40:30"
+   },
+   "tautan_baca": "https://lampung.bps.go.id/id/statistics-table/2/NDcjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "1900",
+   "tabel_provinsi": {
+    "var": 95,
+    "judul": "Tingkat Pengangguran Terbuka Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 13:08:28"
+   },
+   "tautan_baca": "https://babel.bps.go.id/id/statistics-table/2/OTUjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "2100",
+   "tabel_provinsi": {
+    "var": 224,
+    "judul": "Tingkat Pengangguran Terbuka",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 15:23:43"
+   },
+   "tautan_baca": "https://kepri.bps.go.id/id/statistics-table/2/MjI0IzI=/tingkat-pengangguran-terbuka.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3100",
+   "tabel_provinsi": {
+    "var": 84,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Provinsi DKI Jakarta Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2022",
+    "diperbarui_bps": "2023-03-06 11:04:20"
+   },
+   "tautan_baca": "https://jakarta.bps.go.id/id/statistics-table/2/ODQjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-dki-jakarta-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber: Survei Angkatan Kerja Nasional (SAKERNAS) Agustus, BPS Catatan: *) SAKERNAS 2016 tidak menyajikan estimasi level kab/kota",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3200",
+   "tabel_provinsi": {
+    "var": 73,
+    "judul": "Tingkat Pengangguran Terbuka Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 15:38:14"
+   },
+   "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/NzMjMg==/tingkat-pengangguran-terbuka-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Catatan: Sakernas Agustus 2018-2021 menggunakan penimbang hasil SUPAS 2015. TPT (Tingkat Pengangguran Terbuka) adalah persentase jumlah pengangguran terhadap jumlah angkatan kerja. Sumber: BPS, Sakernas Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3300",
+   "tabel_provinsi": {
+    "var": 64,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Jawa Tengah",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-06 08:38:34"
+   },
+   "tautan_baca": "https://jateng.bps.go.id/id/statistics-table/2/NjQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-jawa-tengah.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3400",
+   "tabel_provinsi": {
+    "var": 291,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-05 03:08:33"
+   },
+   "tautan_baca": "https://jogja.bps.go.id/id/statistics-table/2/MjkxIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber : BPS, Survei Angkatan Kerja Nasional (Sakernas) Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3500",
+   "tabel_provinsi": {
+    "var": 54,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-13 01:36:00"
+   },
+   "tautan_baca": "https://jatim.bps.go.id/id/statistics-table/2/NTQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "Persentase jumlah pengangguran terhadap jumlah angkatan kerja. Mengindikasikan besarnya persentase angkatan kerja yang termasuk dalam pengangguran. TPT yang tinggi menunjukkan bahwa terdapat banyak angkatan kerja yang tidak terserap pada pasar kerja. - Indikator dihasilkan dari Survei Angkatan Kerja Nasional (SAKERNAS) Agustus - Tahun 2016 Tidak cukup sampel untuk melakukan estimasi sampai level Kabupaten/Kota",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "3600",
+   "tabel_provinsi": {
+    "var": 157,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Banten",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 13:42:16"
+   },
+   "tautan_baca": "https://banten.bps.go.id/id/statistics-table/2/MTU3IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-banten.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "Sumber: BPS, Survei Angkatan Kerja Nasional (Sakernas) Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "5100",
+   "tabel_provinsi": {
+    "var": 288,
+    "judul": "Persentase Pengangguran Provinsi Bali Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 13:57:42"
+   },
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/persentase-pengangguran-provinsi-bali-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Data ketenagakerjaan kabupaten/kota 2016 tidak rilis dikarenakan keterbatasan jumlah sampel. Sumber: Survei Angkatan Kerja Nasional (Sakernas) - Agustus.",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "5200",
+   "tabel_provinsi": {
+    "var": 415,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Provinsi NTB  Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-13 09:55:49"
+   },
+   "tautan_baca": "https://ntb.bps.go.id/id/statistics-table/2/NDE1IzI=/tingkat-pengangguran-terbuka-tpt-provinsi-ntb-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "- Data ketenagakerjaan kabupaten/kota 2016 tidak rilis dikarenakan keterbatasan jumlah sampel. - Data Ketenagakerjaan Kabupaten Lombok Utara Tahun 2018 tidak rilis dikarenakan ada bencana alam gempa bumi - Data ketenagakerjaan Kabupaten Lombok Utara mulai tahun 2010 baru tersedia bertepatan dengan terbentuk BPS Kabupaten Lombok Utara - Sumber: Survei Angkatan Kerja Nasional (Sakernas) - Agustus.",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "5300",
+   "tabel_provinsi": {
+    "var": 522,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-12-08 01:52:35"
+   },
+   "tautan_baca": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "Catatan: Tahun 2025, kabupaten Alor, Lembata, Ende, Manggarai, Rote Ndao, Manggarai Barat, Sumba Tengah, Sumba Barat Daya, Nagekeo, Manggarai Timur dan Malaka memiliki Keterangan RSE: 25-50%, hati-hati dalam menginterpretasi. Sumber: BPS, Survei Angkatan Kerja Nasional (Sakernas) Agustus",
+   "catatan_rse": "ADA: Alor, Lembata, Ende, Manggarai, Rote Ndao, Manggarai Barat, Sumba Tengah, Sumba Barat Daya, Nagekeo, Manggarai Timur, Malaka",
+   "kab_ditandai": [
+    {
+     "nama": "Alor",
+     "kode_bps": "5307"
+    },
+    {
+     "nama": "Lembata",
+     "kode_bps": "5308"
+    },
+    {
+     "nama": "Ende",
+     "kode_bps": "5311"
+    },
+    {
+     "nama": "Manggarai",
+     "kode_bps": "5313"
+    },
+    {
+     "nama": "Rote Ndao",
+     "kode_bps": "5314"
+    },
+    {
+     "nama": "Manggarai Barat",
+     "kode_bps": "5315"
+    },
+    {
+     "nama": "Sumba Tengah",
+     "kode_bps": "5316"
+    },
+    {
+     "nama": "Sumba Barat Daya",
+     "kode_bps": "5317"
+    },
+    {
+     "nama": "Nagekeo",
+     "kode_bps": "5318"
+    },
+    {
+     "nama": "Manggarai Timur",
+     "kode_bps": "5319"
+    },
+    {
+     "nama": "Malaka",
+     "kode_bps": "5321"
+    }
+   ]
+  },
+  {
+   "domain": "6100",
+   "tabel_provinsi": {
+    "var": 51,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kab/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 15:06:30"
+   },
+   "tautan_baca": "https://kalbar.bps.go.id/id/statistics-table/2/NTEjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kab-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Merupakan Data SAKERNAS AGUSTUS; Data Tahun 2018 ke atas Menggunakan penimbang hasil proyeksi penduduk SUPAS 2015",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "6200",
+   "tabel_provinsi": {
+    "var": 389,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Kalimantan Tengah",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-05 04:44:40"
+   },
+   "tautan_baca": "https://kalteng.bps.go.id/id/statistics-table/2/Mzg5IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-kalimantan-t.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Angka 2011-2013 merupakan hasil Backcasting penimbang Proyeksi SP2010 Angka 2018-2019 merupakan hasil Backcasting penimbang SUPAS 2015 Sakernas 2016 Tidak Untuk Estimasi Level Kabupaten/Kota Sumber: Badan Pusat Statistik Provinsi Kalimantan Tengah, Survei Angkatan Kerja Nasional Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "6300",
+   "tabel_provinsi": {
+    "var": 37,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Provinsi Kalimantan Selatan",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 13:02:39"
+   },
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-kalimantan-selatan.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Untuk tahun 2016, angka estimasi hanya sampai level Provinsi saja.",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "6400",
+   "tabel_provinsi": {
+    "var": 59,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2026-07-21 03:19:29"
+   },
+   "tautan_baca": "https://kaltim.bps.go.id/id/statistics-table/2/NTkjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber : BPS, Survei Angkatan Kerja Nasional (Sakernas), Agustus Data 2018-2020 menggunakan Backcast dari Penimbang berbasis SUPAS 2015",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "6500",
+   "tabel_provinsi": {
+    "var": 115,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Agustus menurut Kabupaten/Kota di Provinsi Kalimantan Utara",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-06 09:42:18"
+   },
+   "tautan_baca": "https://kaltara.bps.go.id/id/statistics-table/2/MTE1IzI=/tingkat-pengangguran-terbuka-tpt-agustus-menurut-kabupaten-kota-di-provinsi-kali.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "Catatan: pada tahun 2016, Tingkat Pengangguran Terbuka hanya dihitung pada level provinsi Sumber: BPS-Survei Angkatan Kerja Nasional Agustus",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "7100",
+   "tabel_provinsi": null,
+   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_jenis": "tabel nasional (cadangan)",
+   "catatan_bps": null,
+   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+  },
+  {
+   "domain": "7200",
+   "tabel_provinsi": {
+    "var": 92,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Sulawesi Tengah",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 13:58:26"
+   },
+   "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTIjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-sulawesi-ten.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "7300",
+   "tabel_provinsi": {
+    "var": 466,
+    "judul": "Tingkat Pengangguran Terbuka (Agustus)",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-10 13:38:14"
+   },
+   "tautan_baca": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-agustus.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Badan Pusat Statistika Provinsi Sulawesi Selatan",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "7400",
+   "tabel_provinsi": {
+    "var": 999,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) dan Tingkat Partisipasi Angkatan Kerja (TPAK) Menurut Kabupaten/Kota di Provinsi Sulawesi Tenggara",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2026-10-05 12:40:50"
+   },
+   "tautan_baca": "https://sultra.bps.go.id/id/statistics-table/2/OTk5IzI=/tingkat-pengangguran-terbuka-tpt-dan-tingkat-partisipasi-angkatan-kerja-tpak-men.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "7500",
+   "tabel_provinsi": null,
+   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_jenis": "tabel nasional (cadangan)",
+   "catatan_bps": null,
+   "catatan_rse": "BELUM DIPERIKSA: tabel TPT kab/kota provinsi tidak ditemukan di WebAPI pada panen 12-13 Nov"
+  },
+  {
+   "domain": "7600",
+   "tabel_provinsi": {
+    "var": 520,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2025-11-09 08:05:46"
+   },
+   "tautan_baca": "https://sulbar.bps.go.id/id/statistics-table/2/NTIwIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Deskripsi : Tingkat Pengangguran Terbuka (TPT) Konsep Definisi : Persentase jumlah pengangguran terhadap jumlah angkatan kerja Cara Hitung : TPT = Jumlah Pengangguran x 100% / Jumlah Angkatan Kerja Interpretasi : TPT yang tinggi menunjukkan bahwa terdapat banyak angkatan kerja yang tidak terserap pada pasar kerja. Misal : TPT sebesar 6 persen, artinya dari 100 penduduk usia 15 tahun ke atas yang tersedia untuk memproduksi barang dan jasa (angkatan kerja) sebanyak 6 orang merupakan pengangguran. Kegunaan : Mengindikasikan besarnya persentase angkatan kerja yang termasuk dalam pengangguran. Cata",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "8100",
+   "tabel_provinsi": {
+    "var": 108,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) dan Tingkat Partisipasi Angkatan Kerja menurut Kabupaten/Kota di Maluku",
+    "tahun_tabel_terbaru": "2025",
+    "diperbarui_bps": "2026-03-30 02:19:10"
+   },
+   "tautan_baca": "https://maluku.bps.go.id/id/statistics-table/2/MTA4IzI=/tingkat-pengangguran-terbuka-tpt-dan-tingkat-partisipasi-angkatan-kerja-menurut-.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "8200",
+   "tabel_provinsi": {
+    "var": 250,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2026",
+    "diperbarui_bps": "2026-11-05 14:24:54"
+   },
+   "tautan_baca": "https://malut.bps.go.id/id/statistics-table/2/MjUwIzI=/tingkat-pengangguran-terbuka-tpt-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": null,
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "9100",
+   "tabel_provinsi": {
+    "var": 270,
+    "judul": "Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2022",
+    "diperbarui_bps": "2023-02-01 11:39:28"
+   },
+   "tautan_baca": "https://papuabarat.bps.go.id/id/statistics-table/2/MjcwIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dicocokkan web",
+   "catatan_bps": "2016 : Sampel tidak mencukupi untuk estimasi Kabupaten/Kota Sejak 2018 penimbang menggunakan hasil backcasting SUPAS 2015",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  },
+  {
+   "domain": "9400",
+   "tabel_provinsi": {
+    "var": 478,
+    "judul": "Tingkat Pengangguran Terbuka Menurut Kabupaten/Kota",
+    "tahun_tabel_terbaru": "2021",
+    "diperbarui_bps": "2023-01-17 12:33:56"
+   },
+   "tautan_baca": "https://papua.bps.go.id/id/statistics-table/2/NDc4IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "catatan_bps": "Sumber: Survei Angkatan Kerja Nasional",
+   "catatan_rse": "TIDAK ADA catatan RSE di definisi/catatan tabel",
+   "kab_ditandai": []
+  }
+ ]
+}

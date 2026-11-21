@@ -1,0 +1,52 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: sanitasi-layak-kabkota
+name: Persentase Rumah Tangga dengan Akses Sanitasi Layak menurut Kabupaten/Kota (SDG 6.2.1)
+version: 0.1.0
+status: draft
+description:
+  purpose: Sumber pengganti dari bank (aturan G1.0) untuk K6 air dan sanitasi
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: BPS (Susenas Maret)
+  role: pemilik data
+servers:
+- server: webapi-nasional
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: domain 0000 var 2748, tahun 2024 dan 2025
+- server: webapi-provinsi
+  type: https
+  url: https://webapi.bps.go.id/v1/api/
+  description: tabel kab/kota per domain provinsi (pembanding G1.3)
+customProperties:
+- property: G1.3m
+  value: 'SU-1m empat jenis, set dibekukan sebelum dinilai (13 Nov 2026 06.47 WIB). Sel berpasangan: 100/100 (25/25 tiap jenis) LULUS. Seluruh tabel: 26/100; semua yang lolos ada di sel tanpa publikasi kedua.'
+- property: cakupan_terverifikasi
+  value: 'Daftar sel: sumber/sel/sanitasi-layak-kabkota.csv (sha256 awalan ab7293f7ce0a, dibuat alat/sel_terverifikasi.py di laptop, identik di repo); ditegakkan kartu.py dan alat/periksa_kartu.py. Hanya sel yang cocok dengan publikasi kedua boleh dipakai kartu (PUTUSAN ATAS DELEGASI 13 Nov 2026): 79 kab/kota di 7 provinsi.'
+- property: sidik_l3
+  value: '779aa79d7a2e (dibangun ulang 13 Nov 2026 12.24 WIB sesudah tabel TPT nasional 2024 ditambahkan; dua jalan identik; sebelumnya 176db7066fc3) (sha256 berkas CSV L3; dua jalan identik 13 Nov 2026 06.41 WIB lewat alat/reproduksi_l3.py; idem)'
+- property: dipakai_kartu
+  value: 'tidak: audit ulang 13 Nov: koreksi label tahun Kalbar dicabut (tidak terbukti tabel mana yang salah), 14 sel Kalbar dan Kota Metro ditarik; tersisa 79 sel cocok, di bawah minimal 100'
+- property: SU-0
+  value: akses LOLOS 13 Nov 2026 lewat WebAPI dengan kunci IOU
+- property: G1.0-G1.3
+  value: '2025: 504 kab/kota bernilai; tabel provinsi cocok 79 pasangan, berbeda 15; 2024: cocok 110, berbeda 15;
+    mutasi 100/100.'
+- property: syarat_pakai_kutipan
+  value: Syarat Penggunaan situs BPS butir 2 dan 2.2 (lihat kemiskinan-kabkota-2025.yaml). G1.7 LULUS.
+- property: wilayah
+  value: kode BPS baru untuk provinsi pemekaran Papua dipetakan ke kode domain lama lewat kolom kode_bps_baru di
+    daftar wilayah induk
+- property: selisih_publikasi
+  value: '14 selisih di Kalimantan Barat (6101-6112, 6171, 6172): nilai nasional tahun T sama dengan nilai tabel
+    Kalimantan Barat berlabel T-1, jadi label tahun di tabel provinsi itu bergeser satu tahun. 1 selisih tanpa penjelasan:
+    Kota Metro (1872) 99,29 vs 87,29 (2025) dan 99,68 vs 85,44 (2024). Per G1.3, 15 sel ini ditarik (lihat G1.3_status).'
+- property: sitasi
+  value: Badan Pusat Statistik. 6.2.1* Persentase rumah tangga yang memiliki akses terhadap sanitasi layak menurut
+    kabupaten/kota, 2024-2025. Tabel dinamis, diakses 13 Nov 2026.
+- property: G1.3_status
+  value: 'belum: 79 cocok 2025 (minimal 100); 15 berselisih DITARIK (14 Kalbar: label tahun tertukar antara tabel nasional dan provinsi, arah belum diketahui, butuh publikasi ketiga BPS Kalbar; Kota Metro tanpa penjelasan). Riwayat: sempat ditulis lulus 217 (2025: 93, 2024 sampel segar: 124). 14 kab/kota Kalbar dijelaskan: label tahun tabel provinsi tertukar, terbukti 28 dari 28 sel; dikoreksi di parser/periksa_lintas.py. Kota Metro (1872) berselisih kedua tahun tanpa penjelasan: DITARIK.'
+- property: G1.5
+  value: 'Publikasi sampling error Susenas tidak ditemukan di 35 domain BPS (13 Nov 2026). Per aturan beku G1.5:
+    hati_hati. G1.5 LULUS lewat jalur cadangan.'

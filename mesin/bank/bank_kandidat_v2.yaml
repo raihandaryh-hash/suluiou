@@ -1,0 +1,208 @@
+# Bank kandidat jenis kebutuhan · v2 · ditulis 13 Nov 2026 16.10 WIB (jam sistem), dibekukan SEBELUM angka kandidat baru diambil.
+# Label: PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: "Lanjut" Raihan 16.09), bisa dibalik. Bank v1 tetap beku dan tidak disunting.
+# Alasan: uji stabilitas saringan (G2.3) butuh >=30 kandidat lengkap, tetapi 24 dari 33 kandidat v1 tidak punya hitungan
+#   orang terdampak, kebanyakan karena satuannya bukan orang (ton, desa, masjid, rupiah, indeks). Lihat uji/STATUS_ME2.md.
+# Aturan pemilihan tambahan (ditetapkan sebelum nilai mana pun dilihat):
+#   1. satuan indikator = orang (bukan rumah tangga, lembaga, wilayah, ton, rupiah);
+#   2. calon sumber = publikasi resmi nasional (BPS, kementerian, BNPB, KPU) dengan tahun data <= 2025;
+#   3. dipetakan ke sub-tantangan yang ada di src/data/jalanBaktiContent.ts (baris 96-176), tanpa sub-tantangan baru;
+#   4. tidak dipilih karena dugaan nilai atau dugaan peringkat; status_sumber semua belum_dicek sampai diambil.
+# Kandidat v1 tetap anggota bank (33). Kandidat yang tetap tanpa hitungan orang dicatat "belum lengkap", tidak dihapus.
+versi: bank-kandidat/2
+dibekukan: 2026-11-13
+dasar: bank/bank_kandidat_v1.yaml
+perbaikan_basis_v1:
+  literasi-keuangan-syariah: "orang = (1 - indeks inklusi keuangan syariah SNLIK 2025) x penduduk 15-79 dari SUPAS 2025 (var 2777, jumlah kelompok umur)"
+tambahan:
+  - id: persalinan-tanpa-nakes
+    medan: K1
+    sub_tantangan: k1a
+    indikator: persentase perempuan 15-49 yang melahirkan tidak ditolong tenaga kesehatan
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: imunisasi-dasar-tidak-lengkap
+    medan: K1
+    sub_tantangan: k1a
+    indikator: anak 12-23 bulan tanpa imunisasi dasar lengkap
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS atau SKI 2023 Kemenkes]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: penduduk-tanpa-jaminan-kesehatan
+    medan: K1
+    sub_tantangan: k1a
+    indikator: penduduk tanpa jaminan kesehatan
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: anemia-ibu-hamil
+    medan: K1
+    sub_tantangan: k1c
+    indikator: prevalensi anemia pada ibu hamil
+    tingkat: nasional
+    sumber_kandidat: [SKI 2023 Kemenkes]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: bblr
+    medan: K1
+    sub_tantangan: k1c
+    indikator: bayi lahir dengan berat badan rendah
+    tingkat: nasional
+    sumber_kandidat: [SKI 2023 Kemenkes atau Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: anak-tidak-paud
+    medan: K2
+    sub_tantangan: k2c
+    indikator: anak 3-6 tahun yang tidak mengikuti PAUD
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Statistik Pendidikan)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: anak-tidak-tuntas-sma
+    medan: K2
+    sub_tantangan: k2c
+    indikator: penduduk usia 19-21 yang tidak menamatkan SMA sederajat (komplemen tingkat penyelesaian)
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Statistik Pendidikan)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: buta-huruf-dewasa
+    medan: K2
+    sub_tantangan: k2c
+    indikator: penduduk 15+ yang buta huruf
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: guru-honorer
+    medan: K2
+    sub_tantangan: k2a
+    indikator: guru berstatus honorer atau non-ASN
+    tingkat: nasional
+    sumber_kandidat: [Dapodik Kemendikdasmen atau BKN]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: anak-tanpa-akta-lahir
+    medan: K3
+    sub_tantangan: k3a
+    indikator: anak 0-17 tanpa akta kelahiran
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Profil Anak)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: anak-tanpa-orang-tua-kandung
+    medan: K3
+    sub_tantangan: k3a
+    indikator: anak 0-17 yang tidak tinggal bersama ayah dan ibu kandung
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Profil Anak)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: pekerja-anak
+    medan: K3
+    sub_tantangan: k3a
+    indikator: anak 10-17 yang bekerja
+    tingkat: nasional
+    sumber_kandidat: [Sakernas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: lansia-miskin
+    medan: K3
+    sub_tantangan: k3b
+    indikator: penduduk 60+ yang berada di bawah garis kemiskinan
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Statistik Penduduk Lanjut Usia)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: disabilitas-tidak-bekerja
+    medan: K3
+    sub_tantangan: k3c
+    indikator: penyandang disabilitas usia kerja yang tidak bekerja
+    tingkat: nasional
+    sumber_kandidat: [Sakernas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: penduduk-terpapar-bencana
+    medan: K4
+    sub_tantangan: k4c
+    indikator: jiwa terpapar bahaya bencana kelas sedang-tinggi
+    tingkat: nasional
+    sumber_kandidat: [Indeks Risiko Bencana Indonesia BNPB]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: korban-bencana
+    medan: K4
+    sub_tantangan: k4c
+    indikator: jiwa terdampak dan mengungsi akibat bencana dalam setahun
+    tingkat: nasional
+    sumber_kandidat: [DIBI BNPB]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: penduduk-tanpa-pengangkutan-sampah
+    medan: K4
+    sub_tantangan: k4a
+    indikator: penduduk yang sampahnya tidak diangkut petugas (dibakar, dibuang ke sungai, ditimbun)
+    tingkat: nasional
+    sumber_kandidat: [Statistik Lingkungan Hidup BPS (hanya bila disajikan per penduduk, bukan per rumah tangga)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: pekerja-informal
+    medan: K5
+    sub_tantangan: k5a
+    indikator: pekerja berstatus informal
+    tingkat: nasional
+    sumber_kandidat: [Sakernas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: setengah-penganggur
+    medan: K5
+    sub_tantangan: k5a
+    indikator: pekerja setengah penganggur
+    tingkat: nasional
+    sumber_kandidat: [Sakernas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: penganggur-muda
+    medan: K5
+    sub_tantangan: k5d
+    indikator: penganggur usia 15-24
+    tingkat: nasional
+    sumber_kandidat: [Sakernas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: penduduk-miskin-sektor-pertanian
+    medan: K6
+    sub_tantangan: k6a
+    indikator: penduduk miskin yang kepala rumah tangganya bekerja di pertanian
+    tingkat: nasional
+    sumber_kandidat: [Susenas BPS (Data dan Informasi Kemiskinan)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: pemuda-tidak-berorganisasi
+    medan: K7
+    sub_tantangan: k7a
+    indikator: pemuda 16-30 yang tidak aktif dalam organisasi kemasyarakatan
+    tingkat: nasional
+    sumber_kandidat: [Susenas MSBP BPS (Statistik Pemuda)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: pemilih-tidak-menggunakan-hak
+    medan: K7
+    sub_tantangan: k7c
+    indikator: pemilih terdaftar yang tidak memberikan suara pada Pemilu 2024
+    tingkat: nasional
+    sumber_kandidat: [KPU (rekapitulasi nasional)]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi
+  - id: kepala-desa-di-atas-60
+    medan: K7
+    sub_tantangan: k7a
+    indikator: kepala desa berusia di atas 60 tahun (orang, bukan desa)
+    tingkat: nasional
+    sumber_kandidat: [Podes BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN bila ukuran sama, selain itu tanpa target resmi

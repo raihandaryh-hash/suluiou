@@ -1,0 +1,384 @@
+{
+ "bidang_provinsi_tampil": [
+  "economic_sectors",
+  "fardhu_kifayah_gaps",
+  "iou_program_relevance",
+  "key_questions",
+  "narrative_hooks",
+  "opportunities_2030"
+ ],
+ "fungsi_tepi": [
+  "aktifkan-peserta",
+  "atur-peran",
+  "broaden-roles",
+  "career-chat",
+  "generate-layer1",
+  "generate-projection",
+  "generate-reflection",
+  "generate-sintesis",
+  "kelola-peserta"
+ ],
+ "halaman": [
+  "src/pages/AdminBridge.tsx",
+  "src/pages/AdminClassSession.tsx",
+  "src/pages/AdminClasses.tsx",
+  "src/pages/AdminDashboard.tsx",
+  "src/pages/AdminInsight.tsx",
+  "src/pages/AdminLogin.tsx",
+  "src/pages/AdminResultView.tsx",
+  "src/pages/AdminSuar.tsx",
+  "src/pages/Assessment.tsx",
+  "src/pages/BilaTidakBaikBaikSaja.tsx",
+  "src/pages/Compass.tsx",
+  "src/pages/Consent.tsx",
+  "src/pages/Glossary.tsx",
+  "src/pages/Index.tsx",
+  "src/pages/Insight.tsx",
+  "src/pages/JalanBakti.tsx",
+  "src/pages/JoinClass.tsx",
+  "src/pages/KenaliDirimu.tsx",
+  "src/pages/KenaliDirimuSkill.tsx",
+  "src/pages/Login.tsx",
+  "src/pages/Mukadimah.tsx",
+  "src/pages/NotFound.tsx",
+  "src/pages/Profile.tsx",
+  "src/pages/Programs.tsx",
+  "src/pages/PublicResult.tsx",
+  "src/pages/RencanaAksi.tsx",
+  "src/pages/Results.tsx",
+  "src/pages/Ringkasan.tsx",
+  "src/pages/RuangData.tsx",
+  "src/pages/Sintesis.tsx",
+  "src/pages/SkillMap.tsx",
+  "src/pages/Suar.tsx"
+ ],
+ "isi": {
+  "src/data/compassContent.ts": {
+   "ekspor": [
+    "CompassSection",
+    "compassCTA",
+    "compassHero",
+    "compassSections",
+    "compassSources",
+    "iouBridgeSection"
+   ],
+   "sha256": "5eef59618da7",
+   "teks_panjang": 58
+  },
+  "src/data/dapurPetaContent.ts": {
+   "ekspor": [
+    "ConnectionBasisCounts",
+    "CrosswalkRow",
+    "DapurPetaCorrection",
+    "OecdSitasi",
+    "crosswalkTable",
+    "dapurPetaAtribusiOecd",
+    "dapurPetaPembuka",
+    "dapurPetaPenutup",
+    "dapurPetaSeksiA",
+    "dapurPetaSeksiB",
+    "dapurPetaSeksiC",
+    "dapurPetaSeksiD",
+    "dapurPetaSeksiE",
+    "getConnectionBasisCounts"
+   ],
+   "sha256": "ccf87688f7b9",
+   "teks_panjang": 56
+  },
+  "src/data/distressContent.ts": {
+   "ekspor": [
+    "BarisRujukan",
+    "RUJUKAN_POLOS",
+    "distressContent"
+   ],
+   "sha256": "2fd1846ea059",
+   "teks_panjang": 30
+  },
+  "src/data/flags.ts": {
+   "ekspor": [
+    "ASESMEN_TERBUKA",
+    "BAGIKAN_ORANG_TUA_TERBUKA",
+    "DALIL_ANFAL_60_TERBUKA",
+    "HASIL_PUBLIK_TERBUKA",
+    "SPINE_B_AWAL"
+   ],
+   "sha256": "bf65630b30d9",
+   "teks_panjang": 1
+  },
+  "src/data/glossaryContent.ts": {
+   "ekspor": [
+    "GlossaryCategory",
+    "GlossaryEntry",
+    "glossaryCategories",
+    "glossaryIntro"
+   ],
+   "sha256": "51d8546a6515",
+   "teks_panjang": 114
+  },
+  "src/data/hexacoQuestions.ts": {
+   "ekspor": [
+    "HexacoDimension",
+    "HexacoQuestion",
+    "hexacoLikertLabels",
+    "hexacoQuestions"
+   ],
+   "sha256": "275660ed30a7",
+   "teks_panjang": 60
+  },
+  "src/data/insightContent.ts": {
+   "ekspor": [
+    "ContentPersona",
+    "InsightCard",
+    "LangkahKongkret",
+    "PenamparCard",
+    "Persona",
+    "Tone",
+    "alumniSection",
+    "bkSection",
+    "ctaSection",
+    "dataDisclaimer",
+    "dataSources",
+    "dataSourcesLabel",
+    "evanInsights",
+    "expertSection",
+    "faktorPenghambatSection",
+    "gigEconomySection",
+    "hero",
+    "indonesiaSection",
+    "jabarSection",
+    "laborRealitySection",
+    "linkMatchSection",
+    "maadinSection",
+    "neetSection",
+    "opportunitySection",
+    "penamparSection",
+    "personaCallout",
+    "personaShortLabel",
+    "personaTeaserSection",
+    "roiSection",
+    "sdgSection",
+    "skillMapTeaser",
+    "skillSection",
+    "sourcePrefix",
+    "stepperSection",
+    "worldLayerSection",
+    "worldSection"
+   ],
+   "sha256": "c7ad2d444bf6",
+   "teks_panjang": 459
+  },
+  "src/data/izinKuliahContent.ts": {
+   "ekspor": [
+    "KANAL_PENERIMAAN",
+    "TEKS_IZIN",
+    "TEKS_TARIK",
+    "VARIAN_AKTIF",
+    "VarianTeks"
+   ],
+   "sha256": "02a589f9ebd4",
+   "teks_panjang": 18
+  },
+  "src/data/jalanBaktiContent.ts": {
+   "ekspor": [
+    "jalanBaktiContent"
+   ],
+   "sha256": "31eb5db228ff",
+   "teks_panjang": 163
+  },
+  "src/data/jalanBaktiOpeningContent.ts": {
+   "ekspor": [
+    "jbOpening"
+   ],
+   "sha256": "e397af969125",
+   "teks_panjang": 23
+  },
+  "src/data/kenaliDirimuContent.ts": {
+   "ekspor": [
+    "Domain",
+    "Prompt",
+    "kenaliDirimuContent"
+   ],
+   "sha256": "0a533a491bc2",
+   "teks_panjang": 72
+  },
+  "src/data/keselamatanContent.ts": {
+   "ekspor": [
+    "keselamatanContent"
+   ],
+   "sha256": "44ffb56ebc5e",
+   "teks_panjang": 9
+  },
+  "src/data/macroContext.ts": {
+   "ekspor": [
+    "INDONESIA_MACRO_CONTEXT",
+    "macroContextGuardrail"
+   ],
+   "sha256": "9530145c1bce",
+   "teks_panjang": 2
+  },
+  "src/data/mismatchContent.ts": {
+   "ekspor": [
+    "mismatchMukadimah"
+   ],
+   "sha256": "81fcc49797ee",
+   "teks_panjang": 17
+  },
+  "src/data/mukadimahBabakContent.ts": {
+   "ekspor": [
+    "Block",
+    "mukadimahBabak"
+   ],
+   "sha256": "ee9c1dfbebb8",
+   "teks_panjang": 37
+  },
+  "src/data/mukadimahContent.ts": {
+   "ekspor": [
+    "mukadimahContent"
+   ],
+   "sha256": "d6ef76ff4e64",
+   "teks_panjang": 14
+  },
+  "src/data/pathways.ts": {
+   "ekspor": [
+    "Pathway",
+    "getPathwayById",
+    "getPathwayName",
+    "pathways"
+   ],
+   "sha256": "01338e7939c4",
+   "teks_panjang": 29
+  },
+  "src/data/pintuMasukContent.ts": {
+   "ekspor": [
+    "PeranPilihan",
+    "TEKS_PINTU"
+   ],
+   "sha256": "0730c867d86c",
+   "teks_panjang": 68
+  },
+  "src/data/questions.ts": {
+   "ekspor": [
+    "Dimension",
+    "Question",
+    "likertLabels",
+    "questions"
+   ],
+   "sha256": "74c1fb3bd872",
+   "teks_panjang": 48
+  },
+  "src/data/references.ts": {
+   "ekspor": [
+    "Reference",
+    "references"
+   ],
+   "sha256": "8ada5c8bbed7",
+   "teks_panjang": 89
+  },
+  "src/data/rencanaAksiContent.ts": {
+   "ekspor": [
+    "rencanaAksiContent"
+   ],
+   "sha256": "b230b6b2b1cd",
+   "teks_panjang": 42
+  },
+  "src/data/ringkasanContent.ts": {
+   "ekspor": [
+    "ringkasanContent"
+   ],
+   "sha256": "a75ad57ceb12",
+   "teks_panjang": 16
+  },
+  "src/data/sdsQuestions.ts": {
+   "ekspor": [
+    "RiasecCategory",
+    "SdsQuestion",
+    "SdsSection",
+    "riasecLabels",
+    "sdsQuestions",
+    "sdsSectionMeta"
+   ],
+   "sha256": "77cefe71ab3f",
+   "teks_panjang": 381
+  },
+  "src/data/sintesisContent.ts": {
+   "ekspor": [
+    "sintesisContent"
+   ],
+   "sha256": "c55e39e0238a",
+   "teks_panjang": 30
+  },
+  "src/data/skillMapContent.ts": {
+   "ekspor": [
+    "AI_RISK",
+    "CONNECTION_BASIS",
+    "CONNECTION_MAP",
+    "ConnectionBasisEntry",
+    "ISTILAH_BRIDGE",
+    "LAYERS",
+    "NODES",
+    "SkillLayer",
+    "SkillNode",
+    "buildConnectionMap"
+   ],
+   "sha256": "d783389e18df",
+   "teks_panjang": 243
+  },
+  "src/data/skillMapNarasiContent.ts": {
+   "ekspor": [
+    "aiSudahDiSini",
+    "dilloIntro",
+    "jembatanKePeta",
+    "pergeseranFungsi",
+    "setelahPeta",
+    "skillMapDeklarasi",
+    "yangKenaBukanYangKamuKira"
+   ],
+   "sha256": "db943307e17c",
+   "teks_panjang": 38
+  }
+ },
+ "panggilan_fungsi_tepi": [
+  "src/components/BroadenRoles.tsx -> broaden-roles",
+  "src/components/PintuAkun.tsx -> aktifkan-peserta",
+  "src/components/TenunSintesis.tsx -> generate-sintesis",
+  "src/components/admin/PesertaKelasAdmin.tsx -> kelola-peserta",
+  "src/lib/peran.ts -> atur-peran",
+  "src/services/api.ts -> generate-layer1",
+  "src/services/api.ts -> generate-projection"
+ ],
+ "ref": "6dea505b1446151c08d952c4bec8af874d9b32ca",
+ "rute": [
+  "*",
+  "/",
+  "/admin",
+  "/admin/bridge",
+  "/admin/class/:classId/session",
+  "/admin/classes",
+  "/admin/insight",
+  "/admin/login",
+  "/admin/results/:id",
+  "/admin/suar",
+  "/assessment",
+  "/bila-tidak-baik-baik-saja",
+  "/compass",
+  "/consent",
+  "/data",
+  "/glossary",
+  "/hasil/:resultId",
+  "/insight",
+  "/jalan-bakti",
+  "/join",
+  "/kenali-dirimu",
+  "/kenali-dirimu/skill",
+  "/login",
+  "/mukadimah",
+  "/profile",
+  "/programs",
+  "/rencana-aksi",
+  "/results",
+  "/ringkasan",
+  "/sintesis",
+  "/skill-map",
+  "/suar"
+ ]
+}

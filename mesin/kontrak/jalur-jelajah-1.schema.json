@@ -1,0 +1,1221 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://sulu.iou/kontrak/jalur-jelajah-1.schema.json",
+ "title": "jalur-jelajah/1",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "bingkai_nilai_id",
+  "kontrak",
+  "id_permintaan",
+  "dibuat",
+  "versi_mesin",
+  "versi_data",
+  "status",
+  "untuk",
+  "jalur",
+  "rujukan",
+  "untuk_pemilik",
+  "pernyataan",
+  "pemberitahuan_tarik",
+  "jejak"
+ ],
+ "properties": {
+  "kontrak": {
+   "const": "jalur-jelajah/1"
+  },
+  "id_permintaan": {
+   "type": "string",
+   "description": "kunci idempotensi: masukan sama + versi_data sama = keluaran sama"
+  },
+  "dibuat": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "versi_mesin": {
+   "type": "string"
+  },
+  "versi_data": {
+   "type": "string"
+  },
+  "status": {
+   "enum": [
+    "ok",
+    "tanpa_kartu",
+    "ditahan_rujukan"
+   ]
+  },
+  "untuk": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "peran",
+    "jenjang",
+    "situasi",
+    "kode_provinsi",
+    "kode_kabkota",
+    "mode_ai",
+    "tujuan_di_luar_bank"
+   ],
+   "properties": {
+    "peran": {
+     "enum": [
+      "siswa",
+      "mahasiswa",
+      "orang_tua",
+      "guru_bk",
+      "guru",
+      "umum"
+     ]
+    },
+    "jenjang": {
+     "enum": [
+      "kelas_10_11",
+      "kelas_12",
+      "baru_lulus",
+      null
+     ]
+    },
+    "situasi": {
+     "enum": [
+      "belajar",
+      "bekerja",
+      "mencari_kerja",
+      "merawat_keluarga",
+      "lainnya",
+      null
+     ]
+    },
+    "kode_provinsi": {
+     "type": "string",
+     "pattern": "^[0-9]{2}$"
+    },
+    "kode_kabkota": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^[0-9]{4}$"
+    },
+    "mode_ai": {
+     "enum": [
+      "dewasa",
+      "c"
+     ]
+    },
+    "tujuan_di_luar_bank": {
+     "type": "boolean"
+    }
+   }
+  },
+  "jalur": {
+   "type": "array",
+   "maxItems": 5,
+   "items": {
+    "oneOf": [
+     {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "jenis",
+       "judul",
+       "langkah_pertama",
+       "orang_untuk_ditanya",
+       "keyakinan",
+       "batas",
+       "bukti_cara_kerja",
+       "harapan",
+       "kebutuhan",
+       "angka_kunci",
+       "peran_contoh",
+       "skill",
+       "jalur_belajar"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "judul": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 3
+       },
+       "langkah_pertama": {
+        "type": "object",
+        "required": [
+         "teks",
+         "paling_lama_hari",
+         "butuh_orang_lain"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "teks": {
+          "type": "string",
+          "pattern": "^[^0-9]*$"
+         },
+         "paling_lama_hari": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+         },
+         "butuh_orang_lain": {
+          "type": "boolean"
+         }
+        }
+       },
+       "orang_untuk_ditanya": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "type": "object",
+         "required": [
+          "jenis",
+          "cara"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "jenis": {
+           "enum": [
+            "guru_bk",
+            "orang_tua",
+            "career_center",
+            "praktisi",
+            "komunitas",
+            "orang_terdekat"
+           ]
+          },
+          "cara": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "keyakinan": {
+        "enum": [
+         "tinggi",
+         "sedang",
+         "rendah"
+        ]
+       },
+       "batas": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       },
+       "bukti_cara_kerja": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "sumber_id",
+          "url"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "sumber_id": {
+           "type": "string"
+          },
+          "url": {
+           "type": [
+            "string",
+            "null"
+           ],
+           "format": "uri"
+          }
+         }
+        }
+       },
+       "harapan": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 10,
+        "description": "aturan Jalan Tengah 5: apa yang sudah berhasil atau apa yang bisa dilakukan satu orang"
+       },
+       "jenis": {
+        "const": "data"
+       },
+       "kebutuhan": {
+        "type": "object",
+        "required": [
+         "kartu_id",
+         "kartu_versi",
+         "wilayah_kode",
+         "tingkat",
+         "berlaku_sampai",
+         "ringkasan"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "kartu_id": {
+          "type": "string"
+         },
+         "kartu_versi": {
+          "type": "string"
+         },
+         "wilayah_kode": {
+          "type": "string",
+          "pattern": "^[0-9]{2}([0-9]{2})?$|^00$"
+         },
+         "tingkat": {
+          "enum": [
+           "kabkota",
+           "provinsi",
+           "nasional"
+          ]
+         },
+         "berlaku_sampai": {
+          "type": "string",
+          "format": "date"
+         },
+         "ringkasan": {
+          "type": "string",
+          "description": "placeholder {kode} hanya merujuk angka_kunci pada jalur yang sama"
+         }
+        }
+       },
+       "angka_kunci": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+         "type": "object",
+         "required": [
+          "kode",
+          "nilai",
+          "satuan",
+          "tahun_data",
+          "label",
+          "sumber_id",
+          "sumber_nama",
+          "url",
+          "sha256",
+          "keandalan"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "kode": {
+           "type": "string"
+          },
+          "nilai": {
+           "type": "number"
+          },
+          "satuan": {
+           "type": "string"
+          },
+          "tahun_data": {
+           "type": "integer",
+           "minimum": 2000
+          },
+          "label": {
+           "type": "string"
+          },
+          "sumber_id": {
+           "type": "string"
+          },
+          "sumber_nama": {
+           "type": "string",
+           "minLength": 3
+          },
+          "url": {
+           "type": "string"
+          },
+          "sha256": {
+           "type": "string",
+           "pattern": "^[0-9a-f]{64}$"
+          },
+          "keandalan": {
+           "enum": [
+            "andal",
+            "hati_hati",
+            "tidak_diketahui",
+            "administratif"
+           ]
+          }
+         }
+        }
+       },
+       "peran_contoh": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "type": "object",
+         "required": [
+          "nama",
+          "kbji_kode",
+          "jenis",
+          "sumber_id"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "nama": {
+           "type": "string"
+          },
+          "kbji_kode": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "jenis": {
+           "enum": [
+            "formal",
+            "nonformal",
+            "sukarela",
+            "belum_bernama"
+           ]
+          },
+          "sumber_id": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         },
+         "if": {
+          "properties": {
+           "jenis": {
+            "enum": [
+             "formal",
+             "nonformal",
+             "sukarela"
+            ]
+           }
+          }
+         },
+         "then": {
+          "properties": {
+           "sumber_id": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         }
+        }
+       },
+       "skill": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "type": "object",
+         "required": [
+          "nama",
+          "simpul_skillmap"
+         ],
+         "properties": {
+          "nama": {
+           "type": "string"
+          },
+          "simpul_skillmap": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         },
+         "additionalProperties": false
+        }
+       },
+       "jalur_belajar": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "nama",
+          "jenis",
+          "penyelenggara",
+          "url",
+          "sumber_id",
+          "milik_iou"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "nama": {
+           "type": "string"
+          },
+          "jenis": {
+           "enum": [
+            "prodi",
+            "kursus",
+            "magang",
+            "komunitas",
+            "mandiri"
+           ]
+          },
+          "penyelenggara": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "url": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "sumber_id": {
+           "type": "string"
+          },
+          "milik_iou": {
+           "type": "boolean"
+          }
+         }
+        }
+       }
+      }
+     },
+     {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "jenis",
+       "judul",
+       "langkah_pertama",
+       "orang_untuk_ditanya",
+       "keyakinan",
+       "batas",
+       "bukti_cara_kerja",
+       "harapan",
+       "kartu_id",
+       "undangan"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "judul": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 3
+       },
+       "langkah_pertama": {
+        "type": "object",
+        "required": [
+         "teks",
+         "paling_lama_hari",
+         "butuh_orang_lain"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "teks": {
+          "type": "string",
+          "pattern": "^[^0-9]*$"
+         },
+         "paling_lama_hari": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+         },
+         "butuh_orang_lain": {
+          "type": "boolean"
+         }
+        }
+       },
+       "orang_untuk_ditanya": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "type": "object",
+         "required": [
+          "jenis",
+          "cara"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "jenis": {
+           "enum": [
+            "guru_bk",
+            "orang_tua",
+            "career_center",
+            "praktisi",
+            "komunitas",
+            "orang_terdekat"
+           ]
+          },
+          "cara": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "keyakinan": {
+        "enum": [
+         "tinggi",
+         "sedang",
+         "rendah"
+        ]
+       },
+       "batas": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       },
+       "bukti_cara_kerja": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "sumber_id",
+          "url"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "sumber_id": {
+           "type": "string"
+          },
+          "url": {
+           "type": [
+            "string",
+            "null"
+           ],
+           "format": "uri"
+          }
+         }
+        }
+       },
+       "harapan": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 10,
+        "description": "aturan Jalan Tengah 5: apa yang sudah berhasil atau apa yang bisa dilakukan satu orang"
+       },
+       "jenis": {
+        "const": "cipta"
+       },
+       "kartu_id": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "undangan": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       }
+      }
+     },
+     {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "jenis",
+       "judul",
+       "langkah_pertama",
+       "orang_untuk_ditanya",
+       "keyakinan",
+       "batas",
+       "bukti_cara_kerja",
+       "harapan",
+       "tujuan",
+       "peran_contoh"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "judul": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 3
+       },
+       "langkah_pertama": {
+        "type": "object",
+        "required": [
+         "teks",
+         "paling_lama_hari",
+         "butuh_orang_lain"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "teks": {
+          "type": "string",
+          "pattern": "^[^0-9]*$"
+         },
+         "paling_lama_hari": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+         },
+         "butuh_orang_lain": {
+          "type": "boolean"
+         }
+        }
+       },
+       "orang_untuk_ditanya": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "type": "object",
+         "required": [
+          "jenis",
+          "cara"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "jenis": {
+           "enum": [
+            "guru_bk",
+            "orang_tua",
+            "career_center",
+            "praktisi",
+            "komunitas",
+            "orang_terdekat"
+           ]
+          },
+          "cara": {
+           "type": "string"
+          }
+         }
+        }
+       },
+       "keyakinan": {
+        "enum": [
+         "tinggi",
+         "sedang",
+         "rendah"
+        ]
+       },
+       "batas": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       },
+       "bukti_cara_kerja": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "sumber_id",
+          "url"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "sumber_id": {
+           "type": "string"
+          },
+          "url": {
+           "type": [
+            "string",
+            "null"
+           ],
+           "format": "uri"
+          }
+         }
+        }
+       },
+       "harapan": {
+        "type": "string",
+        "pattern": "^[^0-9]*$",
+        "minLength": 10,
+        "description": "aturan Jalan Tengah 5: apa yang sudah berhasil atau apa yang bisa dilakukan satu orang"
+       },
+       "jenis": {
+        "const": "jalan_lain"
+       },
+       "tujuan": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       },
+       "peran_contoh": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "nama",
+          "kbji_kode",
+          "jenis",
+          "sumber_id"
+         ],
+         "additionalProperties": false,
+         "properties": {
+          "nama": {
+           "type": "string"
+          },
+          "kbji_kode": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "jenis": {
+           "enum": [
+            "formal",
+            "nonformal",
+            "sukarela",
+            "belum_bernama"
+           ]
+          },
+          "sumber_id": {
+           "type": [
+            "string",
+            "null"
+           ]
+          }
+         },
+         "if": {
+          "properties": {
+           "jenis": {
+            "enum": [
+             "formal",
+             "nonformal",
+             "sukarela"
+            ]
+           }
+          }
+         },
+         "then": {
+          "properties": {
+           "sumber_id": {
+            "type": "string",
+            "minLength": 1
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  "rujukan": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "required": [
+    "jenis",
+    "teks_tetap_id",
+    "kontak"
+   ],
+   "properties": {
+    "jenis": {
+     "const": "distress"
+    },
+    "teks_tetap_id": {
+     "type": "string"
+    },
+    "kontak": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "enum": [
+       "guru_bk",
+       "orang_tua",
+       "orang_dewasa_tepercaya",
+       "hsa",
+       "layanan_resmi"
+      ]
+     }
+    }
+   }
+  },
+  "untuk_pemilik": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "alasan"
+   ],
+   "description": "hanya dirender untuk pemilik akun; tidak untuk orang tua atau guru BK",
+   "properties": {
+    "alasan": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "jalur_id",
+       "dari_profil",
+       "teks"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "jalur_id": {
+        "type": "string"
+       },
+       "dari_profil": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "teks": {
+        "type": "string",
+        "pattern": "^[^0-9]*$"
+       }
+      }
+     }
+    }
+   }
+  },
+  "bingkai_nilai_id": {
+   "const": null,
+   "description": "id teks tetap dari bank bingkai nilai yang disetujui Raihan (gerbang dalil); tidak pernah ditulis model"
+  },
+  "pernyataan": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "jalan_lain_sah",
+    "bukan_fatwa",
+    "teks_tetap_id"
+   ],
+   "properties": {
+    "jalan_lain_sah": {
+     "const": true
+    },
+    "bukan_fatwa": {
+     "const": true
+    },
+    "teks_tetap_id": {
+     "type": "string"
+    }
+   }
+  },
+  "pemberitahuan_tarik": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "kartu_id",
+     "kartu_versi",
+     "alasan",
+     "pengganti"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "kartu_id": {
+      "type": "string"
+     },
+     "kartu_versi": {
+      "type": "string"
+     },
+     "alasan": {
+      "type": "string"
+     },
+     "pengganti": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   }
+  },
+  "jejak": {
+   "type": "object",
+   "required": [
+    "kartu_dipakai",
+    "gerbang",
+    "model"
+   ],
+   "properties": {
+    "kartu_dipakai": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "gerbang": {
+     "type": "object"
+    },
+    "model": {
+     "type": "object"
+    }
+   }
+  }
+ },
+ "allOf": [
+  {
+   "if": {
+    "properties": {
+     "status": {
+      "enum": [
+       "ok",
+       "tanpa_kartu"
+      ]
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "contains": {
+       "properties": {
+        "langkah_pertama": {
+         "properties": {
+          "butuh_orang_lain": {
+           "const": false
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "status": {
+      "const": "ok"
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "minItems": 3
+     },
+     "rujukan": {
+      "type": "null"
+     }
+    },
+    "allOf": [
+     {
+      "properties": {
+       "jalur": {
+        "contains": {
+         "properties": {
+          "jenis": {
+           "const": "cipta"
+          }
+         }
+        }
+       }
+      }
+     },
+     {
+      "properties": {
+       "jalur": {
+        "contains": {
+         "properties": {
+          "jenis": {
+           "const": "jalan_lain"
+          }
+         }
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "status": {
+      "const": "ok"
+     },
+     "untuk": {
+      "properties": {
+       "tujuan_di_luar_bank": {
+        "const": false
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "contains": {
+       "properties": {
+        "jenis": {
+         "const": "data"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "status": {
+      "const": "tanpa_kartu"
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "minItems": 2,
+      "items": {
+       "not": {
+        "properties": {
+         "jenis": {
+          "const": "data"
+         }
+        },
+        "required": [
+         "jenis"
+        ]
+       }
+      }
+     },
+     "rujukan": {
+      "type": "null"
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "status": {
+      "const": "ditahan_rujukan"
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "maxItems": 0
+     },
+     "rujukan": {
+      "type": "object"
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "untuk": {
+      "properties": {
+       "tujuan_di_luar_bank": {
+        "const": true
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "prefixItems": [
+       {
+        "properties": {
+         "jenis": {
+          "const": "jalan_lain"
+         }
+        }
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "untuk": {
+      "properties": {
+       "peran": {
+        "const": "siswa"
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "untuk": {
+      "properties": {
+       "mode_ai": {
+        "const": "c"
+       }
+      }
+     }
+    }
+   },
+   "else": {
+    "properties": {
+     "untuk": {
+      "properties": {
+       "jenjang": {
+        "type": "null"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "untuk": {
+      "properties": {
+       "mode_ai": {
+        "const": "c"
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "jalur": {
+      "items": {
+       "properties": {
+        "orang_untuk_ditanya": {
+         "items": {
+          "properties": {
+           "jenis": {
+            "enum": [
+             "guru_bk",
+             "orang_tua",
+             "career_center",
+             "orang_terdekat"
+            ]
+           }
+          }
+         }
+        },
+        "jalur_belajar": {
+         "items": {
+          "properties": {
+           "url": {
+            "type": "null"
+           }
+          }
+         }
+        },
+        "bukti_cara_kerja": {
+         "items": {
+          "properties": {
+           "url": {
+            "anyOf": [
+             {
+              "type": "null"
+             },
+             {
+              "type": "string",
+              "pattern": "^https://([a-z0-9-]+\\.)*(go\\.id|who\\.int|unicef\\.org|ilo\\.org)(/|$)"
+             }
+            ]
+           }
+          }
+         }
+        },
+        "angka_kunci": {
+         "items": {
+          "properties": {
+           "url": {
+            "type": "string",
+            "pattern": "^https://([a-z0-9-]+\\.)*(go\\.id|who\\.int|unicef\\.org|ilo\\.org)(/|$)"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ ]
+}
