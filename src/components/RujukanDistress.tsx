@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 /**
  * B4 + B6: urutan rujukan.
  * - Jalur siswa (B4): Guru BK atau wali kelas, orang tua atau orang dewasa tepercaya, Healing119.
- * - mahasiswa_iou (B6): HSA di atas; selama kontak HSA belum ada, jalur B4 tetap tampil di bawahnya.
+ * - mahasiswa_iou (B6): HSA di atas; selama kontak HSA belum ada (isi kosong), baris HSA disembunyikan.
  * - Jalur umum (orang dewasa tepercaya + Healing119) selalu ada.
  * - bahaya_langsung: Healing119 (119 ekstensi 8) paling atas.
  */
@@ -16,6 +16,7 @@ export function urutanRujukan(tingkat: TingkatDistress, track: UserTrack): Baris
   const b = D.baris;
   let urut: BarisRujukan[] =
     track === 'mahasiswa_iou' ? [b.hsa, b.bk, b.orangTua, b.healing119] : [b.bk, b.orangTua, b.healing119];
+  urut = urut.filter((x) => x.isi.trim() !== '');
   if (tingkat === 'bahaya_langsung') urut = [b.healing119, ...urut.filter((x) => x.id !== 'healing119')];
   return urut;
 }
