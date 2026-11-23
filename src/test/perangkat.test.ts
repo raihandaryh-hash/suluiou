@@ -1,6 +1,6 @@
 // Uji mode perangkat Tonggak 2a (manifest v0.6 B.1, C.7; §6.2).
 import { describe, it, expect, beforeEach, vi } from "vitest";
-vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { getUser: async () => ({ data: { user: null } }) }, rpc: async () => ({ data: false }) } }));
+vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { getUser: async () => ({ data: { user: null } }), getSession: async () => ({ data: { session: null } }) }, rpc: async () => ({ data: false }) } }));
 import { bersihkanHpLama, tulisPerangkat, bacaPerangkat, hapusSemuaDariPerangkat, pindahPemilikPerangkat, bolehSimpan, simpanFase, bacaFase, KEDALUWARSA_MS } from "@/lib/perangkat";
 import { uraiRekap } from "@/components/admin/PesertaKelasAdmin";
 import { makeGuestIdentifier } from "@/lib/classSession";

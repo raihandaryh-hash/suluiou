@@ -26,4 +26,6 @@ export const keselamatanContent = {
 
   /** E21: keterangan data provinsi. */
   gambaranAwal: 'Gambaran awal',
+  /** Waktu muat Spine B (23 Nov): teks di bawah pemutar. */
+  memuatHalaman: 'Menyiapkan halamanmu…',
 } as const;

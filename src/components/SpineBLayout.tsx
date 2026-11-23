@@ -70,7 +70,10 @@ export default function SpineBLayout() {
       {/* Mobile/tablet: JourneyBar atas + Scratchpad (FAB kiri-bawah) */}
       <div className="lg:hidden">
         <JourneyBar />
-        <Outlet />
+        {/* Ruang bawah agar tombol mengambang (Coretan, Tanya Sulu) tidak menutupi teks terakhir. */}
+        <div className="pb-28">
+          <Outlet />
+        </div>
         <ScratchpadFab />
       </div>
 

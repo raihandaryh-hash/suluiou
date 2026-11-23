@@ -12,9 +12,19 @@ interface Simpanan<T> { data: T; disentuh: number }
 let cache: { uid: string | null; boleh: boolean; pada: number } | null = null;
 
 /** Apakah akun pemanggil boleh menyimpan di server. Tamu dan kegagalan → false (gagal tertutup). */
+let sedangCek: Promise<boolean> | null = null;
+
 export async function bolehSimpan(paksa = false): Promise<boolean> {
-  const { data: u } = await supabase.auth.getUser();
-  const uid = u.user?.id ?? null;
+  // Panggilan serentak (mis. tiga bacaFase sekaligus) berbagi satu pemeriksaan.
+  if (!paksa && sedangCek) return sedangCek;
+  sedangCek = bolehSimpanSekali(paksa).finally(() => { sedangCek = null; });
+  return sedangCek;
+}
+
+async function bolehSimpanSekali(paksa: boolean): Promise<boolean> {
+  // uid dari sesi lokal (tanpa permintaan ke server); keputusan izin tetap dari RPC boleh_simpan dan policy server.
+  const { data: s } = await supabase.auth.getSession();
+  const uid = s.session?.user?.id ?? null;
   if (!uid) return false;
   if (!paksa && cache && cache.uid === uid && Date.now() - cache.pada < CEK_ULANG_MS) return cache.boleh;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
