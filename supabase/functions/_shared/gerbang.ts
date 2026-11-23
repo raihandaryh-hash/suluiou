@@ -7,13 +7,15 @@ import { ipDari, klienLayanan, lajuOk } from "./pintu.ts";
 
 /** Batas per IP per jendela 10 menit (per /24 = dua kali lipat; IP mitra sekolah memakai pengali). */
 export const BATAS_LAJU_AI = 120;
+/** G3-016: batas per akun (user.id) per jendela 10 menit, tidak dikalikan pengali IP mitra. */
+export const BATAS_LAJU_AI_AKUN = 60;
 
 export async function gerbangAI(
   req: Request,
   fn: string,
   corsHeaders: Record<string, string>,
-  siap: { anon: boolean },
-  laju: (req: Request, aksi: string) => Promise<boolean> = lajuBawaan,
+  siap: { anon: boolean; userId?: string | null },
+  laju: (req: Request, aksi: string, userId?: string | null) => Promise<boolean> = lajuBawaan,
 ): Promise<Response | null> {
   if (siap.anon) {
     console.log(JSON.stringify({ evt: "ai_tolak_anon", fn, t: new Date().toISOString() }));
@@ -22,7 +24,7 @@ export async function gerbangAI(
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-  if (!(await laju(req, `ai:${fn}`))) {
+  if (!(await laju(req, `ai:${fn}`, siap.userId))) {
     console.log(JSON.stringify({ evt: "ai_tolak_laju", fn, t: new Date().toISOString() }));
     return new Response(JSON.stringify({ error: "Terlalu banyak permintaan, coba lagi nanti." }), {
       status: 429,
@@ -32,9 +34,16 @@ export async function gerbangAI(
   return null;
 }
 
-async function lajuBawaan(req: Request, aksi: string): Promise<boolean> {
+async function lajuBawaan(req: Request, aksi: string, userId?: string | null): Promise<boolean> {
   try {
-    return await lajuOk(klienLayanan(), aksi, BATAS_LAJU_AI, ipDari(req).ip);
+    const layanan = klienLayanan();
+    const ip = ipDari(req).ip;
+    const kunciAkun = `uid:${userId && userId.trim() ? userId.trim() : "tanpa-id"}`;
+    const [okIp, okAkun] = await Promise.all([
+      lajuOk(layanan, aksi, BATAS_LAJU_AI, ip),
+      lajuOk(layanan, `${aksi}:uid`, BATAS_LAJU_AI_AKUN, kunciAkun),
+    ]);
+    return okIp && okAkun;
   } catch {
     return false;
   }

@@ -18,3 +18,19 @@ export function rapikanPesan(m: unknown): PesanObrolan[] | null {
   if (!hasil.length || hasil[hasil.length - 1].role !== "user") return null;
   return hasil;
 }
+
+/**
+ * G3-015: potong panjang string dan buang tag pembatas <konteks_siswa> / </konteks_siswa>
+ * (berulang, tanpa membedakan huruf besar kecil) agar nilai konteks tidak bisa keluar dari pembungkus data.
+ */
+export function bersihkanKonteks(nilai: unknown, batas = 400, satuBaris = false): string {
+  if (typeof nilai !== "string") return "";
+  let hasil = nilai;
+  let sebelum: string;
+  do {
+    sebelum = hasil;
+    hasil = hasil.replace(/<\s*\/?\s*konteks_siswa\s*>/gi, "");
+  } while (hasil !== sebelum);
+  if (satuBaris) hasil = hasil.replace(/[\r\n]+/g, " ");
+  return hasil.trim().slice(0, batas);
+}

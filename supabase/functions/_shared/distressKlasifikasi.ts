@@ -4,8 +4,8 @@
 // (penyedia.ts: Anthropic bawaan sejak KEPUTUSAN 11 Nov 2026 10.21, Gemini lewat saklar balik).
 // Teks yang dinilai disamarkan bila pemanggil memberi Samaran.
 // - Risiko -> JSON rujukan statis yang sama dengan lapis 1 (jawabanDistress).
-// - Galat atau lewat 3 detik -> lanjut (lapis 2 tetap berlaku), log penghitung gagal;
-//   kecuali pemanggil memberi gagalTertutup (G2-14, 23 Nov 2026): respons aman singkat.
+// - Galat atau lewat 3 detik -> gagal tertutup (G2-14 / G2-27): tidak pernah lolos ke model utama,
+//   kembalikan gagalTertutup() dari pemanggil (SSE aman singkat di career-chat) atau 503 JSON aman singkat.
 // - SULU_KLASIFIKASI_MATI = "1", "true", atau "ya" (tanpa membedakan huruf besar kecil) -> dilewati.
 // Log hanya penghitung: tanpa teks, tanpa identitas (B5a).
 import type { TingkatDistress } from "./distress.ts";
@@ -105,9 +105,20 @@ export async function klasifikasiRisiko(
   }
 }
 
+/** G2-14 / G2-27: respons aman singkat bila pengklasifikasi gagal atau lewat batas waktu (gagal tertutup). */
+export const TEKS_AMAN_KLASIFIKASI_GAGAL =
+  "Maaf, Sulu belum bisa menjawab sekarang. Coba kirim lagi sebentar lagi. Kalau ada yang sedang berat, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
+
+export function jawabanKlasifikasiGagal(corsHeaders: Record<string, string>): Response {
+  return new Response(
+    JSON.stringify({ error: TEKS_AMAN_KLASIFIKASI_GAGAL }),
+    { status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+  );
+}
+
 /**
  * Lapis 1b. Kembalikan Response rujukan statis bila pengklasifikasi menilai berisiko,
- * null bila aman, dilewati (kill-switch / teks kosong), atau gagal.
+ * Response gagal tertutup bila pengklasifikasi gagal/timeout, atau null bila aman / dilewati (kill-switch / teks kosong).
  */
 export async function cabangKlasifikasi(
   fn: string,
@@ -123,8 +134,8 @@ export async function cabangKlasifikasi(
     risiko = await klasifikasiRisiko(teks, cfg);
   } catch {
     console.log(JSON.stringify({ evt: "distress_klasifikasi_gagal", fn, t: new Date().toISOString() }));
-    // G2-14: pemanggil boleh meminta gagal tertutup (career-chat untuk di bawah 18).
-    return cfg.gagalTertutup ? cfg.gagalTertutup() : null;
+    // G2-14 / G2-27: gagal tertutup untuk semua fungsi AI dan semua kelompok usia.
+    return cfg.gagalTertutup ? cfg.gagalTertutup() : jawabanKlasifikasiGagal(corsHeaders);
   }
   if (risiko === "aman") return null;
   console.log(JSON.stringify({ evt: "distress_cabang", fn, tingkat: risiko, lapis: "1b", t: new Date().toISOString() }));

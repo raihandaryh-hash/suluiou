@@ -11,14 +11,19 @@ function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean
   const ada = cacheAdmin.get(userId);
   if (ada) return ada;
   const janji = (async () => {
-    const { data: s } = await supabase.auth.getSession();
+    const { data: s, error: sErr } = await supabase.auth.getSession();
+    if (sErr) throw sErr;
     const email = s.session?.user?.email?.toLowerCase();
     const [peran, admin] = await Promise.all([
       supabase.from('user_roles').select('role').eq('user_id', userId).eq('role', 'admin').maybeSingle(),
       email
         ? supabase.from('admin_users').select('is_super_admin').ilike('email', email).maybeSingle()
-        : Promise.resolve({ data: null }),
+        : Promise.resolve({ data: null, error: null }),
     ]);
+    // G3-017: PostgREST me-resolve { data: null, error } tanpa melempar exception; lempar agar .catch() menghapus cache.
+    if (peran.error || admin.error) {
+      throw peran.error ?? admin.error;
+    }
     const emailAdmin = (admin.data as { is_super_admin: boolean | null } | null) ?? null;
     return { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
   })();
@@ -45,6 +50,7 @@ export function useAuth() {
             checkAdminRole(session.user.id);
           }, 0);
         } else {
+          cacheAdmin.clear();
           setIsAdmin(false);
           setIsSuperAdmin(false);
           setLoading(false);

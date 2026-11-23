@@ -17,8 +17,11 @@ let sedangCek: Promise<boolean> | null = null;
 export async function bolehSimpan(paksa = false): Promise<boolean> {
   // Panggilan serentak (mis. tiga bacaFase sekaligus) berbagi satu pemeriksaan.
   if (!paksa && sedangCek) return sedangCek;
-  sedangCek = bolehSimpanSekali(paksa).finally(() => { sedangCek = null; });
-  return sedangCek;
+  const p: Promise<boolean> = bolehSimpanSekali(paksa).finally(() => {
+    if (sedangCek === p) sedangCek = null;
+  });
+  sedangCek = p;
+  return p;
 }
 
 async function bolehSimpanSekali(paksa: boolean): Promise<boolean> {
