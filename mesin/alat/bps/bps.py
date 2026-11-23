@@ -1,11 +1,13 @@
 """Panggil BPS WebAPI tanpa pernah mencetak kunci.
 Pakai: python bps.py JALUR [BERKAS_SIMPAN]
   contoh JALUR: list/model/var/domain/0000/keyword/miskin
-Kunci dibaca dari Sulu Build\\kunci-lokal\\bps.txt (milik Raihan, jangan disalin ke mana pun)
+Kunci dibaca dari berkas yang ditunjuk variabel lingkungan BPS_KUNCI_BERKAS;
+bila kosong, dari Sulu Build\\kunci-lokal\\bps.txt di laptop Raihan (jangan disalin ke mana pun)
 dan dihapus dari setiap keluaran, pesan galat, dan berkas simpanan."""
-import hashlib, sys, urllib.request
+import hashlib, os, sys, urllib.request
 
-KUNCI = open(r"C:\Users\p\Documents\IOU\Foresight\Sulu Build\kunci-lokal\bps.txt", encoding="utf-8").read().strip()
+_BAWAAN = r"C:\Users\p\Documents\IOU\Foresight\Sulu Build\kunci-lokal\bps.txt"
+KUNCI = open(os.environ.get("BPS_KUNCI_BERKAS") or _BAWAAN, encoding="utf-8").read().strip()
 
 def bersih(s):
     return s.replace(KUNCI, "[dihapus]")
