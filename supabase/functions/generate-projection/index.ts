@@ -12,7 +12,7 @@ const INDONESIA_MACRO_CONTEXT = `
 === KONTEKS INDONESIA 2025–2030 ===
 
 MOMENTUM SEJARAH (anchor narasi ke sini):
-- Puncak bonus demografi: 2025–2035. 208 juta jiwa produktif. Setelah 2035, rasio ketergantungan naik lagi. Jendela ini tidak berulang.
+- Puncak bonus demografi: 2025–2035. Sekitar 201 juta penduduk usia 15–64 tahun pada 2030 (BPS, Proyeksi Penduduk 2020–2050). Setelah 2035, rasio ketergantungan naik lagi. Jendela ini tidak berulang.
 - Indonesia Emas 2045: target top-5 ekonomi dunia. BAPPENAS: kunci adalah Total Factor Productivity via inovasi + pendidikan, bukan hanya kapital.
 - K-shaped recovery: pemuda dengan keterampilan tinggi naik cepat, sisanya tertinggal. Gap ini melebar setiap tahun.
 

@@ -1,3 +1,7 @@
+// G2-26 (23 Nov 2026): satu angka bonus demografi 2030 di seluruh Sulu. Sumber: BPS, Proyeksi Penduduk Indonesia
+// 2020-2050 Hasil SP2020 (2023, ISBN 978-602-438-521-7, https://sensus.bps.go.id/publikasi/detail/29739):
+// penduduk 2030 sekitar 294,1 juta, usia 15-64 tahun 68,28 persen -> sekitar 201 juta (200,8).
+// [BELUM DIVERIFIKASI ke tabel primer BPS: 294,1 dan 68,28 dibaca dari kutipan sekunder yang mengutip BPS.]
 // src/data/glossaryContent.ts
 // Kamus istilah ekonomi & ketenagakerjaan Sulu.
 // Sumber VERBATIM: Notion "Inventori Istilah Ekonomi & Ketenagakerjaan" (370a045d995781e8bc21c22d7372ebcd).
@@ -185,7 +189,7 @@ export const glossaryCategories: GlossaryCategory[] = [
       {
         id: "bonus-demografi",
         term: "Bonus Demografi 2030-2035",
-        data: "201 juta jiwa angkatan kerja potensial pada 2030. Jendela ini tidak berulang.",
+        data: "Sekitar 201 juta penduduk usia produktif (15–64 tahun) pada 2030. Jendela ini tidak berulang.",
       },
       {
         id: "green-economy",

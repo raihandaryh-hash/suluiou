@@ -1,3 +1,7 @@
+// G2-26 (23 Nov 2026): satu angka bonus demografi 2030 di seluruh Sulu. Sumber: BPS, Proyeksi Penduduk Indonesia
+// 2020-2050 Hasil SP2020 (2023, ISBN 978-602-438-521-7, https://sensus.bps.go.id/publikasi/detail/29739):
+// penduduk 2030 sekitar 294,1 juta, usia 15-64 tahun 68,28 persen -> sekitar 201 juta (200,8).
+// [BELUM DIVERIFIKASI ke tabel primer BPS: 294,1 dan 68,28 dibaca dari kutipan sekunder yang mengutip BPS.]
 // Konteks makro Indonesia 2025–2030 untuk grounding narasi Layer 3 (proyeksi).
 // Update terakhir: April 2026. Update per kuartal atau saat ada data
 // BPS/BAPPENAS baru yang signifikan.
@@ -10,7 +14,7 @@ export const INDONESIA_MACRO_CONTEXT = `
 === KONTEKS INDONESIA 2025–2030 ===
 
 MOMENTUM SEJARAH (anchor narasi ke sini):
-- Puncak bonus demografi: 2025–2035. 208 juta jiwa produktif. Setelah 2035, rasio ketergantungan naik lagi. Jendela ini tidak berulang.
+- Puncak bonus demografi: 2025–2035. Sekitar 201 juta penduduk usia 15–64 tahun pada 2030 (BPS, Proyeksi Penduduk 2020–2050). Setelah 2035, rasio ketergantungan naik lagi. Jendela ini tidak berulang.
 - Indonesia Emas 2045: target top-5 ekonomi dunia. BAPPENAS: kunci adalah Total Factor Productivity via inovasi + pendidikan, bukan hanya kapital.
 - K-shaped recovery: pemuda dengan keterampilan tinggi naik cepat, sisanya tertinggal. Gap ini melebar setiap tahun.
 

@@ -1,3 +1,7 @@
+// G2-26 (23 Nov 2026): satu angka bonus demografi 2030 di seluruh Sulu. Sumber: BPS, Proyeksi Penduduk Indonesia
+// 2020-2050 Hasil SP2020 (2023, ISBN 978-602-438-521-7, https://sensus.bps.go.id/publikasi/detail/29739):
+// penduduk 2030 sekitar 294,1 juta, usia 15-64 tahun 68,28 persen -> sekitar 201 juta (200,8).
+// [BELUM DIVERIFIKASI ke tabel primer BPS: 294,1 dan 68,28 dibaca dari kutipan sekunder yang mengutip BPS.]
 export type Block =
   | { t: 'p'; x: string }
   | { t: 'ayat'; ar: string; tr: string; ref: string };
@@ -7,7 +11,7 @@ export const mukadimahBabak = {
 
   intro: [
     "Tahukah kamu, bahwa Indonesia sedang menghadapi momen krusial? Pada tahun 2030, kita akan mengalami **puncak bonus demografi yang takkan terulang sepanjang masa.**",
-    "Tahun 2030, mayoritas populasi kita diisi anak muda produktif, yakni 199 juta dari total 286 juta populasi (69,51 persen), dan kita adalah negara dengan populasi terbanyak di ASEAN, serta ke-4 di dunia!",
+    "Tahun 2030, sekitar 201 juta dari 294 juta penduduk kita berada di usia produktif (68 persen). Kita negara dengan penduduk terbanyak di ASEAN dan ke-4 di dunia!",
     "Jika Soekarno berkata, dengan 10 pemuda ia akan mengguncang dunia, bagaimana menurutmu jika ratusan juta pemuda Indonesia menjadi versi terbaik dirinya di momen tersebut? Yang beriman lagi berakhlak mulia, beridentitas kuat lagi berpikiran terbuka dan maju, bergotong royong dan peduli sekitar, mandiri lagi tangguh, bernalar kritis, serta kreatif dalam membuat inovasi-inovasi yang berdampak?",
   ],
 
