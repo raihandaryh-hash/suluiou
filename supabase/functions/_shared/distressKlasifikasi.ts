@@ -4,7 +4,8 @@
 // (penyedia.ts: Anthropic bawaan sejak KEPUTUSAN 11 Nov 2026 10.21, Gemini lewat saklar balik).
 // Teks yang dinilai disamarkan bila pemanggil memberi Samaran.
 // - Risiko -> JSON rujukan statis yang sama dengan lapis 1 (jawabanDistress).
-// - Galat atau lewat 3 detik -> lanjut (lapis 2 tetap berlaku), log penghitung gagal.
+// - Galat atau lewat 3 detik -> lanjut (lapis 2 tetap berlaku), log penghitung gagal;
+//   kecuali pemanggil memberi gagalTertutup (G2-14, 23 Nov 2026): respons aman singkat.
 // - SULU_KLASIFIKASI_MATI = "1", "true", atau "ya" (tanpa membedakan huruf besar kecil) -> dilewati.
 // Log hanya penghitung: tanpa teks, tanpa identitas (B5a).
 import type { TingkatDistress } from "./distress.ts";
@@ -111,7 +112,7 @@ export async function klasifikasiRisiko(
 export async function cabangKlasifikasi(
   fn: string,
   corsHeaders: Record<string, string>,
-  cfg: KonfigKlasifikasi,
+  cfg: KonfigKlasifikasi & { gagalTertutup?: () => Response },
   ...teksPengguna: unknown[]
 ): Promise<Response | null> {
   if (saklarHidup("SULU_KLASIFIKASI_MATI")) return null;
@@ -122,7 +123,8 @@ export async function cabangKlasifikasi(
     risiko = await klasifikasiRisiko(teks, cfg);
   } catch {
     console.log(JSON.stringify({ evt: "distress_klasifikasi_gagal", fn, t: new Date().toISOString() }));
-    return null;
+    // G2-14: pemanggil boleh meminta gagal tertutup (career-chat untuk di bawah 18).
+    return cfg.gagalTertutup ? cfg.gagalTertutup() : null;
   }
   if (risiko === "aman") return null;
   console.log(JSON.stringify({ evt: "distress_cabang", fn, tingkat: risiko, lapis: "1b", t: new Date().toISOString() }));

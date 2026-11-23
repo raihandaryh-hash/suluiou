@@ -139,12 +139,14 @@ describe("usia", () => {
     expect(putuskanUsia({ app_metadata: { dewasa: true }, is_anonymous: true })).toBe("bawah18");
     expect(putuskanUsia(null)).toBe("bawah18");
   });
-  it("tanpa token atau gagal baca akun → bawah18", async () => {
+  it("tanpa token atau gagal baca akun → anon (G2-13: ditolak fungsi AI)", async () => {
     const tanpa = new Request("https://x");
-    expect(await statusUsiaPermintaan(tanpa, { supabaseUrl: "https://s", anonKey: "a" })).toBe("bawah18");
+    expect(await statusUsiaPermintaan(tanpa, { supabaseUrl: "https://s", anonKey: "a" })).toBe("anon");
     const req = new Request("https://x", { headers: { authorization: "Bearer t" } });
     const gagal = (async () => new Response("", { status: 401 })) as unknown as typeof fetch;
-    expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, gagal)).toBe("bawah18");
+    expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, gagal)).toBe("anon");
+    const anak = (async () => new Response(JSON.stringify({ app_metadata: {} }))) as unknown as typeof fetch;
+    expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, anak)).toBe("bawah18");
     const ok = (async () => new Response(JSON.stringify({ app_metadata: { dewasa: true } }))) as unknown as typeof fetch;
     expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, ok)).toBe("dewasa");
   });
