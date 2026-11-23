@@ -2,6 +2,31 @@ import { useState, useEffect } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
+// Waktu muat Spine B (23 Nov 2026): tiap komponen yang memanggil useAuth dulu mengirim sendiri
+// user_roles + auth/v1/user + admin_users (6 komponen -> 18 permintaan, berantai, 4-8 detik sebelum isi halaman).
+// Kini satu pemeriksaan per akun dibagi semua komponen, dan email dibaca dari sesi lokal, bukan dari server.
+const cacheAdmin = new Map<string, Promise<{ admin: boolean; superAdmin: boolean }>>();
+
+function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean }> {
+  const ada = cacheAdmin.get(userId);
+  if (ada) return ada;
+  const janji = (async () => {
+    const { data: s } = await supabase.auth.getSession();
+    const email = s.session?.user?.email?.toLowerCase();
+    const [peran, admin] = await Promise.all([
+      supabase.from('user_roles').select('role').eq('user_id', userId).eq('role', 'admin').maybeSingle(),
+      email
+        ? supabase.from('admin_users').select('is_super_admin').ilike('email', email).maybeSingle()
+        : Promise.resolve({ data: null }),
+    ]);
+    const emailAdmin = (admin.data as { is_super_admin: boolean | null } | null) ?? null;
+    return { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
+  })();
+  janji.catch(() => cacheAdmin.delete(userId));
+  cacheAdmin.set(userId, janji);
+  return janji;
+}
+
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -43,29 +68,7 @@ export function useAuth() {
 
   const checkAdminRole = async (userId: string) => {
     try {
-      // 1. Cek user_roles (admin lama)
-      const { data: roleData } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', userId)
-        .eq('role', 'admin')
-        .maybeSingle();
-
-      // 2. Cek admin_users by email (admin baru) — also reads is_super_admin.
-      const { data: userData } = await supabase.auth.getUser();
-      const email = userData.user?.email?.toLowerCase();
-      let emailAdmin: { is_super_admin: boolean | null } | null = null;
-      if (email) {
-        const { data } = await supabase
-          .from('admin_users')
-          .select('is_super_admin')
-          .ilike('email', email)
-          .maybeSingle();
-        emailAdmin = (data as { is_super_admin: boolean | null } | null) ?? null;
-      }
-
-      const admin = !!roleData || !!emailAdmin;
-      const superAdmin = !!emailAdmin?.is_super_admin;
+      const { admin, superAdmin } = await cekAdmin(userId);
       setIsAdmin(admin);
       setIsSuperAdmin(superAdmin);
     } catch {
@@ -96,6 +99,7 @@ export function useAuth() {
 
   const signOut = async () => {
     await supabase.auth.signOut();
+    cacheAdmin.clear();
     setUser(null);
     setSession(null);
     setIsAdmin(false);
