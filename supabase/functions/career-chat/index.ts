@@ -2,14 +2,17 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
+import { corsHeaders } from "../_shared/cors.ts";
+import { gerbangAI } from "../_shared/gerbang.ts";
 import { sseGemini } from "../_shared/penyedia.ts";
 import { TEKS_OBROLAN_TERKUNCI } from "../_shared/usia.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+import { rapikanPesan } from "../_shared/pesan.ts";
+
+/** G2-14: respons aman singkat untuk di bawah 18 bila pengklasifikasi gagal atau lewat batas waktu. */
+const TEKS_AMAN_SINGKAT =
+  "Maaf, Sulu belum bisa menjawab sekarang. Coba kirim lagi sebentar lagi. Kalau ada yang sedang berat, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
+
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -25,7 +28,14 @@ serve(async (req) => {
   }
 
   try {
-    const { messages, studentContext = {} } = await req.json();
+    const { messages: messagesMentah, studentContext = {} } = await req.json();
+    const messages = rapikanPesan(messagesMentah);
+    if (!messages) {
+      return new Response(JSON.stringify({ error: "Format pesan tidak sah." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const teksUser = Array.isArray(messages)
@@ -43,11 +53,22 @@ serve(async (req) => {
     if (cabang) return cabang;
     // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
     const siap = await siapkanAI(req, { messages, studentContext }, [["nama", studentContext?.studentProfile?.name]]);
+    // G2-13: tanpa akun sah -> 401, batas laju -> 429, sebelum pengklasifikasi dan model.
+    const gerbang = await gerbangAI(req, "career-chat", corsHeaders, siap);
+    if (gerbang) return gerbang;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "career-chat",
       corsHeaders,
-      { ai: siap.ai, samaran: siap.samaran },
+      {
+        ai: siap.ai,
+        samaran: siap.samaran,
+        // G2-14: untuk di bawah 18 (status akun, tidak bergantung saklar mode c), gagal atau lewat batas waktu
+        // pengklasifikasi tidak lagi lolos ke model utama, tetapi dijawab respons aman singkat.
+        gagalTertutup: siap.usia === "bawah18"
+          ? () => new Response(sseGemini(TEKS_AMAN_SINGKAT), { headers: { ...corsHeaders, "Content-Type": "text/event-stream" } })
+          : undefined,
+      },
       teksUser, teksKonteks,
     );
     if (cabang1b) return cabang1b;
@@ -159,9 +180,9 @@ ${profileBlock}${scoresBlock}${reflectionBlock}${pathwayBlock}`;
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          contents: [
-            { role: "user", parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ systemPrompt + ARAHAN_LAPIS_KEDUA + "\n\n" + messages.map((m: { role: string; content: string }) => `${m.role}: ${m.content}`).join("\n") }] }
-          ],
+          // G2-14: arahan sistem di systemInstruction (diteruskan penyedia.ts sebagai system), bukan digabung ke pesan pengguna.
+          systemInstruction: { parts: [{ text: /* B9 lapis kedua */ systemPrompt + ARAHAN_LAPIS_KEDUA }] },
+          contents: messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
           generationConfig: {
             maxOutputTokens: 1024,
             temperature: 0.8,

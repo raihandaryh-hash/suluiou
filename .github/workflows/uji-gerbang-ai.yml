@@ -1,0 +1,14 @@
+# Uji gerbang fungsi AI (G2-13, G2-14; titipan Kepala Staf 23 Nov 2026 butir 4a dan 4b).
+# Keluar 0 bila semua uji lulus, 1 bila satu gagal. Tanpa jaringan ke penyedia AI: fetch dipalsukan.
+name: uji-gerbang-ai
+on:
+  pull_request:
+    paths: ["supabase/functions/**", ".github/workflows/uji-gerbang-ai.yml"]
+jobs:
+  uji:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with: { deno-version: v2.x }
+      - run: deno test -A --no-check --import-map=supabase/functions/_uji/import_map.json supabase/functions/_uji/

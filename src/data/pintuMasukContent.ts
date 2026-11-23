@@ -121,7 +121,7 @@ export const TEKS_PINTU: Record<VarianTeks, TeksPintu> = {
     lanjut: 'Lanjut',
     judulKonfirmasi: 'Sudah pas?',
     ringkasan: (p, d) => `${p}, ${d ? 'sudah 18 tahun' : 'belum 18 tahun'}.`,
-    akibatAnak: 'Karena belum 18 tahun, obrolan bebas belum terbuka dan hasilmu disimpan di perangkat ini saja. Begitu izin orang tua masuk lewat sekolah, semuanya terbuka.',
+    akibatAnak: 'Karena belum 18 tahun, hasilmu disimpan di perangkat ini saja sampai izin orang tua masuk lewat sekolah.',
     akibatDewasa: 'Karena sudah 18 tahun, kamu bisa memakai semua fitur dan menyimpan hasil di akun.',
     peringatanKunci: 'Kamu punya 15 menit untuk mengubahnya sendiri. Lewat dari itu, admin yang membantu mengubah.',
     yaBenar: 'Sudah pas',

@@ -2,12 +2,9 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
+import { corsHeaders } from "../_shared/cors.ts";
+import { gerbangAI } from "../_shared/gerbang.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
 
 // Macro context — diinjeksi ke system prompt sebagai "dapur" AI.
 // Update per kuartal saat ada data BPS/BAPPENAS baru yang signifikan.
@@ -125,6 +122,9 @@ serve(async (req) => {
     if (cabang) return cabang;
     // Penyedia, usia, mode (c), samaran (KEPUTUSAN Raihan 11 Nov 2026 10.21).
     const siap = await siapkanAI(req, badan);
+    // G2-13: tanpa akun sah -> 401, batas laju -> 429, sebelum pengklasifikasi dan model.
+    const gerbang = await gerbangAI(req, "generate-projection", corsHeaders, siap);
+    if (gerbang) return gerbang;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-projection",
