@@ -346,12 +346,12 @@ export default function Compass() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="group flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-xs hover:border-primary/40 hover:bg-primary/[0.03] transition-colors"
+              className="group flex items-start gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-xs hover:border-primary/40 hover:bg-primary/[0.03] transition-colors"
             >
               <span className="font-semibold text-muted-foreground group-hover:text-primary">
                 0{i + 1}
               </span>
-              <span className="text-foreground/80 truncate">{s.tag}</span>
+              <span className="text-foreground/80 leading-snug">{s.tag}</span>
             </a>
           ))}
         </motion.nav>

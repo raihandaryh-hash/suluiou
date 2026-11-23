@@ -1,3 +1,7 @@
+// G2-26 (23 Nov 2026): satu angka bonus demografi 2030 di seluruh Sulu. Sumber: BPS, Proyeksi Penduduk Indonesia
+// 2020-2050 Hasil SP2020 (2023, ISBN 978-602-438-521-7, https://sensus.bps.go.id/publikasi/detail/29739):
+// penduduk 2030 sekitar 294,1 juta, usia 15-64 tahun 68,28 persen -> sekitar 201 juta (200,8).
+// [BELUM DIVERIFIKASI ke tabel primer BPS: 294,1 dan 68,28 dibaca dari kutipan sekunder yang mengutip BPS.]
 // All textual content for the /insight page. No strings hardcoded in JSX.
 // Persona-aware: 'siswa' | 'orangtua' | 'gurubk' | 'mahasiswa'.
 
@@ -63,7 +67,7 @@ export const hero = {
     targetIso: '2030-01-01',
     years: { suffix: 'tahun tersisa menuju 2030' },
     months: { suffix: 'bulan untuk bergerak' },
-    fixed: { value: '201 juta', suffix: 'jiwa angkatan kerja potensial menuju 2030' },
+    fixed: { value: '201 juta', suffix: 'penduduk usia produktif (15–64 tahun) pada 2030' },
   },
 };
 
@@ -328,7 +332,7 @@ export const worldSection = {
     },
     {
       value: '2030–2035', label: 'puncak bonus demografi Indonesia',
-      detail: 'Proporsi penduduk usia produktif mencapai 68–70% dari total populasi. Bappenas memproyeksikan angkatan kerja potensial mencapai 201 juta jiwa pada 2030. Setelah 2035, rasio ketergantungan mulai naik. Jendela ini tidak berulang.',
+      detail: 'Proporsi penduduk usia produktif mencapai 68–70% dari total populasi. BPS memproyeksikan penduduk usia produktif (15–64 tahun) sekitar 201 juta jiwa pada 2030. Setelah 2035, rasio ketergantungan mulai naik. Jendela ini tidak berulang.',
       source: 'Proyeksi Penduduk Indonesia 2020–2050, Bappenas/BPS; RPJPN 2025–2045', tone: 'neutral' as Tone,
       artinya: {
         siswa: 'Kamu masuk pasar kerja tepat di puncak bonus demografi. Ini bisa jadi keuntungan atau tekanan, tergantung persiapanmu.',

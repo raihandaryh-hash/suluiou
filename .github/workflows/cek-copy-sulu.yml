@@ -1,0 +1,13 @@
+# cek-copy-sulu (G2-26): menolak teks tayang berawalan "DRAF: " dan jadwal pendaftaran yang sudah lewat.
+name: cek-copy-sulu
+on:
+  pull_request:
+    paths: ["src/**", "skrip/cek-copy-sulu.mjs", ".github/workflows/cek-copy-sulu.yml"]
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node skrip/cek-copy-sulu.mjs

@@ -24,10 +24,10 @@ interface PathwayCard {
 const pathways: PathwayCard[] = [
   {
     name: 'PTN Jalur Mandiri',
-    badge: 'Masih Buka',
-    badgeVariant: 'success',
+    badge: 'Seleksi PTN',
+    badgeVariant: 'muted',
     description:
-      'Sebagian besar PTN membuka jalur mandiri Juli–Agustus 2026. Periksa langsung website PTN yang kamu tuju.',
+      'Jalur mandiri dibuka masing-masing PTN dengan jadwal sendiri. Periksa langsung website PTN yang kamu tuju.',
     deadline: 'Cek website PTN masing-masing',
     ctaText: 'Cara cek jadwal mandiri →',
     ctaLink: 'https://snpmb.bppp.kemdikbud.go.id',
@@ -35,10 +35,10 @@ const pathways: PathwayCard[] = [
   },
   {
     name: 'UM-PTKIN',
-    badge: 'Segera Tutup',
-    badgeVariant: 'warning',
+    badge: 'PTKIN',
+    badgeVariant: 'muted',
     description:
-      'Ujian Masuk Perguruan Tinggi Keagamaan Islam Negeri — untuk UIN, IAIN, STAIN. Diselenggarakan Kemenag.',
+      'Ujian Masuk Perguruan Tinggi Keagamaan Islam Negeri untuk UIN, IAIN, dan STAIN. Diselenggarakan Kemenag.',
     deadline: 'Pendaftaran: cek spmb-ptkin.ac.id',
     ctaText: 'Info UM-PTKIN →',
     ctaLink: 'https://spmb-ptkin.ac.id',
@@ -49,7 +49,7 @@ const pathways: PathwayCard[] = [
     badge: 'Untuk Santri',
     badgeVariant: 'muted',
     description:
-      'Program Beasiswa Santri Berprestasi — beasiswa penuh ke PTN pilihan untuk lulusan pesantren.',
+      'Program Beasiswa Santri Berprestasi: beasiswa penuh ke PTN pilihan untuk lulusan pesantren.',
     deadline: 'Cek jadwal di website Kemenag',
     ctaText: 'Info PBSB →',
     ctaLink: 'https://pbsb.kemenag.go.id',
@@ -60,8 +60,8 @@ const pathways: PathwayCard[] = [
     badge: 'Beasiswa',
     badgeVariant: 'muted',
     description:
-      'Kartu Indonesia Pintar Kuliah — bantuan biaya kuliah dan biaya hidup untuk keluarga kurang mampu. Bisa diajukan ke PTN maupun PTS terakreditasi.',
-    deadline: 'Daftar: Feb–Okt 2026 (cek kip-kuliah.kemdikbud.go.id)',
+      'Kartu Indonesia Pintar Kuliah: bantuan biaya kuliah dan biaya hidup untuk keluarga kurang mampu. Bisa diajukan ke PTN maupun PTS terakreditasi.',
+    deadline: 'Cek jadwal pendaftaran tahun berjalan di kip-kuliah.kemdikbud.go.id',
     ctaText: 'Info KIP Kuliah →',
     ctaLink: 'https://kip-kuliah.kemdikbud.go.id',
     jalur: 'kip_kuliah',
@@ -88,7 +88,7 @@ const pathways: PathwayCard[] = [
     badge: 'Jalur Lain',
     badgeVariant: 'muted',
     description:
-      'Bekerja, magang, atau membangun keahlian dulu sebelum kuliah bukan kekalahan — ini strategi yang diambil banyak yang akhirnya masuk jalur terbaik mereka.',
+      'Bekerja, magang, atau membangun keahlian dulu sebelum kuliah juga strategi. Banyak orang menempuhnya lalu masuk jalur terbaik mereka.',
     deadline: '(tidak ada deadline)',
     ctaText: 'Sumber gap year →',
     ctaLink: 'https://kampusgratis.id',
@@ -155,7 +155,7 @@ const Programs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Perjalananmu tidak berhenti di pengumuman PTN. Ini semua jalur yang tersedia — informasi, bukan tekanan.
+            Perjalananmu tidak berhenti di pengumuman PTN. Ini semua jalur yang tersedia sebagai informasi untukmu.
           </motion.p>
         </div>
       </section>
