@@ -51,7 +51,7 @@ serve(async (req) => {
     });
   }
 
-  // A7: kunci asesmen di server kini lewat gerbangAsesmen sesudah identitas diketahui (dewasa lolos, siswa tertutup).
+  // A7: kunci asesmen di server kini lewat gerbangAsesmen sesudah identitas diketahui.
 
   try {
     const badan = await req.json();
@@ -79,8 +79,8 @@ serve(async (req) => {
     // G2-13: tanpa akun sah -> 401, batas laju -> 429, sebelum pengklasifikasi dan model.
     const gerbang = await gerbangAI(req, "generate-layer1", corsHeaders, siap);
     if (gerbang) return gerbang;
-    // Spine A: hanya akun dewasa (KEPUTUSAN 6 Jul), siswa tetap tertutup.
-    const gerbangA = gerbangAsesmen("generate-layer1", corsHeaders, siap);
+    // Spine A: admin selalu; dewasa bila dibuka Raihan; siswa tertutup (KEPUTUSAN 6 Jul).
+    const gerbangA = await gerbangAsesmen("generate-layer1", corsHeaders, siap);
     if (gerbangA) return gerbangA;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(

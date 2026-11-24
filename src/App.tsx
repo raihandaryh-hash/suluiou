@@ -144,7 +144,7 @@ const App = () => {
             <Route path="/mukadimah" element={<Mukadimah />} />
             <Route path="/login" element={<Login />} />
             {/* Legacy /join route — kept as a redirect into the new Step 0 flow. */}
-            <Route path="/join" element={<Navigate to={asesmenTerbuka() ? "/profile" : SPINE_B_AWAL} replace />} />
+            <Route path="/join" element={<AsesmenGuard><Navigate to="/profile" replace /></AsesmenGuard>} />
             <Route path="/profile" element={<AsesmenGuard><Profile /></AsesmenGuard>} />
             <Route path="/consent" element={<AsesmenGuard><Consent /></AsesmenGuard>} />
             <Route path="/assessment" element={<AsesmenGuard><Assessment /></AsesmenGuard>} />

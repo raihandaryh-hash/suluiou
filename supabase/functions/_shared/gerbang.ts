@@ -50,22 +50,33 @@ async function lajuBawaan(req: Request, aksi: string, userId?: string | null): P
 }
 
 /**
- * Gerbang asesmen di server (Spine A): akun di bawah 18 dan tamu tidak dilayani fungsi hasil asesmen.
- * KEPUTUSAN 1 Jun, 3 Jul, 6 Jul: asesmen tertutup untuk siswa, untuk mahasiswa (dewasa) lewat login.
- * SULU_ASESMEN_TERBUKA = "1" membukanya untuk semua akun termasuk siswa (keputusan Raihan saja, sesudah SME).
- * Akun dewasa (termasuk peninjau) selalu dilayani; tampilan asesmen untuk dewasa tetap dikunci flag klien.
+ * Gerbang asesmen di server (Spine A). KEPUTUSAN 1 Jun, 3 Jul, 6 Jul: tertutup untuk siswa; untuk mahasiswa (dewasa) lewat login.
+ * Urutan:
+ *  - SULU_ASESMEN_TERBUKA = "1": semua akun (keputusan Raihan saja, sesudah SME).
+ *  - admin: selalu, untuk peninjauan Raihan dan SME.
+ *  - akun dewasa: hanya bila SULU_ASESMEN_DEWASA_TERBUKA = "1" (keputusan Raihan saja, pasangan flag klien ASESMEN_DEWASA_TERBUKA).
+ *  - selain itu: 503 {"error":"asesmen_tertutup"}, kode yang sudah dikenali klien (services/api.ts bacaDitutup).
  */
-export function gerbangAsesmen(
+export async function gerbangAsesmen(
   fn: string,
   corsHeaders: Record<string, string>,
-  siap: { usia: string },
+  siap: { usia: string; userId?: string | null },
   get: (k: string) => string | undefined = (k) => Deno.env.get(k),
-): Response | null {
-  if (siap.usia === "dewasa") return null;
+  cekAdmin: (uid: string) => Promise<boolean> = adminBawaan,
+): Promise<Response | null> {
   if ((get("SULU_ASESMEN_TERBUKA") || "").trim() === "1") return null;
-  console.log(JSON.stringify({ evt: "asesmen_tolak_bawah18", fn, t: new Date().toISOString() }));
-  return new Response(JSON.stringify({ error: "Asesmen belum dibuka untuk akunmu." }), {
-    status: 403,
+  if (siap.userId) {
+    try { if (await cekAdmin(siap.userId)) return null; } catch { /* gagal tertutup */ }
+  }
+  if (siap.usia === "dewasa" && (get("SULU_ASESMEN_DEWASA_TERBUKA") || "").trim() === "1") return null;
+  console.log(JSON.stringify({ evt: "asesmen_tertutup", fn, t: new Date().toISOString() }));
+  return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
+    status: 503,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
+}
+
+async function adminBawaan(uid: string): Promise<boolean> {
+  const { klienLayanan, adalahAdmin } = await import("./pintu.ts");
+  return adalahAdmin(klienLayanan(), uid);
 }

@@ -31,12 +31,36 @@ function sesiAuth(): { id?: string; app_metadata?: Record<string, unknown> } | n
   return null;
 }
 
+function adminTercatat(uid: string): boolean {
+  try { return sessionStorage.getItem(KUNCI_ADMIN + uid) === '1'; } catch { return false; }
+}
+
+/** Hapus semua tanda admin (dipanggil saat keluar). */
+export function hapusTandaAdmin() {
+  try {
+    for (let i = sessionStorage.length - 1; i >= 0; i--) {
+      const k = sessionStorage.key(i) ?? '';
+      if (k.startsWith(KUNCI_ADMIN)) sessionStorage.removeItem(k);
+    }
+  } catch { /* abaikan */ }
+}
+
 export function asesmenTerbuka(): boolean {
   if (ASESMEN_TERBUKA) return true;
+  const u = sesiAuth();
+  // Admin cukup punya sesi akun (Google atau email admin), tanpa sesi siswa.
+  if (u?.id && adminTercatat(u.id)) return true;
   const s = getStudentSession();
   if (s?.kind !== 'google') return false;
-  const u = sesiAuth();
   if (!u?.id || u.id !== s.userId) return false;
-  try { if (sessionStorage.getItem(KUNCI_ADMIN + u.id) === '1') return true; } catch { /* abaikan */ }
   return ASESMEN_DEWASA_TERBUKA && u.app_metadata?.dewasa === true;
+}
+
+/** Versi yang menunggu pemeriksaan admin selesai (untuk perutean sesudah login, sebelum useAuth sempat jalan). */
+export async function asesmenTerbukaAsync(cekAdmin: (uid: string) => Promise<{ admin: boolean }>): Promise<boolean> {
+  if (asesmenTerbuka()) return true;
+  const u = sesiAuth();
+  if (!u?.id) return false;
+  try { await cekAdmin(u.id); } catch { /* catatAdmin sudah dipanggil */ }
+  return asesmenTerbuka();
 }

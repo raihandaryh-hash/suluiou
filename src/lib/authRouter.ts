@@ -5,7 +5,8 @@ import { cariKelasDariKode } from '@/lib/cariKelas';
 import { patchStudentSession, type StudentSession } from '@/lib/classSession';
 import { getPendingClassCode, clearPendingClassCode } from '@/lib/pendingClassCode';
 import {SPINE_B_AWAL} from '@/data/flags';
-import { asesmenTerbuka } from '@/lib/aksesAsesmen';
+import { asesmenTerbukaAsync } from '@/lib/aksesAsesmen';
+import { cekAdmin } from '@/hooks/useAuth';
 import { keServer, pemilikPerangkat, fetchProgress } from '@/lib/progress';
 import { bacaPerangkat, pindahkanDataServerKePerangkat, tulisPerangkat } from '@/lib/perangkat';
 
@@ -119,7 +120,7 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
   // Mode perangkat: hasil dan progres dibaca dari perangkat.
   if (!(await keServer(session))) {
     if (bacaPerangkat('hasil', pemilikPerangkat(session))) return '/results';
-    if (!asesmenTerbuka()) return SPINE_B_AWAL;
+    if (!(await asesmenTerbukaAsync(cekAdmin))) return SPINE_B_AWAL;
     const pr = await fetchProgress(session);
     if (pr) {
       if (!profileHasAllRequired((pr.student_profile ?? null) as Record<string, unknown> | null)) return '/profile';
@@ -163,7 +164,7 @@ export async function routeAfterAuth(session: StudentSession): Promise<AuthRoute
   }
 
   // A2: asesmen tertutup, semua yang bukan hasil lama diarahkan ke awal Spine B.
-  if (!asesmenTerbuka()) return SPINE_B_AWAL;
+  if (!(await asesmenTerbukaAsync(cekAdmin))) return SPINE_B_AWAL;
 
   // 3) If a progress row exists, route by what's missing.
   if (progress) {
