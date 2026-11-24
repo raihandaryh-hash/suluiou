@@ -273,16 +273,18 @@ export default function DesainLangkah({
                     </div>
                   ))}
                 </div>
-                <div className="space-y-2 pt-1">
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => window.dispatchEvent(new CustomEvent("sulu:tanya", { detail: sub(content.tanyaSuluPertanyaan) }))}
-                  >
-                    {content.tanyaSuluTombol}
-                  </Button>
-                </div>
+                {userId && (
+                  <div className="space-y-2 pt-1">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => window.dispatchEvent(new CustomEvent("sulu:tanya", { detail: sub(content.tanyaSuluPertanyaan) }))}
+                    >
+                      {content.tanyaSuluTombol}
+                    </Button>
+                  </div>
+                )}
                 {dewasa && (
                   <div className="space-y-2 pt-1">
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">

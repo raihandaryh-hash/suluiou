@@ -159,11 +159,11 @@ const Login = () => {
           setStudentSession(session);
           if (!active) return;
           if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
-            setPendingProvince({ session, forcedNext: '/results' });
+            setPendingProvince({ session, forcedNext: claim.resultId ? '/results' : null });
             return;
           }
           if (!hasRole(u.app_metadata as Record<string, unknown> | undefined)) {
-            setPendingRole({ session, forcedNext: '/results' });
+            setPendingRole({ session, forcedNext: claim.resultId ? '/results' : null });
             return;
           }
           navigate(await nextAfter(session), { replace: true });

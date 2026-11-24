@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Link } from "react-router-dom";
 import { sintesisContent as S } from "@/data/sintesisContent";
 import { jalanBaktiContent as JB } from "@/data/jalanBaktiContent";
+import { kenaliDirimuContent } from "@/data/kenaliDirimuContent";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 import TenunSintesis from "@/components/TenunSintesis";
 import { bacaFase, simpanFase } from "@/lib/perangkat";
@@ -201,10 +202,11 @@ export default function Sintesis() {
 
   // Minat (sisi-diri) tidak diambil dari sdgTags (itu sisi-lingkungan). L19 (audit niat 24 Nov):
   // sampai modul minat tersedia, pakai jawaban "ini saya banget" (d2_q1) dari Kenali Dirimu sebagai jejak minat.
-  const minatItems = useMemo<string[]>(() => {
-    const starter = "Momen ketika saya merasa 'ini saya banget' dan semuanya terasa mengalir adalah...";
-    const a = (fondasi["d2_q1"] ?? "").replace(starter, "").trim();
-    return a.length >= 3 ? [a] : [];
+  const minatBlocks = useMemo<{ q: string; a: string }[]>(() => {
+    const prompt = kenaliDirimuContent.domains.flatMap((dm) => dm.prompts).find((x) => x.id === "d2_q1");
+    const mentah = (fondasi["d2_q1"] ?? "").trim();
+    const a = (prompt && mentah.startsWith(prompt.starter) ? mentah.slice(prompt.starter.length) : mentah).trim();
+    return a.length >= 3 ? [{ q: S.triangle.dimensi.minat.jejakLabel, a }] : [];
   }, [fondasi]);
   const kemampuanItems = useMemo(
     () => skillSelected.map((id) => COMPETENCY_LABELS[id] ?? id),
@@ -280,7 +282,7 @@ export default function Sintesis() {
           <DimensionCard
             label={T.dimensi.minat.label}
             cue={T.dimensi.minat.cue}
-            items={minatItems}
+            textBlocks={minatBlocks}
             emptyText={T.emptyState.minat}
           />
           <DimensionCard

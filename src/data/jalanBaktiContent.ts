@@ -370,4 +370,7 @@ export const rumuskanSendiriContent = {
   awalanJudul: "Peran rumusanku",
   masukIsi: "Untuk menyalakan peran, Sulu perlu tahu ini kamu. Masuk sebentar dengan akun Google, jawabanmu tetap tersimpan.",
   masukTombol: "Masuk dengan Google",
+  masukGagal: "Halaman masuk belum terbuka. Coba sekali lagi.",
+  pilihanmu: "Peran yang kamu telusuri:",
+  lepas: "Lepas",
 };

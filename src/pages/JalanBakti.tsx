@@ -42,6 +42,8 @@ type JBData = {
   rolesByMedan?: Record<string, string[]>;
   /** Peran yang dipakai di Desain Langkah bila lebih dari satu ditelusuri. */
   peranDesain?: string;
+  langkahByPeran?: Record<string, string>;
+  rumusanByMedan?: Record<string, { siapa: string; masalah: string; bangun: string }>;
   sdgTags: string[];
   subPicks: string[];
   peduliPicks: string[];
@@ -55,6 +57,8 @@ const EMPTY: JBData = {
   medanLain: [],
   rolesByMedan: {},
   peranDesain: "",
+  langkahByPeran: {},
+  rumusanByMedan: {},
   sdgTags: [],
   subPicks: [],
   peduliPicks: [],
@@ -62,6 +66,46 @@ const EMPTY: JBData = {
   langkah: "",
   refleksi: "",
 };
+
+// Peran yang sedang dirancang langkahnya: pilihan siswa bila masih ada, selain itu peran pertama.
+function peranAktif(p: JBData): string {
+  return p.peranDesain && p.roles.includes(p.peranDesain) ? p.peranDesain : p.roles[0] ?? "";
+}
+
+// Medan pemilik sebuah peran (untuk nama medan di langkah dan permintaan jembatan).
+function medanPemilik(p: JBData, peran: string): string | null {
+  const hit = Object.entries(p.rolesByMedan ?? {}).find(([, rs]) => rs.includes(peran));
+  return hit?.[0] ?? p.medan;
+}
+
+// Ganti peran aktif: langkah peran lama disimpan, langkah peran baru dipulihkan (atau kosong),
+// supaya baris langkah tidak membawa nama peran lain dan batas dua langkah tetap per peran.
+function pindahLangkah(p: JBData, lama: string): JBData {
+  const tujuan = peranAktif(p);
+  if (lama === tujuan) return p;
+  const simpan = { ...(p.langkahByPeran ?? {}) };
+  if (lama && p.langkah) simpan[lama] = p.langkah;
+  return { ...p, langkahByPeran: simpan, langkah: simpan[tujuan] ?? "" };
+}
+
+function gantiPeranAktif(p: JBData, next: string): JBData {
+  return pindahLangkah({ ...p, peranDesain: next }, peranAktif(p));
+}
+
+// Susun ulang daftar peran dari peran per medan (tanpa duplikat), jaga langkah bila peran aktif berubah.
+function aturPeran(p: JBData, byMedan: Record<string, string[]>): JBData {
+  const roles = [...new Set(Object.values(byMedan).flat())];
+  const peranDesain = roles.includes(p.peranDesain ?? "") ? p.peranDesain : "";
+  return pindahLangkah({ ...p, rolesByMedan: byMedan, roles, peranDesain }, peranAktif(p));
+}
+
+// Data lama (sebelum multi-medan): peran tersimpan di `roles` tanpa rolesByMedan.
+function migrasiData(p: JBData): JBData {
+  if (p.medan && p.roles.length && !Object.keys(p.rolesByMedan ?? {}).length) {
+    return { ...p, rolesByMedan: { [p.medan]: p.roles } };
+  }
+  return p;
+}
 
 // ── STEPPER: 4 langkah. currentStep TIDAK dipersist — reload = mulai dari
 // step 1, jawaban (objek `d`) tetap persist di localStorage/Supabase seperti semula.
@@ -211,14 +255,18 @@ export default function JalanBakti() {
         if (user) {
           const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
           if (data?.data) {
-            const merged = { ...EMPTY, ...(data.data as JBData) };
+            const merged = migrasiData({ ...EMPTY, ...(data.data as JBData) });
             setD(merged);
             // Mirror to localStorage so compileSurat() can read it.
             localStorage.setItem(LS_KEY, JSON.stringify(merged));
+          } else {
+            // Baru masuk dari jalur tamu (ajakan "Masuk dengan Google"): lanjutkan isian di perangkat ini.
+            const raw = localStorage.getItem(LS_KEY);
+            if (raw) setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
           }
         } else {
           const raw = localStorage.getItem(LS_KEY);
-          if (raw) setD({ ...EMPTY, ...JSON.parse(raw) });
+          if (raw) setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
         }
       } catch (e) {
         console.error(e);
@@ -227,6 +275,12 @@ export default function JalanBakti() {
       }
     })();
   }, [user, authLoading]);
+
+  // Simpan otomatis di perangkat: isian tidak hilang saat siswa pindah ke halaman masuk lalu kembali.
+  useEffect(() => {
+    if (!hydrated) return;
+    try { localStorage.setItem(LS_KEY, JSON.stringify(d)); } catch { /* abaikan */ }
+  }, [d, hydrated]);
 
   function toggleSdg(id: string) {
     setD((p) => ({
@@ -246,16 +300,12 @@ export default function JalanBakti() {
         const subIds = new Set((k?.subTantangan ?? []).map((x) => x.id));
         delete byMedan[id];
         const sisa = terpilih.filter((x) => x !== id);
-        const roles = Object.values(byMedan).flat();
-        return {
-          ...p,
-          medan: sisa[0] ?? null,
-          medanLain: sisa.slice(1),
-          subPicks: p.subPicks.filter((x) => !subIds.has(x)),
-          rolesByMedan: byMedan,
-          roles,
-          peranDesain: roles.includes(p.peranDesain ?? "") ? p.peranDesain : "",
-        };
+        const rumusan = { ...(p.rumusanByMedan ?? {}) };
+        delete rumusan[id];
+        return aturPeran(
+          { ...p, medan: sisa[0] ?? null, medanLain: sisa.slice(1), subPicks: p.subPicks.filter((x) => !subIds.has(x)), rumusanByMedan: rumusan },
+          byMedan,
+        );
       }
       if (!p.medan) return { ...p, medan: id };
       return { ...p, medanLain: [...lain, id] };
@@ -263,11 +313,11 @@ export default function JalanBakti() {
   }
 
   function setPeranMedan(medanId: string, picked: string[]) {
-    setD((p) => {
-      const byMedan = { ...(p.rolesByMedan ?? {}), [medanId]: picked };
-      const roles = Object.values(byMedan).flat();
-      return { ...p, rolesByMedan: byMedan, roles, peranDesain: roles.includes(p.peranDesain ?? "") ? p.peranDesain : "" };
-    });
+    setD((p) => aturPeran(p, { ...(p.rolesByMedan ?? {}), [medanId]: picked }));
+  }
+
+  function pilihPeranDesain(r: string) {
+    setD((p) => gantiPeranAktif(p, r));
   }
 
   const medanTerpilih = [d.medan, ...(d.medanLain ?? [])].filter(Boolean) as string[];
@@ -666,8 +716,7 @@ export default function JalanBakti() {
                       const subLabels = medanObj
                         ? medanObj.subTantangan.filter((s) => d.subPicks.includes(s.id)).map((s) => s.label)
                         : [];
-                      // data lama (sebelum multi-medan): peran tersimpan di `roles` tanpa rolesByMedan
-                      const awal = d.rolesByMedan?.[mid] ?? (mid === d.medan && !d.rolesByMedan?.[mid] && medanTerpilih.length === 1 ? d.roles : []);
+                      const awal = d.rolesByMedan?.[mid] ?? [];
                       return (
                         <div key={`br-${mid}`} className="space-y-3">
                           {medanTerpilih.length > 1 && (
@@ -680,6 +729,8 @@ export default function JalanBakti() {
                             province={province}
                             initialPicked={awal}
                             onPickedChange={(picked) => setPeranMedan(mid, picked)}
+                            initialRumusan={d.rumusanByMedan?.[mid]}
+                            onRumusanChange={(r) => setD((p) => ({ ...p, rumusanByMedan: { ...(p.rumusanByMedan ?? {}), [mid]: r } }))}
                           />
                         </div>
                       );
@@ -709,7 +760,7 @@ export default function JalanBakti() {
                 <p className="text-sm text-muted-foreground">{C.ui.pilihPeranDesain}</p>
                 <div className="flex flex-wrap gap-2">
                   {d.roles.map((r) => (
-                    <Chip key={r} active={(d.peranDesain || d.roles[0]) === r} onClick={() => setD((p) => ({ ...p, peranDesain: r }))}>
+                    <Chip key={r} active={peranAktif(d) === r} onClick={() => pilihPeranDesain(r)}>
                       {r}
                     </Chip>
                   ))}
@@ -719,9 +770,9 @@ export default function JalanBakti() {
             {d.medan ? (
               <DesainLangkah
                 content={C.gerakan3}
-                medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
-                key={d.peranDesain || d.roles[0] || "tanpa-peran"}
-                role={(d.peranDesain && d.roles.includes(d.peranDesain) ? d.peranDesain : d.roles[0]) || null}
+                medanNama={C.klaster.find((k) => k.id === medanPemilik(d, peranAktif(d)))?.nama || ""}
+                key={peranAktif(d) || "tanpa-peran"}
+                role={peranAktif(d) || null}
                 initialLangkah={d.langkah}
                 onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
                 userId={user?.id ?? null}

@@ -83,7 +83,6 @@ serve(async (req) => {
       skills, values,
     );
     if (cabang1b) return cabang1b;
-    // Mode (c): teks bebas (skill dan nilai yang ditulis siswa) tidak dikirim ke AI untuk di bawah 18; pilihan medan tetap.
     // KEPUTUSAN 18 Nov 15.47 "Kasih kapabilitas full.": mode (c) dicabut; samaran ke AI (ai.ts) dan lapis distress tetap.
 
     const ctx = [

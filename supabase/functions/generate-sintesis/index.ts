@@ -59,7 +59,8 @@ serve(async (req) => {
     const skills: string[] = Array.isArray(body.skills) ? body.skills.map((s: unknown) => clip(s, 80)) : [];
     const bakti: string[] = Array.isArray(body.bakti) ? body.bakti.map((s: unknown) => clip(s, 120)) : [];
     const siapa: string[] = Array.isArray(body.siapa) ? body.siapa.map((s: unknown) => clip(s, 80)) : [];
-    const roles: string[] = Array.isArray(body.roles) ? body.roles.map((s: unknown) => clip(s, 80)) : [];
+    // Peran bisa sampai dua per medan; dibatasi delapan supaya prompt tetap fokus.
+    const roles: string[] = Array.isArray(body.roles) ? [...new Set<string>(body.roles.map((s: unknown) => clip(s, 80)))].slice(0, 8) : [];
     const langkah = clip(body.langkah);
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
@@ -86,10 +87,10 @@ serve(async (req) => {
       { ai: siap.ai, samaran: siap.samaran },
       Array.isArray(body.fondasi) ? body.fondasi.map((x: { a?: unknown }) => x?.a) : [],
       body.langkah,
+      // Peran kini bisa teks bebas ("Peran rumusanku: ..."), jadi ikut diperiksa lapis 1b.
+      roles,
     );
     if (cabang1b) return cabang1b;
-    // Mode (c): jawaban tertulis (fondasi) dan langkah yang ditulis sendiri tidak dikirim ke AI untuk di bawah 18;
-    // pilihan kemampuan, tantangan, kelompok, dan peran tetap.
     // KEPUTUSAN 18 Nov 15.47 "Kasih kapabilitas full.": mode (c) dicabut; samaran ke AI (ai.ts) dan lapis distress tetap.
 
     const ctx = [
