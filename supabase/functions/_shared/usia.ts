@@ -70,4 +70,4 @@ export function modeCHidup(get: (k: string) => string | undefined): boolean {
 
 /** Teks statis untuk obrolan bebas siswa di bawah 18 sebelum persetujuan orang tua (DRAF rumusan, dua varian menunggu Raihan). */
 export const TEKS_OBROLAN_TERKUNCI =
-  "Obrolan bebas dengan Sulu akan terbuka setelah orang tua atau wali kamu memberi izin. Sementara itu, hasil asesmen dan saran jalur kamu tetap bisa dibuka. Kalau ada yang sedang berat dan ingin kamu ceritakan, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
+  "Obrolan bebas dengan Sulu akan terbuka setelah orang tua atau wali kamu memberi izin. Sementara itu, semua tahap perjalananmu di Sulu tetap bisa kamu jalani. Kalau ada yang sedang berat dan ingin kamu ceritakan, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
