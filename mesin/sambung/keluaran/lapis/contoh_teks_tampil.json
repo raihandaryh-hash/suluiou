@@ -60,7 +60,8 @@
   "teks": "Contoh program",
   "lapis": "K",
   "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
-  "sumber": "situs resmi"
+  "sumber": "situs resmi",
+  "tautan": "https://example.org/program"
  },
  {
   "id": "gagal-tanpa-lapis",
@@ -134,5 +135,83 @@
   "lapis": "K",
   "tanda": "BELUM DITETAPKAN",
   "sumber": "situs resmi"
+ },
+ {
+  "id": "ok-K-sumber-objek-url",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+  "sumber": [
+   {
+    "nama": "situs resmi",
+    "url": "https://example.org/program"
+   }
+  ]
+ },
+ {
+  "id": "ok-K-sumber-teks-url",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+  "sumber": "https://example.org/program"
+ },
+ {
+  "id": "gagal-K-tanpa-url",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+  "sumber": "situs resmi"
+ },
+ {
+  "id": "gagal-K-url-bukan-http",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+  "sumber": "situs resmi",
+  "tautan": "www.example.org/program"
+ },
+ {
+  "id": "gagal-K-url-kosong-di-objek",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+  "sumber": [
+   {
+    "nama": "situs resmi",
+    "url": ""
+   }
+  ]
+ },
+ {
+  "id": "gagal-K-tanda-baris-baru",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum.\n",
+  "sumber": "situs resmi",
+  "tautan": "https://example.org/program"
+ },
+ {
+  "id": "gagal-K-tanda-spasi-ujung",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum. ",
+  "sumber": "situs resmi",
+  "tautan": "https://example.org/program"
+ },
+ {
+  "id": "gagal-K-tanda-tanpa-titik",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "Disusun tim Sulu dari sumber yang tercantum",
+  "sumber": "situs resmi",
+  "tautan": "https://example.org/program"
+ },
+ {
+  "id": "gagal-K-tanda-huruf-kecil",
+  "teks": "Contoh program",
+  "lapis": "K",
+  "tanda": "disusun tim sulu dari sumber yang tercantum.",
+  "sumber": "situs resmi",
+  "tautan": "https://example.org/program"
  }
 ]
