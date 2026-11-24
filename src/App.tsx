@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { Component, lazy, Suspense, useEffect, type ReactNode } from "react";
 import { Loader2 } from "lucide-react";
 import { keselamatanContent } from "@/data/keselamatanContent";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -78,6 +78,39 @@ const MemuatHalaman = () => (
   </div>
 );
 
+// Bila halaman tetap gagal diunduh sesudah muat ulang otomatis, tampilkan pesan dan tombol,
+// bukan layar kosong. Hanya menangkap galat pengunduhan berkas halaman.
+class PenjagaGagalMuat extends Component<{ children: ReactNode }, { gagal: boolean; galatLain: unknown }> {
+  state = { gagal: false, galatLain: null as unknown };
+  static getDerivedStateFromError(err: unknown) {
+    const pesan = err instanceof Error ? err.message : String(err);
+    if (/dynamically imported module|Importing a module script failed|Failed to fetch|ChunkLoadError|Loading chunk/i.test(pesan)) {
+      return { gagal: true, galatLain: null };
+    }
+    return { gagal: false, galatLain: err };
+  }
+  render() {
+    if (this.state.galatLain) throw this.state.galatLain;
+    if (!this.state.gagal) return this.props.children;
+    return (
+      <div role="alert" className="flex min-h-[50vh] flex-col items-center justify-center gap-3 px-6 text-center">
+        <p className="text-base font-medium">{keselamatanContent.gagalMuatJudul}</p>
+        <p className="text-sm text-muted-foreground">{keselamatanContent.gagalMuatIsi}</p>
+        <button
+          type="button"
+          className="mt-2 rounded-md border px-4 py-2 text-sm"
+          onClick={() => {
+            try { sessionStorage.removeItem(KUNCI_MUAT_ULANG); } catch { /* abaikan */ }
+            window.location.reload();
+          }}
+        >
+          {keselamatanContent.gagalMuatTombol}
+        </button>
+      </div>
+    );
+  }
+}
+
 // A7: guard tingkat rute untuk pintu asesmen. Flag mati = dialihkan ke awal Spine B.
 const AsesmenGuard = ({ children }: { children: JSX.Element }) =>
   ASESMEN_TERBUKA ? children : <Navigate to={SPINE_B_AWAL} replace />;
@@ -98,6 +131,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <PenjagaGagalMuat>
           <Suspense fallback={<MemuatHalaman />}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -191,6 +225,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
+          </PenjagaGagalMuat>
           <Footer />
         </BrowserRouter>
       </AssessmentProvider>
