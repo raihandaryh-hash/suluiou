@@ -21,34 +21,55 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from "@/data/flags";
 
+// Pengaman: bila berkas halaman gagal diunduh (mis. tab lama setelah Publish versi baru),
+// muat ulang halaman sekali. Penanda di sessionStorage mencegah muat ulang berulang.
+const KUNCI_MUAT_ULANG = "sulu-muat-ulang-halaman";
+const lazyAman = <T extends React.ComponentType<unknown>>(muat: () => Promise<{ default: T }>) =>
+  lazy(async () => {
+    try {
+      const m = await muat();
+      try { sessionStorage.removeItem(KUNCI_MUAT_ULANG); } catch { /* abaikan */ }
+      return m;
+    } catch (err) {
+      let sudah = false;
+      try { sudah = sessionStorage.getItem(KUNCI_MUAT_ULANG) === "1"; } catch { /* abaikan */ }
+      if (!sudah) {
+        try { sessionStorage.setItem(KUNCI_MUAT_ULANG, "1"); } catch { /* abaikan */ }
+        window.location.reload();
+        return new Promise<{ default: T }>(() => {});
+      }
+      throw err;
+    }
+  });
+
 // Pecah per halaman (24 Nov 2026): halaman awal, krisis, dan 404 tetap dimuat langsung;
 // halaman lain diunduh saat pertama dibuka, supaya unduhan awal lebih kecil.
-const Assessment = lazy(() => import("./pages/Assessment"));
-const Profile = lazy(() => import("./pages/Profile"));
-const Consent = lazy(() => import("./pages/Consent"));
-const Results = lazy(() => import("./pages/Results"));
-const PublicResult = lazy(() => import("./pages/PublicResult"));
-const Suar = lazy(() => import("./pages/Suar"));
-const Insight = lazy(() => import("./pages/Insight"));
-const SkillMap = lazy(() => import("./pages/SkillMap"));
-const Glossary = lazy(() => import("./pages/Glossary"));
-const Compass = lazy(() => import("./pages/Compass"));
-const Programs = lazy(() => import("./pages/Programs"));
-const KenaliDirimu = lazy(() => import("./pages/KenaliDirimu"));
-const KenaliDirimuSkill = lazy(() => import("./pages/KenaliDirimuSkill"));
-const JalanBakti = lazy(() => import("./pages/JalanBakti"));
-const Sintesis = lazy(() => import("./pages/Sintesis"));
-const RencanaAksi = lazy(() => import("./pages/RencanaAksi"));
-const Ringkasan = lazy(() => import("./pages/Ringkasan"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
-const AdminResultView = lazy(() => import("./pages/AdminResultView"));
-const AdminClasses = lazy(() => import("./pages/AdminClasses"));
-const AdminClassSession = lazy(() => import("./pages/AdminClassSession"));
-const AdminSuar = lazy(() => import("./pages/AdminSuar"));
-const AdminInsight = lazy(() => import("./pages/AdminInsight"));
-const AdminBridge = lazy(() => import("./pages/AdminBridge"));
-const Login = lazy(() => import("./pages/Login"));
+const Assessment = lazyAman(() => import("./pages/Assessment"));
+const Profile = lazyAman(() => import("./pages/Profile"));
+const Consent = lazyAman(() => import("./pages/Consent"));
+const Results = lazyAman(() => import("./pages/Results"));
+const PublicResult = lazyAman(() => import("./pages/PublicResult"));
+const Suar = lazyAman(() => import("./pages/Suar"));
+const Insight = lazyAman(() => import("./pages/Insight"));
+const SkillMap = lazyAman(() => import("./pages/SkillMap"));
+const Glossary = lazyAman(() => import("./pages/Glossary"));
+const Compass = lazyAman(() => import("./pages/Compass"));
+const Programs = lazyAman(() => import("./pages/Programs"));
+const KenaliDirimu = lazyAman(() => import("./pages/KenaliDirimu"));
+const KenaliDirimuSkill = lazyAman(() => import("./pages/KenaliDirimuSkill"));
+const JalanBakti = lazyAman(() => import("./pages/JalanBakti"));
+const Sintesis = lazyAman(() => import("./pages/Sintesis"));
+const RencanaAksi = lazyAman(() => import("./pages/RencanaAksi"));
+const Ringkasan = lazyAman(() => import("./pages/Ringkasan"));
+const AdminLogin = lazyAman(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazyAman(() => import("./pages/AdminDashboard"));
+const AdminResultView = lazyAman(() => import("./pages/AdminResultView"));
+const AdminClasses = lazyAman(() => import("./pages/AdminClasses"));
+const AdminClassSession = lazyAman(() => import("./pages/AdminClassSession"));
+const AdminSuar = lazyAman(() => import("./pages/AdminSuar"));
+const AdminInsight = lazyAman(() => import("./pages/AdminInsight"));
+const AdminBridge = lazyAman(() => import("./pages/AdminBridge"));
+const Login = lazyAman(() => import("./pages/Login"));
 
 const MemuatHalaman = () => (
   <div role="status" className="flex min-h-[50vh] flex-col items-center justify-center gap-3 text-sm text-muted-foreground">
