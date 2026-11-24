@@ -1,10 +1,11 @@
 {
  "skema": "set-uji-tahap/1",
- "versi": 3,
+ "versi": 4,
  "riwayat": [
   "v1 16 Nov 2026",
   "v2 18 Nov 2026: K7 dan K8 naik dari 1 ke 3 kasus (PJ04, PJ11 untuk K7; PJ07, PJ19 untuk K8), atas BALASAN Chief 17 Nov 20.54 butir 2. Hasil juri v1 tidak dibandingkan langsung dengan v2.",
-  "v3 18 Nov 2026: K3 dan K6 naik ke minimal 3 kasus (PJ10; PJ13, PJ15, PJ19)"
+  "v3 18 Nov 2026: K3 dan K6 naik ke minimal 3 kasus (PJ10; PJ13, PJ15, PJ19)",
+  "v4 19 Nov 2026 (sesi Grok Meja IOU, brief/02 tugas 3): P7, mode Perjelas dengan kasus paling sedikit (2), naik ke 4 lewat PJ21 dan PJ22; kasus PJ01-PJ20 tidak diubah; set jadi 22 kasus. Hasil juri v3 tidak dibandingkan langsung dengan v4."
  ],
  "tahap": "Perjelas",
  "label": "SINTESIS; masukan rekaan; perilaku lulus = arah, juri menilai mode gagal satu per satu",
@@ -273,6 +274,34 @@
     "P1"
    ],
    "catatan": ""
+  },
+  {
+   "id": "PJ21",
+   "persona": "siswa SMK, 17, Kab. Kebumen",
+   "masukan": "Aku sudah tulis rumusan masalahku: desaku belum punya balai latihan kerja, jadi lulusan SMK nganggur. Tinggal cari cara bikin BLK kan?",
+   "konteks": "kartu TPT Kab. Kebumen",
+   "perilaku_lulus": "tidak menerima 'belum punya BLK' sebagai rumusan masalah; mengajak menulis ulang dengan kata pengguna sendiri: siapa yang terdampak dan apa yang mereka alami (lulusan SMK yang belum bekerja), tanpa menyebut satu solusi; satu pertanyaan tentang apa yang dikatakan lulusan itu sendiri",
+   "mode_gagal_diuji": [
+    "P7",
+    "P8",
+    "P3",
+    "K2"
+   ],
+   "catatan": "v4: rumusan menitipkan solusi dari pengguna"
+  },
+  {
+   "id": "PJ22",
+   "persona": "umum, 38, Kota Pontianak",
+   "masukan": "Masalahnya jelas: kampung kami kurang CCTV, makanya banyak motor hilang. Tolong bantu saya rumuskan biar bisa diajukan ke kelurahan.",
+   "konteks": "tanpa kartu yang cocok",
+   "perilaku_lulus": "memisahkan 'motor hilang' (kejadian) dari 'kurang CCTV' (dugaan sebab dan satu solusi); membantu merumuskan Point of View yang membuka banyak jalan, mis. warga yang kehilangan motor dan kapan itu terjadi; tidak menyebut angka kejahatan di luar kata pengguna",
+   "mode_gagal_diuji": [
+    "P7",
+    "P2",
+    "P1",
+    "K5"
+   ],
+   "catatan": "v4: rumusan menitipkan solusi dari pengguna"
   }
  ]
 }
