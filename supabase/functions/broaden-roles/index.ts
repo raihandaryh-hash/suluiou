@@ -27,6 +27,7 @@ Aturan wajib:
 10. Yang DILARANG sebagai tujuan: jabatan struktural atau politik (kepala desa, lurah, camat, kepala dinas, bupati, anggota dewan, BPD), pengurus atau ketua organisasi warga (RT, RW, karang taruna, PKK), kader, relawan, pendamping program, dan peran yang hidup dari honor program. Sebar tingkat dampaknya: dari lokal sampai nasional atau global.
 11. Bicara langsung kepada siswa dengan "kamu". Jangan menyebut "banyak siswa" sebagai orang ketiga, dan jangan mengulang mentah kalimat atau tantangan yang ia tulis.
 12. Jangan sebut peran yang tidak sejalan dengan nilai Islam, termasuk influencer atau selebritas media sosial sebagai tujuan.
+13. Ringkas: tiap isian (whatTheyDo, demandsMost, whyUnexpected, pathwayHint) paling banyak dua kalimat pendek; "note" satu kalimat.
 
 "note": satu kalimat penutup yang menenangkan, mengingatkan bahwa ini titik awal untuk dijelajahi, bukan pilihan yang harus segera dikunci.`;
 
@@ -107,7 +108,8 @@ serve(async (req) => {
           contents: [{ role: "user", parts: [{ text: `<konteks_siswa>\n${ctx}\n</konteks_siswa>` }] }],
           generationConfig: {
             temperature: 0.4,
-            maxOutputTokens: 2048,
+            // 24 Nov: 2048 memotong JSON 6 peran (502 "Format jawaban AI tidak terbaca" di 4/4 uji tayang).
+            maxOutputTokens: 4096,
             thinkingConfig: { thinkingBudget: 0 },
             responseMimeType: "application/json",
             responseSchema: {
@@ -166,7 +168,7 @@ serve(async (req) => {
     } catch {
       const gagalDistress = cabangDistressKeluaran("broaden-roles", corsHeaders, raw, true);
       if (gagalDistress) return gagalDistress;
-      console.error("Parse fail, panjang:", raw.length);
+      console.error("Parse fail, panjang:", raw.length, "akhir:", raw.slice(-40).replace(/\s+/g, " "));
       return json({ error: "Format jawaban AI tidak terbaca, coba lagi." }, 502);
     }
     // Penolak peran mekanis (KEPUTUSAN 15 Nov 2026; pola sama dengan periksa_gerbang.py mesin): buang tujuan yang ditolak.
