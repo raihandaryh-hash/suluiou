@@ -3,40 +3,16 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { Loader2 } from "lucide-react";
+import { keselamatanContent } from "@/data/keselamatanContent";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AssessmentProvider } from "@/context/AssessmentContext";
 import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
 import Mukadimah from "./pages/Mukadimah";
 import BilaTidakBaikBaikSaja from "./pages/BilaTidakBaikBaikSaja";
-import Assessment from "./pages/Assessment";
-import Profile from "./pages/Profile";
-import Consent from "./pages/Consent";
-import Results from "./pages/Results";
-import PublicResult from "./pages/PublicResult";
-import Suar from "./pages/Suar";
-import Insight from "./pages/Insight";
-import SkillMap from "./pages/SkillMap";
-import Glossary from "./pages/Glossary";
-import Compass from "./pages/Compass";
-import Programs from "./pages/Programs";
-import KenaliDirimu from "./pages/KenaliDirimu";
-import KenaliDirimuSkill from "./pages/KenaliDirimuSkill";
-import JalanBakti from "./pages/JalanBakti";
-import Sintesis from "./pages/Sintesis";
-import RencanaAksi from "./pages/RencanaAksi";
-import Ringkasan from "./pages/Ringkasan";
 import AppLayout from "./components/AppLayout";
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminResultView from "./pages/AdminResultView";
-import AdminClasses from "./pages/AdminClasses";
-import AdminClassSession from "./pages/AdminClassSession";
-import AdminSuar from "./pages/AdminSuar";
-import AdminInsight from "./pages/AdminInsight";
-import AdminBridge from "./pages/AdminBridge";
-import Login from "./pages/Login";
 // /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import RequireAuth from "@/components/RequireAuth";
@@ -44,6 +20,63 @@ import SpineBLayout from "@/components/SpineBLayout";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from "@/data/flags";
+
+// Pengaman: bila berkas halaman gagal diunduh (mis. tab lama setelah Publish versi baru),
+// muat ulang halaman sekali. Penanda di sessionStorage mencegah muat ulang berulang.
+const KUNCI_MUAT_ULANG = "sulu-muat-ulang-halaman";
+const lazyAman = <T extends React.ComponentType<unknown>>(muat: () => Promise<{ default: T }>) =>
+  lazy(async () => {
+    try {
+      const m = await muat();
+      try { sessionStorage.removeItem(KUNCI_MUAT_ULANG); } catch { /* abaikan */ }
+      return m;
+    } catch (err) {
+      let sudah = false;
+      try { sudah = sessionStorage.getItem(KUNCI_MUAT_ULANG) === "1"; } catch { /* abaikan */ }
+      if (!sudah) {
+        try { sessionStorage.setItem(KUNCI_MUAT_ULANG, "1"); } catch { /* abaikan */ }
+        window.location.reload();
+        return new Promise<{ default: T }>(() => {});
+      }
+      throw err;
+    }
+  });
+
+// Pecah per halaman (24 Nov 2026): halaman awal, krisis, dan 404 tetap dimuat langsung;
+// halaman lain diunduh saat pertama dibuka, supaya unduhan awal lebih kecil.
+const Assessment = lazyAman(() => import("./pages/Assessment"));
+const Profile = lazyAman(() => import("./pages/Profile"));
+const Consent = lazyAman(() => import("./pages/Consent"));
+const Results = lazyAman(() => import("./pages/Results"));
+const PublicResult = lazyAman(() => import("./pages/PublicResult"));
+const Suar = lazyAman(() => import("./pages/Suar"));
+const Insight = lazyAman(() => import("./pages/Insight"));
+const SkillMap = lazyAman(() => import("./pages/SkillMap"));
+const Glossary = lazyAman(() => import("./pages/Glossary"));
+const Compass = lazyAman(() => import("./pages/Compass"));
+const Programs = lazyAman(() => import("./pages/Programs"));
+const KenaliDirimu = lazyAman(() => import("./pages/KenaliDirimu"));
+const KenaliDirimuSkill = lazyAman(() => import("./pages/KenaliDirimuSkill"));
+const JalanBakti = lazyAman(() => import("./pages/JalanBakti"));
+const Sintesis = lazyAman(() => import("./pages/Sintesis"));
+const RencanaAksi = lazyAman(() => import("./pages/RencanaAksi"));
+const Ringkasan = lazyAman(() => import("./pages/Ringkasan"));
+const AdminLogin = lazyAman(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazyAman(() => import("./pages/AdminDashboard"));
+const AdminResultView = lazyAman(() => import("./pages/AdminResultView"));
+const AdminClasses = lazyAman(() => import("./pages/AdminClasses"));
+const AdminClassSession = lazyAman(() => import("./pages/AdminClassSession"));
+const AdminSuar = lazyAman(() => import("./pages/AdminSuar"));
+const AdminInsight = lazyAman(() => import("./pages/AdminInsight"));
+const AdminBridge = lazyAman(() => import("./pages/AdminBridge"));
+const Login = lazyAman(() => import("./pages/Login"));
+
+const MemuatHalaman = () => (
+  <div role="status" className="flex min-h-[50vh] flex-col items-center justify-center gap-3 text-sm text-muted-foreground">
+    <Loader2 className="h-6 w-6 animate-spin" aria-hidden />
+    {keselamatanContent.memuatHalaman}
+  </div>
+);
 
 // A7: guard tingkat rute untuk pintu asesmen. Flag mati = dialihkan ke awal Spine B.
 const AsesmenGuard = ({ children }: { children: JSX.Element }) =>
@@ -65,6 +98,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <Suspense fallback={<MemuatHalaman />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/mukadimah" element={<Mukadimah />} />
@@ -156,6 +190,7 @@ const App = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           <Footer />
         </BrowserRouter>
       </AssessmentProvider>
