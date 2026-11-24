@@ -262,7 +262,11 @@ export default function JalanBakti() {
           const adopsi = ambilAdopsiJalanBakti(user.id);
           const raw = adopsi ? localStorage.getItem(LS_KEY) : null;
           if (raw) {
-            setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
+            const diadopsi = migrasiData({ ...EMPTY, ...JSON.parse(raw) });
+            setD(diadopsi);
+            // Langsung disimpan ke akun, supaya muat ulang atau pindah halaman tidak memulihkan isian lama dari server.
+            const { error } = await simpanFase("phase_3_jalan_bakti", user.id, diadopsi);
+            if (error) console.error(error);
           } else {
             const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
             if (data?.data) {
@@ -270,6 +274,9 @@ export default function JalanBakti() {
               setD(merged);
               // Mirror to localStorage so compileSurat() can read it.
               localStorage.setItem(LS_KEY, JSON.stringify(merged));
+            } else {
+              // Akun tanpa isian: mulai kosong, jangan bawa isian akun lain yang masih ada di layar.
+              setD(EMPTY);
             }
           }
         } else {
