@@ -415,7 +415,7 @@ function JembatanIstilah({ onNavigate }: { onNavigate: (nodeIds: string[]) => vo
 
 const FILTERS: { id: "all" | "growing" | "safe" | "layer0"; label: string }[] = [
   { id: "all", label: "Semua" },
-  { id: "safe", label: "Aman dari AI" },
+  { id: "safe", label: "Paparan AI rendah" },
   { id: "growing", label: "Sektor tumbuh" },
   { id: "layer0", label: "Fondasi (Layer 0)" },
 ];

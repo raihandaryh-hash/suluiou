@@ -84,7 +84,6 @@ function SectionCard({
         >
           {section.day}
         </span>
-        <span className="text-xs text-muted-foreground">{section.date}</span>
         <span
           className={cn(
             "ml-auto text-[11px] font-semibold tracking-[0.18em] uppercase",
@@ -453,7 +452,15 @@ export default function Compass() {
             {compassCTA.subtext}
           </p>
         </motion.div>
-        <WaitlistForm />
+        {/* L23 (audit niat 24 Nov): daftar tunggu asesmen diganti ajakan ke perjalanan yang sudah terbuka. */}
+        <div className="flex justify-center">
+          <Link
+            to={compassCTA.lanjut.href}
+            className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-primary-foreground font-medium hover:opacity-95"
+          >
+            {compassCTA.lanjut.label}
+          </Link>
+        </div>
       </section>
 
       {/* Sources */}

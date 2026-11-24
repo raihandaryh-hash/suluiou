@@ -90,7 +90,7 @@ Hampir nol skill yang bisa digantikan sepenuhnya oleh AI saat ini adalah skill y
       'Asesmen bukan tentang menemukan siapa kamu dalam satu label. Ini tentang mendapat data yang lebih akurat untuk membuat keputusan yang lebih baik tentang dirimu sendiri.',
     color: 'teal',
     assessmentNote:
-      'Sedang dalam pengembangan, daftarkan diri untuk diberitahu.',
+      'Asesmen sedang disempurnakan bersama psikolog. Sementara itu, mulailah dari refleksi di Kenali Dirimu.',
   },
   {
     id: 'panduan',
@@ -118,7 +118,8 @@ Framework yang berguna: sebelum memberi saran, tanyakan empat hal tentang anak A
 export const compassCTA = {
   headline: 'Empat perspektif. Satu perjalanan.',
   subtext:
-    'Refleksi ini adalah awal. Langkah berikutnya adalah data yang lebih akurat tentang dirimu.',
+    'Refleksi ini adalah awal. Langkah berikutnya: kenali bekal yang sudah ada dalam dirimu.',
+  lanjut: { label: 'Mulai Kenali Dirimu', href: '/kenali-dirimu' },
   waitlist: {
     headline: 'Asesmen Sulu — Segera Hadir',
     subtext:

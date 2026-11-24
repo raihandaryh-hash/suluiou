@@ -23,7 +23,7 @@ export const LAYERS: SkillLayer[] = [
 ];
 
 export const AI_RISK = {
-  safe: { label: "Aman dari AI", sublabel: "Tidak atau sangat sulit disubstitusi", bg: "#DCFCE7", text: "#166534", dot: "#22C55E" },
+  safe: { label: "Paparan AI rendah", sublabel: "Perkiraan: sulit digantikan AI saat ini", bg: "#DCFCE7", text: "#166534", dot: "#22C55E" },
   augment: { label: "AI membantu", sublabel: "Manusia + AI lebih kuat dari keduanya sendiri", bg: "#FEF9C3", text: "#713F12", dot: "#EAB308" },
   vulnerable: { label: "Tugas berisiko tinggi", sublabel: "Tugas spesifik dalam domain ini rentan diotomasi", bg: "#FEE2E2", text: "#991B1B", dot: "#EF4444" },
 } as const;

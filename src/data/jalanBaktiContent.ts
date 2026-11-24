@@ -78,7 +78,7 @@ export const jalanBaktiContent = {
   },
 
   // ── 6 Klaster Jalan Bakti ──
-  klasterIntro: "Tujuh medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
+  klasterIntro: "Tujuh medan. Pilih satu atau lebih yang ingin kamu telusuri. Ini bukan keputusan seumur hidup, kamu bisa kembali dan mengubahnya kapan saja.",
 
   // ── GERAKAN 2 · PAHAMI — tampar 10-jobs (horizon broadening). Statik, muncul setelah medan dipilih. ──
   // Jejak: OECD dream-jobs (PISA 2022, ~690rb remaja/81 negara, aspirasi menumpuk di ~10 pekerjaan). NO OVERCLAIM.
@@ -170,7 +170,7 @@ export const jalanBaktiContent = {
       nama: "Kepemimpinan & Tata Kelola",
       bridge: "Banyak tempat tidak kekurangan orang pintar, tapi kekurangan orang yang mau mengurus dengan amanah. Pernahkah kamu melihat desa, sekolah, atau lembaga yang jalan di tempat hanya karena tidak ada yang memimpinnya sungguh-sungguh?",
       subTantangan: [
-        { id: "k7a", label: "Desa yang ditinggal calon pemimpin mudanya" },
+        { id: "k7a", label: "Desa yang ditinggal anak mudanya yang terdidik" },
         { id: "k7b", label: "Lembaga umat yang dikelola seadanya" },
         { id: "k7c", label: "Suara warga yang tidak sampai ke pengambil keputusan" },
       ],
@@ -272,7 +272,7 @@ export const jalanBaktiContent = {
       {
         id: "temui",
         judul: "Temui orangnya",
-        ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial.",
+        ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial. Kalau umurmu di bawah 18, ajak orang tua atau gurumu saat menghubunginya, bertemu hanya di tempat umum bersama mereka, dan jangan memberi nomor, alamat, atau data pribadimu.",
         ekstrovert: "Kalau kamu berani, sapa langsung dan tanya bagaimana ia memulai.",
         introvert: "Kalau menyapa terasa berat, cukup baca atau tonton satu kisah mereka dulu.",
         langkahDefault: "Menghubungi atau mencari kisah satu orang yang bekerja sebagai {peran}. Kapan: [isi hari & jamnya]. Lewat: [guru, alumni, atau media sosial].",
@@ -310,7 +310,10 @@ export const jalanBaktiContent = {
       "sehari-hari kerja {peran}",
       "{peran} belajar apa dulu",
     ],
-    aiPromptJudul: "Atau tanyakan ini ke AI",
+    // L16 (PUTUSAN ATAS DELEGASI 24 Nov 22.29): siswa memakai Tanya Sulu yang berlapis keselamatan; salin-prompt ke AI luar hanya untuk pengguna dewasa.
+    tanyaSuluTombol: "Tanya Sulu soal peran ini",
+    tanyaSuluPertanyaan: "Ceritakan peran {peran}: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan satu langkah pertama yang bisa kumulai.",
+    aiPromptJudul: "Atau tanyakan ini ke AI lain",
     aiPrompt: "Jelaskan peran {peran} untuk siswa SMA: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan langkah pertama untuk mulai mendekatinya.",
     bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini? Langkah yang punya waktu dan tempat yang jelas jauh lebih mungkin benar-benar terjadi, jadi tuliskan kapan dan di mananya.",
     langkahNudge: "Pilih satu, atau maksimal dua kalau kamu memang siap. Satu langkah yang benar-benar kamu jalankan lebih berharga daripada banyak yang cuma jadi niat.",
@@ -342,6 +345,7 @@ export const jalanBaktiContent = {
 
     // ── STEPPER (baru, mekanis Sonnet — 🔲 SEMUA field di bawah menunggu review/isi Fable, BUKAN diisi dari memori) ──
     stepLanjutLabel: "Lanjut",
+    pilihPeranDesain: "Kamu menelusuri lebih dari satu peran. Rancang langkah untuk yang mana dulu?",
     stepKembaliLabel: "Kembali",
     stepLabels: {
       1: "Dengar",
@@ -351,3 +355,22 @@ export const jalanBaktiContent = {
     },
   },
 } as const;
+
+// Anti-foreclosure (KEPUTUSAN 3 Jul; tim psikologi 7 Jul "jangan jadi foreclosure kreativitas";
+// 8 Jul "membuat sesuatu yang belum ada"). Kartu ketujuh di Nyalakan peran.
+export const rumuskanSendiriContent = {
+  pengantar: "Peran di atas hanya contoh, bukan daftar pilihan.",
+  judul: "Belum ada perannya? Rumuskan sendiri",
+  isi: "Banyak peran yang dibutuhkan belum punya nama. Tulis dengan kata-katamu.",
+  label1: "Siapa yang ingin kamu tolong?",
+  label2: "Masalah apa yang ingin kamu selesaikan?",
+  label3: "Apa yang ingin kamu bangun?",
+  contoh3: "Misalnya: aplikasi, usaha, sekolah, gerakan, alat",
+  tombol: "Pakai rumusanku",
+  awalanJudul: "Peran rumusanku",
+  masukIsi: "Untuk menyalakan peran, Sulu perlu tahu ini kamu. Masuk sebentar dengan akun Google, jawabanmu tetap tersimpan.",
+  masukTombol: "Masuk dengan Google",
+  masukGagal: "Halaman masuk belum terbuka. Coba sekali lagi.",
+  pilihanmu: "Peran yang kamu telusuri:",
+  lepas: "Lepas",
+};

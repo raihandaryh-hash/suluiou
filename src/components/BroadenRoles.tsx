@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { buildSuluContext } from "@/lib/buildSuluContext";
 import RujukanDistress from "@/components/RujukanDistress";
 import { periksaDistressNilai, type TingkatDistress } from "@/lib/distress";
+import { rumuskanSendiriContent as rs } from "@/data/jalanBaktiContent";
+import { masukDenganGoogle } from "@/lib/masukGoogle";
 
 type Role = {
   title: string;
@@ -21,7 +23,11 @@ type Props = {
   province: string | null;
   initialPicked?: string[];
   onPickedChange?: (picked: string[]) => void;
+  initialRumusan?: Rumusan;
+  onRumusanChange?: (r: Rumusan) => void;
 };
+
+export type Rumusan = { siapa: string; masalah: string; bangun: string };
 
 const MAX_PICK = 2;
 
@@ -39,8 +45,11 @@ export default function BroadenRoles({
   province,
   initialPicked = [],
   onPickedChange,
+  initialRumusan,
+  onRumusanChange,
 }: Props) {
-  const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [masukGagal, setMasukGagal] = useState(false);
+  const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error" | "masuk">("idle");
   const [roles, setRoles] = useState<Role[]>([]);
   const [note, setNote] = useState("");
   const [revealed, setRevealed] = useState(0);
@@ -89,12 +98,19 @@ export default function BroadenRoles({
         setPhase("idle");
         return;
       }
+      const status = (error as { context?: { status?: number } } | null)?.context?.status;
+      if (status === 401) {
+        setPhase("masuk");
+        return;
+      }
       if (error || !data || data.error || !Array.isArray(data.roles) || !data.roles.length) {
         throw new Error(data?.error || error?.message || "empty");
       }
       setRoles(data.roles as Role[]);
-      setPicked([]);
-      onPickedChange?.([]);
+      // Nyalakan ulang: pilihan dari kartu AI lama dibuang, peran rumusan sendiri dipertahankan.
+      const tetap = picked.filter((t) => t.startsWith(`${rs.awalanJudul}:`));
+      setPicked(tetap);
+      onPickedChange?.(tetap);
       setNote(typeof data.note === "string" ? data.note : "");
       setPhase("done");
       reveal(data.roles.length);
@@ -105,26 +121,42 @@ export default function BroadenRoles({
   }
 
   function togglePick(title: string) {
-    setPicked((prev) => {
-      let next: string[];
-      if (prev.includes(title)) {
-        next = prev.filter((t) => t !== title);
-      } else {
-        if (prev.length >= MAX_PICK) return prev;
-        next = [...prev, title];
-      }
-      onPickedChange?.(next);
-      return next;
-    });
+    let next: string[];
+    if (picked.includes(title)) {
+      next = picked.filter((t) => t !== title);
+    } else {
+      if (picked.length >= MAX_PICK) return;
+      next = [...picked, title];
+    }
+    setPicked(next);
+    onPickedChange?.(next);
   }
 
   if (distress) {
     return <RujukanDistress tingkat={distress} onTutup={() => setDistress(null)} />;
   }
 
+  // Pilihan yang tidak punya kartu di layar (rumusan sendiri, atau sesudah muat ulang) tetap terlihat dan bisa dilepas.
+  const judulKartu = new Set(roles.map((r) => r.title));
+  const tanpaKartu = picked.filter((t) => !judulKartu.has(t));
+  const barisPilihan = tanpaKartu.length > 0 && (
+    <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
+      <span className="text-muted-foreground">{rs.pilihanmu}</span>
+      {tanpaKartu.map((t) => (
+        <span key={t} className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1">
+          {t}
+          <button type="button" className="text-muted-foreground hover:text-foreground" aria-label={`${rs.lepas} ${t}`} onClick={() => togglePick(t)}>
+            ✕
+          </button>
+        </span>
+      ))}
+    </div>
+  );
+
   if (phase === "idle") {
     return (
       <div className="flex flex-col items-center text-center gap-4 py-2">
+        {barisPilihan}
         <Button
           onClick={run}
           size="lg"
@@ -149,6 +181,25 @@ export default function BroadenRoles({
         <p className="text-sm text-muted-foreground">
           Sedang menyalakan peran yang belum terlihat...
         </p>
+      </div>
+    );
+  }
+
+  if (phase === "masuk") {
+    return (
+      <div className="flex flex-col items-center text-center gap-3 py-6">
+        <p className="text-sm text-foreground/85 max-w-md">{rs.masukIsi}</p>
+        <Button
+          size="sm"
+          onClick={async () => {
+            setMasukGagal(false);
+            const r = await masukDenganGoogle("/jalan-bakti");
+            if (r.error) setMasukGagal(true);
+          }}
+        >
+          {rs.masukTombol}
+        </Button>
+        {masukGagal && <p className="text-xs text-muted-foreground">{rs.masukGagal}</p>}
       </div>
     );
   }
@@ -228,6 +279,23 @@ export default function BroadenRoles({
       </div>
 
       {revealed >= roles.length && (
+        <RumuskanSendiri
+          picked={picked}
+          awal={initialRumusan}
+          onUbah={onRumusanChange}
+          onLepas={(judul) => { if (picked.includes(judul)) togglePick(judul); }}
+          onPakai={(judul, r) => {
+            // Isian bebas diperiksa pagar distress di perangkat sebelum dipakai (lapis 1b di server ikut memeriksa).
+            const cek = periksaDistressNilai(r.siapa, r.masalah, r.bangun);
+            if (cek.cocok) { setDistress(cek.tingkat); return; }
+            if (!picked.includes(judul) && picked.length < MAX_PICK) togglePick(judul);
+          }}
+        />
+      )}
+
+      {revealed >= roles.length && barisPilihan}
+
+      {revealed >= roles.length && (
         <div className="pt-2 space-y-2">
           <p className="text-sm text-muted-foreground">
             Pilih satu atau dua peran yang paling ingin kamu telusuri lebih jauh
@@ -240,6 +308,60 @@ export default function BroadenRoles({
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function RumuskanSendiri({
+  picked,
+  onPakai,
+  awal,
+  onUbah,
+  onLepas,
+}: {
+  picked: string[];
+  onPakai: (judul: string, r: Rumusan) => void;
+  awal?: Rumusan;
+  onUbah?: (r: Rumusan) => void;
+  onLepas?: (judul: string) => void;
+}) {
+  const [siapa, setSiapaRaw] = useState(awal?.siapa ?? "");
+  const [masalah, setMasalahRaw] = useState(awal?.masalah ?? "");
+  const [bangun, setBangunRaw] = useState(awal?.bangun ?? "");
+  const ubah = (r: Rumusan) => onUbah?.(r);
+  const setSiapa = (v: string) => { setSiapaRaw(v); ubah({ siapa: v, masalah, bangun }); };
+  const setMasalah = (v: string) => { setMasalahRaw(v); ubah({ siapa, masalah: v, bangun }); };
+  // Rumusan yang sudah dipakai lalu diubah: judul lama dilepas supaya peran terpilih selalu sama dengan isian.
+  const setBangun = (v: string) => {
+    const lama = bangun.trim() ? `${rs.awalanJudul}: ${bangun.trim()}` : "";
+    if (lama && lama !== (v.trim() ? `${rs.awalanJudul}: ${v.trim()}` : "")) onLepas?.(lama);
+    setBangunRaw(v);
+    ubah({ siapa, masalah, bangun: v });
+  };
+  const judul = bangun.trim() ? `${rs.awalanJudul}: ${bangun.trim()}` : "";
+  const sudah = judul !== "" && picked.includes(judul);
+  const penuh = picked.length >= MAX_PICK && !sudah;
+  const kolom = "w-full rounded-md border border-border bg-background px-3 py-2 text-sm";
+  return (
+    <div className="rounded-xl border border-dashed border-[hsl(var(--torch-gold))]/60 bg-card p-5 space-y-3">
+      <p className="text-sm text-muted-foreground">{rs.pengantar}</p>
+      <h4 className="font-heading text-lg font-semibold text-foreground">{rs.judul}</h4>
+      <p className="text-sm leading-relaxed text-foreground/85">{rs.isi}</p>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label1}</span>
+        <input className={kolom} value={siapa} maxLength={120} onChange={(e) => setSiapa(e.target.value)} />
+      </label>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label2}</span>
+        <input className={kolom} value={masalah} maxLength={160} onChange={(e) => setMasalah(e.target.value)} />
+      </label>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label3}</span>
+        <input className={kolom} value={bangun} maxLength={80} placeholder={rs.contoh3} onChange={(e) => setBangun(e.target.value)} />
+      </label>
+      <Button size="sm" variant={sudah ? "default" : "outline"} disabled={!judul || sudah || penuh} onClick={() => onPakai(judul, { siapa, masalah, bangun })}>
+        {sudah ? "Ditelusuri ✓" : rs.tombol}
+      </Button>
     </div>
   );
 }

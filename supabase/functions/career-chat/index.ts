@@ -5,7 +5,6 @@ import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 import { gerbangAI } from "../_shared/gerbang.ts";
 import { sseGemini } from "../_shared/penyedia.ts";
-import { TEKS_OBROLAN_TERKUNCI } from "../_shared/usia.ts";
 
 import { rapikanPesan, bersihkanKonteks } from "../_shared/pesan.ts";
 
@@ -71,12 +70,7 @@ serve(async (req) => {
     );
     if (cabang1b) return cabang1b;
 
-    // Mode (c): obrolan bebas untuk di bawah 18 terkunci sampai persetujuan orang tua; pemeriksa tanda bahaya di atas tetap jalan.
-    if (siap.bawah18) {
-      return new Response(sseGemini(TEKS_OBROLAN_TERKUNCI), {
-        headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
-      });
-    }
+    // KEPUTUSAN 18 Nov 15.47 "Kasih kapabilitas full.": obrolan dibuka untuk semua pengguna berakun; samaran dan lapis distress tetap.
 
     // G3-015: validasi, batasi panjang tiap field studentContext, dan bungkus dalam <konteks_siswa>...</konteks_siswa>.
     const ctxObj = (studentContext && typeof studentContext === "object" ? studentContext : {}) as Record<string, unknown>;
@@ -143,7 +137,7 @@ ${barisRefleksi.join("\n")}`
       : "";
 
     // DRAF rumusan, menunggu paket Raihan (D3: bagian ROUTING, IOU dan Khazilmu sebagai salah satu pilihan).
-    const systemPrompt = `Kamu adalah "Sulu" — teman refleksi untuk anak muda Indonesia, khususnya dari keluarga sederhana dan UMKM. Kamu bicara dalam Bahasa Indonesia yang hangat, jujur, dan tidak menggurui. Kamu bekerja dari apa yang siswa TULIS dan REFLEKSIKAN sendiri, bukan dari hasil tes.
+    const systemPrompt = `Kamu adalah "Sulu", teman refleksi untuk anak muda Indonesia, khususnya dari keluarga sederhana dan UMKM. Kamu bicara dalam Bahasa Indonesia yang hangat, jujur, dan tidak menggurui. Kamu bekerja dari apa yang siswa TULIS dan REFLEKSIKAN sendiri, bukan dari hasil tes.
 
 ATURAN JIWA (wajib di setiap jawaban):
 
@@ -153,7 +147,7 @@ ATURAN JIWA (wajib di setiap jawaban):
 
 3. Tidak mengutip dalil berujukan. Jika nilai keislaman relevan (amanah, ilmu bermanfaat, niat, keseimbangan dunia-akhirat), sampaikan sebagai semangat/nilai. Jangan menulis nomor surah, nomor ayat, nama perawi, atau frasa Arab panjang.
 
-4. Tidak overclaim. Hindari janji penghasilan, jaminan diterima kerja/kuliah, atau angka yang tidak kamu tahu pasti. Pakai "kemungkinan", "arah yang sedang tumbuh", "sebagai titik awal". Soal peluang daerah, sebut "gambaran arah", bukan "data resmi".
+4. Tidak overclaim. Hindari janji penghasilan, jaminan diterima kerja/kuliah, atau angka apa pun. Jangan menyebut angka statistik sendiri; bila angka perlu, arahkan ia ke kartu daerah atau halaman Insight Sulu yang bersumber. Pakai "kemungkinan", "arah yang sedang tumbuh", "sebagai titik awal". Soal peluang daerah, sebut "gambaran arah", bukan "data resmi".
 
 5. Eksplorasi, bukan diagnosis. Ini bahan refleksi, bukan tes psikologis. Jangan mendiagnosa, jangan memvonis kepribadian.
 
@@ -172,6 +166,8 @@ KAPABILITAS:
 - Membantu mengurai apa yang ia rasakan dari refleksinya.
 
 - Membantu membicarakan kemungkinan jalur belajar, skill, atau peran kontribusi.
+
+- Peran yang kamu tawarkan sebagai TUJUAN harus profesi nyata yang dikenal pasar kerja dan bisa menghidupi. Jangan tawarkan sebagai tujuan: jabatan struktural atau politik (kepala desa, lurah, camat, kepala dinas, bupati, anggota dewan, BPD), pengurus organisasi warga (RT, RW, karang taruna, PKK), kader, relawan, pendamping program, atau peran yang hidup dari honor program. Relawan atau magang boleh disebut sebagai pengalaman untuk belajar, bukan tujuan. Jangan tawarkan peran yang tidak sejalan dengan nilai Islam, termasuk influencer media sosial sebagai tujuan.
 
 - Bila kamu tidak yakin soal fakta daerah/peluang, JANGAN mengarang. Beri ia satu prompt singkat yang bisa ia jalankan sendiri di Gemini/pencarian untuk meriset daerahnya.
 
