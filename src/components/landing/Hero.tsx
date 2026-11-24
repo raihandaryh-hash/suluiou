@@ -12,9 +12,11 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { mukadimahContent as M } from '@/data/mukadimahContent';
+import { useAuth } from '@/hooks/useAuth';
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <section className="relative min-h-screen flex flex-col bg-background">
@@ -24,10 +26,11 @@ const Hero = () => {
           <Logo size="md" linkTo="/" />
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <Link to="/insight">Mengapa ini penting? →</Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
               <Link to="/insight">Lihat Data</Link>
+            </Button>
+            {/* Temuan 24 Nov: pintu masuk tidak terlihat di beranda ("Saya juga gak tahu login itu di page mana"). */}
+            <Button asChild variant="outline" size="sm">
+              {user ? <Link to="/kenali-dirimu">Lanjutkan perjalananku</Link> : <Link to="/login">Masuk</Link>}
             </Button>
           </div>
         </div>

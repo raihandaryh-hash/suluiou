@@ -27,6 +27,8 @@ type Gerakan3 = {
   readonly queries: readonly string[];
   readonly aiPromptJudul: string;
   readonly aiPrompt: string;
+  readonly tanyaSuluTombol: string;
+  readonly tanyaSuluPertanyaan: string;
   readonly bridge: string;
   readonly langkahNudge: string;
   readonly langkahPlaceholder: string;
@@ -175,6 +177,13 @@ export default function DesainLangkah({
   province,
 }: Props) {
   const [langkah, setLangkah] = useState(initialLangkah || "");
+  // L16: salin-prompt ke AI luar hanya bila boleh menyimpan (dewasa atau sudah ada izin orang tua).
+  const [dewasa, setDewasa] = useState(false);
+  useEffect(() => {
+    let aktif = true;
+    bolehSimpan().then((b) => { if (aktif) setDewasa(b); }).catch(() => {});
+    return () => { aktif = false; };
+  }, []);
   const boxRef = useRef<HTMLTextAreaElement>(null);
   const MAX_STEPS = 2;
 
@@ -265,14 +274,26 @@ export default function DesainLangkah({
                   ))}
                 </div>
                 <div className="space-y-2 pt-1">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {content.aiPromptJudul}
-                  </p>
-                  <p className="text-sm leading-relaxed text-foreground/90">
-                    {sub(content.aiPrompt)}
-                  </p>
-                  <CopyButton text={sub(content.aiPrompt)} />
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.dispatchEvent(new CustomEvent("sulu:tanya", { detail: sub(content.tanyaSuluPertanyaan) }))}
+                  >
+                    {content.tanyaSuluTombol}
+                  </Button>
                 </div>
+                {dewasa && (
+                  <div className="space-y-2 pt-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {content.aiPromptJudul}
+                    </p>
+                    <p className="text-sm leading-relaxed text-foreground/90">
+                      {sub(content.aiPrompt)}
+                    </p>
+                    <CopyButton text={sub(content.aiPrompt)} />
+                  </div>
+                )}
               </div>
             )}
 

@@ -78,7 +78,7 @@ export const jalanBaktiContent = {
   },
 
   // ── 6 Klaster Jalan Bakti ──
-  klasterIntro: "Tujuh medan. Pilih satu untuk kamu telusuri lebih dulu. Ini bukan keputusan seumur hidup, kamu bisa kembali dan memilih yang lain kapan saja.",
+  klasterIntro: "Tujuh medan. Pilih satu atau lebih yang ingin kamu telusuri. Ini bukan keputusan seumur hidup, kamu bisa kembali dan mengubahnya kapan saja.",
 
   // ── GERAKAN 2 · PAHAMI — tampar 10-jobs (horizon broadening). Statik, muncul setelah medan dipilih. ──
   // Jejak: OECD dream-jobs (PISA 2022, ~690rb remaja/81 negara, aspirasi menumpuk di ~10 pekerjaan). NO OVERCLAIM.
@@ -310,7 +310,10 @@ export const jalanBaktiContent = {
       "sehari-hari kerja {peran}",
       "{peran} belajar apa dulu",
     ],
-    aiPromptJudul: "Atau tanyakan ini ke AI",
+    // L16 (PUTUSAN ATAS DELEGASI 24 Nov 22.29): siswa memakai Tanya Sulu yang berlapis keselamatan; salin-prompt ke AI luar hanya untuk pengguna dewasa.
+    tanyaSuluTombol: "Tanya Sulu soal peran ini",
+    tanyaSuluPertanyaan: "Ceritakan peran {peran}: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan satu langkah pertama yang bisa kumulai.",
+    aiPromptJudul: "Atau tanyakan ini ke AI lain",
     aiPrompt: "Jelaskan peran {peran} untuk siswa SMA: apa yang dikerjakan sehari-hari, kekuatan yang dibutuhkan, dan langkah pertama untuk mulai mendekatinya.",
     bridge: "Dari empat cara di atas, mana satu langkah kecil yang paling mungkin kamu lakukan minggu ini? Langkah yang punya waktu dan tempat yang jelas jauh lebih mungkin benar-benar terjadi, jadi tuliskan kapan dan di mananya.",
     langkahNudge: "Pilih satu, atau maksimal dua kalau kamu memang siap. Satu langkah yang benar-benar kamu jalankan lebih berharga daripada banyak yang cuma jadi niat.",
@@ -342,6 +345,7 @@ export const jalanBaktiContent = {
 
     // ── STEPPER (baru, mekanis Sonnet — 🔲 SEMUA field di bawah menunggu review/isi Fable, BUKAN diisi dari memori) ──
     stepLanjutLabel: "Lanjut",
+    pilihPeranDesain: "Kamu menelusuri lebih dari satu peran. Rancang langkah untuk yang mana dulu?",
     stepKembaliLabel: "Kembali",
     stepLabels: {
       1: "Dengar",
@@ -364,4 +368,6 @@ export const rumuskanSendiriContent = {
   contoh3: "Misalnya: aplikasi, usaha, sekolah, gerakan, alat",
   tombol: "Pakai rumusanku",
   awalanJudul: "Peran rumusanku",
+  masukIsi: "Untuk menyalakan peran, Sulu perlu tahu ini kamu. Masuk sebentar dengan akun Google, jawabanmu tetap tersimpan.",
+  masukTombol: "Masuk dengan Google",
 };

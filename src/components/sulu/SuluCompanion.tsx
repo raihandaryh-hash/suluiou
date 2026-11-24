@@ -41,6 +41,17 @@ export function SuluCompanion() {
     if (open && inputRef.current) inputRef.current.focus();
   }, [open]);
 
+  // L16: tombol "Tanya Sulu soal peran ini" di Desain Langkah membuka obrolan dengan pertanyaan terisi.
+  useEffect(() => {
+    const dengar = (e: Event) => {
+      const teks = (e as CustomEvent<string>).detail;
+      setOpen(true);
+      if (typeof teks === "string" && teks.trim()) setInput(teks);
+    };
+    window.addEventListener("sulu:tanya", dengar);
+    return () => window.removeEventListener("sulu:tanya", dengar);
+  }, []);
+
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
 

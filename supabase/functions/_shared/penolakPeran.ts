@@ -10,5 +10,7 @@ export const PERAN_DITOLAK = new RegExp([
   String.raw`\bkader\b`, String.raw`\brelawan\b`, String.raw`\bvolunteer\b`, String.raw`\bpengurus\b`,
   String.raw`\bpendamping\s+(desa|lokal|program|pkh|sosial|umkm|bansos)\b`, String.raw`\bpkh\b`,
   String.raw`\bfasilitator\s+(desa|posyandu|pemberdayaan|kelurahan|program)\b`, String.raw`\bhonor(er)?\b`,
+  // Uji tayang 24 Nov 23.1x: "Pendamping Literasi dan Numerasi Desa" lolos (tidak bersebelahan); "petugas" ditolak Raihan 15 Nov.
+  String.raw`\bpendamping\b[^,;]{0,40}\bdesa\b`, String.raw`\bpetugas\b`,
   String.raw`\binfluencer\b`, String.raw`\bselebgram\b`, String.raw`\bcontent\s+creator\s+tiktok\b`,
 ].join("|"), "i");

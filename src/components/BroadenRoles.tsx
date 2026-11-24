@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { buildSuluContext } from "@/lib/buildSuluContext";
@@ -41,7 +42,8 @@ export default function BroadenRoles({
   initialPicked = [],
   onPickedChange,
 }: Props) {
-  const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const navigate = useNavigate();
+  const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error" | "masuk">("idle");
   const [roles, setRoles] = useState<Role[]>([]);
   const [note, setNote] = useState("");
   const [revealed, setRevealed] = useState(0);
@@ -88,6 +90,11 @@ export default function BroadenRoles({
       if (data?.distress) {
         setDistress(data.tingkat === "bahaya_langsung" ? "bahaya_langsung" : "tanda_berat");
         setPhase("idle");
+        return;
+      }
+      const status = (error as { context?: { status?: number } } | null)?.context?.status;
+      if (status === 401) {
+        setPhase("masuk");
         return;
       }
       if (error || !data || data.error || !Array.isArray(data.roles) || !data.roles.length) {
@@ -150,6 +157,23 @@ export default function BroadenRoles({
         <p className="text-sm text-muted-foreground">
           Sedang menyalakan peran yang belum terlihat...
         </p>
+      </div>
+    );
+  }
+
+  if (phase === "masuk") {
+    return (
+      <div className="flex flex-col items-center text-center gap-3 py-6">
+        <p className="text-sm text-foreground/85 max-w-md">{rs.masukIsi}</p>
+        <Button
+          size="sm"
+          onClick={() => {
+            try { sessionStorage.setItem("sulu.returnTo", "/jalan-bakti"); } catch { /* abaikan */ }
+            navigate("/login");
+          }}
+        >
+          {rs.masukTombol}
+        </Button>
       </div>
     );
   }

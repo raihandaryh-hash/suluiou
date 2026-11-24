@@ -199,9 +199,13 @@ export default function Sintesis() {
     })();
   }, [user, authLoading]);
 
-  // Minat (sisi-diri) tidak lagi diambil dari sdgTags (itu sisi-lingkungan = category error).
-  // Interim jujur sampai modul minat (M2) / Asesmen Minat (Spine A) tersedia.
-  const minatItems = useMemo<string[]>(() => [], []);
+  // Minat (sisi-diri) tidak diambil dari sdgTags (itu sisi-lingkungan). L19 (audit niat 24 Nov):
+  // sampai modul minat tersedia, pakai jawaban "ini saya banget" (d2_q1) dari Kenali Dirimu sebagai jejak minat.
+  const minatItems = useMemo<string[]>(() => {
+    const starter = "Momen ketika saya merasa 'ini saya banget' dan semuanya terasa mengalir adalah...";
+    const a = (fondasi["d2_q1"] ?? "").replace(starter, "").trim();
+    return a.length >= 3 ? [a] : [];
+  }, [fondasi]);
   const kemampuanItems = useMemo(
     () => skillSelected.map((id) => COMPETENCY_LABELS[id] ?? id),
     [skillSelected],

@@ -64,8 +64,8 @@ serve(async (req) => {
       : [];
     const province: string = bersihkanKonteks(body.province, 80, true);
     const personSide = body.personSide || {};
-    let skills: string = bersihkanKonteks(personSide.skills, 600);
-    let values: string = bersihkanKonteks(personSide.values, 600);
+    const skills: string = bersihkanKonteks(personSide.skills, 600);
+    const values: string = bersihkanKonteks(personSide.values, 600);
 
     // B3a + B5a: cabang distress atas teks pengguna, SEBELUM panggilan model. Tidak ada teks yang disimpan.
     const cabang = cabangDistress("broaden-roles", corsHeaders, medanNama, subPicks, siapa, province, skills, values);
@@ -84,7 +84,7 @@ serve(async (req) => {
     );
     if (cabang1b) return cabang1b;
     // Mode (c): teks bebas (skill dan nilai yang ditulis siswa) tidak dikirim ke AI untuk di bawah 18; pilihan medan tetap.
-    if (siap.bawah18) { skills = ""; values = ""; }
+    // KEPUTUSAN 18 Nov 15.47 "Kasih kapabilitas full.": mode (c) dicabut; samaran ke AI (ai.ts) dan lapis distress tetap.
 
     const ctx = [
       `Medan yang dipilih siswa: ${medanNama || "(tidak disebutkan)"}`,

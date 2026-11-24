@@ -5,7 +5,6 @@ import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 import { gerbangAI } from "../_shared/gerbang.ts";
 import { sseGemini } from "../_shared/penyedia.ts";
-import { TEKS_OBROLAN_TERKUNCI } from "../_shared/usia.ts";
 
 import { rapikanPesan, bersihkanKonteks } from "../_shared/pesan.ts";
 
@@ -71,12 +70,7 @@ serve(async (req) => {
     );
     if (cabang1b) return cabang1b;
 
-    // Mode (c): obrolan bebas untuk di bawah 18 terkunci sampai persetujuan orang tua; pemeriksa tanda bahaya di atas tetap jalan.
-    if (siap.bawah18) {
-      return new Response(sseGemini(TEKS_OBROLAN_TERKUNCI), {
-        headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
-      });
-    }
+    // KEPUTUSAN 18 Nov 15.47 "Kasih kapabilitas full.": obrolan dibuka untuk semua pengguna berakun; samaran dan lapis distress tetap.
 
     // G3-015: validasi, batasi panjang tiap field studentContext, dan bungkus dalam <konteks_siswa>...</konteks_siswa>.
     const ctxObj = (studentContext && typeof studentContext === "object" ? studentContext : {}) as Record<string, unknown>;

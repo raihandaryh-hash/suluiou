@@ -36,6 +36,12 @@ const LS_KEY = "jalan_bakti_v1";
 
 type JBData = {
   medan: string | null;
+  /** Medan tambahan (KEPUTUSAN 18 Nov 15.47 "masa cuma satu? Foreclosure"). medan = yang pertama dipilih. */
+  medanLain?: string[];
+  /** Peran yang ditelusuri per medan; `roles` = gabungannya (dipakai Sintesis dan Surat). */
+  rolesByMedan?: Record<string, string[]>;
+  /** Peran yang dipakai di Desain Langkah bila lebih dari satu ditelusuri. */
+  peranDesain?: string;
   sdgTags: string[];
   subPicks: string[];
   peduliPicks: string[];
@@ -46,6 +52,9 @@ type JBData = {
 
 const EMPTY: JBData = {
   medan: null,
+  medanLain: [],
+  rolesByMedan: {},
+  peranDesain: "",
   sdgTags: [],
   subPicks: [],
   peduliPicks: [],
@@ -227,12 +236,41 @@ export default function JalanBakti() {
   }
 
   function selectMedan(id: string) {
-    setD((p) =>
-      p.medan === id
-        ? { ...p, medan: null, subPicks: [] }
-        : { ...p, medan: id, subPicks: [] },
-    );
+    setD((p) => {
+      const lain = p.medanLain ?? [];
+      const terpilih = [p.medan, ...lain].filter(Boolean) as string[];
+      const byMedan = { ...(p.rolesByMedan ?? {}) };
+      if (terpilih.includes(id)) {
+        // lepas medan ini: buang sub-tantangan dan peran miliknya
+        const k = C.klaster.find((x) => x.id === id);
+        const subIds = new Set((k?.subTantangan ?? []).map((x) => x.id));
+        delete byMedan[id];
+        const sisa = terpilih.filter((x) => x !== id);
+        const roles = Object.values(byMedan).flat();
+        return {
+          ...p,
+          medan: sisa[0] ?? null,
+          medanLain: sisa.slice(1),
+          subPicks: p.subPicks.filter((x) => !subIds.has(x)),
+          rolesByMedan: byMedan,
+          roles,
+          peranDesain: roles.includes(p.peranDesain ?? "") ? p.peranDesain : "",
+        };
+      }
+      if (!p.medan) return { ...p, medan: id };
+      return { ...p, medanLain: [...lain, id] };
+    });
   }
+
+  function setPeranMedan(medanId: string, picked: string[]) {
+    setD((p) => {
+      const byMedan = { ...(p.rolesByMedan ?? {}), [medanId]: picked };
+      const roles = Object.values(byMedan).flat();
+      return { ...p, rolesByMedan: byMedan, roles, peranDesain: roles.includes(p.peranDesain ?? "") ? p.peranDesain : "" };
+    });
+  }
+
+  const medanTerpilih = [d.medan, ...(d.medanLain ?? [])].filter(Boolean) as string[];
 
   function toggleSub(id: string) {
     setD((p) => ({
@@ -486,7 +524,7 @@ export default function JalanBakti() {
             <SectionHeader title={C.ui.klasterSectionTitle} subtitle={C.klasterIntro} />
             <div className="space-y-4">
               {C.klaster.map((k) => {
-                const selected = d.medan === k.id;
+                const selected = medanTerpilih.includes(k.id);
                 return (
                   <div
                     key={k.id}
@@ -607,12 +645,6 @@ export default function JalanBakti() {
           {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs + reveal peran (muncul setelah medan dipilih) ── */}
           {d.medan &&
             (() => {
-              const medanObj = C.klaster.find((k) => k.id === d.medan);
-              const subLabels = medanObj
-                ? medanObj.subTantangan
-                    .filter((s) => d.subPicks.includes(s.id))
-                    .map((s) => s.label)
-                : [];
               const siapaLabels = [
                 ...C.lensaKepedulian.tier1Items,
                 ...C.lensaKepedulian.tier2Wajah,
@@ -629,15 +661,29 @@ export default function JalanBakti() {
                         {p}
                       </p>
                     ))}
-
-                    <BroadenRoles
-                      medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
-                      subPicks={subLabels}
-                      siapa={siapaLabels}
-                      province={province}
-                      initialPicked={d.roles}
-                      onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
-                    />
+                    {medanTerpilih.map((mid) => {
+                      const medanObj = C.klaster.find((k) => k.id === mid);
+                      const subLabels = medanObj
+                        ? medanObj.subTantangan.filter((s) => d.subPicks.includes(s.id)).map((s) => s.label)
+                        : [];
+                      // data lama (sebelum multi-medan): peran tersimpan di `roles` tanpa rolesByMedan
+                      const awal = d.rolesByMedan?.[mid] ?? (mid === d.medan && !d.rolesByMedan?.[mid] && medanTerpilih.length === 1 ? d.roles : []);
+                      return (
+                        <div key={`br-${mid}`} className="space-y-3">
+                          {medanTerpilih.length > 1 && (
+                            <h4 className="font-heading text-base font-semibold text-foreground">{medanObj?.nama}</h4>
+                          )}
+                          <BroadenRoles
+                            medan={{ id: mid, nama: medanObj?.nama || "" }}
+                            subPicks={subLabels}
+                            siapa={siapaLabels}
+                            province={province}
+                            initialPicked={awal}
+                            onPickedChange={(picked) => setPeranMedan(mid, picked)}
+                          />
+                        </div>
+                      );
+                    })}
                   </section>
                 </>
               );
@@ -658,11 +704,24 @@ export default function JalanBakti() {
                 {p}
               </p>
             ))}
+            {d.roles.length > 1 && (
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground">{C.ui.pilihPeranDesain}</p>
+                <div className="flex flex-wrap gap-2">
+                  {d.roles.map((r) => (
+                    <Chip key={r} active={(d.peranDesain || d.roles[0]) === r} onClick={() => setD((p) => ({ ...p, peranDesain: r }))}>
+                      {r}
+                    </Chip>
+                  ))}
+                </div>
+              </div>
+            )}
             {d.medan ? (
               <DesainLangkah
                 content={C.gerakan3}
                 medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
-                role={d.roles[0] || null}
+                key={d.peranDesain || d.roles[0] || "tanpa-peran"}
+                role={(d.peranDesain && d.roles.includes(d.peranDesain) ? d.peranDesain : d.roles[0]) || null}
                 initialLangkah={d.langkah}
                 onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
                 userId={user?.id ?? null}
@@ -686,7 +745,7 @@ export default function JalanBakti() {
             <SectionHeader title={C.ui.tuntaskanSectionTitle} />
             <p className="text-base leading-relaxed text-foreground/90">{C.tuntaskan.intro}</p>
             {(() => {
-              const medanNama = C.klaster.find((k) => k.id === d.medan)?.nama || "";
+              const medanNama = medanTerpilih.map((m) => C.klaster.find((k) => k.id === m)?.nama).filter(Boolean).join(", ");
               const siapaNames = [...C.lensaKepedulian.tier1Items, ...C.lensaKepedulian.tier2Wajah]
                 .filter((x) => d.peduliPicks.includes(x.id))
                 .map((x) => x.label);
