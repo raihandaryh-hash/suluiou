@@ -18,7 +18,7 @@ import {
   type StudentSession,
 } from '@/lib/classSession';
 import { getPendingClassCode } from '@/lib/pendingClassCode';
-import { clearPendingClaim, getPendingClaim } from '@/lib/claimGuestResult';
+import { clearPendingClaim, getPendingClaim, tandaiAdopsiJalanBakti } from '@/lib/claimGuestResult';
 import { sudahPilihPeran } from '@/lib/peran';
 import { pindahPemilikPerangkat } from '@/lib/perangkat';
 import { TEKS_PINTU } from '@/data/pintuMasukContent';
@@ -139,6 +139,7 @@ const Login = () => {
           // Hasil tamu tetap di perangkat; siswa berizin mengaktifkan kode peserta di profil.
           try {
             pindahPemilikPerangkat(claim.guestIdentifier, u.id);
+            if (claim.asal === 'jalan-bakti') tandaiAdopsiJalanBakti(u.id);
           } finally {
             clearPendingClaim();
             // Drop the old guest session — we're now Google-authenticated.
@@ -159,11 +160,11 @@ const Login = () => {
           setStudentSession(session);
           if (!active) return;
           if (!hasProvince(u.user_metadata as Record<string, unknown> | undefined)) {
-            setPendingProvince({ session, forcedNext: '/results' });
+            setPendingProvince({ session, forcedNext: claim.asal === 'jalan-bakti' ? null : '/results' });
             return;
           }
           if (!hasRole(u.app_metadata as Record<string, unknown> | undefined)) {
-            setPendingRole({ session, forcedNext: '/results' });
+            setPendingRole({ session, forcedNext: claim.asal === 'jalan-bakti' ? null : '/results' });
             return;
           }
           navigate(await nextAfter(session), { replace: true });

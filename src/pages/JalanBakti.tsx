@@ -20,6 +20,7 @@ import JalanBaktiOpening from "@/components/JalanBaktiOpening";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 import { keselamatanContent } from "@/data/keselamatanContent";
 import { bacaFase, simpanFase } from "@/lib/perangkat";
+import { ambilAdopsiJalanBakti } from "@/lib/claimGuestResult";
 
 type ProvinceContext = {
   economic_sectors: string[];
@@ -36,6 +37,14 @@ const LS_KEY = "jalan_bakti_v1";
 
 type JBData = {
   medan: string | null;
+  /** Medan tambahan (KEPUTUSAN 18 Nov 15.47 "masa cuma satu? Foreclosure"). medan = yang pertama dipilih. */
+  medanLain?: string[];
+  /** Peran yang ditelusuri per medan; `roles` = gabungannya (dipakai Sintesis dan Surat). */
+  rolesByMedan?: Record<string, string[]>;
+  /** Peran yang dipakai di Desain Langkah bila lebih dari satu ditelusuri. */
+  peranDesain?: string;
+  langkahByPeran?: Record<string, string>;
+  rumusanByMedan?: Record<string, { siapa: string; masalah: string; bangun: string }>;
   sdgTags: string[];
   subPicks: string[];
   peduliPicks: string[];
@@ -46,6 +55,11 @@ type JBData = {
 
 const EMPTY: JBData = {
   medan: null,
+  medanLain: [],
+  rolesByMedan: {},
+  peranDesain: "",
+  langkahByPeran: {},
+  rumusanByMedan: {},
   sdgTags: [],
   subPicks: [],
   peduliPicks: [],
@@ -53,6 +67,48 @@ const EMPTY: JBData = {
   langkah: "",
   refleksi: "",
 };
+
+// Peran yang sedang dirancang langkahnya: pilihan siswa bila masih ada, selain itu peran pertama.
+function peranAktif(p: JBData): string {
+  return p.peranDesain && p.roles.includes(p.peranDesain) ? p.peranDesain : p.roles[0] ?? "";
+}
+
+// Medan pemilik sebuah peran (untuk nama medan di langkah dan permintaan jembatan).
+function medanPemilik(p: JBData, peran: string): string | null {
+  const hit = Object.entries(p.rolesByMedan ?? {}).find(([, rs]) => rs.includes(peran));
+  return hit?.[0] ?? p.medan;
+}
+
+// Ganti peran aktif: langkah peran lama disimpan, langkah peran baru dipulihkan (atau kosong),
+// supaya baris langkah tidak membawa nama peran lain dan batas dua langkah tetap per peran.
+function pindahLangkah(p: JBData, lama: string): JBData {
+  const tujuan = peranAktif(p);
+  if (lama === tujuan) return p;
+  const simpan = { ...(p.langkahByPeran ?? {}) };
+  // Langkah yang ditulis sebelum ada peran ikut ke peran pertama yang dipilih.
+  if (!lama) return { ...p, langkah: simpan[tujuan] ?? p.langkah };
+  if (p.langkah) simpan[lama] = p.langkah;
+  return { ...p, langkahByPeran: simpan, langkah: simpan[tujuan] ?? "" };
+}
+
+function gantiPeranAktif(p: JBData, next: string): JBData {
+  return pindahLangkah({ ...p, peranDesain: next }, peranAktif(p));
+}
+
+// Susun ulang daftar peran dari peran per medan (tanpa duplikat), jaga langkah bila peran aktif berubah.
+function aturPeran(p: JBData, byMedan: Record<string, string[]>): JBData {
+  const roles = [...new Set(Object.values(byMedan).flat())];
+  const peranDesain = roles.includes(p.peranDesain ?? "") ? p.peranDesain : "";
+  return pindahLangkah({ ...p, rolesByMedan: byMedan, roles, peranDesain }, peranAktif(p));
+}
+
+// Data lama (sebelum multi-medan): peran tersimpan di `roles` tanpa rolesByMedan.
+function migrasiData(p: JBData): JBData {
+  if (p.medan && p.roles.length && !Object.keys(p.rolesByMedan ?? {}).length) {
+    return { ...p, rolesByMedan: { [p.medan]: p.roles } };
+  }
+  return p;
+}
 
 // ── STEPPER: 4 langkah. currentStep TIDAK dipersist — reload = mulai dari
 // step 1, jawaban (objek `d`) tetap persist di localStorage/Supabase seperti semula.
@@ -200,16 +256,32 @@ export default function JalanBakti() {
     (async () => {
       try {
         if (user) {
-          const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
-          if (data?.data) {
-            const merged = { ...EMPTY, ...(data.data as JBData) };
-            setD(merged);
-            // Mirror to localStorage so compileSurat() can read it.
-            localStorage.setItem(LS_KEY, JSON.stringify(merged));
+          // Baru masuk dari ajakan "Masuk dengan Google" sebagai tamu: isian tamu di perangkat ini yang dilanjutkan,
+          // termasuk bila akun sudah punya isian lama di server (siswa menekan Simpan untuk menimpanya).
+          // Tanpa penanda itu, isian perangkat tidak pernah dibaca untuk akun Google (perangkat bersama).
+          const adopsi = ambilAdopsiJalanBakti(user.id);
+          const raw = adopsi ? localStorage.getItem(LS_KEY) : null;
+          if (raw) {
+            const diadopsi = migrasiData({ ...EMPTY, ...JSON.parse(raw) });
+            setD(diadopsi);
+            // Langsung disimpan ke akun, supaya muat ulang atau pindah halaman tidak memulihkan isian lama dari server.
+            const { error } = await simpanFase("phase_3_jalan_bakti", user.id, diadopsi);
+            if (error) console.error(error);
+          } else {
+            const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
+            if (data?.data) {
+              const merged = migrasiData({ ...EMPTY, ...(data.data as JBData) });
+              setD(merged);
+              // Mirror to localStorage so compileSurat() can read it.
+              localStorage.setItem(LS_KEY, JSON.stringify(merged));
+            } else {
+              // Akun tanpa isian: mulai kosong, jangan bawa isian akun lain yang masih ada di layar.
+              setD(EMPTY);
+            }
           }
         } else {
           const raw = localStorage.getItem(LS_KEY);
-          if (raw) setD({ ...EMPTY, ...JSON.parse(raw) });
+          if (raw) setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
         }
       } catch (e) {
         console.error(e);
@@ -217,7 +289,15 @@ export default function JalanBakti() {
         setHydrated(true);
       }
     })();
-  }, [user, authLoading]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- hidrasi per akun, bukan per objek user (TOKEN_REFRESHED)
+  }, [user?.id, authLoading]);
+
+  // Simpan otomatis di perangkat, khusus tamu: isian tidak hilang saat tamu pindah ke halaman masuk lalu kembali.
+  // Akun Google menyimpan lewat tombol Simpan ke server.
+  useEffect(() => {
+    if (!hydrated || user) return;
+    try { localStorage.setItem(LS_KEY, JSON.stringify(d)); } catch { /* abaikan */ }
+  }, [d, hydrated, user]);
 
   function toggleSdg(id: string) {
     setD((p) => ({
@@ -227,12 +307,37 @@ export default function JalanBakti() {
   }
 
   function selectMedan(id: string) {
-    setD((p) =>
-      p.medan === id
-        ? { ...p, medan: null, subPicks: [] }
-        : { ...p, medan: id, subPicks: [] },
-    );
+    setD((p) => {
+      const lain = p.medanLain ?? [];
+      const terpilih = [p.medan, ...lain].filter(Boolean) as string[];
+      const byMedan = { ...(p.rolesByMedan ?? {}) };
+      if (terpilih.includes(id)) {
+        // lepas medan ini: buang sub-tantangan dan peran miliknya
+        const k = C.klaster.find((x) => x.id === id);
+        const subIds = new Set((k?.subTantangan ?? []).map((x) => x.id));
+        delete byMedan[id];
+        const sisa = terpilih.filter((x) => x !== id);
+        const rumusan = { ...(p.rumusanByMedan ?? {}) };
+        delete rumusan[id];
+        return aturPeran(
+          { ...p, medan: sisa[0] ?? null, medanLain: sisa.slice(1), subPicks: p.subPicks.filter((x) => !subIds.has(x)), rumusanByMedan: rumusan },
+          byMedan,
+        );
+      }
+      if (!p.medan) return { ...p, medan: id };
+      return { ...p, medanLain: [...lain, id] };
+    });
   }
+
+  function setPeranMedan(medanId: string, picked: string[]) {
+    setD((p) => aturPeran(p, { ...(p.rolesByMedan ?? {}), [medanId]: picked }));
+  }
+
+  function pilihPeranDesain(r: string) {
+    setD((p) => gantiPeranAktif(p, r));
+  }
+
+  const medanTerpilih = [d.medan, ...(d.medanLain ?? [])].filter(Boolean) as string[];
 
   function toggleSub(id: string) {
     setD((p) => ({
@@ -486,7 +591,7 @@ export default function JalanBakti() {
             <SectionHeader title={C.ui.klasterSectionTitle} subtitle={C.klasterIntro} />
             <div className="space-y-4">
               {C.klaster.map((k) => {
-                const selected = d.medan === k.id;
+                const selected = medanTerpilih.includes(k.id);
                 return (
                   <div
                     key={k.id}
@@ -607,12 +712,6 @@ export default function JalanBakti() {
           {/* ── GERAKAN 2 · PAHAMI — tampar 10-jobs + reveal peran (muncul setelah medan dipilih) ── */}
           {d.medan &&
             (() => {
-              const medanObj = C.klaster.find((k) => k.id === d.medan);
-              const subLabels = medanObj
-                ? medanObj.subTantangan
-                    .filter((s) => d.subPicks.includes(s.id))
-                    .map((s) => s.label)
-                : [];
               const siapaLabels = [
                 ...C.lensaKepedulian.tier1Items,
                 ...C.lensaKepedulian.tier2Wajah,
@@ -629,15 +728,30 @@ export default function JalanBakti() {
                         {p}
                       </p>
                     ))}
-
-                    <BroadenRoles
-                      medan={{ id: d.medan as string, nama: medanObj?.nama || "" }}
-                      subPicks={subLabels}
-                      siapa={siapaLabels}
-                      province={province}
-                      initialPicked={d.roles}
-                      onPickedChange={(picked) => setD((p) => ({ ...p, roles: picked }))}
-                    />
+                    {medanTerpilih.map((mid) => {
+                      const medanObj = C.klaster.find((k) => k.id === mid);
+                      const subLabels = medanObj
+                        ? medanObj.subTantangan.filter((s) => d.subPicks.includes(s.id)).map((s) => s.label)
+                        : [];
+                      const awal = d.rolesByMedan?.[mid] ?? [];
+                      return (
+                        <div key={`br-${mid}`} className="space-y-3">
+                          {medanTerpilih.length > 1 && (
+                            <h4 className="font-heading text-base font-semibold text-foreground">{medanObj?.nama}</h4>
+                          )}
+                          <BroadenRoles
+                            medan={{ id: mid, nama: medanObj?.nama || "" }}
+                            subPicks={subLabels}
+                            siapa={siapaLabels}
+                            province={province}
+                            initialPicked={awal}
+                            onPickedChange={(picked) => setPeranMedan(mid, picked)}
+                            initialRumusan={d.rumusanByMedan?.[mid]}
+                            onRumusanChange={(r) => setD((p) => ({ ...p, rumusanByMedan: { ...(p.rumusanByMedan ?? {}), [mid]: r } }))}
+                          />
+                        </div>
+                      );
+                    })}
                   </section>
                 </>
               );
@@ -658,11 +772,24 @@ export default function JalanBakti() {
                 {p}
               </p>
             ))}
+            {d.roles.length > 1 && (
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground">{C.ui.pilihPeranDesain}</p>
+                <div className="flex flex-wrap gap-2">
+                  {d.roles.map((r) => (
+                    <Chip key={r} active={peranAktif(d) === r} onClick={() => pilihPeranDesain(r)}>
+                      {r}
+                    </Chip>
+                  ))}
+                </div>
+              </div>
+            )}
             {d.medan ? (
               <DesainLangkah
                 content={C.gerakan3}
-                medanNama={C.klaster.find((k) => k.id === d.medan)?.nama || ""}
-                role={d.roles[0] || null}
+                medanNama={C.klaster.find((k) => k.id === medanPemilik(d, peranAktif(d)))?.nama || ""}
+                key={peranAktif(d) || "tanpa-peran"}
+                role={peranAktif(d) || null}
                 initialLangkah={d.langkah}
                 onLangkahChange={(l) => setD((p) => ({ ...p, langkah: l }))}
                 userId={user?.id ?? null}
@@ -686,7 +813,7 @@ export default function JalanBakti() {
             <SectionHeader title={C.ui.tuntaskanSectionTitle} />
             <p className="text-base leading-relaxed text-foreground/90">{C.tuntaskan.intro}</p>
             {(() => {
-              const medanNama = C.klaster.find((k) => k.id === d.medan)?.nama || "";
+              const medanNama = medanTerpilih.map((m) => C.klaster.find((k) => k.id === m)?.nama).filter(Boolean).join(", ");
               const siapaNames = [...C.lensaKepedulian.tier1Items, ...C.lensaKepedulian.tier2Wajah]
                 .filter((x) => d.peduliPicks.includes(x.id))
                 .map((x) => x.label);
