@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { buildSuluContext } from "@/lib/buildSuluContext";
 import RujukanDistress from "@/components/RujukanDistress";
 import { periksaDistressNilai, type TingkatDistress } from "@/lib/distress";
+import { rumuskanSendiriContent as rs } from "@/data/jalanBaktiContent";
 
 type Role = {
   title: string;
@@ -227,6 +228,8 @@ export default function BroadenRoles({
         })}
       </div>
 
+      {revealed >= roles.length && <RumuskanSendiri picked={picked} onPakai={(judul) => { if (!picked.includes(judul) && picked.length < MAX_PICK) togglePick(judul); }} />}
+
       {revealed >= roles.length && (
         <div className="pt-2 space-y-2">
           <p className="text-sm text-muted-foreground">
@@ -240,6 +243,38 @@ export default function BroadenRoles({
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function RumuskanSendiri({ picked, onPakai }: { picked: string[]; onPakai: (judul: string) => void }) {
+  const [siapa, setSiapa] = useState("");
+  const [masalah, setMasalah] = useState("");
+  const [bangun, setBangun] = useState("");
+  const judul = bangun.trim() ? `${rs.awalanJudul}: ${bangun.trim()}` : "";
+  const sudah = judul !== "" && picked.includes(judul);
+  const penuh = picked.length >= MAX_PICK && !sudah;
+  const kolom = "w-full rounded-md border border-border bg-background px-3 py-2 text-sm";
+  return (
+    <div className="rounded-xl border border-dashed border-[hsl(var(--torch-gold))]/60 bg-card p-5 space-y-3">
+      <p className="text-sm text-muted-foreground">{rs.pengantar}</p>
+      <h4 className="font-heading text-lg font-semibold text-foreground">{rs.judul}</h4>
+      <p className="text-sm leading-relaxed text-foreground/85">{rs.isi}</p>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label1}</span>
+        <input className={kolom} value={siapa} maxLength={120} onChange={(e) => setSiapa(e.target.value)} />
+      </label>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label2}</span>
+        <input className={kolom} value={masalah} maxLength={160} onChange={(e) => setMasalah(e.target.value)} />
+      </label>
+      <label className="block space-y-1 text-sm">
+        <span className="text-foreground/90">{rs.label3}</span>
+        <input className={kolom} value={bangun} maxLength={80} placeholder={rs.contoh3} onChange={(e) => setBangun(e.target.value)} />
+      </label>
+      <Button size="sm" variant={sudah ? "default" : "outline"} disabled={!judul || sudah || penuh} onClick={() => onPakai(judul)}>
+        {sudah ? "Ditelusuri ✓" : rs.tombol}
+      </Button>
     </div>
   );
 }

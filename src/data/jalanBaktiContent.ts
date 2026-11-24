@@ -351,3 +351,17 @@ export const jalanBaktiContent = {
     },
   },
 } as const;
+
+// Anti-foreclosure (KEPUTUSAN 3 Jul; tim psikologi 7 Jul "jangan jadi foreclosure kreativitas";
+// 8 Jul "membuat sesuatu yang belum ada"). Kartu ketujuh di Nyalakan peran.
+export const rumuskanSendiriContent = {
+  pengantar: "Peran di atas hanya contoh, bukan daftar pilihan.",
+  judul: "Belum ada perannya? Rumuskan sendiri",
+  isi: "Banyak peran yang dibutuhkan belum punya nama. Tulis dengan kata-katamu.",
+  label1: "Siapa yang ingin kamu tolong?",
+  label2: "Masalah apa yang ingin kamu selesaikan?",
+  label3: "Apa yang ingin kamu bangun?",
+  contoh3: "Misalnya: aplikasi, usaha, sekolah, gerakan, alat",
+  tombol: "Pakai rumusanku",
+  awalanJudul: "Peran rumusanku",
+};
