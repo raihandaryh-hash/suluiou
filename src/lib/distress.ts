@@ -31,15 +31,15 @@ export type HasilPeriksa = { cocok: boolean; tingkat: TingkatDistress | null };
 const AKU = "aku|saya|gue|gw|gua|ak|aq|ane|sy|aing|abdi|kula|awak";
 const TIDAK = "tidak|tdk|gak|ga|gk|nggak|ngga|enggak|engga|g|kagak|kaga|ndak|nda|teu|ora|ra";
 const INGIN =
-  "ingin|pengen|pengin|pingin|kepengen|kepingin|pgn|pngn|pngen|pgen|pgin|pengn|ingn|pen|mau|mo|pengennya|kepikiran|berniat|niat|rencana|hayang";
+  "ingin|pengen|pengin|pingin|kepengen|kepingin|pgn|pngn|pngen|pgen|pgin|pengn|ingn|pen|mau|mo|pengennya|kepikiran|berniat|niat|rencana|hayang|berharap|harap|memutuskan|mutusin|putuskan";
 const MATI = "mati|mti|mokad|modar|koit|mampus|mampos|matek|paeh|maot";
 const HIDUP = "hidup~|idup~|hirup|urip~";
 const LUKA =
-  "gores|menggores|nggores|ngegores|digores|sayat|menyayat|nyayat|disayat|silet|nyilet|menyilet|disilet|cutter|kater";
+  "gores|menggores|nggores|ngegores|digores|sayat|menyayat|nyayat|disayat|silet|nyilet|menyilet|disilet|cutter|kater|lukai|melukai|menyakiti|nyakitin";
 const BAGIAN_TUBUH = "tangan~|lengan~|nadi~|pergelangan~|paha~|leher~";
 const PELAKU =
-  "ayah~|bapak~|papa~|papi|abah|om|paman~|pakde|pakdhe|paklik|kakek~|kakak~|abang~|sepupu~|tetangga~|guru~|ustad~|ustaz~|pacar~|cowok~|majikan~|bos~|pelatih~|tiri";
-const KALAU = "kalau|kalo|klo|kl|jika|jikalau|seandainya|andai|misal|misalnya";
+  "ayah~|bapak~|papa~|papi|abah|nyokap|bokap|suami~|istri~|mertua~|om|paman~|pakde|pakdhe|paklik|kakek~|kakak~|abang~|sepupu~|tetangga~|guru~|ustad~|ustaz~|pacar~|cowok~|majikan~|bos~|atasan~|senior~|pelatih~|tiri";
+const KALAU = "kalau|kalo|klo|kl|jika|jikalau|seandainya|andai|misal|misalnya|bila";
 
 export const DAFTAR_BAHAYA_LANGSUNG: string[] = [
   // Ideasi aktif, niat, rencana (C-SSRS 2 sampai 5)
@@ -48,23 +48,41 @@ export const DAFTAR_BAHAYA_LANGSUNG: string[] = [
   "membunuh diri",
   "membunuh|bunuh diriku|dirinya",
   `${INGIN} * ${MATI}`,
-  `lebih baik * ${MATI}|lenyap|tiada|musnah`,
-  `mending|mendingan|sebaiknya * ${MATI}|lenyap|tiada|musnah`,
+  `lebih baik * ${MATI}|lenyap|tiada|musnah|musna`,
+  `mending|mendingan|sebaiknya * ${MATI}|lenyap|tiada|musnah|musna`,
   `${INGIN} * akhiri|mengakhiri|akhirin|ngakhirin|udahin|menyudahi * hidup~`,
   `akhiri|mengakhiri|akhirin|ngakhirin ${HIDUP}`,
   "akhiri|mengakhiri|akhirin|ngakhirin|udahin|nyudahin|menyudahi semuanya|segalanya",
-  "end it|everything all",
+  "end|ending it|everything all",
   `${TIDAK} * mau|ingin|pengen * ${HIDUP} lagi`,
   `${TIDAK} ${INGIN} ${HIDUP}`,
   // Eufemisme: tidur/pergi selamanya, tidak bangun lagi, menyusul, menghadap Tuhan, pamit
-  `${INGIN} * tidur|pergi|istirahat|pamit|terlelap * selamanya`,
-  `${TIDAK} bangun~ * lagi|selamanya`,
+  `${INGIN} * tidur|turu|pergi|istirahat|pamit|terlelap|cicing|diam * selamanya|salamina`,
+  `tidur|turu * panjang * tanpa|${TIDAK} * bangun~|tangi~`,
+  `tidur|turu * dan|terus * ${TIDAK} * bangun~|tangi~`,
+  `${TIDAK} * usah|perlu * bangun~|tangi~ * lagi|selamanya|maneh`,
+  `${TIDAK} bangun~|tangi~ * lagi|selamanya|maneh`,
   `${INGIN} * nyusul|menyusul|nyusulin * mbah|simbah|almarhum~|alm|almh|mendiang|kakek|nenek|eyang`,
   "ketemu|bertemu|menghadap|jumpa allah|tuhan * cepat|secepatnya|duluan|sekarang",
+  "muleh|pulang|kembali * nang|ke * ngarsane|hadirat * gusti|allah|tuhan",
   "jadi|menjadi bintang * langit",
   "pamit|pergi|leave * for good",
-  "hilang|ilang|lenyap|ngilang|menghilang * dari|dr|dri muka bumi",
-  "nulis|menulis|tulis|nulisin|bikin|membuat|nyiapin|menyiapkan * surat perpisahan|wasiat",
+  "hilang|ilang|lenyap|ngilang|menghilang|leungit|musna|musnah * dari|dr|dri|ti|tina * muka bumi",
+  "nulis|menulis|tulis|nulisin|bikin|membuat|nyiapin|menyiapkan|atur|mengatur * surat|pesan * perpisahan|wasiat|terakhir",
+  "urusan~|tugas~|waktu~ * di dunia * hampir|sudah|udah * selesai|habis",
+  "beresin|membereskan * semua barang~ * dan * hapus~ akun~",
+  "bagi|membagikan|bagiin|ngasih|memberikan * barang~ * kesayangan~ * ke|kepada * adik~|kakak~|teman~|temen~|sahabat~",
+  "sudah|udah * pamit * ke|sama * tetangga~|semua~|keluarga~|teman~|temen~",
+  "mau|ingin|pengen * pamit * aja|saja|sih * ke|sama * semua~",
+  "udah|sudah cukup * aku|saya|gue|gw|gua * di sini",
+  "setelah|habis|seusai * rapor|ujian|semester|sidang * dibagikan|selesai * saya|aku|gue|gw * tidak|nggak|ga|gak akan ada lagi",
+  "setelah|habis|seusai * rapor|ujian|semester|sidang * saya|aku|gue|gw * tidak|nggak|ga|gak akan ada lagi",
+  "pergi jauh * yang * tidak|nggak|ga|gak * akan|bakal * ada yang bisa menemukan~",
+  "berhenti * napas|nafas|bernapas|bernafas|ada",
+  "berhenti * jadi manusia",
+  "lari dari * hidup~",
+  "simpan|menyimpan|nyimpen|nyimpan * silet|cutter|kater * di * kotak pensil",
+  "simpan|menyimpan|nyimpen|nyimpan * silet|cutter|kater * buat|untuk * jaga",
   "gamau|gamao|gmau hidup lagi",
   "gantung diri",
   "lompat|loncat|terjun dari|dr|dri * gedung|jembatan|atap|lantai|tebing|rooftop|balkon",
@@ -91,6 +109,13 @@ export const DAFTAR_BAHAYA_LANGSUNG: string[] = [
   "kdrt",
   "diancam * dibunuh|bunuh",
   "mau|akan|bakal dibunuh",
+  "mengancam|ngancam|ngancem|diancam * akan|bakal|mau * membunuh~|bunuh~|ngebunuh~|dibunuh|mencelakai~|celakai~|melukai~|lukai~|menyakiti~|nyakitin~|sakiti~|menghabisi~|habisi~",
+  "mengancam|ngancam|ngancem|diancam * mendatangi * dan|serta|lalu * mencelakai~|melukai~|membunuh~|menyakiti~",
+  "mengancam|ngancam|ngancem|diancam * dan|serta * memukul~|mukulin|menyiksa|menyakiti~",
+  "mengintai|ngintai|diintai * keluarga~ * akan|bakal * celaka~",
+  "main tangan * di rumah",
+  "mabuk * suka * ngamuk~|mengamuk|ngunci~|mengunci~|mukulin|memukul~",
+  "mabuk * ngunci~|mengunci~|mukulin|memukul~ * aku|saya|gue|gw",
   `${AKU} * ${TIDAK} aman`,
   `${AKU} * dalam bahaya`,
   "ngancem|ngancam|mengancam|ancam|diancam * nyebar~|menyebar~|sebar~|disebar~|upload|ngupload|posting|viralin * foto~|video~|vidio~",
@@ -117,30 +142,58 @@ export const DAFTAR_TANDA_BERAT: string[] = [
   `capek|cape|capai|lelah|letih|muak * ${HIDUP}`,
   `${TIDAK} * kuat|sanggup|tahan * ${HIDUP}`,
   `${TIDAK}|tak * pantas|layak|berhak * ${HIDUP}`,
-  `jadi|menjadi|cuma|hanya|sebagai beban * orang~|keluarga~|ortu|semua~|kalian|mereka|bapak~|ibu~|mama~|papa~|ayah~`,
+  `jadi|menjadi|cuma|hanya|sebagai|kayak|kaya|seperti beban * orang~|keluarga~|ortu|semua~|kalian|mereka|bapak~|ibu~|mama~|papa~|ayah~|istri~|suami~|doang|saja|aja`,
+  `tinggal * ${AKU} * yang jadi beban`,
+  `${AKU} * cuma|hanya * menyusahkan|ngerepotin|merepotkan|nambah masalah`,
+  `${AKU} * sumber masalah * di rumah|keluarga~`,
   `${AKU}|ngerasa|merasa|diriku * kayak|kaya|seperti|bagai|bagaikan * sampah`,
   `${AKU} cuma|hanya|emang|memang sampah`,
   `nyawa|hidup~|diri~|${AKU} * ${TIDAK}|tak * ada|punya * harga~|arti~`,
   `${TIDAK} ada yang * sedih|nangis|kehilangan|nyari~|nyariin|sadar|inget~|ingat~`,
+  `apa ada yang * sadar|nyari~|peduli|kehilangan * ${KALAU} * ${AKU} * hilang|ilang|menghilang|ngilang|tiada`,
   `${KALAU} * ${AKU} * hilang|ilang|${MATI}|tiada|meninggal`,
   "numpang napas|nafas|hidup",
   `life|living|everything|${HIDUP} * pointless|meaningless|percuma|sia`,
   `${TIDAK} ${INGIN} bangun~ * besok|lagi`,
+  `${INGIN} * ${TIDAK} bangun~ * besok|lagi`,
   "takut pulang",
   `takut * sama|dengan|ama * ${PELAKU}`,
   "surat perpisahan|wasiat",
   "emojipeti",
   `hidup~ * ${TIDAK}|tak|nggak * ada * guna~|arti~|harapan|makna~`,
+  `${HIDUP} * geus|udah|sudah * ${TIDAK} * ada|aya * guna~|arti~|makna~`,
+  `${HIDUP} * sudah|udah * ${TIDAK} * berarti|bermakna|berguna`,
+  `${TIDAK} * lihat|liat|melihat * guna~|arti~|makna~ * ${HIDUP}`,
+  `${TIDAK} * ada|aya * guna~ * ${AKU} * ${HIDUP}|napas|nafas|bernapas|bernafas`,
+  "kados|kayak * mboten * wonten guna~",
   `${TIDAK}|tak ada guna~ * hidup`,
   "buat|untuk|ngapain apa hidup~",
   `buat|untuk|ngapain apa ${AKU} * hidup~`,
-  `${INGIN} * ngilang|menghilang|hilang|ilang|lenyap`,
+  `${INGIN} * ngilang|menghilang|hilang|ilang|lenyap|musna|musnah|leungit`,
+  "hilang|ilang|lenyap|ngilang|menghilang|leungit|musna|musnah * dari|dr|dri|ti|tina * dunia|dunya",
+  "undur diri * dari|ti|tina * dunia|dunya",
+  "kenapa * belum * juga * hilang|ilang|menghilang|ngilang * dari|ti * dunia|dunya",
+  `kenapa * ${AKU} * ${TIDAK} * sekalian * hilang|ilang|menghilang|ngilang`,
   "putus asa",
-  `${TIDAK}|tak ada harapan`,
+  `${TIDAK}|tak * ada|punya|duwe * harapan`,
+  `${TIDAK} * merasa * punya|ada * masa depan`,
+  `${TIDAK} * merasa * punya|ada * harapan`,
+  `${TIDAK} * mau|ingin|pengen * lagi * merasakan|ngerasain|menjalani * hari esok|besok`,
   `${AKU} * ${TIDAK} berharga|berguna`,
   `${AKU} * cuma|hanya * beban`,
   `${AKU} * beban * semua|keluarga|orang~`,
-  "lebih baik * tanpa aku|saya|gue|gw|diriku",
+  "lebih baik|tenang|ringan|lega * tanpa * aku|saya|gue|gw|diriku|abdi",
+  `lebih baik|tenang|ringan|lega * ${KALAU} * ${AKU}|anak~ * ${TIDAK} * ada`,
+  `lebih baik * ${AKU} * ${TIDAK}|gausah|gak|ga|nggak * pernah * ada|lahir|dilahirkan`,
+  `lebih baik * ${AKU} * ${TIDAK}|gausah|gak|ga|nggak * ada`,
+  `lebih baik * ${AKU} * hilang|ilang|menghilang|ngilang`,
+  `mending|mendingan * ${AKU} * ${TIDAK}|gausah|gak|ga|nggak * pernah * ada|lahir|dilahirkan`,
+  `mending|mendingan * ${AKU} * ${TIDAK}|gausah|gak|ga|nggak * ada`,
+  `mending|mendingan * ${AKU} * hilang|ilang|menghilang|ngilang`,
+  `dunia * ${TIDAK} * butuh * ${AKU}`,
+  `${INGIN} * semuanya|semua * berhenti * termasuk ${AKU}`,
+  `mungkin * udah|sudah * ${TIDAK} * di sini * pas|saat|waktu * lulus`,
+  `dalam hati * ${AKU} * sudah|udah * menyerah total`,
   "nyesel|menyesal|nyesal * lahir|dilahirkan",
   `${TIDAK} * sanggup|kuat * lagi`,
   `udah|sudah ${TIDAK} kuat`,
@@ -155,6 +208,10 @@ export const DAFTAR_TANDA_BERAT: string[] = [
   "give up on life",
   "nobody cares",
   "no point * living|life",
+  "better off without me",
+  "done with everything|life",
+  "want|wanna * disappear",
+  "want|wanna * to * disappear",
 ];
 
 /** Pola berpasangan: kedua pola harus cocok di mana pun dalam teks (urutan bebas). */
@@ -177,6 +234,18 @@ export const DAFTAR_BERSAMA: { a: string; b: string; tingkat: TingkatDistress }[
   {
     a: "tolong|titip|titipin|minta jaga~|jagain|rawat~|rawatin|urus~|urusin",
     b: `${KALAU} * ${AKU} * ${TIDAK}|udah|sudah ada|tiada`,
+    tingkat: "bahaya_langsung",
+  },
+  // Menyusul orang yang sudah meninggal
+  {
+    a: "sejak|setelah * meninggal|wafat",
+    b: `${INGIN} * menyusul|nyusul`,
+    tingkat: "tanda_berat",
+  },
+  // Surat perpisahan tersamar: menulis surat ke keluarga + menyerah
+  {
+    a: "nulis|menulis|tulis * surat * buat|untuk|ke * ortu|orangtua|keluarga~|mama~|papa~|ayah~|ibu~",
+    b: `kenapa * ${AKU} * nyerah|menyerah`,
     tingkat: "bahaya_langsung",
   },
 ];

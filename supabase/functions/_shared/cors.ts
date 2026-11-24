@@ -6,6 +6,7 @@ export const ASAL_RESMI = (Deno.env.get("SULU_ASAL_RESMI") || "https://suluiou.l
 export const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Origin": ASAL_RESMI,
   "Vary": "Origin",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };

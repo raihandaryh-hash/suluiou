@@ -8,14 +8,50 @@ export type StatusUsia = "dewasa" | "bawah18" | "anon";
 
 export function putuskanUsia(pengguna: unknown): StatusUsia {
   const p = pengguna as { app_metadata?: { dewasa?: unknown }; is_anonymous?: unknown } | null;
-  if (p?.is_anonymous === true) return "bawah18";
+  // G3-016: sesi Anonymous Sign-In Supabase ditolak sebagai "anon" (tidak boleh lolos gerbangAI).
+  if (p?.is_anonymous === true) return "anon";
   return p?.app_metadata?.dewasa === true ? "dewasa" : "bawah18";
+}
+
+export type IdentitasPermintaan = {
+  usia: StatusUsia;
+  userId: string | null;
+};
+
+/**
+ * Baca status usia dan user.id pemanggil dari token permintaan.
+ * Tanpa token, token anon/publishable, akun is_anonymous, token tidak sah, galat, atau lewat batas waktu -> { usia: "anon", userId: null }.
+ */
+export async function identitasPermintaan(
+  req: Request,
+  env: { supabaseUrl?: string; anonKey?: string },
+  fetchFn: typeof fetch = fetch,
+  timeoutMs = 2500,
+): Promise<IdentitasPermintaan> {
+  const auth = req.headers.get("authorization");
+  if (!auth || !env.supabaseUrl || !env.anonKey) return { usia: "anon", userId: null };
+  const c = new AbortController();
+  const t = setTimeout(() => c.abort(), timeoutMs);
+  try {
+    const r = await fetchFn(`${env.supabaseUrl}/auth/v1/user`, { headers: { authorization: auth, apikey: env.anonKey }, signal: c.signal });
+    if (!r.ok) return { usia: "anon", userId: null };
+    const u = await r.json();
+    const usia = putuskanUsia(u);
+    if (usia === "anon") return { usia: "anon", userId: null };
+    const rawId = (u as { id?: unknown } | null)?.id;
+    const userId = typeof rawId === "string" && rawId.trim() ? rawId.trim() : null;
+    return { usia, userId };
+  } catch {
+    return { usia: "anon", userId: null }; // termasuk lewat batas waktu
+  } finally {
+    clearTimeout(t);
+  }
 }
 
 /**
  * Baca akun pemanggil dari token permintaan.
- * Tanpa token, token anon/publishable, token tidak sah, galat, atau lewat batas waktu → "anon" (ditolak, gagal tertutup).
- * Akun sah tanpa status dewasa, termasuk akun tamu Supabase → "bawah18".
+ * Tanpa token, token anon/publishable, akun is_anonymous, token tidak sah, galat, atau lewat batas waktu -> "anon" (ditolak, gagal tertutup).
+ * Akun sah tanpa status dewasa -> "bawah18".
  */
 export async function statusUsiaPermintaan(
   req: Request,
@@ -23,19 +59,8 @@ export async function statusUsiaPermintaan(
   fetchFn: typeof fetch = fetch,
   timeoutMs = 2500,
 ): Promise<StatusUsia> {
-  const auth = req.headers.get("authorization");
-  if (!auth || !env.supabaseUrl || !env.anonKey) return "anon";
-  const c = new AbortController();
-  const t = setTimeout(() => c.abort(), timeoutMs);
-  try {
-    const r = await fetchFn(`${env.supabaseUrl}/auth/v1/user`, { headers: { authorization: auth, apikey: env.anonKey }, signal: c.signal });
-    if (!r.ok) return "anon";
-    return putuskanUsia(await r.json());
-  } catch {
-    return "anon"; // termasuk lewat batas waktu
-  } finally {
-    clearTimeout(t);
-  }
+  const { usia } = await identitasPermintaan(req, env, fetchFn, timeoutMs);
+  return usia;
 }
 
 /** Saklar mode (c): SULU_MODE_C_MATI = "1"/"true"/"ya" mematikan pembatasan teks bebas (keputusan Raihan saja). */

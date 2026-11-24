@@ -5,7 +5,7 @@
 // (samaran otomatis hanya untuk model non-Anthropic); bila saklar balik ke Gemini, samaran dipakai semua orang.
 import { buatFetchAI, konfigDariEnv, type KonfigAI } from "./penyedia.ts";
 import { cariPribadi, Samaran, type JenisPribadi } from "./samaran.ts";
-import { modeCHidup, statusUsiaPermintaan, type StatusUsia } from "./usia.ts";
+import { identitasPermintaan, modeCHidup, type StatusUsia } from "./usia.ts";
 
 export type PersiapanAI = {
   ai: KonfigAI;
@@ -15,6 +15,8 @@ export type PersiapanAI = {
   usia: StatusUsia;
   /** true bila tidak ada akun sah. Fungsi AI wajib menolak lewat gerbangAI sebelum memanggil AI. */
   anon: boolean;
+  /** G3-016: user.id akun sah untuk batas laju per-akun di gerbangAI. */
+  userId: string | null;
   samaran?: Samaran;
   aiFetch: typeof fetch;
 };
@@ -32,7 +34,7 @@ export async function siapkanAI(
   pribadi: Array<[JenisPribadi, unknown]> = [],
 ): Promise<PersiapanAI> {
   const ai = konfigDariEnv(env);
-  const usia = await statusUsiaPermintaan(req, { supabaseUrl: env("SUPABASE_URL"), anonKey: env("SUPABASE_ANON_KEY") });
+  const { usia, userId } = await identitasPermintaan(req, { supabaseUrl: env("SUPABASE_URL"), anonKey: env("SUPABASE_ANON_KEY") });
   const bawah18 = usia === "bawah18" && modeCHidup(env);
   // Pengaman celah pengakuan jalur mahasiswa (PUTUSAN ATAS DELEGASI 11 Nov 2026, berlaku sampai verifikasi
   // akun mahasiswa IOU di Tonggak 2, paling lambat 16 Jan 2027): hitung pemakaian jalur dewasa tanpa identitas,
@@ -44,5 +46,5 @@ export async function siapkanAI(
     samaran = new Samaran(JSON.stringify(semuaTeks ?? ""));
     for (const [jenis, nilai] of [...pribadi, ...cariPribadi(semuaTeks)]) samaran.daftar(jenis, nilai);
   }
-  return { ai, bawah18, usia, anon: usia === "anon", samaran, aiFetch: buatFetchAI(ai, samaran) };
+  return { ai, bawah18, usia, anon: usia === "anon", userId, samaran, aiFetch: buatFetchAI(ai, samaran) };
 }

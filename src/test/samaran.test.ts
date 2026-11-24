@@ -136,7 +136,8 @@ describe("usia", () => {
     // user_metadata bisa diubah pengguna: tidak lagi dibaca
     expect(putuskanUsia({ user_metadata: { user_track: "mahasiswa_iou" } })).toBe("bawah18");
     expect(putuskanUsia({ app_metadata: { dewasa: "true" } })).toBe("bawah18");
-    expect(putuskanUsia({ app_metadata: { dewasa: true }, is_anonymous: true })).toBe("bawah18");
+    // G3-016: sesi is_anonymous === true ditolak sebagai "anon"
+    expect(putuskanUsia({ app_metadata: { dewasa: true }, is_anonymous: true })).toBe("anon");
     expect(putuskanUsia(null)).toBe("bawah18");
   });
   it("tanpa token atau gagal baca akun → anon (G2-13: ditolak fungsi AI)", async () => {

@@ -18,7 +18,9 @@ const DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(DIR, "..", "..");
 const KUNCI = process.env.SULU_UJI_AI_KEY || "";
 const MODEL = process.env.SULU_UJI_AI_MODEL || "";
-const BASE = (process.env.SULU_UJI_AI_BASE_URL || "https://generativelanguage.googleapis.com/v1beta").replace(/\/+$/, "");
+const PENYEDIA = (process.env.SULU_UJI_AI_PROVIDER || (MODEL.startsWith("claude") ? "anthropic" : "gemini")).toLowerCase();
+const BASE_DEFAULT = PENYEDIA === "anthropic" ? "https://api.anthropic.com/v1" : "https://generativelanguage.googleapis.com/v1beta";
+const BASE = (process.env.SULU_UJI_AI_BASE_URL || BASE_DEFAULT).replace(/\/+$/, "");
 const args = process.argv.slice(2);
 const iBatas = args.indexOf("--batas-ms");
 const BATAS_MS = iBatas >= 0 ? Number(args[iBatas + 1]) : 3000;
@@ -40,7 +42,10 @@ for (const k of kasus) {
   const t0 = Date.now();
   let risiko = null, galat = null;
   try {
-    risiko = await klasifikasiRisiko(k.teks, { baseUrl: BASE, model: MODEL, apiKey: KUNCI, timeoutMs: BATAS_MS });
+    risiko = await klasifikasiRisiko(k.teks, {
+      ai: { penyedia: PENYEDIA === "anthropic" ? "anthropic" : "gemini", baseUrl: BASE, model: MODEL, apiKey: KUNCI },
+      timeoutMs: BATAS_MS,
+    });
   } catch (e) {
     galat = String(e?.name === "AbortError" ? "batas waktu" : e?.message || e).replace(KUNCI, "***");
   }
