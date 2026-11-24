@@ -20,6 +20,7 @@ import JalanBaktiOpening from "@/components/JalanBaktiOpening";
 import { SuluCompanion } from "@/components/sulu/SuluCompanion";
 import { keselamatanContent } from "@/data/keselamatanContent";
 import { bacaFase, simpanFase } from "@/lib/perangkat";
+import { ambilAdopsiJalanBakti } from "@/lib/claimGuestResult";
 
 type ProvinceContext = {
   economic_sectors: string[];
@@ -84,7 +85,9 @@ function pindahLangkah(p: JBData, lama: string): JBData {
   const tujuan = peranAktif(p);
   if (lama === tujuan) return p;
   const simpan = { ...(p.langkahByPeran ?? {}) };
-  if (lama && p.langkah) simpan[lama] = p.langkah;
+  // Langkah yang ditulis sebelum ada peran ikut ke peran pertama yang dipilih.
+  if (!lama) return { ...p, langkah: simpan[tujuan] ?? p.langkah };
+  if (p.langkah) simpan[lama] = p.langkah;
   return { ...p, langkahByPeran: simpan, langkah: simpan[tujuan] ?? "" };
 }
 
@@ -253,16 +256,21 @@ export default function JalanBakti() {
     (async () => {
       try {
         if (user) {
-          const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
-          if (data?.data) {
-            const merged = migrasiData({ ...EMPTY, ...(data.data as JBData) });
-            setD(merged);
-            // Mirror to localStorage so compileSurat() can read it.
-            localStorage.setItem(LS_KEY, JSON.stringify(merged));
+          // Baru masuk dari ajakan "Masuk dengan Google" sebagai tamu: isian tamu di perangkat ini yang dilanjutkan,
+          // termasuk bila akun sudah punya isian lama di server (siswa menekan Simpan untuk menimpanya).
+          // Tanpa penanda itu, isian perangkat tidak pernah dibaca untuk akun Google (perangkat bersama).
+          const adopsi = ambilAdopsiJalanBakti(user.id);
+          const raw = adopsi ? localStorage.getItem(LS_KEY) : null;
+          if (raw) {
+            setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
           } else {
-            // Baru masuk dari jalur tamu (ajakan "Masuk dengan Google"): lanjutkan isian di perangkat ini.
-            const raw = localStorage.getItem(LS_KEY);
-            if (raw) setD(migrasiData({ ...EMPTY, ...JSON.parse(raw) }));
+            const { data } = await bacaFase("phase_3_jalan_bakti", user.id);
+            if (data?.data) {
+              const merged = migrasiData({ ...EMPTY, ...(data.data as JBData) });
+              setD(merged);
+              // Mirror to localStorage so compileSurat() can read it.
+              localStorage.setItem(LS_KEY, JSON.stringify(merged));
+            }
           }
         } else {
           const raw = localStorage.getItem(LS_KEY);
@@ -274,13 +282,15 @@ export default function JalanBakti() {
         setHydrated(true);
       }
     })();
-  }, [user, authLoading]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- hidrasi per akun, bukan per objek user (TOKEN_REFRESHED)
+  }, [user?.id, authLoading]);
 
-  // Simpan otomatis di perangkat: isian tidak hilang saat siswa pindah ke halaman masuk lalu kembali.
+  // Simpan otomatis di perangkat, khusus tamu: isian tidak hilang saat tamu pindah ke halaman masuk lalu kembali.
+  // Akun Google menyimpan lewat tombol Simpan ke server.
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated || user) return;
     try { localStorage.setItem(LS_KEY, JSON.stringify(d)); } catch { /* abaikan */ }
-  }, [d, hydrated]);
+  }, [d, hydrated, user]);
 
   function toggleSdg(id: string) {
     setD((p) => ({

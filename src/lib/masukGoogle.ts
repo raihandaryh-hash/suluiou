@@ -3,7 +3,7 @@
 // lalu sesudah masuk siswa dikembalikan ke halaman asal lewat sulu.returnTo.
 import { lovable } from "@/integrations/lovable";
 import { getStudentSession } from "@/lib/classSession";
-import { setPendingClaim } from "@/lib/claimGuestResult";
+import { clearPendingClaim, setPendingClaim } from "@/lib/claimGuestResult";
 
 export async function masukDenganGoogle(kembaliKe: string): Promise<{ error?: Error | null }> {
   try { sessionStorage.setItem("sulu.returnTo", kembaliKe); } catch { /* abaikan */ }
@@ -15,8 +15,11 @@ export async function masukDenganGoogle(kembaliKe: string): Promise<{ error?: Er
       studentName: s.name,
       classId: s.classId,
       className: s.className,
+      asal: "jalan-bakti",
     });
   }
   const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" });
-  return { error: (r as { error?: Error | null }).error ?? null };
+  const error = (r as { error?: Error | null }).error ?? null;
+  if (error) clearPendingClaim();
+  return { error };
 }

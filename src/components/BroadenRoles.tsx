@@ -121,17 +121,15 @@ export default function BroadenRoles({
   }
 
   function togglePick(title: string) {
-    setPicked((prev) => {
-      let next: string[];
-      if (prev.includes(title)) {
-        next = prev.filter((t) => t !== title);
-      } else {
-        if (prev.length >= MAX_PICK) return prev;
-        next = [...prev, title];
-      }
-      onPickedChange?.(next);
-      return next;
-    });
+    let next: string[];
+    if (picked.includes(title)) {
+      next = picked.filter((t) => t !== title);
+    } else {
+      if (picked.length >= MAX_PICK) return;
+      next = [...picked, title];
+    }
+    setPicked(next);
+    onPickedChange?.(next);
   }
 
   if (distress) {
@@ -285,6 +283,7 @@ export default function BroadenRoles({
           picked={picked}
           awal={initialRumusan}
           onUbah={onRumusanChange}
+          onLepas={(judul) => { if (picked.includes(judul)) togglePick(judul); }}
           onPakai={(judul, r) => {
             // Isian bebas diperiksa pagar distress di perangkat sebelum dipakai (lapis 1b di server ikut memeriksa).
             const cek = periksaDistressNilai(r.siapa, r.masalah, r.bangun);
@@ -318,11 +317,13 @@ function RumuskanSendiri({
   onPakai,
   awal,
   onUbah,
+  onLepas,
 }: {
   picked: string[];
   onPakai: (judul: string, r: Rumusan) => void;
   awal?: Rumusan;
   onUbah?: (r: Rumusan) => void;
+  onLepas?: (judul: string) => void;
 }) {
   const [siapa, setSiapaRaw] = useState(awal?.siapa ?? "");
   const [masalah, setMasalahRaw] = useState(awal?.masalah ?? "");
@@ -330,7 +331,13 @@ function RumuskanSendiri({
   const ubah = (r: Rumusan) => onUbah?.(r);
   const setSiapa = (v: string) => { setSiapaRaw(v); ubah({ siapa: v, masalah, bangun }); };
   const setMasalah = (v: string) => { setMasalahRaw(v); ubah({ siapa, masalah: v, bangun }); };
-  const setBangun = (v: string) => { setBangunRaw(v); ubah({ siapa, masalah, bangun: v }); };
+  // Rumusan yang sudah dipakai lalu diubah: judul lama dilepas supaya peran terpilih selalu sama dengan isian.
+  const setBangun = (v: string) => {
+    const lama = bangun.trim() ? `${rs.awalanJudul}: ${bangun.trim()}` : "";
+    if (lama && lama !== (v.trim() ? `${rs.awalanJudul}: ${v.trim()}` : "")) onLepas?.(lama);
+    setBangunRaw(v);
+    ubah({ siapa, masalah, bangun: v });
+  };
   const judul = bangun.trim() ? `${rs.awalanJudul}: ${bangun.trim()}` : "";
   const sudah = judul !== "" && picked.includes(judul);
   const penuh = picked.length >= MAX_PICK && !sudah;
