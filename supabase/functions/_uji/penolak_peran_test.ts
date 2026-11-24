@@ -1,6 +1,6 @@
 import { assert, assertFalse } from "https://deno.land/std@0.168.0/testing/asserts.ts";
-import { PERAN_DITOLAK } from "../broaden-roles/index.ts";
-const ditolak = ["Sekretaris Desa (Sekdes)", "Pendamping Desa", "Kader Posyandu Lansia", "Pengurus Karang Taruna", "Ketua BPD (Badan Permusyawaratan Desa)", "Kepala Desa", "Kepala Dinas Sosial", "Camat", "Relawan bencana"];
-const diterima = ["Perencana wilayah dan kota", "Peneliti kebijakan sosial", "Pendiri BUMDes berbasis teknologi", "Ahli gizi masyarakat", "Analis data kesehatan", "Insinyur air bersih"];
-Deno.test("penolak peran menolak tujuan struktural, kader, relawan", () => { for (const t of ditolak) assert(PERAN_DITOLAK.test(t), t); });
+import { PERAN_DITOLAK } from "../_shared/penolakPeran.ts";
+const ditolak = ["Sekretaris Desa (Sekdes)","Pendamping Desa","Kader Posyandu Lansia","Pengurus Karang Taruna","Ketua BPD (Badan Permusyawaratan Desa)","Kepala Desa","Kepala Dinas Sosial","Camat","Relawan bencana","Ketua PKK","Penggerak PKK","Pendamping PKH","Pendamping Lokal Desa","Fasilitator Desa","Kepala Dusun","Perangkat Kelurahan","Staf Kelurahan","Ketua Pokdarwis","Fasilitator Posyandu","Guru Honor","Volunteer Coordinator","Influencer TikTok","Selebgram","Lurah"];
+const diterima = ["Perencana Wilayah dan Kota","Peneliti Kebijakan Publik","Analis Data Kesehatan","Perawat Komunitas","Insinyur Pengairan","Agronom","Analis Kredit Mikro Syariah","Ahli Gizi","Guru SD","Pengembang Perangkat Lunak","Pekerja Sosial Profesional","Arsitek Lanskap","Epidemiolog","Konsultan Pembangunan Daerah","Auditor Halal","Dosen","Pendiri BUMDes berbasis teknologi"];
+Deno.test("penolak peran menolak tujuan yang ditolak", () => { for (const t of ditolak) assert(PERAN_DITOLAK.test(t), t); });
 Deno.test("penolak peran meloloskan profesi", () => { for (const t of diterima) assertFalse(PERAN_DITOLAK.test(t), t); });

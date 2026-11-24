@@ -170,7 +170,7 @@ export const jalanBaktiContent = {
       nama: "Kepemimpinan & Tata Kelola",
       bridge: "Banyak tempat tidak kekurangan orang pintar, tapi kekurangan orang yang mau mengurus dengan amanah. Pernahkah kamu melihat desa, sekolah, atau lembaga yang jalan di tempat hanya karena tidak ada yang memimpinnya sungguh-sungguh?",
       subTantangan: [
-        { id: "k7a", label: "Desa yang ditinggal calon pemimpin mudanya" },
+        { id: "k7a", label: "Desa yang ditinggal anak mudanya yang terdidik" },
         { id: "k7b", label: "Lembaga umat yang dikelola seadanya" },
         { id: "k7c", label: "Suara warga yang tidak sampai ke pengambil keputusan" },
       ],
@@ -272,7 +272,7 @@ export const jalanBaktiContent = {
       {
         id: "temui",
         judul: "Temui orangnya",
-        ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial.",
+        ajakan: "Cari satu orang yang benar-benar menjalani peran ini, lewat gurumu, alumni, atau media sosial. Kalau umurmu di bawah 18, ajak orang tua atau gurumu saat menghubunginya, bertemu hanya di tempat umum bersama mereka, dan jangan memberi nomor, alamat, atau data pribadimu.",
         ekstrovert: "Kalau kamu berani, sapa langsung dan tanya bagaimana ia memulai.",
         introvert: "Kalau menyapa terasa berat, cukup baca atau tonton satu kisah mereka dulu.",
         langkahDefault: "Menghubungi atau mencari kisah satu orang yang bekerja sebagai {peran}. Kapan: [isi hari & jamnya]. Lewat: [guru, alumni, atau media sosial].",
