@@ -27,7 +27,7 @@ Data turunan yang dipakai kartu dan pencocok sudah ada di repo (`mesin/sumber/`,
 
 ## 3. Jalankan satu domain contoh: kemiskinan kabupaten/kota
 
-Domain contoh dibekukan sampai sesudah 1 Des (keputusan Kepala Staf 23 Nov, R9 disetujui Raihan 22 Nov 01.56). Perluasan ke domain lain ditunda.
+Domain contoh untuk buku ini. Perluasan ke domain lain berjalan per milestone di cabang mesin (KEPUTUSAN Raihan 24 Nov 18.24: yang beku hanya produksi).
 
 ```bash
 python3 -I mesin/sambung/ekspor_kartu_tayang.py      # kartu wilayah dari angka resmi

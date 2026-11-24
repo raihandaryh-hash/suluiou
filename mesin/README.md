@@ -4,7 +4,7 @@ Pencari kebutuhan nyata per bidang × wilayah dari data resmi, yang menawarkan b
 
 **Dasar:** rencana mesin v1 (isi v1.3), disetujui Raihan 12 Nov 2026 18.16 ("Saya setujui semuanya"). Berkas rencana di laptop `Sulu Build\Audit-Nov2026\MESIN\RENCANA_Mesin-Eksplorasi-SOTA_v1_12Nov2026.md`. Rencana terkini untuk tinjauan Chief: `RENCANA-MESIN_Terintegrasi_18Nov2026.md` (rujukan komit di dalamnya sudah lama; pakai kepala cabang).
 
-**Pembekuan sampai sesudah 1 Des:** hanya satu domain contoh (kemiskinan kab/kota) yang dijalankan dan diperluas; uji Claude Code Projects ditunda.
+**Yang beku hanya produksi** (KEPUTUSAN Raihan 24 Nov 18.24, "beku produksi bukan beku kerja"): merge ke `main` produksi, deploy basis data utama, dan spek serah Tim IT. Kerja di cabang mesin berjalan per milestone. Uji Claude Code Projects tetap ditunda sampai sesudah 1 Des karena berbagi kuota (R9, Raihan 22 Nov 01.56). Folder `mesin/` dan `grok/` tidak masuk build situs, `tsc`, `vitest`, maupun `eslint` aplikasi.
 
 **Prinsip yang ditegakkan kode di folder ini:**
 - Angka tidak pernah melewati model. Angka dihitung skrip dari berkas resmi bersidik.

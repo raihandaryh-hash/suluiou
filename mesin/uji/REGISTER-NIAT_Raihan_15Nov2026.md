@@ -189,3 +189,6 @@ Temuan "gaji": tidak ada pesan Raihan yang melarang angka gaji. Ia sendiri menye
 5. Posisi klaim: Sulu tidak mengaku "bimbingan karier" (1 Jun). Mesin menawarkan peta dan pertemuan, tidak memberi nasihat karier.
 6. Angka upah: tidak pernah dilarang Raihan. Yang ia larang adalah klaim berlebih, data usang, dan doom.
 7. Tiap keluaran mesin harus bisa ditindaklanjuti (3 Mei, 3 Jun) dan tidak menumpuk data (12 Jul).
+
+## KOREKSI 24 Nov 2026 atas butir 4 di atas
+Kalimat "pemimpin lokal yang membumi adalah teladan, bukan pengecualian; yang ditolak adalah yang remeh dan yang menyesatkan, bukan jenis jabatannya" adalah SINTESIS sesi mesin 15 Nov pagi dan **bertentangan** dengan KEPUTUSAN Raihan 15 Nov 09.16 (tujuan = profesi riil; petugas bergaji mikro dan jabatan struktural ditolak sebagai tujuan) serta Raihan 18 Nov 14.38 ("Bukan malah bikin peran yang mengarahkan user jadi pekerja RT/RW"). Yang berlaku: kepemimpinan lokal yang membumi (11 Mei) adalah *cara berkiprah* di dalam profesi riil, bukan jabatan struktural, kader, pengurus, atau pendamping program sebagai tujuan. Kalimat lama tidak boleh dikutip sebagai arahan.
