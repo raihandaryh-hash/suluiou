@@ -47,10 +47,12 @@ export function hapusTandaAdmin() {
 
 export function asesmenTerbuka(): boolean {
   if (ASESMEN_TERBUKA) return true;
+  const s = getStudentSession();
+  // Sesi tamu tidak pernah masuk, walau tab yang sama masih memegang token admin.
+  if (s?.kind === 'guest') return false;
   const u = sesiAuth();
   // Admin cukup punya sesi akun (Google atau email admin), tanpa sesi siswa.
   if (u?.id && adminTercatat(u.id)) return true;
-  const s = getStudentSession();
   if (s?.kind !== 'google') return false;
   if (!u?.id || u.id !== s.userId) return false;
   return ASESMEN_DEWASA_TERBUKA && u.app_metadata?.dewasa === true;

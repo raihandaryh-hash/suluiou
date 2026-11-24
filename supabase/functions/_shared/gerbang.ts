@@ -65,10 +65,10 @@ export async function gerbangAsesmen(
   cekAdmin: (uid: string) => Promise<boolean> = adminBawaan,
 ): Promise<Response | null> {
   if ((get("SULU_ASESMEN_TERBUKA") || "").trim() === "1") return null;
+  if (siap.usia === "dewasa" && (get("SULU_ASESMEN_DEWASA_TERBUKA") || "").trim() === "1") return null;
   if (siap.userId) {
     try { if (await cekAdmin(siap.userId)) return null; } catch { /* gagal tertutup */ }
   }
-  if (siap.usia === "dewasa" && (get("SULU_ASESMEN_DEWASA_TERBUKA") || "").trim() === "1") return null;
   console.log(JSON.stringify({ evt: "asesmen_tertutup", fn, t: new Date().toISOString() }));
   return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
     status: 503,
