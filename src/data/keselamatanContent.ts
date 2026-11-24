@@ -28,4 +28,8 @@ export const keselamatanContent = {
   gambaranAwal: 'Gambaran awal',
   /** Waktu muat Spine B (23 Nov): teks di bawah pemutar. */
   memuatHalaman: 'Menyiapkan halamanmu…',
+  /** Pecah halaman (24 Nov): bila halaman tetap gagal diunduh sesudah muat ulang otomatis. */
+  gagalMuatJudul: 'Halaman ini belum bisa dibuka',
+  gagalMuatIsi: 'Sambunganmu mungkin sedang lambat. Coba muat ulang sebentar lagi.',
+  gagalMuatTombol: 'Muat ulang',
 } as const;
