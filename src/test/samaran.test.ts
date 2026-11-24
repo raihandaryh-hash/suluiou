@@ -151,9 +151,9 @@ describe("usia", () => {
     const ok = (async () => new Response(JSON.stringify({ app_metadata: { dewasa: true } }))) as unknown as typeof fetch;
     expect(await statusUsiaPermintaan(req, { supabaseUrl: "https://s", anonKey: "a" }, ok)).toBe("dewasa");
   });
-  it("mode (c) hidup kecuali dimatikan", () => {
-    expect(modeCHidup(() => undefined)).toBe(true);
-    expect(modeCHidup(() => "ya")).toBe(false);
+  it("mode (c) mati kecuali dinyalakan (KEPUTUSAN 25 Nov 04.32)", () => {
+    expect(modeCHidup(() => undefined)).toBe(false);
+    expect(modeCHidup(() => "ya")).toBe(true);
   });
 });
 

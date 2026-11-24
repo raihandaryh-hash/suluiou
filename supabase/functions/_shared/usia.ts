@@ -63,11 +63,15 @@ export async function statusUsiaPermintaan(
   return usia;
 }
 
-/** Saklar mode (c): SULU_MODE_C_MATI = "1"/"true"/"ya" mematikan pembatasan teks bebas (keputusan Raihan saja). */
+/**
+ * Saklar mode (c). KEPUTUSAN Raihan 18 Nov 15.47 "Kasih kapabilitas full." dan 25 Nov 04.32 "Kemampuan penuh semuanya.":
+ * mode (c) MATI secara bawaan untuk semua fungsi AI. Samaran ke AI dan lapis distress tetap berjalan untuk di bawah 18.
+ * SULU_MODE_C_HIDUP = "1"/"true"/"ya" menyalakannya kembali (keputusan Raihan saja). SULU_MODE_C_MATI tidak dipakai lagi.
+ */
 export function modeCHidup(get: (k: string) => string | undefined): boolean {
-  return !["1", "true", "ya"].includes((get("SULU_MODE_C_MATI") || "").trim().toLowerCase());
+  return ["1", "true", "ya"].includes((get("SULU_MODE_C_HIDUP") || "").trim().toLowerCase());
 }
 
-/** Teks statis untuk obrolan bebas siswa di bawah 18 sebelum persetujuan orang tua (DRAF rumusan, dua varian menunggu Raihan). */
+/** Teks statis obrolan terkunci. Tidak dipakai sejak kapabilitas penuh (25 Nov); disimpan untuk saklar SULU_MODE_C_HIDUP. */
 export const TEKS_OBROLAN_TERKUNCI =
   "Obrolan bebas dengan Sulu akan terbuka setelah orang tua atau wali kamu memberi izin. Sementara itu, semua tahap perjalananmu di Sulu tetap bisa kamu jalani. Kalau ada yang sedang berat dan ingin kamu ceritakan, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
