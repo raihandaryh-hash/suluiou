@@ -14,7 +14,8 @@ import {
 } from '@/lib/classSession';
 import { clearPendingClassCode } from '@/lib/pendingClassCode';
 import { toast } from '@/hooks/use-toast';
-import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import {SPINE_B_AWAL} from '@/data/flags';
+import { asesmenTerbuka } from '@/lib/aksesAsesmen';
 import { keServer } from '@/lib/progress';
 import { catatKelasPerangkat } from '@/lib/authRouter';
 
@@ -78,7 +79,7 @@ const ProfilePage = () => {
       }
 
       setStudentProfile(profile);
-      navigate(ASESMEN_TERBUKA ? '/consent' : SPINE_B_AWAL, { replace: true });
+      navigate(asesmenTerbuka() ? '/consent' : SPINE_B_AWAL, { replace: true });
     } finally {
       setSubmitting(false);
     }

@@ -8,7 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Logo from '@/components/Logo';
-import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import {SPINE_B_AWAL} from '@/data/flags';
+import { asesmenTerbuka } from '@/lib/aksesAsesmen';
 import { keServer } from '@/lib/progress';
 import { catatKelasPerangkat } from '@/lib/authRouter';
 import {
@@ -99,7 +100,7 @@ const JoinClass = () => {
     }
 
     patchStudentSession({ classId: cls.id, className: cls.name });
-    navigate(ASESMEN_TERBUKA ? '/profile' : SPINE_B_AWAL);
+    navigate(asesmenTerbuka() ? '/profile' : SPINE_B_AWAL);
   };
 
   if (!hasSession) {

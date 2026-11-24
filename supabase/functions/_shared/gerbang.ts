@@ -48,3 +48,23 @@ async function lajuBawaan(req: Request, aksi: string, userId?: string | null): P
     return false;
   }
 }
+
+/**
+ * Gerbang asesmen di server (Spine A): akun di bawah 18 dan tamu tidak dilayani fungsi hasil asesmen.
+ * KEPUTUSAN 1 Jun, 3 Jul, 6 Jul: asesmen tertutup untuk siswa, untuk mahasiswa (dewasa) lewat login.
+ * SULU_ASESMEN_SISWA_TERBUKA = "1"/"true"/"ya" membukanya untuk siswa (keputusan Raihan saja, sesudah SME).
+ */
+export function gerbangAsesmen(
+  fn: string,
+  corsHeaders: Record<string, string>,
+  siap: { usia: string },
+  get: (k: string) => string | undefined = (k) => Deno.env.get(k),
+): Response | null {
+  if (siap.usia === "dewasa") return null;
+  if (["1", "true", "ya"].includes((get("SULU_ASESMEN_SISWA_TERBUKA") || "").trim().toLowerCase())) return null;
+  console.log(JSON.stringify({ evt: "asesmen_tolak_bawah18", fn, t: new Date().toISOString() }));
+  return new Response(JSON.stringify({ error: "Asesmen belum dibuka untuk akunmu." }), {
+    status: 403,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}

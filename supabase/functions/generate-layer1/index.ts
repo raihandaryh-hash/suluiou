@@ -3,7 +3,7 @@ import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
-import { gerbangAI } from "../_shared/gerbang.ts";
+import { gerbangAI, gerbangAsesmen } from "../_shared/gerbang.ts";
 
 
 // DRAF rumusan, menunggu paket Raihan (D5: peran lama diganti peran cermin yang tidak menilai).
@@ -85,6 +85,9 @@ serve(async (req) => {
     // G2-13: tanpa akun sah -> 401, batas laju -> 429, sebelum pengklasifikasi dan model.
     const gerbang = await gerbangAI(req, "generate-layer1", corsHeaders, siap);
     if (gerbang) return gerbang;
+    // Spine A: hanya akun dewasa (KEPUTUSAN 6 Jul), siswa tetap tertutup.
+    const gerbangA = gerbangAsesmen("generate-layer1", corsHeaders, siap);
+    if (gerbangA) return gerbangA;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-layer1",

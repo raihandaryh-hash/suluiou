@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import { catatAdmin } from '@/lib/aksesAsesmen';
 
 // Waktu muat Spine B (23 Nov 2026): tiap komponen yang memanggil useAuth dulu mengirim sendiri
 // user_roles + auth/v1/user + admin_users (6 komponen -> 18 permintaan, berantai, 4-8 detik sebelum isi halaman).
@@ -25,7 +26,9 @@ function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean
       throw peran.error ?? admin.error;
     }
     const emailAdmin = (admin.data as { is_super_admin: boolean | null } | null) ?? null;
-    return { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
+    const hasil = { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
+    catatAdmin(userId, hasil.admin);
+    return hasil;
   })();
   janji.catch(() => cacheAdmin.delete(userId));
   cacheAdmin.set(userId, janji);
