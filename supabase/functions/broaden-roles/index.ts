@@ -20,6 +20,9 @@ Aturan wajib:
 6. NO OVERCLAIM: jangan mengarang jabatan yang tidak nyata. Kalau ragu, pilih peran nyata yang lebih dikenal. Jangan sebut statistik yang tidak kamu ketahui pasti.
 7. Anti-vonis: ini titik awal eksplorasi, bukan penentuan nasib.
 8. Bahasa Indonesia yang hangat dan mudah dibaca, kalimat pendek, tanpa tanda hubung panjang.
+9. Arah ke perkara yang luhur, bukan yang remeh. Yang ditolak adalah peran yang remeh atau menyesatkan, bukan jenis jabatannya: pemimpin lokal yang membumi adalah teladan. Setiap peran harus punya daya ungkit nyata atas tantangan itu (memutuskan, merancang, membangun, memimpin, meneliti, atau menggerakkan sumber daya). Jangan isi daftar dengan peran pelengkap yang hanya menjalankan tugas rutin, kecuali kamu tunjukkan dengan jelas ke mana peran itu bisa tumbuh.
+10. Sebar tingkatannya. Dari 6 peran, sertakan peran di tingkat desa atau komunitas, tingkat kabupaten atau provinsi, dan tingkat nasional atau global (lembaga, riset, kebijakan, usaha yang bisa membesar). Minimal 2 peran adalah peran yang membangun atau memimpin sesuatu, bukan hanya mengisi posisi yang sudah ada.
+11. Bicara langsung kepada siswa dengan "kamu". Jangan menyebut "banyak siswa" sebagai orang ketiga, dan jangan mengulang mentah kalimat atau tantangan yang ia tulis.
 
 "note": satu kalimat penutup yang menenangkan, mengingatkan bahwa ini titik awal untuk dijelajahi, bukan pilihan yang harus segera dikunci.`;
 
