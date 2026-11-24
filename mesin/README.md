@@ -26,7 +26,7 @@ Pencari kebutuhan nyata per bidang × wilayah dari data resmi, yang menawarkan b
 | `juri/` | Juri satu mode per panggilan dan hasil kalibrasinya | ME1–ME3 |
 | `kontrak/` | Skema `jalur-jelajah/1`, generator, fixture | ME0 |
 | `uji/` | Ambang beku, set uji, sidik set tersembunyi, laporan gerbang, tinjauan | ME1–ME3 |
-| `wujudkan/` | Tahap Wujudkan (dari proposal ke rencana meraihnya): skema cabang bidang v0. Rancangan: `uji/SINTESIS_Mesin-Wujudkan_Jejak-dan-Rancangan_18Nov2026.md`. Posisi di manifest menunggu Chief Sulu | sesudah 1 Des |
+| `wujudkan/` | Tahap Wujudkan (dari proposal ke rencana meraihnya): skema cabang bidang v0. Rancangan: `uji/SINTESIS_Mesin-Wujudkan_Jejak-dan-Rancangan_18Nov2026.md`. Posisi: **Tonggak 2c**, sesudah 2b (jelajah + "mau bangun apa") dan sebelum Tonggak 3 (Proposal Diri + persetujuan orang tua), putusan Chief Sulu 23 Nov (Ledger 421a045d9957812e92aef82eb44649a6), bisa dibalik Raihan. W1–W8 jadi bahan manifest 2c yang ditulis Chief sesudah 2b dibangun; `sambung/keluaran/bank_peran.json` dipakai di W2; sesi mesin tidak menambah rancangan | 2c |
 | `alat/` | Gerbang deterministik, alat BPS, penegak niat dan komit | semua |
 
 Tidak ada bagian folder ini yang menyentuh produksi, database, atau data pengguna.
