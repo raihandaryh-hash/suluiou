@@ -1,6 +1,6 @@
 {
- "skema": "tetangga-wilayah/2",
- "dibuat": "18 Nov 2026, sesi mesin Sulu (BALASAN Chief 17 Nov 20.54 butir 4; titipan 17 Nov 21.00 butir 4)",
+ "skema": "tetangga-wilayah/3",
+ "dibuat": "18 Nov 2026, sesi mesin Sulu (BALASAN Chief 17 Nov 20.54 butir 4; titipan 17 Nov 21.00 butir 4); v3 19 Nov 2026, sesi Grok Meja IOU (brief/02 tugas 1): tujuh wilayah dari pelengkap COD-AB",
  "label": "SINTESIS hitungan geometri; batas indikatif, bukan penegasan batas daerah; bukan data resmi BPS",
  "sumber_batas": {
   "utama": {
@@ -18,8 +18,18 @@
   },
   "layanan_resmi_dicoba": {
    "url": "https://geoservices.big.go.id/rbi/rest/services/Hosted/Wilayah_Administrasi_Kabupaten__Kota/FeatureServer",
-   "keterangan": "edisi September 2023 menurut deskripsi layanan; 18 Nov 2026 kueri dari sesi dan dari laptop menjawab galat 500, jadi belum bisa dipakai"
+   "keterangan": "edisi September 2023 menurut deskripsi layanan; 18 Nov 2026 kueri dari sesi dan dari laptop menjawab galat 500, jadi belum bisa dipakai; 19 Nov 2026 17.42 WIB kueri dari sesi Grok masih galat 500"
   }
+ },
+ "sumber_batas_pelengkap": {
+  "nama": "HDX COD-AB Indonesia, Indonesia - Subnational Administrative Boundaries (cod-ab-idn), berkas idn_admin2 (shp)",
+  "url": "https://data.humdata.org/dataset/cod-ab-idn",
+  "unduh": "https://data.humdata.org/dataset/84a1d98a-790b-4d66-9d14-bbfa48500802/resource/50b9aafa-47c5-483e-a361-826320bf75d5/download/idn_admin_boundaries.shp.zip",
+  "asal_data": "Badan Pusat Statistik (BPS - Statistics Indonesia); disusun OCHA ROAP, diterbitkan OCHA FISS/HDX",
+  "lisensi": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO), http://creativecommons.org/licenses/by/3.0/igo/legalcode",
+  "tahun_data": "valid_on 2020-04-01 (batas dibuat sumber 8 Apr 2020); ditinjau 30 Okt 2025; berkas diperbarui HDX 23 Jun 2026",
+  "kewajiban": "atribusi ke BPS dan OCHA, sertakan URI lisensi, tandai bahwa geometri disederhanakan (CC BY-IGO 3.0 pasal 3 dan 4)",
+  "dipakai_untuk": "geometri dan tetangga tujuh wilayah yang tidak bergeometri di utama"
  },
  "aturan": {
   "toleransi_derajat_utama": 0.005,
@@ -27,17 +37,81 @@
   "penyederhanaan_pembanding": 0.0002,
   "tetangga_laut": "tidak dihitung",
   "pencocokan_kode": "nama dalam provinsi ke DIKK 2025 tabel 2.1",
-  "wilayah_tanpa_geometri_utama": "tetangga diambil dari pembanding dan ditandai asal = pembanding"
+  "wilayah_tanpa_geometri_utama": "tetangga diambil dari pelengkap COD-AB (toleransi 0,001, penyederhanaan 0,0002) dan ditandai asal = pelengkap; pembanding Alf-Anas hanya untuk dicocokkan"
  },
  "syarat_tayang": [
   "Halaman menulis: batas wilayah dari data BIG, bersifat petunjuk; tetangga laut tidak dihitung.",
-  "Pasangan ber-asal pembanding tayang dengan tanda sendiri: 'Batas dari data pembanding yang asal datanya tidak dinyatakan.' PUTUSAN ATAS DELEGASI sesi mesin 18 Nov 2026 (dapat dibalik Chief atau Raihan): enam dari tujuh wilayah itu kota yang dikelilingi satu atau dua kabupaten (Kepulauan Seribu tanpa tetangga darat), jadi tetangganya tidak diperdebatkan; menahannya membuat tujuh Halaman Isu kosong di bagian Daerah lain."
+  "Pasangan ber-asal pembanding tayang dengan tanda sendiri: 'Batas dari data pembanding yang asal datanya tidak dinyatakan.' PUTUSAN ATAS DELEGASI sesi mesin 18 Nov 2026 (dapat dibalik Chief atau Raihan): enam dari tujuh wilayah itu kota yang dikelilingi satu atau dua kabupaten (Kepulauan Seribu tanpa tetangga darat), jadi tetangganya tidak diperdebatkan; menahannya membuat tujuh Halaman Isu kosong di bagian Daerah lain.",
+  "v3: pasangan ber-asal pelengkap wajib membawa atribusi BPS dan OCHA (HDX COD-AB) serta URI lisensi CC BY-IGO; kalimat tandanya BELUM DISUSUN, menunggu Chief atau Raihan (sesi Grok tidak menulis teks tayang)."
  ],
  "ringkas": {
   "wilayah": 514,
   "kode_dikk": 514,
-  "sisi": 1001,
-  "sisi_dari_pembanding": 7,
+  "sisi": 1000,
+  "sisi_dari_pembanding": 0,
+  "sisi_dari_pelengkap": 6,
+  "pelengkap_dibanding_pembanding": {
+   "1271": {
+    "pelengkap": [
+     "1204"
+    ],
+    "pembanding": [
+     "1204"
+    ],
+    "sama": true
+   },
+   "1274": {
+    "pelengkap": [
+     "1218"
+    ],
+    "pembanding": [
+     "1218"
+    ],
+    "sama": true
+   },
+   "1374": {
+    "pelengkap": [
+     "1305"
+    ],
+    "pembanding": [
+     "1305",
+     "1306"
+    ],
+    "sama": false
+   },
+   "1375": {
+    "pelengkap": [
+     "1307"
+    ],
+    "pembanding": [
+     "1307"
+    ],
+    "sama": true
+   },
+   "3101": {
+    "pelengkap": [],
+    "pembanding": [],
+    "sama": true
+   },
+   "3371": {
+    "pelengkap": [
+     "3308"
+    ],
+    "pembanding": [
+     "3308"
+    ],
+    "sama": true
+   },
+   "3576": {
+    "pelengkap": [
+     "3516"
+    ],
+    "pembanding": [
+     "3516"
+    ],
+    "sama": true
+   }
+  },
   "tanpa_tetangga_darat": 33,
   "singgung_pendek": 3,
   "utama_tanpa_geometri": [
@@ -108,7 +182,21 @@
  "catatan_pencocokan": [
   "nama dicocokkan longgar: Kota Padang Sidempuan (Sumatera Utara) -> kotapadangsidimpuan",
   "nama dicocokkan longgar: Pahuwato (Gorontalo) -> pohuwato",
-  "nama dicocokkan longgar: Pangkajene Kepulauan (Sulawesi Selatan) -> pangkajenedankepulauan"
+  "nama dicocokkan longgar: Pangkajene Kepulauan (Sulawesi Selatan) -> pangkajenedankepulauan",
+  "pelengkap nama beda: ID1206 Toba Samosir -> Toba",
+  "pelengkap nama beda: ID6302 Kota Baru -> Kotabaru",
+  "pelengkap nama beda: ID6411 Mahakam Hulu -> Mahakam Ulu",
+  "pelengkap nama beda: ID7108 Siau Tagulandang Biaro -> Kepulauan Sitaro",
+  "pelengkap nama beda: ID7605 Mamuju Utara -> Pasangkayu",
+  "pelengkap nama beda: ID8101 Maluku Tenggara Barat -> Kepulauan Tanimbar",
+  "pelengkap tanpa padanan DIKK: ID1288 Danau Toba",
+  "pelengkap tanpa padanan DIKK: ID1388 Danau",
+  "pelengkap tanpa padanan DIKK: ID1688 Danau",
+  "pelengkap tanpa padanan DIKK: ID1888 Danau",
+  "pelengkap tanpa padanan DIKK: ID3288 Waduk Cirata",
+  "pelengkap tanpa padanan DIKK: ID3388 Wadung Kedungombo",
+  "pelengkap tanpa padanan DIKK: ID3399 Hutan",
+  "pelengkap tanpa padanan DIKK: ID7188 Danau"
  ],
  "wilayah": {
   "1101": {
@@ -1384,16 +1472,6 @@
      "ada_di_pembanding": true
     },
     {
-     "kode_bps": "1271",
-     "nama": "Kota Sibolga",
-     "provinsi": "Sumatera Utara",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 10.9,
-     "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
-    },
-    {
      "kode_bps": "1216",
      "nama": "Pakpak Bharat",
      "provinsi": "Sumatera Utara",
@@ -1401,6 +1479,16 @@
      "batas_bersama_km_kira": 10.6,
      "singgung_pendek": false,
      "asal": "utama",
+     "ada_di_pembanding": true
+    },
+    {
+     "kode_bps": "1271",
+     "nama": "Kota Sibolga",
+     "provinsi": "Sumatera Utara",
+     "lintas_provinsi": false,
+     "batas_bersama_km_kira": 8.7,
+     "singgung_pendek": false,
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -2240,9 +2328,9 @@
      "nama": "Kota Tebing Tinggi",
      "provinsi": "Sumatera Utara",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 53.8,
+     "batas_bersama_km_kira": 52.1,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     },
     {
@@ -2616,7 +2704,7 @@
   "1271": {
    "nama": "Kota Sibolga",
    "provinsi": "Sumatera Utara",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -2624,9 +2712,9 @@
      "nama": "Tapanuli Tengah",
      "provinsi": "Sumatera Utara",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 10.9,
+     "batas_bersama_km_kira": 8.7,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -2670,7 +2758,7 @@
   "1274": {
    "nama": "Kota Tebing Tinggi",
    "provinsi": "Sumatera Utara",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -2678,9 +2766,9 @@
      "nama": "Serdang Bedagai",
      "provinsi": "Sumatera Utara",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 53.8,
+     "batas_bersama_km_kira": 52.1,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -3075,16 +3163,6 @@
      "ada_di_pembanding": true
     },
     {
-     "kode_bps": "1374",
-     "nama": "Kota Padang Panjang",
-     "provinsi": "Sumatera Barat",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 30.5,
-     "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
-    },
-    {
      "kode_bps": "1304",
      "nama": "Sijunjung",
      "provinsi": "Sumatera Barat",
@@ -3092,6 +3170,16 @@
      "batas_bersama_km_kira": 26.2,
      "singgung_pendek": false,
      "asal": "utama",
+     "ada_di_pembanding": true
+    },
+    {
+     "kode_bps": "1374",
+     "nama": "Kota Padang Panjang",
+     "provinsi": "Sumatera Barat",
+     "lintas_provinsi": false,
+     "batas_bersama_km_kira": 25.7,
+     "singgung_pendek": false,
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     },
     {
@@ -3161,16 +3249,6 @@
      "singgung_pendek": false,
      "asal": "utama",
      "ada_di_pembanding": true
-    },
-    {
-     "kode_bps": "1374",
-     "nama": "Kota Padang Panjang",
-     "provinsi": "Sumatera Barat",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 2.1,
-     "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
     }
    ]
   },
@@ -3235,9 +3313,9 @@
      "nama": "Kota Bukittinggi",
      "provinsi": "Sumatera Barat",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 28.2,
+     "batas_bersama_km_kira": 26.6,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -3669,7 +3747,7 @@
   "1374": {
    "nama": "Kota Padang Panjang",
    "provinsi": "Sumatera Barat",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -3677,19 +3755,9 @@
      "nama": "Tanah Datar",
      "provinsi": "Sumatera Barat",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 30.5,
+     "batas_bersama_km_kira": 25.7,
      "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
-    },
-    {
-     "kode_bps": "1306",
-     "nama": "Padang Pariaman",
-     "provinsi": "Sumatera Barat",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 2.1,
-     "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -3697,7 +3765,7 @@
   "1375": {
    "nama": "Kota Bukittinggi",
    "provinsi": "Sumatera Barat",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -3705,9 +3773,9 @@
      "nama": "Agam",
      "provinsi": "Sumatera Barat",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 28.2,
+     "batas_bersama_km_kira": 26.6,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -7777,7 +7845,7 @@
   "3101": {
    "nama": "Kepulauan Seribu",
    "provinsi": "DKI Jakarta",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": true,
    "tetangga": []
   },
@@ -10010,16 +10078,6 @@
      "ada_di_pembanding": true
     },
     {
-     "kode_bps": "3371",
-     "nama": "Kota Magelang",
-     "provinsi": "Jawa Tengah",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 29.3,
-     "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
-    },
-    {
      "kode_bps": "3404",
      "nama": "Sleman",
      "provinsi": "DI Yogyakarta",
@@ -10027,6 +10085,16 @@
      "batas_bersama_km_kira": 28.4,
      "singgung_pendek": false,
      "asal": "utama",
+     "ada_di_pembanding": true
+    },
+    {
+     "kode_bps": "3371",
+     "nama": "Kota Magelang",
+     "provinsi": "Jawa Tengah",
+     "lintas_provinsi": false,
+     "batas_bersama_km_kira": 27.1,
+     "singgung_pendek": false,
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     },
     {
@@ -11382,7 +11450,7 @@
   "3371": {
    "nama": "Kota Magelang",
    "provinsi": "Jawa Tengah",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -11390,9 +11458,9 @@
      "nama": "Magelang",
      "provinsi": "Jawa Tengah",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 29.3,
+     "batas_bersama_km_kira": 27.1,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
@@ -12664,16 +12732,6 @@
      "ada_di_pembanding": true
     },
     {
-     "kode_bps": "3576",
-     "nama": "Kota Mojokerto",
-     "provinsi": "Jawa Timur",
-     "lintas_provinsi": false,
-     "batas_bersama_km_kira": 28.5,
-     "singgung_pendek": false,
-     "asal": "pembanding",
-     "ada_di_pembanding": true
-    },
-    {
      "kode_bps": "3525",
      "nama": "Gresik",
      "provinsi": "Jawa Timur",
@@ -12681,6 +12739,16 @@
      "batas_bersama_km_kira": 27.0,
      "singgung_pendek": false,
      "asal": "utama",
+     "ada_di_pembanding": true
+    },
+    {
+     "kode_bps": "3576",
+     "nama": "Kota Mojokerto",
+     "provinsi": "Jawa Timur",
+     "lintas_provinsi": false,
+     "batas_bersama_km_kira": 26.7,
+     "singgung_pendek": false,
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     },
     {
@@ -13492,7 +13560,7 @@
   "3576": {
    "nama": "Kota Mojokerto",
    "provinsi": "Jawa Timur",
-   "geometri_dari": "pembanding",
+   "geometri_dari": "pelengkap",
    "tanpa_tetangga_darat": false,
    "tetangga": [
     {
@@ -13500,9 +13568,9 @@
      "nama": "Mojokerto",
      "provinsi": "Jawa Timur",
      "lintas_provinsi": false,
-     "batas_bersama_km_kira": 28.5,
+     "batas_bersama_km_kira": 26.7,
      "singgung_pendek": false,
-     "asal": "pembanding",
+     "asal": "pelengkap",
      "ada_di_pembanding": true
     }
    ]
