@@ -38,7 +38,7 @@ const LUKA =
   "gores|menggores|nggores|ngegores|digores|sayat|menyayat|nyayat|disayat|silet|nyilet|menyilet|disilet|cutter|kater|lukai|melukai|menyakiti|nyakitin";
 const BAGIAN_TUBUH = "tangan~|lengan~|nadi~|pergelangan~|paha~|leher~";
 const PELAKU =
-  "ayah~|bapak~|papa~|papi|abah|ibu~|mama~|mamah~|bunda~|nyokap|bokap|suami~|istri~|mertua~|om|paman~|pakde|pakdhe|paklik|kakek~|kakak~|abang~|sepupu~|tetangga~|guru~|ustad~|ustaz~|pacar~|cowok~|majikan~|bos~|atasan~|senior~|pelatih~|tiri";
+  "ayah~|bapak~|papa~|papi|abah|nyokap|bokap|suami~|istri~|mertua~|om|paman~|pakde|pakdhe|paklik|kakek~|kakak~|abang~|sepupu~|tetangga~|guru~|ustad~|ustaz~|pacar~|cowok~|majikan~|bos~|atasan~|senior~|pelatih~|tiri";
 const KALAU = "kalau|kalo|klo|kl|jika|jikalau|seandainya|andai|misal|misalnya|bila";
 
 export const DAFTAR_BAHAYA_LANGSUNG: string[] = [
@@ -71,7 +71,7 @@ export const DAFTAR_BAHAYA_LANGSUNG: string[] = [
   "nulis|menulis|tulis|nulisin|bikin|membuat|nyiapin|menyiapkan|atur|mengatur * surat|pesan * perpisahan|wasiat|terakhir",
   "urusan~|tugas~|waktu~ * di dunia * hampir|sudah|udah * selesai|habis",
   "beresin|membereskan * semua barang~ * dan * hapus~ akun~",
-  "bagi|membagikan|bagiin * barang~ * kesayangan~",
+  "bagi|membagikan|bagiin|ngasih|memberikan * barang~ * kesayangan~ * ke|kepada * adik~|kakak~|teman~|temen~|sahabat~",
   "sudah|udah * pamit * ke|sama * tetangga~|semua~|keluarga~|teman~|temen~",
   "mau|ingin|pengen * pamit * aja|saja|sih * ke|sama * semua~",
   "udah|sudah cukup * aku|saya|gue|gw|gua * di sini",
@@ -142,7 +142,7 @@ export const DAFTAR_TANDA_BERAT: string[] = [
   `capek|cape|capai|lelah|letih|muak * ${HIDUP}`,
   `${TIDAK} * kuat|sanggup|tahan * ${HIDUP}`,
   `${TIDAK}|tak * pantas|layak|berhak * ${HIDUP}`,
-  `jadi|menjadi|cuma|hanya|sebagai|kayak|kaya|seperti beban * orang~|keluarga~|ortu|semua~|kalian|mereka|bapak~|ibu~|mama~|papa~|ayah~|sekolah~|istri~|suami~|anak~|teman~|temen~|dosen~|doang|saja|aja`,
+  `jadi|menjadi|cuma|hanya|sebagai|kayak|kaya|seperti beban * orang~|keluarga~|ortu|semua~|kalian|mereka|bapak~|ibu~|mama~|papa~|ayah~|istri~|suami~|doang|saja|aja`,
   `tinggal * ${AKU} * yang jadi beban`,
   `${AKU} * cuma|hanya * menyusahkan|ngerepotin|merepotkan|nambah masalah`,
   `${AKU} * sumber masalah * di rumah|keluarga~`,
@@ -156,7 +156,6 @@ export const DAFTAR_TANDA_BERAT: string[] = [
   `life|living|everything|${HIDUP} * pointless|meaningless|percuma|sia`,
   `${TIDAK} ${INGIN} bangun~ * besok|lagi`,
   `${INGIN} * ${TIDAK} bangun~ * besok|lagi`,
-  "tidur|turu * aja|saja|wae * yang lama",
   "takut pulang",
   `takut * sama|dengan|ama * ${PELAKU}`,
   "surat perpisahan|wasiat",
