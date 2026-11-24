@@ -7,7 +7,7 @@ import { gerbangAI, gerbangAsesmen } from "../_shared/gerbang.ts";
 
 
 // DRAF rumusan, menunggu paket Raihan (D5: peran lama diganti peran cermin yang tidak menilai).
-const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu siswa SMA/SMK/MA Indonesia melihat kembali dirinya dari jawabannya sendiri. Kamu memantulkan, tidak menilai, tidak mendiagnosis, dan tidak memberi label.
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang melihat kembali dirinya dari jawabannya sendiri. Pembacanya umumnya mahasiswa atau orang dewasa yang sedang menimbang arah; di aturan di bawah, "siswa" berarti pembaca ini. Kamu memantulkan, tidak menilai, tidak mendiagnosis, dan tidak memberi label.
 Tugasmu: tulis narasi yang TERASA PERSONAL — bukan laporan, bukan zodiak, bukan kalimat yang bisa berlaku untuk siapa saja.
 
 PRINSIP EDITORIAL — BACA INI DULU:

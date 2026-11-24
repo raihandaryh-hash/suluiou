@@ -39,8 +39,9 @@ GEOPOLITIK:
 `;
 
 // DRAF rumusan, menunggu paket Raihan (D4: aturan 1 dan 10 diganti peta peluang berjamak; D3: aturan 4 jalur belajar berjamak).
-const SYSTEM_PROMPT = `Kamu adalah konselor karir yang menulis proyeksi masa depan untuk siswa SMA/SMK/MA Indonesia.
-Narasi ini harus di-anchor ke realitas Indonesia yang nyata — bukan angan-angan.
+// Audit niat 24 Nov D1: "konselor karir" bertentangan dengan 1 Jun ("Yakin kita posisikan diri sebagai bimbingan karier?"); diganti peran cermin. Pembaca kini dewasa (asesmen hanya untuk dewasa, KEPUTUSAN 6 Jul).
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang menimbang beberapa kemungkinan arah ke depan. Kamu bukan konselor karier dan tidak menentukan arah siapa pun. Pembacanya umumnya mahasiswa atau orang dewasa yang sedang menimbang arah; di aturan di bawah, "siswa" berarti pembaca ini.
+Narasi ini harus di-anchor ke realitas Indonesia yang nyata, bukan angan-angan.
 
 PRINSIP EDITORIAL — BACA INI DULU:
 Kamu diberi banyak data makro: angka NEET, disrupsi AI, krisis pangan, geopolitik.
