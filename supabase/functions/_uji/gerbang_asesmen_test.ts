@@ -10,5 +10,5 @@ Deno.test("gerbang asesmen: di bawah 18 ditolak 403", () => {
   assertEquals(gerbangAsesmen("x", cors, { usia: "bawah18" }, () => undefined)?.status, 403);
 });
 Deno.test("gerbang asesmen: saklar Raihan membuka untuk siswa", () => {
-  assertEquals(gerbangAsesmen("x", cors, { usia: "bawah18" }, () => "ya"), null);
+  assertEquals(gerbangAsesmen("x", cors, { usia: "bawah18" }, () => "1"), null);
 });

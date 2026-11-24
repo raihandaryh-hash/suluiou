@@ -90,13 +90,7 @@ serve(async (req) => {
     });
   }
 
-  // A7: kunci asesmen di sisi server. Selain "1" berarti tertutup (503).
-  if (Deno.env.get("SULU_ASESMEN_TERBUKA") !== "1") {
-    return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
-      status: 503,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
+  // A7: kunci asesmen di server kini lewat gerbangAsesmen sesudah identitas diketahui (dewasa lolos, siswa tertutup).
 
   try {
     const badan = await req.json();
