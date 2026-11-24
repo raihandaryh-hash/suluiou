@@ -1,0 +1,659 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "72",
+  "nama": "Sulawesi Tengah"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.7201",
+   "wilayah": {
+    "kode_bps": "7201",
+    "nama": "Kab. Banggai Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.65,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 11.49,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai Kepulauan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 10,7 persen penduduk Kab. Banggai Kepulauan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7201",
+   "wilayah": {
+    "kode_bps": "7201",
+    "nama": "Kab. Banggai Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.63,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.67,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Banggai Kepulauan tercatat 1,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7202",
+   "wilayah": {
+    "kode_bps": "7202",
+    "nama": "Kab. Banggai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.74,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.23,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,7 persen penduduk Kab. Banggai tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7202",
+   "wilayah": {
+    "kode_bps": "7202",
+    "nama": "Kab. Banggai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.1,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.07,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Banggai tercatat 3,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7203",
+   "wilayah": {
+    "kode_bps": "7203",
+    "nama": "Kab. Morowali",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.08,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.38,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Morowali yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 10,1 persen penduduk Kab. Morowali tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7203",
+   "wilayah": {
+    "kode_bps": "7203",
+    "nama": "Kab. Morowali",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.78,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.81,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Morowali yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Morowali tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7204",
+   "wilayah": {
+    "kode_bps": "7204",
+    "nama": "Kab. Poso",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.69,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.9,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Poso yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 11,7 persen penduduk Kab. Poso tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7204",
+   "wilayah": {
+    "kode_bps": "7204",
+    "nama": "Kab. Poso",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.76,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.76,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Poso yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Poso tercatat 1,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7205",
+   "wilayah": {
+    "kode_bps": "7205",
+    "nama": "Kab. Donggala",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 14.47,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.66,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Donggala yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 14,5 persen penduduk Kab. Donggala tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7205",
+   "wilayah": {
+    "kode_bps": "7205",
+    "nama": "Kab. Donggala",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.78,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.78,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Donggala yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Donggala tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7206",
+   "wilayah": {
+    "kode_bps": "7206",
+    "nama": "Kab. Tolitoli",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.08,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.2,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tolitoli yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 12,1 persen penduduk Kab. Tolitoli tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7206",
+   "wilayah": {
+    "kode_bps": "7206",
+    "nama": "Kab. Tolitoli",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.28,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.09,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tolitoli yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tolitoli tercatat 3,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7207",
+   "wilayah": {
+    "kode_bps": "7207",
+    "nama": "Kab. Buol",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.34,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.48,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Buol yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 12,3 persen penduduk Kab. Buol tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7207",
+   "wilayah": {
+    "kode_bps": "7207",
+    "nama": "Kab. Buol",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.2,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.11,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Buol yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Buol tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7208",
+   "wilayah": {
+    "kode_bps": "7208",
+    "nama": "Kab. Parigi Moutong",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.38,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.51,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Parigi Moutong yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 13,4 persen penduduk Kab. Parigi Moutong tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7208",
+   "wilayah": {
+    "kode_bps": "7208",
+    "nama": "Kab. Parigi Moutong",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.26,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.1,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Parigi Moutong yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Parigi Moutong tercatat 2,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7209",
+   "wilayah": {
+    "kode_bps": "7209",
+    "nama": "Kab. Tojo Una-Una",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.42,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 14.67,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tojo Una-Una yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 13,4 persen penduduk Kab. Tojo Una-Una tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7209",
+   "wilayah": {
+    "kode_bps": "7209",
+    "nama": "Kab. Tojo Una-Una",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.68,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.73,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tojo Una-Una yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tojo Una-Una tercatat 2,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7210",
+   "wilayah": {
+    "kode_bps": "7210",
+    "nama": "Kab. Sigi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.76,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.47,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sigi yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 9,8 persen penduduk Kab. Sigi tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7210",
+   "wilayah": {
+    "kode_bps": "7210",
+    "nama": "Kab. Sigi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.3,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.3,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sigi yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sigi tercatat 2,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7211",
+   "wilayah": {
+    "kode_bps": "7211",
+    "nama": "Kab. Banggai Laut",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.38,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 12.71,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai Laut yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 12,4 persen penduduk Kab. Banggai Laut tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7211",
+   "wilayah": {
+    "kode_bps": "7211",
+    "nama": "Kab. Banggai Laut",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.76,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.69,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Banggai Laut yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Banggai Laut tercatat 3,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7212",
+   "wilayah": {
+    "kode_bps": "7212",
+    "nama": "Kab. Morowali Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.3,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 10.38,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Morowali Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 10,3 persen penduduk Kab. Morowali Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7212",
+   "wilayah": {
+    "kode_bps": "7212",
+    "nama": "Kab. Morowali Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.4,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.38,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Morowali Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Morowali Utara tercatat 2,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7271",
+   "wilayah": {
+    "kode_bps": "7271",
+    "nama": "Kota Palu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.75,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.26,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,8 persen penduduk Kota Palu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7271",
+   "wilayah": {
+    "kode_bps": "7271",
+    "nama": "Kota Palu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.48,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7200"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.59,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Palu tercatat 5,5 persen dari angkatan kerja."
+  }
+ ]
+}

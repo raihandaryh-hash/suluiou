@@ -1,0 +1,284 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "51",
+  "nama": "Bali"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.5101",
+   "wilayah": {
+    "kode_bps": "5101",
+    "nama": "Kab. Jembrana",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.3,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.33,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Jembrana yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,3 persen penduduk Kab. Jembrana tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5101",
+   "wilayah": {
+    "kode_bps": "5101",
+    "nama": "Kab. Jembrana",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.54,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.64,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Jembrana yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Jembrana tercatat 1,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5102",
+   "wilayah": {
+    "kode_bps": "5102",
+    "nama": "Kab. Tabanan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.95,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.23,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tabanan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,0 persen penduduk Kab. Tabanan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5103",
+   "wilayah": {
+    "kode_bps": "5103",
+    "nama": "Kab. Badung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 1.75,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.9,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Badung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 1,8 persen penduduk Kab. Badung tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5104",
+   "wilayah": {
+    "kode_bps": "5104",
+    "nama": "Kab. Gianyar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.71,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Gianyar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,6 persen penduduk Kab. Gianyar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5105",
+   "wilayah": {
+    "kode_bps": "5105",
+    "nama": "Kab. Klungkung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.76,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.18,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Klungkung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,8 persen penduduk Kab. Klungkung tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5106",
+   "wilayah": {
+    "kode_bps": "5106",
+    "nama": "Kab. Bangli",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.37,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.83,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bangli yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,4 persen penduduk Kab. Bangli tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5107",
+   "wilayah": {
+    "kode_bps": "5107",
+    "nama": "Kab. Karangasem",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.13,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.4,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Karangasem yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,1 persen penduduk Kab. Karangasem tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5108",
+   "wilayah": {
+    "kode_bps": "5108",
+    "nama": "Kab. Buleleng",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.92,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.2,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Buleleng yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,9 persen penduduk Kab. Buleleng tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.5171",
+   "wilayah": {
+    "kode_bps": "5171",
+    "nama": "Kota Denpasar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 1.73,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.16,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Denpasar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 1,7 persen penduduk Kota Denpasar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5171",
+   "wilayah": {
+    "kode_bps": "5171",
+    "nama": "Kota Denpasar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.34,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov5100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.41,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Denpasar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Denpasar tercatat 1,3 persen dari angkatan kerja."
+  }
+ ]
+}

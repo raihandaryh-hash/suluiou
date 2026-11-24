@@ -273,11 +273,16 @@ export const api = {
 
     if (USE_SUPABASE) {
       const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/career-chat`;
+      // G2-13: kirim token sesi pengguna. Kunci publishable saja kini ditolak server (401) sebelum AI dipanggil.
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { data: sesi } = await supabase.auth.getSession();
+      const token = sesi.session?.access_token;
       return fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify({ messages, studentContext: safeContext }),
       });

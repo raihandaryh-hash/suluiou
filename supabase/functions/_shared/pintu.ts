@@ -1,11 +1,9 @@
 // Tonggak 2a · alat bersama untuk atur-peran, aktifkan-peserta, kelola-peserta (manifest v0.6).
 import { createClient, type SupabaseClient } from "https://esm.sh/@supabase/supabase-js@2.45.4";
 
-export const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+// G2-13: CORS dikunci ke domain resmi Sulu (cors.ts).
+import { corsHeaders } from "./cors.ts";
+export { corsHeaders };
 
 export function jawab(status: number, isi: unknown): Response {
   return new Response(JSON.stringify(isi), { status, headers: { ...corsHeaders, "Content-Type": "application/json" } });

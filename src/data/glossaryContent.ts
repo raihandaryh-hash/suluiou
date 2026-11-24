@@ -1,3 +1,7 @@
+// G2-26 (23 Nov 2026): satu angka bonus demografi 2030 di seluruh Sulu. Sumber: BPS, Proyeksi Penduduk Indonesia
+// 2020-2050 Hasil SP2020 (2023, ISBN 978-602-438-521-7, https://sensus.bps.go.id/publikasi/detail/29739):
+// penduduk 2030 sekitar 294,1 juta, usia 15-64 tahun 68,28 persen -> sekitar 201 juta (200,8).
+// [BELUM DIVERIFIKASI ke tabel primer BPS: 294,1 dan 68,28 dibaca dari kutipan sekunder yang mengutip BPS.]
 // src/data/glossaryContent.ts
 // Kamus istilah ekonomi & ketenagakerjaan Sulu.
 // Sumber VERBATIM: Notion "Inventori Istilah Ekonomi & Ketenagakerjaan" (370a045d995781e8bc21c22d7372ebcd).
@@ -39,7 +43,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         term: "K-Shaped Recovery",
         padanan: "Pemulihan Ekonomi Berbentuk Huruf K",
         arti: "Ketika ekonomi \"pulih\", pertumbuhan tidak merata. Sektor yang sudah kuat (teknologi, keuangan, komoditas ekspor) tumbuh lebih cepat. Sektor padat karya tradisional, UMKM kecil, pekerja informal — tertinggal atau stagnan. Angka PDB nasional terlihat bagus, tapi banyak orang tidak merasakan manfaatnya.",
-        indonesia: "Gini index 0,381 (September 2024). Perkotaan 0,402. Kelas menengah menyusut dari 57,33 juta (2019) ke 47,85 juta (2024). Indonesia Gelap Februari 2025 dan protes Agustus 2025 adalah ekspresi langsung ketidakmerataan ini.",
+        indonesia: "Gini index 0,381 (September 2024). Perkotaan 0,402. Kelas menengah menyusut dari 57,33 juta (2019) ke 47,85 juta (2024).",
         konsekuensi: "Posisi di mana kamu berdiri ditentukan jalur yang dipilih sekarang. Yang masuk ke K-atas butuh kombinasi skill tertentu, jaringan, dan portofolio. Yang terjebak di K-bawah bukan karena malas — tapi tidak punya navigasi yang cukup saat memilih jalur.",
         navigasi: "Identifikasi sektor tempat kamu masuk — apakah ia ada di K-atas (teknologi, keuangan syariah, green economy, pendidikan digital) atau K-bawah (ritel manual, administrasi rutin). Bangun skill yang dibutuhkan di K-atas bahkan dari sekolah.",
         sumber: "BPS Sakernas 2024; World Bank Indonesia 2024; ISEAS Agustus 2025.",
@@ -98,7 +102,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         arti: "AI menghapus banyak tugas yang biasanya diberikan ke karyawan baru: pemrosesan data, penulisan dasar, analisis laporan standar, customer service tier 1. Perusahaan tidak perlu banyak junior untuk \"belajar sambil kerja\". Mereka mau orang yang langsung bisa mid-level dari hari pertama.",
         indonesia: "Stanford AI Index 2026 mendokumentasikan penurunan 20% pekerjaan entry-level di sektor teknologi sejak 2022. Pola ini mulai terlihat di sektor administratif dan layanan pelanggan.",
         konsekuensi: "Kamu tidak bisa masuk kerja dengan modal \"saya mau belajar\". Perekrut mengharapkan kamu sudah bisa menyelesaikan sebagian besar tugas dari hari pertama. Waktu warming up makin pendek.",
-        navigasi: "Bangun kompetensi tingkat menengah sebelum masuk dunia kerja, bukan setelah. Proyek nyata, freelance, magang informal. Dan pelajari cara kerja bersama AI — bukan hanya memakai AI.",
+        navigasi: "Bangun kompetensi tingkat menengah sebelum masuk dunia kerja, bukan setelah. Proyek nyata, freelance, magang informal. Pelajari juga cara kerja bersama AI, bukan hanya memakai AI.",
         sumber: "Stanford AI Index 2026; WEF Future of Jobs Report 2025.",
       },
       {
@@ -107,7 +111,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         padanan: "Rekrutmen Berbasis Keahlian Terbukti",
         arti: "Pergeseran dari \"tunjukkan ijazahmu\" ke \"tunjukkan apa yang bisa kamu kerjakan\". McKinsey: rekrutmen berbasis skills 5x lebih prediktif terhadap performa kerja dibanding rekrutmen berbasis pendidikan.",
         indonesia: "Adopsi asimetris — startup teknologi, industri kreatif, dan ekosistem halal digital sudah bergerak ke sini. Sektor tradisional dan birokrasi belum.",
-        konsekuensi: "Peluang terbesar sekaligus ancaman jika salah strategi. Tanpa portofolio yang terdokumentasi, kamu tidak punya bukti apapun bahkan jika sebenarnya mampu.",
+        konsekuensi: "Peluang terbesar sekaligus ancaman jika salah strategi. Tanpa portofolio yang terdokumentasi, kamu tidak punya bukti apa pun bahkan jika sebenarnya mampu.",
         navigasi: "Dokumentasikan setiap hasil kerja — tulisan, proyek, kontribusi komunitas. GitHub, Behance, Google Drive — semua bisa menjadi portofolio yang sah. Yang tidak bisa direkam tidak akan dihitung.",
         sumber: "McKinsey Workforce Transformation 2024; LinkedIn Global Talent Trends 2023; TestGorilla 2025.",
       },
@@ -127,7 +131,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         padanan: "Terputusnya Ijazah dari Relevansi Kerja",
         arti: "Ijazah formal semakin tidak menjamin kompetensi yang dibutuhkan dunia kerja. Fungsinya berubah dari \"bukti kemampuan\" menjadi \"syarat administratif\". 43% pekerjaan yang dulu mensyaratkan S1 bisa dikerjakan orang tanpa gelar jika punya kompetensi tepat (Burning Glass Institute, 2024).",
         indonesia: "APK perguruan tinggi Indonesia stagnan di ~30% selama 8 tahun. 53% anak Indonesia di usia sekolah dasar tidak mencapai kemampuan baca yang memadai (World Bank Learning Poverty).",
-        konsekuensi: "Jangan anggap lulus kuliah otomatis membuatmu siap kerja. Dan jangan asumsikan tidak kuliah menutup semua pintu.",
+        konsekuensi: "Jangan anggap lulus kuliah otomatis membuatmu siap kerja. Jangan juga mengira tidak kuliah menutup semua pintu.",
         navigasi: "Kuliah dengan tujuan: untuk membangun kompetensi yang bisa dibuktikan, bukan sekadar mendapat gelar. Kalau tidak kuliah dulu, isi waktu dengan membangun kompetensi yang terdokumentasi.",
         sumber: "Burning Glass Institute 2024; World Bank Learning Poverty Brief 2024.",
       },
@@ -168,14 +172,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         padanan: "Kegelapan Besar / Tidak Bekerja Tidak Sekolah Tidak Pelatihan",
         arti: "NEET singkatan dari Not in Employment, Education, or Training: anak muda usia produktif yang sedang tidak bekerja, tidak bersekolah, dan tidak mengikuti pelatihan apa pun.",
         data: "19,44% pemuda NEET (BPS 2025). Setara 9 juta orang. Perempuan 35,77%, laki-laki 16,38%.",
-        navigasi: "Bedakan antara pesimisme produktif (memahami kondisi nyata untuk keputusan lebih baik) dan pesimisme paralitik (tidak melakukan apapun). Yang pertama adalah aset, yang kedua adalah jebakan.",
-      },
-      {
-        id: "indonesia-gelap",
-        term: "Indonesia Gelap",
-        padanan: "Dark Indonesia Movement",
-        arti: "Gerakan protes Februari dan Agustus 2025. Bukan gerakan partai, tapi ekspresi frustrasi terhadap kesenjangan antara pejabat sejahtera dan pemuda yang tidak bisa menemukan pekerjaan layak.",
-        sumber: "ECPS September 2025; East Asia Forum September 2025.",
+        navigasi: "Bedakan antara pesimisme produktif (memahami kondisi nyata untuk keputusan lebih baik) dan pesimisme paralitik (tidak melakukan apa pun). Yang pertama adalah aset, yang kedua adalah jebakan.",
       },
       {
         id: "maybe-later-generation",
@@ -192,7 +189,7 @@ export const glossaryCategories: GlossaryCategory[] = [
       {
         id: "bonus-demografi",
         term: "Bonus Demografi 2030-2035",
-        data: "201 juta jiwa angkatan kerja potensial pada 2030. Jendela ini tidak berulang.",
+        data: "Sekitar 201 juta penduduk usia produktif (15–64 tahun) pada 2030. Jendela ini tidak berulang.",
       },
       {
         id: "green-economy",

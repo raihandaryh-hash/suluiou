@@ -4,6 +4,8 @@ project_id = "qjdmwssuzthihtxekeup"
 verify_jwt = false
 
 [functions.career-chat]
+# G2-13: tetap false karena klien bisa memakai kunci publishable non-JWT; penolakan pemanggil tanpa akun
+# dilakukan di kode (_shared/gerbang.ts) sebelum pengklasifikasi dan model. Uji: supabase/functions/_uji/.
 verify_jwt = false
 
 # generate-reflection dipensiunkan di Tonggak 2a (C.5): tidak di-deploy lagi.

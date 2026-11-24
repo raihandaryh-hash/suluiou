@@ -1,0 +1,249 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "17",
+  "nama": "Bengkulu"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.1701",
+   "wilayah": {
+    "kode_bps": "1701",
+    "nama": "Kab. Bengkulu Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.72,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkulu Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 15,7 persen penduduk Kab. Bengkulu Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1702",
+   "wilayah": {
+    "kode_bps": "1702",
+    "nama": "Kab. Rejang Lebong",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.71,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Rejang Lebong yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,7 persen penduduk Kab. Rejang Lebong tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1703",
+   "wilayah": {
+    "kode_bps": "1703",
+    "nama": "Kab. Bengkulu Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkulu Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Bengkulu Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1704",
+   "wilayah": {
+    "kode_bps": "1704",
+    "nama": "Kab. Kaur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.82,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kaur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 15,8 persen penduduk Kab. Kaur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1704",
+   "wilayah": {
+    "kode_bps": "1704",
+    "nama": "Kab. Kaur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.88,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kaur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kaur tercatat 3,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1705",
+   "wilayah": {
+    "kode_bps": "1705",
+    "nama": "Kab. Seluma",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.98,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Seluma yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 16,0 persen penduduk Kab. Seluma tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1706",
+   "wilayah": {
+    "kode_bps": "1706",
+    "nama": "Kab. Mukomuko",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.05,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Mukomuko yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Mukomuko tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1707",
+   "wilayah": {
+    "kode_bps": "1707",
+    "nama": "Kab. Lebong",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.1,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lebong yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Lebong tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1707",
+   "wilayah": {
+    "kode_bps": "1707",
+    "nama": "Kab. Lebong",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.16,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lebong yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lebong tercatat 2,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1708",
+   "wilayah": {
+    "kode_bps": "1708",
+    "nama": "Kab. Kepahiang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.38,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepahiang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,4 persen penduduk Kab. Kepahiang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1709",
+   "wilayah": {
+    "kode_bps": "1709",
+    "nama": "Kab. Bengkulu Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.74,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkulu Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,7 persen penduduk Kab. Bengkulu Tengah tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.1771",
+   "wilayah": {
+    "kode_bps": "1771",
+    "nama": "Kota Bengkulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bengkulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,9 persen penduduk Kota Bengkulu tercatat sebagai penduduk miskin."
+  }
+ ]
+}

@@ -109,6 +109,9 @@ def main() -> int:
             temuan.append(f"kebijakan '{nama}' ({cmd}) membolehkan pengguna login menyentuh baris tamu di {tabel} · {f}")
         if not peran & {"anon", "public"}:
             continue
+        # Policy RESTRICTIVE hanya mempersempit akses (digabung AND), tidak pernah membuka (Tonggak 2a, 0007).
+        if re.search(r"\bas\s+restrictive\b", isi, I):
+            continue
         if tabel in BOLEH_PUBLIK and cmd == "select":
             continue
         if tabel == "storage.objects" and any(b in isi for b in BOLEH_STORAGE) and cmd == "select":

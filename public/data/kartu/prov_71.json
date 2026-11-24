@@ -1,0 +1,589 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "71",
+  "nama": "Sulawesi Utara"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.7101",
+   "wilayah": {
+    "kode_bps": "7101",
+    "nama": "Kab. Bolaang Mongondow",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.98,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,0 persen penduduk Kab. Bolaang Mongondow tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7101",
+   "wilayah": {
+    "kode_bps": "7101",
+    "nama": "Kab. Bolaang Mongondow",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.97,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bolaang Mongondow tercatat 5,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7102",
+   "wilayah": {
+    "kode_bps": "7102",
+    "nama": "Kab. Minahasa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.88,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,9 persen penduduk Kab. Minahasa tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7102",
+   "wilayah": {
+    "kode_bps": "7102",
+    "nama": "Kab. Minahasa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.74,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Minahasa tercatat 7,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7103",
+   "wilayah": {
+    "kode_bps": "7103",
+    "nama": "Kab. Kepulauan Sangihe",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Sangihe yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,9 persen penduduk Kab. Kepulauan Sangihe tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7103",
+   "wilayah": {
+    "kode_bps": "7103",
+    "nama": "Kab. Kepulauan Sangihe",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.64,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Sangihe yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Sangihe tercatat 2,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7104",
+   "wilayah": {
+    "kode_bps": "7104",
+    "nama": "Kab. Kepulauan Talaud",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.34,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Talaud yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,3 persen penduduk Kab. Kepulauan Talaud tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7104",
+   "wilayah": {
+    "kode_bps": "7104",
+    "nama": "Kab. Kepulauan Talaud",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Talaud yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Talaud tercatat 3,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7105",
+   "wilayah": {
+    "kode_bps": "7105",
+    "nama": "Kab. Minahasa Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.26,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,3 persen penduduk Kab. Minahasa Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7105",
+   "wilayah": {
+    "kode_bps": "7105",
+    "nama": "Kab. Minahasa Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.77,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Minahasa Selatan tercatat 4,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7106",
+   "wilayah": {
+    "kode_bps": "7106",
+    "nama": "Kab. Minahasa Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.05,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Minahasa Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7106",
+   "wilayah": {
+    "kode_bps": "7106",
+    "nama": "Kab. Minahasa Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Minahasa Utara tercatat 6,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7107",
+   "wilayah": {
+    "kode_bps": "7107",
+    "nama": "Kab. Bolaang Mongondow Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kab. Bolaang Mongondow Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7107",
+   "wilayah": {
+    "kode_bps": "7107",
+    "nama": "Kab. Bolaang Mongondow Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bolaang Mongondow Utara tercatat 4,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7108",
+   "wilayah": {
+    "kode_bps": "7108",
+    "nama": "Kab. Kepulauan Sitaro",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Sitaro yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,3 persen penduduk Kab. Kepulauan Sitaro tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.7109",
+   "wilayah": {
+    "kode_bps": "7109",
+    "nama": "Kab. Minahasa Tenggara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Tenggara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,3 persen penduduk Kab. Minahasa Tenggara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7109",
+   "wilayah": {
+    "kode_bps": "7109",
+    "nama": "Kab. Minahasa Tenggara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.38,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Minahasa Tenggara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Minahasa Tenggara tercatat 3,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7110",
+   "wilayah": {
+    "kode_bps": "7110",
+    "nama": "Kab. Bolaang Mongondow Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.52,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Bolaang Mongondow Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7110",
+   "wilayah": {
+    "kode_bps": "7110",
+    "nama": "Kab. Bolaang Mongondow Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Selatan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bolaang Mongondow Selatan tercatat 2,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7111",
+   "wilayah": {
+    "kode_bps": "7111",
+    "nama": "Kab. Bolaang Mongondow Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,3 persen penduduk Kab. Bolaang Mongondow Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7111",
+   "wilayah": {
+    "kode_bps": "7111",
+    "nama": "Kab. Bolaang Mongondow Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bolaang Mongondow Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bolaang Mongondow Timur tercatat 5,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7171",
+   "wilayah": {
+    "kode_bps": "7171",
+    "nama": "Kota Manado",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.99,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Manado yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,0 persen penduduk Kota Manado tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7171",
+   "wilayah": {
+    "kode_bps": "7171",
+    "nama": "Kota Manado",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 8.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Manado yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Manado tercatat 8,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7172",
+   "wilayah": {
+    "kode_bps": "7172",
+    "nama": "Kota Bitung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.81,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bitung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kota Bitung tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7172",
+   "wilayah": {
+    "kode_bps": "7172",
+    "nama": "Kota Bitung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.35,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bitung yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bitung tercatat 7,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7173",
+   "wilayah": {
+    "kode_bps": "7173",
+    "nama": "Kota Tomohon",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.86,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tomohon yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,9 persen penduduk Kota Tomohon tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7173",
+   "wilayah": {
+    "kode_bps": "7173",
+    "nama": "Kota Tomohon",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tomohon yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Tomohon tercatat 7,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7174",
+   "wilayah": {
+    "kode_bps": "7174",
+    "nama": "Kota Kotamobagu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.14,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Kotamobagu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,1 persen penduduk Kota Kotamobagu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7174",
+   "wilayah": {
+    "kode_bps": "7174",
+    "nama": "Kota Kotamobagu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.97,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Kotamobagu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Kotamobagu tercatat 6,0 persen dari angkatan kerja."
+  }
+ ]
+}

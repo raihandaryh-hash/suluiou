@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import BroadenRoles from "@/components/BroadenRoles";
 import DesainLangkah from "@/components/DesainLangkah";
+import KartuDaerah from "@/components/KartuDaerah";
+import { KARTU_DAERAH_TERBUKA } from "@/data/flags";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toast } from "sonner";
@@ -278,7 +280,7 @@ export default function JalanBakti() {
   if (!hydrated) {
     return (
       <main className="container mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-6">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        <div role="status" className="flex flex-col items-center gap-3 text-sm text-muted-foreground"><Loader2 className="h-6 w-6 animate-spin" aria-hidden />{keselamatanContent.memuatHalaman}</div>
       </main>
     );
   }
@@ -467,6 +469,14 @@ export default function JalanBakti() {
                 )}
               </section>
 
+              <Separator className="my-10" />
+            </>
+          )}
+
+          {/* ── KARTU KEBUTUHAN DAERAH (Tonggak 2b A1): di samping blok di atas, tidak menggantikannya ── */}
+          {KARTU_DAERAH_TERBUKA && province && (
+            <>
+              <KartuDaerah province={province} />
               <Separator className="my-10" />
             </>
           )}

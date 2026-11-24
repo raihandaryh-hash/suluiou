@@ -64,6 +64,13 @@
       "when": 1794423077693,
       "tag": "0008_bersihkan_data_lama_2a",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1795431960034,
+      "tag": "0009_cabut_eksekusi_anon_terapkan",
+      "breakpoints": true
     }
   ]
 }

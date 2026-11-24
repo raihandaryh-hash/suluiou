@@ -1,0 +1,1089 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "73",
+  "nama": "Sulawesi Selatan"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.7301",
+   "wilayah": {
+    "kode_bps": "7301",
+    "nama": "Kab. Kepulauan Selayar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Selayar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,6 persen penduduk Kab. Kepulauan Selayar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7301",
+   "wilayah": {
+    "kode_bps": "7301",
+    "nama": "Kab. Kepulauan Selayar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.62,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.48,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Selayar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kepulauan Selayar tercatat 2,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7302",
+   "wilayah": {
+    "kode_bps": "7302",
+    "nama": "Kab. Bulukumba",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.06,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bulukumba yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,1 persen penduduk Kab. Bulukumba tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7302",
+   "wilayah": {
+    "kode_bps": "7302",
+    "nama": "Kab. Bulukumba",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.12,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.12,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bulukumba yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bulukumba tercatat 2,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7303",
+   "wilayah": {
+    "kode_bps": "7303",
+    "nama": "Kab. Bantaeng",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.68,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bantaeng yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,7 persen penduduk Kab. Bantaeng tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7303",
+   "wilayah": {
+    "kode_bps": "7303",
+    "nama": "Kab. Bantaeng",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.64,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.74,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bantaeng yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bantaeng tercatat 3,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7304",
+   "wilayah": {
+    "kode_bps": "7304",
+    "nama": "Kab. Jeneponto",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.42,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Jeneponto yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,4 persen penduduk Kab. Jeneponto tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7304",
+   "wilayah": {
+    "kode_bps": "7304",
+    "nama": "Kab. Jeneponto",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.96,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.88,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Jeneponto yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Jeneponto tercatat 2,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7305",
+   "wilayah": {
+    "kode_bps": "7305",
+    "nama": "Kab. Takalar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.27,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Takalar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,3 persen penduduk Kab. Takalar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7305",
+   "wilayah": {
+    "kode_bps": "7305",
+    "nama": "Kab. Takalar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.83,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.76,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Takalar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Takalar tercatat 3,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7306",
+   "wilayah": {
+    "kode_bps": "7306",
+    "nama": "Kab. Gowa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.64,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Gowa yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,6 persen penduduk Kab. Gowa tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7306",
+   "wilayah": {
+    "kode_bps": "7306",
+    "nama": "Kab. Gowa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.83,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.25,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Gowa yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Gowa tercatat 4,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7307",
+   "wilayah": {
+    "kode_bps": "7307",
+    "nama": "Kab. Sinjai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.41,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sinjai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,4 persen penduduk Kab. Sinjai tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7307",
+   "wilayah": {
+    "kode_bps": "7307",
+    "nama": "Kab. Sinjai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.11,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.1,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sinjai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sinjai tercatat 2,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7308",
+   "wilayah": {
+    "kode_bps": "7308",
+    "nama": "Kab. Maros",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.9,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Maros yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Maros tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7308",
+   "wilayah": {
+    "kode_bps": "7308",
+    "nama": "Kab. Maros",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.47,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.13,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Maros yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Maros tercatat 4,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7309",
+   "wilayah": {
+    "kode_bps": "7309",
+    "nama": "Kab. Pangkajene Dan Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.6,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pangkajene Dan Kepulauan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,6 persen penduduk Kab. Pangkajene Dan Kepulauan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7309",
+   "wilayah": {
+    "kode_bps": "7309",
+    "nama": "Kab. Pangkajene Dan Kepulauan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.92,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.9,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pangkajene Dan Kepulauan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pangkajene Dan Kepulauan tercatat 3,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7310",
+   "wilayah": {
+    "kode_bps": "7310",
+    "nama": "Kab. Barru",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.0,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barru yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,0 persen penduduk Kab. Barru tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7310",
+   "wilayah": {
+    "kode_bps": "7310",
+    "nama": "Kab. Barru",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.63,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.07,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Barru yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Barru tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7311",
+   "wilayah": {
+    "kode_bps": "7311",
+    "nama": "Kab. Bone",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 9.13,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bone yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 9,1 persen penduduk Kab. Bone tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7311",
+   "wilayah": {
+    "kode_bps": "7311",
+    "nama": "Kab. Bone",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.4,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.75,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bone yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bone tercatat 2,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7312",
+   "wilayah": {
+    "kode_bps": "7312",
+    "nama": "Kab. Soppeng",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.65,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Soppeng yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Soppeng tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7312",
+   "wilayah": {
+    "kode_bps": "7312",
+    "nama": "Kab. Soppeng",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.93,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.01,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Soppeng yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Soppeng tercatat 3,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7313",
+   "wilayah": {
+    "kode_bps": "7313",
+    "nama": "Kab. Wajo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.86,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Wajo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,9 persen penduduk Kab. Wajo tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7313",
+   "wilayah": {
+    "kode_bps": "7313",
+    "nama": "Kab. Wajo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.15,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.47,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Wajo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Wajo tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7314",
+   "wilayah": {
+    "kode_bps": "7314",
+    "nama": "Kab. Sidenreng Rappang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.91,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sidenreng Rappang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,9 persen penduduk Kab. Sidenreng Rappang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7314",
+   "wilayah": {
+    "kode_bps": "7314",
+    "nama": "Kab. Sidenreng Rappang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.51,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.36,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sidenreng Rappang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sidenreng Rappang tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7315",
+   "wilayah": {
+    "kode_bps": "7315",
+    "nama": "Kab. Pinrang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.38,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pinrang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Pinrang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7315",
+   "wilayah": {
+    "kode_bps": "7315",
+    "nama": "Kab. Pinrang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.66,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.65,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pinrang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Pinrang tercatat 3,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7316",
+   "wilayah": {
+    "kode_bps": "7316",
+    "nama": "Kab. Enrekang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.73,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Enrekang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,7 persen penduduk Kab. Enrekang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7316",
+   "wilayah": {
+    "kode_bps": "7316",
+    "nama": "Kab. Enrekang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 1.7,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 1.78,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Enrekang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Enrekang tercatat 1,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7317",
+   "wilayah": {
+    "kode_bps": "7317",
+    "nama": "Kab. Luwu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.97,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Luwu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7317",
+   "wilayah": {
+    "kode_bps": "7317",
+    "nama": "Kab. Luwu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.17,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.71,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7318",
+   "wilayah": {
+    "kode_bps": "7318",
+    "nama": "Kab. Tana Toraja",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.54,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tana Toraja yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Tana Toraja tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7318",
+   "wilayah": {
+    "kode_bps": "7318",
+    "nama": "Kab. Tana Toraja",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.84,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.44,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tana Toraja yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tana Toraja tercatat 3,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7322",
+   "wilayah": {
+    "kode_bps": "7322",
+    "nama": "Kab. Luwu Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.74,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,7 persen penduduk Kab. Luwu Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7322",
+   "wilayah": {
+    "kode_bps": "7322",
+    "nama": "Kab. Luwu Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.28,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.24,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu Utara tercatat 2,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7325",
+   "wilayah": {
+    "kode_bps": "7325",
+    "nama": "Kab. Luwu Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Luwu Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7325",
+   "wilayah": {
+    "kode_bps": "7325",
+    "nama": "Kab. Luwu Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.22,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.7,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Luwu Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Luwu Timur tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7326",
+   "wilayah": {
+    "kode_bps": "7326",
+    "nama": "Kab. Toraja Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.05,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Toraja Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Toraja Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7326",
+   "wilayah": {
+    "kode_bps": "7326",
+    "nama": "Kab. Toraja Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.12,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.01,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Toraja Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Toraja Utara tercatat 2,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7371",
+   "wilayah": {
+    "kode_bps": "7371",
+    "nama": "Kota Makassar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.43,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Makassar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,4 persen penduduk Kota Makassar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7371",
+   "wilayah": {
+    "kode_bps": "7371",
+    "nama": "Kota Makassar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 9.67,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 9.6,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Makassar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Makassar tercatat 9,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7372",
+   "wilayah": {
+    "kode_bps": "7372",
+    "nama": "Kota Parepare",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Parepare yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,4 persen penduduk Kota Parepare tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7372",
+   "wilayah": {
+    "kode_bps": "7372",
+    "nama": "Kota Parepare",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.01,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.98,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Parepare yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Parepare tercatat 5,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.7373",
+   "wilayah": {
+    "kode_bps": "7373",
+    "nama": "Kota Palopo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.18,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palopo yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kota Palopo tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.7373",
+   "wilayah": {
+    "kode_bps": "7373",
+    "nama": "Kota Palopo",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.51,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov7300"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.53,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Palopo yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Palopo tercatat 7,5 persen dari angkatan kerja."
+  }
+ ]
+}

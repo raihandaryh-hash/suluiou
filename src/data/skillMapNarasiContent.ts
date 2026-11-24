@@ -6,9 +6,9 @@
 // angka tak terverifikasi (49%, fresh-grad -14%) DIBUANG dan diganti sumber sahih (AEI + Stanford).
 
 export const dilloIntro = {
-  kicker: 'Penerus dari Pak Evan',
+  kicker: 'Lanjutan dari Pak Evan',
   headline: 'Pak Evan menunjukkan medannya. Sekarang, bekalnya.',
-  body: 'Di IOU Fair, setelah Pak Evan memetakan lanskap dunia kerja, giliran Pak Dillo Augustdi Putra, seorang psikolog, yang melanjutkan: kalau dunia berubah secepat ini, keterampilan apa yang membuat seorang manusia tetap dibutuhkan? Pertanyaan itu yang kita telusuri sekarang.',
+  body: 'Setelah Pak Evan memetakan lanskap dunia kerja, muncul pertanyaan berikutnya: kalau dunia berubah secepat ini, keterampilan apa yang membuat seorang manusia tetap dibutuhkan? Pertanyaan itu yang kita telusuri sekarang.',
 };
 
 export const aiSudahDiSini = {
@@ -45,7 +45,7 @@ export const pergeseranFungsi = {
 
 export const jembatanKePeta = {
   headline: 'Lalu, apa saja bekal itu, dan bagaimana semuanya saling terkait?',
-  body: 'Pak Dillo menyebut lima keterampilan inti: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan. Peta di bawah ini menampung kelimanya, lalu menempatkannya dalam struktur yang lebih utuh: dari karakter dasar yang membentuk dirimu, sampai keahlian teknis tiap sektor. Setiap simpul ditandai apakah ia aman, terbantu, atau berisiko di hadapan AI, lengkap dengan garis yang menunjukkan skill mana yang biasa tumbuh berdampingan.',
+  body: 'Ada lima keterampilan inti yang paling sering disebut: berpikir kritis, komunikasi, kerja sama, adaptabilitas, dan kepemimpinan. Peta di bawah ini menampung kelimanya, lalu menempatkannya dalam struktur yang lebih utuh: dari karakter dasar yang membentuk dirimu, sampai keahlian teknis tiap sektor. Setiap simpul ditandai apakah ia aman, terbantu, atau berisiko di hadapan AI, lengkap dengan garis yang menunjukkan skill mana yang biasa tumbuh berdampingan.',
 };
 
 // Deklarasi user-facing skill-map (V5, provisional) — per Komponen #5 audit 8 Jul 2026.

@@ -1,0 +1,409 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "64",
+  "nama": "Kalimantan Timur"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.6401",
+   "wilayah": {
+    "kode_bps": "6401",
+    "nama": "Kab. Paser",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.13,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Paser yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,1 persen penduduk Kab. Paser tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6401",
+   "wilayah": {
+    "kode_bps": "6401",
+    "nama": "Kab. Paser",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.62,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Paser yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Paser tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6402",
+   "wilayah": {
+    "kode_bps": "6402",
+    "nama": "Kab. Kutai Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.72,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,7 persen penduduk Kab. Kutai Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6402",
+   "wilayah": {
+    "kode_bps": "6402",
+    "nama": "Kab. Kutai Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.21,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kutai Barat tercatat 5,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6403",
+   "wilayah": {
+    "kode_bps": "6403",
+    "nama": "Kab. Kutai Kartanegara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.72,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Kartanegara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,7 persen penduduk Kab. Kutai Kartanegara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6403",
+   "wilayah": {
+    "kode_bps": "6403",
+    "nama": "Kab. Kutai Kartanegara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Kartanegara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kutai Kartanegara tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6404",
+   "wilayah": {
+    "kode_bps": "6404",
+    "nama": "Kab. Kutai Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.07,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,1 persen penduduk Kab. Kutai Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6404",
+   "wilayah": {
+    "kode_bps": "6404",
+    "nama": "Kab. Kutai Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.2,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kutai Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kutai Timur tercatat 6,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6405",
+   "wilayah": {
+    "kode_bps": "6405",
+    "nama": "Kab. Berau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Berau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,4 persen penduduk Kab. Berau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6405",
+   "wilayah": {
+    "kode_bps": "6405",
+    "nama": "Kab. Berau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Berau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Berau tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6409",
+   "wilayah": {
+    "kode_bps": "6409",
+    "nama": "Kab. Penajam Paser Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.78,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Penajam Paser Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Penajam Paser Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6409",
+   "wilayah": {
+    "kode_bps": "6409",
+    "nama": "Kab. Penajam Paser Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.26,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Penajam Paser Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Penajam Paser Utara tercatat 4,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6411",
+   "wilayah": {
+    "kode_bps": "6411",
+    "nama": "Kab. Mahakam Ulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.09,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Mahakam Ulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,1 persen penduduk Kab. Mahakam Ulu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6411",
+   "wilayah": {
+    "kode_bps": "6411",
+    "nama": "Kab. Mahakam Ulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.84,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Mahakam Ulu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Mahakam Ulu tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6471",
+   "wilayah": {
+    "kode_bps": "6471",
+    "nama": "Kota Balikpapan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 1.97,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Balikpapan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 2,0 persen penduduk Kota Balikpapan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6471",
+   "wilayah": {
+    "kode_bps": "6471",
+    "nama": "Kota Balikpapan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.84,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Balikpapan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Balikpapan tercatat 5,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6472",
+   "wilayah": {
+    "kode_bps": "6472",
+    "nama": "Kota Samarinda",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.45,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Samarinda yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 3,5 persen penduduk Kota Samarinda tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6472",
+   "wilayah": {
+    "kode_bps": "6472",
+    "nama": "Kota Samarinda",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.31,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Samarinda yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Samarinda tercatat 5,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6474",
+   "wilayah": {
+    "kode_bps": "6474",
+    "nama": "Kota Bontang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.21,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bontang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 3,2 persen penduduk Kota Bontang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6474",
+   "wilayah": {
+    "kode_bps": "6474",
+    "nama": "Kota Bontang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.36,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bontang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bontang tercatat 6,4 persen dari angkatan kerja."
+  }
+ ]
+}

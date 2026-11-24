@@ -1,0 +1,165 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "92",
+  "nama": "Papua Barat Daya"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.9108",
+   "wilayah": {
+    "kode_bps": "9201",
+    "nama": "Kab. Raja Ampat",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9108"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.51,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 16.57,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Raja Ampat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 15,5 persen penduduk Kab. Raja Ampat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9107",
+   "wilayah": {
+    "kode_bps": "9202",
+    "nama": "Kab. Sorong",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9107"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 23.1,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 25.1,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sorong yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 23,1 persen penduduk Kab. Sorong tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9106",
+   "wilayah": {
+    "kode_bps": "9203",
+    "nama": "Kab. Sorong Selatan",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9106"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 17.4,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 17.66,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sorong Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 17,4 persen penduduk Kab. Sorong Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9110",
+   "wilayah": {
+    "kode_bps": "9204",
+    "nama": "Kab. Maybrat",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9110"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 28.28,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 29.0,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Maybrat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 28,3 persen penduduk Kab. Maybrat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9109",
+   "wilayah": {
+    "kode_bps": "9205",
+    "nama": "Kab. Tambrauw",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9109"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 28.43,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 28.94,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tambrauw yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 28,4 persen penduduk Kab. Tambrauw tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9171",
+   "wilayah": {
+    "kode_bps": "9271",
+    "nama": "Kota Sorong",
+    "tingkat": "kabkota",
+    "kode_bps_lama": "9171"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.85,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.55,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Sorong yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 11,9 persen penduduk Kota Sorong tercatat sebagai penduduk miskin."
+  }
+ ]
+}

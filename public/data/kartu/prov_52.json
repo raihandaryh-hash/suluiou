@@ -1,0 +1,409 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "52",
+  "nama": "Nusa Tenggara Barat"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.5201",
+   "wilayah": {
+    "kode_bps": "5201",
+    "nama": "Kab. Lombok Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.9,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,9 persen penduduk Kab. Lombok Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5201",
+   "wilayah": {
+    "kode_bps": "5201",
+    "nama": "Kab. Lombok Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.82,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lombok Barat tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5202",
+   "wilayah": {
+    "kode_bps": "5202",
+    "nama": "Kab. Lombok Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.68,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Tengah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,7 persen penduduk Kab. Lombok Tengah tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5202",
+   "wilayah": {
+    "kode_bps": "5202",
+    "nama": "Kab. Lombok Tengah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.36,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Tengah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lombok Tengah tercatat 3,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5203",
+   "wilayah": {
+    "kode_bps": "5203",
+    "nama": "Kab. Lombok Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.53,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Timur yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 13,5 persen penduduk Kab. Lombok Timur tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5203",
+   "wilayah": {
+    "kode_bps": "5203",
+    "nama": "Kab. Lombok Timur",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.82,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Timur yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lombok Timur tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5204",
+   "wilayah": {
+    "kode_bps": "5204",
+    "nama": "Kab. Sumbawa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.79,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sumbawa yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,8 persen penduduk Kab. Sumbawa tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5204",
+   "wilayah": {
+    "kode_bps": "5204",
+    "nama": "Kab. Sumbawa",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.6,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sumbawa yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumbawa tercatat 2,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5205",
+   "wilayah": {
+    "kode_bps": "5205",
+    "nama": "Kab. Dompu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 11.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Dompu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,2 persen penduduk Kab. Dompu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5205",
+   "wilayah": {
+    "kode_bps": "5205",
+    "nama": "Kab. Dompu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.84,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Dompu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Dompu tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5206",
+   "wilayah": {
+    "kode_bps": "5206",
+    "nama": "Kab. Bima",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 12.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bima yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 12,6 persen penduduk Kab. Bima tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5206",
+   "wilayah": {
+    "kode_bps": "5206",
+    "nama": "Kab. Bima",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.13,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bima yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bima tercatat 2,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5207",
+   "wilayah": {
+    "kode_bps": "5207",
+    "nama": "Kab. Sumbawa Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.98,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sumbawa Barat yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 11,0 persen penduduk Kab. Sumbawa Barat tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5207",
+   "wilayah": {
+    "kode_bps": "5207",
+    "nama": "Kab. Sumbawa Barat",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.13,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sumbawa Barat yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Sumbawa Barat tercatat 4,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5208",
+   "wilayah": {
+    "kode_bps": "5208",
+    "nama": "Kab. Lombok Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 20.74,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 20,7 persen penduduk Kab. Lombok Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5208",
+   "wilayah": {
+    "kode_bps": "5208",
+    "nama": "Kab. Lombok Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.68,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Lombok Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Lombok Utara tercatat 2,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5271",
+   "wilayah": {
+    "kode_bps": "5271",
+    "nama": "Kota Mataram",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.15,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Mataram yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,2 persen penduduk Kota Mataram tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5271",
+   "wilayah": {
+    "kode_bps": "5271",
+    "nama": "Kota Mataram",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.8,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Mataram yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Mataram tercatat 4,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.5272",
+   "wilayah": {
+    "kode_bps": "5272",
+    "nama": "Kota Bima",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.33,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bima yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,3 persen penduduk Kota Bima tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.5272",
+   "wilayah": {
+    "kode_bps": "5272",
+    "nama": "Kota Bima",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Bima yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Bima tercatat 4,3 persen dari angkatan kerja."
+  }
+ ]
+}

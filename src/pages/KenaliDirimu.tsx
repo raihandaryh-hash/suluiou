@@ -1,3 +1,4 @@
+import { keselamatanContent } from "@/data/keselamatanContent";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Share2, Loader2 } from "lucide-react";
@@ -167,7 +168,7 @@ export default function KenaliDirimu() {
   if (!hydrated) {
     return (
       <main className="container mx-auto flex min-h-[60vh] max-w-2xl items-center justify-center px-6">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        <div role="status" className="flex flex-col items-center gap-3 text-sm text-muted-foreground"><Loader2 className="h-6 w-6 animate-spin" aria-hidden />{keselamatanContent.memuatHalaman}</div>
       </main>
     );
   }

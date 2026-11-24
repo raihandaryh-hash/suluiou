@@ -12,7 +12,7 @@ if (klien !== server) {
 }
 
 const blok = (teks, nama) => {
-  const m = teks.match(/\/\/ MULAI RUJUKAN_POLOS\n([\s\S]*?)\/\/ AKHIR RUJUKAN_POLOS/);
+  const m = teks.replace(/\r\n/g, "\n").match(/\/\/ MULAI RUJUKAN_POLOS\n([\s\S]*?)\/\/ AKHIR RUJUKAN_POLOS/);
   if (!m) { console.error(`cek-distress-sinkron: blok RUJUKAN_POLOS tidak ada di ${nama}.`); gagal = true; return null; }
   return m[1];
 };

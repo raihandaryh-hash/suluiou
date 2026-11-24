@@ -1,0 +1,1222 @@
+{
+ "skema": "kartu-tayang/3",
+ "perubahan_3_1": "angka BPS 2026 (tabel provinsi) tampil bila tersedia, KEPUTUSAN Raihan 18 Nov 2026 13.56; angka 2025 di angka_sebelumnya; sumber per provinsi",
+ "perubahan_dari_2": "tanda_hati_hati (satu kalimat) dicabut, diganti hati_hati_per_jenis; kartu TPT kab/kota yang BPS tandai RSE membawa catatan_bps + catatan_bps_tautan; sakernas-agustus punya tautan_baca; tiap provinsi membawa tautan_baca_tpt (tabel BPS provinsi, cadangan tabel nasional)",
+ "perubahan_dari_1": "satu ejaan nama per kode_bps; pembulatan setengah ke atas; enam provinsi Papua dengan kode baru (kode_bps_lama disertakan); bidang langkah_awal dicabut; nama di belum_punya_kartu berawalan Kab. atau Kota",
+ "hati_hati_per_jenis": {
+  "kemiskinan-kabkota": "Angka survei BPS untuk tingkat kabupaten/kota. Ketelitiannya terbatas. Baca sebagai gambaran.",
+  "pengangguran-terbuka-kabkota": "Angka survei BPS untuk tingkat kabupaten/kota. Ketelitiannya terbatas, dan untuk sebagian kabupaten BPS sendiri menandai angkanya kurang teliti. Baca sebagai gambaran."
+ },
+ "sumber": {
+  "kemiskinan-kabkota-2025": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025",
+   "periode_survei": "Susenas Maret 2025",
+   "relevansi": "ukuran resmi kemiskinan moneter tingkat kab/kota; satu publikasi, satu tahun untuk 514 wilayah sehingga antarwilayah sebanding",
+   "tautan_baca": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+  },
+  "sakernas-agustus": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota",
+   "periode_survei": "Sakernas Agustus 2025",
+   "relevansi": "ukuran resmi pengangguran terbuka tingkat kab/kota; sebagian kab/kota bertanda kurang teliti oleh BPS (catatan_bps di kartu)",
+   "tautan_baca": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "catatan": "tabel nasional var 2824; judul halaman dicek 16 Nov 2026. Tabel provinsi per kode provinsi ada di indeks provinsi.<kode>.tautan_baca_tpt"
+  },
+  "p0-2026-prov1100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 42)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://aceh.bps.go.id/id/statistics-table/2/NDIjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 34)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MzQjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1400": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 43)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://riau.bps.go.id/id/statistics-table/2/NDMjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 943)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jambi.bps.go.id/id/statistics-table/2/OTQzIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov1600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 604)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sumsel.bps.go.id/id/statistics-table/2/NjA0IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 919)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/OTE5IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3400": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 142)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jogja.bps.go.id/id/statistics-table/2/MTQyIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 497)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://jatim.bps.go.id/id/statistics-table/2/NDk3IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov3600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 78)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://banten.bps.go.id/id/statistics-table/2/NzgjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov5100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 125)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/MTI1IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov5300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 584)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://ntt.bps.go.id/id/statistics-table/2/NTg0IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 69)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kalteng.bps.go.id/id/statistics-table/2/NjkjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 103)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MTAzIzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov6500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 71)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://kaltara.bps.go.id/id/statistics-table/2/NzEjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov7200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 90)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTAjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov7500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 37)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://gorontalo.bps.go.id/id/statistics-table/2/MzcjMg==/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov8100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 118)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://maluku.bps.go.id/id/statistics-table/2/MTE4IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov8200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 295)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://malut.bps.go.id/id/statistics-table/2/Mjk1IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "p0-2026-prov9100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Persentase Penduduk Miskin menurut Kabupaten/Kota (tabel BPS provinsi, var 179)",
+   "periode_survei": "Susenas Maret 2026",
+   "tautan_baca": "https://papuabarat.bps.go.id/id/statistics-table/2/MTc5IzI=/persentase-penduduk-miskin-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov1300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 139)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sumbar.bps.go.id/id/statistics-table/2/MTM5IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov1900": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 95)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://babel.bps.go.id/id/statistics-table/2/OTUjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov3200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 73)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://jabar.bps.go.id/id/statistics-table/2/NzMjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov3600": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 157)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://banten.bps.go.id/id/statistics-table/2/MTU3IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov5100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 288)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6100": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 51)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kalbar.bps.go.id/id/statistics-table/2/NTEjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 37)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov6500": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 115)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://kaltara.bps.go.id/id/statistics-table/2/MTE1IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov7200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 92)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sulteng.bps.go.id/id/statistics-table/2/OTIjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov7300": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 466)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  },
+  "tpt-2026-prov8200": {
+   "penerbit": "Badan Pusat Statistik",
+   "judul": "Tingkat Pengangguran Terbuka menurut Kabupaten/Kota (tabel BPS provinsi, var 250)",
+   "periode_survei": "Sakernas Agustus 2026",
+   "tautan_baca": "https://malut.bps.go.id/id/statistics-table/2/MjUwIzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_jenis": "dibangun dari nomor tabel BPS provinsi (belum dibuka)",
+   "relevansi": "angka resmi terbaru tingkat kab/kota; tahunnya bisa berbeda dengan wilayah tetangga, jadi tahun tampil di kartu"
+  }
+ },
+ "jenis_kebutuhan": [
+  "kemiskinan-kabkota",
+  "pengangguran-terbuka-kabkota"
+ ],
+ "provinsi": {
+  "11": {
+   "nama": "Aceh",
+   "berkas": "prov_11.json",
+   "jumlah_kartu": 46,
+   "tautan_baca_tpt": "https://aceh.bps.go.id/id/statistics-table/2/MjA2IzI=/sk-tk-001-tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "12": {
+   "nama": "Sumatera Utara",
+   "berkas": "prov_12.json",
+   "jumlah_kartu": 36,
+   "tautan_baca_tpt": "https://sumut.bps.go.id/id/statistics-table/2/NDQjMg==/tingkat-pengangguran-terbuka-tpt-penduduk-umur-15-tahun-keatas-manurut-kab-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "1202",
+      "nama": "Kab. Mandailing Natal"
+     },
+     {
+      "kode_bps": "1203",
+      "nama": "Kab. Tapanuli Selatan"
+     },
+     {
+      "kode_bps": "1204",
+      "nama": "Kab. Tapanuli Tengah"
+     },
+     {
+      "kode_bps": "1206",
+      "nama": "Kab. Toba"
+     },
+     {
+      "kode_bps": "1207",
+      "nama": "Kab. Labuhan Batu"
+     },
+     {
+      "kode_bps": "1208",
+      "nama": "Kab. Asahan"
+     },
+     {
+      "kode_bps": "1209",
+      "nama": "Kab. Simalungun"
+     },
+     {
+      "kode_bps": "1211",
+      "nama": "Kab. Karo"
+     },
+     {
+      "kode_bps": "1212",
+      "nama": "Kab. Deli Serdang"
+     },
+     {
+      "kode_bps": "1213",
+      "nama": "Kab. Langkat"
+     },
+     {
+      "kode_bps": "1214",
+      "nama": "Kab. Nias Selatan"
+     },
+     {
+      "kode_bps": "1215",
+      "nama": "Kab. Humbang Hasundutan"
+     },
+     {
+      "kode_bps": "1216",
+      "nama": "Kab. Pakpak Bharat"
+     },
+     {
+      "kode_bps": "1217",
+      "nama": "Kab. Samosir"
+     },
+     {
+      "kode_bps": "1218",
+      "nama": "Kab. Serdang Bedagai"
+     },
+     {
+      "kode_bps": "1219",
+      "nama": "Kab. Batu Bara"
+     },
+     {
+      "kode_bps": "1220",
+      "nama": "Kab. Padang Lawas Utara"
+     },
+     {
+      "kode_bps": "1221",
+      "nama": "Kab. Padang Lawas"
+     },
+     {
+      "kode_bps": "1222",
+      "nama": "Kab. Labuhanbatu Selatan"
+     },
+     {
+      "kode_bps": "1223",
+      "nama": "Kab. Labuhanbatu Utara"
+     },
+     {
+      "kode_bps": "1224",
+      "nama": "Kab. Nias Utara"
+     },
+     {
+      "kode_bps": "1225",
+      "nama": "Kab. Nias Barat"
+     },
+     {
+      "kode_bps": "1271",
+      "nama": "Kota Sibolga"
+     },
+     {
+      "kode_bps": "1272",
+      "nama": "Kota Tanjungbalai"
+     },
+     {
+      "kode_bps": "1273",
+      "nama": "Kota Pematangsiantar"
+     },
+     {
+      "kode_bps": "1274",
+      "nama": "Kota Tebing Tinggi"
+     },
+     {
+      "kode_bps": "1275",
+      "nama": "Kota Medan"
+     },
+     {
+      "kode_bps": "1276",
+      "nama": "Kota Binjai"
+     },
+     {
+      "kode_bps": "1277",
+      "nama": "Kota Padangsidimpuan"
+     },
+     {
+      "kode_bps": "1278",
+      "nama": "Kota Gunungsitoli"
+     }
+    ]
+   }
+  },
+  "13": {
+   "nama": "Sumatera Barat",
+   "berkas": "prov_13.json",
+   "jumlah_kartu": 38,
+   "tautan_baca_tpt": "https://sumbar.bps.go.id/id/statistics-table/2/MTM5IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "14": {
+   "nama": "Riau",
+   "berkas": "prov_14.json",
+   "jumlah_kartu": 24,
+   "tautan_baca_tpt": "https://riau.bps.go.id/id/statistics-table/2/NDIjMg==/tingkat-pengangguran-terbuka-tahunan-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "15": {
+   "nama": "Jambi",
+   "berkas": "prov_15.json",
+   "jumlah_kartu": 22,
+   "tautan_baca_tpt": "https://jambi.bps.go.id/id/statistics-table/2/MzQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "16": {
+   "nama": "Sumatera Selatan",
+   "berkas": "prov_16.json",
+   "jumlah_kartu": 34,
+   "tautan_baca_tpt": "https://sumsel.bps.go.id/id/statistics-table/2/MzM0IzI=/tingkat-pengangguran.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "17": {
+   "nama": "Bengkulu",
+   "berkas": "prov_17.json",
+   "jumlah_kartu": 12,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "1701",
+      "nama": "Kab. Bengkulu Selatan"
+     },
+     {
+      "kode_bps": "1702",
+      "nama": "Kab. Rejang Lebong"
+     },
+     {
+      "kode_bps": "1703",
+      "nama": "Kab. Bengkulu Utara"
+     },
+     {
+      "kode_bps": "1705",
+      "nama": "Kab. Seluma"
+     },
+     {
+      "kode_bps": "1706",
+      "nama": "Kab. Mukomuko"
+     },
+     {
+      "kode_bps": "1708",
+      "nama": "Kab. Kepahiang"
+     },
+     {
+      "kode_bps": "1709",
+      "nama": "Kab. Bengkulu Tengah"
+     },
+     {
+      "kode_bps": "1771",
+      "nama": "Kota Bengkulu"
+     }
+    ]
+   }
+  },
+  "18": {
+   "nama": "Lampung",
+   "berkas": "prov_18.json",
+   "jumlah_kartu": 30,
+   "tautan_baca_tpt": "https://lampung.bps.go.id/id/statistics-table/2/NDcjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "19": {
+   "nama": "Bangka Belitung",
+   "berkas": "prov_19.json",
+   "jumlah_kartu": 14,
+   "tautan_baca_tpt": "https://babel.bps.go.id/id/statistics-table/2/OTUjMg==/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "21": {
+   "nama": "Kepulauan Riau",
+   "berkas": "prov_21.json",
+   "jumlah_kartu": 3,
+   "tautan_baca_tpt": "https://kepri.bps.go.id/id/statistics-table/2/MjI0IzI=/tingkat-pengangguran-terbuka.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "2101",
+      "nama": "Kab. Karimun"
+     },
+     {
+      "kode_bps": "2102",
+      "nama": "Kab. Bintan"
+     },
+     {
+      "kode_bps": "2104",
+      "nama": "Kab. Lingga"
+     },
+     {
+      "kode_bps": "2172",
+      "nama": "Kota Tanjungpinang"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "2101",
+      "nama": "Kab. Karimun"
+     },
+     {
+      "kode_bps": "2102",
+      "nama": "Kab. Bintan"
+     },
+     {
+      "kode_bps": "2103",
+      "nama": "Kab. Natuna"
+     },
+     {
+      "kode_bps": "2104",
+      "nama": "Kab. Lingga"
+     },
+     {
+      "kode_bps": "2105",
+      "nama": "Kab. Kepulauan Anambas"
+     },
+     {
+      "kode_bps": "2171",
+      "nama": "Kota Batam"
+     },
+     {
+      "kode_bps": "2172",
+      "nama": "Kota Tanjungpinang"
+     }
+    ]
+   }
+  },
+  "31": {
+   "nama": "DKI Jakarta",
+   "berkas": "prov_31.json",
+   "jumlah_kartu": 6,
+   "tautan_baca_tpt": "https://jakarta.bps.go.id/id/statistics-table/2/ODQjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-dki-jakarta-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "3101",
+      "nama": "Kab. Kepulauan Seribu"
+     },
+     {
+      "kode_bps": "3171",
+      "nama": "Kota Jakarta Selatan"
+     },
+     {
+      "kode_bps": "3172",
+      "nama": "Kota Jakarta Timur"
+     },
+     {
+      "kode_bps": "3173",
+      "nama": "Kota Jakarta Pusat"
+     },
+     {
+      "kode_bps": "3174",
+      "nama": "Kota Jakarta Barat"
+     },
+     {
+      "kode_bps": "3175",
+      "nama": "Kota Jakarta Utara"
+     }
+    ]
+   }
+  },
+  "32": {
+   "nama": "Jawa Barat",
+   "berkas": "prov_32.json",
+   "jumlah_kartu": 54,
+   "tautan_baca_tpt": "https://jabar.bps.go.id/id/statistics-table/2/NzMjMg==/tingkat-pengangguran-terbuka-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "33": {
+   "nama": "Jawa Tengah",
+   "berkas": "prov_33.json",
+   "jumlah_kartu": 70,
+   "tautan_baca_tpt": "https://jateng.bps.go.id/id/statistics-table/2/NjQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-jawa-tengah.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "34": {
+   "nama": "DI Yogyakarta",
+   "berkas": "prov_34.json",
+   "jumlah_kartu": 10,
+   "tautan_baca_tpt": "https://jogja.bps.go.id/id/statistics-table/2/MjkxIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "35": {
+   "nama": "Jawa Timur",
+   "berkas": "prov_35.json",
+   "jumlah_kartu": 76,
+   "tautan_baca_tpt": "https://jatim.bps.go.id/id/statistics-table/2/NTQjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "36": {
+   "nama": "Banten",
+   "berkas": "prov_36.json",
+   "jumlah_kartu": 16,
+   "tautan_baca_tpt": "https://banten.bps.go.id/id/statistics-table/2/MTU3IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-banten.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "51": {
+   "nama": "Bali",
+   "berkas": "prov_51.json",
+   "jumlah_kartu": 11,
+   "tautan_baca_tpt": "https://bali.bps.go.id/id/statistics-table/2/Mjg4IzI=/persentase-pengangguran-provinsi-bali-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "5102",
+      "nama": "Kab. Tabanan"
+     },
+     {
+      "kode_bps": "5103",
+      "nama": "Kab. Badung"
+     },
+     {
+      "kode_bps": "5104",
+      "nama": "Kab. Gianyar"
+     },
+     {
+      "kode_bps": "5105",
+      "nama": "Kab. Klungkung"
+     },
+     {
+      "kode_bps": "5106",
+      "nama": "Kab. Bangli"
+     },
+     {
+      "kode_bps": "5107",
+      "nama": "Kab. Karangasem"
+     },
+     {
+      "kode_bps": "5108",
+      "nama": "Kab. Buleleng"
+     }
+    ]
+   }
+  },
+  "52": {
+   "nama": "Nusa Tenggara Barat",
+   "berkas": "prov_52.json",
+   "jumlah_kartu": 20,
+   "tautan_baca_tpt": "https://ntb.bps.go.id/id/statistics-table/2/NDE1IzI=/tingkat-pengangguran-terbuka-tpt-provinsi-ntb-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "53": {
+   "nama": "Nusa Tenggara Timur",
+   "berkas": "prov_53.json",
+   "jumlah_kartu": 44,
+   "tautan_baca_tpt": "https://ntt.bps.go.id/id/statistics-table/2/NTIyIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "61": {
+   "nama": "Kalimantan Barat",
+   "berkas": "prov_61.json",
+   "jumlah_kartu": 28,
+   "tautan_baca_tpt": "https://kalbar.bps.go.id/id/statistics-table/2/NTEjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kab-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "62": {
+   "nama": "Kalimantan Tengah",
+   "berkas": "prov_62.json",
+   "jumlah_kartu": 28,
+   "tautan_baca_tpt": "https://kalteng.bps.go.id/id/statistics-table/2/Mzg5IzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-kalimantan-t.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "63": {
+   "nama": "Kalimantan Selatan",
+   "berkas": "prov_63.json",
+   "jumlah_kartu": 22,
+   "tautan_baca_tpt": "https://kalsel.bps.go.id/id/statistics-table/2/MzcjMg==/tingkat-pengangguran-terbuka-tpt-provinsi-kalimantan-selatan.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "6301",
+      "nama": "Kab. Tanah Laut"
+     },
+     {
+      "kode_bps": "6304",
+      "nama": "Kab. Barito Kuala"
+     },
+     {
+      "kode_bps": "6306",
+      "nama": "Kab. Hulu Sungai Selatan"
+     },
+     {
+      "kode_bps": "6371",
+      "nama": "Kota Banjarmasin"
+     }
+    ]
+   }
+  },
+  "64": {
+   "nama": "Kalimantan Timur",
+   "berkas": "prov_64.json",
+   "jumlah_kartu": 20,
+   "tautan_baca_tpt": "https://kaltim.bps.go.id/id/statistics-table/2/NTkjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "65": {
+   "nama": "Kalimantan Utara",
+   "berkas": "prov_65.json",
+   "jumlah_kartu": 10,
+   "tautan_baca_tpt": "https://kaltara.bps.go.id/id/statistics-table/2/MTE1IzI=/tingkat-pengangguran-terbuka-tpt-agustus-menurut-kabupaten-kota-di-provinsi-kali.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "71": {
+   "nama": "Sulawesi Utara",
+   "berkas": "prov_71.json",
+   "jumlah_kartu": 29,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "7108",
+      "nama": "Kab. Kepulauan Sitaro"
+     }
+    ]
+   }
+  },
+  "72": {
+   "nama": "Sulawesi Tengah",
+   "berkas": "prov_72.json",
+   "jumlah_kartu": 26,
+   "tautan_baca_tpt": "https://sulteng.bps.go.id/id/statistics-table/2/OTIjMg==/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota-di-provinsi-sulawesi-ten.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "73": {
+   "nama": "Sulawesi Selatan",
+   "berkas": "prov_73.json",
+   "jumlah_kartu": 48,
+   "tautan_baca_tpt": "https://sulsel.bps.go.id/id/statistics-table/2/NDY2IzI=/tingkat-pengangguran-terbuka-agustus.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "74": {
+   "nama": "Sulawesi Tenggara",
+   "berkas": "prov_74.json",
+   "jumlah_kartu": 34,
+   "tautan_baca_tpt": "https://sultra.bps.go.id/id/statistics-table/2/OTk5IzI=/tingkat-pengangguran-terbuka-tpt-dan-tingkat-partisipasi-angkatan-kerja-tpak-men.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "75": {
+   "nama": "Gorontalo",
+   "berkas": "prov_75.json",
+   "jumlah_kartu": 6,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (cadangan)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "7501",
+      "nama": "Kab. Boalemo"
+     },
+     {
+      "kode_bps": "7502",
+      "nama": "Kab. Gorontalo"
+     },
+     {
+      "kode_bps": "7503",
+      "nama": "Kab. Pohuwato"
+     },
+     {
+      "kode_bps": "7504",
+      "nama": "Kab. Bone Bolango"
+     },
+     {
+      "kode_bps": "7505",
+      "nama": "Kab. Gorontalo Utara"
+     },
+     {
+      "kode_bps": "7571",
+      "nama": "Kota Gorontalo"
+     }
+    ]
+   }
+  },
+  "76": {
+   "nama": "Sulawesi Barat",
+   "berkas": "prov_76.json",
+   "jumlah_kartu": 9,
+   "tautan_baca_tpt": "https://sulbar.bps.go.id/id/statistics-table/2/NTIwIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "7603",
+      "nama": "Kab. Mamasa"
+     },
+     {
+      "kode_bps": "7605",
+      "nama": "Kab. Pasangkayu"
+     },
+     {
+      "kode_bps": "7606",
+      "nama": "Kab. Mamuju Tengah"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "81": {
+   "nama": "Maluku",
+   "berkas": "prov_81.json",
+   "jumlah_kartu": 22,
+   "tautan_baca_tpt": "https://maluku.bps.go.id/id/statistics-table/2/MTA4IzI=/tingkat-pengangguran-terbuka-tpt-dan-tingkat-partisipasi-angkatan-kerja-menurut-.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "82": {
+   "nama": "Maluku Utara",
+   "berkas": "prov_82.json",
+   "jumlah_kartu": 20,
+   "tautan_baca_tpt": "https://malut.bps.go.id/id/statistics-table/2/MjUwIzI=/tingkat-pengangguran-terbuka-tpt-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": []
+   }
+  },
+  "91": {
+   "nama": "Papua Barat",
+   "berkas": "prov_91.json",
+   "jumlah_kartu": 9,
+   "tautan_baca_tpt": "https://papuabarat.bps.go.id/id/statistics-table/2/MjcwIzI=/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dicocokkan web",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9102",
+      "nama": "Kab. Kaimana"
+     },
+     {
+      "kode_bps": "9104",
+      "nama": "Kab. Teluk Bintuni"
+     },
+     {
+      "kode_bps": "9105",
+      "nama": "Kab. Manokwari"
+     },
+     {
+      "kode_bps": "9111",
+      "nama": "Kab. Manokwari Selatan"
+     },
+     {
+      "kode_bps": "9112",
+      "nama": "Kab. Pegunungan Arfak"
+     }
+    ]
+   }
+  },
+  "92": {
+   "nama": "Papua Barat Daya",
+   "berkas": "prov_92.json",
+   "jumlah_kartu": 6,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (provinsi baru tanpa domain WebAPI)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9201",
+      "nama": "Kab. Raja Ampat"
+     },
+     {
+      "kode_bps": "9202",
+      "nama": "Kab. Sorong"
+     },
+     {
+      "kode_bps": "9203",
+      "nama": "Kab. Sorong Selatan"
+     },
+     {
+      "kode_bps": "9204",
+      "nama": "Kab. Maybrat"
+     },
+     {
+      "kode_bps": "9205",
+      "nama": "Kab. Tambrauw"
+     },
+     {
+      "kode_bps": "9271",
+      "nama": "Kota Sorong"
+     }
+    ]
+   }
+  },
+  "94": {
+   "nama": "Papua",
+   "berkas": "prov_94.json",
+   "jumlah_kartu": 11,
+   "tautan_baca_tpt": "https://papua.bps.go.id/id/statistics-table/2/NDc4IzI=/tingkat-pengangguran-terbuka-menurut-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel provinsi, dibangun dari nomor tabel (belum dibuka)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9403",
+      "nama": "Kab. Jayapura"
+     },
+     {
+      "kode_bps": "9408",
+      "nama": "Kab. Kepulauan Yapen"
+     },
+     {
+      "kode_bps": "9409",
+      "nama": "Kab. Biak Numfor"
+     },
+     {
+      "kode_bps": "9419",
+      "nama": "Kab. Sarmi"
+     },
+     {
+      "kode_bps": "9420",
+      "nama": "Kab. Keerom"
+     },
+     {
+      "kode_bps": "9426",
+      "nama": "Kab. Waropen"
+     },
+     {
+      "kode_bps": "9428",
+      "nama": "Kab. Mamberamo Raya"
+     }
+    ]
+   }
+  },
+  "95": {
+   "nama": "Papua Selatan",
+   "berkas": "prov_95.json",
+   "jumlah_kartu": 6,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (provinsi baru tanpa domain WebAPI)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9504",
+      "nama": "Kab. Asmat"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9504",
+      "nama": "Kab. Asmat"
+     }
+    ]
+   }
+  },
+  "96": {
+   "nama": "Papua Tengah",
+   "berkas": null,
+   "jumlah_kartu": 0,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (provinsi baru tanpa domain WebAPI)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9601",
+      "nama": "Kab. Mimika"
+     },
+     {
+      "kode_bps": "9602",
+      "nama": "Kab. Dogiyai"
+     },
+     {
+      "kode_bps": "9603",
+      "nama": "Kab. Deiyai"
+     },
+     {
+      "kode_bps": "9604",
+      "nama": "Kab. Nabire"
+     },
+     {
+      "kode_bps": "9605",
+      "nama": "Kab. Paniai"
+     },
+     {
+      "kode_bps": "9606",
+      "nama": "Kab. Intan Jaya"
+     },
+     {
+      "kode_bps": "9607",
+      "nama": "Kab. Puncak"
+     },
+     {
+      "kode_bps": "9608",
+      "nama": "Kab. Puncak Jaya"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9601",
+      "nama": "Kab. Mimika"
+     },
+     {
+      "kode_bps": "9602",
+      "nama": "Kab. Dogiyai"
+     },
+     {
+      "kode_bps": "9603",
+      "nama": "Kab. Deiyai"
+     },
+     {
+      "kode_bps": "9604",
+      "nama": "Kab. Nabire"
+     },
+     {
+      "kode_bps": "9605",
+      "nama": "Kab. Paniai"
+     },
+     {
+      "kode_bps": "9606",
+      "nama": "Kab. Intan Jaya"
+     },
+     {
+      "kode_bps": "9607",
+      "nama": "Kab. Puncak"
+     },
+     {
+      "kode_bps": "9608",
+      "nama": "Kab. Puncak Jaya"
+     }
+    ]
+   }
+  },
+  "97": {
+   "nama": "Papua Pegunungan",
+   "berkas": null,
+   "jumlah_kartu": 0,
+   "tautan_baca_tpt": "https://www.bps.go.id/id/statistics-table/2/MjgyNCMy/tingkat-pengangguran-terbuka-menurut-jenis-kelamin-dan-kabupaten-kota.html",
+   "tautan_baca_tpt_jenis": "tabel nasional (provinsi baru tanpa domain WebAPI)",
+   "belum_punya_kartu": {
+    "kemiskinan-kabkota": [
+     {
+      "kode_bps": "9701",
+      "nama": "Kab. Nduga"
+     },
+     {
+      "kode_bps": "9702",
+      "nama": "Kab. Jayawijaya"
+     },
+     {
+      "kode_bps": "9703",
+      "nama": "Kab. Lanny Jaya"
+     },
+     {
+      "kode_bps": "9704",
+      "nama": "Kab. Tolikara"
+     },
+     {
+      "kode_bps": "9705",
+      "nama": "Kab. Mamberamo Tengah"
+     },
+     {
+      "kode_bps": "9706",
+      "nama": "Kab. Yalimo"
+     },
+     {
+      "kode_bps": "9707",
+      "nama": "Kab. Yahukimo"
+     },
+     {
+      "kode_bps": "9708",
+      "nama": "Kab. Pegunungan Bintang"
+     }
+    ],
+    "pengangguran-terbuka-kabkota": [
+     {
+      "kode_bps": "9701",
+      "nama": "Kab. Nduga"
+     },
+     {
+      "kode_bps": "9702",
+      "nama": "Kab. Jayawijaya"
+     },
+     {
+      "kode_bps": "9703",
+      "nama": "Kab. Lanny Jaya"
+     },
+     {
+      "kode_bps": "9704",
+      "nama": "Kab. Tolikara"
+     },
+     {
+      "kode_bps": "9705",
+      "nama": "Kab. Mamberamo Tengah"
+     },
+     {
+      "kode_bps": "9706",
+      "nama": "Kab. Yalimo"
+     },
+     {
+      "kode_bps": "9707",
+      "nama": "Kab. Yahukimo"
+     },
+     {
+      "kode_bps": "9708",
+      "nama": "Kab. Pegunungan Bintang"
+     }
+    ]
+   }
+  }
+ }
+}

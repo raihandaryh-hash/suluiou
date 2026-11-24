@@ -66,7 +66,7 @@ export const pathways = [
     fullName: "Master of Education (MEd)",
     degree: "S2",
     degreeNote:
-      "Program ini adalah jenjang S2 — cocok sebagai tujuan jangka panjang setelah menyelesaikan S1 di bidang apapun.",
+      "Program ini adalah jenjang S2 — cocok sebagai tujuan jangka panjang setelah menyelesaikan S1 di bidang apa pun.",
     faculty: "Fakultas Pendidikan",
     url: "https://bahasa.iou.edu.gm/stream/med/",
     description:
