@@ -4,10 +4,11 @@ import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 import { gerbangAI, gerbangAsesmen } from "../_shared/gerbang.ts";
+import { sebutanPembaca } from "../_shared/usia.ts";
 
 
 // DRAF rumusan, menunggu paket Raihan (D5: peran lama diganti peran cermin yang tidak menilai).
-const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang melihat kembali dirinya dari jawabannya sendiri. Pembacanya umumnya mahasiswa atau orang dewasa yang sedang menimbang arah; di aturan di bawah, "siswa" berarti pembaca ini. Kamu memantulkan, tidak menilai, tidak mendiagnosis, dan tidak memberi label.
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang melihat kembali dirinya dari jawabannya sendiri. Sulu dipakai beragam pengguna (siswa, mahasiswa, orang tua, guru BK, guru, umum); pembaca saat ini disebut di baris PEMBACA. Di aturan di bawah, "siswa" berarti pembaca ini; sesuaikan contoh dan jalur dengan peran pembaca, jangan anggap semua pembaca sedang kuliah. Kamu memantulkan, tidak menilai, tidak mendiagnosis, dan tidak memberi label.
 Tugasmu: tulis narasi yang TERASA PERSONAL — bukan laporan, bukan zodiak, bukan kalimat yang bisa berlaku untuk siapa saja.
 
 PRINSIP EDITORIAL — BACA INI DULU:
@@ -143,7 +144,7 @@ Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia han
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + `\nPEMBACA: ${sebutanPembaca(siap.peran)}.\n` + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,

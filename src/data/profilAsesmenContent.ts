@@ -1,6 +1,6 @@
 // Teks Profil Awal asesmen, dua varian pembaca.
-// Asesmen kini untuk akun dewasa dan peninjau (KEPUTUSAN 6 Jul "asesmen itu untuk mahasiswa yang sudah tak berisiko
-// identity foreclosure"); varian siswa dipertahankan untuk saat asesmen dibuka bagi semua (Spine A "tetap ada", 25 Jul).
+// Asesmen kini untuk semua akun dewasa (mahasiswa, orang tua, guru BK, guru, umum; Sulu untuk siapa pun, KEPUTUSAN 8 Nov 21.45)
+// dan peninjau; varian siswa dipertahankan untuk saat asesmen dibuka bagi siswa (Spine A "tetap ada", 25 Jul).
 // SINTESIS Chief Sulu 25 Nov: rumusan varian dewasa, menunggu tinjauan Raihan.
 
 export const profilSiswa = {

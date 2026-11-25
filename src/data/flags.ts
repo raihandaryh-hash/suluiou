@@ -10,7 +10,8 @@
 export const ASESMEN_TERBUKA = false;
 
 /**
- * Asesmen untuk akun dewasa (umur 18+ tercatat server), misalnya mahasiswa IOU (KEPUTUSAN 6 Jul).
+ * Asesmen untuk semua akun dewasa (umur 18+ tercatat server): mahasiswa, orang tua, guru BK, guru, umum.
+ * Sulu untuk siapa pun (KEPUTUSAN 8 Nov 21.45); asesmen tetap tertutup untuk siswa di bawah 18 (KEPUTUSAN 1 Jun, 6 Jul).
  * Siswa di bawah 18 dan tamu tetap tertutup. Admin selalu bisa masuk untuk peninjauan (lihat lib/aksesAsesmen.ts).
  * Hanya dinyalakan Raihan, sesudah tinjauan SME atas paket instrumen.
  */
