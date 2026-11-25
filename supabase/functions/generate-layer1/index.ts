@@ -105,7 +105,7 @@ serve(async (req) => {
 Holland Code: ${hollandCode || '(tidak tersedia)'}
 Pola minat: ${hollandNarrative || '(tidak tersedia)'}
 
-HEXACO — karakter yang terdeteksi:
+Kepribadian (Mini-IPIP6, enam faktor) — karakter yang terdeteksi:
 - Kejujuran & Integritas: ${interp.H || '(tidak tersedia)'}
 - Cara merespons perasaan: ${interp.E || '(tidak tersedia)'}
 - Cara hadir di lingkungan sosial: ${interp.X || '(tidak tersedia)'}
@@ -124,8 +124,8 @@ Konteks siswa:
 - Aspirasi (kata-kata siswa sendiri): "${safeProfile.aspiration || 'tidak disebutkan'}"
 ---
 
-Skor mentah (jangan dikutip di narasi — hanya untuk nuansa):
-HEXACO: H=${hexaco?.H ?? 'n/a'} E=${hexaco?.E ?? 'n/a'} X=${hexaco?.X ?? 'n/a'} A=${hexaco?.A ?? 'n/a'} C=${hexaco?.C ?? 'n/a'} O=${hexaco?.O ?? 'n/a'}
+Skor mentah (jangan dikutip di narasi — hanya untuk nuansa; E = kepekaan emosi, A = empati):
+Kepribadian: H=${hexaco?.H ?? 'n/a'} E=${hexaco?.E ?? 'n/a'} X=${hexaco?.X ?? 'n/a'} A=${hexaco?.A ?? 'n/a'} C=${hexaco?.C ?? 'n/a'} O=${hexaco?.O ?? 'n/a'}
 RIASEC: R=${riasec?.R ?? 'n/a'} I=${riasec?.I ?? 'n/a'} A=${riasec?.A ?? 'n/a'} S=${riasec?.S ?? 'n/a'} E=${riasec?.E ?? 'n/a'} C=${riasec?.C ?? 'n/a'}
 
 Tulis cermin diri untuk siswa ini sekarang. 180–220 kata. Bahasa Indonesia hangat dan langsung. Tanpa menyebut kode teknis atau lembaga.`;

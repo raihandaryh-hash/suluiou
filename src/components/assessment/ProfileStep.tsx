@@ -18,6 +18,8 @@ import { useAssessment, type StudentProfile } from '@/context/AssessmentContext'
 import { PROVINCES } from '@/lib/constants';
 import { getStudentSession } from '@/lib/classSession';
 import { getPendingClassCode } from '@/lib/pendingClassCode';
+import { akunDewasa } from '@/lib/aksesAsesmen';
+import { profilDewasa, profilSiswa } from '@/data/profilAsesmenContent';
 
 const FAMILY_OPTIONS = [
   'Keluarga petani, nelayan, atau peternak',
@@ -37,11 +39,6 @@ const LEARNING_OPTIONS = [
   'Campuran keduanya',
 ];
 
-const CERTAINTY_OPTIONS = [
-  'Sudah tahu mau ke mana',
-  'Masih bingung',
-  'Belum kepikiran sama sekali',
-];
 
 const CONTRIBUTION_OPTIONS = [
   'Keluarga dan orang-orang terdekat',
@@ -50,7 +47,6 @@ const CONTRIBUTION_OPTIONS = [
   'Belum tahu',
 ];
 
-const EDUCATION_OPTIONS = ['D3 (Diploma 3)', 'S1 (Sarjana)', 'Belum tahu'];
 
 interface ProfileStepProps {
   onComplete: (profile: StudentProfile, classCode: string | null) => void;
@@ -86,6 +82,8 @@ const RadioCardGroup = ({ label, options, value, onChange, name }: RadioCardGrou
 );
 
 const ProfileStep = ({ onComplete }: ProfileStepProps) => {
+  // Teks per pembaca: akun dewasa (mahasiswa, umum) atau siswa.
+  const T = akunDewasa() ? profilDewasa : profilSiswa;
   const { studentProfile } = useAssessment();
 
   // Pre-fill dari progress yang sudah ada atau dari session (untuk name).
@@ -213,7 +211,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
                 <p className="text-xs text-muted-foreground">
                   {codeLocked && classCode
                     ? 'Kode kelas sudah terisi otomatis dari tautan yang kamu buka.'
-                    : 'Isi kalau dapat kode dari gurumu. Kosongkan kalau ikut sendiri.'}
+                    : T.kodeKelasPetunjuk}
                 </p>
               </div>
             )}
@@ -255,9 +253,9 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
 
             {/* 4. Keyakinan pilihan studi */}
             <RadioCardGroup
-              label="Seberapa yakin kamu dengan pilihan studi setelah lulus nanti?"
+              label={T.keyakinanLabel}
               name="certainty"
-              options={CERTAINTY_OPTIONS}
+              options={T.keyakinanOpsi}
               value={careerCertainty}
               onChange={setCareerCertainty}
             />
@@ -273,9 +271,9 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
 
             {/* 6. Jenjang pendidikan */}
             <RadioCardGroup
-              label="Setelah SMA/SMK/MA, kamu berencana melanjutkan ke mana?"
+              label={T.pendidikanLabel}
               name="education"
-              options={EDUCATION_OPTIONS}
+              options={T.pendidikanOpsi}
               value={educationPlan}
               onChange={setEducationPlan}
             />
@@ -283,7 +281,7 @@ const ProfileStep = ({ onComplete }: ProfileStepProps) => {
             {/* 7. Aspirasi (opsional) */}
             <div className="space-y-2">
               <Label htmlFor="aspiration">
-                Apa cita-cita atau bayangan masa depanmu?{' '}
+                {T.aspirasiLabel}{' '}
                 <span className="text-muted-foreground font-normal">(opsional)</span>
               </Label>
               <Textarea

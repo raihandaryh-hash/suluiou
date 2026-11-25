@@ -24,6 +24,7 @@ import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
+import { skorCaas } from '@/data/caasQuestions';
 // ParentConsentSection tidak lagi ditampilkan (manifest Persetujuan dan Jalur Tarik v0.2): anak tidak mengisi nomor
 // orang tua. Komponennya disimpan untuk alur orang tua Tonggak 2.
 import { IzinKuliahSection } from '@/components/results/IzinKuliahSection';
@@ -64,6 +65,7 @@ const Results = () => {
     tutupDistressHasil,
     hollandCode,
     sdsCounts,
+    hexacoAnswers,
   } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -108,13 +110,20 @@ const Results = () => {
     (async () => {
       setAutoSaving(true);
       const session = getStudentSession();
+      // CAAS ikut disimpan bersama skor (kunci caas_*), supaya ukuran pra-pasca pilot tidak hilang (RB-2).
+      const caas = skorCaas(hexacoAnswers);
+      const skorLengkap: Record<string, number> = { ...(scores as Record<string, number>) };
+      (Object.keys(caas) as Array<keyof typeof caas>).forEach((d) => {
+        const v = caas[d];
+        if (v !== null) skorLengkap[`caas_${d}`] = Math.round(v * 100) / 100;
+      });
       const profileProvince = studentProfile?.province?.trim() ?? '';
 
       // Tonggak 2a (B.2, C.3): tamu dan akun tanpa izin menyimpan hasil hanya di perangkat.
       if (!session || !(await keServer(session))) {
         if (session) {
           const sudah = bacaPerangkat<{ dihitung?: boolean }>('hasil', pemilikPerangkat(session));
-          tulisPerangkat('hasil', pemilikPerangkat(session), { scores, selectedPathways, layer1: layer1 ?? null, selesai: new Date().toISOString(), dihitung: true });
+          tulisPerangkat('hasil', pemilikPerangkat(session), { scores: skorLengkap, selectedPathways, layer1: layer1 ?? null, selesai: new Date().toISOString(), dihitung: true });
           if (session.classId && !sudah?.dihitung) {
             const { supabase } = await import('@/integrations/supabase/client');
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -177,7 +186,7 @@ const Results = () => {
         province: profileProvince || null,
         family_background: studentProfile?.familyBackground || null,
         aspiration: studentProfile?.aspiration || null,
-        scores: scores as Record<string, number>,
+        scores: skorLengkap,
         top_pathway_id: selectedPathways[0] ?? 'none',
         top_pathway_name: selectedPathways[0] ? getPathwayName(selectedPathways[0]) : '-',
         match_percentage: 0,
@@ -204,7 +213,7 @@ const Results = () => {
       }
       setAutoSaving(false);
     })();
-  }, [isComplete, scores, savedRowId, studentProfile, selectedPathways, layer1]);
+  }, [isComplete, scores, savedRowId, studentProfile, selectedPathways, layer1, hexacoAnswers]);
 
   // Mode perangkat: layer1 yang datang belakangan ikut disimpan di perangkat.
   useEffect(() => {
@@ -390,7 +399,7 @@ const Results = () => {
             </p>
 
             {/* Data Saya — collapsible, default tertutup */}
-            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
+            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} caas={skorCaas(hexacoAnswers)} />
 
             {/* Cermin Dirimu (Layer 1) */}
             <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>

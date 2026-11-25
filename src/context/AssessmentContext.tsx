@@ -3,6 +3,7 @@ import { DimensionScores, computeTopTraits } from '@/lib/scoring';
 import { combineScores } from '@/lib/scoringNew';
 import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
+import { caasQuestions } from '@/data/caasQuestions';
 import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
 import type { TingkatDistress } from '@/lib/distress';
@@ -42,7 +43,7 @@ export function isProfileComplete(p: StudentProfile | null | undefined): boolean
   );
 }
 
-export type AssessmentStage = 'profile' | 'hexaco' | 'hexaco-done' | 'sds' | 'submitting';
+export type AssessmentStage = 'profile' | 'hexaco' | 'hexaco-done' | 'sds' | 'caas' | 'submitting';
 
 interface AssessmentState {
   stage: AssessmentStage;
@@ -84,7 +85,8 @@ interface AssessmentContextType extends AssessmentState {
   goToSdsSection: (section: 1 | 2 | 3) => void;
   startHexaco: () => void;
   startSds: () => void;
-  completeAssessment: () => void;
+  startCaas: () => void;
+  completeAssessment: () => boolean;
   togglePathway: (id: string) => void;
   triggerLayer1: () => Promise<void>;
   triggerProjection: () => Promise<void>;
@@ -118,6 +120,28 @@ const initialState: AssessmentState = {
   hydrating: true,
 };
 
+
+/**
+ * Pulihkan tahap dari progres tersimpan. Sejak 25 Nov 2026 instrumennya Mini-IPIP6 + O*NET IP-SF + CAAS,
+ * jadi progres lama (HEXACO-PI-R, SDS-216) tidak boleh melompati bagian yang belum dijawab dengan instrumen baru.
+ */
+function pulihkanTahap(
+  stage: AssessmentStage,
+  hexaco: Record<number, number>,
+  sds: Record<string, boolean>,
+  indeks: number,
+): { stage: AssessmentStage; hexacoIndex: number } {
+  if (stage === 'profile') return { stage, hexacoIndex: 0 };
+  const belum = hexacoQuestions.findIndex((q) => hexaco[q.id] === undefined);
+  if (belum >= 0) return { stage: 'hexaco', hexacoIndex: belum };
+  // Bagian minat dianggap sudah dilewati bila ada pilihan minat baru, atau CAAS sudah mulai dijawab.
+  const adaMinatBaru = sdsQuestions.some((q) => sds[q.id] !== undefined) || caasQuestions.some((q) => hexaco[q.id] !== undefined);
+  if ((stage === 'caas' || stage === 'submitting') && !adaMinatBaru) {
+    return { stage: 'sds', hexacoIndex: hexacoQuestions.length - 1 };
+  }
+  return { stage, hexacoIndex: Math.min(indeks, hexacoQuestions.length - 1) };
+}
+
 export function AssessmentProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AssessmentState>(initialState);
   const hydratedRef = useRef(false);
@@ -137,14 +161,15 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         if (!active) return;
         if (row) {
           const snap = rowToSnapshot(row);
+          const { stage: stagePulih, hexacoIndex: indeksPulih } = pulihkanTahap(snap.stage, snap.hexacoAnswers, snap.sdsAnswers, snap.hexacoIndex);
           setState((p) => ({
             ...p,
             studentProfile: snap.studentProfile,
             hexacoAnswers: snap.hexacoAnswers,
             sdsAnswers: snap.sdsAnswers,
-            stage: snap.stage,
-            hexacoIndex: snap.hexacoIndex,
-            sdsSection: snap.sdsSection,
+            stage: stagePulih,
+            hexacoIndex: indeksPulih,
+            sdsSection: 1,
             consentGiven: snap.consentGiven,
             hydrating: false,
           }));
@@ -265,9 +290,33 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
 
   const startHexaco = () => setState((p) => ({ ...p, stage: 'hexaco' }));
   const startSds = () => setState((p) => ({ ...p, stage: 'sds', sdsSection: 1 }));
+  // Bagian 3: kemampuan adaptasi karier (CAAS). Jawaban disimpan di hexacoAnswers (id 201-224).
+  const startCaas = () => setState((p) => ({ ...p, stage: 'caas' }));
 
   // Compute scores only. No pathway matching — Layer 2 is now student-driven.
   const completeAssessment = () => {
+    // Penjaga: kepribadian harus lengkap sebelum skor dihitung (progres lama HEXACO-PI-R tidak berlaku lagi).
+    const belum = hexacoQuestions.findIndex((q) => state.hexacoAnswers[q.id] === undefined);
+    if (belum >= 0) {
+      setState((prev) => ({ ...prev, stage: 'hexaco', hexacoIndex: belum }));
+      return false;
+    }
+    // Simpan seketika jawaban terakhir (penyimpanan tertunda 600 ms dibatalkan saat isComplete berubah).
+    const sesiSimpan = getStudentSession();
+    const simpanTerakhir = sesiSimpan
+      ? (() => {
+          if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+          return saveProgress(sesiSimpan, {
+        studentProfile: state.studentProfile,
+        hexacoAnswers: state.hexacoAnswers,
+        sdsAnswers: state.sdsAnswers,
+        stage: 'caas',
+        hexacoIndex: state.hexacoIndex,
+        sdsSection: state.sdsSection,
+        consentGiven: state.consentGiven,
+          });
+        })()
+      : Promise.resolve();
     const { scores, hollandCode, sdsCounts } = combineScores(state.hexacoAnswers, state.sdsAnswers);
     const topTraits = computeTopTraits(scores);
 
@@ -286,7 +335,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }));
 
     const session = getStudentSession();
-    if (session) void markProgressCompleted(session);
+    // Tandai selesai SESUDAH simpanan terakhir masuk, supaya tidak lahir baris progres baru.
+    if (session) void simpanTerakhir.then(() => markProgressCompleted(session));
+    return true;
   };
 
   // Toggle a program selection. Cap at 2 picks.
@@ -431,6 +482,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         goToSdsSection,
         startHexaco,
         startSds,
+        startCaas,
         completeAssessment,
         togglePathway,
         triggerLayer1,

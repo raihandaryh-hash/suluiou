@@ -66,3 +66,8 @@ export async function asesmenTerbukaAsync(cekAdmin: (uid: string) => Promise<{ a
   try { await cekAdmin(u.id); } catch { /* catatAdmin sudah dipanggil */ }
   return asesmenTerbuka();
 }
+
+/** Akun dewasa (umur 18+ tercatat server); dipakai untuk memilih varian teks asesmen. */
+export function akunDewasa(): boolean {
+  return sesiAuth()?.app_metadata?.dewasa === true;
+}

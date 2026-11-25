@@ -4,16 +4,20 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import type { DimensionScores } from '@/lib/scoring';
+import { sdsQuestions } from '@/data/sdsQuestions';
+import { caasDimensiLabel, type CaasDimensi } from '@/data/caasQuestions';
 
 interface MyDataSectionProps {
   scores: DimensionScores;
   hollandCode: string | null;
   sdsCounts: { R: number; I: number; A: number; S: number; E: number; C: number } | null;
+  /** Kemampuan adaptasi karier (CAAS), rerata 1-5 per dimensi; null bila belum diisi. */
+  caas?: Record<CaasDimensi, number | null>;
 }
 
 const HEXACO_LABELS: Array<{ key: keyof DimensionScores; label: string }> = [
-  { key: 'honesty', label: 'Kejujuran-Kerendahan Hati' },
-  { key: 'emotionality', label: 'Emosionalitas' },
+  { key: 'honesty', label: 'Kesederhanaan (tidak haus kemewahan)' },
+  { key: 'emotionality', label: 'Kepekaan emosi' },
   { key: 'extraversion', label: 'Ekstroversi' },
   { key: 'agreeableness', label: 'Keramahan' },
   { key: 'conscientiousness', label: 'Kesungguhan' },
@@ -29,9 +33,10 @@ const RIASEC_LABELS: Array<{ key: 'R' | 'I' | 'A' | 'S' | 'E' | 'C'; label: stri
   { key: 'C', label: 'Konvensional' },
 ];
 
-const SDS_MAX = 36;
+// Butir minat per kategori (O*NET IP Short Form: 10).
+const SDS_MAX = sdsQuestions.filter((q) => q.category === 'R').length;
 
-export function MyDataSection({ scores, hollandCode, sdsCounts }: MyDataSectionProps) {
+export function MyDataSection({ scores, hollandCode, sdsCounts, caas }: MyDataSectionProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -48,15 +53,22 @@ export function MyDataSection({ scores, hollandCode, sdsCounts }: MyDataSectionP
       })
       .join('\n');
 
+    const adaptasi = caas
+      ? (Object.keys(caasDimensiLabel) as CaasDimensi[])
+          .map((d) => `${caasDimensiLabel[d]}: ${caas[d] === null ? '-' : (caas[d] as number).toFixed(1) + '/5'}`)
+          .join('\n')
+      : '';
+
     const text = `=== Profil Minat & Kepribadian Saya (Sulu — IOU Indonesia) ===
 
-HEXACO:
+Kepribadian (Mini-IPIP6):
 ${hex}
 
 RIASEC:
 ${ria}
 
 Holland Code: ${hollandCode || '(tidak tersedia)'}
+${adaptasi ? `\nKemampuan adaptasi karier (CAAS):\n${adaptasi}` : ''}
 
 ---
 Kamu bisa tempel data ini ke ChatGPT atau AI lain untuk eksplorasi lebih lanjut.
@@ -88,7 +100,7 @@ Dihasilkan oleh Sulu — suluiou.lovable.app`;
               Lihat data lengkapmu
             </p>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Skor HEXACO &amp; RIASEC mentah — untuk yang penasaran
+              Skor kepribadian, minat, dan adaptasi karier, untuk yang penasaran
             </p>
           </div>
           <ChevronDown
@@ -104,7 +116,7 @@ Dihasilkan oleh Sulu — suluiou.lovable.app`;
           {/* Card kiri — HEXACO */}
           <div className="glass rounded-2xl p-5">
             <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-4">
-              HEXACO saya
+              Kepribadian saya
             </p>
             <div className="space-y-3">
               {HEXACO_LABELS.map(({ key, label }) => {
@@ -164,6 +176,31 @@ Dihasilkan oleh Sulu — suluiou.lovable.app`;
             )}
           </div>
         </div>
+
+        {caas && (Object.values(caas) as Array<number | null>).some((v) => v !== null) && (
+          <div className="glass rounded-2xl p-5 mt-4">
+            <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-4">
+              Kemampuan adaptasi karier saya
+            </p>
+            <div className="space-y-3">
+              {(Object.keys(caasDimensiLabel) as CaasDimensi[]).map((d) => {
+                const value = caas[d];
+                if (value === null) return null;
+                return (
+                  <div key={d}>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs text-foreground/85">{caasDimensiLabel[d]}</span>
+                      <span className="text-xs font-semibold tabular-nums text-foreground">{value.toFixed(1)}/5</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-foreground/10 overflow-hidden">
+                      <div className="h-full rounded-full bg-primary transition-all duration-700" style={{ width: `${(value / 5) * 100}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         <Button
           type="button"

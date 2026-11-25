@@ -1,4 +1,4 @@
-// Scoring engine for the new instruments (HEXACO-PIR + SDS-Holland).
+// Scoring engine: kepribadian Mini-IPIP6 (IPIP) + minat O*NET Interest Profiler Short Form (sejak 25 Nov 2026).
 // Produces a 12-dimension DimensionScores compatible with matchPathways().
 
 import { hexacoQuestions, type HexacoDimension } from '@/data/hexacoQuestions';
@@ -37,12 +37,10 @@ export function scoreHexaco(answers: Record<number, number>) {
 // category we tally the count, then normalize the count → 1..5 scale so it can
 // merge with HEXACO Likert scores in DimensionScores.
 //
-// totals per category across all 3 sections:
-// - Section 1: 11 per cat
-// - Section 2: 11 per cat
-// - Section 3: 14 per cat
-// → max 36 per category.
-const SDS_MAX_PER_CATEGORY = 36;
+// Jumlah butir per kategori dihitung dari data (O*NET IP Short Form: 10 per kategori).
+const SDS_MAX_PER_CATEGORY = Math.max(1, ...(['R', 'I', 'A', 'S', 'E', 'C'] as RiasecCategory[]).map(
+  (c) => sdsQuestions.filter((q) => q.category === c).length,
+));
 
 export function scoreSds(answers: Record<string, boolean>) {
   const counts: Record<RiasecCategory, number> = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };

@@ -208,7 +208,7 @@ const ProjectorMode = ({
           {/* KANAN: HEXACO horizontal bars */}
           <div className="rounded-3xl border-4 border-border bg-card p-7 flex flex-col">
             <h2 className="text-2xl font-heading font-black text-foreground mb-5">
-              Karakter Rata-rata (HEXACO)
+              Karakter Rata-rata (enam faktor)
             </h2>
             <div className="space-y-3 flex-1">
               {hexacoData.map((d) => {

@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { useAssessment } from '@/context/AssessmentContext';
-import { hexacoQuestions, hexacoLikertLabels } from '@/data/hexacoQuestions';
+import { hexacoQuestions, hexacoLikertLabels, instrumenKepribadian } from '@/data/hexacoQuestions';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
@@ -25,9 +25,10 @@ const HexacoStep = () => {
     finishHexaco,
   } = useAssessment();
 
-  const question = hexacoQuestions[hexacoIndex];
-  const answeredCount = Object.keys(hexacoAnswers).length;
+  // Progres lama (HEXACO-PI-R 60 butir) bisa membawa indeks dan jawaban di luar instrumen sekarang: jepit dan saring.
   const total = hexacoQuestions.length;
+  const question = hexacoQuestions[Math.min(hexacoIndex, total - 1)];
+  const answeredCount = hexacoQuestions.filter((q) => hexacoAnswers[q.id] !== undefined).length;
   const progress = (answeredCount / total) * 100;
   const currentAnswer = hexacoAnswers[question.id];
   const allAnswered = answeredCount === total;
@@ -133,7 +134,7 @@ const HexacoStep = () => {
             <Logo size="sm" />
             <div className="flex items-center gap-3 flex-wrap">
               <span className="text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                Bagian 1 dari 2 · Kepribadian
+                Bagian 1 dari 3 · Kepribadian
               </span>
               <span className="text-xs font-semibold text-foreground bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
                 {answeredCount} dari {total} terjawab
@@ -150,7 +151,7 @@ const HexacoStep = () => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 mb-8">
             <div className="w-2 h-2 rounded-full bg-accent" />
             <span className="text-xs text-primary uppercase tracking-wider font-semibold">
-              HEXACO-PIR · Pertanyaan {hexacoIndex + 1}
+              {instrumenKepribadian.nama} · Pertanyaan {Math.min(hexacoIndex, total - 1) + 1}
             </span>
           </div>
 

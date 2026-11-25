@@ -73,8 +73,8 @@ const Consent = () => {
             <section>
               <h2 className="font-heading font-semibold text-base mb-2">Tentang asesmen ini</h2>
               <p>
-                Kamu akan mengikuti asesmen minat dan kepribadian yang terdiri dari dua bagian:
-                inventori kepribadian dan inventori minat karier. Asesmen ini dirancang untuk
+                Kamu akan mengikuti asesmen yang terdiri dari tiga bagian: inventori kepribadian,
+                inventori minat karier, dan skala kemampuan adaptasi karier. Asesmen ini dirancang untuk
                 membantumu lebih mengenal dirimu sendiri — bukan untuk menilai benar atau salah,
                 pintar atau tidak pintar.
               </p>
@@ -107,7 +107,7 @@ const Consent = () => {
             <section>
               <h2 className="font-heading font-semibold text-base mb-2">Waktu yang dibutuhkan</h2>
               <p>
-                Sekitar 45–50 menit. Progresmu tersimpan otomatis — kamu bisa lanjutkan nanti dari
+                Sekitar 20 menit. Progresmu tersimpan otomatis — kamu bisa lanjutkan nanti dari
                 perangkat manapun.
               </p>
             </section>
