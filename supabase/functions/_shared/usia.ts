@@ -94,3 +94,9 @@ export function modeCHidup(get: (k: string) => string | undefined): boolean {
 /** Teks statis obrolan terkunci. Tidak dipakai sejak kapabilitas penuh (25 Nov); disimpan untuk saklar SULU_MODE_C_HIDUP. */
 export const TEKS_OBROLAN_TERKUNCI =
   "Obrolan bebas dengan Sulu akan terbuka setelah orang tua atau wali kamu memberi izin. Sementara itu, semua tahap perjalananmu di Sulu tetap bisa kamu jalani. Kalau ada yang sedang berat dan ingin kamu ceritakan, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
+
+/** Baris konteks pembaca untuk systemInstruction semua fungsi AI. Sulu untuk beragam pengguna (KEPUTUSAN 8 Nov 21.45);
+ *  dijaga uji _uji/pembaca_semua_fungsi_test.ts agar fungsi AI baru tidak lupa. */
+export function barisPembaca(peran: string | null | undefined): string {
+  return `\nPEMBACA: ${sebutanPembaca(peran)}. Sulu dipakai beragam pengguna (siswa, mahasiswa, orang tua, guru BK, guru, umum); sesuaikan contoh, jalur, dan sapaan dengan pembaca ini.\n`;
+}

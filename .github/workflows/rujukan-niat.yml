@@ -1,0 +1,43 @@
+# Gerbang "rujukan niat" (insiden 24-25 Nov: prompt dan teks ditulis tanpa dicocokkan ke Buku Pengetahuan Sulu,
+# misalnya asesmen berbingkai "mahasiswa" padahal KEPUTUSAN 8 Nov 21.45 Sulu untuk siapa pun).
+# PR yang menyentuh src/ atau supabase/functions/ wajib bagian "## Rujukan niat": minimal satu baris bertanggal
+# berisi kutipan ("...") atau rujukan Buku/INTENT_KANON/register, dan satu baris "Peran terdampak:".
+name: rujukan-niat
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+jobs:
+  periksa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Periksa badan PR
+        env:
+          BADAN: ${{ github.event.pull_request.body }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 - <<'PY'
+          import os, re, subprocess, sys
+          ubah = subprocess.run(["git", "diff", "--name-only", f"{os.environ['BASE']}...{os.environ['HEAD']}"],
+                                capture_output=True, text=True, check=True).stdout.split()
+          kena = [f for f in ubah if (f.startswith("src/") or f.startswith("supabase/functions/")) and "/_uji/" not in f and not re.search(r"\.test\.tsx?$", f)]
+          if not kena:
+              print("Tidak menyentuh src/ atau supabase/functions/; gerbang dilewati."); sys.exit(0)
+          b = os.environ.get("BADAN") or ""
+          m = re.search(r"^##\s*Rujukan niat\s*$(.*?)(?=^##\s|\Z)", b, re.M | re.S | re.I)
+          if not m:
+              sys.exit("GAGAL: PR menyentuh %d berkas aplikasi tetapi bagian '## Rujukan niat' tidak ada." % len(kena))
+          isi = m.group(1)
+          bulan = r"(Jan|Feb|Mar|Apr|Mei|Jun|Jul|Agu|Sep|Okt|Nov|Des)"
+          baris = [l for l in isi.splitlines() if re.search(r"\b\d{1,2}\s+" + bulan, l)
+                   and re.search(r"[\"“”]|Bab\s*1[0-2]|INTENT_KANON|REGISTER|register", l)]
+          if not baris:
+              sys.exit("GAGAL: 'Rujukan niat' belum memuat satu baris bertanggal dengan kutipan Raihan atau rujukan Buku/INTENT_KANON/register.")
+          peran = re.search(r"^\s*[-*]?\s*Peran terdampak:\s*\S", isi, re.M | re.I)
+          if not peran:
+              sys.exit("GAGAL: 'Rujukan niat' belum memuat baris 'Peran terdampak:' (siswa, mahasiswa, orang tua, guru BK, guru, umum, atau semua).")
+          print(f"Lulus: {len(baris)} rujukan, peran tercatat, {len(kena)} berkas aplikasi.")
+          PY

@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { barisPembaca } from "../_shared/usia.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
@@ -106,7 +107,7 @@ Rangkai jawaban-jawaban ini menjadi narasi refleksi diri yang koheren. Panjang: 
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + barisPembaca(siap.peran) + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
