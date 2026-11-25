@@ -3,6 +3,7 @@ import { DimensionScores, computeTopTraits } from '@/lib/scoring';
 import { combineScores } from '@/lib/scoringNew';
 import { hexacoQuestions } from '@/data/hexacoQuestions';
 import { sdsQuestions } from '@/data/sdsQuestions';
+import { caasQuestions } from '@/data/caasQuestions';
 import { getPathwayName } from '@/data/pathways';
 import { api } from '@/services/api';
 import type { TingkatDistress } from '@/lib/distress';
@@ -85,7 +86,7 @@ interface AssessmentContextType extends AssessmentState {
   startHexaco: () => void;
   startSds: () => void;
   startCaas: () => void;
-  completeAssessment: () => void;
+  completeAssessment: () => boolean;
   togglePathway: (id: string) => void;
   triggerLayer1: () => Promise<void>;
   triggerProjection: () => Promise<void>;
@@ -133,7 +134,8 @@ function pulihkanTahap(
   if (stage === 'profile') return { stage, hexacoIndex: 0 };
   const belum = hexacoQuestions.findIndex((q) => hexaco[q.id] === undefined);
   if (belum >= 0) return { stage: 'hexaco', hexacoIndex: belum };
-  const adaMinatBaru = sdsQuestions.some((q) => sds[q.id] !== undefined);
+  // Bagian minat dianggap sudah dilewati bila ada pilihan minat baru, atau CAAS sudah mulai dijawab.
+  const adaMinatBaru = sdsQuestions.some((q) => sds[q.id] !== undefined) || caasQuestions.some((q) => hexaco[q.id] !== undefined);
   if ((stage === 'caas' || stage === 'submitting') && !adaMinatBaru) {
     return { stage: 'sds', hexacoIndex: hexacoQuestions.length - 1 };
   }
@@ -297,8 +299,24 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     const belum = hexacoQuestions.findIndex((q) => state.hexacoAnswers[q.id] === undefined);
     if (belum >= 0) {
       setState((prev) => ({ ...prev, stage: 'hexaco', hexacoIndex: belum }));
-      return;
+      return false;
     }
+    // Simpan seketika jawaban terakhir (penyimpanan tertunda 600 ms dibatalkan saat isComplete berubah).
+    const sesiSimpan = getStudentSession();
+    const simpanTerakhir = sesiSimpan
+      ? (() => {
+          if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+          return saveProgress(sesiSimpan, {
+        studentProfile: state.studentProfile,
+        hexacoAnswers: state.hexacoAnswers,
+        sdsAnswers: state.sdsAnswers,
+        stage: 'caas',
+        hexacoIndex: state.hexacoIndex,
+        sdsSection: state.sdsSection,
+        consentGiven: state.consentGiven,
+          });
+        })()
+      : Promise.resolve();
     const { scores, hollandCode, sdsCounts } = combineScores(state.hexacoAnswers, state.sdsAnswers);
     const topTraits = computeTopTraits(scores);
 
@@ -317,7 +335,9 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     }));
 
     const session = getStudentSession();
-    if (session) void markProgressCompleted(session);
+    // Tandai selesai SESUDAH simpanan terakhir masuk, supaya tidak lahir baris progres baru.
+    if (session) void simpanTerakhir.then(() => markProgressCompleted(session));
+    return true;
   };
 
   // Toggle a program selection. Cap at 2 picks.

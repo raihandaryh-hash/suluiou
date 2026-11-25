@@ -4,12 +4,14 @@ import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { useAssessment } from '@/context/AssessmentContext';
+import { useToast } from '@/hooks/use-toast';
 import { caasQuestions, caasLabels, instrumenAdaptasi } from '@/data/caasQuestions';
 
 // Bagian 3: kemampuan adaptasi karier (CAAS versi Indonesia, 24 butir, skala 1-5).
 const CaasStep = () => {
   const { hexacoAnswers, setHexacoAnswer, startSds, completeAssessment } = useAssessment();
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const terjawab = caasQuestions.filter((q) => hexacoAnswers[q.id] !== undefined).length;
   const total = caasQuestions.length;
@@ -22,8 +24,8 @@ const CaasStep = () => {
       return;
     }
     // Skor dihitung seketika; /results memicu narasi AI sesudah tampil.
-    completeAssessment();
-    navigate('/results');
+    if (completeAssessment()) navigate('/results');
+    else toast({ title: 'Bagian 1 belum lengkap', description: 'Lengkapi dulu pertanyaan kepribadian yang terlewat.' });
   };
 
   return (

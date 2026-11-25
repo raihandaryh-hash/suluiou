@@ -54,7 +54,7 @@ const SdsStep = () => {
 
   const totalAll = sdsQuestions.length;
   const answeredAll = sdsQuestions.filter((q) => sdsAnswers[q.id]).length;
-  const progress = ((bagian - 1) / jumlahBagian) * 100; // section-based
+  const progress = (sdsQuestions.filter((q) => sdsAnswers[q.id]).length / sdsQuestions.length) * 100;
 
   const handleNext = async () => {
     if (bagian < jumlahBagian) {
@@ -82,7 +82,7 @@ const SdsStep = () => {
             <Logo size="sm" />
             <div className="flex items-center gap-2">
               <span className="text-xs font-medium text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">
-                Bagian 2 dari 2 · Minat
+                Bagian 2 dari 3 · Minat
               </span>
               <span className="text-sm font-heading font-bold text-primary">
                 {bagian}/{jumlahBagian}

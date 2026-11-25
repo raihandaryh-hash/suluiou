@@ -48,6 +48,7 @@ export const caasQuestions: CaasQuestion[] = [
   Q(209, 'kontrol', 'Bertanggung jawab atas perbuatan saya', 'Taking responsibility for my actions'),
   Q(210, 'kontrol', 'Teguh dengan keyakinan saya', 'Sticking up for my beliefs'),
   Q(211, 'kontrol', 'Mengandalkan diri sendiri', 'Counting on myself'),
+  // 212: teks Purwoko dkk. (2020) dipertahankan; catatan SME: "right" lebih dekat ke "tepat" daripada "baik".
   Q(212, 'kontrol', 'Melakukan yang baik bagi diri sendiri', "Doing what's right for me"),
   Q(213, 'keingintahuan', 'Mengeksplorasi lingkungan saya', 'Exploring my surroundings'),
   Q(214, 'keingintahuan', 'Mencari kesempatan untuk berkembang sebagai pribadi', 'Looking for opportunities to grow as a person'),

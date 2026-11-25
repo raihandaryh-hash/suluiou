@@ -134,7 +134,7 @@ const HexacoStep = () => {
             <Logo size="sm" />
             <div className="flex items-center gap-3 flex-wrap">
               <span className="text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                Bagian 1 dari 2 · Kepribadian
+                Bagian 1 dari 3 · Kepribadian
               </span>
               <span className="text-xs font-semibold text-foreground bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
                 {answeredCount} dari {total} terjawab

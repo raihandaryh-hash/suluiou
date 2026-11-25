@@ -89,7 +89,9 @@ export function LeadDetailDialog({ lead, open, onOpenChange, onUpdate }: LeadDet
     onOpenChange(false);
   };
 
+  // Kunci caas_* (adaptasi karier) bukan dimensi minat/kepribadian.
   const topDimensions = Object.entries(lead.scores || {})
+    .filter(([k]) => !k.startsWith('caas_'))
     .sort(([, a], [, b]) => b - a)
     .slice(0, 5);
 

@@ -30,7 +30,7 @@ export function interpretHEXACO(dim: keyof HEXACOScores, score: number): string 
     E: {
       // Sejak 25 Nov 2026 E diukur Mini-IPIP6 (kepekaan emosi/Neuroticism), bukan Emotionality HEXACO.
       high: 'perasaannya cepat tersentuh oleh apa yang terjadi di sekitarnya dan bisa naik turun dalam sehari, kepekaan yang menjadi kekuatan ketika ia punya cara sendiri untuk menenangkan diri',
-      mid: 'tidak mudah terbawa arus perasaan orang lain, tapi juga tidak dingin — ia tahu kapan harus hadir sepenuhnya dan kapan harus menjaga jarak',
+      mid: 'perasaannya cukup stabil dalam keseharian, tetapi tetap bisa goyah ketika tekanan menumpuk, dan ia biasanya tahu kapan perlu jeda',
       low: 'tidak mudah goyah ketika tekanan datang — orang-orang di sekitarnya sering datang justru karena ia tidak panik ketika semua orang lain panik',
     },
     X: {
@@ -109,23 +109,23 @@ export function detectTension(scores: HEXACOScores): TensionPair {
     },
     {
       highDim: 'X', lowDim: 'E', minGap: 0.8,
-      label: 'mudah hadir di luar, sulit benar-benar dikenal di dalam',
-      detail: 'Kamu mudah membuat orang merasa nyaman di dekatmu. Tapi ada jarak antara dikenal dan benar-benar dikenal — dan kamu yang mengendalikan seberapa dekat orang bisa masuk.',
+      label: 'tenang dan mudah bergaul, tapi bisa meremehkan beban',
+      detail: 'Kamu cepat akrab dan jarang terlihat goyah. Itu membuat orang nyaman. Tapi ketenangan bisa membuatmu menunda memeriksa beban yang sebenarnya sedang menumpuk.',
     },
     {
       highDim: 'E', lowDim: 'X', minGap: 0.8,
       label: 'merasakan lebih banyak dari yang ditampilkan',
-      detail: 'Kamu sering sudah tahu bagaimana perasaan seseorang sebelum mereka mengatakannya. Tapi energi itu ada harganya — lingkungan yang terlalu bising atau penuh konflik menguras kamu lebih cepat dari yang orang kira.',
+      detail: 'Perasaanmu mudah bergerak, tetapi kamu jarang menunjukkannya ke orang banyak. Lingkungan yang bising atau penuh konflik bisa menguras kamu lebih cepat dari yang orang kira, jadi ruang yang tenang adalah kebutuhan, bukan kemewahan.',
     },
     {
       highDim: 'A', lowDim: 'H', minGap: 0.8,
-      label: 'menjaga hubungan, tapi kadang dengan harga yang terlalu mahal',
-      detail: 'Kamu pandai membuat orang merasa diterima. Tapi ada momen di mana kamu tahu ada sesuatu yang perlu dikatakan — dan kamu memilih diam untuk menjaga suasana. Itu pilihan, bukan kewajiban.',
+      label: 'peduli pada orang, sambil tetap ingin mendapat lebih',
+      detail: 'Kamu mudah merasakan kebutuhan orang lain, dan kamu juga punya dorongan kuat untuk memperoleh lebih. Keduanya bisa berjalan bersama bila kamu jujur pada diri sendiri tentang mana yang sedang menggerakkanmu.',
     },
     {
       highDim: 'H', lowDim: 'A', minGap: 0.8,
-      label: 'berprinsip, tapi standarnya tidak selalu terasa ringan bagi orang lain',
-      detail: 'Integritasmu bukan performatif — itu genuinely siapa kamu. Tapi standar yang kamu pegang terhadap dirimu kadang tanpa sadar diproyeksikan ke orang lain, dan mereka merasakannya.',
+      label: 'sederhana dan mandiri, tapi bisa terasa berjarak',
+      detail: 'Kamu tidak silau oleh kemewahan dan tidak merasa berhak atas lebih. Tapi kamu juga tidak selalu tertarik pada urusan orang lain, dan sebagian orang bisa membacanya sebagai jarak.',
     },
     {
       highDim: 'O', lowDim: 'A', minGap: 0.8,
