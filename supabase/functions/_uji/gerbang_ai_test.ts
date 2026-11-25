@@ -7,7 +7,7 @@ Deno.env.set("SUPABASE_URL", "https://uji.supabase.co");
 Deno.env.set("SUPABASE_ANON_KEY", "kunci-anon-uji");
 Deno.env.set("SUPABASE_SERVICE_ROLE_KEY", "layanan-uji");
 Deno.env.set("ANTHROPIC_API_KEY", "palsu");
-Deno.env.set("SULU_MODE_C_MATI", "1");
+// mode (c) mati secara bawaan sejak 25 Nov.
 
 type Catat = { url: string; body?: string };
 let catatan: Catat[] = [];
