@@ -1,0 +1,77 @@
+{
+  "skema": "daftar-lapis/1",
+  "dibuat": "17 Nov 2026, sesi mesin Sulu (titipan lima serahan, paket 4)",
+  "label": "SINTESIS dari manifest 2b v0.7 A10 dan J1.3, ARAH v0.5 bagian 20. Satu-satunya berkas daftar lapis yang dibaca pemeriksa gerbang O.",
+  "aturan_umum": [
+    "Tiap teks yang tampil menyatakan satu lapis dari daftar ini.",
+    "Tanda lapis tampil bersama teks itu; isi medan wajib tidak boleh kosong.",
+    "Aturan L1 tidak dipakai menolak L2 (ARAH bagian 20).",
+    "Lapis yang tandanya masih \"BELUM DITETAPKAN\" selalu gagal gerbang O, apa pun teks tanda butirnya."
+  ],
+  "lapis": [
+    {
+      "kode": "L0",
+      "nama": "Kerangka",
+      "ukuran_sah": "sumber primer akademik atau resmi; ditinjau; punya masa pakai",
+      "tanda": "rujukan",
+      "medan_wajib": [
+        "rujukan"
+      ],
+      "pola_tanda": "\\S"
+    },
+    {
+      "kode": "L1",
+      "nama": "Data resmi berkala",
+      "ukuran_sah": "sumber primer bertanggal, baris bukti berstatus Live, batas ukurnya dinyatakan",
+      "tanda": "{sumber} · {tahun} · arti angka",
+      "medan_wajib": [
+        "sumber",
+        "tahun",
+        "arti_angka"
+      ],
+      "pola_tanda": "(19|20)\\d\\d"
+    },
+    {
+      "kode": "L2",
+      "nama": "Kabar dan suara warga",
+      "ukuran_sah": "jumlah sumber yang saling lepas, kedekatan dengan kejadian, tanggal, tautan asli yang bisa dibuka",
+      "tanda": "Dari pencarian AI · {n} sumber · {tanggal} · perlu kamu cek",
+      "tanda_satu_sumber": "Dari pencarian AI · satu sumber · {tanggal} · perlu kamu cek",
+      "medan_wajib": [
+        "n_sumber",
+        "tanggal",
+        "tautan"
+      ],
+      "pola_tanda": "^Dari pencarian AI · (\\d+|satu) sumber · .+ · perlu kamu cek$"
+    },
+    {
+      "kode": "L3",
+      "nama": "Amatan pengguna",
+      "ukuran_sah": "kesaksian langsung: apa, di mana, kapan",
+      "tanda": "amatanmu",
+      "medan_wajib": [],
+      "pola_tanda": "^amatanmu$"
+    },
+    {
+      "kode": "L4",
+      "nama": "Keluaran AI",
+      "ukuran_sah": "menyebut lapis yang dipakai; lulus set uji",
+      "tanda": "Ini tulisan AI. Bisa keliru.",
+      "medan_wajib": [
+        "lapis_dipakai"
+      ],
+      "pola_tanda": "^Ini tulisan AI\\. Bisa keliru\\.$"
+    },
+    {
+      "kode": "K",
+      "nama": "Isi kurasi",
+      "ukuran_sah": "dipilih dan ditinjau manusia dari sumber yang disebut",
+      "tanda": "Disusun tim Sulu dari sumber yang tercantum.",
+      "medan_wajib": [
+        "sumber"
+      ],
+      "pola_tanda": "^Disusun tim Sulu dari sumber yang tercantum\\.$",
+      "catatan": "KEPUTUSAN Raihan 17 Nov 2026 21.32, chat Sulu - Chief: \"Tanda isi kurasi, B.\" (Ledger KEPUTUSAN 17 Nov 21.32; diteruskan titipan Chief 18 Nov butir 5)."
+    }
+  ]
+}

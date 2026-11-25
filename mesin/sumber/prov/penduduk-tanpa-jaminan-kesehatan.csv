@@ -1,0 +1,39 @@
+kode_prov,nama_prov,laju_persen,populasi_kelompok,sumber_laju,sumber_populasi
+11,Aceh,1.82,5631760,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+12,Sumatera Utara,31.31,15801821,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+13,Sumatera Barat,21.81,5920701,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+14,Riau,26.7,6817892,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+15,Jambi,38.96,3772062,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+16,Sumatera Selatan,26.67,8935870,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+17,Bengkulu,23.8,2140142,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+18,Lampung,28.1,9531282,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+19,Kep. Bangka Belitung,15.89,1552391,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+21,Kep. Riau,20,2215913,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+31,DKI Jakarta,8.31,10724334,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+32,Jawa Barat,29.38,50942801,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+33,Jawa Tengah,27.04,38261423,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+34,DI Yogyakarta,10.73,3783309,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+35,Jawa Timur,26.14,42111119,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+36,Banten,25.51,12582516,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+51,Bali,10.85,4463510,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+52,Nusa Tenggara Barat,28.27,5738081,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+53,Nusa Tenggara Timur,22.55,5749684,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+61,Kalimantan Barat,31.08,5771745,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+62,Kalimantan Tengah,32.11,2847856,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+63,Kalimantan Selatan,25.68,4327375,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+64,Kalimantan Timur,17,4050637,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+65,Kalimantan Utara,11.6,750146,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+71,Sulawesi Utara,16.54,2723020,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+72,Sulawesi Tengah,19.14,3158895,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+73,Sulawesi Selatan,13.44,9571273,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+74,Sulawesi Tenggara,15.81,2840318,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+75,Gorontalo,12.79,1243416,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+76,Sulawesi Barat,10.68,1527159,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+81,Maluku,34.47,1972606,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+82,Maluku Utara,26.59,1375306,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+91,Papua Barat,23.26,588374,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+92,Papua Barat Daya,15.87,637189,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+94,Papua,20.1,1074761,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+95,Papua Selatan,7.81,550308,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+96,Papua Tengah,29.17,1493906,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb
+97,Papua Pegunungan,3.69,1486352,100 - BPS WebAPI var 2279 th2025 sidik efeb768d27e5,BPS WebAPI var 2781 (SUPAS 2025) sidik 84199a00dcbb

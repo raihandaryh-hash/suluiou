@@ -1,0 +1,1014 @@
+{
+ "versi": 1,
+ "asal": "KBJI 2026 BPS (mesin/sumber/kbji) x sub-tantangan Jalan Bakti main 0264b9e",
+ "label": "SINTESIS mesin; pengaya, bukan daftar tertutup",
+ "sub_tantangan": {
+  "k1a": [
+   {
+    "kode_kbji": "2211.01",
+    "judul": "Dokter umum",
+    "kata_kunci": "dokter umum"
+   },
+   {
+    "kode_kbji": "2211.99",
+    "judul": "Praktisi dokter umum lainnya",
+    "kata_kunci": "dokter umum"
+   },
+   {
+    "kode_kbji": "1342.03",
+    "judul": "Direktur keperawatan",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1342.06",
+    "judul": "Manajer kasus perawatan",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.01",
+    "judul": "Direktur rumah perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.02",
+    "judul": "Koordinator komunitas perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.03",
+    "judul": "Direktur rumah perawatan intensif lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.05",
+    "judul": "Koordinator perawatan residensial",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.06",
+    "judul": "Supervisor perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.07",
+    "judul": "Manajer perawatan jangka panjang",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.99",
+    "judul": "Manajer jasa perawatan lanjut usia lainnya",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "2221.01",
+    "judul": "Perawat ahli",
+    "kata_kunci": "perawat"
+   }
+  ],
+  "k1b": [
+   {
+    "kode_kbji": "2634.01",
+    "judul": "Psikolog klinis",
+    "kata_kunci": "psikolog klinis"
+   },
+   {
+    "kode_kbji": "2634.02",
+    "judul": "Psikolog pendidikan",
+    "kata_kunci": "psikolog pendidikan"
+   },
+   {
+    "kode_kbji": "2423.04",
+    "judul": "Konselor bimbingan kejuruan",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.01",
+    "judul": "Konselor kecanduan/adiksi",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.02",
+    "judul": "Konselor dukacita",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.03",
+    "judul": "Konselor anak dan remaja",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.04",
+    "judul": "Konselor keluarga",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.05",
+    "judul": "Konselor pernikahan",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.08",
+    "judul": "Pekerja sosial",
+    "kata_kunci": "pekerja sosial"
+   },
+   {
+    "kode_kbji": "2635.99",
+    "judul": "Profesional konseling dan pekerja sosial lainnya",
+    "kata_kunci": "pekerja sosial"
+   },
+   {
+    "kode_kbji": "2212.08",
+    "judul": "Psikiater",
+    "kata_kunci": "psikiater"
+   },
+   {
+    "kode_kbji": "3221.05",
+    "judul": "Asisten dokter jiwa (pembantu psikiater)",
+    "kata_kunci": "psikiater"
+   }
+  ],
+  "k1c": [
+   {
+    "kode_kbji": "2265.02",
+    "judul": "Ahli gizi klinis",
+    "kata_kunci": "ahli gizi"
+   },
+   {
+    "kode_kbji": "2265.03",
+    "judul": "Ahli gizi layanan makanan",
+    "kata_kunci": "ahli gizi"
+   },
+   {
+    "kode_kbji": "2265.04",
+    "judul": "Ahli gizi kesehatan masyarakat",
+    "kata_kunci": "ahli gizi"
+   },
+   {
+    "kode_kbji": "2265.05",
+    "judul": "Ahli gizi olahraga",
+    "kata_kunci": "ahli gizi"
+   },
+   {
+    "kode_kbji": "1342.04",
+    "judul": "Kepala bidang pelayanan kesehatan",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "2222.01",
+    "judul": "Bidan",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "2222.99",
+    "judul": "Profesional kebidanan lainnya",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "2310.14",
+    "judul": "Dosen ilmu terapi kesehatan, kebidanan, dan yang sejenis",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "2359.99",
+    "judul": "Profesional bidang pendidikan lainnya ytdl",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "3222.01",
+    "judul": "Asisten bidan",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "3222.02",
+    "judul": "Bidan tradisional",
+    "kata_kunci": "bidan"
+   },
+   {
+    "kode_kbji": "3222.99",
+    "judul": "Asisten profesional kebidanan lainnya",
+    "kata_kunci": "bidan"
+   }
+  ],
+  "k2a": [
+   {
+    "kode_kbji": "2320.03",
+    "judul": "Guru pendidikan kejuruan menengah pertama",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2320.04",
+    "judul": "Guru pendidikan kejuruan menengah atas",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.01",
+    "judul": "Guru pendidikan menengah pertama",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.02",
+    "judul": "Guru pendidikan menengah atas",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.99",
+    "judul": "Guru pendidikan menengah lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2341.01",
+    "judul": "Guru sekolah dasar",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2341.99",
+    "judul": "Guru sekolah dasar lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.01",
+    "judul": "Guru taman kanak-kanak",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.02",
+    "judul": "Guru pendidikan anak usia dini",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.99",
+    "judul": "Guru anak usia dini lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2352.01",
+    "judul": "Guru tunadaksa",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2352.02",
+    "judul": "Guru tunarungu",
+    "kata_kunci": "guru"
+   }
+  ],
+  "k2b": [
+   {
+    "kode_kbji": "2310.12",
+    "judul": "Dosen ilmu keagamaan",
+    "kata_kunci": "dosen ilmu keagamaan"
+   },
+   {
+    "kode_kbji": "3413.02",
+    "judul": "Penceramah agama",
+    "kata_kunci": "penceramah agama"
+   },
+   {
+    "kode_kbji": "3413.99",
+    "judul": "Asisten profesional keagamaan lainnya",
+    "kata_kunci": "asisten profesional keagamaan"
+   }
+  ],
+  "k2c": [
+   {
+    "kode_kbji": "2320.03",
+    "judul": "Guru pendidikan kejuruan menengah pertama",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2320.04",
+    "judul": "Guru pendidikan kejuruan menengah atas",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.01",
+    "judul": "Guru pendidikan menengah pertama",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.02",
+    "judul": "Guru pendidikan menengah atas",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2330.99",
+    "judul": "Guru pendidikan menengah lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2341.01",
+    "judul": "Guru sekolah dasar",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2341.99",
+    "judul": "Guru sekolah dasar lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.01",
+    "judul": "Guru taman kanak-kanak",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.02",
+    "judul": "Guru pendidikan anak usia dini",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2342.99",
+    "judul": "Guru anak usia dini lainnya",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2352.01",
+    "judul": "Guru tunadaksa",
+    "kata_kunci": "guru"
+   },
+   {
+    "kode_kbji": "2352.02",
+    "judul": "Guru tunarungu",
+    "kata_kunci": "guru"
+   }
+  ],
+  "k3a": [
+   {
+    "kode_kbji": "2635.08",
+    "judul": "Pekerja sosial",
+    "kata_kunci": "pekerja sosial"
+   },
+   {
+    "kode_kbji": "2635.99",
+    "judul": "Profesional konseling dan pekerja sosial lainnya",
+    "kata_kunci": "pekerja sosial"
+   },
+   {
+    "kode_kbji": "2634.01",
+    "judul": "Psikolog klinis",
+    "kata_kunci": "psikolog klinis"
+   },
+   {
+    "kode_kbji": "2423.04",
+    "judul": "Konselor bimbingan kejuruan",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.01",
+    "judul": "Konselor kecanduan/adiksi",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.02",
+    "judul": "Konselor dukacita",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.03",
+    "judul": "Konselor anak dan remaja",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.04",
+    "judul": "Konselor keluarga",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2635.05",
+    "judul": "Konselor pernikahan",
+    "kata_kunci": "konselor"
+   },
+   {
+    "kode_kbji": "2611.01",
+    "judul": "Advokat",
+    "kata_kunci": "advokat"
+   }
+  ],
+  "k3b": [
+   {
+    "kode_kbji": "1342.03",
+    "judul": "Direktur keperawatan",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1342.06",
+    "judul": "Manajer kasus perawatan",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.01",
+    "judul": "Direktur rumah perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.02",
+    "judul": "Koordinator komunitas perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.03",
+    "judul": "Direktur rumah perawatan intensif lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.05",
+    "judul": "Koordinator perawatan residensial",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.06",
+    "judul": "Supervisor perawatan lanjut usia",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.07",
+    "judul": "Manajer perawatan jangka panjang",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "1343.99",
+    "judul": "Manajer jasa perawatan lanjut usia lainnya",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "2221.01",
+    "judul": "Perawat ahli",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "2221.02",
+    "judul": "Perawat spesialis",
+    "kata_kunci": "perawat"
+   },
+   {
+    "kode_kbji": "2221.03",
+    "judul": "Perawat kesehatan masyarakat",
+    "kata_kunci": "perawat"
+   }
+  ],
+  "k3c": [
+   {
+    "kode_kbji": "2264.01",
+    "judul": "Fisioterapis",
+    "kata_kunci": "fisioterapis"
+   },
+   {
+    "kode_kbji": "2643.04",
+    "judul": "Juru bahasa isyarat (sign language interpreter)",
+    "kata_kunci": "bahasa isyarat"
+   },
+   {
+    "kode_kbji": "2635.08",
+    "judul": "Pekerja sosial",
+    "kata_kunci": "pekerja sosial"
+   },
+   {
+    "kode_kbji": "2635.99",
+    "judul": "Profesional konseling dan pekerja sosial lainnya",
+    "kata_kunci": "pekerja sosial"
+   }
+  ],
+  "k4a": [
+   {
+    "kode_kbji": "3132.13",
+    "judul": "Perencana pengelolaan sampah",
+    "kata_kunci": "perencana pengelolaan sampah"
+   },
+   {
+    "kode_kbji": "3132.12",
+    "judul": "Kepala fasilitas pengelolaan sampah",
+    "kata_kunci": "kepala fasilitas pengelolaan sampah"
+   },
+   {
+    "kode_kbji": "3132.11",
+    "judul": "Teknisi daur ulang limbah",
+    "kata_kunci": "teknisi daur ulang limbah"
+   },
+   {
+    "kode_kbji": "2143.99",
+    "judul": "Ahli teknik lingkungan lainnya",
+    "kata_kunci": "ahli teknik lingkungan"
+   },
+   {
+    "kode_kbji": "2133.04",
+    "judul": "Auditor lingkungan",
+    "kata_kunci": "auditor lingkungan"
+   }
+  ],
+  "k4b": [
+   {
+    "kode_kbji": "3113.01",
+    "judul": "Teknisi listrik",
+    "kata_kunci": "teknisi listrik"
+   },
+   {
+    "kode_kbji": "2114.07",
+    "judul": "Ahli panas bumi",
+    "kata_kunci": "panas bumi"
+   },
+   {
+    "kode_kbji": "3131.06",
+    "judul": "Operator lapangan uap dan pembangkit listrik tenaga panas bumi",
+    "kata_kunci": "panas bumi"
+   },
+   {
+    "kode_kbji": "2114.01",
+    "judul": "Ahli geologi (umum)",
+    "kata_kunci": "ahli geologi"
+   },
+   {
+    "kode_kbji": "2114.02",
+    "judul": "Ahli geologi kelautan",
+    "kata_kunci": "ahli geologi"
+   },
+   {
+    "kode_kbji": "2114.03",
+    "judul": "Ahli geologi pertambangan",
+    "kata_kunci": "ahli geologi"
+   },
+   {
+    "kode_kbji": "2114.99",
+    "judul": "Ahli geologi dan geofisika lainnya",
+    "kata_kunci": "ahli geologi"
+   }
+  ],
+  "k4c": [
+   {
+    "kode_kbji": "2114.01",
+    "judul": "Ahli geologi (umum)",
+    "kata_kunci": "geolog"
+   },
+   {
+    "kode_kbji": "2114.02",
+    "judul": "Ahli geologi kelautan",
+    "kata_kunci": "geolog"
+   },
+   {
+    "kode_kbji": "2114.03",
+    "judul": "Ahli geologi pertambangan",
+    "kata_kunci": "geolog"
+   },
+   {
+    "kode_kbji": "2114.99",
+    "judul": "Ahli geologi dan geofisika lainnya",
+    "kata_kunci": "geolog"
+   },
+   {
+    "kode_kbji": "3111.02",
+    "judul": "Teknisi geologi",
+    "kata_kunci": "geolog"
+   },
+   {
+    "kode_kbji": "2112.01",
+    "judul": "Ahli meteorologi (umum)",
+    "kata_kunci": "meteorolog"
+   },
+   {
+    "kode_kbji": "2112.04",
+    "judul": "Ahli hidrometeorologi",
+    "kata_kunci": "meteorolog"
+   },
+   {
+    "kode_kbji": "2112.99",
+    "judul": "Ahli meteorologi dan klimatologi lainnya",
+    "kata_kunci": "meteorolog"
+   },
+   {
+    "kode_kbji": "3111.03",
+    "judul": "Teknisi meteorologi",
+    "kata_kunci": "meteorolog"
+   },
+   {
+    "kode_kbji": "7311.01",
+    "judul": "Pembuat dan tukang reparasi alat meteorologi",
+    "kata_kunci": "meteorolog"
+   },
+   {
+    "kode_kbji": "2164.01",
+    "judul": "Perencana lahan",
+    "kata_kunci": "perencana lahan"
+   },
+   {
+    "kode_kbji": "2114.04",
+    "judul": "Ahli geofisika (umum)",
+    "kata_kunci": "geofisika"
+   }
+  ],
+  "k5a": [
+   {
+    "kode_kbji": "2413.99",
+    "judul": "Analis keuangan lainnya",
+    "kata_kunci": "analis keuangan"
+   },
+   {
+    "kode_kbji": "2411.01",
+    "judul": "Akuntan keuangan",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.04",
+    "judul": "Akuntan manajemen",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.05",
+    "judul": "Akuntan pajak",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.99",
+    "judul": "Akuntan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "3313.99",
+    "judul": "Asisten profesional akuntansi lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.01",
+    "judul": "Juru tata usaha akuntansi",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.99",
+    "judul": "Juru tata usaha akuntansi dan pembukuan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2421.03",
+    "judul": "Konsultan manajemen",
+    "kata_kunci": "konsultan manajemen"
+   }
+  ],
+  "k5b": [
+   {
+    "kode_kbji": "2412.02",
+    "judul": "Perencana keuangan",
+    "kata_kunci": "perencana keuangan"
+   },
+   {
+    "kode_kbji": "2413.99",
+    "judul": "Analis keuangan lainnya",
+    "kata_kunci": "analis keuangan"
+   },
+   {
+    "kode_kbji": "2120.04",
+    "judul": "Aktuaris",
+    "kata_kunci": "aktuaris"
+   }
+  ],
+  "k5c": [
+   {
+    "kode_kbji": "2411.01",
+    "judul": "Akuntan keuangan",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.04",
+    "judul": "Akuntan manajemen",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.05",
+    "judul": "Akuntan pajak",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.99",
+    "judul": "Akuntan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "3313.99",
+    "judul": "Asisten profesional akuntansi lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.01",
+    "judul": "Juru tata usaha akuntansi",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.99",
+    "judul": "Juru tata usaha akuntansi dan pembukuan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2413.99",
+    "judul": "Analis keuangan lainnya",
+    "kata_kunci": "analis keuangan"
+   },
+   {
+    "kode_kbji": "2133.04",
+    "judul": "Auditor lingkungan",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2133.11",
+    "judul": "Auditor kehutanan",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2411.02",
+    "judul": "Auditor",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2529.04",
+    "judul": "Auditor keamanan informasi",
+    "kata_kunci": "auditor"
+   }
+  ],
+  "k5d": [
+   {
+    "kode_kbji": "2423.01",
+    "judul": "Penasihat karier",
+    "kata_kunci": "penasihat karier"
+   },
+   {
+    "kode_kbji": "2423.99",
+    "judul": "Profesional personalia dan karier lainnya",
+    "kata_kunci": "profesional personalia dan karier"
+   },
+   {
+    "kode_kbji": "3359.05",
+    "judul": "Pengawas ketenagakerjaan",
+    "kata_kunci": "pengawas ketenagakerjaan"
+   },
+   {
+    "kode_kbji": "2423.04",
+    "judul": "Konselor bimbingan kejuruan",
+    "kata_kunci": "konselor bimbingan kejuruan"
+   }
+  ],
+  "k6a": [
+   {
+    "kode_kbji": "2132.01",
+    "judul": "Ahli agronomi",
+    "kata_kunci": "ahli agronomi"
+   },
+   {
+    "kode_kbji": "3142.02",
+    "judul": "Teknisi pertanian tanaman pangan",
+    "kata_kunci": "teknisi pertanian"
+   },
+   {
+    "kode_kbji": "3142.04",
+    "judul": "Teknisi pertanian hortikultura",
+    "kata_kunci": "teknisi pertanian"
+   },
+   {
+    "kode_kbji": "3142.09",
+    "judul": "Teknisi pertanian presisi",
+    "kata_kunci": "teknisi pertanian"
+   },
+   {
+    "kode_kbji": "3142.99",
+    "judul": "Teknisi pertanian lainnya",
+    "kata_kunci": "teknisi pertanian"
+   }
+  ],
+  "k6b": [
+   {
+    "kode_kbji": "1321.01",
+    "judul": "Manajer umum industri pengolahan",
+    "kata_kunci": "manajer umum industri pengolahan"
+   },
+   {
+    "kode_kbji": "1311.01",
+    "judul": "Manajer pertanian tanaman pangan",
+    "kata_kunci": "manajer pertanian tanaman pangan"
+   }
+  ],
+  "k6c": [
+   {
+    "kode_kbji": "2132.01",
+    "judul": "Ahli agronomi",
+    "kata_kunci": "ahli agronomi"
+   },
+   {
+    "kode_kbji": "2132.05",
+    "judul": "Konsultan pertanian dan perikanan",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "2132.99",
+    "judul": "Penasihat pertanian, kehutanan dan perikanan lainnya",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "3142.07",
+    "judul": "Teknisi perikanan",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "3359.02",
+    "judul": "Pengawas perikanan",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "6221.06",
+    "judul": "Pekerja terampil budidaya perikanan",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "6221.99",
+    "judul": "Pekerja budidaya perikanan lainnya",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "6222.99",
+    "judul": "Pekerja perikanan tangkap di perairan umum dan pesisir lainnya",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "6223.99",
+    "judul": "Pekerja perikanan tangkap di laut dalam lainnya",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "7541.05",
+    "judul": "Pekerja bawah air perikanan",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "9216.99",
+    "judul": "Buruh penangkapan dan budidaya perikanan lainnya",
+    "kata_kunci": "perikanan"
+   },
+   {
+    "kode_kbji": "1311.04",
+    "judul": "Manajer peternakan",
+    "kata_kunci": "peternakan"
+   }
+  ],
+  "k6d": [
+   {
+    "kode_kbji": "2114.06",
+    "judul": "Ahli hidrologi",
+    "kata_kunci": "ahli hidrologi"
+   },
+   {
+    "kode_kbji": "3132.05",
+    "judul": "Operator mesin pengolahan air limbah",
+    "kata_kunci": "operator mesin pengolahan air"
+   },
+   {
+    "kode_kbji": "3132.06",
+    "judul": "Operator mesin pengolahan air",
+    "kata_kunci": "operator mesin pengolahan air"
+   },
+   {
+    "kode_kbji": "2143.99",
+    "judul": "Ahli teknik lingkungan lainnya",
+    "kata_kunci": "ahli teknik lingkungan"
+   },
+   {
+    "kode_kbji": "3257.02",
+    "judul": "Sanitarian",
+    "kata_kunci": "sanitarian"
+   }
+  ],
+  "k7a": [
+   {
+    "kode_kbji": "2164.02",
+    "judul": "Perencana tata kota",
+    "kata_kunci": "perencana tata kota"
+   },
+   {
+    "kode_kbji": "2164.99",
+    "judul": "Perencana tata kota dan lalu lintas lainnya",
+    "kata_kunci": "perencana tata kota"
+   },
+   {
+    "kode_kbji": "2164.01",
+    "judul": "Perencana lahan",
+    "kata_kunci": "perencana lahan"
+   },
+   {
+    "kode_kbji": "2422.01",
+    "judul": "Analis kebijakan",
+    "kata_kunci": "analis kebijakan"
+   },
+   {
+    "kode_kbji": "1213.99",
+    "judul": "Manajer kebijakan dan perencanaan lainnya",
+    "kata_kunci": "manajer kebijakan dan perencanaan"
+   },
+   {
+    "kode_kbji": "2120.05",
+    "judul": "Ahli statistika (umum)",
+    "kata_kunci": "ahli statistik"
+   },
+   {
+    "kode_kbji": "2120.06",
+    "judul": "Ahli statistika matematika",
+    "kata_kunci": "ahli statistik"
+   },
+   {
+    "kode_kbji": "2120.07",
+    "judul": "Ahli statistika (terapan)",
+    "kata_kunci": "ahli statistik"
+   }
+  ],
+  "k7b": [
+   {
+    "kode_kbji": "2411.01",
+    "judul": "Akuntan keuangan",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.04",
+    "judul": "Akuntan manajemen",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.05",
+    "judul": "Akuntan pajak",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2411.99",
+    "judul": "Akuntan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "3313.99",
+    "judul": "Asisten profesional akuntansi lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.01",
+    "judul": "Juru tata usaha akuntansi",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "4311.99",
+    "judul": "Juru tata usaha akuntansi dan pembukuan lainnya",
+    "kata_kunci": "akuntan"
+   },
+   {
+    "kode_kbji": "2133.04",
+    "judul": "Auditor lingkungan",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2133.11",
+    "judul": "Auditor kehutanan",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2411.02",
+    "judul": "Auditor",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2529.04",
+    "judul": "Auditor keamanan informasi",
+    "kata_kunci": "auditor"
+   },
+   {
+    "kode_kbji": "2421.03",
+    "judul": "Konsultan manajemen",
+    "kata_kunci": "konsultan manajemen"
+   }
+  ],
+  "k7c": [
+   {
+    "kode_kbji": "2422.01",
+    "judul": "Analis kebijakan",
+    "kata_kunci": "analis kebijakan"
+   },
+   {
+    "kode_kbji": "2642.01",
+    "judul": "Wartawan umum",
+    "kata_kunci": "wartawan umum"
+   },
+   {
+    "kode_kbji": "2642.09",
+    "judul": "Wartawan media digital",
+    "kata_kunci": "wartawan media digital"
+   },
+   {
+    "kode_kbji": "2611.01",
+    "judul": "Advokat",
+    "kata_kunci": "advokat"
+   },
+   {
+    "kode_kbji": "2120.05",
+    "judul": "Ahli statistika (umum)",
+    "kata_kunci": "ahli statistik"
+   },
+   {
+    "kode_kbji": "2120.06",
+    "judul": "Ahli statistika matematika",
+    "kata_kunci": "ahli statistik"
+   },
+   {
+    "kode_kbji": "2120.07",
+    "judul": "Ahli statistika (terapan)",
+    "kata_kunci": "ahli statistik"
+   }
+  ]
+ },
+ "tanpa_hasil": []
+}

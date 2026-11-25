@@ -1,0 +1,8 @@
+# Metode hitung saringan · v2 · ditulis 13 Nov 2026 15.09 WIB (jam sistem) SEBELUM skor; melengkapi metode_saringan_v1.yaml (tetap beku).
+# Perubahan: (1) mengikuti bobot_v2 (dua komponen); (2) aturan bukti lama untuk keterpecahan.
+# (2) PUTUSAN ATAS DELEGASI 13 Nov 2026, dasar kutipan Raihan 15.09: "Soal Generasi tahun 2007, decide sendiri."
+versi: metode-saringan/2
+bobot: bank/bobot_v2.yaml
+dasar: bank/metode_saringan_v1.yaml
+keterpecahan_bukti_lama: "Bukti dihitung berapa pun umurnya selama tidak dicabut atau dibantah evaluasi yang lebih baru. Tahun bukti wajib tampil di kartu dan di keluaran saringan. Bukti berumur >10 tahun diberi tanda 'bukti lama' tanpa pengurangan skor. Alasan: evaluasi dampak yang ketat jarang diulang; membuangnya karena umur akan menyamakan masalah yang punya bukti dengan yang tidak punya."
+uji_G2_3: "sama dengan v1, dengan dua bobot: tiap bobot diubah ±25%, satu bobot lain dinormalisasi ulang; lulus bila minimal 4 dari 5 teratas tetap di 5 teratas pada keempat variasi, atas >=30 kandidat yang skala dan keterpecahannya terhitung"

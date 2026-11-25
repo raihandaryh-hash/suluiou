@@ -1,0 +1,639 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "61",
+  "nama": "Kalimantan Barat"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.6101",
+   "wilayah": {
+    "kode_bps": "6101",
+    "nama": "Kab. Sambas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.37,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sambas yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,4 persen penduduk Kab. Sambas tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6101",
+   "wilayah": {
+    "kode_bps": "6101",
+    "nama": "Kab. Sambas",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.02,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.91,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sambas yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sambas tercatat 5,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6102",
+   "wilayah": {
+    "kode_bps": "6102",
+    "nama": "Kab. Bengkayang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.83,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkayang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,8 persen penduduk Kab. Bengkayang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6102",
+   "wilayah": {
+    "kode_bps": "6102",
+    "nama": "Kab. Bengkayang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.73,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.95,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkayang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bengkayang tercatat 2,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6103",
+   "wilayah": {
+    "kode_bps": "6103",
+    "nama": "Kab. Landak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.9,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Landak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,9 persen penduduk Kab. Landak tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6103",
+   "wilayah": {
+    "kode_bps": "6103",
+    "nama": "Kab. Landak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.21,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.69,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Landak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Landak tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6104",
+   "wilayah": {
+    "kode_bps": "6104",
+    "nama": "Kab. Mempawah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.49,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Mempawah yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,5 persen penduduk Kab. Mempawah tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6104",
+   "wilayah": {
+    "kode_bps": "6104",
+    "nama": "Kab. Mempawah",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.3,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.74,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Mempawah yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Mempawah tercatat 4,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6105",
+   "wilayah": {
+    "kode_bps": "6105",
+    "nama": "Kab. Sanggau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sanggau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,6 persen penduduk Kab. Sanggau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6105",
+   "wilayah": {
+    "kode_bps": "6105",
+    "nama": "Kab. Sanggau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.59,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.89,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sanggau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sanggau tercatat 3,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6106",
+   "wilayah": {
+    "kode_bps": "6106",
+    "nama": "Kab. Ketapang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.44,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Ketapang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,4 persen penduduk Kab. Ketapang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6106",
+   "wilayah": {
+    "kode_bps": "6106",
+    "nama": "Kab. Ketapang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.55,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.75,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Ketapang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Ketapang tercatat 6,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6107",
+   "wilayah": {
+    "kode_bps": "6107",
+    "nama": "Kab. Sintang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.93,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sintang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 7,9 persen penduduk Kab. Sintang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6107",
+   "wilayah": {
+    "kode_bps": "6107",
+    "nama": "Kab. Sintang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.1,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.78,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sintang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sintang tercatat 3,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6108",
+   "wilayah": {
+    "kode_bps": "6108",
+    "nama": "Kab. Kapuas Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.86,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kapuas Hulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 6,9 persen penduduk Kab. Kapuas Hulu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6108",
+   "wilayah": {
+    "kode_bps": "6108",
+    "nama": "Kab. Kapuas Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.22,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.09,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kapuas Hulu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kapuas Hulu tercatat 2,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6109",
+   "wilayah": {
+    "kode_bps": "6109",
+    "nama": "Kab. Sekadau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.61,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sekadau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 5,6 persen penduduk Kab. Sekadau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6109",
+   "wilayah": {
+    "kode_bps": "6109",
+    "nama": "Kab. Sekadau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.67,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.54,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Sekadau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Sekadau tercatat 2,7 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6110",
+   "wilayah": {
+    "kode_bps": "6110",
+    "nama": "Kab. Melawi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 10.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Melawi yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 10,5 persen penduduk Kab. Melawi tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6110",
+   "wilayah": {
+    "kode_bps": "6110",
+    "nama": "Kab. Melawi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.5,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.94,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Melawi yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Melawi tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6111",
+   "wilayah": {
+    "kode_bps": "6111",
+    "nama": "Kab. Kayong Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.75,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kayong Utara yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 8,8 persen penduduk Kab. Kayong Utara tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6111",
+   "wilayah": {
+    "kode_bps": "6111",
+    "nama": "Kab. Kayong Utara",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.51,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.77,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kayong Utara yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kayong Utara tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6112",
+   "wilayah": {
+    "kode_bps": "6112",
+    "nama": "Kab. Kubu Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.99,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kubu Raya yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,0 persen penduduk Kab. Kubu Raya tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6112",
+   "wilayah": {
+    "kode_bps": "6112",
+    "nama": "Kab. Kubu Raya",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.94,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.86,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kubu Raya yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Kubu Raya tercatat 6,9 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6171",
+   "wilayah": {
+    "kode_bps": "6171",
+    "nama": "Kota Pontianak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.0,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pontianak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,0 persen penduduk Kota Pontianak tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6171",
+   "wilayah": {
+    "kode_bps": "6171",
+    "nama": "Kota Pontianak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 8.17,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.91,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pontianak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Pontianak tercatat 8,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6172",
+   "wilayah": {
+    "kode_bps": "6172",
+    "nama": "Kota Singkawang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.28,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Singkawang yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2025, 4,3 persen penduduk Kota Singkawang tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6172",
+   "wilayah": {
+    "kode_bps": "6172",
+    "nama": "Kota Singkawang",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 7.24,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.42,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Singkawang yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Singkawang tercatat 7,2 persen dari angkatan kerja."
+  }
+ ]
+}

@@ -1,0 +1,224 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "91",
+  "nama": "Papua Barat"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.9101",
+   "wilayah": {
+    "kode_bps": "9101",
+    "nama": "Kab. Fakfak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 18.08,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 19.86,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Fakfak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 18,1 persen penduduk Kab. Fakfak tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.9101",
+   "wilayah": {
+    "kode_bps": "9101",
+    "nama": "Kab. Fakfak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 6.4,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Fakfak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Fakfak tercatat 6,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.9102",
+   "wilayah": {
+    "kode_bps": "9102",
+    "nama": "Kab. Kaimana",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 13.35,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 13.83,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kaimana yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 13,4 persen penduduk Kab. Kaimana tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9103",
+   "wilayah": {
+    "kode_bps": "9103",
+    "nama": "Kab. Teluk Wondama",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 25.64,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 27.57,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Teluk Wondama yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 25,6 persen penduduk Kab. Teluk Wondama tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.9103",
+   "wilayah": {
+    "kode_bps": "9103",
+    "nama": "Kab. Teluk Wondama",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.37,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Teluk Wondama yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Teluk Wondama tercatat 3,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.9104",
+   "wilayah": {
+    "kode_bps": "9104",
+    "nama": "Kab. Teluk Bintuni",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 22.43,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 25.34,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Teluk Bintuni yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 22,4 persen penduduk Kab. Teluk Bintuni tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9105",
+   "wilayah": {
+    "kode_bps": "9105",
+    "nama": "Kab. Manokwari",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 15.31,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 17.38,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Manokwari yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 15,3 persen penduduk Kab. Manokwari tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9111",
+   "wilayah": {
+    "kode_bps": "9111",
+    "nama": "Kab. Manokwari Selatan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 23.42,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 26.52,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Manokwari Selatan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 23,4 persen penduduk Kab. Manokwari Selatan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "kemiskinan-kabkota.9112",
+   "wilayah": {
+    "kode_bps": "9112",
+    "nama": "Kab. Pegunungan Arfak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 28.44,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov9100"
+   },
+   "angka_sebelumnya": {
+    "nilai": 30.88,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pegunungan Arfak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 28,4 persen penduduk Kab. Pegunungan Arfak tercatat sebagai penduduk miskin."
+  }
+ ]
+}

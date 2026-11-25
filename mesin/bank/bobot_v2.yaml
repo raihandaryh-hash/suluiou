@@ -1,0 +1,16 @@
+# Bobot saringan · v2 · ditulis 13 Nov 2026 15.09 WIB (jam sistem) SEBELUM skor apa pun dihitung; menggantikan bobot_v1 untuk ME2.
+# Dasar: KEPUTUSAN Raihan 13 Nov 2026 15.09 WIB, menjawab pilihan A/B/C gerbang stabilitas saringan: "B".
+# Isi pilihan B (pesan sesi 13 Nov): saringan tahap kedua dihitung dari skala dan keterpecahan saja; keterabaian dipisah
+# sebagai pekerjaan susulan bertanda dan ditambahkan sesudah datanya ada (lalu bobot_v3).
+# Alasan perubahan dari v1: peta ketersediaan 13 Nov menemukan keterabaian ADA 0 dari 33 kandidat, TIDAK DITEMUKAN 29.
+# bobot_v1.yaml tetap beku dan tidak disunting.
+versi: bobot/2
+menggantikan: bank/bobot_v1.yaml
+komponen:
+  skala: 0.5          # orang terdampak × jarak dari pembanding (log), lihat metode_saringan_v1.yaml
+  keterpecahan: 0.5   # ada bukti cara kerja; lihat aturan bukti lama di metode_saringan_v2.yaml
+ditunda:
+  keterabaian: "pekerjaan susulan bertanda; kartu dan keluaran menyebut bahwa saringan belum memperhitungkan program yang sudah ada"
+syarat_tayang:
+  lantai_provinsi_berangka: 34
+  bukan_bobot: [ketersediaan_data]

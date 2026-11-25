@@ -1,0 +1,44 @@
+# Bank dugaan setempat, versi 1 (15 Nov 2026). SEMENTARA: ditulis sesi mesin sendiri, melanggar arahan Raihan 8 Jul 2026 ("kita tak menciptakan taksonomi baru, tapi mengkurasi dan menerjemahkan."). Tidak boleh sampai ke pengguna sebelum dikurasi dari sumber.
+# Tiap dugaan berbentuk pertanyaan yang bisa dicek sendiri, bukan pernyataan tentang sebab.
+# Dipakai tanpa AI: untuk pengguna di bawah 18 (pilihan terstruktur) dan sebagai dasar bila AI tidak tersedia.
+# jenis cara cek: tanya_orang | lihat_langsung | baca_dokumen. Tanpa angka di teks.
+kemiskinan-kabkota:
+  - id: miskin-bantuan-sampai
+    teks: "Apakah keluarga yang paling membutuhkan di lingkunganmu sudah terdata dan menerima bantuan yang menjadi haknya?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada ketua RT atau perangkat desa bagaimana pendataan penerima bantuan dilakukan dan siapa yang belum terjangkau.", hari: 7}
+  - id: miskin-usaha-kecil
+    teks: "Apakah usaha kecil di sekitarmu punya tempat bertanya soal pencatatan, pemasaran, atau modal?"
+    cek: {jenis: tanya_orang, teks: "Datangi satu pemilik warung atau usaha rumahan dan tanyakan kesulitan terbesarnya bulan ini.", hari: 7}
+  - id: miskin-anak-sekolah
+    teks: "Apakah ada anak di lingkunganmu yang berhenti sekolah atau terancam berhenti karena biaya?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada seorang guru atau pengurus masjid apakah mereka mengenal anak yang membutuhkan dukungan untuk tetap bersekolah.", hari: 14}
+pengangguran-terbuka-kabkota:
+  - id: kerja-keterampilan
+    teks: "Apakah pemberi kerja di daerahmu kesulitan menemukan orang dengan keterampilan tertentu?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada satu pemilik usaha keterampilan apa yang paling sulit ia temukan saat merekrut.", hari: 7}
+  - id: kerja-informasi
+    teks: "Apakah pencari kerja di lingkunganmu tahu ke mana mencari lowongan dan pelatihan yang tersedia?"
+    cek: {jenis: baca_dokumen, teks: "Buka laman dinas tenaga kerja daerahmu dan catat pelatihan atau bursa kerja yang sedang dibuka.", hari: 7}
+  - id: kerja-usaha-baru
+    teks: "Apakah ada kebutuhan sehari-hari di lingkunganmu yang belum dilayani usaha mana pun?"
+    cek: {jenis: lihat_langsung, teks: "Berjalanlah di lingkunganmu dan catat barang atau jasa yang membuat orang pergi jauh untuk mendapatkannya.", hari: 7}
+stunting-balita:
+  - id: stunting-posyandu
+    teks: "Apakah balita di lingkunganmu rutin ditimbang dan diukur di posyandu?"
+    cek: {jenis: tanya_orang, teks: "Datangi posyandu terdekat pada hari buka dan tanyakan kepada kader bantuan apa yang mereka perlukan.", hari: 30}
+  - id: stunting-pendampingan-ibu
+    teks: "Apakah ibu hamil dan ibu menyusui di lingkunganmu punya tempat bertanya soal gizi?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada bidan desa atau petugas puskesmas kelas atau pendampingan apa yang tersedia dan siapa yang belum ikut.", hari: 14}
+  - id: stunting-air-sanitasi
+    teks: "Apakah rumah dengan balita di lingkunganmu punya air bersih dan jamban yang layak?"
+    cek: {jenis: lihat_langsung, teks: "Amati sumber air dan sanitasi di lingkunganmu, lalu tanyakan kepada perangkat desa program apa yang sedang berjalan.", hari: 14}
+penduduk-tanpa-jaminan-kesehatan:
+  - id: jkn-belum-daftar
+    teks: "Apakah ada tetanggamu yang belum terdaftar jaminan kesehatan karena tidak tahu caranya?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan di puskesmas atau kantor desa syarat dan cara mendaftar, lalu catat langkahnya dengan kata-katamu sendiri.", hari: 7}
+  - id: jkn-tidak-aktif
+    teks: "Apakah ada warga yang kepesertaannya tidak aktif dan tidak tahu cara mengaktifkannya kembali?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada kader kesehatan atau perangkat desa kasus seperti apa yang sering mereka temui.", hari: 14}
+  - id: jkn-dokumen
+    teks: "Apakah ada warga yang terhalang mendaftar karena dokumen kependudukannya belum lengkap?"
+    cek: {jenis: tanya_orang, teks: "Tanyakan kepada perangkat desa dokumen apa yang paling sering menjadi kendala dan bagaimana mengurusnya.", hari: 14}

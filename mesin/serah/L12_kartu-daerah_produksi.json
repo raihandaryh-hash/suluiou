@@ -1,0 +1,276 @@
+{
+ "dibaca": "produksi province_contexts, baca saja, 25 Nov 12.3x WIB, izin Raihan 25 Nov 12.29",
+ "baris": [
+  {
+   "provinsi": "Aceh",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sumatera Utara",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sumatera Barat",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Riau",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kepulauan Riau",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Jambi",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sumatera Selatan",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Bangka Belitung",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Bengkulu",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Lampung",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "DKI Jakarta",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Banten",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Jawa Tengah",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "DI Yogyakarta",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Jawa Timur",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Bali",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Nusa Tenggara Barat",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Nusa Tenggara Timur",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kalimantan Barat",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kalimantan Tengah",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kalimantan Selatan",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kalimantan Timur",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Kalimantan Utara",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sulawesi Utara",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Gorontalo",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sulawesi Tengah",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sulawesi Barat",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sulawesi Selatan",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Sulawesi Tenggara",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Maluku",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Maluku Utara",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua Barat",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua Barat Daya",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua Tengah",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua Pegunungan",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Papua Selatan",
+   "data_verified": false,
+   "data_year": null,
+   "jumlah_butir_kebutuhan": 0,
+   "sumber": []
+  },
+  {
+   "provinsi": "Jawa Barat",
+   "data_verified": true,
+   "data_year": 2025,
+   "jumlah_butir_kebutuhan": 4,
+   "sumber": [
+    "Kemenag — jumlah pondok pesantren per provinsi, Oktober 2025 (https://dataloka.id/humaniora/5007/jumlah-pondok-pesantren-di-indonesia-2025-capai-42-391-didominasi-jawa-barat/)",
+    "Kemenag — kekurangan guru madrasah per provinsi (https://m.kemenag.go.id/nasional/kekurangan-guru-madrasah-120335-orang-4946ba)",
+    "BPS Sakernas — data ketenagakerjaan nasional 2025",
+    "Kemenag/BPJPH — data UMKM halal Jawa Barat"
+   ]
+  }
+ ]
+}

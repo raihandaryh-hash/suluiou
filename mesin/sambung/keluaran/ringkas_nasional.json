@@ -1,0 +1,273 @@
+{
+ "skema": "ringkas-nasional/1",
+ "nasional": {
+  "kemiskinan": [
+   {
+    "periode": "Maret 2026",
+    "p0_persen": 8.07,
+    "garis_rp_kapita_bulan": 669235,
+    "url": "https://www.bps.go.id/id/pressrelease/2026/08/05/2594/persentase-penduduk-miskin-maret-2026-turun-menjadi-8-07-persen-.html",
+    "dicek": "Chief Sulu 16 Nov 2026 (rilis BPS)"
+   },
+   {
+    "periode": "Maret 2025",
+    "p0_persen": 8.47,
+    "garis_rp_kapita_bulan": 609160,
+    "url": "https://www.bps.go.id/id/pressrelease/2025/07/25/2518/persentase-penduduk-miskin-maret-2025",
+    "dicek": "18 Nov 2026: halaman rilis gagal dibuka dari sesi mesin (galat situs); 8,47 persen dan Rp609.160 cocok dengan berita BPS https://www.bps.go.id/id/news/2025/07/25/731/tingkat-kemiskinan-kembali-menurun.html dan penilaian chat induk Sintesis 17 Nov"
+   }
+  ],
+  "tpt": [
+   {
+    "periode": "Agustus 2025",
+    "tpt_persen": 4.85,
+    "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/keadaan-ketenagakerjaan-.html",
+    "dicek": "cuplikan halaman rilis BPS 16 Nov 2026"
+   },
+   {
+    "periode": "Agustus 2024",
+    "tpt_persen": 4.91,
+    "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/keadaan-ketenagakerjaan-.html",
+    "dicek": "cuplikan halaman rilis BPS (pembanding tahun lalu)"
+   },
+   {
+    "periode": "Agustus 2026",
+    "tpt_persen": 4.75,
+    "url": "https://www.bps.go.id/id/pressrelease/2026/11/05/169961/tingkat-pengangguran-terbuka--tpt--sebesar-4-75-persen---rata-rata-upah-buruh-sebesar-3-42-juta-rupiah.html",
+    "dicek": "18 Nov 2026: cuplikan halaman rilis BPS 5 Nov 2026 (4,75 persen, turun 0,09 poin dari Agustus 2025)",
+    "catatan": "tabel kab/kota nasional var 2824 tahun 2026 belum tersedia di WebAPI per 16 Nov 2026 (dicoba, datacontent kosong)"
+   }
+  ]
+ },
+ "provinsi_2025": {
+  "1100": {
+   "nama": "Aceh",
+   "periode": "Maret 2025",
+   "p0": 12.33,
+   "gk": 676247.0
+  },
+  "1200": {
+   "nama": "Sumatera Utara",
+   "periode": "Maret 2025",
+   "p0": 7.36,
+   "gk": 666546.0
+  },
+  "1300": {
+   "nama": "Sumatera Barat",
+   "periode": "Maret 2025",
+   "p0": 5.35,
+   "gk": 729806.0
+  },
+  "1400": {
+   "nama": "Riau",
+   "periode": "Maret 2025",
+   "p0": 6.16,
+   "gk": 713117.0
+  },
+  "1500": {
+   "nama": "Jambi",
+   "periode": "Maret 2025",
+   "p0": 7.19,
+   "gk": 664127.0
+  },
+  "1600": {
+   "nama": "Sumatera Selatan",
+   "periode": "Maret 2025",
+   "p0": 10.15,
+   "gk": 581702.0
+  },
+  "1700": {
+   "nama": "Bengkulu",
+   "periode": "Maret 2025",
+   "p0": 12.08,
+   "gk": 683820.0
+  },
+  "1800": {
+   "nama": "Lampung",
+   "periode": "Maret 2025",
+   "p0": 10.0,
+   "gk": 612451.0
+  },
+  "1900": {
+   "nama": "Bangka Belitung",
+   "periode": "Maret 2025",
+   "p0": 5.0,
+   "gk": 956833.0
+  },
+  "2100": {
+   "nama": "Kepulauan Riau",
+   "periode": "Maret 2025",
+   "p0": 4.44,
+   "gk": 832410.0
+  },
+  "3100": {
+   "nama": "DKI Jakarta",
+   "periode": "Maret 2025",
+   "p0": 4.28,
+   "gk": 852768.0
+  },
+  "3200": {
+   "nama": "Jawa Barat",
+   "periode": "Maret 2025",
+   "p0": 7.02,
+   "gk": 547752.0
+  },
+  "3300": {
+   "nama": "Jawa Tengah",
+   "periode": "Maret 2025",
+   "p0": 9.48,
+   "gk": 537812.0
+  },
+  "3400": {
+   "nama": "DI Yogyakarta",
+   "periode": "Maret 2025",
+   "p0": 10.23,
+   "gk": 626363.0
+  },
+  "3500": {
+   "nama": "Jawa Timur",
+   "periode": "Maret 2025",
+   "p0": 9.5,
+   "gk": 558029.0
+  },
+  "3600": {
+   "nama": "Banten",
+   "periode": "Maret 2025",
+   "p0": 5.63,
+   "gk": 684232.0
+  },
+  "5100": {
+   "nama": "Bali",
+   "periode": "Maret 2025",
+   "p0": 3.72,
+   "gk": 607847.0
+  },
+  "5200": {
+   "nama": "Nusa Tenggara Barat",
+   "periode": "Maret 2025",
+   "p0": 11.78,
+   "gk": 556846.0
+  },
+  "5300": {
+   "nama": "Nusa Tenggara Timur",
+   "periode": "Maret 2025",
+   "p0": 18.6,
+   "gk": 549607.0
+  },
+  "6100": {
+   "nama": "Kalimantan Barat",
+   "periode": "Maret 2025",
+   "p0": 6.16,
+   "gk": 622882.0
+  },
+  "6200": {
+   "nama": "Kalimantan Tengah",
+   "periode": "Maret 2025",
+   "p0": 5.19,
+   "gk": 654066.0
+  },
+  "6300": {
+   "nama": "Kalimantan Selatan",
+   "periode": "Maret 2025",
+   "p0": 3.84,
+   "gk": 650675.0
+  },
+  "6400": {
+   "nama": "Kalimantan Timur",
+   "periode": "Maret 2025",
+   "p0": 5.17,
+   "gk": 866193.0
+  },
+  "6500": {
+   "nama": "Kalimantan Utara",
+   "periode": "Maret 2025",
+   "p0": 5.54,
+   "gk": 884970.0
+  },
+  "7100": {
+   "nama": "Sulawesi Utara",
+   "periode": "Maret 2025",
+   "p0": 6.71,
+   "gk": 530304.0
+  },
+  "7200": {
+   "nama": "Sulawesi Tengah",
+   "periode": "Maret 2025",
+   "p0": 10.92,
+   "gk": 624854.0
+  },
+  "7300": {
+   "nama": "Sulawesi Selatan",
+   "periode": "Maret 2025",
+   "p0": 7.6,
+   "gk": 477966.0
+  },
+  "7400": {
+   "nama": "Sulawesi Tenggara",
+   "periode": "Maret 2025",
+   "p0": 10.54,
+   "gk": 488171.0
+  },
+  "7500": {
+   "nama": "Gorontalo",
+   "periode": "Maret 2025",
+   "p0": 13.24,
+   "gk": 495576.0
+  },
+  "7600": {
+   "nama": "Sulawesi Barat",
+   "periode": "Maret 2025",
+   "p0": 10.41,
+   "gk": 475488.0
+  },
+  "8100": {
+   "nama": "Maluku",
+   "periode": "Maret 2025",
+   "p0": 15.38,
+   "gk": 757600.0
+  },
+  "8200": {
+   "nama": "Maluku Utara",
+   "periode": "Maret 2025",
+   "p0": 5.81,
+   "gk": 662397.0
+  },
+  "9100": {
+   "nama": "Papua Barat",
+   "periode": "Maret 2025",
+   "p0": 20.66,
+   "gk": 831001.0
+  },
+  "9200": {
+   "nama": "Papua Barat Daya",
+   "periode": "Maret 2025",
+   "p0": 17.95,
+   "gk": 812630.0
+  },
+  "9400": {
+   "nama": "Papua",
+   "periode": "Maret 2025",
+   "p0": 19.16,
+   "gk": 714365.0
+  },
+  "9500": {
+   "nama": "Papua Selatan",
+   "periode": "Maret 2025",
+   "p0": 19.71,
+   "gk": 566052.0
+  },
+  "9600": {
+   "nama": "Papua Tengah",
+   "periode": "Maret 2025",
+   "p0": 28.9,
+   "gk": 817834.0
+  },
+  "9700": {
+   "nama": "Papua Pegunungan",
+   "periode": "Maret 2025",
+   "p0": 30.03,
+   "gk": 1132178.0
+  }
+ },
+ "sumber_provinsi_2025": "DIKK 2025 Tabel 2.1, https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html"
+}

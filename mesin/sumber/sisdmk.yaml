@@ -1,0 +1,29 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: sisdmk
+name: Sistem Informasi SDM Kesehatan
+version: 0.2.0
+status: retired
+description:
+  purpose: Sumber kandidat Kartu Kebutuhan mesin eksplorasi Sulu
+  usage: Angka dihitung skrip; atribusi judul, tanggal akses, tautan; tidak diklaim produk resmi
+team:
+- name: Kementerian Kesehatan
+  role: pemilik data
+servers:
+- server: utama
+  type: https
+  url: https://satusehat.kemkes.go.id/sdmk/
+customProperties:
+- property: dipakai_kartu
+  value: 'tidak: pensiun'
+- property: tingkat_wilayah
+  value: kabkota
+- property: syarat_pakai_kutipan
+  value: 'BELUM: wajib dikutip di SU-0'
+- property: SU-0
+  value: 'GAGAL 13 Nov 2026: satusehat.kemkes.go.id/sdmk/ adalah layanan akun tenaga kesehatan (STR, izin), tanpa
+    tabel agregat publik per kab/kota dan tanpa syarat pakai. Per aturan G1.0, diganti dari bank sebelum ME2; kandidat:
+    tabel tenaga kesehatan kab/kota BPS provinsi.'
+- property: G1.3_status
+  value: tidak berlaku

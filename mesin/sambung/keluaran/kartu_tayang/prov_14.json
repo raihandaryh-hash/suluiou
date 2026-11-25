@@ -1,0 +1,549 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "14",
+  "nama": "Riau"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.1401",
+   "wilayah": {
+    "kode_bps": "1401",
+    "nama": "Kab. Kuantan Singingi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.66,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.99,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kuantan Singingi yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,7 persen penduduk Kab. Kuantan Singingi tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1401",
+   "wilayah": {
+    "kode_bps": "1401",
+    "nama": "Kab. Kuantan Singingi",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.84,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kuantan Singingi yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kuantan Singingi tercatat 2,8 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1402",
+   "wilayah": {
+    "kode_bps": "1402",
+    "nama": "Kab. Indragiri Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.58,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.83,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Indragiri Hulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,6 persen penduduk Kab. Indragiri Hulu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1402",
+   "wilayah": {
+    "kode_bps": "1402",
+    "nama": "Kab. Indragiri Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.59,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Indragiri Hulu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hulu tercatat 2,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1403",
+   "wilayah": {
+    "kode_bps": "1403",
+    "nama": "Kab. Indragiri Hilir",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.16,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.95,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Indragiri Hilir yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Indragiri Hilir tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1403",
+   "wilayah": {
+    "kode_bps": "1403",
+    "nama": "Kab. Indragiri Hilir",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.0,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Indragiri Hilir yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Indragiri Hilir tercatat 3,0 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1404",
+   "wilayah": {
+    "kode_bps": "1404",
+    "nama": "Kab. Pelalawan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.42,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.24,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pelalawan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 7,4 persen penduduk Kab. Pelalawan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1404",
+   "wilayah": {
+    "kode_bps": "1404",
+    "nama": "Kab. Pelalawan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.42,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Pelalawan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Pelalawan tercatat 2,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1405",
+   "wilayah": {
+    "kode_bps": "1405",
+    "nama": "Kab. Siak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.52,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.4,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Siak yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,5 persen penduduk Kab. Siak tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1405",
+   "wilayah": {
+    "kode_bps": "1405",
+    "nama": "Kab. Siak",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.3,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Siak yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Siak tercatat 5,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1406",
+   "wilayah": {
+    "kode_bps": "1406",
+    "nama": "Kab. Kampar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.52,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.29,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kampar yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,5 persen penduduk Kab. Kampar tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1406",
+   "wilayah": {
+    "kode_bps": "1406",
+    "nama": "Kab. Kampar",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.57,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kampar yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kampar tercatat 4,6 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1407",
+   "wilayah": {
+    "kode_bps": "1407",
+    "nama": "Kab. Rokan Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 8.3,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 8.71,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Rokan Hulu yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 8,3 persen penduduk Kab. Rokan Hulu tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1407",
+   "wilayah": {
+    "kode_bps": "1407",
+    "nama": "Kab. Rokan Hulu",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.17,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Rokan Hulu yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hulu tercatat 3,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1408",
+   "wilayah": {
+    "kode_bps": "1408",
+    "nama": "Kab. Bengkalis",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.45,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 6.08,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkalis yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,5 persen penduduk Kab. Bengkalis tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1408",
+   "wilayah": {
+    "kode_bps": "1408",
+    "nama": "Kab. Bengkalis",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.32,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bengkalis yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Bengkalis tercatat 5,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1409",
+   "wilayah": {
+    "kode_bps": "1409",
+    "nama": "Kab. Rokan Hilir",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 7.26,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.16,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Rokan Hilir yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 7,3 persen penduduk Kab. Rokan Hilir tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1409",
+   "wilayah": {
+    "kode_bps": "1409",
+    "nama": "Kab. Rokan Hilir",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.41,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Rokan Hilir yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Rokan Hilir tercatat 4,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1410",
+   "wilayah": {
+    "kode_bps": "1410",
+    "nama": "Kab. Kepulauan Meranti",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 21.57,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 20.51,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Meranti yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 21,6 persen penduduk Kab. Kepulauan Meranti tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1410",
+   "wilayah": {
+    "kode_bps": "1410",
+    "nama": "Kab. Kepulauan Meranti",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.43,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Kepulauan Meranti yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kab. Kepulauan Meranti tercatat 5,4 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1471",
+   "wilayah": {
+    "kode_bps": "1471",
+    "nama": "Kota Pekanbaru",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 2.96,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.19,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pekanbaru yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,0 persen penduduk Kota Pekanbaru tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1471",
+   "wilayah": {
+    "kode_bps": "1471",
+    "nama": "Kota Pekanbaru",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 5.24,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Pekanbaru yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Pekanbaru tercatat 5,2 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.1473",
+   "wilayah": {
+    "kode_bps": "1473",
+    "nama": "Kota Dumai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.19,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov1400"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.08,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Dumai yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,2 persen penduduk Kota Dumai tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.1473",
+   "wilayah": {
+    "kode_bps": "1473",
+    "nama": "Kota Dumai",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.51,
+    "satuan": "persen",
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Dumai yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2025, tingkat pengangguran terbuka di Kota Dumai tercatat 4,5 persen dari angkatan kerja."
+  }
+ ]
+}

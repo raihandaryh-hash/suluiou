@@ -1,0 +1,9 @@
+# Metode hitung saringan · v7 · ditulis 13 Nov 2026 18.00 WIB (jam sistem); v1-v6 tetap beku.
+# PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: arahan Raihan "Lanjut" untuk tonggak aktif), bisa dibalik.
+# Label jujur: aturan ini ditulis SESUDAH pemeriksa independen ME2 menunjukkan bahwa target 2029 menggeser satu dari lima
+# teratas (kemiskinan naik); tidak dibekukan sebelum hasilnya diketahui. Alasan memilihnya tetap bukan hasilnya:
+# kartu (G2.4) sudah membandingkan dengan target 2029 sejak 13 Nov 14.18, jadi saringan dan kartu harus memakai pembanding yang sama.
+versi: metode-saringan/7
+dasar: bank/metode_saringan_v6.yaml
+perubahan: "kandidat bertarget memakai rentang target_2029 RPJMN (sama dengan kartu, sumber/target/target_resmi.yaml), bukan target_2025"
+akibat_lain: "TPT nasional 2025 4,85% berada di atas target 2029 (4,00-4,71), jadi skala TPT terhitung (bukan nilai terendah)"

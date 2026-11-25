@@ -1,0 +1,286 @@
+[
+ {
+  "kunci_baris": "insightContent.ts:103",
+  "url": "https://www.bps.go.id/en/publication/2024/12/09/6f1fd1036968c8a28e4cfe26/keadaan-angkatan-kerja-di-indonesia-agustus-2024.html",
+  "cocok": "ya",
+  "catatan": "Live di basis bukti Sulu"
+ },
+ {
+  "kunci_baris": "insightContent.ts:123",
+  "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
+  "cocok": "ya",
+  "catatan": "Proposed di basis bukti Sulu"
+ },
+ {
+  "kunci_baris": "insightContent.ts:133",
+  "url": "https://perpustakaan.bappenas.go.id/e-library/file_upload/koleksi/dokumenbappenas/konten/Dokumen%202025/Konten/02-06-2025%20Fin%20Peta%20Jalan%20Pengembangan%20Tenaga%20Kerja%20Hijau%20Indonesia%20%5BISBN%5D.pdf",
+  "cocok": "sebagian",
+  "catatan": "Live; angka IESR 1,72 juta dikutip Peta Jalan Bappenas, laporan IESR sendiri belum bertautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:247",
+  "url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+  "cocok": "sebagian",
+  "catatan": "WEF Live; bagian McKinsey Global Institute belum bertautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:288",
+  "url": "https://www.educationandemployers.org/wp-content/uploads/2025/05/The-State-of-Global-Teenage-Career-Preparation-20th-May-2025-2.pdf",
+  "cocok": "ya",
+  "catatan": "Live; laporan penuh"
+ },
+ {
+  "kunci_baris": "insightContent.ts:306",
+  "url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+  "cocok": "ya",
+  "catatan": "Live"
+ },
+ {
+  "kunci_baris": "insightContent.ts:316",
+  "url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+  "cocok": "sebagian",
+  "catatan": "bagian BAPPENAS-WEF Accelerator belum bertautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:326",
+  "url": "https://kneks.go.id/berita/703/",
+  "cocok": "sebagian",
+  "catatan": "Proposed; SGIE: https://dinarstandard.com/insights/sgier-2024-25"
+ },
+ {
+  "kunci_baris": "insightContent.ts:336",
+  "url": "https://indonesia.unfpa.org/sites/default/files/pub-pdf/2025-12/Peta%20Jalan%20Pembangunan%20Kependudukan%20Indonesia_2025.pdf",
+  "cocok": "periksa",
+  "catatan": "Live untuk angka bonus demografi; judul sumber di layar berbeda (Proyeksi Penduduk Bappenas/BPS)"
+ },
+ {
+  "kunci_baris": "insightContent.ts:371",
+  "url": "https://www.jabarprov.go.id/berita/ekonomi-jawa-barat-triwulan-iii-2025-tumbuh-5-20-persen-dibanding-triwulan-iii-2024-21810",
+  "cocok": "TIDAK",
+  "catatan": "Baris Live menautkan berita Q3 2025 (5,20%) untuk klaim Q1 2026 5,79%: tautan tidak cocok, perlu dicari ulang"
+ },
+ {
+  "kunci_baris": "insightContent.ts:395",
+  "url": "https://kemenag.go.id/nasional/tracer-study-hampir-50-lulusan-uin-jakarta-terserap-dunia-kerja-sebelum-wisuda-OohrA",
+  "cocok": "ya",
+  "catatan": "Live; Data PBSB belum bertautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:420",
+  "url": "https://sevima.com/ai-hancurkan-monopoli-pengetahuan-kampus-sevima-prof-rhenald-kasali-ajak-pendidikan-tinggi-berubah/",
+  "cocok": "ya",
+  "catatan": "Live"
+ },
+ {
+  "kunci_baris": "insightContent.ts:427",
+  "url": "https://www.idnfinancials.com/news/54292",
+  "cocok": "sekunder",
+  "catatan": "Live tapi sumber berita, bukan IMF WEO primer"
+ },
+ {
+  "kunci_baris": "insightContent.ts:589",
+  "url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/Kinerja-Positif-Perbankan-Syariah-2024.aspx",
+  "cocok": "ya",
+  "catatan": "9,88% Des 2024; juga perbaikan L2 (33,92% salah)"
+ },
+ {
+  "kunci_baris": "insightContent.ts:677",
+  "url": "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/asia%20pacific/automation%20and%20the%20future%20of%20work%20in%20indonesia/automation-and-the-future-of-work-in-indonesia-vf.pdf",
+  "cocok": "ya",
+  "catatan": "Live"
+ },
+ {
+  "kunci_baris": "insightContent.ts:808",
+  "url": "https://www.bps.go.id/id/publication/2025/02/28/8cfe1a589ad3693396d3db9f/",
+  "cocok": "ya",
+  "catatan": "Live (air minum layak 92,64%)"
+ },
+ {
+  "kunci_baris": "insightContent.ts:818",
+  "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/",
+  "cocok": "periksa",
+  "catatan": "Live; rilis 5 Nov 2025 berisi Sakernas Agustus, layar menulis 'November'"
+ },
+ {
+  "kunci_baris": "insightContent.ts:87",
+  "sumber_layar": "BPS Sakernas 2025",
+  "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/",
+  "cocok": "ya",
+  "catatan": "Buku §4b#1 primer (NEET 19,44%); tautan rilis Agustus 2025"
+ },
+ {
+  "kunci_baris": "insightContent.ts:113",
+  "sumber_layar": "Sakernas 2025 + Mandiri Institute",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku §4b#6 sekunder; 35,36% diminta Raihan diverifikasi, hasil tidak tercatat. Perlu putusan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:148",
+  "sumber_layar": "Sakernas 2024; Link and Match 2023",
+  "url": "https://www.bps.go.id/en/publication/2024/12/09/6f1fd1036968c8a28e4cfe26/keadaan-angkatan-kerja-di-indonesia-agustus-2024.html",
+  "cocok": "ya",
+  "catatan": "Link and Match 2023 tidak ada di Buku: tautan belum"
+ },
+ {
+  "kunci_baris": "insightContent.ts:169",
+  "sumber_layar": "Sakernas 2024-2025",
+  "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/",
+  "cocok": "periksa",
+  "catatan": "perlu cek angka mana"
+ },
+ {
+  "kunci_baris": "insightContent.ts:181",
+  "sumber_layar": "BPS; World Bank 2024; ISEAS 2025",
+  "url": "https://www.worldbank.org/en/country/indonesia/brief/indonesia-human-capital",
+  "cocok": "ya",
+  "catatan": "ISEAS tidak ada di Buku maupun basis bukti"
+ },
+ {
+  "kunci_baris": "insightContent.ts:193",
+  "sumber_layar": "Sakernas 2023; IDN Media Gen Z 2024",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "IDN Media tidak ada di Buku maupun basis bukti"
+ },
+ {
+  "kunci_baris": "insightContent.ts:219",
+  "sumber_layar": "WDI SL.UEM.NEET.ZS",
+  "url": "https://data.worldbank.org/indicator/SL.UEM.NEET.ZS",
+  "cocok": "ya",
+  "catatan": "Buku §6a primer (API, re-fetch 15 Jun)"
+ },
+ {
+  "kunci_baris": "insightContent.ts:259",
+  "sumber_layar": "IOU biaya semester",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "data internal IOU, bukan tautan publik"
+ },
+ {
+  "kunci_baris": "insightContent.ts:264",
+  "sumber_layar": "UKT 2025; Survei Biaya Hidup 2024",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku dengan tautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:269",
+  "sumber_layar": "Sakernas Nov 2025",
+  "url": "https://www.bps.go.id/id/pressrelease/2025/11/05/2479/",
+  "cocok": "periksa",
+  "catatan": "Buku §6a TPT 4,74% Nov 2025, sekunder; label 'November' perlu dicek"
+ },
+ {
+  "kunci_baris": "insightContent.ts:283",
+  "sumber_layar": "ABKIN RDPU 2023; Permendikbud 111/2014",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku §4b#35 rasio 1:150 standar primer; realita belum dikunci"
+ },
+ {
+  "kunci_baris": "insightContent.ts:316",
+  "sumber_layar": "BAPPENAS-WEF Accelerator",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:559",
+  "sumber_layar": "JPPI; Kemenag 2024",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku: 484.737 (60,8%) guru madrasah belum bersertifikat, pengganti '6 dari 10'; tautan tidak tercatat"
+ },
+ {
+  "kunci_baris": "insightContent.ts:569",
+  "sumber_layar": "Statistik Keuangan Pemdes 2021",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:579",
+  "sumber_layar": "I-NAMHS 2022",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku: angka dipertahankan dengan konteks pandemi; tautan tidak tercatat"
+ },
+ {
+  "kunci_baris": "insightContent.ts:619",
+  "sumber_layar": "Okezone/RCTI+",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "kisah media, tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:620",
+  "sumber_layar": "Kompas/Tribun",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "kisah media, tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:621",
+  "sumber_layar": "Mojok",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "kisah media, tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:622",
+  "sumber_layar": "Viva",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "kisah media, tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:668",
+  "sumber_layar": "Layoffs.fyi",
+  "url": "https://layoffs.fyi/",
+  "cocok": "ya",
+  "catatan": "Buku §6b sekunder berlabel"
+ },
+ {
+  "kunci_baris": "insightContent.ts:669",
+  "sumber_layar": "Microsoft 2025",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:788",
+  "sumber_layar": "SSGI 2024",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku §4b#32 lulus Evidence Pass (stunting 19,8%); tautan tidak tercatat"
+ },
+ {
+  "kunci_baris": "insightContent.ts:798",
+  "sumber_layar": "Susenas 2023",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "Buku §4b#32 lulus Evidence Pass (APS 73,42%); tautan tidak tercatat"
+ },
+ {
+  "kunci_baris": "insightContent.ts:841",
+  "sumber_layar": "Sakernas Feb 2025",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku dengan tautan"
+ },
+ {
+  "kunci_baris": "insightContent.ts:851",
+  "sumber_layar": "Permana dkk. 2022 via DPR",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku"
+ },
+ {
+  "kunci_baris": "insightContent.ts:861",
+  "sumber_layar": "BPJS TK 2025 via Kemnaker",
+  "url": "",
+  "cocok": "tidak ditemukan",
+  "catatan": "tidak ada di Buku"
+ }
+]

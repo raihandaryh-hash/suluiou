@@ -1,0 +1,290 @@
+# Bank kandidat jenis kebutuhan · v1 · BEKU sejak commit pertama di cabang mesin-me1-fondasi
+# Gerbang G2.0 (rencana mesin v1 isi v1.3): >=30 jenis kebutuhan, minimal 3 per medan K1–K7,
+# ditulis dan dibekukan SEBELUM sumber dipilih. Label: SINTESIS (sesi mesin, 12 Nov 2026).
+# Medan dan sub-tantangan diambil dari src/data/jalanBaktiContent.ts (main @ 42e7d38), baris 96–176.
+# Kolom "sumber_kandidat" hanya calon. Statusnya diuji SU-0 (berkas terunduh, sidik, kutipan syarat pakai).
+# status_sumber: diketahui_ada = tercatat di riset E5/RISET 12 Nov; belum_dicek = dari ingatan, wajib SU-0.
+# Bank ini tidak memuat bobot. Bobot saringan ditulis terpisah (mesin/bank/bobot_v1.yaml) sebelum skor.
+# Perubahan bank sesudah beku = versi baru (bank_kandidat_v2.yaml) dengan alasan tertulis; v1 tidak disunting.
+
+versi: bank-kandidat/1
+dibekukan: 2026-11-12
+kandidat:
+  # ---------------- K1 Kesehatan & Kesejahteraan ----------------
+  - id: stunting-balita
+    medan: K1
+    sub_tantangan: k1c
+    indikator: prevalensi stunting balita
+    tingkat: kabkota
+    sumber_kandidat: [SSGI 2024 Kemenkes]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: target RPJMN 2025–2029 (Perpres 12/2025)
+  - id: wasting-balita
+    medan: K1
+    sub_tantangan: k1c
+    indikator: prevalensi wasting balita
+    tingkat: kabkota
+    sumber_kandidat: [SSGI 2024 Kemenkes]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: target RPJMN 2025–2029
+  - id: puskesmas-tanpa-9-nakes
+    medan: K1
+    sub_tantangan: k1a
+    indikator: persentase puskesmas dengan sembilan jenis tenaga kesehatan sesuai standar
+    tingkat: kabkota
+    sumber_kandidat: [SISDMK Kemenkes]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: standar ketenagaan puskesmas (Permenkes)
+  - id: dokter-per-penduduk
+    medan: K1
+    sub_tantangan: k1a
+    indikator: rasio dokter per 1.000 penduduk
+    tingkat: provinsi
+    sumber_kandidat: [SISDMK Kemenkes, Profil Kesehatan Indonesia]
+    status_sumber: belum_dicek
+    pembanding_kandidat: standar sektor (rasio WHO atau Kemenkes)
+  - id: kesehatan-jiwa-remaja
+    medan: K1
+    sub_tantangan: k1b
+    indikator: prevalensi gangguan mental emosional usia 15 tahun ke atas
+    tingkat: provinsi
+    sumber_kandidat: [Survei Kesehatan Indonesia 2023]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  # ---------------- K2 Pendidikan & Ilmu ----------------
+  - id: rasio-murid-guru
+    medan: K2
+    sub_tantangan: k2a
+    indikator: rasio murid per guru SMA/SMK
+    tingkat: kabkota
+    sumber_kandidat: [Dapodik Kemendikdasmen]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: standar sektor (SPM pendidikan)
+  - id: anak-tidak-sekolah
+    medan: K2
+    sub_tantangan: k2c
+    indikator: angka anak tidak sekolah usia 16–18
+    tingkat: kabkota
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: spm_cakupan (SPM pendidikan)
+  - id: apk-perguruan-tinggi
+    medan: K2
+    sub_tantangan: k2c
+    indikator: angka partisipasi kasar perguruan tinggi
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS, Statistik Pendidikan Tinggi 2025]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: target RPJMN 2025–2029
+  - id: buta-aksara-quran
+    medan: K2
+    sub_tantangan: k2b
+    indikator: proporsi muslim yang belum bisa membaca Al-Qur'an
+    tingkat: nasional
+    sumber_kandidat: [survei IIQ Jakarta 2024 (klaim register K138 wajib dicek ke sumber primer), Kemenag]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+    catatan: kebutuhan umat; bila hanya nasional, tayang sebagai kartu nasional (G2.1)
+  - id: tpq-per-anak
+    medan: K2
+    sub_tantangan: k2b
+    indikator: jumlah lembaga pendidikan Al-Qur'an per anak usia sekolah
+    tingkat: kabkota
+    sumber_kandidat: [EMIS Kemenag]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  # ---------------- K3 Keluarga, Anak & Kelompok Rentan ----------------
+  - id: lansia-sendiri
+    medan: K3
+    sub_tantangan: k3b
+    indikator: persentase lansia yang tinggal sendiri
+    tingkat: provinsi
+    sumber_kandidat: [Statistik Penduduk Lanjut Usia BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  - id: disabilitas-sekolah
+    medan: K3
+    sub_tantangan: k3c
+    indikator: partisipasi sekolah penyandang disabilitas
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: spm_cakupan
+  - id: kekerasan-anak
+    medan: K3
+    sub_tantangan: k3a
+    indikator: kasus kekerasan terhadap anak yang dilaporkan per 100.000 anak
+    tingkat: provinsi
+    sumber_kandidat: [SIMFONI PPA KemenPPPA]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+    catatan: data laporan, bukan prevalensi; label wajib
+  - id: perkawinan-anak
+    medan: K3
+    sub_tantangan: k3a
+    indikator: proporsi perempuan 20–24 tahun yang menikah sebelum 18 tahun
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN 2025–2029
+  # ---------------- K4 Bumi & Lingkungan ----------------
+  - id: sampah-tidak-terkelola
+    medan: K4
+    sub_tantangan: k4a
+    indikator: persentase sampah tidak terkelola
+    tingkat: kabkota
+    sumber_kandidat: [SIPSN KLHK]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target Jakstranas sampah
+  - id: desa-rawan-bencana
+    medan: K4
+    sub_tantangan: k4c
+    indikator: desa di kawasan rawan bencana tanpa sistem peringatan dini
+    tingkat: desa
+    sumber_kandidat: [Podes 2024 BPS (tabel publikasi), Indeks Risiko Bencana BNPB]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: median_nasional
+  - id: rasio-elektrifikasi-ebt
+    medan: K4
+    sub_tantangan: k4b
+    indikator: porsi energi baru terbarukan dalam bauran energi daerah
+    tingkat: provinsi
+    sumber_kandidat: [ESDM]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RUEN
+  # ---------------- K5 Ekonomi Adil & Keuangan ----------------
+  - id: neet-muda
+    medan: K5
+    sub_tantangan: k5d
+    indikator: persentase penduduk 15–24 tahun yang tidak sekolah, tidak bekerja, tidak pelatihan
+    tingkat: provinsi
+    sumber_kandidat: [Sakernas Agustus BPS]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: target RPJMN 2025–2029
+  - id: tpt-kabkota
+    medan: K5
+    sub_tantangan: k5d
+    indikator: tingkat pengangguran terbuka
+    tingkat: kabkota
+    sumber_kandidat: [Sakernas Agustus BPS]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: median_nasional
+  - id: kemiskinan-kabkota
+    medan: K5
+    sub_tantangan: k5a
+    indikator: persentase penduduk miskin
+    tingkat: kabkota
+    sumber_kandidat: [Data dan Informasi Kemiskinan Kabupaten/Kota 2025 BPS]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: target RPJMN 2025–2029
+  - id: umkm-akses-kredit
+    medan: K5
+    sub_tantangan: k5a
+    indikator: proporsi usaha mikro kecil yang mengakses kredit
+    tingkat: provinsi
+    sumber_kandidat: [BPS statistik IMK, OJK]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  - id: penyerapan-zakat
+    medan: K5
+    sub_tantangan: k5c
+    indikator: realisasi penghimpunan zakat dibanding potensi
+    tingkat: provinsi
+    sumber_kandidat: [BAZNAS Outlook Zakat, Statistik Zakat Nasional]
+    status_sumber: belum_dicek
+    pembanding_kandidat: potensi zakat resmi BAZNAS
+    catatan: kebutuhan umat
+  - id: wakaf-belum-produktif
+    medan: K5
+    sub_tantangan: k5c
+    indikator: luas atau jumlah tanah wakaf yang belum bersertifikat atau belum produktif
+    tingkat: kabkota
+    sumber_kandidat: [Siwak Kemenag, BWI]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+    catatan: kebutuhan umat
+  - id: literasi-keuangan-syariah
+    medan: K5
+    sub_tantangan: k5b
+    indikator: indeks literasi keuangan syariah
+    tingkat: provinsi
+    sumber_kandidat: [SNLIK OJK]
+    status_sumber: belum_dicek
+    pembanding_kandidat: indeks literasi keuangan umum (OJK)
+    catatan: kebutuhan umat; "lepas dari riba" tidak punya indikator resmi, ini proksi terdekat dan wajib dilabeli proksi
+  # ---------------- K6 Pangan, Air & Keberlanjutan ----------------
+  - id: petani-muda
+    medan: K6
+    sub_tantangan: k6a
+    indikator: proporsi petani berusia di bawah 40 tahun
+    tingkat: kabkota
+    sumber_kandidat: [Sensus Pertanian 2023 BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  - id: air-minum-layak
+    medan: K6
+    sub_tantangan: k6d
+    indikator: persentase rumah tangga dengan akses air minum layak
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: spm_cakupan (SPM pekerjaan umum)
+  - id: sanitasi-layak
+    medan: K6
+    sub_tantangan: k6d
+    indikator: persentase rumah tangga dengan sanitasi layak
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: spm_cakupan
+  - id: kerawanan-pangan
+    medan: K6
+    sub_tantangan: k6c
+    indikator: prevalensi ketidakcukupan konsumsi pangan (PoU)
+    tingkat: provinsi
+    sumber_kandidat: [Susenas BPS, Indeks Ketahanan Pangan Bapanas]
+    status_sumber: belum_dicek
+    pembanding_kandidat: target RPJMN 2025–2029
+  - id: nilai-tambah-pertanian
+    medan: K6
+    sub_tantangan: k6b
+    indikator: porsi hasil pertanian yang diolah di daerah asal
+    tingkat: provinsi
+    sumber_kandidat: [BPS PDRB lapangan usaha]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+    catatan: proksi; wajib dilabeli proksi
+  # ---------------- K7 Kepemimpinan & Tata Kelola ----------------
+  - id: desa-tertinggal
+    medan: K7
+    sub_tantangan: k7a
+    indikator: status desa (tertinggal, berkembang, maju, mandiri)
+    tingkat: desa
+    sumber_kandidat: [Indeks Desa 2025 Kemendes]
+    status_sumber: diketahui_ada
+    pembanding_kandidat: standar_sektor (kategori status desa resmi)
+  - id: kepala-desa-muda
+    medan: K7
+    sub_tantangan: k7a
+    indikator: proporsi perangkat desa berusia di bawah 35 tahun
+    tingkat: provinsi
+    sumber_kandidat: [Podes 2024 BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+  - id: tata-kelola-masjid
+    medan: K7
+    sub_tantangan: k7b
+    indikator: masjid dan lembaga umat yang terdaftar dan berbadan hukum
+    tingkat: kabkota
+    sumber_kandidat: [SIMAS Kemenag]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional
+    catatan: kebutuhan umat
+  - id: partisipasi-musrenbang
+    medan: K7
+    sub_tantangan: k7c
+    indikator: indeks demokrasi atau partisipasi warga dalam perencanaan
+    tingkat: provinsi
+    sumber_kandidat: [Indeks Demokrasi Indonesia BPS]
+    status_sumber: belum_dicek
+    pembanding_kandidat: median_nasional

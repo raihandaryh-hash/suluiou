@@ -1,0 +1,689 @@
+{
+ "versi": 1,
+ "asal": "skillMapContent.ts lapis 3 (tayang) x KBJI 2026",
+ "medan_ke_domain": {
+  "k1": [
+   "kesehatan"
+  ],
+  "k2": [
+   "pendidikan"
+  ],
+  "k3": [
+   "kesehatan"
+  ],
+  "k4": [
+   "energi-terbarukan"
+  ],
+  "k5": [
+   "keuangan-syariah",
+   "teknologi-digital"
+  ],
+  "k6": [
+   "pertanian-modern"
+  ],
+  "k7": []
+ },
+ "catatan_k7": "medan kepemimpinan dan tata kelola umat belum punya simpul domain di Peta Bekal; celah dicatat, bukan diisi peran struktural",
+ "domain": {
+  "energi-terbarukan": {
+   "nama": "Energi Terbarukan dan Lingkungan",
+   "sumber_kebutuhan": "IESR 2024; Bappenas Peta Jalan Tenaga Kerja Hijau 2025; Kemnaker RTKN 2025-2029",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Teknisi instalasi panel surya",
+     "kbji": [
+      {
+       "kode": "2149.15",
+       "judul": "Ahli teknik sistem energi surya",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3113.04",
+       "judul": "Teknisi surya termal",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3131.03",
+       "judul": "Operator pembangkit listrik tenaga surya",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Manajer proyek PLTS",
+     "kbji": [
+      {
+       "kode": "1321.04",
+       "judul": "Manajer proyek ekonomi sirkular",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1323.01",
+       "judul": "Manajer proyek konstruksi bangunan sipil",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1323.02",
+       "judul": "Manajer proyek konstruksi bangunan dan tempat tinggal",
+       "golongan": "Manajer"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Auditor energi",
+     "kbji": [
+      {
+       "kode": "2149.11",
+       "judul": "Ahli energi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2149.15",
+       "judul": "Ahli teknik sistem energi surya",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Insinyur proses",
+     "kbji": [
+      {
+       "kode": "2145.01",
+       "judul": "Ahli teknik kimia (umum)",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2145.02",
+       "judul": "Ahli teknik kimia bahan bakar",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2145.03",
+       "judul": "Ahli teknik kimia plastik",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2145.99",
+       "judul": "Ahli teknik kimia lainnya",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3116.02",
+       "judul": "Estimator teknik kimia",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Teknisi turbin",
+     "kbji": [
+      {
+       "kode": "8211.07",
+       "judul": "Perakit turbin",
+       "golongan": "Operator dan perakit mesin"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Ahli geologi panas bumi",
+     "kbji": [
+      {
+       "kode": "2114.01",
+       "judul": "Ahli geologi (umum)",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2114.02",
+       "judul": "Ahli geologi kelautan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2114.03",
+       "judul": "Ahli geologi pertambangan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2114.07",
+       "judul": "Ahli panas bumi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2114.99",
+       "judul": "Ahli geologi dan geofisika lainnya",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3111.02",
+       "judul": "Teknisi geologi",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Konsultan jejak karbon",
+     "kbji": [
+      {
+       "kode": "2133.04",
+       "judul": "Auditor lingkungan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2133.05",
+       "judul": "Ilmuwan lingkungan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2133.07",
+       "judul": "Konsultan lingkungan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2133.10",
+       "judul": "Spesialis restorasi lingkungan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2133.99",
+       "judul": "Ahli perlindungan lingkungan lainnya",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2142.07",
+       "judul": "Ahli teknik penyehatan lingkungan",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    }
+   ]
+  },
+  "teknologi-digital": {
+   "nama": "Teknologi dan Digital",
+   "sumber_kebutuhan": "WEF FoJ 2025; BPS Sakernas 2024 (KBLI J); Stanford AI Index 2026",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Pengembang perangkat lunak",
+     "kbji": [
+      {
+       "kode": "2512.01",
+       "judul": "Analis pemrograman",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2512.03",
+       "judul": "Pemrogram perangkat lunak",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2512.99",
+       "judul": "Pengembang perangkat lunak lainnya",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2514.00",
+       "judul": "Pemrogram aplikasi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2519.99",
+       "judul": "Analis dan pengembang perangkat lunak dan aplikasi ytdl",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3512.01",
+       "judul": "Asisten pemrograman komputer",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Analis data",
+     "kbji": [
+      {
+       "kode": "3143.02",
+       "judul": "Analis data kehutanan",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Insinyur AI/ML",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    },
+    {
+     "contoh": "Analis keamanan siber",
+     "kbji": [
+      {
+       "kode": "1330.10",
+       "judul": "Manajer keamanan informasi dan keamanan siber",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1330.11",
+       "judul": "Direktur keamanan informasi",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "2529.04",
+       "judul": "Auditor keamanan informasi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2529.05",
+       "judul": "Spesialis keamanan siber",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2529.06",
+       "judul": "Spesialis risiko keamanan siber",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2529.07",
+       "judul": "Spesialis tata kelola keamanan siber",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Desainer UI/UX",
+     "kbji": [
+      {
+       "kode": "2513.07",
+       "judul": "Perancang antarmuka web dan digital",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Insinyur teknologi finansial",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    }
+   ]
+  },
+  "pendidikan": {
+   "nama": "Pendidikan dan Pengembangan SDM",
+   "sumber_kebutuhan": "WEF FoJ 2025; BPS Sakernas 2024 (KBLI P); OECD 2025 (State of Global Teenage Career Preparation, berbasis PISA 2022)",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Pengajar semua jenjang",
+     "kbji": [
+      {
+       "kode": "2310.01",
+       "judul": "Dosen ilmu fisika",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.02",
+       "judul": "Dosen ilmu teknik dan arsitektur",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.03",
+       "judul": "Dosen ilmu kedokteran dan ilmu hayati",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.04",
+       "judul": "Dosen ilmu matematika",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.05",
+       "judul": "Dosen ilmu statistika",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.06",
+       "judul": "Dosen ilmu ekonomi dan administrasi niaga",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Perancang pembelajaran",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    },
+    {
+     "contoh": "Konselor karier",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    },
+    {
+     "contoh": "Pelatih vokasi",
+     "kbji": [
+      {
+       "kode": "2320.01",
+       "judul": "Instruktur teknik otomotif",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2320.02",
+       "judul": "Instruktur tata rias",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2342.04",
+       "judul": "Instruktur pendidikan anak usia dini (paud)",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3153.02",
+       "judul": "Instruktur penerbangan",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3422.99",
+       "judul": "Pelatih, instruktur, dan kru olahraga lainnya",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3423.01",
+       "judul": "Instruktur kebugaran",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Pengembang kurikulum",
+     "kbji": [
+      {
+       "kode": "2351.01",
+       "judul": "Koordinator kurikulum",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    }
+   ]
+  },
+  "kesehatan": {
+   "nama": "Kesehatan dan Layanan Sosial",
+   "sumber_kebutuhan": "WEF FoJ 2025; BPS Sakernas 2024 (KBLI Q); ILO World Employment and Social Outlook 2024",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Tenaga keperawatan",
+     "kbji": [
+      {
+       "kode": "1342.03",
+       "judul": "Direktur keperawatan",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1342.06",
+       "judul": "Manajer kasus perawatan",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1343.01",
+       "judul": "Direktur rumah perawatan lanjut usia",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1343.02",
+       "judul": "Koordinator komunitas perawatan lanjut usia",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1343.03",
+       "judul": "Direktur rumah perawatan intensif lanjut usia",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1343.05",
+       "judul": "Koordinator perawatan residensial",
+       "golongan": "Manajer"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Konselor",
+     "kbji": [
+      {
+       "kode": "2423.04",
+       "judul": "Konselor bimbingan kejuruan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.01",
+       "judul": "Konselor kecanduan/adiksi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.02",
+       "judul": "Konselor dukacita",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.03",
+       "judul": "Konselor anak dan remaja",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.04",
+       "judul": "Konselor keluarga",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.05",
+       "judul": "Konselor pernikahan",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Pekerja sosial",
+     "kbji": [
+      {
+       "kode": "2635.08",
+       "judul": "Pekerja sosial",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2635.99",
+       "judul": "Profesional konseling dan pekerja sosial lainnya",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Petugas kesehatan masyarakat",
+     "kbji": [
+      {
+       "kode": "1342.02",
+       "judul": "Koordinator kesehatan masyarakat",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "2221.03",
+       "judul": "Perawat kesehatan masyarakat",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2250.02",
+       "judul": "Dokter hewan kesehatan masyarakat",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2261.02",
+       "judul": "Dokter gigi kesehatan masyarakat",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2265.04",
+       "judul": "Ahli gizi kesehatan masyarakat",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2310.13",
+       "judul": "Dosen ilmu kesehatan masyarakat",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Psikolog klinis",
+     "kbji": [
+      {
+       "kode": "2634.01",
+       "judul": "Psikolog klinis",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2634.02",
+       "judul": "Psikolog pendidikan",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2634.03",
+       "judul": "Psikolog organisasi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2634.05",
+       "judul": "Psikolog olahraga",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "2634.99",
+       "judul": "Psikolog lainnya",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    }
+   ]
+  },
+  "keuangan-syariah": {
+   "nama": "Keuangan Syariah dan Halal Economy",
+   "sumber_kebutuhan": "KNEKS 2024; SGIE Report 2024/2025; OJK Roadmap Keuangan Syariah Indonesia 2023-2027",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Analis sukuk",
+     "kbji": [
+      {
+       "kode": "2413.99",
+       "judul": "Analis keuangan lainnya",
+       "golongan": "Profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Konsultan fikih muamalah",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    },
+    {
+     "contoh": "Manajer risiko syariah",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    },
+    {
+     "contoh": "Auditor halal",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    }
+   ]
+  },
+  "pertanian-modern": {
+   "nama": "Pertanian Modern dan Agritech",
+   "sumber_kebutuhan": "WEF FoJ 2025; BPS Sakernas 2024 (KBLI A); Bappenas RPJMN 2025-2029",
+   "arah": "tumbuh",
+   "peran": [
+    {
+     "contoh": "Spesialis pertanian presisi",
+     "kbji": [
+      {
+       "kode": "2132.01",
+       "judul": "Ahli agronomi",
+       "golongan": "Profesional"
+      },
+      {
+       "kode": "3142.09",
+       "judul": "Teknisi pertanian presisi",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Manajer rantai pasok pertanian",
+     "kbji": [
+      {
+       "kode": "1324.01",
+       "judul": "Manajer logistik",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "1324.03",
+       "judul": "Manajer rantai pasokan",
+       "golongan": "Manajer"
+      },
+      {
+       "kode": "3122.05",
+       "judul": "Supervisor logistik",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Teknisi IoT pertanian",
+     "kbji": [
+      {
+       "kode": "3142.02",
+       "judul": "Teknisi pertanian tanaman pangan",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3142.04",
+       "judul": "Teknisi pertanian hortikultura",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3142.09",
+       "judul": "Teknisi pertanian presisi",
+       "golongan": "Teknisi dan asisten profesional"
+      },
+      {
+       "kode": "3142.99",
+       "judul": "Teknisi pertanian lainnya",
+       "golongan": "Teknisi dan asisten profesional"
+      }
+     ],
+     "status": "di_kbji"
+    },
+    {
+     "contoh": "Teknisi irigasi cerdas",
+     "kbji": [],
+     "status": "belum_di_kbji"
+    }
+   ]
+  }
+ }
+}

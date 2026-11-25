@@ -1,0 +1,15 @@
+# Keluaran ambil_109.py di laptop, 15 Nov 2026 sekitar 01.22 WIB (disalin dari keluaran proses; skrip: laptop MESIN/peran/v2/ambil_109.py)
+kemiskinan-kabkota 0 DITERIMA h109-mis-00 teks 25356 sha 5495744f27d0
+kemiskinan-kabkota 1 DITERIMA h109-mis-01 teks 42028 sha 25b23ad86c60
+kemiskinan-kabkota 2 lewat: ada di register   (URL Download/341137 = perbup-pringsewu-23-2023 di register L0 v4)
+kemiskinan-kabkota 3 DITERIMA h109-mis-03 teks 65248 sha e067f3e99890
+kemiskinan-kabkota 4 DITERIMA h109-mis-04 teks 45234 sha f1b2805e200b   (matriks perbandingan BPK, bukan naskah peraturan)
+penduduk-tanpa-jaminan-kesehatan 0 DITERIMA h109-jkn-00 teks 19214 sha b8461609a3a2
+penduduk-tanpa-jaminan-kesehatan 1 DITERIMA h109-jkn-01 teks 17586 sha 872e6a78f160
+penduduk-tanpa-jaminan-kesehatan 2 DITERIMA h109-jkn-02 teks 12505 sha 976e8b59cfc5
+penduduk-tanpa-jaminan-kesehatan 3 DITERIMA h109-jkn-03 teks 11277 sha 9005146c2103
+stunting-balita 0 DITERIMA h109-stu-00 teks 40507 sha c6ad0136d8a4
+stunting-balita 1 DITERIMA h109-stu-01 teks 60747 sha d09210be0e50
+stunting-balita 2 DITERIMA h109-stu-02 teks 36376 sha bf776fcf69a6
+stunting-balita 3 DITERIMA h109-stu-03 teks 47404 sha 4ce210330545
+# Pemotong cuplikan: kemiskinan 4 dok 20 cuplikan; JKN 4 dok 8 cuplikan; stunting 4 dok 19 cuplikan. Validator v3.1: sah 29, ditolak 0.

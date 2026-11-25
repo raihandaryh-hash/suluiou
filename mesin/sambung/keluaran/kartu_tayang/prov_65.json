@@ -1,0 +1,259 @@
+{
+ "skema": "kartu-tayang/3",
+ "provinsi": {
+  "kode": "65",
+  "nama": "Kalimantan Utara"
+ },
+ "kartu": [
+  {
+   "id": "kemiskinan-kabkota.6501",
+   "wilayah": {
+    "kode_bps": "6501",
+    "nama": "Kab. Malinau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.92,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.56,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Malinau yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,9 persen penduduk Kab. Malinau tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6501",
+   "wilayah": {
+    "kode_bps": "6501",
+    "nama": "Kab. Malinau",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.31,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.42,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Malinau yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Malinau tercatat 3,3 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6502",
+   "wilayah": {
+    "kode_bps": "6502",
+    "nama": "Kab. Bulungan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 6.19,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 7.26,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bulungan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 6,2 persen penduduk Kab. Bulungan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6502",
+   "wilayah": {
+    "kode_bps": "6502",
+    "nama": "Kab. Bulungan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.11,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.14,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Bulungan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Bulungan tercatat 4,1 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6503",
+   "wilayah": {
+    "kode_bps": "6503",
+    "nama": "Kab. Tana Tidung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 3.82,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 4.56,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tana Tidung yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 3,8 persen penduduk Kab. Tana Tidung tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6503",
+   "wilayah": {
+    "kode_bps": "6503",
+    "nama": "Kab. Tana Tidung",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 3.54,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 3.68,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Tana Tidung yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Tana Tidung tercatat 3,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6504",
+   "wilayah": {
+    "kode_bps": "6504",
+    "nama": "Kab. Nunukan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 5.23,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.27,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Nunukan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 5,2 persen penduduk Kab. Nunukan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6504",
+   "wilayah": {
+    "kode_bps": "6504",
+    "nama": "Kab. Nunukan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 2.52,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 2.61,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kab. Nunukan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kab. Nunukan tercatat 2,5 persen dari angkatan kerja."
+  },
+  {
+   "id": "kemiskinan-kabkota.6571",
+   "wilayah": {
+    "kode_bps": "6571",
+    "nama": "Kota Tarakan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "kemiskinan-kabkota",
+   "angka": {
+    "nilai": 4.93,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "p0-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.03,
+    "tahun_data": 2025,
+    "sumber_id": "kemiskinan-kabkota-2025"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tarakan yang masih hidup di bawah garis kemiskinan",
+   "ringkasan": "Pada 2026, 4,9 persen penduduk Kota Tarakan tercatat sebagai penduduk miskin."
+  },
+  {
+   "id": "pengangguran-terbuka-kabkota.6571",
+   "wilayah": {
+    "kode_bps": "6571",
+    "nama": "Kota Tarakan",
+    "tingkat": "kabkota"
+   },
+   "jenis_kebutuhan": "pengangguran-terbuka-kabkota",
+   "angka": {
+    "nilai": 4.94,
+    "satuan": "persen",
+    "tahun_data": 2026,
+    "sumber_id": "tpt-2026-prov6500"
+   },
+   "angka_sebelumnya": {
+    "nilai": 5.06,
+    "tahun_data": 2025,
+    "sumber_id": "sakernas-agustus"
+   },
+   "hati_hati": true,
+   "catatan_bps": null,
+   "catatan_bps_tautan": null,
+   "judul": "Ada warga Kota Tarakan yang ingin bekerja dan belum mendapat pekerjaan",
+   "ringkasan": "Pada 2026, tingkat pengangguran terbuka di Kota Tarakan tercatat 4,9 persen dari angkatan kerja."
+  }
+ ]
+}

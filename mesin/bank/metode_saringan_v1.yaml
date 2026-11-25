@@ -1,0 +1,13 @@
+# Metode hitung saringan · v1 · ditulis 13 Nov 2026 14.47 WIB (jam sistem) SEBELUM skor apa pun dihitung, lalu dibekukan di uji/BEKU.sha256.
+# Melengkapi bank/bobot_v1.yaml (beku 12 Nov, tidak diubah): bobot tetap dari berkas itu; berkas ini hanya mengatur cara
+# komponen dihitung, dinormalisasi, dan diuji. PUTUSAN ATAS DELEGASI 13 Nov 2026 (dasar: "Lanjut" Raihan 13 Nov 14.46);
+# bisa dibalik Raihan; perubahan = metode_saringan_v2.yaml dengan alasan tertulis.
+versi: metode-saringan/1
+bobot: bank/bobot_v1.yaml
+definisi:
+  skala: "log10(orang terdampak secara nasional × jarak relatif dari pembanding resmi), jarak relatif = jarak / nilai pembanding; kandidat tanpa target resmi memakai median berlabel"
+  keterabaian: "kapasitas atau program yang sudah diarahkan (anggaran, tenaga, lembaga) per orang terdampak, dibalik: makin kecil kapasitas per orang, makin tinggi skor (definisi 80,000 Hours)"
+  keterpecahan: "1 = ada bukti uji acak atau evaluasi resmi berstatus Live; 0,5 = ada program resmi tanpa evaluasi; 0 = tidak ada"
+normalisasi: "peringkat persentil di antara kandidat yang ketiga komponennya terhitung (0 terendah, 1 tertinggi), supaya komponen berbeda satuan bisa dijumlahkan dengan bobot"
+data_kurang: "kandidat yang salah satu komponennya tidak bisa dihitung dari indikator bernama tidak diberi skor dan tidak diberi nilai pengganti; dicatat 'belum lengkap'. Ketersediaan data adalah syarat tayang, bukan bobot."
+uji_G2_3: "tiap bobot diubah +25% dan -25%, dua bobot lain dinormalisasi ulang agar jumlah 1; lulus bila minimal 4 dari 5 jenis teratas tetap di 5 teratas pada keenam variasi; syarat rencana: dihitung atas bank >=30 kandidat lengkap"
