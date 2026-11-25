@@ -44,6 +44,14 @@ const SdsStep = () => {
     return map;
   }, [sectionQuestions]);
 
+  // Dua butir per tipe secara bergiliran: R1 R2 I1 I2 A1 A2 ... lalu R3 R4 ...
+  const urutanTampil = useMemo(() => {
+    const out: typeof sectionQuestions = [];
+    const maks = Math.max(...CATEGORIES.map((c) => grouped[c].length));
+    for (let i = 0; i < maks; i += 2) CATEGORIES.forEach((c) => out.push(...grouped[c].slice(i, i + 2)));
+    return out;
+  }, [grouped]);
+
   const totalAll = sdsQuestions.length;
   const answeredAll = sdsQuestions.filter((q) => sdsAnswers[q.id]).length;
   const progress = ((bagian - 1) / jumlahBagian) * 100; // section-based
@@ -103,60 +111,36 @@ const SdsStep = () => {
           </p>
         </div>
 
-        {CATEGORIES.map((cat) => {
-          const items = grouped[cat];
-          const selectedCount = items.filter((q) => sdsAnswers[q.id]).length;
-          return (
-            <section key={cat} className="mb-6">
-              <div className="flex items-center justify-between mb-3 px-1">
-                <h3 className="text-sm font-heading font-semibold text-foreground">
-                  {riasecLabels[cat]}
-                </h3>
-                <span className="text-xs text-muted-foreground">
-                  {selectedCount}/{items.length}
-                </span>
-              </div>
-              <ul className="bg-card border border-border rounded-xl divide-y divide-border overflow-hidden">
-                {items.map((q) => {
-                  const checked = !!sdsAnswers[q.id];
-                  return (
-                    <li key={q.id}>
-                      <button
-                        type="button"
-                        onClick={() => toggleSds(q.id)}
-                        className={cn(
-                          'w-full flex items-center gap-3 px-4 py-3 text-left transition-colors',
-                          checked
-                            ? 'bg-primary/8'
-                            : 'hover:bg-muted/40 active:bg-muted/60'
-                        )}
-                      >
-                        <span
-                          className={cn(
-                            'w-6 h-6 shrink-0 rounded-md border-2 flex items-center justify-center',
-                            checked
-                              ? 'border-primary bg-primary text-primary-foreground'
-                              : 'border-border bg-background'
-                          )}
-                        >
-                          {checked && <Check className="w-4 h-4" />}
-                        </span>
-                        <span
-                          className={cn(
-                            'text-sm leading-snug',
-                            checked ? 'text-foreground font-medium' : 'text-foreground/80'
-                          )}
-                        >
-                          {q.text}
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          );
-        })}
+        {/* Urutan berselang R-I-A-S-E-C seperti formulir O*NET, tanpa judul tipe, supaya jawaban tidak mengikuti blok. */}
+        <ul className="bg-card border border-border rounded-xl divide-y divide-border overflow-hidden mb-6">
+          {urutanTampil.map((q) => {
+            const checked = !!sdsAnswers[q.id];
+            return (
+              <li key={q.id}>
+                <button
+                  type="button"
+                  onClick={() => toggleSds(q.id)}
+                  className={cn(
+                    'w-full flex items-center gap-3 px-4 py-3 text-left transition-colors',
+                    checked ? 'bg-primary/8' : 'hover:bg-muted/40 active:bg-muted/60'
+                  )}
+                >
+                  <span
+                    className={cn(
+                      'w-6 h-6 shrink-0 rounded-md border-2 flex items-center justify-center',
+                      checked ? 'border-primary bg-primary text-primary-foreground' : 'border-border bg-background'
+                    )}
+                  >
+                    {checked && <Check className="w-4 h-4" />}
+                  </span>
+                  <span className={cn('text-sm leading-snug', checked ? 'text-foreground font-medium' : 'text-foreground/80')}>
+                    {q.text}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
 
         <div className="text-center text-xs text-muted-foreground mb-4">
           Total dipilih: {answeredAll} dari {totalAll}

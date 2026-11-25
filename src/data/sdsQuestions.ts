@@ -7,6 +7,9 @@
 // SACII-SR versi Indonesia divalidasi konvergen terhadap O*NET Interest Profiler (ejournal.uin-suska.ac.id/index.php/psikologi/article/download/12676/pdf).
 // Terjemahan Indonesia: DRAF Chief Sulu, menunggu terjemah balik dan tinjauan SME. Teks Inggris disimpan di `asli`.
 // Nama berkas dan tipe dipertahankan supaya alur dan skor tidak patah; kini satu bagian saja.
+// Catatan metodologi untuk SME: skala jawaban di sini dikotom (ingin / tidak), mengikuti versi kertas O*NET IP-SF;
+// versi daring O*NET memakai lima pilihan. Validitas versi lima pilihan tidak otomatis berlaku untuk adaptasi dikotom ini.
+// Urutan tampil diselang-seling R-I-A-S-E-C seperti formulir O*NET, tanpa judul tipe.
 
 export type RiasecCategory = 'R' | 'I' | 'A' | 'S' | 'E' | 'C';
 export type SdsSection = 1;
@@ -96,9 +99,9 @@ export const sdsQuestions: SdsQuestion[] = [
   { id: 'ip-E-6', section: 1, category: 'E', num: 6, text: 'Merundingkan kontrak bisnis', asli: 'Negotiate business contracts' },
   { id: 'ip-E-7', section: 1, category: 'E', num: 7, text: 'Mewakili klien dalam perkara hukum', asli: 'Represent a client in a lawsuit' },
   { id: 'ip-E-8', section: 1, category: 'E', num: 8, text: 'Memasarkan lini pakaian baru', asli: 'Market a new line of clothing' },
-  { id: 'ip-E-9', section: 1, category: 'E', num: 9, text: 'Menjual barang di pusat perbelanjaan', asli: 'Sell merchandise at a department store' },
+  { id: 'ip-E-9', section: 1, category: 'E', num: 9, text: 'Menjual barang di toserba', asli: 'Sell merchandise at a department store' },
   { id: 'ip-E-10', section: 1, category: 'E', num: 10, text: 'Mengelola toko pakaian', asli: 'Manage a clothing store' },
-  { id: 'ip-C-1', section: 1, category: 'C', num: 1, text: 'Menyusun lembar kerja dengan perangkat lunak komputer', asli: 'Develop a spreadsheet using computer software' },
+  { id: 'ip-C-1', section: 1, category: 'C', num: 1, text: 'Menyusun spreadsheet dengan perangkat lunak komputer', asli: 'Develop a spreadsheet using computer software' },
   { id: 'ip-C-2', section: 1, category: 'C', num: 2, text: 'Memeriksa ketepatan catatan atau formulir', asli: 'Proofread records or forms' },
   { id: 'ip-C-3', section: 1, category: 'C', num: 3, text: 'Memasang perangkat lunak di banyak komputer dalam jaringan besar', asli: 'Install software across computers on a large network' },
   { id: 'ip-C-4', section: 1, category: 'C', num: 4, text: 'Mengoperasikan kalkulator', asli: 'Operate a calculator' },

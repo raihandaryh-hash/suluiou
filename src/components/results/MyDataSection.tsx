@@ -16,7 +16,7 @@ interface MyDataSectionProps {
 }
 
 const HEXACO_LABELS: Array<{ key: keyof DimensionScores; label: string }> = [
-  { key: 'honesty', label: 'Kejujuran-Kerendahan Hati' },
+  { key: 'honesty', label: 'Kesederhanaan (tidak haus kemewahan)' },
   { key: 'emotionality', label: 'Kepekaan emosi' },
   { key: 'extraversion', label: 'Ekstroversi' },
   { key: 'agreeableness', label: 'Keramahan' },

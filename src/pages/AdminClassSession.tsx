@@ -20,8 +20,8 @@ import ProjectorMode from '@/components/admin/ProjectorMode';
 import PesertaKelasAdmin from '@/components/admin/PesertaKelasAdmin';
 
 const HEXACO_LABELS: Record<string, string> = {
-  honesty: 'H — Kejujuran & Kerendahan Hati',
-  emotionality: 'E — Emosionalitas',
+  honesty: 'H — Kesederhanaan (Kejujuran-Kerendahan Hati)',
+  emotionality: 'E — Kepekaan emosi',
   extraversion: 'X — Ekstraversi',
   agreeableness: 'A — Keramahan',
   conscientiousness: 'C — Kehati-hatian',
@@ -329,7 +329,7 @@ const AdminClassSession = () => {
               <>
                 <section className="rounded-xl border border-border bg-card p-6">
                   <h2 className="text-lg font-heading font-bold text-foreground mb-4">
-                    Sebaran HEXACO (Rata-rata Kelas)
+                    Sebaran Kepribadian (Rata-rata Kelas)
                   </h2>
                   <div className="h-80">
                     <ResponsiveContainer width="100%" height="100%">

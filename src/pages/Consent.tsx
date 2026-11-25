@@ -107,7 +107,7 @@ const Consent = () => {
             <section>
               <h2 className="font-heading font-semibold text-base mb-2">Waktu yang dibutuhkan</h2>
               <p>
-                Sekitar 45–50 menit. Progresmu tersimpan otomatis — kamu bisa lanjutkan nanti dari
+                Sekitar 20 menit. Progresmu tersimpan otomatis — kamu bisa lanjutkan nanti dari
                 perangkat manapun.
               </p>
             </section>

@@ -22,9 +22,10 @@ export function interpretHEXACO(dim: keyof HEXACOScores, score: number): string 
   const level = score >= 3.7 ? 'high' : score >= 2.4 ? 'mid' : 'low';
   const map: Record<keyof HEXACOScores, Record<string, string>> = {
     H: {
-      high: 'orang yang akan memilih diam daripada mengatakan sesuatu yang tidak sepenuhnya benar — bahkan ketika berbohong kecil jauh lebih mudah',
-      mid: 'tahu kapan harus jujur penuh dan kapan harus memilih kata dengan hati-hati — kejujuran baginya bukan absolut, tapi juga bukan sesuatu yang bisa diperjualbelikan',
-      low: 'pragmatis dalam cara ia menyampaikan sesuatu — lebih mementingkan tujuan tercapai daripada apakah caranya sepenuhnya sesuai ekspektasi orang lain',
+      // Sejak 25 Nov 2026 H diukur Mini-IPIP6: rasa berhak dan ketertarikan pada kemewahan (dibalik), bukan kejujuran lisan.
+      high: 'tidak merasa dunia berutang apa-apa kepadanya dan tidak silau oleh kemewahan, hal-hal sederhana sudah cukup untuk membuatnya bekerja dengan sungguh-sungguh',
+      mid: 'senang dengan hal-hal yang baik tanpa menjadikannya ukuran diri, tahu kapan cukup itu cukup',
+      low: 'punya selera tinggi dan dorongan kuat untuk mendapat lebih, energi yang bisa menjadi bahan bakar asal diarahkan ke tujuan yang bermakna',
     },
     E: {
       // Sejak 25 Nov 2026 E diukur Mini-IPIP6 (kepekaan emosi/Neuroticism), bukan Emotionality HEXACO.

@@ -3,8 +3,8 @@ import type { Dimension, Question } from '@/data/questions';
 export type DimensionScores = Record<Dimension, number>;
 
 export const traitLabels: Record<Dimension, string> = {
-  honesty: 'Kejujuran',
-  emotionality: 'Sensitivitas',
+  honesty: 'Kesederhanaan',
+  emotionality: 'Kepekaan emosi',
   extraversion: 'Sosial',
   agreeableness: 'Keramahan',
   conscientiousness: 'Keteraturan',

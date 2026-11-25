@@ -23,7 +23,7 @@ const CTASection = () => {
             Temukan <span className="text-accent">Jalanmu</span> Sekarang
           </h2>
           <p className="text-white/70 text-sm md:text-base max-w-lg mx-auto mb-8">
-            Asesmen mendalam ±45 menit. Progresmu tersimpan otomatis.
+            Asesmen sekitar 20 menit. Progresmu tersimpan otomatis.
           </p>
 
           <Button asChild size="default" className="group text-sm px-8 py-5 bg-accent text-primary-foreground hover:bg-accent/90">
@@ -34,7 +34,7 @@ const CTASection = () => {
           </Button>
 
           <p className="text-xs text-white/50 mt-6">
-            Berbasis HEXACO & RIASEC — instrumen psikometri yang digunakan dalam riset karier global
+            Berbasis instrumen terbuka: kepribadian enam faktor (Mini-IPIP6), minat RIASEC (O*NET), dan adaptasi karier (CAAS)
           </p>
         </motion.div>
       </div>
