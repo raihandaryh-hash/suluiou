@@ -42,7 +42,7 @@ export function isProfileComplete(p: StudentProfile | null | undefined): boolean
   );
 }
 
-export type AssessmentStage = 'profile' | 'hexaco' | 'hexaco-done' | 'sds' | 'submitting';
+export type AssessmentStage = 'profile' | 'hexaco' | 'hexaco-done' | 'sds' | 'caas' | 'submitting';
 
 interface AssessmentState {
   stage: AssessmentStage;
@@ -84,6 +84,7 @@ interface AssessmentContextType extends AssessmentState {
   goToSdsSection: (section: 1 | 2 | 3) => void;
   startHexaco: () => void;
   startSds: () => void;
+  startCaas: () => void;
   completeAssessment: () => void;
   togglePathway: (id: string) => void;
   triggerLayer1: () => Promise<void>;
@@ -265,6 +266,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
 
   const startHexaco = () => setState((p) => ({ ...p, stage: 'hexaco' }));
   const startSds = () => setState((p) => ({ ...p, stage: 'sds', sdsSection: 1 }));
+  // Bagian 3: kemampuan adaptasi karier (CAAS). Jawaban disimpan di hexacoAnswers (id 201-224).
+  const startCaas = () => setState((p) => ({ ...p, stage: 'caas' }));
 
   // Compute scores only. No pathway matching — Layer 2 is now student-driven.
   const completeAssessment = () => {
@@ -431,6 +434,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         goToSdsSection,
         startHexaco,
         startSds,
+        startCaas,
         completeAssessment,
         togglePathway,
         triggerLayer1,

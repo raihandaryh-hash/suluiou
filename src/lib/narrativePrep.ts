@@ -27,7 +27,8 @@ export function interpretHEXACO(dim: keyof HEXACOScores, score: number): string 
       low: 'pragmatis dalam cara ia menyampaikan sesuatu — lebih mementingkan tujuan tercapai daripada apakah caranya sepenuhnya sesuai ekspektasi orang lain',
     },
     E: {
-      high: 'bisa merasakan ketegangan di ruangan sebelum ada yang bicara — dan biasanya menahan diri untuk tidak langsung bereaksi, meski sudah merasakannya duluan',
+      // Sejak 25 Nov 2026 E diukur Mini-IPIP6 (kepekaan emosi/Neuroticism), bukan Emotionality HEXACO.
+      high: 'perasaannya cepat tersentuh oleh apa yang terjadi di sekitarnya dan bisa naik turun dalam sehari, kepekaan yang menjadi kekuatan ketika ia punya cara sendiri untuk menenangkan diri',
       mid: 'tidak mudah terbawa arus perasaan orang lain, tapi juga tidak dingin — ia tahu kapan harus hadir sepenuhnya dan kapan harus menjaga jarak',
       low: 'tidak mudah goyah ketika tekanan datang — orang-orang di sekitarnya sering datang justru karena ia tidak panik ketika semua orang lain panik',
     },

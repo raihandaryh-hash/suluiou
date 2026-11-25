@@ -36,7 +36,7 @@ const HexacoDoneStep = () => {
             Kamu sudah menyelesaikan <span className="font-semibold text-foreground">{hexacoQuestions.length} pertanyaan</span> tentang kepribadian.
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-10">
-            Sekarang lanjut ke <span className="font-semibold text-foreground">bagian 2 dari 2</span>: minat dan kegiatan.
+            Sekarang lanjut ke <span className="font-semibold text-foreground">bagian 2 dari 3</span>: minat dan kegiatan. Bagian 3 tentang kemampuan menyesuaikan diri dalam karier.
           </p>
 
           <Button

@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAssessment } from '@/context/AssessmentContext';
 import {
   sdsQuestions,
@@ -24,9 +23,8 @@ const SdsStep = () => {
     sdsSection,
     toggleSds,
     goToSdsSection,
-    completeAssessment,
+    startCaas,
   } = useAssessment();
-  const navigate = useNavigate();
 
   // Jumlah bagian dari data (O*NET IP Short Form: satu bagian). Progres lama bagian 2/3 dijepit ke bagian terakhir.
   const jumlahBagian = new Set(sdsQuestions.map((q) => q.section)).size;
@@ -55,10 +53,9 @@ const SdsStep = () => {
       goToSdsSection((bagian + 1) as 1 | 2 | 3);
       window.scrollTo({ top: 0, behavior: 'auto' });
     } else {
-      // Sync: compute scores instantly, then jump to results.
-      // /results triggers the AI projection itself after first paint.
-      completeAssessment();
-      navigate('/results');
+      // Lanjut ke bagian 3 (kemampuan adaptasi karier); skor dihitung di akhir bagian itu.
+      startCaas();
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
   };
 
@@ -183,7 +180,7 @@ const SdsStep = () => {
             onClick={handleNext}
             className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            {bagian < jumlahBagian ? 'Lanjut Bagian Berikutnya' : 'Lihat Hasil'}
+            {bagian < jumlahBagian ? 'Lanjut Bagian Berikutnya' : 'Lanjut ke Bagian 3'}
             <ArrowRight className="w-4 h-4" />
           </Button>
         </div>

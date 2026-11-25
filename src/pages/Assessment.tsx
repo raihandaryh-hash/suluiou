@@ -4,6 +4,7 @@ import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import HexacoStep from '@/components/assessment/HexacoStep';
 import HexacoDoneStep from '@/components/assessment/HexacoDoneStep';
 import SdsStep from '@/components/assessment/SdsStep';
+import CaasStep from '@/components/assessment/CaasStep';
 import Logo from '@/components/Logo';
 import LogoutButton from '@/components/LogoutButton';
 import SwitchAccountChip from '@/components/SwitchAccountChip';
@@ -73,6 +74,16 @@ const Assessment = () => {
       <div className="relative">
         {Header}
         <SdsStep />
+        <SwitchAccountChip />
+      </div>
+    );
+  }
+
+  if (stage === 'caas') {
+    return (
+      <div className="relative">
+        {Header}
+        <CaasStep />
         <SwitchAccountChip />
       </div>
     );

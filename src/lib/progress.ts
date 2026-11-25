@@ -37,7 +37,7 @@ export interface ProgressSnapshot {
   studentProfile: StudentProfile | null;
   hexacoAnswers: Record<number, number>;
   sdsAnswers: Record<string, boolean>;
-  stage: 'profile' | 'hexaco' | 'sds' | 'submitting';
+  stage: 'profile' | 'hexaco' | 'sds' | 'caas' | 'submitting';
   hexacoIndex: number;
   sdsSection: 1 | 2 | 3;
   consentGiven: boolean;
@@ -271,7 +271,7 @@ export function rowToSnapshot(row: ProgressRow): ProgressSnapshot {
   Object.entries(row.hexaco_answers ?? {}).forEach(([k, v]) => {
     hexaco[Number(k)] = Number(v);
   });
-  const stage = (['profile', 'hexaco', 'sds', 'submitting'].includes(row.stage)
+  const stage = (['profile', 'hexaco', 'sds', 'caas', 'submitting'].includes(row.stage)
     ? row.stage
     : 'profile') as ProgressSnapshot['stage'];
   const section = (row.sds_section >= 1 && row.sds_section <= 3

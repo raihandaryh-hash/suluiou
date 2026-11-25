@@ -24,6 +24,7 @@ import RujukanDistress from '@/components/RujukanDistress';
 import { ShareButtons } from '@/components/results/ShareButtons';
 import { CaptureShareButton } from '@/components/results/CaptureShareButton';
 import { MyDataSection } from '@/components/results/MyDataSection';
+import { skorCaas } from '@/data/caasQuestions';
 // ParentConsentSection tidak lagi ditampilkan (manifest Persetujuan dan Jalur Tarik v0.2): anak tidak mengisi nomor
 // orang tua. Komponennya disimpan untuk alur orang tua Tonggak 2.
 import { IzinKuliahSection } from '@/components/results/IzinKuliahSection';
@@ -64,6 +65,7 @@ const Results = () => {
     tutupDistressHasil,
     hollandCode,
     sdsCounts,
+    hexacoAnswers,
   } = useAssessment();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -390,7 +392,7 @@ const Results = () => {
             </p>
 
             {/* Data Saya — collapsible, default tertutup */}
-            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} />
+            <MyDataSection scores={scores} hollandCode={hollandCode} sdsCounts={sdsCounts} caas={skorCaas(hexacoAnswers)} />
 
             {/* Cermin Dirimu (Layer 1) */}
             <motion.div className="glass rounded-2xl p-6 md:p-8 mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>

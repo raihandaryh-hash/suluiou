@@ -86,3 +86,25 @@ describe('kunci butir', () => {
     expect(sdsQuestions.every((q) => q.asli.length > 0)).toBe(true);
   });
 });
+
+import { caasQuestions, skorCaas } from '@/data/caasQuestions';
+describe('Adaptasi karier (CAAS)', () => {
+  it('24 butir, 6 per dimensi, id 201-224', () => {
+    expect(caasQuestions).toHaveLength(24);
+    (['kepedulian', 'kontrol', 'keingintahuan', 'keyakinan'] as const).forEach((d) =>
+      expect(caasQuestions.filter((q) => q.dimensi === d)).toHaveLength(6),
+    );
+    expect(Math.min(...caasQuestions.map((q) => q.id))).toBe(201);
+    expect(Math.max(...caasQuestions.map((q) => q.id))).toBe(224);
+  });
+  it('skor rerata per dimensi, null bila kosong', () => {
+    const j = Object.fromEntries(caasQuestions.filter((q) => q.dimensi === 'kontrol').map((q) => [q.id, 4]));
+    const s = skorCaas(j);
+    expect(s.kontrol).toBe(4);
+    expect(s.kepedulian).toBeNull();
+  });
+  it('tidak bertabrakan dengan id kepribadian', () => {
+    const ids = new Set(hexacoQuestions.map((q) => q.id));
+    expect(caasQuestions.some((q) => ids.has(q.id))).toBe(false);
+  });
+});
