@@ -8,3 +8,4 @@ Asal: butir Sulu dari INTENT_KANON_IOU-OS (SINTESIS Neon 25 Nov 2026, dimodifika
 5. **Air-gap keras pengguna di bawah 18.** Data mereka tidak mengalir ke basis data bersama IOU; hanya angka wilayah resmi yang dipakai mesin.
 6. **Anti-amnesia dan anti-klaim-kosong.** Pengingat Raihan atas niat lama dilarang dicatat sebagai keputusan baru. Klaim negatif ("belum ada", "kosong") wajib disertai kueri pembanding yang pasti mengembalikan baris.
 7. **Privasi.** Nol PII dan nol rahasia di Git.
+8. **Sulu untuk siapa pun, dengan pilihan peran di awal** (8 Nov 21.45: "Sulu juga kan bukan hanya untuk anak SMA ya, tapi untuk siapa pun, itulah mengapa nanti ada pilihan saat di awal"; menegaskan 30 Jul). Peran: siswa, mahasiswa, orang tua, guru BK, guru, umum. Tiap prompt AI dan teks layar ditulis untuk semua peran atau bercabang per peran; dijaga uji `supabase/functions/_uji/pembaca_semua_fungsi_test.ts`.

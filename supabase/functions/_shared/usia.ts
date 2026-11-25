@@ -16,7 +16,24 @@ export function putuskanUsia(pengguna: unknown): StatusUsia {
 export type IdentitasPermintaan = {
   usia: StatusUsia;
   userId: string | null;
+  /** Peran yang dipilih pengguna di pintu masuk (app_metadata.peran, ditulis server); null bila tidak ada. */
+  peran?: string | null;
 };
+
+const PERAN_SAH = ["siswa", "mahasiswa", "orang_tua", "guru_bk", "guru", "umum"];
+
+/** Sebutan pembaca untuk perintah AI, menurut peran akun (KEPUTUSAN 8 Nov 21.45: Sulu untuk siapa pun). */
+export function sebutanPembaca(peran: string | null | undefined): string {
+  switch (peran) {
+    case "siswa": return "siswa SMA/MA/SMK";
+    case "mahasiswa": return "mahasiswa";
+    case "orang_tua": return "orang tua yang sedang menimbang arah hidupnya sendiri";
+    case "guru_bk": return "guru BK yang sedang mengenali dirinya sendiri";
+    case "guru": return "guru yang sedang menimbang arah kariernya";
+    case "umum": return "orang dewasa yang sedang menimbang arah";
+    default: return "orang yang sedang menimbang arah hidupnya";
+  }
+}
 
 /**
  * Baca status usia dan user.id pemanggil dari token permintaan.
@@ -40,7 +57,9 @@ export async function identitasPermintaan(
     if (usia === "anon") return { usia: "anon", userId: null };
     const rawId = (u as { id?: unknown } | null)?.id;
     const userId = typeof rawId === "string" && rawId.trim() ? rawId.trim() : null;
-    return { usia, userId };
+    const rawPeran = (u as { app_metadata?: { peran?: unknown } } | null)?.app_metadata?.peran;
+    const peran = typeof rawPeran === "string" && PERAN_SAH.includes(rawPeran) ? rawPeran : null;
+    return { usia, userId, peran };
   } catch {
     return { usia: "anon", userId: null }; // termasuk lewat batas waktu
   } finally {
@@ -75,3 +94,9 @@ export function modeCHidup(get: (k: string) => string | undefined): boolean {
 /** Teks statis obrolan terkunci. Tidak dipakai sejak kapabilitas penuh (25 Nov); disimpan untuk saklar SULU_MODE_C_HIDUP. */
 export const TEKS_OBROLAN_TERKUNCI =
   "Obrolan bebas dengan Sulu akan terbuka setelah orang tua atau wali kamu memberi izin. Sementara itu, semua tahap perjalananmu di Sulu tetap bisa kamu jalani. Kalau ada yang sedang berat dan ingin kamu ceritakan, bicarakan dengan guru BK atau orang dewasa yang kamu percaya.";
+
+/** Baris konteks pembaca untuk systemInstruction semua fungsi AI. Sulu untuk beragam pengguna (KEPUTUSAN 8 Nov 21.45);
+ *  dijaga uji _uji/pembaca_semua_fungsi_test.ts agar fungsi AI baru tidak lupa. */
+export function barisPembaca(peran: string | null | undefined): string {
+  return `\nPEMBACA: ${sebutanPembaca(peran)}. Sulu dipakai beragam pengguna (siswa, mahasiswa, orang tua, guru BK, guru, umum); sesuaikan contoh, jalur, dan sapaan dengan pembaca ini.\n`;
+}

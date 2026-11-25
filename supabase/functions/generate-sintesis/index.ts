@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { barisPembaca } from "../_shared/usia.ts";
 import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
@@ -117,7 +118,7 @@ serve(async (req) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           // G3-015: pisahkan systemInstruction dari pesan pengguna; bungkus konteks siswa dalam <konteks_siswa>.
-          systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
+          systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + barisPembaca(siap.peran) + ARAHAN_LAPIS_KEDUA }] },
           contents: [{ role: "user", parts: [{ text: `<konteks_siswa>\n${ctx}\n</konteks_siswa>` }] }],
           generationConfig: {
             temperature: 0.65,

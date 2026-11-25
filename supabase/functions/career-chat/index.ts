@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { barisPembaca } from "../_shared/usia.ts";
 import { cabangDistress, ARAHAN_LAPIS_KEDUA, saklarHidup, cabangBlokirKeamanan } from "../_shared/distressServer.ts";
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
@@ -192,7 +193,7 @@ GAYA:
         },
         body: JSON.stringify({
           // G2-14: arahan sistem di systemInstruction (diteruskan penyedia.ts sebagai system), bukan digabung ke pesan pengguna.
-          systemInstruction: { parts: [{ text: /* B9 lapis kedua */ systemPrompt + ARAHAN_LAPIS_KEDUA }] },
+          systemInstruction: { parts: [{ text: /* B9 lapis kedua */ systemPrompt + barisPembaca(siap.peran) + ARAHAN_LAPIS_KEDUA }] },
           contents: messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
           generationConfig: {
             maxOutputTokens: 1024,

@@ -79,7 +79,7 @@ export const rencanaAksiContent = {
     setelah: "Lalu Allah jawab doa itu dengan jalan yang tak ia duga. Urutannya sederhana: berbuat baik dengan tulus, panjatkan kebutuhanmu, lalu tenang — biarkan Allah yang mengatur sisanya.",
     istianah: "Dan saat kamu mulai melangkah, ingatlah satu kalimat ringan yang menanggalkan beban: لا حول ولا قوة إلا بالله. Sebelum beramal, ia menurunkan rasa cemas. Saat beramal, ia mengingatkan bahwa kamu hanya alat — hasilnya milik Allah. Setelah beramal, ia menuntunmu bersyukur tanpa merasa cukup berjasa.",
     khidmahNudge: "Salah satu bentuk langkah 30 hari: habiskan 2–4 jam membantu di bidang yang kamu minati, tanpa bayaran, dengan niat khidmah.",
-    // Varian track dewasa (mahasiswa IOU) — copy FINAL Fable 6 Jul, jangan diubah tanpa gate.
+    // Varian track dewasa (semua peran 18+) — copy FINAL Fable 6 Jul, jangan diubah tanpa gate.
     khidmahNudgeDewasa: "Baktimu tercatat di bumi dan di sisi Allah. Mulailah dari jam pertama.",
   },
 };

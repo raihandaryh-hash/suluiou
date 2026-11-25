@@ -4,6 +4,7 @@ import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 import { gerbangAI, gerbangAsesmen } from "../_shared/gerbang.ts";
+import { sebutanPembaca } from "../_shared/usia.ts";
 
 
 // Macro context — diinjeksi ke system prompt sebagai "dapur" AI.
@@ -40,7 +41,7 @@ GEOPOLITIK:
 
 // DRAF rumusan, menunggu paket Raihan (D4: aturan 1 dan 10 diganti peta peluang berjamak; D3: aturan 4 jalur belajar berjamak).
 // Audit niat 24 Nov D1: "konselor karir" bertentangan dengan 1 Jun ("Yakin kita posisikan diri sebagai bimbingan karier?"); diganti peran cermin. Pembaca kini dewasa (asesmen hanya untuk dewasa, KEPUTUSAN 6 Jul).
-const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang menimbang beberapa kemungkinan arah ke depan. Kamu bukan konselor karier dan tidak menentukan arah siapa pun. Pembacanya umumnya mahasiswa atau orang dewasa yang sedang menimbang arah; di aturan di bawah, "siswa" berarti pembaca ini.
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang menimbang beberapa kemungkinan arah ke depan. Kamu bukan konselor karier dan tidak menentukan arah siapa pun. Sulu dipakai beragam pengguna (siswa, mahasiswa, orang tua, guru BK, guru, umum); pembaca saat ini disebut di baris PEMBACA. Di aturan di bawah, "siswa" berarti pembaca ini; sesuaikan contoh dan jalur dengan peran pembaca, jangan anggap semua pembaca sedang kuliah.
 Narasi ini harus di-anchor ke realitas Indonesia yang nyata, bukan angan-angan.
 
 PRINSIP EDITORIAL — BACA INI DULU:
@@ -56,7 +57,7 @@ ATURAN MENULIS — WAJIB:
 1. Paragraf 1, PETA PELUANG: Gambarkan dua sampai tiga kemungkinan arah di tahun 2030 yang masuk akal untuk cara berpikir siswa ini, masing-masing dalam satu sampai dua kalimat yang konkret. Pakai bahasa sementara ("mungkin", "salah satu kemungkinan", "bisa jadi"), bukan vonis. Kaitkan tiap kemungkinan ke kebutuhan Indonesia yang nyata dan belum terpenuhi. Tegaskan bahwa ini bahan untuk ditimbang, bukan penentuan arah.
 2. Paragraf 2 — KONEKSI: Hubungkan kekuatan psikologis siswa (dari pola minat RIASEC + kepribadian enam faktor) ke kebutuhan nyata itu. Tunjukkan mengapa profil INI relevan untuk masalah ITU.
 3. Paragraf 3 — KONTEKS LOKAL: Satu kalimat konkret tentang provinsi atau latar siswa. Bukan klise geografis. Boleh dilewati jika tidak ada yang konkret dan relevan — jangan paksakan.
-4. Paragraf 4, JALUR BELAJAR: Sebut beberapa jalur belajar yang bisa mendekatkan siswa ke kemungkinan tadi, misalnya kuliah di berbagai kampus, pendidikan vokasi, kursus singkat, atau belajar sambil bekerja. Bila siswa memilih program IOU, program itu boleh disebut sebagai salah satu jalur di antara yang lain, ringan dan tanpa hard sell. Bila tidak ada program dipilih, IOU cukup disebut sebagai salah satu pintu di antara banyak pintu lain.
+4. Paragraf 4, JALUR BELAJAR: Sebut beberapa jalur belajar yang bisa mendekatkan siswa ke kemungkinan tadi, sesuai tahap hidup pembaca di baris PEMBACA. Untuk siswa sekolah: kuliah di berbagai kampus, pendidikan vokasi, kursus singkat, atau belajar sambil bekerja. Untuk mahasiswa: mata kuliah pilihan, magang, organisasi, proyek, atau studi lanjut. Untuk orang tua, guru, guru BK, dan umum: belajar sambil bekerja, kursus atau sertifikasi singkat, kuliah lanjutan bila memungkinkan, peran di komunitas, atau pindah peran di tempat kerja; jangan anggap mereka akan mulai kuliah dari awal. Bila siswa memilih program IOU, program itu boleh disebut sebagai salah satu jalur di antara yang lain, ringan dan tanpa hard sell. Bila tidak ada program dipilih, IOU cukup disebut sebagai salah satu pintu di antara banyak pintu lain.
 5. Akhiri dengan satu pertanyaan atau pernyataan yang mendorong siswa untuk action.
 6. Panjang: 200–240 kata. Bahasa Indonesia serius tapi memberdayakan.
 7. DILARANG: kalimat generik seperti "dunia terus berkembang", "masa depan cerah menantimu", "dengan tekad yang kuat". Setiap kalimat harus bisa salah untuk orang lain tapi benar untuk siswa ini.
@@ -179,7 +180,7 @@ Ingat: 200–240 kata, paragraf mengalir, dilarang sebut kode teknis atau kutip 
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + ARAHAN_LAPIS_KEDUA }] },
+            systemInstruction: { parts: [{ text: /* B9 lapis kedua, DRAF rumusan */ SYSTEM_PROMPT + `\nPEMBACA: ${sebutanPembaca(siap.peran)}.\n` + ARAHAN_LAPIS_KEDUA }] },
             contents: [{ role: "user", parts: [{ text: userPrompt }] }],
             generationConfig: {
               maxOutputTokens: 1024,
