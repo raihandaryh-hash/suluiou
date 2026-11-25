@@ -143,8 +143,8 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
             hexacoAnswers: snap.hexacoAnswers,
             sdsAnswers: snap.sdsAnswers,
             stage: snap.stage,
-            hexacoIndex: snap.hexacoIndex,
-            sdsSection: snap.sdsSection,
+            hexacoIndex: Math.min(snap.hexacoIndex, hexacoQuestions.length - 1),
+            sdsSection: 1,
             consentGiven: snap.consentGiven,
             hydrating: false,
           }));

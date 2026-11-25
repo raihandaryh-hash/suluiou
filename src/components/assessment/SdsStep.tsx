@@ -4,6 +4,7 @@ import { useAssessment } from '@/context/AssessmentContext';
 import {
   sdsQuestions,
   sdsSectionMeta,
+  instrumenMinat,
   riasecLabels,
   type SdsSection,
   type RiasecCategory,
@@ -27,11 +28,14 @@ const SdsStep = () => {
   } = useAssessment();
   const navigate = useNavigate();
 
-  const meta = sdsSectionMeta[sdsSection];
+  // Jumlah bagian dari data (O*NET IP Short Form: satu bagian). Progres lama bagian 2/3 dijepit ke bagian terakhir.
+  const jumlahBagian = new Set(sdsQuestions.map((q) => q.section)).size;
+  const bagian = Math.min(sdsSection, jumlahBagian) as SdsSection;
+  const meta = sdsSectionMeta[bagian];
 
   const sectionQuestions = useMemo(
-    () => sdsQuestions.filter((q) => q.section === sdsSection),
-    [sdsSection]
+    () => sdsQuestions.filter((q) => q.section === bagian),
+    [bagian]
   );
 
   const grouped = useMemo(() => {
@@ -43,12 +47,12 @@ const SdsStep = () => {
   }, [sectionQuestions]);
 
   const totalAll = sdsQuestions.length;
-  const answeredAll = Object.keys(sdsAnswers).length;
-  const progress = ((sdsSection - 1) / 3) * 100; // section-based
+  const answeredAll = sdsQuestions.filter((q) => sdsAnswers[q.id]).length;
+  const progress = ((bagian - 1) / jumlahBagian) * 100; // section-based
 
   const handleNext = async () => {
-    if (sdsSection < 3) {
-      goToSdsSection((sdsSection + 1) as SdsSection);
+    if (bagian < jumlahBagian) {
+      goToSdsSection((bagian + 1) as 1 | 2 | 3);
       window.scrollTo({ top: 0, behavior: 'auto' });
     } else {
       // Sync: compute scores instantly, then jump to results.
@@ -59,8 +63,8 @@ const SdsStep = () => {
   };
 
   const handlePrev = () => {
-    if (sdsSection > 1) {
-      goToSdsSection((sdsSection - 1) as SdsSection);
+    if (bagian > 1) {
+      goToSdsSection((bagian - 1) as 1 | 2 | 3);
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
   };
@@ -76,7 +80,7 @@ const SdsStep = () => {
                 Bagian 2 dari 2 · Minat
               </span>
               <span className="text-sm font-heading font-bold text-primary">
-                {sdsSection}/3
+                {bagian}/{jumlahBagian}
               </span>
               <SaveStatusIndicator />
             </div>
@@ -90,7 +94,7 @@ const SdsStep = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 mb-3">
             <div className="w-2 h-2 rounded-full bg-accent" />
             <span className="text-xs text-primary uppercase tracking-wider font-semibold">
-              SDS-Holland
+              {instrumenMinat.nama}
             </span>
           </div>
           <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-2 leading-snug">
@@ -160,6 +164,7 @@ const SdsStep = () => {
         <div className="text-center text-xs text-muted-foreground mb-4">
           Total dipilih: {answeredAll} dari {totalAll}
         </div>
+        <p className="text-center text-[11px] text-muted-foreground/80 mb-4">{instrumenMinat.atribusi}</p>
       </div>
 
       <footer className="bg-card border-t border-border sticky bottom-0">
@@ -167,7 +172,7 @@ const SdsStep = () => {
           <Button
             variant="outline"
             onClick={handlePrev}
-            disabled={sdsSection === 1}
+            disabled={bagian === 1}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -178,7 +183,7 @@ const SdsStep = () => {
             onClick={handleNext}
             className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            {sdsSection < 3 ? 'Lanjut Bagian Berikutnya' : 'Lihat Hasil'}
+            {bagian < jumlahBagian ? 'Lanjut Bagian Berikutnya' : 'Lihat Hasil'}
             <ArrowRight className="w-4 h-4" />
           </Button>
         </div>

@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { useAssessment } from '@/context/AssessmentContext';
-import { hexacoQuestions, hexacoLikertLabels } from '@/data/hexacoQuestions';
+import { hexacoQuestions, hexacoLikertLabels, instrumenKepribadian } from '@/data/hexacoQuestions';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
@@ -25,9 +25,10 @@ const HexacoStep = () => {
     finishHexaco,
   } = useAssessment();
 
-  const question = hexacoQuestions[hexacoIndex];
-  const answeredCount = Object.keys(hexacoAnswers).length;
+  // Progres lama (HEXACO-PI-R 60 butir) bisa membawa indeks dan jawaban di luar instrumen sekarang: jepit dan saring.
   const total = hexacoQuestions.length;
+  const question = hexacoQuestions[Math.min(hexacoIndex, total - 1)];
+  const answeredCount = hexacoQuestions.filter((q) => hexacoAnswers[q.id] !== undefined).length;
   const progress = (answeredCount / total) * 100;
   const currentAnswer = hexacoAnswers[question.id];
   const allAnswered = answeredCount === total;
@@ -150,7 +151,7 @@ const HexacoStep = () => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 mb-8">
             <div className="w-2 h-2 rounded-full bg-accent" />
             <span className="text-xs text-primary uppercase tracking-wider font-semibold">
-              HEXACO-PIR · Pertanyaan {hexacoIndex + 1}
+              {instrumenKepribadian.nama} · Pertanyaan {Math.min(hexacoIndex, total - 1) + 1}
             </span>
           </div>
 

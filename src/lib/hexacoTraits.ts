@@ -1,11 +1,12 @@
-// Maps HEXACO dimension codes (H/E/X/A/C/O) to human-readable Indonesian phrases.
+// Maps dimension codes (H/E/X/A/C/O) to human-readable Indonesian phrases.
+// Sejak 25 Nov 2026 kepribadian diukur Mini-IPIP6: A = Agreeableness Big Five (empati), E = Neuroticism (kepekaan emosi).
 // Used to enrich AI prompts without leaking technical labels.
 
 const hexacoLabels: Record<string, string> = {
   H: "jujur dan rendah hati",
   E: "peka secara emosional",
   X: "energik dan mudah bergaul",
-  A: "sabar dan mudah bekerja sama",
+  A: "peduli dan mudah berempati",
   C: "teliti dan disiplin",
   O: "penasaran dan terbuka terhadap ide baru",
 };

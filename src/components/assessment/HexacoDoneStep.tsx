@@ -1,3 +1,5 @@
+import { hexacoQuestions } from '@/data/hexacoQuestions';
+import { sdsQuestions } from '@/data/sdsQuestions';
 import { useAssessment } from '@/context/AssessmentContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -31,10 +33,10 @@ const HexacoDoneStep = () => {
           </h1>
 
           <p className="text-base md:text-lg text-muted-foreground mb-2">
-            Kamu sudah menyelesaikan <span className="font-semibold text-foreground">60 pertanyaan</span> tentang kepribadian.
+            Kamu sudah menyelesaikan <span className="font-semibold text-foreground">{hexacoQuestions.length} pertanyaan</span> tentang kepribadian.
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-10">
-            Sekarang lanjut ke <span className="font-semibold text-foreground">bagian 2 dari 2</span> — minat & aktivitas.
+            Sekarang lanjut ke <span className="font-semibold text-foreground">bagian 2 dari 2</span>: minat dan kegiatan.
           </p>
 
           <Button
@@ -47,7 +49,7 @@ const HexacoDoneStep = () => {
           </Button>
 
           <p className="text-xs text-muted-foreground mt-6">
-            Bagian 2 berisi 216 item singkat — kamu cukup centang yang sesuai.
+            Bagian 2 berisi {sdsQuestions.length} kegiatan kerja singkat. Kamu cukup centang yang ingin kamu lakukan.
           </p>
         </motion.div>
       </div>

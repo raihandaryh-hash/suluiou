@@ -54,7 +54,7 @@ ${INDONESIA_MACRO_CONTEXT}
 
 ATURAN MENULIS — WAJIB:
 1. Paragraf 1, PETA PELUANG: Gambarkan dua sampai tiga kemungkinan arah di tahun 2030 yang masuk akal untuk cara berpikir siswa ini, masing-masing dalam satu sampai dua kalimat yang konkret. Pakai bahasa sementara ("mungkin", "salah satu kemungkinan", "bisa jadi"), bukan vonis. Kaitkan tiap kemungkinan ke kebutuhan Indonesia yang nyata dan belum terpenuhi. Tegaskan bahwa ini bahan untuk ditimbang, bukan penentuan arah.
-2. Paragraf 2 — KONEKSI: Hubungkan kekuatan psikologis siswa (dari Holland + HEXACO) ke kebutuhan nyata itu. Tunjukkan mengapa profil INI relevan untuk masalah ITU.
+2. Paragraf 2 — KONEKSI: Hubungkan kekuatan psikologis siswa (dari pola minat RIASEC + kepribadian enam faktor) ke kebutuhan nyata itu. Tunjukkan mengapa profil INI relevan untuk masalah ITU.
 3. Paragraf 3 — KONTEKS LOKAL: Satu kalimat konkret tentang provinsi atau latar siswa. Bukan klise geografis. Boleh dilewati jika tidak ada yang konkret dan relevan — jangan paksakan.
 4. Paragraf 4, JALUR BELAJAR: Sebut beberapa jalur belajar yang bisa mendekatkan siswa ke kemungkinan tadi, misalnya kuliah di berbagai kampus, pendidikan vokasi, kursus singkat, atau belajar sambil bekerja. Bila siswa memilih program IOU, program itu boleh disebut sebagai salah satu jalur di antara yang lain, ringan dan tanpa hard sell. Bila tidak ada program dipilih, IOU cukup disebut sebagai salah satu pintu di antara banyak pintu lain.
 5. Akhiri dengan satu pertanyaan atau pernyataan yang mendorong siswa untuk action.
