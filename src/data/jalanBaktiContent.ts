@@ -262,7 +262,7 @@ export const jalanBaktiContent = {
     // problem-solving naik terukur). Kalimat kunci ketegangan G3 dari lock 3 Jul:
     // "Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil."
     intro: [
-      "Sebelum merancang langkah, satu hal soal ukuran mimpi. Dulu, membantu jutaan orang butuh membangun perusahaan raksasa lebih dahulu. Hari ini, satu aplikasi yang lahir dari keresahan tentang tukang ojek yang menunggu penumpang telah tumbuh menjadi penghidupan bagi sekitar tiga juta mitra pengemudi dan keluarga mereka.",
+      "Sebelum merancang langkah, satu hal soal ukuran mimpi. Dulu, membantu jutaan orang butuh membangun perusahaan raksasa lebih dahulu. Hari ini, satu aplikasi yang lahir dari keresahan tentang tukang ojek yang menunggu penumpang telah tumbuh menjadi sumber penghasilan bagi lebih dari tiga juta mitra pengemudi.",
       "Teknologi, termasuk AI yang sedang kamu saksikan, terus menurunkan biaya membangun solusi. Karya yang menjangkau banyak orang tidak lagi hanya milik segelintir orang bermodal besar. Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil.",
       "Langkah kecil itu sendiri bukan basa-basi. Penelitian terhadap ribuan pelajar yang terjun langsung melayani masyarakat menemukan hal yang sama berulang: kepemimpinan dan kemampuan memecahkan masalah mereka tumbuh terukur. Bergerak itu sendiri yang menumbuhkan.",
       "Satu hal sebelum melangkah. Peran yang menarik hatimu bukan kotak yang mengurungmu. Jurusan atau keahlian yang nanti kamu ambil hanyalah satu fondasi. Di atasnya, kamu terus merakit dirimu: menambah keterampilan lain, membangun karya, terjun ke komunitas.",
