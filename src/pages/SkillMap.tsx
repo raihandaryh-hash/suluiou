@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import SumberTeks from "@/components/SumberTeks";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeftRight, X, ChevronDown, ArrowLeft, Search, Network, List, Maximize2 } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -197,7 +198,7 @@ function NodeDetail({ node, onClose, onNavigate, chrome = true }: { node: NodeTy
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSrc ? "rotate-180" : ""}`} />
             {showSrc ? "Sembunyikan sumber" : "Lihat sumber"}
           </button>
-          {showSrc && <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{node.source}</p>}
+          {showSrc && <p className="mt-2 text-xs text-muted-foreground leading-relaxed"><SumberTeks teks={node.source} simpul={node.id} /></p>}
         </div>
       </div>
     </div>

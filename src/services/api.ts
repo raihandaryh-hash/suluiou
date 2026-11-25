@@ -1,4 +1,5 @@
 import type { TingkatDistress } from '@/lib/distress';
+import { buangKlaimDitarik } from "@/data/klaimDitarik";
 // Centralized API layer.
 // In Lovable dev: VITE_API_BASE_URL is empty → uses Supabase client/edge functions.
 // In production: set VITE_API_BASE_URL to a PHP backend root and all calls hit
@@ -320,7 +321,7 @@ export const api = {
         economic_sectors: (data.economic_sectors as string[] | null) ?? [],
         opportunities_2030: (data.opportunities_2030 as string | null) ?? null,
         narrative_hooks: (data.narrative_hooks as string[] | null) ?? [],
-        fardhu_kifayah_gaps: (data.fardhu_kifayah_gaps as string[] | null) ?? [],
+        fardhu_kifayah_gaps: buangKlaimDitarik((data.fardhu_kifayah_gaps as string[] | null) ?? []),
         iou_program_relevance: (data.iou_program_relevance as string | null) ?? null,
         key_questions: (data.key_questions as string[] | null) ?? [],
         data_verified: (data.data_verified as boolean | null) ?? false,
@@ -338,7 +339,7 @@ export const api = {
         economic_sectors: data.economic_sectors ?? [],
         opportunities_2030: data.opportunities_2030 ?? null,
         narrative_hooks: data.narrative_hooks ?? [],
-        fardhu_kifayah_gaps: data.fardhu_kifayah_gaps ?? [],
+        fardhu_kifayah_gaps: buangKlaimDitarik(data.fardhu_kifayah_gaps ?? []),
         iou_program_relevance: data.iou_program_relevance ?? null,
         key_questions: data.key_questions ?? [],
         data_verified: data.data_verified ?? false,

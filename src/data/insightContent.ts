@@ -128,9 +128,9 @@ export const indonesiaSection = {
       } as Record<ContentPersona, string>,
     },
     {
-      value: '1,72 juta', label: 'kebutuhan tenaga kerja di sektor ekonomi hijau Indonesia hingga 2030',
-      detail: 'Indonesia membutuhkan 1,72 juta tenaga terampil di energi terbarukan. Target pelatihan pemerintah: 15.000 orang sampai 2029. Gap ini bukan hanya tantangan, ini peluang yang nyata dan terdokumentasi.',
-      source: 'IESR (Institute for Essential Services Reform) 2024; Kemnaker RTKN 2025-2029', tone: 'positive' as Tone,
+      value: '1,7 juta', label: 'peluang kerja dari industri hijau Indonesia hingga 2045',
+      detail: 'Industri hijau berpeluang membuka lapangan kerja bagi sekitar 1,7 juta orang hingga 2045, menurut proyeksi IESR. Ini bukan hanya tantangan, ini peluang yang nyata.',
+      source: 'IESR, dikutip Republika 23 Juli 2025', tone: 'positive' as Tone,
       artinya: {
         siswa: 'Ada sektor besar yang tumbuh cepat dan belum ada cukup orang yang datang.',
         orangtua: 'Jalur karier dengan prospek jangka panjang yang kuat dan shortage nyata.',
@@ -355,7 +355,7 @@ export const opportunitySection = {
   items: [
     { number: '01', title: 'Sertifikasi dan Auditor Halal', body: 'BPJPH mewajibkan sertifikasi halal untuk jutaan UMKM. 882.000 UMKM di Jawa Barat sudah bersertifikat (terbanyak nasional). Kebutuhan Penyelia Halal dan Auditor Halal sangat besar, supply sangat sedikit. Jalur yang sangat relevan untuk lulusan pendidikan Islam yang memahami sains.', badge: 'BPJPH Februari 2026; KDEKS Jabar' },
     { number: '02', title: 'Keuangan Syariah', body: 'Aset perbankan syariah tumbuh 9,88% dalam setahun (Desember 2024). Kebutuhan analis yang paham fikih muamalah sekaligus instrumen keuangan modern sangat akut. Kurang dari 20% lulusan ekonomi syariah langsung terserap karena mismatch skills.', badge: 'OJK Des 2024; KNEKS 2024' },
-    { number: '03', title: 'Energi Terbarukan', body: '1,72 juta tenaga kerja diproyeksikan dibutuhkan di sektor EBT pada 2030 (IESR, skenario optimal). Target pelatihan pemerintah: 15.000 orang. Gap ini adalah peluang bagi yang menyiapkan diri lebih awal.', badge: 'IESR 2024; Kemnaker RTKN 2025-2029' },
+    { number: '03', title: 'Energi Terbarukan', body: 'Industri hijau berpeluang membuka lapangan kerja bagi sekitar 1,7 juta orang hingga 2045 (proyeksi IESR). Peluang ini terbuka bagi yang menyiapkan diri lebih awal.', badge: 'IESR, dikutip Republika 23 Juli 2025' },
     { number: '04', title: 'Kerja Lepas Digital', body: 'BPS Sakernas mencatat 7,2 juta pekerja lepas di Indonesia dengan rata-rata penghasilan Rp 3,73 juta/bulan secara nasional. Penghasilan aktual sangat bervariasi, ditentukan oleh spesialisasi, akses ke klien, dan reputasi yang dibangun. Untuk berlatar pendidikan Islam, bidang yang paling accessible: penerjemahan teks Arab-Indonesia, pengajaran bahasa Arab dan Al-Quran, dan penulisan konten berbasis kajian Islam.', badge: 'BPS Sakernas 2024' },
     { number: '05', title: 'Wirausaha Sosial', body: '67% pemimpin wirausaha sosial di Indonesia berusia 18-34 tahun. 70% entitas ini didirikan dalam 5 tahun terakhir. Model yang memadukan profitabilitas dengan pemecahan masalah sosial, selaras dengan konsep khairu ummah.', badge: 'British Council/AVPN DICE Study; UNESCAP' },
     { number: '06', title: 'Kesehatan dan Layanan Sosial', body: 'Perawat, konselor, social worker: pertumbuhan absolut tertinggi secara global (WEF). Rasio psikolog/konselor dengan remaja yang butuh layanan kesehatan mental di Indonesia: 1:30.000+.', badge: 'WEF FoJ 2025; Kemenkes RI 2024' },
