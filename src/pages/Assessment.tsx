@@ -9,7 +9,8 @@ import LogoutButton from '@/components/LogoutButton';
 import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { Loader2 } from 'lucide-react';
 import { getStudentSession } from '@/lib/classSession';
-import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import {SPINE_B_AWAL} from '@/data/flags';
+import { asesmenTerbuka } from '@/lib/aksesAsesmen';
 
 const Assessment = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Assessment = () => {
   // Gating after hydration: enforce session → profile → consent → assessment.
   useEffect(() => {
     // A1: flag diperiksa PERTAMA, sebelum cek sesi atau profil.
-    if (!ASESMEN_TERBUKA) {
+    if (!asesmenTerbuka()) {
       navigate(SPINE_B_AWAL, { replace: true });
       return;
     }
@@ -39,7 +40,7 @@ const Assessment = () => {
     }
   }, [hydrating, studentProfile, consentGiven, isComplete, navigate]);
 
-  if (!ASESMEN_TERBUKA) return null;
+  if (!asesmenTerbuka()) return null;
 
   if (hydrating) {
     return (

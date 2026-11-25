@@ -3,7 +3,7 @@ import { cabangDistress, cabangDistressKeluaran, ARAHAN_LAPIS_KEDUA, saklarHidup
 import { cabangKlasifikasi } from "../_shared/distressKlasifikasi.ts";
 import { siapkanAI } from "../_shared/ai.ts";
 import { corsHeaders } from "../_shared/cors.ts";
-import { gerbangAI } from "../_shared/gerbang.ts";
+import { gerbangAI, gerbangAsesmen } from "../_shared/gerbang.ts";
 
 
 // Macro context — diinjeksi ke system prompt sebagai "dapur" AI.
@@ -39,8 +39,9 @@ GEOPOLITIK:
 `;
 
 // DRAF rumusan, menunggu paket Raihan (D4: aturan 1 dan 10 diganti peta peluang berjamak; D3: aturan 4 jalur belajar berjamak).
-const SYSTEM_PROMPT = `Kamu adalah konselor karir yang menulis proyeksi masa depan untuk siswa SMA/SMK/MA Indonesia.
-Narasi ini harus di-anchor ke realitas Indonesia yang nyata — bukan angan-angan.
+// Audit niat 24 Nov D1: "konselor karir" bertentangan dengan 1 Jun ("Yakin kita posisikan diri sebagai bimbingan karier?"); diganti peran cermin. Pembaca kini dewasa (asesmen hanya untuk dewasa, KEPUTUSAN 6 Jul).
+const SYSTEM_PROMPT = `Kamu adalah cermin yang membantu seseorang menimbang beberapa kemungkinan arah ke depan. Kamu bukan konselor karier dan tidak menentukan arah siapa pun. Pembacanya umumnya mahasiswa atau orang dewasa yang sedang menimbang arah; di aturan di bawah, "siswa" berarti pembaca ini.
+Narasi ini harus di-anchor ke realitas Indonesia yang nyata, bukan angan-angan.
 
 PRINSIP EDITORIAL — BACA INI DULU:
 Kamu diberi banyak data makro: angka NEET, disrupsi AI, krisis pangan, geopolitik.
@@ -90,13 +91,7 @@ serve(async (req) => {
     });
   }
 
-  // A7: kunci asesmen di sisi server. Selain "1" berarti tertutup (503).
-  if (Deno.env.get("SULU_ASESMEN_TERBUKA") !== "1") {
-    return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
-      status: 503,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
+  // A7: kunci asesmen di server kini lewat gerbangAsesmen sesudah identitas diketahui.
 
   try {
     const badan = await req.json();
@@ -125,6 +120,9 @@ serve(async (req) => {
     // G2-13: tanpa akun sah -> 401, batas laju -> 429, sebelum pengklasifikasi dan model.
     const gerbang = await gerbangAI(req, "generate-projection", corsHeaders, siap);
     if (gerbang) return gerbang;
+    // Spine A: admin selalu; dewasa bila dibuka Raihan; siswa tertutup (KEPUTUSAN 6 Jul).
+    const gerbangA = await gerbangAsesmen("generate-projection", corsHeaders, siap);
+    if (gerbangA) return gerbangA;
     // D6 lapis 1b: pengklasifikasi keselamatan, hanya bila lapis 1 tidak cocok. Galat/lewat 3 detik -> lanjut.
     const cabang1b = await cabangKlasifikasi(
       "generate-projection",

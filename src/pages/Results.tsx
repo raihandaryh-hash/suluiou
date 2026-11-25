@@ -36,7 +36,8 @@ import {
   buildWaUrl,
 } from '@/lib/constants';
 import { keselamatanContent } from '@/data/keselamatanContent';
-import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import {HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL} from '@/data/flags';
+import { asesmenTerbuka } from '@/lib/aksesAsesmen';
 import { clearStudentSession, getStudentSession, markAssessmentComplete } from '@/lib/classSession';
 import { keServer, pemilikPerangkat } from '@/lib/progress';
 import { bacaPerangkat, tulisPerangkat } from '@/lib/perangkat';
@@ -79,7 +80,7 @@ const Results = () => {
   const [showProjection, setShowProjection] = useState(false);
 
   useEffect(() => {
-    if (!isComplete) navigate(ASESMEN_TERBUKA ? '/assessment' : SPINE_B_AWAL);
+    if (!isComplete) navigate(asesmenTerbuka() ? '/assessment' : SPINE_B_AWAL);
   }, [isComplete, navigate]);
 
   // Scroll to top when results page mounts (fix UX: user lands mid-page after assessment)
@@ -667,7 +668,7 @@ const Results = () => {
               </div>
             </div>
 
-            {ASESMEN_TERBUKA && (
+            {asesmenTerbuka() && (
             <div className="mt-10 pt-8 border-t border-border/40">
               <p className="text-xs text-muted-foreground mb-3">
                 Device ini akan dipakai siswa lain?

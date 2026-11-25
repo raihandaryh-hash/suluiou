@@ -19,7 +19,9 @@ import RequireAuth from "@/components/RequireAuth";
 import SpineBLayout from "@/components/SpineBLayout";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
-import { ASESMEN_TERBUKA, HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL } from "@/data/flags";
+import {HASIL_PUBLIK_TERBUKA, SPINE_B_AWAL} from "@/data/flags";
+import { asesmenTerbuka } from "@/lib/aksesAsesmen";
+import { useAuth } from "@/hooks/useAuth";
 
 // Pengaman: bila berkas halaman gagal diunduh (mis. tab lama setelah Publish versi baru),
 // muat ulang halaman sekali. Penanda di sessionStorage mencegah muat ulang berulang.
@@ -112,8 +114,12 @@ class PenjagaGagalMuat extends Component<{ children: ReactNode }, { gagal: boole
 }
 
 // A7: guard tingkat rute untuk pintu asesmen. Flag mati = dialihkan ke awal Spine B.
-const AsesmenGuard = ({ children }: { children: JSX.Element }) =>
-  ASESMEN_TERBUKA ? children : <Navigate to={SPINE_B_AWAL} replace />;
+// Tunggu pemeriksaan akun (termasuk admin) selesai sebelum memutus, supaya admin peninjau tidak terlempar.
+const AsesmenGuard = ({ children }: { children: JSX.Element }) => {
+  const { loading } = useAuth();
+  if (loading) return null;
+  return asesmenTerbuka() ? children : <Navigate to={SPINE_B_AWAL} replace />;
+};
 
 const queryClient = new QueryClient();
 
@@ -138,7 +144,7 @@ const App = () => {
             <Route path="/mukadimah" element={<Mukadimah />} />
             <Route path="/login" element={<Login />} />
             {/* Legacy /join route — kept as a redirect into the new Step 0 flow. */}
-            <Route path="/join" element={<Navigate to={ASESMEN_TERBUKA ? "/profile" : SPINE_B_AWAL} replace />} />
+            <Route path="/join" element={<AsesmenGuard><Navigate to="/profile" replace /></AsesmenGuard>} />
             <Route path="/profile" element={<AsesmenGuard><Profile /></AsesmenGuard>} />
             <Route path="/consent" element={<AsesmenGuard><Consent /></AsesmenGuard>} />
             <Route path="/assessment" element={<AsesmenGuard><Assessment /></AsesmenGuard>} />

@@ -48,3 +48,35 @@ async function lajuBawaan(req: Request, aksi: string, userId?: string | null): P
     return false;
   }
 }
+
+/**
+ * Gerbang asesmen di server (Spine A). KEPUTUSAN 1 Jun, 3 Jul, 6 Jul: tertutup untuk siswa; untuk mahasiswa (dewasa) lewat login.
+ * Urutan:
+ *  - SULU_ASESMEN_TERBUKA = "1": semua akun (keputusan Raihan saja, sesudah SME).
+ *  - admin: selalu, untuk peninjauan Raihan dan SME.
+ *  - akun dewasa: hanya bila SULU_ASESMEN_DEWASA_TERBUKA = "1" (keputusan Raihan saja, pasangan flag klien ASESMEN_DEWASA_TERBUKA).
+ *  - selain itu: 503 {"error":"asesmen_tertutup"}, kode yang sudah dikenali klien (services/api.ts bacaDitutup).
+ */
+export async function gerbangAsesmen(
+  fn: string,
+  corsHeaders: Record<string, string>,
+  siap: { usia: string; userId?: string | null },
+  get: (k: string) => string | undefined = (k) => Deno.env.get(k),
+  cekAdmin: (uid: string) => Promise<boolean> = adminBawaan,
+): Promise<Response | null> {
+  if ((get("SULU_ASESMEN_TERBUKA") || "").trim() === "1") return null;
+  if (siap.usia === "dewasa" && (get("SULU_ASESMEN_DEWASA_TERBUKA") || "").trim() === "1") return null;
+  if (siap.userId) {
+    try { if (await cekAdmin(siap.userId)) return null; } catch { /* gagal tertutup */ }
+  }
+  console.log(JSON.stringify({ evt: "asesmen_tertutup", fn, t: new Date().toISOString() }));
+  return new Response(JSON.stringify({ error: "asesmen_tertutup" }), {
+    status: 503,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}
+
+async function adminBawaan(uid: string): Promise<boolean> {
+  const { klienLayanan, adalahAdmin } = await import("./pintu.ts");
+  return adalahAdmin(klienLayanan(), uid);
+}

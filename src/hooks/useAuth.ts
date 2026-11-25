@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import { catatAdmin, hapusTandaAdmin } from '@/lib/aksesAsesmen';
 
 // Waktu muat Spine B (23 Nov 2026): tiap komponen yang memanggil useAuth dulu mengirim sendiri
 // user_roles + auth/v1/user + admin_users (6 komponen -> 18 permintaan, berantai, 4-8 detik sebelum isi halaman).
 // Kini satu pemeriksaan per akun dibagi semua komponen, dan email dibaca dari sesi lokal, bukan dari server.
 const cacheAdmin = new Map<string, Promise<{ admin: boolean; superAdmin: boolean }>>();
 
-function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean }> {
+export function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean }> {
   const ada = cacheAdmin.get(userId);
   if (ada) return ada;
   const janji = (async () => {
@@ -25,9 +26,11 @@ function cekAdmin(userId: string): Promise<{ admin: boolean; superAdmin: boolean
       throw peran.error ?? admin.error;
     }
     const emailAdmin = (admin.data as { is_super_admin: boolean | null } | null) ?? null;
-    return { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
+    const hasil = { admin: !!peran.data || !!emailAdmin, superAdmin: !!emailAdmin?.is_super_admin };
+    catatAdmin(userId, hasil.admin);
+    return hasil;
   })();
-  janji.catch(() => cacheAdmin.delete(userId));
+  janji.catch(() => { cacheAdmin.delete(userId); catatAdmin(userId, false); });
   cacheAdmin.set(userId, janji);
   return janji;
 }
@@ -51,6 +54,7 @@ export function useAuth() {
           }, 0);
         } else {
           cacheAdmin.clear();
+          hapusTandaAdmin();
           setIsAdmin(false);
           setIsSuperAdmin(false);
           setLoading(false);
@@ -106,6 +110,7 @@ export function useAuth() {
   const signOut = async () => {
     await supabase.auth.signOut();
     cacheAdmin.clear();
+    hapusTandaAdmin();
     setUser(null);
     setSession(null);
     setIsAdmin(false);

@@ -9,6 +9,13 @@
 /** Asesmen psikometrik (Spine A). Mati = semua pintu ke asesmen tertutup. */
 export const ASESMEN_TERBUKA = false;
 
+/**
+ * Asesmen untuk akun dewasa (umur 18+ tercatat server), misalnya mahasiswa IOU (KEPUTUSAN 6 Jul).
+ * Siswa di bawah 18 dan tamu tetap tertutup. Admin selalu bisa masuk untuk peninjauan (lihat lib/aksesAsesmen.ts).
+ * Hanya dinyalakan Raihan, sesudah tinjauan SME atas paket instrumen.
+ */
+export const ASESMEN_DEWASA_TERBUKA = false;
+
 /** Halaman hasil publik /hasil/:resultId. Mati = pemberitahuan saja. */
 export const HASIL_PUBLIK_TERBUKA = false;
 

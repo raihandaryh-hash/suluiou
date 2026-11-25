@@ -9,7 +9,8 @@ import LogoutButton from '@/components/LogoutButton';
 import SwitchAccountChip from '@/components/SwitchAccountChip';
 import { useAssessment, isProfileComplete } from '@/context/AssessmentContext';
 import { useEffect } from 'react';
-import { ASESMEN_TERBUKA, SPINE_B_AWAL } from '@/data/flags';
+import {SPINE_B_AWAL} from '@/data/flags';
+import { asesmenTerbuka } from '@/lib/aksesAsesmen';
 
 const Consent = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Consent = () => {
 
   // If user lands here without finishing Step 0, send them back.
   useEffect(() => {
-    if (!ASESMEN_TERBUKA) {
+    if (!asesmenTerbuka()) {
       navigate(SPINE_B_AWAL, { replace: true });
       return;
     }
@@ -29,7 +30,7 @@ const Consent = () => {
   }, [hydrating, studentProfile, navigate]);
 
   const handleStart = () => {
-    if (!ASESMEN_TERBUKA) return;
+    if (!asesmenTerbuka()) return;
     if (!checked) return;
     setConsent(true);
     startHexaco();
@@ -127,7 +128,7 @@ const Consent = () => {
               </span>
             </label>
 
-            {ASESMEN_TERBUKA && (
+            {asesmenTerbuka() && (
             <Button
               type="button"
               size="lg"
