@@ -6,7 +6,7 @@
 
 /** Teks sumber di insightContent.ts → tautan. */
 export const tautanPerSumber: Record<string, string[]> = {
-  "IESR, dikutip Republika 23 Juli 2025": ["https://ekonomi.republika.co.id/berita/szut32349/"],
+  "IESR, dikutip Republika, 2025": ["https://ekonomi.republika.co.id/berita/szut32349/"],
   "BPS Sakernas Agustus 2024": [
     "https://www.bps.go.id/en/publication/2024/12/09/6f1fd1036968c8a28e4cfe26/keadaan-angkatan-kerja-di-indonesia-agustus-2024.html"
   ],

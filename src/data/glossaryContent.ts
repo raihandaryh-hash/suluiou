@@ -194,7 +194,7 @@ export const glossaryCategories: GlossaryCategory[] = [
       {
         id: "green-economy",
         term: "Green Economy",
-        data: "Industri hijau berpeluang membuka lapangan kerja bagi sekitar 1,7 juta orang hingga 2045 (proyeksi IESR, dikutip Republika 23 Juli 2025).",
+        data: "Industri hijau berpeluang membuka lapangan kerja bagi sekitar 1,7 juta orang hingga 2045 (proyeksi IESR, dikutip Republika, 2025).",
       },
       {
         id: "halal-economy",
