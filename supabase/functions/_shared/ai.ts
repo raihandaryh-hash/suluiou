@@ -17,6 +17,8 @@ export type PersiapanAI = {
   anon: boolean;
   /** G3-016: user.id akun sah untuk batas laju per-akun di gerbangAI. */
   userId: string | null;
+  /** Peran akun dari app_metadata.peran (siswa, mahasiswa, orang_tua, guru_bk, guru, umum); null bila tak ada. */
+  peran: string | null;
   samaran?: Samaran;
   aiFetch: typeof fetch;
 };
