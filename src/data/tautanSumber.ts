@@ -156,6 +156,7 @@ export const tautanPerSimpul: Record<string, string[]> = {
   ],
   "klerikal": [
     "https://www.ilo.org/resource/article/navigating-generative-ai%E2%80%99s-transformations-asean-labour-markets",
+    "https://doi.org/10.54394/HETP0387",
     "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf"
   ],
   "ritel-manual": [
