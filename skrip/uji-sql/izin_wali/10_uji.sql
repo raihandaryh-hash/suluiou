@@ -58,3 +58,10 @@ SELECT 'admin, harus 1' k, public.sulu_hapus_sisa_izin_ditarik();
 RESET ROLE; SELECT set_config('request.jwt.claims','',false);
 SELECT 'fase A sisa' k, count(*) FROM public.phase_2a_inventory WHERE user_id='00000000-0000-0000-0000-00000000000a';
 SELECT 'bukti tetap' k, count(*) FROM public.sulu_izin_wali;
+\echo '--- 6 service role: hak tabel eksplisit'
+SET ROLE service_role; SELECT set_config('request.jwt.claims','{"role":"service_role"}',false);
+INSERT INTO public.sulu_tautan_wali(sidik,user_id,berlaku_sampai) VALUES ('TS','00000000-0000-0000-0000-00000000000b', now()+interval '1 day');
+SELECT 'layanan baca tautan' k, count(*) FROM public.sulu_tautan_wali WHERE sidik='TS';
+UPDATE public.sulu_izin_wali SET hubungan = hubungan WHERE false;
+SELECT 'layanan baca izin' k, count(*) >= 0 ok FROM public.sulu_izin_wali;
+RESET ROLE;
