@@ -101,7 +101,7 @@ export const tigaKompetensiOecd = {
     },
     {
       nama: 'Mendamaikan ketegangan dan dilema',
-      desc: 'Dunia jarang hitam-putih. Kemampuan ini membuatmu bisa menimbang dua hal yang tampak bertentangan, melihat bagaimana keduanya saling terkait, memperhitungkan akibat jangka pendek dan jangka panjang, lalu mencari jalan yang adil bagi semua pihak.',
+      desc: 'Dunia jarang hitam-putih. Kemampuan ini membuatmu bisa menimbang dua hal yang tampak bertentangan, melihat bagaimana keduanya saling terkait, memperhitungkan akibat jangka pendek dan jangka panjang, lalu mencari jalan yang menghargai semua pihak.',
     },
     {
       nama: 'Mengambil tanggung jawab',

@@ -120,7 +120,7 @@ export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi
 
 export const dapurPetaAtribusiOecd = {
   judul: "Atribusi OECD",
-  pengantar: "Sebagian data di Sulu diolah dari publikasi OECD. Berikut sumbernya, beserta pernyataan lisensinya.",
+  pengantar: "Sebagian data dan konsep di Sulu berasal dari publikasi OECD. Berikut sumbernya, beserta pernyataan lisensinya.",
   sitasi: [
     {
       tahun: "2025",
