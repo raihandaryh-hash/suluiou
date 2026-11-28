@@ -37,7 +37,22 @@ async function bolehSimpanSekali(paksa: boolean): Promise<boolean> {
   return boleh;
 }
 
-export function lupakanCacheIzin() { cache = null; }
+export function lupakanCacheIzin() { cache = null; cachePenuh = null; }
+
+// Tonggak PW: izin wali hanya membuka penyimpanan isian. Fitur yang lebih dari itu (permintaan Jembatan yang
+// berujung kontak, salin prompt ke AI luar) tetap memakai izin penuh: dewasa, admin, atau peserta kelas berizin.
+let cachePenuh: { uid: string; boleh: boolean; pada: number } | null = null;
+export async function bolehPenuh(): Promise<boolean> {
+  const { data: s } = await supabase.auth.getSession();
+  const uid = s.session?.user?.id ?? null;
+  if (!uid) return false;
+  if (cachePenuh && cachePenuh.uid === uid && Date.now() - cachePenuh.pada < CEK_ULANG_MS) return cachePenuh.boleh;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { data, error } = await (supabase as any).rpc('boleh_simpan_penuh', { p_uid: uid });
+  const boleh = !error && data === true;
+  cachePenuh = { uid, boleh, pada: Date.now() };
+  return boleh;
+}
 
 function kunci(nama: string, pemilik: string) { return `${AWALAN}${nama}.${pemilik}`; }
 
@@ -168,26 +183,30 @@ export function pindahPemilikPerangkat(dari: string, ke: string) {
 }
 
 /**
- * Data lama akun anak tanpa izin (manifest Putusan 2): saat pemiliknya masuk, salin data fase dari server ke
- * perangkat, lalu minta server menghapusnya. Server hanya menghapus bila umur akun terkunci di bawah 18.
+ * Data lama akun anak tanpa izin (manifest Putusan 2), juga sesudah izin wali ditarik (Tonggak PW): salin data fase
+ * dari server ke perangkat, lalu minta server menghapusnya. Server hanya menghapus bila umur akun terkunci di bawah 18
+ * dan akun itu tidak berizin. Salinan perangkat yang sudah ada tidak ditimpa: isian yang ditulis di perangkat sesudah
+ * izin ditarik lebih baru daripada salinan server.
+ * Hasil: true bila ada data yang baru disalin ke perangkat dan server sudah menghapusnya.
  */
-export async function pindahkanDataServerKePerangkat(userId: string): Promise<void> {
+export async function pindahkanDataServerKePerangkat(userId: string): Promise<boolean> {
   try {
     const { data: u } = await supabase.auth.getUser();
     const meta = (u.user?.app_metadata ?? {}) as Record<string, unknown>;
-    if (meta.umur_terkunci !== true || meta.dewasa === true) return;
-    if (await bolehSimpan(true)) return;
+    if (meta.umur_terkunci !== true || meta.dewasa === true) return false;
+    if (await bolehSimpan(true)) return false;
     const KUNCI_SELESAI = `${AWALAN}pindah_selesai.${userId}`;
-    if (localStorage.getItem(KUNCI_SELESAI)) return;
+    if (localStorage.getItem(KUNCI_SELESAI)) return false;
     let ada = false;
     for (const t of TABEL_FASE) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { data } = await (supabase as any).from(t).select('data').eq('user_id', userId).maybeSingle();
-      if (data?.data) { tulisPerangkat(t, userId, data.data); ada = true; }
+      if (data?.data && bacaPerangkat<unknown>(t, userId) === null) { tulisPerangkat(t, userId, data.data); ada = true; }
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error } = await (supabase as any).rpc('sulu_hapus_data_sendiri');
-    if (!error) localStorage.setItem(KUNCI_SELESAI, String(Date.now()));
-    void ada;
-  } catch { /* coba lagi pada pemuatan berikutnya */ }
+    if (error) return false;
+    localStorage.setItem(KUNCI_SELESAI, String(Date.now()));
+    return ada;
+  } catch { return false; /* coba lagi pada pemuatan berikutnya */ }
 }

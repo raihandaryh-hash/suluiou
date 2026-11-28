@@ -8,7 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { VARIAN_AKTIF } from '@/data/izinKuliahContent';
 import { TEKS_WALI } from '@/data/izinWaliContent';
 import { buatTautanWali, statusIzinWali, tautanIzin } from '@/lib/izinWali';
-import { bolehSimpan, lupakanCacheIzin, unggahPerangkatKeAkun } from '@/lib/perangkat';
+import { bolehSimpan, lupakanCacheIzin, pindahkanDataServerKePerangkat, unggahPerangkatKeAkun } from '@/lib/perangkat';
 
 export default function MintaIzinWali({ ringkas = false }: { ringkas?: boolean }) {
   const t = TEKS_WALI[VARIAN_AKTIF];
@@ -33,8 +33,11 @@ export default function MintaIzinWali({ ringkas = false }: { ringkas?: boolean }
         if (await bolehSimpan(true)) await unggahPerangkatKeAkun(data.user.id);
         setHubungan(s.data.hubungan ? t.hubungan[s.data.hubungan] : '');
         setTampil('aktif');
-      } else if (!(await bolehSimpan())) {
-        setTampil('minta');
+      } else if (!(await bolehSimpan(true))) {
+        // izin belum ada atau sudah ditarik: isian yang masih di server dikembalikan ke perangkat, lalu dihapus
+        // dari server. Bila ada yang baru dikembalikan, halaman dimuat ulang supaya isian tampil dari perangkat.
+        if (await pindahkanDataServerKePerangkat(data.user.id)) { window.location.reload(); return; }
+        if (!batal) setTampil('minta');
       }
     })();
     return () => { batal = true; };

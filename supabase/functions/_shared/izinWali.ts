@@ -16,7 +16,7 @@ export const TEKS_IZIN: { judul: string; butir: string[]; centang: string } = {
     "Dengan izin ini, isian anak Anda di Sulu (jawaban, catatan, dan rencananya) disimpan di server IOU dan bisa dibuka dari perangkat lain.",
     "Tim IOU membaca data ini untuk memperbaiki layanan Sulu bagi anak Anda dan siswa lain. Data ini tidak dipakai untuk menghubungi Anda atau anak Anda, dan tidak dipakai untuk menawarkan program.",
     "Asesmen untuk siswa SMA tetap tidak dibuka. Isian yang dikirim ke AI tetap disamarkan.",
-    "Anda bisa menarik izin kapan saja lewat tautan kelola yang muncul sesudah Anda menyetujui. Sesudah izin ditarik, isian tidak lagi disimpan di server; salinannya dikembalikan ke perangkat anak Anda saat ia membuka Sulu, lalu dihapus dari server. Sisa yang tidak terambil dalam 60 hari dihapus.",
+    "Anda bisa menarik izin kapan saja lewat tautan kelola yang muncul sesudah Anda menyetujui. Sesudah izin ditarik, isian tidak lagi disimpan di server; salinannya dikembalikan ke perangkat anak Anda saat ia membuka Sulu, lalu dihapus dari server. Bila anak Anda tidak membuka Sulu, tim IOU menghapusnya dari server sesudah 60 hari.",
   ],
   centang: "Saya orang tua atau wali anak ini, sudah membaca keterangan di atas, dan mengizinkan isian Sulu anak saya disimpan di server IOU untuk memperbaiki layanan.",
 };
@@ -40,8 +40,10 @@ export type GalatSetuju = "nama_tidak_sah" | "hubungan_tidak_sah" | "belum_centa
 /** Periksa isian orang tua sebelum disimpan. */
 export function periksaSetuju(isi: { nama?: unknown; hubungan?: unknown; centang?: unknown; teks_versi?: unknown }):
   { ok: true; nama: string; hubungan: Hubungan } | { ok: false; galat: GalatSetuju } {
-  const nama = typeof isi.nama === "string" ? isi.nama.replace(/\s+/g, " ").trim() : "";
-  if (nama.length < 3 || nama.length > 120 || !/\p{L}/u.test(nama)) return { ok: false, galat: "nama_tidak_sah" };
+  const nama = typeof isi.nama === "string" ? isi.nama.normalize("NFC").replace(/\s+/g, " ").trim() : "";
+  // panjang dihitung per titik kode, sama dengan char_length di basis data (bukan satuan UTF-16)
+  const panjang = [...nama].length;
+  if (panjang < 3 || panjang > 120 || !/\p{L}/u.test(nama)) return { ok: false, galat: "nama_tidak_sah" };
   if (!HUBUNGAN.includes(isi.hubungan as Hubungan)) return { ok: false, galat: "hubungan_tidak_sah" };
   if (isi.centang !== true) return { ok: false, galat: "belum_centang" };
   if (isi.teks_versi !== TEKS_VERSI) return { ok: false, galat: "versi_berubah" };

@@ -39,6 +39,7 @@ const GALAT: Record<string, string> = {
   hubungan_tidak_sah: 'Pilih hubungan Anda dengan anak.',
   belum_centang: 'Centang pernyataan izin dulu.',
   versi_berubah: 'Keterangan baru saja diperbarui. Muat ulang halaman ini.',
+  sudah_ada_izin: 'Orang tuamu sudah memberi izin. Muat ulang halaman ini.',
   terlalu_sering: 'Terlalu banyak percobaan. Coba lagi beberapa menit lagi.',
   bukan_akun_anak: 'Izin orang tua hanya diperlukan untuk akun di bawah 18 tahun.',
   lainnya: 'Ada gangguan. Coba lagi sebentar lagi.',

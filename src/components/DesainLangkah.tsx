@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { bolehSimpan } from "@/lib/perangkat";
+import { bolehPenuh } from "@/lib/perangkat";
 import { KANAL_PENERIMAAN, TEKS_TARIK, VARIAN_AKTIF } from "@/data/izinKuliahContent";
 import { tautanTarik } from "@/lib/izinKuliah";
 import { TEKS_PINTU } from "@/data/pintuMasukContent";
@@ -86,7 +86,7 @@ function BridgeRequestForm({
   const [sent, setSent] = useState(false);
   // Tonggak 2a C.3: permintaan jembatan menyimpan data di server, jadi hanya untuk akun berizin.
   const [boleh, setBoleh] = useState<boolean | null>(null);
-  useEffect(() => { if (userId) void bolehSimpan().then(setBoleh); }, [userId]);
+  useEffect(() => { if (userId) void bolehPenuh().then(setBoleh); }, [userId]);
 
   if (userId && boleh === false) {
     return (
@@ -177,11 +177,12 @@ export default function DesainLangkah({
   province,
 }: Props) {
   const [langkah, setLangkah] = useState(initialLangkah || "");
-  // L16: salin-prompt ke AI luar hanya bila boleh menyimpan (dewasa atau sudah ada izin orang tua).
+  // L16: salin-prompt ke AI luar hanya untuk izin penuh (dewasa atau peserta berizin formulir sekolah).
+  // Izin wali Tonggak PW hanya membuka penyimpanan isian, bukan fitur ini.
   const [dewasa, setDewasa] = useState(false);
   useEffect(() => {
     let aktif = true;
-    bolehSimpan().then((b) => { if (aktif) setDewasa(b); }).catch(() => {});
+    bolehPenuh().then((b) => { if (aktif) setDewasa(b); }).catch(() => {});
     return () => { aktif = false; };
   }, []);
   const boxRef = useRef<HTMLTextAreaElement>(null);

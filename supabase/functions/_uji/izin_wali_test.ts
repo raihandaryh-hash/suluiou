@@ -44,8 +44,21 @@ Deno.test("nama panggilan: kata pertama, paling panjang 30", () => {
   assertEquals(namaPanggilan({ name: "X".repeat(40) }).length, 30);
 });
 
-Deno.test("sidik teks stabil dan memuat versi", async () => {
+// Sidik teks pw-1 dikunci. Bila uji ini gagal, teks persetujuan berubah: naikkan TEKS_VERSI, lalu ganti sidik di sini.
+// Bukti persetujuan lama tetap menunjuk teks yang dibaca orang tua saat itu.
+const SIDIK_PW1 = "d25a411b8d0dbe3e34af50ba2999c463cf56b9eddc46c98c357bad36a9514f12";
+
+Deno.test("sidik teks pw-1 terkunci; teks berubah wajib menaikkan versi", async () => {
+  assertEquals(TEKS_VERSI, "pw-1");
+  assertEquals(await sha256(teksKanonik()), SIDIK_PW1);
   assert(teksKanonik().startsWith(TEKS_VERSI + "\n"));
-  assertEquals(await sha256(teksKanonik()), await sha256(teksKanonik()));
   assert(TEKS_IZIN.butir.some((b) => b.includes("tidak dipakai untuk menghubungi")));
+});
+
+Deno.test("panjang nama dihitung per karakter seperti char_length basis data", () => {
+  const dasar = { hubungan: "ibu", centang: true, teks_versi: TEKS_VERSI };
+  // dua huruf matematis = 4 satuan UTF-16 tetapi 2 karakter: harus ditolak di sini, bukan di CHECK basis data
+  assertEquals(periksaSetuju({ ...dasar, nama: "\u{1D400}\u{1D401}" }), { ok: false, galat: "nama_tidak_sah" });
+  assertEquals(periksaSetuju({ ...dasar, nama: "Ani" }).ok, true);
+  assertEquals(periksaSetuju({ ...dasar, nama: "A".repeat(121) }), { ok: false, galat: "nama_tidak_sah" });
 });

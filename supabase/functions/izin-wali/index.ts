@@ -7,15 +7,33 @@
 //   setuju   (tanpa akun)   → { token, nama, hubungan, centang, teks_versi } → { kelola }
 //   kelola   (tanpa akun)   → { kelola } → { aktif, diberikan_pada, dicabut_pada, hubungan }
 //   tarik    (tanpa akun)   → { kelola } → { ditarik }
-// Hanya sidik HMAC token dan kode kelola yang disimpan. Nomor HP orang tua tidak pernah sampai ke server.
+// Hanya sidik HMAC token dan kode kelola yang disimpan, beserta versi rahasianya (rotasi tanpa memutus tautan).
+// Nomor HP orang tua tidak pernah sampai ke server.
+// Kode kelola mengenali anaknya: kelola dan tarik selalu menyangkut izin anak itu yang berlaku sekarang, supaya
+// orang tua yang izinnya sudah diganti izin baru tetap bisa melihat dan menarik izin yang berlaku.
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { corsHeaders, jawab, klienLayanan, penggunaPemanggil, hmac, kodeAcak, rahasiaVersi, VERSI_KUNCI_AKTIF, lajuOk, ipDari } from "../_shared/pintu.ts";
 import { TEKS_IZIN, TEKS_VERSI, MASA_TAUTAN_MS, teksKanonik, sha256, sahToken, periksaSetuju, keadaanTautan, bolehMintaIzin, namaPanggilan } from "../_shared/izinWali.ts";
 
-async function sidik(nilai: string): Promise<string | null> {
-  const r = rahasiaVersi(VERSI_KUNCI_AKTIF);
+async function sidikVersi(v: number, nilai: string): Promise<string | null> {
+  const r = rahasiaVersi(v);
   return r ? await hmac(r, "wali:" + nilai) : null;
 }
+
+/** Cari baris lewat sidik, mencoba tiap versi rahasia yang terpasang (pola aktifkan-peserta). */
+async function cariBersidik<T>(cari: (s: string, v: number) => Promise<T | null>, nilai: string): Promise<{ baris: T | null; adaRahasia: boolean }> {
+  let adaRahasia = false;
+  for (let v = 1; v <= 9; v++) {
+    const s = await sidikVersi(v, nilai);
+    if (!s) continue;
+    adaRahasia = true;
+    const b = await cari(s, v);
+    if (b) return { baris: b, adaRahasia };
+  }
+  return { baris: null, adaRahasia };
+}
+
+type BarisTautan = { sidik: string; user_id: string; berlaku_sampai: string; dipakai_pada: string | null };
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -41,11 +59,16 @@ serve(async (req) => {
 
     if (!bolehMintaIzin(pengguna.app_metadata as Record<string, unknown>)) return jawab(403, { galat: "bukan_akun_anak" });
     if (!(await lajuOk(layanan, "wali_buat", 30, ip, pengguna.id))) return jawab(429, { galat: "terlalu_sering" });
+    // izin yang masih berlaku tidak diganti diam-diam lewat tautan baru
+    const { data: aktif, error: galatAktif } = await layanan.from("sulu_izin_wali").select("id")
+      .eq("user_id", pengguna.id).eq("tujuan", "simpan_perbaikan_layanan").is("dicabut_pada", null).maybeSingle();
+    if (galatAktif) return jawab(500, { galat: "gagal_baca" });
+    if (aktif) return jawab(409, { galat: "sudah_ada_izin" });
     const token = kodeAcak(32);
-    const s = await sidik(token);
+    const s = await sidikVersi(VERSI_KUNCI_AKTIF, token);
     if (!s) return jawab(500, { galat: "rahasia_belum_dipasang" });
     const berlaku = new Date(sekarang.getTime() + MASA_TAUTAN_MS).toISOString();
-    const { error } = await layanan.from("sulu_tautan_wali").insert({ sidik: s, user_id: pengguna.id, berlaku_sampai: berlaku });
+    const { error } = await layanan.from("sulu_tautan_wali").insert({ sidik: s, user_id: pengguna.id, berlaku_sampai: berlaku, kunci_versi: VERSI_KUNCI_AKTIF });
     if (error) return jawab(500, { galat: "gagal_simpan" });
     return jawab(200, { token, berlaku_sampai: berlaku });
   }
@@ -54,9 +77,12 @@ serve(async (req) => {
   if (aksi === "lihat" || aksi === "setuju") {
     if (!(await lajuOk(layanan, "wali_" + aksi, 60, ip))) return jawab(429, { galat: "terlalu_sering" });
     if (!sahToken(isi.token)) return jawab(400, { galat: "tautan_tidak_sah" });
-    const s = await sidik(isi.token);
-    if (!s) return jawab(500, { galat: "rahasia_belum_dipasang" });
-    const { data: t } = await layanan.from("sulu_tautan_wali").select("sidik, user_id, berlaku_sampai, dipakai_pada").eq("sidik", s).maybeSingle();
+    const { baris: t, adaRahasia } = await cariBersidik<BarisTautan>(async (sd, v) => {
+      const { data } = await layanan.from("sulu_tautan_wali").select("sidik, user_id, berlaku_sampai, dipakai_pada")
+        .eq("sidik", sd).eq("kunci_versi", v).maybeSingle();
+      return data;
+    }, isi.token);
+    if (!adaRahasia) return jawab(500, { galat: "rahasia_belum_dipasang" });
     const keadaan = keadaanTautan(t, sekarang);
 
     if (aksi === "lihat") {
@@ -68,36 +94,35 @@ serve(async (req) => {
     if (keadaan !== "sah") return jawab(409, { galat: keadaan });
     const p = periksaSetuju(isi);
     if (!p.ok) return jawab(400, { galat: p.galat });
-    // tandai tautan terpakai lebih dulu; kalah balapan berarti tautan sudah dipakai
-    const { data: kena } = await layanan.from("sulu_tautan_wali").update({ dipakai_pada: sekarang.toISOString() })
-      .eq("sidik", s).is("dipakai_pada", null).select("sidik");
-    if (!kena || kena.length === 0) return jawab(409, { galat: "sudah_dipakai" });
     const kelola = kodeAcak(32);
-    const ks = await sidik("kelola:" + kelola);
-    // izin lama yang masih aktif ditutup dulu (indeks unik satu aktif per tujuan)
-    await layanan.from("sulu_izin_wali").update({ dicabut_pada: sekarang.toISOString(), dicabut_oleh: "wali" })
-      .eq("user_id", t!.user_id).eq("tujuan", "simpan_perbaikan_layanan").is("dicabut_pada", null);
-    const { error } = await layanan.from("sulu_izin_wali").insert({
-      user_id: t!.user_id, tujuan: "simpan_perbaikan_layanan", nama_wali: p.nama, hubungan: p.hubungan,
-      teks_versi: TEKS_VERSI, teks_sidik: await sha256(teksKanonik()), jalur: "tautan_wa", tautan_sidik: s, kelola_sidik: ks,
+    const ks = await sidikVersi(VERSI_KUNCI_AKTIF, "kelola:" + kelola);
+    if (!ks) return jawab(500, { galat: "rahasia_belum_dipasang" });
+    // satu transaksi di basis data: kunci tautan, tandai terpakai, tutup izin lama sebagai 'diganti', tulis bukti
+    const { data: hasil, error } = await layanan.rpc("sulu_setujui_izin_wali", {
+      p_tautan_sidik: t!.sidik, p_nama: p.nama, p_hubungan: p.hubungan, p_teks_versi: TEKS_VERSI,
+      p_teks_sidik: await sha256(teksKanonik()), p_kelola_sidik: ks, p_kunci_versi: VERSI_KUNCI_AKTIF,
     });
-    if (error) {
-      await layanan.from("sulu_tautan_wali").update({ dipakai_pada: null }).eq("sidik", s);
-      return jawab(500, { galat: "gagal_simpan" });
-    }
+    if (error) return jawab(500, { galat: "gagal_simpan" });
+    if (hasil !== "ok") return jawab(409, { galat: String(hasil) });
     return jawab(200, { kelola });
   }
 
   if (aksi === "kelola" || aksi === "tarik") {
     if (!(await lajuOk(layanan, "wali_" + aksi, 60, ip))) return jawab(429, { galat: "terlalu_sering" });
     if (!sahToken(isi.kelola)) return jawab(400, { galat: "kode_tidak_sah" });
-    const ks = await sidik("kelola:" + isi.kelola);
-    if (!ks) return jawab(500, { galat: "rahasia_belum_dipasang" });
-    const { data: w } = await layanan.from("sulu_izin_wali").select("id, diberikan_pada, dicabut_pada, hubungan").eq("kelola_sidik", ks).maybeSingle();
+    const { baris: w, adaRahasia } = await cariBersidik<{ user_id: string }>(async (sd, v) => {
+      const { data } = await layanan.from("sulu_izin_wali").select("user_id").eq("kelola_sidik", sd).eq("kunci_versi", v).maybeSingle();
+      return data;
+    }, isi.kelola);
+    if (!adaRahasia) return jawab(500, { galat: "rahasia_belum_dipasang" });
     if (!w) return jawab(404, { galat: "kode_tidak_dikenal" });
-    if (aksi === "kelola") return jawab(200, { aktif: !w.dicabut_pada, diberikan_pada: w.diberikan_pada, dicabut_pada: w.dicabut_pada, hubungan: w.hubungan });
-    if (w.dicabut_pada) return jawab(200, { ditarik: true });
-    const { error } = await layanan.from("sulu_izin_wali").update({ dicabut_pada: sekarang.toISOString(), dicabut_oleh: "wali" }).eq("id", w.id).is("dicabut_pada", null);
+    // izin anak ini yang terakhir (yang berlaku, atau yang terakhir ditarik)
+    const { data: kini, error: galatKini } = await layanan.from("sulu_izin_wali").select("id, diberikan_pada, dicabut_pada, hubungan")
+      .eq("user_id", w.user_id).eq("tujuan", "simpan_perbaikan_layanan").order("diberikan_pada", { ascending: false }).limit(1).maybeSingle();
+    if (galatKini || !kini) return jawab(500, { galat: "gagal_baca" });
+    if (aksi === "kelola") return jawab(200, { aktif: !kini.dicabut_pada, diberikan_pada: kini.diberikan_pada, dicabut_pada: kini.dicabut_pada, hubungan: kini.hubungan });
+    if (kini.dicabut_pada) return jawab(200, { ditarik: true });
+    const { error } = await layanan.from("sulu_izin_wali").update({ dicabut_pada: sekarang.toISOString(), dicabut_oleh: "wali" }).eq("id", kini.id).is("dicabut_pada", null);
     if (error) return jawab(500, { galat: "gagal_simpan" });
     return jawab(200, { ditarik: true });
   }
