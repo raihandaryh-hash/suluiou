@@ -147,6 +147,9 @@ export async function unggahPerangkatKeAkun(userId: string): Promise<number> {
     const { error } = await (supabase as any).from(t).upsert({ user_id: userId, data: d, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
     if (!error) { try { localStorage.removeItem(kunci(t, userId)); } catch { /* */ } n++; }
   }
+  // Tonggak PW: sesudah data berpindah ke akun, penanda pemindahan lama dibuang supaya bila izin wali kelak
+  // ditarik, pindahkanDataServerKePerangkat berjalan lagi (data kembali ke perangkat, lalu dihapus dari server).
+  try { localStorage.removeItem(`${AWALAN}pindah_selesai.${userId}`); } catch { /* */ }
   return n;
 }
 

@@ -11,6 +11,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { TEKS_PINTU } from '@/data/pintuMasukContent';
 import { VARIAN_AKTIF } from '@/data/izinKuliahContent';
 import { bacaPeran, mintaBukaKunci, type StatusPeran } from '@/lib/peran';
+import MintaIzinWali from '@/components/MintaIzinWali';
 import { bolehSimpan, hapusSemuaDariPerangkat, lupakanCacheIzin, unggahPerangkatKeAkun } from '@/lib/perangkat';
 
 export default function PintuAkun() {
@@ -97,6 +98,8 @@ export default function PintuAkun() {
           </Button>
         </div>
       )}
+
+      {uid && !boleh && <MintaIzinWali />}
 
       {!boleh && (
         <div className="space-y-2">
