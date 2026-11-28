@@ -27,6 +27,8 @@ cek "admin, harus 0 \| +0" "60 hari dihitung dari penarikan terakhir"
 cek "admin, harus 1 \| +1" "sisa terhapus sesudah 60 hari"
 cek "fase A sisa \| +0" "data fase terhapus"
 cek "bukti tetap \| +2" "bukti persetujuan tidak terhapus"
+cek "layanan baca tautan \| +1" "service role boleh tulis dan baca tautan"
+cek "layanan baca izin \| t" "service role boleh baca izin"
 psql -q -d uji_izin_wali -c "SELECT sidik FROM public.sulu_tautan_wali WHERE sidik='TN' AND dipakai_pada IS NULL" -t | grep -q TN && echo "ok   gagal tulis membatalkan tanda tautan" || { echo "GAGAL atomik"; gagal=1; }
 psql -q -d uji_izin_wali -t -c "SELECT dicabut_oleh FROM public.sulu_izin_wali WHERE kelola_sidik='K1'" | grep -q diganti && echo "ok   izin lama ditandai diganti" || { echo "GAGAL diganti"; gagal=1; }
 psql -q -d postgres -c "DROP DATABASE uji_izin_wali"
