@@ -81,11 +81,11 @@ export const jalanBaktiContent = {
   klasterIntro: "Tujuh medan. Pilih satu atau lebih yang ingin kamu telusuri. Ini bukan keputusan seumur hidup, kamu bisa kembali dan mengubahnya kapan saja.",
 
   // ── GERAKAN 2 · PAHAMI — tampar 10-jobs (horizon broadening). Statik, muncul setelah medan dipilih. ──
-  // Jejak: OECD dream-jobs (PISA 2022, ~690rb remaja/81 negara, aspirasi menumpuk di ~10 pekerjaan). NO OVERCLAIM.
+  // Jejak: OECD Dream Jobs 2020 atas PISA 2018 (Buku v1.4 §6c; 47% laki-laki / 53% perempuan di 10 pekerjaan; KEPUTUSAN 30 Jun "disampaikan secara kuat … disertai data"). Contoh "polisi, pegawai negeri" dicabut 25 Nov (tidak ada di sumber, Fable B10). NO OVERCLAIM.
   gerakan2: {
     sectionTitle: "Lihat Lebih Dekat",
     tampar: [
-      "Ada satu temuan yang mengejutkan. Sebuah riset ke ratusan ribu remaja di puluhan negara menemukan pola yang sama berulang: hampir separuh dari mereka membayangkan masa depan hanya di sekitar sepuluh pekerjaan yang itu-itu saja. Dokter, guru, polisi, pegawai negeri. Bukan karena pilihan lain tidak ada, tapi karena yang lain jarang terlihat.",
+      "Ada satu temuan yang mengejutkan. Sebuah riset ke ratusan ribu remaja di puluhan negara menemukan pola yang sama berulang: hampir separuh dari mereka membayangkan masa depan hanya di sekitar sepuluh pekerjaan yang itu-itu saja. Dokter, guru, dan segelintir profesi yang paling sering terdengar. Bukan karena pilihan lain tidak ada, tapi karena yang lain jarang terlihat.",
       "Padahal satu bidang bukan satu pintu. Ambil kesehatan: bukan hanya dokter yang duduk di poli. Ada yang meneliti wabah sebelum ia menyebar, ada yang merancang alat agar operasi lebih aman, ada yang memastikan gizi anak-anak di desa tercukupi. Satu medan, banyak peran, dan tiap peran menuntut kekuatan yang berbeda.",
       "Di sinilah yang kamu kenali tentang dirimu jadi penting. Peran yang menuntut ketelitian analitis berbeda dari peran yang menuntut ketangguhan menghadapi orang di saat genting. Bukan soal medan mana yang paling benar, melainkan peran mana yang paling pas dengan bekalmu.",
     ],
@@ -111,7 +111,8 @@ export const jalanBaktiContent = {
         {
           id: "k2b",
           label: "Al-Qur'an yang belum terbaca",
-          detail: "Menurut riset IIQ Jakarta (2024), lebih dari 7 dari 10 Muslim Indonesia belum membaca Al-Qur'an dengan baik. Yang paling siap mengisi kekosongan ini adalah orang-orang seperti kamu yang punya bekal ilmu agama.",
+          // Jejak: IIQ Jakarta 2022, 72,25%, n=3.111, 25 provinsi (Buku v1.4 §6a; KEPUTUSAN 8 Jun "kutip saja"); https://nu.or.id/nasional/rektor-iiq-jakarta-buta-aksara-al-qur-an-di-indonesia-masih-tinggi-vn5aa
+          detail: "Menurut riset IIQ Jakarta (2022), lebih dari 7 dari 10 Muslim Indonesia belum membaca Al-Qur'an dengan baik. Yang paling siap mengisi kekosongan ini adalah orang-orang seperti kamu yang punya bekal ilmu agama.",
         },
         { id: "k2c", label: "Murid yang belajar tanpa ada yang membimbing" },
       ],
@@ -256,12 +257,12 @@ export const jalanBaktiContent = {
   // 4 payung → OECD Exploring+Experiencing + Stanford prototyping + skill-map "nyemplung".
   gerakan3: {
     sectionTitle: "Rancang Langkah Pertamamu",
-    // Leverage beat — jejak: GoTo Annual Report 2024 (~3 juta mitra pengemudi, tervalidasi 4 Jul);
-    // Celio, Durlak & Dymnicki 2011 (meta-analisis 62 studi service-learning: kepemimpinan &
+    // Leverage beat — jejak: pernyataan GoTo 14 Jun 2025, >3 juta mitra pengemudi pada 2024 (CNN Indonesia 15 Jun 2025, sekunder; Buku dan basis bukti tidak memuat, dicari mesin 25 Nov) https://www.cnnindonesia.com/ekonomi/20250615013926-92-1239851/beri-pelayanan-terbaik-goto-beri-penghargaan-ke-40-ribu-lebih-mitra;
+    // Celio, Durlak & Dymnicki 2011 https://www.tamiu.edu/profcenter/documents/Meta-AnalysisoftheImpactofSLonStudentts_2011.pdf (meta-analisis 62 studi service-learning: kepemimpinan &
     // problem-solving naik terukur). Kalimat kunci ketegangan G3 dari lock 3 Jul:
     // "Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil."
     intro: [
-      "Sebelum merancang langkah, satu hal soal ukuran mimpi. Dulu, membantu jutaan orang butuh membangun perusahaan raksasa lebih dahulu. Hari ini, satu aplikasi yang lahir dari keresahan tentang tukang ojek yang menunggu penumpang telah tumbuh menjadi penghidupan bagi sekitar tiga juta mitra pengemudi dan keluarga mereka.",
+      "Sebelum merancang langkah, satu hal soal ukuran mimpi. Dulu, membantu jutaan orang butuh membangun perusahaan raksasa lebih dahulu. Hari ini, satu aplikasi yang lahir dari keresahan tentang tukang ojek yang menunggu penumpang telah tumbuh menjadi sumber penghasilan bagi lebih dari tiga juta mitra pengemudi.",
       "Teknologi, termasuk AI yang sedang kamu saksikan, terus menurunkan biaya membangun solusi. Karya yang menjangkau banyak orang tidak lagi hanya milik segelintir orang bermodal besar. Langkah pertamamu boleh kecil. Tujuanmu tidak harus kecil.",
       "Langkah kecil itu sendiri bukan basa-basi. Penelitian terhadap ribuan pelajar yang terjun langsung melayani masyarakat menemukan hal yang sama berulang: kepemimpinan dan kemampuan memecahkan masalah mereka tumbuh terukur. Bergerak itu sendiri yang menumbuhkan.",
       "Satu hal sebelum melangkah. Peran yang menarik hatimu bukan kotak yang mengurungmu. Jurusan atau keahlian yang nanti kamu ambil hanyalah satu fondasi. Di atasnya, kamu terus merakit dirimu: menambah keterampilan lain, membangun karya, terjun ke komunitas.",

@@ -194,7 +194,7 @@ export const glossaryCategories: GlossaryCategory[] = [
       {
         id: "green-economy",
         term: "Green Economy",
-        data: "1,72 juta jobs diproyeksikan di sektor EBT pada 2030 (IESR). Kemnaker hanya targetkan latih 15.000 orang sampai 2029. Gap = peluang terdokumentasi.",
+        data: "Industri hijau berpeluang membuka lapangan kerja bagi sekitar 1,7 juta orang hingga 2045 (proyeksi IESR, dikutip Republika, 2025).",
       },
       {
         id: "halal-economy",

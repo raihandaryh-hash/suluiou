@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
+import SumberTeks from "@/components/SumberTeks";
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, ChevronRight, ChevronLeft, Share2, Loader2 } from 'lucide-react';
@@ -177,7 +178,7 @@ function PenamparCardItem({ card }: { card: PenamparCard }) {
       </p>
 
       {/* Sumber (No-Overclaim) */}
-      <p className="text-[10px] text-muted-foreground/70 leading-snug mt-1">Sumber: {card.source}</p>
+      <p className="text-[10px] text-muted-foreground/70 leading-snug mt-1">Sumber: <SumberTeks teks={card.source} /></p>
     </div>
   );
 }
@@ -290,7 +291,7 @@ function EvanInsights() {
                   <div key={i} className="border-l-2 border-[hsl(var(--torch-gold))] pl-4 py-1">
                     <p className="text-sm font-semibold text-foreground">{k.label}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-0.5">{k.story}</p>
-                    <p className="text-[10px] text-muted-foreground/60 mt-1 italic">{k.source}</p>
+                    <p className="text-[10px] text-muted-foreground/60 mt-1 italic"><SumberTeks teks={k.source} /></p>
                   </div>
                 ))}
               </div>
@@ -366,7 +367,7 @@ function EvanInsights() {
                   <div key={i}>
                     <p className="font-heading font-bold text-xl text-[hsl(var(--torch-gold))]">{s.angka}</p>
                     <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.sub}</p>
-                    <p className="text-[10px] text-muted-foreground/50 mt-0.5">{s.source}</p>
+                    <p className="text-[10px] text-muted-foreground/50 mt-0.5"><SumberTeks teks={s.source} /></p>
                   </div>
                 ))}
               </div>
@@ -591,7 +592,7 @@ export function StatCard({ card, persona }: { card: StatCardData; persona: Perso
             </div>
           )}
           <div className="mt-3 flex items-center gap-2">
-            <p className="text-xs text-muted-foreground italic">{sourcePrefix} {card.source}</p>
+            <p className="text-xs text-muted-foreground italic">{sourcePrefix} <SumberTeks teks={card.source} /></p>
             <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-4">Data terverifikasi</Badge>
           </div>
         </div>
@@ -1205,7 +1206,7 @@ const Insight = () => {
             {worldLayerSection.bridge}
           </p>
           <p className="text-xs text-muted-foreground mt-6">
-            {sourcePrefix} {worldLayerSection.source}
+            {sourcePrefix} <SumberTeks teks={worldLayerSection.source} />
           </p>
         </section>
 

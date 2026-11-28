@@ -501,7 +501,7 @@ export default function JalanBakti() {
       {step === 2 && (
         <>
           {/* ── GAMBARAN ARAH DAERAH ── */}
-          {province && provinceCtx &&
+          {province && provinceCtx && provinceCtx.data_verified &&
             (provinceCtx.narrative_hooks.length > 0 ||
               provinceCtx.economic_sectors.length > 0 ||
               provinceCtx.opportunities_2030) && (
