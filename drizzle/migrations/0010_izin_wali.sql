@@ -159,5 +159,18 @@ END $$;
 REVOKE ALL ON FUNCTION public.sulu_hapus_sisa_izin_ditarik() FROM PUBLIC, anon;
 GRANT EXECUTE ON FUNCTION public.sulu_hapus_sisa_izin_ditarik() TO authenticated;
 
+-- Jadwal harian penghapus sisa (janji 60 hari di teks izin pw-1). Hanya dipasang bila ekstensi pg_cron aktif.
+-- Bila tidak aktif, migrasi tetap jalan; aktifkan pg_cron lalu jalankan ulang blok ini, atau jalankan
+-- `select public.sulu_hapus_sisa_izin_ditarik();` tiap minggu (lihat langkah rilis di manifest Tonggak PW v0.3).
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'pg_cron') THEN
+    EXECUTE $c$SELECT cron.unschedule(jobid) FROM cron.job WHERE jobname = 'sulu_hapus_sisa_izin_ditarik'$c$;
+    EXECUTE $c$SELECT cron.schedule('sulu_hapus_sisa_izin_ditarik', '17 19 * * *', 'select public.sulu_hapus_sisa_izin_ditarik()')$c$;
+  ELSE
+    RAISE NOTICE 'pg_cron tidak aktif: penghapus sisa izin wali belum terjadwal.';
+  END IF;
+END $$;
+
 COMMENT ON TABLE public.sulu_izin_wali IS 'Izin orang tua/wali lewat tautan sekali pakai (Tonggak PW). Bukti persetujuan; tidak dihapus bersama data fase.';
 COMMENT ON TABLE public.sulu_tautan_wali IS 'Tautan sekali pakai dari siswa ke orang tua (Tonggak PW). Hanya sidik HMAC yang disimpan.';
