@@ -3,6 +3,7 @@ import JourneyBar from '@/components/JourneyBar';
 import RequireAuth from '@/components/RequireAuth';
 import { ScratchpadPanel, ScratchpadFab } from '@/components/Scratchpad';
 import { cn } from '@/lib/utils';
+import MintaIzinWali from '@/components/MintaIzinWali';
 
 type Phase = { num: number; label: string; href: string };
 
@@ -67,6 +68,10 @@ function JourneyMap() {
 export default function SpineBLayout() {
   return (
     <RequireAuth>
+      {/* Tonggak PW: kartu minta izin orang tua, hanya untuk akun anak yang belum berizin (satu kali dipasang) */}
+      <div className="mx-auto w-full max-w-[1280px] px-4 pt-4 lg:px-8">
+        <MintaIzinWali ringkas />
+      </div>
       {/* Mobile/tablet: JourneyBar atas + Scratchpad (FAB kiri-bawah) */}
       <div className="lg:hidden">
         <JourneyBar />

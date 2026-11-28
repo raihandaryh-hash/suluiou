@@ -12,6 +12,7 @@ import { captureClassCodeFromUrl } from "@/lib/pendingClassCode";
 import Index from "./pages/Index";
 import Mukadimah from "./pages/Mukadimah";
 import BilaTidakBaikBaikSaja from "./pages/BilaTidakBaikBaikSaja";
+import IzinOrangTua from "./pages/IzinOrangTua";
 import AppLayout from "./components/AppLayout";
 // /join route is legacy and now redirects to /profile — JoinClass page is no longer rendered.
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
@@ -153,6 +154,9 @@ const App = () => {
             <Route path="/suar" element={<Suar />} />
             {/* B10: halaman publik penjelasan cabang distress (teks DRAF) */}
             <Route path="/bila-tidak-baik-baik-saja" element={<BilaTidakBaikBaikSaja />} />
+            {/* Tonggak PW: laman orang tua/wali tanpa akun */}
+            <Route path="/izin-orang-tua/kelola/:kode" element={<IzinOrangTua />} />
+            <Route path="/izin-orang-tua/:token" element={<IzinOrangTua />} />
             <Route element={<AppLayout />}>
               <Route path="/insight" element={<Insight />} />
               <Route path="/skill-map" element={<SkillMap />} />

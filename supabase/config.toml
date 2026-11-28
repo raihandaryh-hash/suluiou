@@ -9,3 +9,8 @@ verify_jwt = false
 verify_jwt = false
 
 # generate-reflection dipensiunkan di Tonggak 2a (C.5): tidak di-deploy lagi.
+
+[functions.izin-wali]
+# Tonggak PW: aksi orang tua (lihat, setuju, kelola, tarik) berjalan tanpa akun; aksi siswa (buat, status)
+# memeriksa pengguna di kode lewat penggunaPemanggil. Batas laju per IP di semua aksi.
+verify_jwt = false
