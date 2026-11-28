@@ -1,0 +1,13 @@
+# Gerbang urutan hak di migrasi baru (insiden 29 Nov 2026: Lovable menolak 0010 dua kali).
+name: cek-urutan-grant
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  periksa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: GRANT eksplisit sesudah CREATE TABLE, sebelum ENABLE ROW LEVEL SECURITY
+        run: python3 skrip/cek-urutan-grant.py

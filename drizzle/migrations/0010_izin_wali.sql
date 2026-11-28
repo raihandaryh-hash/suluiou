@@ -15,11 +15,11 @@ CREATE TABLE IF NOT EXISTS public.sulu_tautan_wali (
   dipakai_pada timestamptz,
   kunci_versi int NOT NULL DEFAULT 1           -- versi rahasia SULU_KODE_RAHASIA_V<n> (rotasi tanpa memutus tautan)
 );
+-- Hak tepat sesudah CREATE TABLE, sebelum RLS (aturan migrasi proyek Lovable). Tidak bergantung pada hak bawaan.
+REVOKE ALL ON public.sulu_tautan_wali FROM anon, authenticated;
+GRANT SELECT, INSERT, UPDATE ON public.sulu_tautan_wali TO service_role;   -- fungsi izin-wali
 CREATE INDEX IF NOT EXISTS sulu_tautan_wali_user_idx ON public.sulu_tautan_wali (user_id);
 ALTER TABLE public.sulu_tautan_wali ENABLE ROW LEVEL SECURITY;
-REVOKE ALL ON public.sulu_tautan_wali FROM anon, authenticated;
--- Hak eksplisit untuk fungsi izin-wali (service role); tidak bergantung pada hak bawaan proyek.
-GRANT SELECT, INSERT, UPDATE ON public.sulu_tautan_wali TO service_role;
 
 -- ===== Izin wali beserta buktinya (PP 33/2026 Pasal 36) =====
 -- Terikat user_id, bukan result_id: siswa SMA tidak punya baris assessment_results (asesmen terkunci).
@@ -41,12 +41,13 @@ CREATE TABLE IF NOT EXISTS public.sulu_izin_wali (
   dicabut_pada timestamptz,
   dicabut_oleh text CHECK (dicabut_oleh IN ('wali', 'admin', 'diganti'))  -- diganti = tertutup oleh izin baru, bukan ditarik
 );
-CREATE UNIQUE INDEX IF NOT EXISTS sulu_izin_wali_satu_aktif ON public.sulu_izin_wali (user_id, tujuan) WHERE dicabut_pada IS NULL;
-ALTER TABLE public.sulu_izin_wali ENABLE ROW LEVEL SECURITY;
+-- Hak tepat sesudah CREATE TABLE, sebelum RLS. Klien hanya membaca (dibatasi policy di bawah); fungsi izin-wali
+-- membaca, menulis, dan menandai tarik; tanpa DELETE, karena bukti persetujuan tidak dihapus.
 REVOKE ALL ON public.sulu_izin_wali FROM anon, authenticated;
 GRANT SELECT ON public.sulu_izin_wali TO authenticated;
--- Fungsi izin-wali membaca dan menandai tarik (UPDATE); tanpa DELETE, karena bukti persetujuan tidak dihapus.
 GRANT SELECT, INSERT, UPDATE ON public.sulu_izin_wali TO service_role;
+CREATE UNIQUE INDEX IF NOT EXISTS sulu_izin_wali_satu_aktif ON public.sulu_izin_wali (user_id, tujuan) WHERE dicabut_pada IS NULL;
+ALTER TABLE public.sulu_izin_wali ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS "Pemilik atau admin membaca izin wali" ON public.sulu_izin_wali;
 CREATE POLICY "Pemilik atau admin membaca izin wali" ON public.sulu_izin_wali FOR SELECT TO authenticated
   USING (user_id = auth.uid() OR public.is_admin(auth.uid()));
