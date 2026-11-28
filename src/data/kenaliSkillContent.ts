@@ -13,12 +13,16 @@ export type Pengalaman = "belum_pernah" | "sesekali" | "sering";
 export const PILIHAN_PENGALAMAN: { value: Pengalaman; label: string }[] = [
   { value: "belum_pernah", label: "Belum pernah" },
   { value: "sesekali", label: "Pernah, sesekali" },
-  { value: "sering", label: "Sering saya lakukan" },
+  { value: "sering", label: "Sering saya praktikkan" },
 ];
 
 const PENGANTAR = {
-  A: "Tujuh kompetensi berikut adalah bekal yang relevan di dunia kerja masa kini. Kamu tidak perlu menguasai semuanya sekarang. Untuk tiap kompetensi, ingat-ingat seberapa sering kamu benar-benar melakukannya, di kelas, di rumah, di organisasi, atau saat membantu orang. Ini bukan ujian dan bukan penilaian kemampuan, hanya catatan pengalaman supaya kamu tahu dari mana bisa mulai.",
-  B: "Tujuh kompetensi berikut adalah bekal yang relevan di dunia kerja masa kini. Yang ditanyakan di sini bukan seberapa hebat kamu, tapi seberapa sering kamu sudah melakukannya, di sekolah, di rumah, atau di kegiatan apa pun. Tidak ada jawaban yang salah.",
+  A: "Tujuh kompetensi berikut adalah bekal yang relevan di dunia kerja masa kini. Kamu tidak perlu menguasai semuanya sekarang. Untuk tiap kompetensi, ingat-ingat seberapa sering kamu benar-benar mempraktikkannya: di kelas, di rumah, di organisasi, atau saat membantu orang. Ini bukan ujian dan bukan penilaian kemampuan, hanya catatan pengalaman supaya kamu tahu dari mana bisa mulai.",
+  B: "Tujuh kompetensi berikut adalah bekal yang relevan di dunia kerja masa kini. Yang ditanyakan di sini bukan seberapa hebat kamu, tapi seberapa sering kamu sudah mempraktikkannya: di sekolah, di rumah, atau di kegiatan apa pun. Tidak ada jawaban yang salah.",
 } as const;
 export const VARIAN_AKTIF: keyof typeof PENGANTAR = "A";
 export const pengantarKompetensi = PENGANTAR[VARIAN_AKTIF];
+
+// Untuk pengguna yang pernah mengisi skala lama (ratings) tetapi belum mengisi catatan pengalaman.
+export const catatanSkalaBaru =
+  "Pertanyaan di bagian ini sudah kami ubah. Sekarang yang ditanyakan adalah seberapa sering kamu mempraktikkan tiap kompetensi. Isi lagi, ya.";

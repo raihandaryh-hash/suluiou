@@ -67,7 +67,7 @@ export const setelahPeta = {
   poin: [
     { label: 'Membaca saja tidak cukup', desc: 'Membaca sepuluh buku tentang kepemimpinan tidak membuatmu jadi pemimpin. Skill ini bukan informasi yang bisa dihafal, tapi kemampuan yang terbentuk lewat pengalaman nyata.' },
     { label: 'Caranya: jadi pemecah masalah yang aktif', desc: 'Tempatkan dirimu di tengah persoalan nyata di masyarakat, sekecil apa pun. Begitu kamu benar-benar mencoba menolong, kamu otomatis akan butuh dan melatih berpikir analitis, komunikasi, kerja sama, dan kepemimpinan. Skill datang sebagai konsekuensi, bukan sebagai pelajaran terpisah.' },
-    { label: 'Arahkan sejak awal untuk berkhidmat', desc: 'Pilih jurusan, ambil microcredential, dan cari pengalaman dengan satu pertanyaan di kepala: masalah atau komunitas mana yang ingin kubantu? Inilah inti service learning, yang juga menjadi ruh Kurikulum Merdeka, dan sejalan dengan tiga transformative competencies yang dirumuskan OECD untuk pelajar masa depan.' },
+    { label: 'Arahkan sejak awal untuk berkhidmat', desc: 'Pilih jurusan, ambil microcredential, dan cari pengalaman dengan satu pertanyaan di kepala: masalah atau komunitas mana yang ingin kubantu? Inilah inti service learning, yang juga menjadi ruh Kurikulum Merdeka, dan sejalan dengan tiga kompetensi transformatif yang dirumuskan OECD untuk pelajar masa depan (lihat di bawah).' },
   ],
   // Dibetulkan 29 Nov 2026 (berkas skill map §7.24): tiga kompetensi itu milik OECD Learning Compass 2030,
   // bukan laporan Teenage Career Preparation 2025.
@@ -82,12 +82,12 @@ export const setelahPeta = {
 // Dua varian pembuka; VARIAN_TIGA_KOMPETENSI memilih (A atas delegasi; Raihan bisa mengganti ke B).
 const PEMBUKA_TIGA_KOMPETENSI = {
   A: {
-    kicker: 'Tiga kemampuan yang menyatukan semuanya',
+    kicker: 'Kompas pelajar OECD',
     headline: 'Menurut OECD, pelajar masa kini butuh tiga kemampuan untuk ikut membentuk masa depan.',
   },
   B: {
-    kicker: 'Di atas semua skill di peta',
-    headline: 'Ada tiga kemampuan yang dirumuskan OECD untuk pelajar zamanmu. Ketiganya tumbuh dari skill-skill di peta tadi.',
+    kicker: 'Kompas pelajar OECD',
+    headline: 'OECD merumuskan tiga kemampuan yang perlu dimiliki pelajar zamanmu supaya bisa ikut membentuk masa depan.',
   },
 } as const;
 export const VARIAN_TIGA_KOMPETENSI: keyof typeof PEMBUKA_TIGA_KOMPETENSI = 'A';
@@ -97,15 +97,15 @@ export const tigaKompetensiOecd = {
   butir: [
     {
       nama: 'Menciptakan nilai baru',
-      desc: 'Berani bertanya, mencoba cara lain, dan bekerja sama untuk menemukan jalan keluar yang belum terpikir sebelumnya, baik untuk masalah lama maupun yang baru muncul. Tidak harus menjadi penemu besar; mulai saja dari masalah kecil di sekitarmu.',
+      desc: 'Berani bertanya, mencoba cara lain, dan bekerja sama untuk menemukan jalan keluar yang belum terpikir sebelumnya, baik untuk masalah lama maupun yang baru muncul. Tidak harus menjadi penemu besar. Mulai saja dari masalah kecil di sekitarmu.',
     },
     {
       nama: 'Mendamaikan ketegangan dan dilema',
-      desc: 'Dunia jarang hitam-putih. Kemampuan ini membuatmu bisa menimbang dua hal yang tampak bertentangan, melihat akibat jangka pendek dan jangka panjang, lalu mencari jalan tengah yang masuk akal.',
+      desc: 'Dunia jarang hitam-putih. Kemampuan ini membuatmu bisa menimbang dua hal yang tampak bertentangan, melihat bagaimana keduanya saling terkait, memperhitungkan akibat jangka pendek dan jangka panjang, lalu mencari jalan yang adil bagi semua pihak.',
     },
     {
       nama: 'Mengambil tanggung jawab',
-      desc: 'Menimbang lagi apa yang sudah kamu lakukan, mengukurnya dengan tujuan pribadi, etika, dan kebaikan bersama, lalu berani menanggung akibatnya. Kemampuan inilah yang menjaga dua kemampuan sebelumnya tetap lurus.',
+      desc: 'Menimbang lagi apa yang sudah kamu lakukan, melihatnya dari sisi tujuanmu sendiri, etika, dan kebaikan bersama, lalu berani menanggung akibatnya. Orang yang punya kemampuan ini punya kompas moral yang kuat: mau merenung dulu, bisa bekerja dengan orang lain, dan menjaga bumi.',
     },
   ],
   cite: 'oecd-learning-compass-2030',

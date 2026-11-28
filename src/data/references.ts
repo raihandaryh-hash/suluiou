@@ -81,5 +81,5 @@ export const references: Reference[] = [
   { id: 'vocational-fit-research', label: 'Teori person-environment fit dalam psikologi vokasional (Holland, RIASEC; lihat Nauta, 2010; Nye dkk., 2012). Meta-analisis menunjukkan kecocokan antara minat, kemampuan, dan nilai seseorang dengan tuntutan lingkungan kerja berkaitan dengan kepuasan, kinerja, dan kebertahanan karier. Efeknya konsisten meski para peneliti mencatat besarnya moderat, bukan penentu tunggal.', category: 'Karier & Pengembangan Diri' },
   // Skill map K1 (PUTUSAN ATAS DELEGASI 29 Nov 2026): tiga kompetensi transformatif, dikutip dan diparafrasekan
   // (© OECD 2019, bukan CC BY; tidak diadaptasi). Dicek 29 Nov 2026 di halaman OECD Future of Education and Skills 2030.
-  { id: 'oecd-learning-compass-2030', label: 'OECD (2019), OECD Learning Compass 2030: A Series of Concept Notes, catatan konsep "Transformative Competencies for 2030". https://search.oecd.org/education/2030-project/teaching-and-learning/learning/transformative-competencies/', category: 'Pendidikan' },
+  { id: 'oecd-learning-compass-2030', label: 'OECD (2019), OECD Learning Compass 2030: A Series of Concept Notes, catatan konsep "Transformative Competencies for 2030".', category: 'Pendidikan' },
 ];

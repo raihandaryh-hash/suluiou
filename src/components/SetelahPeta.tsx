@@ -22,16 +22,14 @@ export default function SetelahPeta() {
         ))}
       </div>
       <p className="text-xs text-muted-foreground mt-3">
-        Selaras dengan kerangka transformative competencies OECD dan semangat Kurikulum Merdeka
-        <Cite id={setelahPeta.poinCite} />
+        Selaras dengan kerangka kompetensi transformatif OECD dan semangat Kurikulum Merdeka
       </p>
       <div className="mt-10">
         <p className="text-xs font-semibold tracking-[0.2em] text-accent mb-3 uppercase">{tigaKompetensiOecd.kicker}</p>
         <h4 className="font-heading font-semibold text-xl text-foreground tracking-tight leading-snug mb-5">
           {tigaKompetensiOecd.headline}
-          <Cite id={tigaKompetensiOecd.cite} />
         </h4>
-        <ol className="space-y-4">
+        <ol role="list" className="space-y-4">
           {tigaKompetensiOecd.butir.map((b, i) => (
             <li key={b.nama} className="border-l-2 border-accent/60 pl-5">
               <p className="font-heading font-medium text-base text-foreground mb-1">
@@ -41,6 +39,10 @@ export default function SetelahPeta() {
             </li>
           ))}
         </ol>
+        <p className="text-xs text-muted-foreground mt-3">
+          Sumber: OECD Learning Compass 2030
+          <Cite id={tigaKompetensiOecd.cite} />
+        </p>
       </div>
       <p className="text-base text-foreground/85 leading-[1.75] mt-8">{setelahPeta.bridge}</p>
     </div>

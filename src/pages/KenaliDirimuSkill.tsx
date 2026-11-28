@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { bacaFase, simpanFase } from "@/lib/perangkat";
-import { PILIHAN_PENGALAMAN, pengantarKompetensi, type Pengalaman } from "@/data/kenaliSkillContent";
+import { PILIHAN_PENGALAMAN, catatanSkalaBaru, pengantarKompetensi, type Pengalaman } from "@/data/kenaliSkillContent";
 
 const LS_KEY = "sulu_phase2b";
 
@@ -250,13 +250,16 @@ export default function KenaliDirimuSkill() {
       {/* ── TUJUH KOMPETENSI ── */}
       <section className="rounded-xl border border-border bg-card p-6 mb-8">
         <SectionHeader title="Tujuh Kompetensi" />
+        {Object.keys(d.ratings ?? {}).length > 0 && Object.keys(d.pengalaman ?? {}).length === 0 && (
+          <p className="text-sm text-muted-foreground leading-relaxed -mt-2 mb-6">{catatanSkalaBaru}</p>
+        )}
         <div className="space-y-8">
           {COMPETENCIES.map((c) => (
             <SkillRating
               key={c.id}
               name={c.name}
               desc={c.desc}
-              value={d.pengalaman[c.id]}
+              value={d.pengalaman?.[c.id]}
               onChange={(v) => setPengalaman(c.id, v)}
             />
           ))}

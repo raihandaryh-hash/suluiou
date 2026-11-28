@@ -109,12 +109,14 @@ export const dapurPetaPenutup = {
   // konfirmasi alamat ini benar-benar aktif, jangan asumsikan typo/benar.
 };
 
-// E20: atribusi OECD (lisensi CC BY). Tanpa logo OECD.
+// E20: atribusi OECD (CC BY untuk yang diadaptasi; karya © OECD yang hanya dikutip dipisah). Tanpa logo OECD.
 // Pengantar: varian A pilihan Raihan ("tetap A"; ditegaskan 15 Nov 2026 12.26).
 // Daftar ini mencakup setiap sumber OECD bertahun yang dirujuk di src/ (judul dan tahun
 // persis seperti tertulis di kode). `url` = DOI resmi OECD, dicek 15 Nov 2026
 // (halaman hak cipta PDF laporan 2025; katalog perpustakaan untuk WP 164).
-export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi: string };
+// lisensi: "cc-by" = karya OECD berlisensi CC BY yang datanya kami olah (disclaimer adaptasi berlaku);
+// "dikutip" = karya © OECD yang hanya kami kutip dengan menyebut sumber, tidak diadaptasi (disclaimer tidak berlaku).
+export type OecdSitasi = { tahun: string; judul: string; url?: string; dipakaiDi: string; lisensi?: "cc-by" | "dikutip" };
 
 export const dapurPetaAtribusiOecd = {
   judul: "Atribusi OECD",
@@ -129,7 +131,8 @@ export const dapurPetaAtribusiOecd = {
     {
       // © OECD 2019, bukan CC BY: hanya dikutip dan diparafrasekan (nama tiga kompetensi), tidak diadaptasi.
       tahun: "2019",
-      judul: "OECD Learning Compass 2030: A Series of Concept Notes (Transformative Competencies for 2030); dikutip, tidak diadaptasi",
+      judul: "OECD Learning Compass 2030: A Series of Concept Notes (Transformative Competencies for 2030)",
+      lisensi: "dikutip",
       url: "https://search.oecd.org/education/2030-project/teaching-and-learning/learning/transformative-competencies/",
       dipakaiDi: "skillMapNarasiContent.ts (setelahPeta, tigaKompetensiOecd), references.ts (oecd-learning-compass-2030)",
     },
@@ -140,6 +143,8 @@ export const dapurPetaAtribusiOecd = {
       dipakaiDi: "mukadimahBabakContent.ts, references.ts (mukadimah-neet-scarring)",
     },
   ] as OecdSitasi[],
+  // Judul kelompok untuk sumber berlisensi "dikutip" (tampil terpisah, tanpa disclaimer adaptasi).
+  judulDikutip: "Dikutip dengan menyebut sumber (© OECD, tidak diadaptasi):",
   disclaimer:
     "This is an adaptation of an original work by the OECD. The opinions expressed and arguments employed in this adaptation should not be reported as representing the official views of the OECD or of its Member countries.",
 };
