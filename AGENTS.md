@@ -22,7 +22,7 @@ npx --yes esbuild@0.21.5 supabase/functions/<fungsi>/index.ts --format=esm
 ```
 
 ## Pagar
-- Air-gap keras pengguna di bawah 18 (INTENT_KANON butir 5); asesmen terkunci untuk siswa SMA (butir 4).
+- Pengguna di bawah 18 (INTENT_KANON butir 5): data disimpan dan diakses internal hanya sesudah alur persetujuan orang tua/wali tayang; sebelum itu perilaku lama (tidak disimpan) tetap. Penegak lama tidak dilepas sebelum alur persetujuan ada. Asesmen terkunci untuk siswa SMA (butir 4).
 - Flag yang membuka asesmen, hasil publik, atau fitur AI baru hanya dinyalakan Raihan.
 - Merge ke `main` hanya atas kata Raihan; merge bukan rilis (Publish dan deploy fungsi oleh Raihan lewat Lovable).
 - Uji tidak memakai database produksi tanpa izin eksplisit Raihan.
