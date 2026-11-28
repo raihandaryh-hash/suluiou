@@ -11,19 +11,22 @@ import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { bacaFase, simpanFase } from "@/lib/perangkat";
+import { PILIHAN_PENGALAMAN, catatanSkalaBaru, pengantarKompetensi, type Pengalaman } from "@/data/kenaliSkillContent";
 
 const LS_KEY = "sulu_phase2b";
 
+// Nilai lama penilaian diri; tetap dibaca dan disimpan apa adanya, tidak ditampilkan (lihat kenaliSkillContent.ts).
 type Rating = "belum" | "sedang" | "percaya";
 
 type SkillData = {
   ratings: Record<string, Rating>;
+  pengalaman: Record<string, Pengalaman>;
   selected: string[];
   why: string;
   step: string;
 };
 
-const EMPTY: SkillData = { ratings: {}, selected: [], why: "", step: "" };
+const EMPTY: SkillData = { ratings: {}, pengalaman: {}, selected: [], why: "", step: "" };
 
 const COMPETENCIES: { id: string; name: string; desc: string }[] = [
   {
@@ -63,12 +66,6 @@ const COMPETENCIES: { id: string; name: string; desc: string }[] = [
   },
 ];
 
-const RATING_OPTIONS: { value: Rating; label: string }[] = [
-  { value: "belum", label: "Belum banyak saya latih" },
-  { value: "sedang", label: "Sedang saya kembangkan" },
-  { value: "percaya", label: "Saya cukup percaya diri di sini" },
-];
-
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <div className="mb-5">
@@ -88,8 +85,8 @@ function SkillRating({
 }: {
   name: string;
   desc: string;
-  value?: Rating;
-  onChange: (v: Rating) => void;
+  value?: Pengalaman;
+  onChange: (v: Pengalaman) => void;
 }) {
   return (
     <div className="space-y-3">
@@ -98,7 +95,7 @@ function SkillRating({
         <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{desc}</p>
       </div>
       <div className="flex flex-col sm:flex-row gap-2">
-        {RATING_OPTIONS.map((opt) => {
+        {PILIHAN_PENGALAMAN.map((opt) => {
           const active = value === opt.value;
           return (
             <button
@@ -153,8 +150,8 @@ export default function KenaliDirimuSkill() {
     })();
   }, [user, authLoading]);
 
-  function setRating(id: string, v: Rating) {
-    setD((prev) => ({ ...prev, ratings: { ...prev.ratings, [id]: v } }));
+  function setPengalaman(id: string, v: Pengalaman) {
+    setD((prev) => ({ ...prev, pengalaman: { ...prev.pengalaman, [id]: v } }));
   }
 
   function toggleSelected(id: string, checked: boolean) {
@@ -247,23 +244,23 @@ export default function KenaliDirimuSkill() {
 
       {/* ── INTRO ASESMEN ── */}
       <p className="text-base leading-relaxed text-foreground/90 mb-8">
-        Tujuh kompetensi berikut adalah bekal yang relevan di dunia kerja masa kini. Kamu tidak
-        perlu menguasai semuanya sekarang. Tandai sejujurnya di mana posisimu pada masing-masing.
-        Ini bukan ujian dan tidak ada jawaban yang salah, hanya cermin untuk tahu dari mana baik
-        mulai.
+        {pengantarKompetensi}
       </p>
 
       {/* ── TUJUH KOMPETENSI ── */}
       <section className="rounded-xl border border-border bg-card p-6 mb-8">
         <SectionHeader title="Tujuh Kompetensi" />
+        {Object.keys(d.ratings ?? {}).length > 0 && Object.keys(d.pengalaman ?? {}).length === 0 && (
+          <p className="text-sm text-muted-foreground leading-relaxed -mt-2 mb-6">{catatanSkalaBaru}</p>
+        )}
         <div className="space-y-8">
           {COMPETENCIES.map((c) => (
             <SkillRating
               key={c.id}
               name={c.name}
               desc={c.desc}
-              value={d.ratings[c.id]}
-              onChange={(v) => setRating(c.id, v)}
+              value={d.pengalaman?.[c.id]}
+              onChange={(v) => setPengalaman(c.id, v)}
             />
           ))}
         </div>

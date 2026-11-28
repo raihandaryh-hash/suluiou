@@ -67,8 +67,46 @@ export const setelahPeta = {
   poin: [
     { label: 'Membaca saja tidak cukup', desc: 'Membaca sepuluh buku tentang kepemimpinan tidak membuatmu jadi pemimpin. Skill ini bukan informasi yang bisa dihafal, tapi kemampuan yang terbentuk lewat pengalaman nyata.' },
     { label: 'Caranya: jadi pemecah masalah yang aktif', desc: 'Tempatkan dirimu di tengah persoalan nyata di masyarakat, sekecil apa pun. Begitu kamu benar-benar mencoba menolong, kamu otomatis akan butuh dan melatih berpikir analitis, komunikasi, kerja sama, dan kepemimpinan. Skill datang sebagai konsekuensi, bukan sebagai pelajaran terpisah.' },
-    { label: 'Arahkan sejak awal untuk berkhidmat', desc: 'Pilih jurusan, ambil microcredential, dan cari pengalaman dengan satu pertanyaan di kepala: masalah atau komunitas mana yang ingin kubantu? Inilah inti service learning, yang juga menjadi ruh Kurikulum Merdeka, dan sejalan dengan tiga transformative competencies yang dirumuskan OECD untuk pelajar masa depan.' },
+    { label: 'Arahkan sejak awal untuk berkhidmat', desc: 'Pilih jurusan, ambil microcredential, dan cari pengalaman dengan satu pertanyaan di kepala: masalah atau komunitas mana yang ingin kubantu? Inilah inti service learning, yang juga menjadi ruh Kurikulum Merdeka, dan sejalan dengan tiga kompetensi transformatif yang dirumuskan OECD untuk pelajar masa depan (lihat di bawah).' },
   ],
-  poinCite: 'oecd-teenage-career-2025',
+  // Dibetulkan 29 Nov 2026 (berkas skill map §7.24): tiga kompetensi itu milik OECD Learning Compass 2030,
+  // bukan laporan Teenage Career Preparation 2025.
+  poinCite: 'oecd-learning-compass-2030',
   bridge: 'Perjalanannya panjang, dan itu wajar. Tapi jangan sampai membuatmu takut atau membeku di tempat. Setiap perjalanan jauh dimulai dari satu langkah yang dekat: mengenali dengan jujur apa yang sudah kamu punya, lalu menyusun rencana ke depan. Sebelum itu, mari lihat dulu, pintu-pintu mana yang sebenarnya sedang terbuka lebar.',
+};
+
+// Skill map K1 · PUTUSAN ATAS DELEGASI Chief Sulu 29 Nov 2026 atas kata Raihan: «Tiga transformative competencies
+// dari OECD ... bagus menjadi landasan.» (7 Jun) dan siswa «perlu tahu bahwa as a student in this day and age,
+// harus punya 3 skill itu» (10 Jun). Disampaikan apa adanya, tanpa diislamkan; peta konvergensi tetap di dapur
+// («dalam penyampaian ke audiens, harus amanah», 7 Jun). Isi butir = parafrase catatan konsep OECD, bukan terjemah.
+// Dua varian pembuka; VARIAN_TIGA_KOMPETENSI memilih (A atas delegasi; Raihan bisa mengganti ke B).
+const PEMBUKA_TIGA_KOMPETENSI = {
+  A: {
+    kicker: 'Kompas pelajar OECD',
+    headline: 'Menurut OECD, pelajar masa kini butuh tiga kemampuan untuk ikut membentuk masa depan.',
+  },
+  B: {
+    kicker: 'Kompas pelajar OECD',
+    headline: 'OECD merumuskan tiga kemampuan yang perlu dimiliki pelajar zamanmu supaya bisa ikut membentuk masa depan.',
+  },
+} as const;
+export const VARIAN_TIGA_KOMPETENSI: keyof typeof PEMBUKA_TIGA_KOMPETENSI = 'A';
+
+export const tigaKompetensiOecd = {
+  ...PEMBUKA_TIGA_KOMPETENSI[VARIAN_TIGA_KOMPETENSI],
+  butir: [
+    {
+      nama: 'Menciptakan nilai baru',
+      desc: 'Berani bertanya, mencoba cara lain, dan bekerja sama untuk menemukan jalan keluar yang belum terpikir sebelumnya, baik untuk masalah lama maupun yang baru muncul. Tidak harus menjadi penemu besar. Mulai saja dari masalah kecil di sekitarmu.',
+    },
+    {
+      nama: 'Mendamaikan ketegangan dan dilema',
+      desc: 'Dunia jarang hitam-putih. Kemampuan ini membuatmu bisa menimbang dua hal yang tampak bertentangan, melihat bagaimana keduanya saling terkait, memperhitungkan akibat jangka pendek dan jangka panjang, lalu mencari jalan yang menghargai semua pihak.',
+    },
+    {
+      nama: 'Mengambil tanggung jawab',
+      desc: 'Menimbang lagi apa yang sudah kamu lakukan, melihatnya dari sisi tujuanmu sendiri, etika, dan kebaikan bersama, lalu berani menanggung akibatnya. Orang yang punya kemampuan ini punya kompas moral yang kuat: mau merenung dulu, bisa bekerja dengan orang lain, dan menjaga bumi.',
+    },
+  ],
+  cite: 'oecd-learning-compass-2030',
 };
