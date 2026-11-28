@@ -127,6 +127,13 @@ export const dapurPetaAtribusiOecd = {
       dipakaiDi: "insightContent.ts, skillMapContent.ts, references.ts (oecd-teenage-career-2025)",
     },
     {
+      // © OECD 2019, bukan CC BY: hanya dikutip dan diparafrasekan (nama tiga kompetensi), tidak diadaptasi.
+      tahun: "2019",
+      judul: "OECD Learning Compass 2030: A Series of Concept Notes (Transformative Competencies for 2030); dikutip, tidak diadaptasi",
+      url: "https://search.oecd.org/education/2030-project/teaching-and-learning/learning/transformative-competencies/",
+      dipakaiDi: "skillMapNarasiContent.ts (setelahPeta, tigaKompetensiOecd), references.ts (oecd-learning-compass-2030)",
+    },
+    {
       tahun: "2015",
       judul: "NEET Youth in the Aftermath of the Crisis (OECD Working Paper No. 164, Carcillo dkk.)",
       url: "https://doi.org/10.1787/5js6363503f6-en",
